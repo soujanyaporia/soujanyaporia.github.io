@@ -1,5 +1,5 @@
 ---
-layout: single2
+layout: single
 permalink: /
 author_profile: true
 classes: wide
