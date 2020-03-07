@@ -118,9 +118,9 @@ author:
      #- label: "Email"
      #  icon: "fas fa-fw fa-envelope-square"
      #  url: mailto:sporia@sutd.edu.sg
-     - label: "Website"
+     - label: "Lab's Website"
        icon: "fas fa-fw fa-link"
-       url: "https://sporia.info"
+       url: "https://declare-lab.net"
      - label: "Twitter"
        icon: "fab fa-fw fa-twitter-square"
        url: "https://twitter.com/soujanyaporia"
