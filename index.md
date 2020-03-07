@@ -7,7 +7,7 @@ title: নমস্কার!
 logo:
   - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
-    excerpt: "Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded prestigous NTU presidential postdoctoral fellowship.
+    excerpt: "Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at the Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High-Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded the prestigious NTU presidential postdoctoral fellowship.
     <br>
     <br>
     My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
@@ -19,7 +19,7 @@ logo:
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
 ---
 
-Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded prestigous NTU presidential postdoctoral fellowship.
+Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at the Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High-Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded the prestigious NTU presidential postdoctoral fellowship.
     <br>
     <br>
     My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
