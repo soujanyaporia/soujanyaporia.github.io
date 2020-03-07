@@ -15,7 +15,7 @@ logo:
     My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
     <br>
     <br>
-    I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works)
+    I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
     <br>
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
