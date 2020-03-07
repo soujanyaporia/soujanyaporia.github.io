@@ -5,7 +5,7 @@ permalink: /research/
 author_profile: false
 related: false
 toc: true
-toc_label: "Research themes"
+toc_label: "Table of Contents"
 articlecolour: "#00001a"
 toc_sticky: true
 
@@ -20,7 +20,7 @@ toc_sticky: true
 - Sentiment analysis and emotion recognition
 - Understanding affect in conversations
 - Personalized, empathetic dialogue generation
-- Multimodal machine learning.
+- Multimodal machine learning
 
 ## Education
 
@@ -37,7 +37,7 @@ toc_sticky: true
 - Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
 - IMPACT International Research Scholarship Award, University of Stirling
 - Tata Consultancy Best Undergraduate Software Project Award: gold medal, Jadavpur University
-- Best student paper, MICAI 2012, Mexico.
+- Best student paper, MICAI 2012, Mexico
 
 ## Editorship & Chair
 
@@ -123,7 +123,7 @@ Personality Detection from Text” –
 
 ## Teaching
 
-- Computational Data Science, ISTD, SUTD, Singapore.
+- Computational Data Science, ISTD, SUTD, Singapore
 
 ## Students
 
