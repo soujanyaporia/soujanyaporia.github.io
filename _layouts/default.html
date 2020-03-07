@@ -27,22 +27,12 @@
         let darkMode = localStorage.getItem("darkMode");
 
         if (darkMode === "enabled") {
-            var link = document.getElementById('nav-bar-logo');
-            link.src =  link.src.replace('light', 'dark');
             link = document.getElementById('dark-toggle-link');
             link.href =  link.href.replace('light', 'dark');
-            e = document.getElementById('big-home-logo');
-            if (e !== null)
-                e.src = e.src.replace('light', 'dark');
         }
         else {
-            var link = document.getElementById('nav-bar-logo');
-            link.src =  link.src.replace('dark', 'light');
             link = document.getElementById('dark-toggle-link');
             link.href =  link.href.replace('dark', 'light');
-            e = document.getElementById('big-home-logo');
-            if (e !== null)
-                e.src = e.src.replace('dark', 'light');
         }
     </script>
 
