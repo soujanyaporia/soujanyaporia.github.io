@@ -7,12 +7,17 @@ related: false
 
 
 logo:
-  - image_path: /assets/images/logos/square-light.png
+  - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
-    excerpt: "Welcome fellow researchers to the DeCLaRe Lab! We hereby **DeCLaRe** our quest to breathe _cognitive_ and _language_ skills of human-like depth into machines by solving challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more. Addressing such open research problems requires powerful, scalable, and data-hungry algorithms. As such, we develop cutting-edge neural models, based on sound linguistic concepts. To know more about our work, please browse our catalog of [publications](/publications/).
+    excerpt: "Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as a presidential postdoctoral fellow at Nanyang Technological University, Singapore.
+
+
+My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
+
+
+I am open to collaborations. If you are interested please drop me an email. To know more about our work, please browse our catalog of [publications](/publications/).""
     <br>
     <br>
-    > *Intrigued by our logo? [Read](/assets/images/logo-explanation.pdf) the story behind it.*"
 ---
 {% include feature_row_home_img id="logo" type="left" %}
 
