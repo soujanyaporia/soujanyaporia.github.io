@@ -99,6 +99,16 @@ Convolutional Neural Networks” – [https://www.kdnuggets.com/2018/06/detectin
 Personality Detection from Text” –
 [https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/](https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/)
 
+## Collaborators
+
+- MultiComp Lab, CMU, USA
+- Language and Information Technologies, University of Michigan, USA
+- Multimedia Research Lab, NUS, Singapore
+- Adobe Research Lab, Bangalore, India
+- NDS Lab, Oxford University, UK
+- NLP Lab, CIC, IPN, Mexico
+- NLP Lab, IITB, Mumbai, India
+
 ## Bibliometrics
 
 - One of the most productive authors in sentiment analysis research from 2000 to 2015 (tinyurl.com/kwmboyy)
