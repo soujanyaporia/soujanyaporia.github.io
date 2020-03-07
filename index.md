@@ -10,14 +10,10 @@ logo:
   - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
     excerpt: "Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as a presidential postdoctoral fellow at Nanyang Technological University, Singapore.
-
-
-My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
-
-
-I am open to collaborations. If you are interested please drop me an email. To know more about our work, please browse our catalog of [publications](/publications/)."
     <br>
+    My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
     <br>
+    I am open to collaborations. If you are interested please drop me an email. To know more about our work, please browse our catalog of [publications](/publications/)."
 ---
 {% include feature_row_home_img id="logo" type="left" %}
 
