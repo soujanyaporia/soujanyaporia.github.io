@@ -1,9 +1,6 @@
 ---
 layout: single
-classes: wide
 permalink: /
-related: false
-
 
 logo:
   - image_path: /assets/images/big-logo.jpeg
@@ -32,7 +29,7 @@ Welcome fellow researchers to my website! I hold a PhD in Computer Science. My m
     <br>
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
-    
+
 <div class="notice--info">
   <h4>Personal News</h4>
   <p>I will serve EMNLP 2020 as an area chair of the sentiment analysis track.</p>
