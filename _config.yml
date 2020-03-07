@@ -18,14 +18,14 @@ minimal_mistakes_skin    : # "default", "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "DeCLaRe Lab"
+title                    : "Soujanya Poria"
 title_separator          : "-"
 subtitle                 : "" # site tagline that appears below site title in masthead
 name                     : "DeCLaRe"
-description              : "Welcome to the DeCLaRe (Deep Cognitive and Language Research) lab led by Dr. Soujanya Poria. We, at the DeCLaRe lab, work on different AI problems that require deep cognitive and language understanding. We hereby DeCLaRE our quest to breathe cognitive and language skills of human-like depth into machines by solving challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more. Addressing such open research problems requires powerful, scalable, and data-hungry algorithms. As such, we develop cutting-edge neural models, based on sound linguistic concepts."
-url                      : "https://declare-lab.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : "Hey folks! I am Soujanya Poria. Soujanya is the bengali translation of the English word "Courtesy""
+url                      : "https://soujanyaporia.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : "declare-lab/declare-lab.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "soujanyaporia/soujanyaporia.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : "/assets/images/logos/rec-light.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/logos/rec-light.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : "" # overrides the website title displayed in the masthead, use " " for no title
