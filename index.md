@@ -17,9 +17,6 @@ logo:
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
 ---
-
-## News
-
 Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded prestigous NTU presidential postdoctoral fellowship.
     <br>
     <br>
@@ -30,6 +27,8 @@ Welcome fellow researchers to my website! I hold a PhD in Computer Science. My m
     <br>
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
+
+## News
 
 <div class="notice--info">
   <h4>Personal News</h4>
