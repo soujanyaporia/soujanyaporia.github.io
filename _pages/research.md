@@ -8,7 +8,6 @@ toc: true
 toc_label: "Research themes"
 articlecolour: "#00001a"
 toc_sticky: true
-classes: wide
 
 ---
 
