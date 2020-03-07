@@ -1,7 +1,7 @@
 ---
-layout: single
+layout: single2
 permalink: /
-author_profile: false
+author_profile: true
 classes: wide
 logo:
   - image_path: /assets/images/big-logo.jpeg
@@ -17,7 +17,6 @@ logo:
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
 ---
-{% include feature_row_home_img id="logo" type="left" %}
 
 ## News
 <div class="notice--info">
