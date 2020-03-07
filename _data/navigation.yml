@@ -6,8 +6,8 @@ main:
     url: /research/
   - title: "Publications"
     url: /publications/
-  - title: "People"
-    url: /people/
+  - title: "DeCLaRe Lab"
+    url: https://declare-lab.net/
   - title: "Resources"
     url: /resources/
   # - title: "About"
