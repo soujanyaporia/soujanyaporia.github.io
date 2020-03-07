@@ -1,7 +1,8 @@
 ---
 layout: single
 permalink: /
-author_profile: true
+author_profile: false
+classes: wide
 logo:
   - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
@@ -16,11 +17,9 @@ logo:
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
 ---
-
 {% include feature_row_home_img id="logo" type="left" %}
 
 ## News
-
 <div class="notice--info">
   <h4>Personal News</h4>
   <p>I will serve EMNLP 2020 as an area chair of the sentiment analysis track.</p>
