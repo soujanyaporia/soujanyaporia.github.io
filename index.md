@@ -15,7 +15,7 @@ logo:
 My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
 
 
-I am open to collaborations. If you are interested please drop me an email. To know more about our work, please browse our catalog of [publications](/publications/).""
+I am open to collaborations. If you are interested please drop me an email. To know more about our work, please browse our catalog of [publications](/publications/)."
     <br>
     <br>
 ---
