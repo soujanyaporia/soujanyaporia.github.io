@@ -9,14 +9,13 @@ related: false
 logo:
   - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
-    excerpt: "Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High Performance Computing (IHPC), A\*STAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded prestigous NTU presidential postdoctoral fellowship.
+    excerpt: "Welcome fellow researchers to my website! I hold a PhD in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded prestigous NTU presidential postdoctoral fellowship.
     <br>
     My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
     <br>
     I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/).
     <br>
-    Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
-    "
+    Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
 ---
 {% include feature_row_home_img id="logo" type="left" %}
 
