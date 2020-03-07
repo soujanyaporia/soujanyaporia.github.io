@@ -10,72 +10,120 @@ articlecolour: "#00001a"
 toc_sticky: true
 classes: wide
 
-
-mustard:
-  - image_path: /assets/images/research/mustard.png
-    excerpt: "**Multimodal Sarcasm**: Sarcasm is a linguistic device that uses irony to express contempt or ridicule. Despite being a linguistic problem, sarcasm often lacks explicit linguistic markers, thus requiring additional cues that can reveal the speaker's intentions. Our work in this area is to leverage multiple modalities and/or context history in dialogues to detect *contextual incongruity* that goes beyond the surface text. [Read more](/resources/) about our efforts in this topic."
-
-msa:
-   - image_path: /assets/images/research/motivation.png
-     excerpt: "**Multimodal Sentiment Analysis**: Traditional sentiment  analysis has  been  primarily applied  to  a  wide  variety  of  texts. In contrast, sentiment analysis on user-generated content is fundamentally multimodal in nature and has gained attention due to the explosive growth of many social media platforms. The primary advantage of multimodal treatment is the surplus of behavioral cues present in acoustic and visual modalities, which provides important information to better identify affective states of the opinion holder. This allows to create a more robust sentiment analysis model. <br><br> In this topic, we are interested in finding effective fusion strategies of multimodal data along with building robust sentiment analysis systems that can be deployed in the wild."
-
-csk:
-  - image_path: /assets/images/research/csk.png
-    excerpt: "Commonsense knowledge (CSK) involves the basic understanding of situations and events commonly shared amongst people, which affects our logical and social decisions in day-to-day life.
-	The quest for AI to mimic such behavior – to understand both human needs, actions, and to interact with us – makes it imperative for them to incorporate CSK. For example, in the sentence, *Can an elephant enter the doorway?*, CSK is required to compare the size of the two objects. Such information about the sizes of *elephant* and *door* can be acquired via online articles (e.g. Wikipedia), without any need to visibly observe them. This kind of inference, though simple for humans, becomes extremely different for machines as such knowledge might not be present in explicit form both in the current sample and also in historical training data. Thus, equipping deep neural models with such CSK is paramount to their understanding and reasoning capabilities, albeit challenging.
-
-	Our primary goal is to leverage CSK to improve the performance of a wide range of NLP problems, thus showing the worthiness of CSK for NLP at large. The problems we will consider include, but are not limited to, *natural language inference*, *domain adaptation*, *dialogue generation*, and *zero-shot learning*."
-
-qa:
-  - image_path: /assets/images/research/qa2.png
-    excerpt: "Integrating reasoning for question answering (QA) with explanation is a critical problem in the progress of natural language understanding. The recent works in QA (BiDAF, GA Reader, AoA Reader, etc.) on challenge machine compresenhion datasets (SQuAD, RACE, Narrative QA, etc.) have focused on 'shallow' QA tasks that can be tackled by existing retrieval-based techniques or learning surface patterns.
-    With the progress of 'attention' mechanisms, these models have become very good in lexical matching to answer questinos. However, it is unclear whether they posses ability to understand the complex semantics required for the task.
-
-    <br>
-
-    To address this problem, recent datasets (CommonsenseQA, SQuAD 2.0, HotpotQA, MutiRC, etc.) pose 'complex' questions requiring intelligent reasoning and inference capabilities from the agent. Although, the reasoning required to tackle these QA tasks has many forms, it is often studied in a very narrow sense. Ideally, answering these “complex” questions should require inference/reasoning over multiple spans, including causal, abductive, deductive, inductive, temporal, quantitative and many other kinds of reasoning. Moreover, there has been growing interest for explainability of QA algorithms, along with many other AI challenges at large. Here, the goal is to provide understandability over the reasoning adopted by the models to decide a particular solution. Thus, instead of just answering a specific query, the system should be able to provide explanations for the judgement it made, and be able to provide further recommendations in an interactive manner. To combat these challenges, we are exploring ways to make QA systems perform causal reasoning, leverage external knowledge and generate explanations."
-
-dia:
-  - image_path: /assets/images/research/conv.png
-    excerpt: Conversations - task oriented and chit-chat - are governed by multiple pragmatic factors, such as topic, interlocutors’ personality, argumentation logic, viewpoint, and intent. As seen in the figure, topic ($$Topic$$) and interlocutor personality ($$P_*$$) influence the conversation throughout. For each utterance, the speaker makes up their mind ($$S^t_*$$) about the reply ($$U^t_*$$) based on the preceding utterances ($$U^{< t}_*$$) from both the interlocutors, the previous utterance being the most important one to make the largest change in the joint task model (for task-oriented conversations) or the speaker’s emotional state (for chit-chat). Delving deeper, the pragmatic features mentioned before, are encoded in speaker state ($$S^t_*$$). Intent ($$I^t_*$$) of the speaker is decided based on previous intent $$I_*^{t-2}$$ and speaker state $$S_*^t$$, as the interlocutor may change his/her intent based on the counterpart’s utterance and current situation. Then, the speaker formulates appropriate emotion $$E_*^t$$ for the response based on the state $$S^t_*$$ and intent $$I^t_*$$. Finally, the response $$U^t_*$$ is produced based on the speaker state $$S^t_*$$, intent $$I^t_*$$, and emotion $$E^t_*$$. We surmise that considering these factors would help representing the argument and discourse structure of the conversation, which leads to improved **dialogue understanding**, including emotion recognition and also **dialogue generation**.
-
-mda:
-  - image_path: /assets/images/research/mda.png
-    excerpt: "**Multimodal Dialogue Processing**: Research on building dialogue systems that converse with humans naturally has recently attracted a lot of attention. Most work on this area assumes text-based conversation, where the user message is modeled as a sequence of words in a vocabulary. Real-world human conversation, in contrast, involves other modalities, such as voice, facial expression and body language, which can influence the conversation significantly in certain scenarios. In this project, we are exploring the impact of incorporating the audio features of the user message into generative dialogue systems." 
 ---
 
-At the DeCLaRe Lab, we engage ourselves in multiple research topics with the aim to improve semantic understanding of media and to build simple yet intuitive algorithms. We are always on the lookout to explore interesting directions and our motto is to generate *impactful research*.
+## Research Interests
 
-Our current research interests can be broadly categorized as: 
+- Natural language processing
+- Question answering using knowledge bases and commonsense
+- Argumentation mining
+- Sarcasm detection
+- Sentiment analysis and emotion recognition
+- Understanding affect in conversations
+- Personalized, empathetic dialogue generation
+- Multimodal machine learning.
 
-## Multimodal Interaction
-<button type="button" class="btn btn-primary btn-sg">Funded by</button> : *Adobe Research.*
+## Education
 
+- Ph.D. in Computer Science and Mathematics, *Thesis: Novel symbolic and machine-learning approaches for text-based and multimodal sentiment analysis*, Feb 2014 - June 2017, University of Stirling, Scotland, UK
+- Bachelor of Engineering (B.E.) in Computer Science and Engineering, Aug 2009 - Dec 2013, Jadavpur University, India
 
-{% include feature_row id="msa" type="left" %}
+## Honorific Position
 
+- Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Present
 
-{% include feature_row id="mda" type="left" %}
+## Awards
 
+- Presidential Postdoctoral Fellowship (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
+- Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
+- IMPACT International Research Scholarship Award, University of Stirling
+- Tata Consultancy Best Undergraduate Software Project Award: gold medal, Jadavpur University
+- Best student paper, MICAI 2012, Mexico.
 
-{% include feature_row id="mustard" type="left" %}
+## Editorship/Chair
 
+- Editor, Information Fusion journal
+- Area chair at NAACL 2019, EMNLP 2019, EMNLP 2020, ACL 2020
+- Publicity chair at *SEM 2019
+- Co-guest editor, Affect Recognition in Multimodal Language, Cognitive Computation, 2020
+- Co-guest editor of special issue of IEEE Computational Intelligence Magazine on Computational Intelligence for Affective Computing and Sentiment Analysis (CIACSA)
+- Co-guest editor for the (Springer) Cognitive Computation journal (Impact Factor: 3.44) Special Issue on “Multimodal natural language processing for Cybersecurity applications”, 2018-19
+- Co-chair of Advancing Artificial Intelligence Understanding of Human Multimodal Language workshop in conjunction with ACL 2018
+- Co-chair of MR2AMC workshop in conjunction with ICMR 2018
+- Organized SENTIRE workshop in conjunction with ICDM 2017
 
+## PC Membership
 
-## Commonsense-aware NLP
+- AAAI, IJCAI, EMNLP, ACL, NAACL, COLING, etc.
 
-{% include feature_row id="csk" type="left" %}
+## Reviewer of Journals
 
-## Question Answering
-<button type="button" class="btn btn-primary btn-sg">Funded by</button> : *DSO National Laboratories, AME Programmatic Fund.*
+- Knowledge and Information Systems (Impact Factor: 2.24)
+- IEEE Transactions on Neural Networks and Learning Systems (Impact Factor: 6.1)
+- Expert Systems with Applications (Impact Factor: 3.7)
+- Knowledge Based Systems (Impact Factor: 4.3)
+- Natural Language Engineering (Impact Factor: 1.0)
+- IEEE Intelligent Systems (Impact Factor: 2.3)
+- IEEE Computational Intelligence Magazine (Impact Factor: 6.3)
+- IEEE Transaction on Affective Computing (Impact Factor: 3.1)
+- Information Processing & Management (Impact Factor: 3.4)
+- Cognitive Computation (Impact Factor: 3.4)
+- Artificial Intelligence Review (Impact Factor: 3.8)
 
-{% include feature_row id="qa" type="left" %}
+## Recognition & Achievements
 
+- Senior Member, Brain Science Foundation
+- Honorary Member, NDS lab, University of Oxford
+- Honorary Member, Brain Science Foundation
+- Highly Cited Papers (in 1% most cited in Computer Science in year): 3
+- Highly Cited Papers (in 0.1% most cited in Computer Science in year): 1
 
-## Affective and Empathetic Dialogue
-<button type="button" class="btn btn-primary btn-sg">Funded by</button> : *Adobe Research.*
+## Keynote & Invited Talks
 
-{% include feature_row id="dia" type="left" %}
+- Keynote talk, on Emotion Recognition in Conversation: Research Challenges, Negative Results, and
+Benchmarks, SocialNLP, IJCAI 2019, Macau
+- Invited talk, on the Role of Context in Natural Language Processing, University of Michigan, USA
+- Invited talk, on Emotion Recognition in Conversation: Research Challenges, Negative Results, and
+Benchmarks, NUS, Singapore
+- Invited talk, on the Evolving Sentiment Analysis, NTU, Singapore
+- Keynote Speaker, on Multimodal sentiment analysis, CICLing 2018, Hanoi, Vietnam
+- Invited Speaker, on Aspect extraction from product reviews, Deep Learning Finance Summit 2018, Singapore
+
+## News Coverage
+
+- News coverage by mlreview.com, for our work - [www.nlpoverview.com](www.nlpoverview.com)
+- News coverage by Kdnuggets, for our paper titled ”Recent Trends in Deep Learning Based NLP”.
+[https://www.kdnuggets.com/2018/09/deep-learning-nlp-overview-recent-trends.html](https://www.kdnuggets.com/2018/09/deep-learning-nlp-overview-recent-trends.html)
+- News coverage by Kdnuggets, for our paper titled ”A Deeper Look into Sarcastic Tweets Using Deep
+Convolutional Neural Networks” – [https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html](https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html)
+- News coverage by Datanami, for our paper titled ”Deep Learning-Based Document Modeling for
+Personality Detection from Text” –
+[https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/](https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/)
+
+## Bibliometrics
+
+- One of the most productive authors in sentiment analysis research from 2000 to 2015 (tinyurl.com/kwmboyy)
+- One of the most prolific and impactful authors in sentiment analysis from 2003 to 2016 (tinyurl.com/y8yj7974)
+
+## Grants
+
+- K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning for General Expertise, AME research grant, Feb. 2020 - Feb. 2023, *Grant Value: S$910K*
+- Geopolitical Question Answering, DSO research grant, Feb. 2020 - Feb. 2022, *Grant Value: S$800K*
+- Multimodal personalized affective dialogue systems, Sept 2019 - Sept 2022, *Grant Value: S$100K*
+- Multimodal personalized affective dialogue systems, NTU Presidential Postdoctoral Research Grant, Sept. 2018 - Sept. 2020, *Grant Value: S$200K*
+
+## Teaching
+
+- Computational Data Science, ISTD, SUTD, Singapore.
+
+## Students
+
+- Deepanway Ghosal, ISTD, SUTD
+- Hui Chen, ISTD, SUTD
+- Shunqi Wang, ISTD, SUTD
+- Rishabh Bharadwaj, ISTD, SUTD
+- Qian Chen, SCSE, NTU
+- Devamanyu Hazarika, SoC, NUS
 
 
 
