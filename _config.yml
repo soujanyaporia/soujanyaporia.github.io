@@ -26,8 +26,8 @@ description              : "Hey folks! I am Soujanya Poria. Soujanya is the beng
 url                      : "https://soujanyaporia.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "soujanyaporia/soujanyaporia.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : #"/assets/images/logos/rec-light.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : #"/assets/images/logos/rec-light.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+teaser                   : "/assets/images/logos/rec-light.png" # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "/assets/images/logos/rec-light.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : "Soujanya Poria" # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -109,27 +109,30 @@ analytics:
 
 # Site Author
 author:
-  name             : 
-  avatar           : "/assets/images/logo-sq-color-edit.svg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  name             : Soujanya Poria
+  avatar           : "/assets/images/big-logo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : ""
   location         : "Singapore"
-  email            :
+  email            : "sporia@sutd.edu.sg"
   links:
-    # - label: "Email"
-    #   icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
-    # - label: "Website"
-    #   icon: "fas fa-fw fa-link"
-      # url: "https://your-website.com"
-    # - label: "Twitter"
-    #   icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
+     - label: "Email"
+       icon: "fas fa-fw fa-envelope-square"
+       url: mailto:sporia@sutd.edu.sg
+     - label: "Website"
+       icon: "fas fa-fw fa-link"
+       url: "https://sporia.info"
+     - label: "Twitter"
+       icon: "fab fa-fw fa-twitter-square"
+       url: "https://twitter.com/soujanyaporia"
     # - label: "Facebook"
     #   icon: "fab fa-fw fa-facebook-square"
       # url: "https://facebook.com/"
-    # - label: "GitHub"
-    #   icon: "fab fa-fw fa-github"
-      # url: "https://github.com/"
+     - label: "GitHub"
+       icon: "fab fa-fw fa-github"
+       url: "https://github.com/soujanyaporia"
+     - label: "Google scholar"
+       icon: "fa fa-graduation-cap"
+       url: "https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works"
     # - label: "Instagram"
     #   icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"

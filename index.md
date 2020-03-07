@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 permalink: /
-author_profile: false
+author_profile: True
 related: false
 
 
