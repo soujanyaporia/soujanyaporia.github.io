@@ -15,7 +15,7 @@ logo:
     My days are spent mostly with arxiv articles, conference proceedings, matrices, probability, calculus, Pytorch and Keras! Ah yes! and reading and replying to emails :)
     <br>
     <br>
-    I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/).
+    I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works)
     <br>
     <br>
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more."
@@ -25,8 +25,18 @@ logo:
 ### News
 
 <div class="notice--info">
+  <h4>Personal News</h4>
+  <p>I will serve EMNLP 2020 as an area chair of the sentiment analysis track.</p>
+</div>
+
+<div class="notice--info">
+  <h4>Personal News</h4>
+  <p>I served ACL 2020 as an area chair of the sentiment analysis track.</p>
+</div>
+
+<div class="notice--info">
   <h4>Opening</h4>
-  <p>We have a number of openings to join us at the DeCLaRe Lab as postdocs and research assistants/associates. Drop an email to <a href="mailto:sporia@sutd.edu.sg">Soujanya</a></p>
+  <p>We have a number of openings to join us at the DeCLaRe Lab as postdocs and research assistants/associates. Drop me an <a href="mailto:sporia@sutd.edu.sg">email.</a></p>
 </div>
 
 <div class="notice--warning">
