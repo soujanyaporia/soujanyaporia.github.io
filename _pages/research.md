@@ -39,7 +39,7 @@ toc_sticky: true
 - Tata Consultancy Best Undergraduate Software Project Award: gold medal, Jadavpur University
 - Best student paper, MICAI 2012, Mexico.
 
-## Editorship/Chair
+## Editorship & Chair
 
 - Editor, Information Fusion journal
 - Area chair at NAACL 2019, EMNLP 2019, EMNLP 2020, ACL 2020
