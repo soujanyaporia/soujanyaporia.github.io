@@ -1,6 +1,7 @@
 ---
 layout: single
 permalink: /
+author_profile: true
 
 logo:
   - image_path: /assets/images/big-logo.jpeg

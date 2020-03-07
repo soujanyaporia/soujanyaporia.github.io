@@ -296,8 +296,8 @@ defaults:
       path: ""
       type: posts
     values:
-      layout: singleƒ
-      author_profile: true
+      layout: single
+      author_profile: false
       read_time: true
       comments: # true
       share: true
