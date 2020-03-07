@@ -3,7 +3,7 @@ layout: single
 permalink: /
 author_profile: true
 classes: wide
-title: नमस्ते!
+title: নমস্কার!
 logo:
   - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
