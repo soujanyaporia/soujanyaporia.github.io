@@ -113,16 +113,16 @@ author:
   avatar           : "/assets/images/big-logo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Assistant professor, SUTD, Singapore"
   location         : "Singapore"
-  email            : "sporia@sutd.edu.sg"
+  email            : 
   links:
-     #- label: "Email"
-     #  icon: "fas fa-fw fa-envelope-square"
-     #  url: mailto:sporia@sutd.edu.sg
+     - label: "Email"
+       icon: "fas fa-fw fa-envelope"
+       url: mailto:sporia@sutd.edu.sg
      - label: "Lab's Website"
        icon: "fas fa-fw fa-link"
        url: "https://declare-lab.net"
      - label: "Twitter"
-       icon: "fab fa-fw fa-twitter-square"
+       icon: "fab fa-fw fa-twitter"
        url: "https://twitter.com/soujanyaporia"
     # - label: "Facebook"
     #   icon: "fab fa-fw fa-facebook-square"
