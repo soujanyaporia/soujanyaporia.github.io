@@ -6,10 +6,10 @@ main:
     url: /research/
   - title: "Publications"
     url: /publications/
-  - title: "DeCLaRe Lab"
-    url: https://declare-lab.net/
   - title: "Resources"
     url: /resources/
+  - title: "DeCLaRe Lab"
+    url: https://declare-lab.net/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
