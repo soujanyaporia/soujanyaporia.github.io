@@ -2,7 +2,7 @@
 layout: single
 title: "Research"
 permalink: /research/
-author_profile: false
+author_profile: true
 related: false
 toc: true
 toc_label: "Table of Contents"
