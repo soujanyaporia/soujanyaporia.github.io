@@ -20,7 +20,7 @@ minimal_mistakes_skin    : # "default", "air", "aqua", "contrast", "dark", "dirt
 locale                   : "en-US"
 title                    : "Soujanya Poria (সৌজন্য পড়িয়া)"
 title_separator          : "-"
-subtitle                 : "Assistant professor, SUTD" # site tagline that appears below site title in masthead
+subtitle                 : "Assistant Professor, SUTD" # site tagline that appears below site title in masthead
 name                     : "Soujanya Poria (সৌজন্য পড়িয়া)"
 description              : "Hey folks! I am Soujanya Poria (সৌজন্য পড়িয়া). Soujanya (সৌজন্য) is the bengali translation of the English word Courtesy"
 url                      : "https://soujanyaporia.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -109,9 +109,9 @@ analytics:
 
 # Site Author
 author:
-  name             : সৌজন্য পড়িয়া<br>Soujanya Poria
+  name             :  Soujanya Poria<br>সৌজন্য পড়িয়া
   avatar           : "/assets/images/big-logo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Assistant professor, SUTD, Singapore"
+  bio              : "Assistant Professor, SUTD, Singapore"
   location         : "Singapore"
   email            : 
   links:
