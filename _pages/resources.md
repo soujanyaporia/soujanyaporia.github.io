@@ -2,7 +2,7 @@
 layout: single
 title: "Resources"
 permalink: /resources/
-author_profile: false
+author_profile: true
 related: false
 toc: true
 toc_label: "Topics"
