@@ -31,6 +31,14 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
     
 # News
+
+<div class="notice--success">
+  <h4>New paper</h4>
+  <p>
+    New paper on Sentiment Analysis - Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research <a href="https://declare-lab.net/assets/pdfs/Sentiment_Analysis_New_Directions.pdf">Read here</a>.
+  </p>
+</div>
+
 <div class="notice--info">
   <h4>Personal News</h4>
   <p>I will serve EMNLP 2020 as an area chair of the sentiment analysis track.</p>
