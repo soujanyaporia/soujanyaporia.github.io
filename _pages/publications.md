@@ -11,20 +11,22 @@ toc_sticky: true
 articlecolour: "#00001a"
 
 spotlight1:
+  - image_path: /assets/images/papers/sentiment_analysis_new_directions.png
+    excerpt: " <br> **[Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research.](/assets/pdfs/Sentiment_Analysis_New_Directions.pdf)** <br> Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, and Rada Mihalcea."
   - image_path: /assets/images/papers/recent_trends_in_nlp.png
     excerpt: "**[Recent trends in deep learning based natural language processing.](https://ieeexplore.ieee.org/abstract/document/8416973)** <br> Tom Young, Devamanyu Hazarika, Soujanya Poria, and Erik Cambria.   <br> IEEE Computational Intelligence Magazine." 
-  - image_path: /assets/images/papers/aspect_extraction.png
-    excerpt: "**[Aspect extraction for opinion mining with a deep convolutional neural network.](https://www.sciencedirect.com/science/article/abs/pii/S0950705116301721)** <br> Soujanya Poria, Erik Cambria, and Alexander Gelbukh.   <br> Knowledge-Based Systems. [(code)](https://github.com/soujanyaporia/aspect-extraction)" 
   - image_path: /assets/images/papers/erc.png
     excerpt: "**[Emotion recognition in conversation: Research challenges, datasets, and recent advances.](https://ieeexplore.ieee.org/abstract/document/8764449/)** <br> Soujanya Poria, Navonil Majumder, Rada Mihalcea, and Eduard Hovy.   <br> IEEE Access 7."
 spotlight2:
+  - image_path: /assets/images/papers/aspect_extraction.png
+    excerpt: "**[Aspect extraction for opinion mining with a deep convolutional neural network.](https://www.sciencedirect.com/science/article/abs/pii/S0950705116301721)** <br> Soujanya Poria, Erik Cambria, and Alexander Gelbukh.   <br> Knowledge-Based Systems. [(code)](https://github.com/soujanyaporia/aspect-extraction)" 
   - image_path: /assets/images/papers/dialogueRNN.png
     excerpt: "**[Dialoguernn: An attentive rnn for emotion detection in conversations.](https://arxiv.org/pdf/1811.00405.pdf)** <br> Navonil Majumder, Soujanya Poria, Devamanyu Hazarika, Rada Mihalcea, Alexander Gelbukh, and Erik Cambria.   <br> AAAI 2019.  [(code)](https://github.com/SenticNet/conv-emotion/)"
   - image_path: /assets/images/papers/cmn.png
     excerpt: "**[Conversational memory network for emotion recognition in dyadic dialogue videos.](http://www.aclweb.org/anthology/N18-1193)** <br> Devamanyu Hazarika, Soujanya Poria, Amir Zadeh, Erik Cambria, Louis-Philippe Morency, and Roger Zimmermann.  <br> NAACL 2018.  [(code)](https://github.com/SenticNet/conv-emotion/)"
+spotlight3:
   - image_path: /assets/images/papers/dialogueGCN.png
     excerpt: "**[Dialoguegcn: A graph convolutional neural network for emotion recognition in conversation.](https://www.aclweb.org/anthology/D19-1015.pdf)** <br> Deepanway Ghosal, Navonil Majumder, Soujanya Poria, Niyati Chhaya, and Alexander Gelbukh.  <br> NAACL 2018.  [(code)](https://github.com/SenticNet/conv-emotion/)"
-spotlight3:
   - image_path: /assets/images/papers/meld.png
     excerpt: "**[MELD: A multimodal multi-party dataset for emotion recognition in conversations.](https://www.aclweb.org/anthology/P19-1050.pdf)** <br> Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, Gautam Naik, Erik Cambria, and Rada Mihalcea.   <br> ACL 2019.  [(code)](https://github.com/SenticNet/MELD)"
 
