@@ -12,7 +12,7 @@ articlecolour: "#00001a"
 
 spotlight1:
   - image_path: /assets/images/papers/sentiment_analysis_new_directions.png
-    excerpt: " <br> **[Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research.](/assets/pdfs/Sentiment_Analysis_New_Directions.pdf)** <br> Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, and Rada Mihalcea."
+    excerpt: " <br> **[Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research.](https://declare-lab.net/assets/pdfs/Sentiment_Analysis_New_Directions.pdf)** <br> Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, and Rada Mihalcea."
   - image_path: /assets/images/papers/recent_trends_in_nlp.png
     excerpt: "**[Recent trends in deep learning based natural language processing.](https://ieeexplore.ieee.org/abstract/document/8416973)** <br> Tom Young, Devamanyu Hazarika, Soujanya Poria, and Erik Cambria.   <br> IEEE Computational Intelligence Magazine." 
   - image_path: /assets/images/papers/erc.png
