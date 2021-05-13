@@ -42,15 +42,6 @@ toc_sticky: true
 - Rishabh Bharadwaj, ISTD, SUTD
 - Devamanyu Hazarika, SoC, NUS
 
-## Education
-
-- Ph.D. in Computer Science and Mathematics, *Thesis: Novel symbolic and machine-learning approaches for text-based and multimodal sentiment analysis*, Feb 2014 - June 2017, University of Stirling, Scotland, UK
-- Bachelor of Engineering (B.E.) in Computer Science and Engineering, Aug 2009 - Dec 2013, Jadavpur University, India
-
-## Honorific Position
-
-- Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020
-
 ## Awards
 
 - Presidential Postdoctoral Fellowship (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
@@ -124,6 +115,15 @@ Convolutional Neural Networks” – [https://www.kdnuggets.com/2018/06/detectin
 - News coverage by Datanami, for our paper titled ”Deep Learning-Based Document Modeling for
 Personality Detection from Text” –
 [https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/](https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/)
+
+## Education
+
+- Ph.D. in Computer Science and Mathematics, *Thesis: Novel symbolic and machine-learning approaches for text-based and multimodal sentiment analysis*, Feb 2014 - June 2017, University of Stirling, Scotland, UK
+- Bachelor of Engineering (B.E.) in Computer Science and Engineering, Aug 2009 - Dec 2013, Jadavpur University, India
+
+## Honorific Position
+
+- Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020
 
 ## Collaborators
 
