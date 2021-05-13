@@ -23,13 +23,20 @@ toc_sticky: true
 - Multimodal machine learning
 
 ## Grants
-
+(as main PI)
 - Commonsense-aware Natural Language Processing, Minstry of Education (MoE) Tier-2, Aug 2021 - Aug 2024, *Grant Value: S$736K*
 - K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning for General Expertise, AME research grant, Feb. 2020 - Feb. 2023, *Grant Value: S$910K*
 - Geopolitical Question Answering, DSO research grant, Feb. 2020 - Feb. 2022, *Grant Value: S$800K*
 - Multimodal personalized affective dialogue systems, Sept 2019 - Sept 2022, *Grant Value: S$100K*
 - Hate speech detection, Feb 2020 - Sept 2021, *Grant Value: S$85K*
+- Alibaba Gift Funding through IPP Program, Jan 2021 - Dec 2025, *Grant Value: S$100K*
 - Multimodal personalized affective dialogue systems, NTU Presidential Postdoctoral Research Grant, Sept. 2018 - Sept. 2020, *Grant Value: S$200K*
+
+(as co-PI)
+- Intent Inference, DSO research grant, Feb 2020 - Feb 2022, *Grant Value: S$148K*. *Total Grant Value: S$800K*. Lead PI: Prof. Kwan Hui Lim (SUTD). Other CO-PIs: Prof. Roy Lee (SUTD). Both Kwan Hui and Roy are great people. If you are reading this and want to do a PhD in CS, NLP, AI, Complex Networks etc. they are the finest people to work with. Do email them :)
+- Estate-IQ: An Advanced AI System for Enabling Smart HDB Estate Services, HDB, July 2021 - June 2024, *Grant Value: S$4.9M*.
+- SUTD AI Program: Discovery by AI, SUTD, June 2020 - June 2023, *Grant Value: S$150K*
+
 
 ## Students
 
