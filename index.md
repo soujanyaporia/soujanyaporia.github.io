@@ -38,7 +38,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
   </p>
 </div>
 <div class="notice--success">
-  <h4>New paper</h4>
+  <h4>Personal news</h4>
   <p>
     I am one of the area chairs of this year's EMNLP, ACL and NeuRIPS.
   </p>
@@ -47,6 +47,24 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
   <h4>New paper</h4>
   <p>
     New paper on the identifiability of the transformers accepted at ACL 2021! Congratulations Rishabh!
+  </p>
+</div>
+<div class="notice--success">
+  <h4>Personal news</h4>
+  <p>
+    Delivered an invited talk at IBM Research, Almaden, USA.
+  </p>
+</div>
+<div class="notice--success">
+  <h4>Personal news</h4>
+  <p>
+    Honored to give a keynote talk at MICAI 2020.
+  </p>
+</div>
+<div class="notice--success">
+  <h4>Personal news</h4>
+  <p>
+    Honored to give an inivited talk at ICON 2020.
   </p>
 </div>
 <div class="notice--success">
