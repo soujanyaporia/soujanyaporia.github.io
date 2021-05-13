@@ -22,6 +22,26 @@ toc_sticky: true
 - Personalized, empathetic dialogue generation
 - Multimodal machine learning
 
+## Grants
+
+- Commonsense-aware Natural Language Processing, Minstry of Education (MoE) Tier-2, Aug 2021 - Aug 2024, *Grant Value: S$736K*
+- K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning for General Expertise, AME research grant, Feb. 2020 - Feb. 2023, *Grant Value: S$910K*
+- Geopolitical Question Answering, DSO research grant, Feb. 2020 - Feb. 2022, *Grant Value: S$800K*
+- Multimodal personalized affective dialogue systems, Sept 2019 - Sept 2022, *Grant Value: S$100K*
+- Hate speech detection, Feb 2020 - Sept 2021, *Grant Value: S$85K*
+- Multimodal personalized affective dialogue systems, NTU Presidential Postdoctoral Research Grant, Sept. 2018 - Sept. 2020, *Grant Value: S$200K*
+
+## Students
+
+- Deepanway Ghosal, ISTD, SUTD
+- Pengfei Hong, ISTD, SUTD
+- Ken Chia Yew, ISTD, SUTD (Jointly supervised with Dr. Lidong Bing from Alibaba DAMO Academy)
+- Wei Han, ISTD, SUTD
+- Hui Chen, ISTD, SUTD
+- Shunqi Wang, ISTD, SUTD
+- Rishabh Bharadwaj, ISTD, SUTD
+- Devamanyu Hazarika, SoC, NUS
+
 ## Education
 
 - Ph.D. in Computer Science and Mathematics, *Thesis: Novel symbolic and machine-learning approaches for text-based and multimodal sentiment analysis*, Feb 2014 - June 2017, University of Stirling, Scotland, UK
@@ -29,11 +49,12 @@ toc_sticky: true
 
 ## Honorific Position
 
-- Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Present
+- Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020
 
 ## Awards
 
 - Presidential Postdoctoral Fellowship (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
+- IEEE CIM Outstanding Paper Award 2021
 - Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
 - IMPACT International Research Scholarship Award, University of Stirling
 - Tata Consultancy Best Undergraduate Software Project Award: gold medal, Jadavpur University
@@ -41,8 +62,11 @@ toc_sticky: true
 
 ## Editorship & Chair
 
-- Editor, Information Fusion journal
-- Area chair at NAACL 2019, EMNLP 2019, EMNLP 2020, ACL 2020
+- Area chair at NeuRIPS 2021
+- Associate Editor, Cognitive Computation
+- Associate Editor, Neurocomputing
+- Associate Editor, Information Fusion
+- Area chair at multiple CL conferences: NAACL, EMNLP, EMNLP, ACL
 - Publicity chair at *SEM 2019
 - Co-guest editor, Affect Recognition in Multimodal Language, Cognitive Computation, 2020
 - Co-guest editor of special issue of IEEE Computational Intelligence Magazine on Computational Intelligence for Affective Computing and Sentiment Analysis (CIACSA)
@@ -79,6 +103,8 @@ toc_sticky: true
 
 ## Keynote & Invited Talks
 
+- Keynote talk on Utterance Level Dialogue Understanding, ICON 2020, India
+- Keynote talk on Utterance Level Dialogue Understanding, MICAI 2020, Mexico
 - Keynote talk, on Emotion Recognition in Conversation: Research Challenges, Negative Results, and
 Benchmarks, SocialNLP, IJCAI 2019, Macau
 - Invited talk, on the Role of Context in Natural Language Processing, University of Michigan, USA
@@ -113,26 +139,9 @@ Personality Detection from Text” –
 
 - One of the most productive authors in sentiment analysis research from 2000 to 2015 (tinyurl.com/kwmboyy)
 - One of the most prolific and impactful authors in sentiment analysis from 2003 to 2016 (tinyurl.com/y8yj7974)
-
-## Grants
-
-- K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning for General Expertise, AME research grant, Feb. 2020 - Feb. 2023, *Grant Value: S$910K*
-- Geopolitical Question Answering, DSO research grant, Feb. 2020 - Feb. 2022, *Grant Value: S$800K*
-- Multimodal personalized affective dialogue systems, Sept 2019 - Sept 2022, *Grant Value: S$100K*
-- Multimodal personalized affective dialogue systems, NTU Presidential Postdoctoral Research Grant, Sept. 2018 - Sept. 2020, *Grant Value: S$200K*
+- Google scholar profile (https://scholar.google.co.in/citations?user=oS6gRc4AAAAJ&hl=en)
 
 ## Teaching
 
 - Computational Data Science, ISTD, SUTD, Singapore
-
-## Students
-
-- Deepanway Ghosal, ISTD, SUTD
-- Hui Chen, ISTD, SUTD
-- Shunqi Wang, ISTD, SUTD
-- Rishabh Bharadwaj, ISTD, SUTD
-- Qian Chen, SCSE, NTU
-- Devamanyu Hazarika, SoC, NUS
-
-
-
+- Information Retrieval, ISTD< SUTD, Singapore
