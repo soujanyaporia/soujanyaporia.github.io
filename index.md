@@ -32,6 +32,23 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 
+<div class="notice--warning">
+  <h4>Funding</h4>
+  <p>The DeCLaRe lab has been awarded Tier 2 funding by the Ministry of Education (MoE), Singapore. We are grateful to MoE for their generosity. The project will focus on building techniques for Commonsense-aware NLP. Shoutout to the team-- Prof. Rada Mihalcea, Dr. Navonil Majumder, Prof. Alexander Gelbukh, Devamanyu Hazarika, and Deepanway Ghosal without whom it was not possible.
+  </p>
+</div>
+<div class="notice--success">
+  <h4>New paper</h4>
+  <p>
+    I am one of the area chairs of this year's EMNLP, ACL and NeuRIPS.
+  </p>
+</div>
+<div class="notice--success">
+  <h4>New paper</h4>
+  <p>
+    New paper on the identifiability of the transformers accepted at ACL 2021! Congratulations Rishabh!
+  </p>
+</div>
 <div class="notice--success">
   <h4>New paper</h4>
   <p>
