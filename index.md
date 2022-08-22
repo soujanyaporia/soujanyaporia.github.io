@@ -31,7 +31,18 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
     
 # News
-
+<div class="notice--success">
+  <h4>New paper alert</h4>
+  <p>
+    Exemplars-guided empathetic response generation controlled by the elements of human communication, IEEE ACCESS. <a href="https://ieeexplore.ieee.org/document/9837040">Read Here</a>
+  </p>
+</div>
+<div class="notice--success">
+  <h4>New publications</h4>
+  <p>
+    We have four papers accepted by ACL, three papers accepted by COLING, and one paper accepted by ECCV!
+  </p>
+</div>
 <div class="notice--warning">
   <h4>Funding</h4>
   <p>The DeCLaRe lab has been awarded Tier 2 funding by the Ministry of Education (MoE), Singapore. We are grateful to MoE for their generosity. The project will focus on building techniques for Commonsense-aware NLP. Shoutout to the team-- Prof. Rada Mihalcea, Dr. Navonil Majumder, Prof. Alexander Gelbukh, Devamanyu Hazarika, and Deepanway Ghosal without whom it was not possible.
