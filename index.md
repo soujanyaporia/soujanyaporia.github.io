@@ -31,6 +31,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
     
 # News
+<div class="notice--warning">
+  <h4>EMNLP 2022</h4>
+  <p> Five papers accepted at EMNLP 2022. Congratulations to all the collaborators.
+  </p>
+</div>
 <div class="notice--success">
   <h4>New paper alert</h4>
   <p>
