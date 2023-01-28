@@ -51,6 +51,7 @@ toc_sticky: true
 
 ## Awards
 
+- IEEE's 10 to Watch in AI in 2022
 - Presidential Postdoctoral Fellowship (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
 - IEEE CIM Outstanding Paper Award 2021
 - Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
@@ -60,6 +61,10 @@ toc_sticky: true
 
 ## Editorship & Chair
 
+- SPC, IJCAI 2023
+- Workshop chair, AACL 2022
+- Publicity chair, ACL 2022
+- Area chair, ARR (2021-)
 - Area chair at NeuRIPS 2021
 - Associate Editor, Cognitive Computation
 - Associate Editor, Neurocomputing
