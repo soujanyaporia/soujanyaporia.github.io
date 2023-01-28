@@ -51,7 +51,6 @@ toc_sticky: true
 
 ## Awards
 
-- IEEE's 10 to Watch in AI in 2022
 - Presidential Postdoctoral Fellowship (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
 - IEEE CIM Outstanding Paper Award 2021
 - Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
