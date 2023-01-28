@@ -37,7 +37,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
   </p>
 </div>
 <div class="notice--success">
-  <h4>EMNLP 2022</h4>
+  <h4>EACL 2022</h4>
   <p> Two papers accepted at EMNLP 2022. Congratulations to all the collaborators.
   </p>
 </div>
