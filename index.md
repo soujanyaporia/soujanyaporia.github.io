@@ -32,13 +32,8 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
-  <h4>IEEE's 10 to Watch in AI</h4>
-  <p> Proud to receive the IEEE's 10 to Watch in AI award.
-  </p>
-</div>
-<div class="notice--success">
   <h4>EACL 2022</h4>
-  <p> Two papers accepted at EMNLP 2022. Congratulations to all the collaborators.
+  <p> Two papers accepted at EACL 2022. Congratulations to all the collaborators.
   </p>
 </div>
 <div class="notice--warning">
