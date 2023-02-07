@@ -110,7 +110,7 @@ analytics:
 # Site Author
 author:
   name             :  Soujanya Poria<br>সৌজন্য পড়িয়া
-  avatar           : "/assets/images/big-logo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/SJ.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Assistant Professor, SUTD, Singapore"
   location         : "Singapore"
   email            : 
