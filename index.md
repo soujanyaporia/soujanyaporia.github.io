@@ -5,7 +5,7 @@ author_profile: true
 classes: wide
 title: নমস্কার!
 logo:
-  - image_path: /assets/images/SJ.jpg
+  - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
     excerpt: "Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are NLP and sentiment analysis. At present, I work as an assistant professor at the Singapore University of Technology and Design (SUTD), Singapore. I am also part of the Institute of High-Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded the prestigious NTU presidential postdoctoral fellowship.
     <br>
