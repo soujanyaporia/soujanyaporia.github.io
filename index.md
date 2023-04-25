@@ -33,7 +33,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 # News
 <div class="notice--success">
   <h4>New Generation Model on Text-to-Audio</h4>
-  <p> Read our work [here](https://declare-lab.net/assets/pdfs/tango-arxiv.pdf).
+  <p> Read our work <a href = "https://declare-lab.net/assets/pdfs/tango-arxiv.pdf"> here </a>.
   </p>
 </div>
 <div class="notice--success">
