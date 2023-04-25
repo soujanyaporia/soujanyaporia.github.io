@@ -32,7 +32,17 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
-  <h4>EACL 2022</h4>
+  <h4>New Generation Model on Text-to-Audio</h4>
+  <p> Read our work [here](https://declare-lab.net/assets/pdfs/tango-arxiv.pdf).
+  </p>
+</div>
+<div class="notice--success">
+  <h4>ICASSP 2023</h4>
+  <p> Two papers accepted at ICASSP 2023. Congratulations to all the collaborators.
+  </p>
+</div>
+<div class="notice--success">
+  <h4>EACL 2023</h4>
   <p> Two papers accepted at EACL 2022. Congratulations to all the collaborators.
   </p>
 </div>
