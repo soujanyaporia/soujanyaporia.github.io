@@ -32,6 +32,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>IEEE 10 to Watch in AI</h4>
+  <p> Excited to be named as one of <a href = "https://ieeexplore.ieee.org/document/10111517">IEEE's 2022 edition of 10 to Watch in AI</a>. Thanks to my colleagues and students.
+  </p>
+</div>
+<div class="notice--success">
 <h4>Collaboration with Microsoft Research</h4>
 <p> DeCLaRe Lab is thrilled to announce our selection for the Microsoft Research Accelerate Foundation Models Academic Research program. This program will enable us to contribute to the development of fair and responsible open source LLMs. We are excited to compare the performance of our models to OpenAI's LLMs, including GPT-4 and ChatGPT. For updates on our progress and developments, please follow our repository at <a href="https://github.com/declare-lab/flan-eval">https://github.com/declare-lab/flan-eval</a>. Thank you for your support! </p>
 </div>
