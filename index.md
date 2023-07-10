@@ -37,6 +37,12 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
   </p>
 </div>
 <div class="notice--success">
+  <h4>I am thrilled to announce my new role as an editorial board member of IEEE Transactions on Big Data.
+ </h4>
+  <p> 
+  </p>
+</div>
+<div class="notice--success">
   <h4>We are grateful to ORACLE FOR RESEARCH and HUGGINGFACE for their generous support to the project TANGO.</h4>
   <p> 
   </p>
