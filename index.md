@@ -38,7 +38,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 </div>
 <div class="notice--success">
   <h4>IEEE CIS Outstanding Early Career Award</h4>
-  <p> Excited to receive the IEEE CIS Outstanding Early Career Award 2024.</a>.
+  <p> Excited to receive the IEEE CIS Outstanding Early Career Award 2024.
   </p>
 </div>
 <div class="notice--success">
