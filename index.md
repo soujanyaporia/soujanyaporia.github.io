@@ -28,12 +28,17 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
     <br>
     <br>
-    Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as, dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
+    Our lab is called as [*DeCLaRe Lab*](https://declare-lab.net). We work on challenging NLP problems, such as dialogue comprehension and generation, commonsense reasoning, multimodal understanding, and more.
     
 # News
 <div class="notice--success">
   <h4>IEEE 10 to Watch in AI</h4>
   <p> Excited to be named as one of <a href = "https://ieeexplore.ieee.org/document/10111517">IEEE's 2022 edition of 10 to Watch in AI</a>. Thanks to my colleagues and students. Find the complete list <a href = "/assets/pdfs/AIs_10_to_Watch_2022.pdf">here</a>.
+  </p>
+</div>
+<div class="notice--success">
+  <h4>IEEE CIS Outstanding Early Career Award</h4>
+  <p> Excited to receive the IEEE CIS Outstanding Early Career Award 2024.</a>.
   </p>
 </div>
 <div class="notice--success">
