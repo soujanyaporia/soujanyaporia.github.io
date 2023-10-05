@@ -2,799 +2,1732 @@
 layout: single
 title: "Publications"
 permalink: /publications/
-author_profile: true
+author_profile: false
 related: false
 toc: true
-toc_label: "Topics"
+toc_label: "Years"
 toc_icon: "cogs"
 toc_sticky: true
 articlecolour: "#00001a"
-
-spotlight1:
-  - image_path: /assets/images/papers/sentiment_analysis_new_directions.png
-    excerpt: " <br> **[Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research.](https://declare-lab.net/assets/pdfs/Sentiment_Analysis_New_Directions.pdf)** <br> Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, and Rada Mihalcea."
-  - image_path: /assets/images/papers/recent_trends_in_nlp.png
-    excerpt: "**[Recent trends in deep learning based natural language processing.](https://ieeexplore.ieee.org/abstract/document/8416973)** <br> Tom Young, Devamanyu Hazarika, Soujanya Poria, and Erik Cambria.   <br> IEEE Computational Intelligence Magazine." 
-  - image_path: /assets/images/papers/erc.png
-    excerpt: "**[Emotion recognition in conversation: Research challenges, datasets, and recent advances.](https://ieeexplore.ieee.org/abstract/document/8764449/)** <br> Soujanya Poria, Navonil Majumder, Rada Mihalcea, and Eduard Hovy.   <br> IEEE Access 7."
-spotlight2:
-  - image_path: /assets/images/papers/aspect_extraction.png
-    excerpt: "**[Aspect extraction for opinion mining with a deep convolutional neural network.](https://www.sciencedirect.com/science/article/abs/pii/S0950705116301721)** <br> Soujanya Poria, Erik Cambria, and Alexander Gelbukh.   <br> Knowledge-Based Systems. [(code)](https://github.com/soujanyaporia/aspect-extraction)" 
-  - image_path: /assets/images/papers/dialogueRNN.png
-    excerpt: "**[Dialoguernn: An attentive rnn for emotion detection in conversations.](https://arxiv.org/pdf/1811.00405.pdf)** <br> Navonil Majumder, Soujanya Poria, Devamanyu Hazarika, Rada Mihalcea, Alexander Gelbukh, and Erik Cambria.   <br> AAAI 2019.  [(code)](https://github.com/SenticNet/conv-emotion/)"
-  - image_path: /assets/images/papers/cmn.png
-    excerpt: "**[Conversational memory network for emotion recognition in dyadic dialogue videos.](http://www.aclweb.org/anthology/N18-1193)** <br> Devamanyu Hazarika, Soujanya Poria, Amir Zadeh, Erik Cambria, Louis-Philippe Morency, and Roger Zimmermann.  <br> NAACL 2018.  [(code)](https://github.com/SenticNet/conv-emotion/)"
-spotlight3:
-  - image_path: /assets/images/papers/dialogueGCN.png
-    excerpt: "**[Dialoguegcn: A graph convolutional neural network for emotion recognition in conversation.](https://www.aclweb.org/anthology/D19-1015.pdf)** <br> Deepanway Ghosal, Navonil Majumder, Soujanya Poria, Niyati Chhaya, and Alexander Gelbukh.  <br> NAACL 2018.  [(code)](https://github.com/SenticNet/conv-emotion/)"
-  - image_path: /assets/images/papers/meld.png
-    excerpt: "**[MELD: A multimodal multi-party dataset for emotion recognition in conversations.](https://www.aclweb.org/anthology/P19-1050.pdf)** <br> Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, Gautam Naik, Erik Cambria, and Rada Mihalcea.   <br> ACL 2019.  [(code)](https://github.com/SenticNet/MELD)"
-
 ---
 
+## 2023
+<div class="notice">
+	<p>
+        <b>Chain of Knowledge: A Framework for Grounding Large Language Models with Structured Knowledge Bases</b> <br>
+       X Li • R Zhao • YK Chia • B Ding • L Bing • S Joty • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models</b> <br>
+       Z Hu • Y Lan • L Wang • W Xu • EP Lim • RKW Lee • L Bing • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>Beyond Words: A Comprehensive Survey of Sentence Representations</b> <br>
+       AR Kashyap • TT Nguyen • V Schlegel • S Winkler • SK Ng • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>Domain-Expanded ASTE: Rethinking Generalization in Aspect Sentiment Triplet Extraction</b> <br>
+       C Ken • H Chen • W Han • G Chen • SM Aljunied • S Poria • L Bing<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>INSTRUCTEVAL: Towards Holistic Evaluation of Instruction-Tuned Large Language Models</b> <br>
+       C Ken • P Hong • L Bing • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>Flacuna: Unleashing the Problem Solving Power of Vicuna using FLAN Fine-Tuning</b> <br>
+       D Ghosal • C Ken • N Majumder • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>SAS Video-QA: Self-Adaptive Sampling for Efficient Video Question-Answering</b> <br>
+       W Han • H Chen • M Kan • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>Red-Teaming Large Language Models using Chain of Utterances for Safety-Alignment</b> <br>
+        R Bhardwaj • S Poria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>Large Language Models for Automated Open-domain Scientific Hypotheses Discovery</b> <br>
+        Z Yang • X Du • J Li • J Zheng • S Poria • E Cambria<br> 
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>WikiDes: A Wikipedia-based dataset for generating short descriptions from paragraphs</b> <br>
+        Hoang Ta • Abu Rahman • Navonil Majumder • Amir Hussain • Lotfollah Najjar • Newton Howard • Soujanya Poria • Alexander Gelbukh<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Multimodal sentiment analysis: A systematic review of history, datasets, multimodal fusion methods, applications, challenges and future directions</b> <br>
+        Ankita Gandhi • Kinjal Adhvaryu • Soujanya Poria • Erik Cambria • Amir Hussain<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Lightweight Spatial Modeling for Combinatorial Information Extraction From Documents</b> <br>
+        Yanfei Dong • Lambert Deng • Jiazheng Zhang • Xiaodong Yu • Ting Lin • Francesco Gelli • Soujanya Poria • Wee Lee<br> 
+        Findings of the Association for Computational Linguistics: EACL 2023
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>UDAPTER-Efficient Domain Adaptation Using Adapters</b> <br>
+        Bhavitvya Malik • Abhinav Kashyap • Min-Yen Kan • Soujanya Poria<br> 
+        Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>A review of deep learning techniques for speech processing</b> <br>
+        Ambuj Mehrish • Navonil Majumder • Rishabh Bharadwaj • Rada Mihalcea • Soujanya Poria<br> 
+        Information Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Evaluating parameter-efficient transfer learning approaches on sure benchmark for speech understanding</b> <br>
+        Yingting Li • Ambuj Mehrish • Rishabh Bhardwaj • Navonil Majumder • Bo Cheng • Shuai Zhao • Amir Zadeh • Rada Mihalcea • Soujanya Poria<br> 
+        ICASSP 2023-2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>ADAPTERMIX: Exploring the Efficacy of Mixture of Adapters for Low-Resource TTS Adaptation</b> <br>
+        Ambuj Mehrish • Abhinav Kashyap • Li Yingting • Navonil Majumder • Soujanya Poria<br> 
+        Interspeech
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Sentence Embedder Guided Utterance Encoder (SEGUE) for Spoken Language Understanding</b> <br>
+        Yi Tan • Navonil Majumder • Soujanya Poria<br> 
+        Interspeech
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Text-to-Audio Generation using Instruction-Tuned LLM and Latent Diffusion Model</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Ambuj Mehrish • Soujanya Poria<br> 
+        ACM MM
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Few-shot Multimodal Sentiment Analysis based on Multimodal Probabilistic Fusion Prompts</b> <br>
+        Xiaocui Yang • Shi Feng • Daling Wang • Pengfei Hong • Soujanya Poria<br> 
+        ACM MM
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Uncertainty Guided Label Denoising for Document-level Distant Relation Extraction</b> <br>
+        Qi Sun • Kun Huang • Xiaocui Yang • Pengfei Hong • Kun Zhang • Soujanya Poria<br> 
+        Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>A Robust Information-Masking Approach for Domain Counterfactual Generation</b> <br>
+        Pengfei Hong • Rishabh Bhardwaj • Navonil Majumder • Somak Aditya • Soujanya Poria<br> 
+        Findings of the Association for Computational Linguistics: ACL 2023
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Few-shot Joint Multimodal Aspect-Sentiment Analysis Based on Generative Multimodal Prompt</b> <br>
+        Xiaocui Yang • Shi Feng • Daling Wang • Sun Qi • Wenfang Wu • Yifei Zhang • Pengfei Hong • Soujanya Poria<br> 
+        ICASSP
+	</p>
+</div>
+
+## 2022
+
+<div class="notice">
+	<p>
+        <b>Exemplars-Guided Empathetic Response Generation Controlled by the Elements of Human Communication</b> <br>
+        Navonil Majumder • Deepanway Ghosal • Devamanyu Hazarika • Alexander Gelbukh • Rada Mihalcea • Soujanya Poria<br> 
+        IEEE Access
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Zero-Shot Learning Baselines with Commonsense Knowledge</b> <br>
+        Abhinaba Roy • Deepanway Ghosal • Erik Cambria • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Cogn. Comput.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Multimodal research in vision and language: A review of current and emerging trends</b> <br>
+        Shagun Uppal • Sarthak Bhagat • Devamanyu Hazarika • Navonil Majumder • Soujanya Poria • Roger Zimmermann • Amir Zadeh<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving aspect-level sentiment analysis with aspect extraction</b> <br>
+        Navonil Majumder • Rishabh Bhardwaj • Soujanya Poria • Alexander Gelbukh • Amir Hussain<br> 
+        Neural Comput. Appl.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>RelationPrompt: Leveraging Prompts to Generate Synthetic Data for Zero-Shot Relation Triplet Extraction</b> <br>
+        Yew Chia • Lidong Bing • Soujanya Poria • Luo Si<br> 
+        Findings of the Association for Computational Linguistics: ACL 2022, Dublin, Ireland, May 22-27, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>So Different Yet So Alike! Constrained Unsupervised Text Style Transfer</b> <br>
+        Abhinav Kashyap • Devamanyu Hazarika • Min-Yen Kan • Roger Zimmermann • Soujanya Poria<br> 
+        Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), ACL 2022, Dublin, Ireland, May 22-27, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Knowledge Enhanced Reflection Generation for Counseling Dialogues</b> <br>
+        Siqi Shen • Verónica Pérez-Rosas • Charles Welch • Soujanya Poria • Rada Mihalcea<br> 
+        Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), ACL 2022, Dublin, Ireland, May 22-27, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>CICERO: A Dataset for Contextualized Commonsense Inference in Dialogues</b> <br>
+        Deepanway Ghosal • Siqi Shen • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 60th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), ACL 2022, Dublin, Ireland, May 22-27, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>DoubleMix: Simple Interpolation-Based Data Augmentation for Text Classification</b> <br>
+        Hui Chen • Wei Han • Diyi Yang • Soujanya Poria<br> 
+        Proceedings of the 29th International Conference on Computational Linguistics, COLING 2022, Gyeongju, Republic of Korea, October 12-17, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>KNOT: Knowledge Distillation Using Optimal Transport for Solving NLP Tasks</b> <br>
+        Rishabh Bhardwaj • Tushar Vaidya • Soujanya Poria<br> 
+        Proceedings of the 29th International Conference on Computational Linguistics, COLING 2022, Gyeongju, Republic of Korea, October 12-17, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>SANCL: Multimodal Review Helpfulness Prediction with Selective Attention and Natural Contrastive Learning</b> <br>
+        Wei Han • Hui Chen • Zhen Hai • Soujanya Poria • Lidong Bing<br> 
+        Proceedings of the 29th International Conference on Computational Linguistics, COLING 2022, Gyeongju, Republic of Korea, October 12-17, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>PIP: Physical Interaction Prediction via Mental Simulation with Span Selection</b> <br>
+        Jiafei Duan • Samson Yu • Soujanya Poria • Bihan Wen • Cheston Tan<br> 
+        Computer Vision - ECCV 2022 - 17th European Conference, Tel Aviv, Israel, October 23-27, 2022, Proceedings, Part XXXV
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>SAT: Improving Semi-Supervised Text Classification with Simple Instance-Adaptive Self-Training</b> <br>
+        Hui Chen • Wei Han • Soujanya Poria<br> 
+        Findings of the Association for Computational Linguistics: EMNLP 2022, Abu Dhabi, United Arab Emirates, December 7-11, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Vector-Quantized Input-Contextualized Soft Prompts for Natural Language Understanding</b> <br>
+        Rishabh Bhardwaj • Amrita Saha • Steven Hoi • Soujanya Poria<br> 
+        Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, EMNLP 2022, Abu Dhabi, United Arab Emirates, December 7-11, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>A Dataset for Hyper-Relational Extraction and a Cube-Filling Approach</b> <br>
+        Yew Chia • Lidong Bing • Sharifah Aljunied • Luo Si • Soujanya Poria<br> 
+        Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, EMNLP 2022, Abu Dhabi, United Arab Emirates, December 7-11, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Two is Better than Many? Binary Classification as an Effective Approach to Multi-Choice Question Answering</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, EMNLP 2022, Abu Dhabi, United Arab Emirates, December 7-11, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MM-Align: Learning Optimal Transport-based Alignment Dynamics for Fast and Accurate Inference on Missing Modality Sequences</b> <br>
+        Wei Han • Hui Chen • Min-Yen Kan • Soujanya Poria<br> 
+        Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing, EMNLP 2022, Abu Dhabi, United Arab Emirates, December 7-11, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Analyzing Modality Robustness in Multimodal Sentiment Analysis</b> <br>
+        Devamanyu Hazarika • Yingting Li • Bo Cheng • Shuai Zhao • Roger Zimmermann • Soujanya Poria<br> 
+        Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL 2022, Seattle, WA, United States, July 10-15, 2022
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Proceedings of the 2nd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 12th International Joint Conference on Natural Language Processing, AACL/IJCNLP 2022 - Volume 1: Long Papers, Online Only, November 20-23, 2022</b> <br>
+        Yulan He • Heng Ji • Yang Liu • Sujian Li • Chia-Hui Chang • Soujanya Poria • Chenghua Lin • Wray Buntine • Maria Liakata • Hanqi Yan • Zonghan Yan • Sebastian Ruder • Xiaojun Wan • Miguel Arana-Catania • Zhongyu Wei • Hen-Hsen Huang • Jheng-Long Wu • Min-Yuh Day • Pengfei Liu • Ruifeng Xu<br> 
+        Association for Computational Linguistics
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Proceedings of the 2nd Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics and the 12th International Joint Conference on Natural Language Processing, AACL/IJCNLP 2022 - Volume 2: Short Papers, Online only, November 20-23, 2022</b> <br>
+        Yulan He • Heng Ji • Yang Liu • Sujian Li • Chia-Hui Chang • Soujanya Poria • Chenghua Lin • Wray Buntine • Maria Liakata • Hanqi Yan • Zonghan Yan • Sebastian Ruder • Xiaojun Wan • Miguel Arana-Catania • Zhongyu Wei • Hen-Hsen Huang • Jheng-Long Wu • Min-Yuh Day • Pengfei Liu • Ruifeng Xu<br> 
+        Association for Computational Linguistics
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Findings of the Association for Computational Linguistics: AACL-IJCNLP 2022, Online only, November 20-23, 2022</b> <br>
+        Yulan He • Heng Ji • Yang Liu • Sujian Li • Chia-Hui Chang • Soujanya Poria • Chenghua Lin • Wray Buntine • Maria Liakata • Hanqi Yan • Zonghan Yan • Sebastian Ruder • Xiaojun Wan • Miguel Arana-Catania • Zhongyu Wei • Hen-Hsen Huang • Jheng-Long Wu • Min-Yuh Day • Pengfei Liu • Ruifeng Xu<br> 
+        Association for Computational Linguistics
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>RelationPrompt: Leveraging Prompts to Generate Synthetic Data for Zero-Shot Relation Triplet Extraction</b> <br>
+        Yew Chia • Lidong Bing • Soujanya Poria • Luo Si<br> 
+        <a href="https://doi.org/10.48550/arXiv.2203.09101">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>CICERO: A Dataset for Contextualized Commonsense Inference in Dialogues</b> <br>
+        Deepanway Ghosal • Siqi Shen • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2203.13926">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>So Different Yet So Alike! Constrained Unsupervised Text Style Transfer</b> <br>
+        Abhinav Kashyap • Devamanyu Hazarika • Min-Yen Kan • Roger Zimmermann • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2205.04093">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Analyzing Modality Robustness in Multimodal Sentiment Analysis</b> <br>
+        Devamanyu Hazarika • Yingting Li • Bo Cheng • Shuai Zhao • Roger Zimmermann • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2205.15465">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>SANCL: Multimodal Review Helpfulness Prediction with Selective Attention and Natural Contrastive Learning</b> <br>
+        Wei Han • Hui Chen • Zhen Hai • Soujanya Poria • Lidong Bing<br> 
+        <a href="https://doi.org/10.48550/arXiv.2209.05040">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>DoubleMix: Simple Interpolation-Based Data Augmentation for Text Classification</b> <br>
+        Hui Chen • Wei Han • Diyi Yang • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2209.05297">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>WikiDes: A Wikipedia-Based Dataset for Generating Short Descriptions from Paragraphs</b> <br>
+        Hoang Ta • Abu Rahman • Navonil Majumder • Amir Hussain • Lotfollah Najjar • Newton Howard • Soujanya Poria • Alexander Gelbukh<br> 
+        <a href="https://doi.org/10.48550/arXiv.2209.13101">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Multiview Contextual Commonsense Inference: A New Dataset and Task</b> <br>
+        Siqi Shen • Deepanway Ghosal • Navonil Majumder • Henry Lim • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2210.02890">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>SAT: Improving Semi-Supervised Text Classification with Simple Instance-Adaptive Self-Training</b> <br>
+        Hui Chen • Wei Han • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2210.12653">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MM-Align: Learning Optimal Transport-based Alignment Dynamics for Fast and Accurate Inference on Missing Modality Sequences</b> <br>
+        Wei Han • Hui Chen • Min-Yen Kan • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2210.12798">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Two is Better than Many? Binary Classification as an Effective Approach to Multi-Choice Question Answering</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2210.16495">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Few-shot Multimodal Sentiment Analysis based on Multimodal Probabilistic Fusion Prompts</b> <br>
+        Xiaocui Yang • Shi Feng • Daling Wang • Pengfei Hong • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2211.06607">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>A Dataset for Hyper-Relational Extraction and a Cube-Filling Approach</b> <br>
+        Yew Chia • Lidong Bing • Sharifah Mahani • Luo Si • Soujanya Poria<br> 
+        <a href="https://doi.org/10.48550/arXiv.2211.10018">arXiv</a>
+	</p>
+</div>
+
+## 2021
+
+<div class="notice">
+	<p>
+        <b>Affect Recognition for Multimodal Natural Language Processing</b> <br>
+        Soujanya Poria • Yew-Soon Ong • Bing Liu • Lidong Bing<br> 
+        Cogn. Comput.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Discriminative Dictionary Design for Action Classification in Still Images and Videos</b> <br>
+        Abhinaba Roy • Biplab Banerjee • Amir Hussain • Soujanya Poria<br> 
+        Cogn. Comput.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Investigating Gender Bias in BERT</b> <br>
+        Rishabh Bhardwaj • Navonil Majumder • Soujanya Poria<br> 
+        Cogn. Comput.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Deep Neural Approaches to Relation Triplets Extraction: a Comprehensive Survey</b> <br>
+        Tapas Nayak • Navonil Majumder • Pawan Goyal • Soujanya Poria<br> 
+        Cogn. Comput.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Recognizing Emotion Cause in Conversations</b> <br>
+        Soujanya Poria • Navonil Majumder • Devamanyu Hazarika • Deepanway Ghosal • Rishabh Bhardwaj • Samson Jian • Pengfei Hong • Romila Ghosh • Abhinaba Roy • Niyati Chhaya • Alexander Gelbukh • Rada Mihalcea<br> 
+        Cogn. Comput.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Persuasive dialogue understanding: The baselines and negative results</b> <br>
+        Hui Chen • Deepanway Ghosal • Navonil Majumder • Amir Hussain • Soujanya Poria<br> 
+        Neurocomputing
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Conversational transfer learning for emotion recognition</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Roger Zimmermann • Rada Mihalcea<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Phonetic-enriched text representation for Chinese sentiment analysis with reinforcement learning</b> <br>
+        Haiyun Peng • Yukun Ma • Soujanya Poria • Yang Li • Erik Cambria<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Information fusion for affective computing and sentiment analysis</b> <br>
+        Amir Hussain • Erik Cambria • Soujanya Poria • Ahmad Hawalah • Francisco Herrera<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>More Identifiable yet Equally Performant Transformers for Text Classification</b> <br>
+        Rishabh Bhardwaj • Navonil Majumder • Soujanya Poria • Eduard Hovy<br> 
+        Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing, ACL/IJCNLP 2021, (Volume 1: Long Papers), Virtual Event, August 1-6, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Exploring the Role of Context in Utterance-level Emotion, Act and Intent Classification in Conversations: An Empirical Study</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Findings of the Association for Computational Linguistics: ACL/IJCNLP 2021, Online Event, August 1-6, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Aspect Sentiment Triplet Extraction Using Reinforcement Learning</b> <br>
+        Samson Jian • Tapas Nayak • Navonil Majumder • Soujanya Poria<br> 
+        CIKM '21: The 30th ACM International Conference on Information and Knowledge Management, Virtual Event, Queensland, Australia, November 1 - 5, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>STaCK: Sentence Ordering with Temporal Commonsense Knowledge</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, EMNLP 2021, Virtual Event / Punta Cana, Dominican Republic, 7-11 November, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Multimodal Fusion with Hierarchical Mutual Information Maximization for Multimodal Sentiment Analysis</b> <br>
+        Wei Han • Hui Chen • Soujanya Poria<br> 
+        Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing, EMNLP 2021, Virtual Event / Punta Cana, Dominican Republic, 7-11 November, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Bi-Bimodal Modality Fusion for Correlation-Controlled Multimodal Sentiment Analysis</b> <br>
+        Wei Han • Hui Chen • Alexander Gelbukh • Amir Zadeh • Louis-Philippe Morency • Soujanya Poria<br> 
+        ICMI '21: International Conference on Multimodal Interaction, Montréal, QC, Canada, October 18-22, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>M2H2: A Multimodal Multiparty Hindi Dataset For Humor Recognition in Conversations</b> <br>
+        Dushyant Chauhan • Gopendra Singh • Navonil Majumder • Amir Zadeh • Asif Ekbal • Pushpak Bhattacharyya • Louis-Philippe Morency • Soujanya Poria<br> 
+        ICMI '21: International Conference on Multimodal Interaction, Montréal, QC, Canada, October 18-22, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MTAG: Modal-Temporal Attention Graph for Unaligned Human Multimodal Language Sequences</b> <br>
+        Jianing Yang • Yongxin Wang • Ruitao Yi • Yuying Zhu • Azaan Rehman • Amir Zadeh • Soujanya Poria • Louis-Philippe Morency<br> 
+        Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2021, Online, June 6-11, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Distantly Supervised Relation Extraction with Self-Ensemble Noise Filtering</b> <br>
+        Tapas Nayak • Navonil Majumder • Soujanya Poria<br> 
+        Proceedings of the International Conference on Recent Advances in Natural Language Processing (RANLP 2021), Held Online, 1-3September, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>CIDER: Commonsense Inference for Dialogue Explanation and Reasoning</b> <br>
+        Deepanway Ghosal • Pengfei Hong • Siqi Shen • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 22nd Annual Meeting of the Special Interest Group on Discourse and Dialogue, SIGdial 2021, Singapore and Online, July 29-31, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>DOZEN: Cross-Domain Zero Shot Named Entity Recognition with Knowledge Graph</b> <br>
+        Hoang Nguyen • Francesco Gelli • Soujanya Poria<br> 
+        SIGIR '21: The 44th International ACM SIGIR Conference on Research and Development in Information Retrieval, Virtual Event, Canada, July 11-15, 2021
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Retrieving and Reading: A Comprehensive Survey on Open-domain Question Answering</b> <br>
+        Fengbin Zhu • Wenqiang Lei • Chao Wang • Jianming Zheng • Soujanya Poria • Tat-Seng Chua<br> 
+        <a href="https://arxiv.org/abs/2101.00774">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Deep Neural Approaches to Relation Triplets Extraction: A Comprehensive Survey</b> <br>
+        Tapas Nayak • Navonil Majumder • Pawan Goyal • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2103.16929">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>CIDER: Commonsense Inference for Dialogue Explanation and Reasoning</b> <br>
+        Deepanway Ghosal • Pengfei Hong • Siqi Shen • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2106.00510">arXiv</a>
+	</p>
+</div>
 
-## Spotlight papers
-{% include feature_row id="spotlight1" %}
-{% include feature_row id="spotlight2" %}
-{% include feature_row id="spotlight3" %}
+<div class="notice">
+	<p>
+        <b>More Identifiable yet Equally Performant Transformers for Text Classification</b> <br>
+        Rishabh Bhardwaj • Navonil Majumder • Soujanya Poria • Eduard Hovy<br> 
+        <a href="https://arxiv.org/abs/2106.01269">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Exemplars-guided Empathetic Response Generation Controlled by the Elements of Human Communication</b> <br>
+        Navonil Majumder • Deepanway Ghosal • Devamanyu Hazarika • Alexander Gelbukh • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2106.11791">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Bi-Bimodal Modality Fusion for Correlation-Controlled Multimodal Sentiment Analysis</b> <br>
+        Wei Han • Hui Chen • Alexander Gelbukh • Amir Zadeh • Louis-Philippe Morency • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2107.13669">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>M2H2: A Multimodal Multiparty Hindi Dataset For Humor Recognition in Conversations</b> <br>
+        Dushyant Chauhan • Gopendra Singh • Navonil Majumder • Amir Zadeh • Asif Ekbal • Pushpak Bhattacharyya • Louis-Philippe Morency • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2108.01260">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Aspect Sentiment Triplet Extraction Using Reinforcement Learning</b> <br>
+        Samson Jian • Tapas Nayak • Navonil Majumder • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2108.06107">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Distantly Supervised Relation Extraction with Self-Ensemble Noise Filtering</b> <br>
+        Tapas Nayak • Navonil Majumder • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2108.09689">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Multimodal Fusion with Hierarchical Mutual Information Maximization for Multimodal Sentiment Analysis</b> <br>
+        Wei Han • Hui Chen • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2109.00412">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>STaCK: Sentence Ordering with Temporal Commonsense Knowledge</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2109.02247">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>PIP: Physical Interaction Prediction via Mental Imagery with Span Selection</b> <br>
+        Jiafei Duan • Samson Yu • Soujanya Poria • Bihan Wen • Cheston Tan<br> 
+        <a href="https://arxiv.org/abs/2109.04683">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Federated Distillation of Natural Language Understanding with Confident Sinkhorns</b> <br>
+        Rishabh Bhardwaj • Tushar Vaidya • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2110.02432">arXiv</a>
+	</p>
+</div>
+
+## 2020
+
+<div class="notice">
+	<p>
+        <b>Dialogue systems with audio context</b> <br>
+        Tom Young • Vlad Pandelea • Soujanya Poria • Erik Cambria<br> 
+        Neurocomputing
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Anaphora and coreference resolution: A review</b> <br>
+        Rhea Sukthanker • Soujanya Poria • Erik Cambria • Ramkumar Thirunavukarasu<br> 
+        Inf. Fusion
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Social Media Marketing and Financial Forecasting</b> <br>
+        Frank Xing • Soujanya Poria • Erik Cambria • Roy Welsch<br> 
+        Inf. Process. Manag.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>KinGDOM: Knowledge-Guided DOMain Adaptation for Sentiment Analysis</b> <br>
+        Deepanway Ghosal • Devamanyu Hazarika • Abhinaba Roy • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, ACL 2020, Online, July 5-10, 2020
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>SenticNet 6: Ensemble Application of Symbolic and Subsymbolic AI for Sentiment Analysis</b> <br>
+        Erik Cambria • Yang Li • Frank Xing • Soujanya Poria • Kenneth Kwok<br> 
+        CIKM '20: The 29th ACM International Conference on Information and Knowledge Management, Virtual Event, Ireland, October 19-23, 2020
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>CMU-MOSEAS: A Multimodal Language Dataset for Spanish, Portuguese, German and French</b> <br>
+        AmirAli Zadeh • Yansheng Cao • Smon Hessner • Paul Liang • Soujanya Poria • Louis-Philippe Morency<br> 
+        Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing, EMNLP 2020, Online, November 16-20, 2020
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>COSMIC: COmmonSense knowledge for eMotion Identification in Conversations</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Alexander Gelbukh • Rada Mihalcea • Soujanya Poria<br> 
+        Findings of the Association for Computational Linguistics: EMNLP 2020, Online Event, 16-20 November 2020
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MIME: MIMicking Emotions for Empathetic Response Generation</b> <br>
+        Navonil Majumder • Pengfei Hong • Shanshan Peng • Jiankun Lu • Deepanway Ghosal • Alexander Gelbukh • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing, EMNLP 2020, Online, November 16-20, 2020
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MISA: Modality-Invariant and -Specific Representations for Multimodal Sentiment Analysis</b> <br>
+        Devamanyu Hazarika • Roger Zimmermann • Soujanya Poria<br> 
+        MM '20: The 28th ACM International Conference on Multimedia, Virtual Event / Seattle, WA, USA, October 12-16, 2020
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Beneath the Tip of the Iceberg: Current Challenges and New Directions in Sentiment Analysis Research</b> <br>
+        Soujanya Poria • Devamanyu Hazarika • Navonil Majumder • Rada Mihalcea<br> 
+        <a href="https://arxiv.org/abs/2005.00357">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>KinGDOM: Knowledge-Guided DOMain adaptation for sentiment analysis</b> <br>
+        Deepanway Ghosal • Devamanyu Hazarika • Abhinaba Roy • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2005.00791">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MISA: Modality-Invariant and -Specific Representations for Multimodal Sentiment Analysis</b> <br>
+        Devamanyu Hazarika • Roger Zimmermann • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2005.03545">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Aspect-Level Sentiment Analysis with Aspect Extraction</b> <br>
+        Navonil Majumder • Rishabh Bhardwaj • Soujanya Poria • Amir Zadeh • Alexander Gelbukh • Amir Hussain • Louis-Philippe Morency<br> 
+        <a href="https://arxiv.org/abs/2005.06607">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Investigating Gender Bias in BERT</b> <br>
+        Rishabh Bhardwaj • Navonil Majumder • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2009.05021">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Dialogue Relation Extraction with Document-level Heterogeneous Graph Attention Networks</b> <br>
+        Hui Chen • Pengfei Hong • Wei Han • Navonil Majumder • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2009.05092">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Utterance-level Dialogue Understanding: An Empirical Study</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2009.13902">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MIME: MIMicking Emotions for Empathetic Response Generation</b> <br>
+        Navonil Majumder • Pengfei Hong • Shanshan Peng • Jiankun Lu • Deepanway Ghosal • Alexander Gelbukh • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2010.01454">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>COSMIC: COmmonSense knowledge for eMotion Identification in Conversations</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Alexander Gelbukh • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2010.02795">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>MTGAT: Multimodal Temporal Graph Attention Networks for Unaligned Human Multimodal Language Sequences</b> <br>
+        Jianing Yang • Yongxin Wang • Ruitao Yi • Yuying Zhu • Azaan Rehman • Amir Zadeh • Soujanya Poria • Louis-Philippe Morency<br> 
+        <a href="https://arxiv.org/abs/2010.11985">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Persuasive Dialogue Understanding: the Baselines and Negative Results</b> <br>
+        Hui Chen • Deepanway Ghosal • Navonil Majumder • Amir Hussain • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2011.09954">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Improving Zero Shot Learning Baselines with Commonsense Knowledge</b> <br>
+        Abhinaba Roy • Deepanway Ghosal • Erik Cambria • Navonil Majumder • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="https://arxiv.org/abs/2012.06236">arXiv</a>
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Recognizing Emotion Cause in Conversations</b> <br>
+        Soujanya Poria • Navonil Majumder • Devamanyu Hazarika • Deepanway Ghosal • Rishabh Bhardwaj • Samson Jian • Romila Ghosh • Niyati Chhaya • Alexander Gelbukh • Rada Mihalcea<br> 
+        <a href="https://arxiv.org/abs/2012.11820">arXiv</a>
+	</p>
+</div>
 
+## 2019
 
+<div class="notice">
+	<p>
+        <b>Emotion Recognition in Conversation: Research Challenges, Datasets, and Recent Advances</b> <br>
+        Soujanya Poria • Navonil Majumder • Rada Mihalcea • Eduard Hovy<br> 
+        IEEE Access
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>The Nitty-GRITties of Success: Computational Analysis of Grit From Language</b> <br>
+        Tushar Maheshwari • Aishwarya Reganti • Soujanya Poria • Rada Mihalcea<br> 
+        IEEE Access
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Computational Intelligence for Affective Computing and Sentiment Analysis [Guest Editorial]</b> <br>
+        Erik Cambria • Soujanya Poria • Amir Hussain • Bing Liu<br> 
+        IEEE Comput. Intell. Mag.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Sentiment and Sarcasm Classification With Multitask Learning</b> <br>
+        Navonil Majumder • Soujanya Poria • Haiyun Peng • Niyati Chhaya • Erik Cambria • Alexander Gelbukh<br> 
+        IEEE Intell. Syst.
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>DialogueRNN: An Attentive RNN for Emotion Detection in Conversations</b> <br>
+        Navonil Majumder • Soujanya Poria • Devamanyu Hazarika • Rada Mihalcea • Alexander Gelbukh • Erik Cambria<br> 
+        The Thirty-Third AAAI Conference on Artificial Intelligence, AAAI 2019, The Thirty-First Innovative Applications of Artificial Intelligence Conference, IAAI 2019, The Ninth AAAI Symposium on Educational Advances in Artificial Intelligence, EAAI 2019, Honolulu, Hawaii, USA, January 27 - February 1, 2019
+	</p>
+</div>
 
+<div class="notice">
+	<p>
+        <b>MELD: A Multimodal Multi-Party Dataset for Emotion Recognition in Conversations</b> <br>
+        Soujanya Poria • Devamanyu Hazarika • Navonil Majumder • Gautam Naik • Erik Cambria • Rada Mihalcea<br> 
+        Proceedings of the 57th Conference of the Association for Computational Linguistics, ACL 2019, Florence, Italy, July 28- August 2, 2019, Volume 1: Long Papers
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Towards Multimodal Sarcasm Detection (An _Obviously_ Perfect Paper)</b> <br>
+        Santiago Castro • Devamanyu Hazarika • Verónica Pérez-Rosas • Roger Zimmermann • Rada Mihalcea • Soujanya Poria<br> 
+        Proceedings of the 57th Conference of the Association for Computational Linguistics, ACL 2019, Florence, Italy, July 28- August 2, 2019, Volume 1: Long Papers
+	</p>
+</div>
 
-## Sentiment analysis
+<div class="notice">
+	<p>
+        <b>Fusing Phonetic Features and Chinese Character Representation for Sentiment Analysis</b> <br>
+        Haiyun Peng • Soujanya Poria • Yang Li • Erik Cambria<br> 
+        Computational Linguistics and Intelligent Text Processing - 20th International Conference, CICLing 2019, La Rochelle, France, April 7-13, 2019, Revised Selected Papers, Part II
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-		<b>Aspect extraction for opinion mining with a deep convolutional neural network</b> <br>
-		Soujanya Poria, Erik Cambria, and Alexander Gelbukh <br> 
-		Knowledge-Based Systems
-		<a href="https://www.sciencedirect.com/science/article/pii/S0950705116301721" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multi-task Learning for Detecting Stance in Tweets</b> <br>
+        Devamanyu Hazarika • Gangeshwar Krishnamurthy • Soujanya Poria • Roger Zimmermann<br> 
+        Computational Linguistics and Intelligent Text Processing - 20th International Conference, CICLing 2019, La Rochelle, France, April 7-13, 2019, Revised Selected Papers, Part II
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-		<b>IARM: Inter-aspect relation modeling with memory networks in aspect-based sentiment analysis</b> <br>
-		Navonil Majumder, Soujanya Poria, Alexander Gelbukh, Md Shad Akhtar, Erik Cambria, and Asif Ekbal <br> 
-		EMNLP 2018
-		<a href="https://www.aclweb.org/anthology/D18-1377.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Soujanya Poria • Niyati Chhaya • Alexander Gelbukh<br> 
+        Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing, EMNLP-IJCNLP 2019, Hong Kong, China, November 3-7, 2019
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Modeling inter-aspect dependencies for aspect-based sentiment analysis</b><br>
-		Devamanyu Hazarika, Soujanya Poria, Prateek Vij, Gangeshwar Krishnamurthy, Erik Cambria, and Roger Zimmermann <br>
-        NAACL 2018
-		<a href="https://www.aclweb.org/anthology/N18-2043.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>An Attention-Based Model for Learning Dynamic Interaction Networks</b> <br>
+        Sandro Cavallari • Soujanya Poria • Erik Cambria • Vincent Zheng • Hongyun Cai<br> 
+        International Joint Conference on Neural Networks, IJCNN 2019 Budapest, Hungary, July 14-19, 2019
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>SenticNet 4: A semantic resource for sentiment analysis based on conceptual primitives</b><br>
-		Erik Cambria, Soujanya Poria, Rajiv Bajpai, and Björn Schuller <br>
-        COLING 2016
-		<a href="https://www.aclweb.org/anthology/C16-1251.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multi-task Learning for Multi-modal Emotion Recognition and Sentiment Analysis</b> <br>
+        Md. Akhtar • Dushyant Chauhan • Deepanway Ghosal • Soujanya Poria • Asif Ekbal • Pushpak Bhattacharyya<br> 
+        Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2019, Minneapolis, MN, USA, June 2-7, 2019, Volume 1 (Long and Short Papers)
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>A rule-based approach to aspect extraction from product reviews</b><br>
-		Soujanya Poria, Erik Cambria, Lun-Wei Ku, Chen Gui, and Alexander Gelbukh<br>
-        In Proceedings of the second workshop on natural language processing for social media (SocialNLP), pp. 28-37. 2014.
-		<a href="https://www.aclweb.org/anthology/W14-5905.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Proceedings of the Eighth Joint Conference on Lexical and Computational Semantics, *SEM@NAACL-HLT 2019, Minneapolis, MN, USA, June 6-7, 2019</b> <br>
+        Rada Mihalcea • Ekaterina Shutova • Lun-Wei Ku • Kilian Evang • Soujanya Poria<br> 
+        Association for Computational Linguistics
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Enhanced SenticNet with affective labels for concept-based opinion mining</b><br>
-		Soujanya Poria, Alexander Gelbukh, Amir Hussain, Newton Howard, Dipankar Das, and Sivaji Bandyopadhyay<br>
-        IEEE Intelligent Systems
-		<a href="https://www.gelbukh.com/CV/Publications/2013/Enhanced%20SenticNet%20with%20Affective%20Labels%20for%20Concept-based%20Opinion%20Mining.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Phonetic-enriched Text Representation for Chinese Sentiment Analysis with Reinforcement Learning</b> <br>
+        Haiyun Peng • Yukun Ma • Soujanya Poria • Yang Li • Erik Cambria<br> 
+        <a href="http://arxiv.org/abs/1901.07880">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentic patterns: Dependency-based rules for concept-level sentiment analysis</b><br>
-		Soujanya Poria, Erik Cambria, Grégoire Winterstein, and Guang-Bin Huang<br>
-        Knowledge-Based Systems 69 (2014): 45-63.
-		<a href="https://www.sentic.net/sentic-patterns.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentiment and Sarcasm Classification with Multitask Learning</b> <br>
+        Navonil Majumder • Soujanya Poria • Haiyun Peng • Niyati Chhaya • Erik Cambria • Alexander Gelbukh<br> 
+        <a href="http://arxiv.org/abs/1901.08014">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentiment analysis is a big suitcase</b><br>
-		Erik Cambria, Soujanya Poria, Alexander Gelbukh, and Mike Thelwall<br>
-        IEEE Intelligent Systems 32, no. 6 (2017): 74-80.
-		<a href="https://www.sentic.net/sentiment-analysis-suitcase.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Emotion Recognition in Conversation: Research Challenges, Datasets, and Recent Advances</b> <br>
+        Soujanya Poria • Navonil Majumder • Rada Mihalcea • Eduard Hovy<br> 
+        <a href="http://arxiv.org/abs/1905.02947">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentiment data flow analysis by means of dynamic linguistic patterns</b><br>
-		Soujanya Poria, Erik Cambria, Alexander Gelbukh, Federica Bisio, and Amir Hussain<br>
-        IEEE Computational Intelligence Magazine 10, no. 4 (2015): 26-36.
-		<a href="https://dspace.stir.ac.uk/bitstream/1893/23766/1/sentiment-data-flow-analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multi-task Learning for Multi-modal Emotion Recognition and Sentiment Analysis</b> <br>
+        Md. Akhtar • Dushyant Chauhan • Deepanway Ghosal • Soujanya Poria • Asif Ekbal • Pushpak Bhattacharyya<br> 
+        <a href="http://arxiv.org/abs/1905.05812">arXiv</a>
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>Towards Multimodal Sarcasm Detection (An _Obviously_ Perfect Paper)</b> <br>
+        Santiago Castro • Devamanyu Hazarika • Verónica Pérez-Rosas • Roger Zimmermann • Rada Mihalcea • Soujanya Poria<br> 
+        <a href="http://arxiv.org/abs/1906.01815">arXiv</a>
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>EmoSenticSpace: A novel framework for affective common-sense reasoning</b><br>
-		Soujanya Poria, Alexander Gelbukh, Erik Cambria, Amir Hussain, and Guang-Bin Huang<br>
-        Knowledge-Based Systems 69 (2014): 108-123.
-		<a href="https://dspace.stir.ac.uk/bitstream/1893/20574/1/emosenticspace.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Variational Fusion for Multimodal Sentiment Analysis</b> <br>
+        Navonil Majumder • Soujanya Poria • Gangeshwar Krishnamurthy • Niyati Chhaya • Rada Mihalcea • Alexander Gelbukh<br> 
+        <a href="http://arxiv.org/abs/1908.06008">arXiv</a>
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation</b> <br>
+        Deepanway Ghosal • Navonil Majumder • Soujanya Poria • Niyati Chhaya • Alexander Gelbukh<br> 
+        <a href="http://arxiv.org/abs/1908.11540">arXiv</a>
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>AffectiveSpace 2: Enabling affective intuition for concept-level sentiment analysis</b><br>
-		Erik Cambria, Jie Fu, Federica Bisio, and Soujanya Poria<br>
-        In Twenty-ninth AAAI conference on artificial intelligence. 2015.
-		<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/viewFile/9911/9287" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Roger Zimmermann • Rada Mihalcea<br> 
+        <a href="http://arxiv.org/abs/1910.04980">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>SenticNet 5: Discovering conceptual primitives for sentiment analysis by means of context embeddings</b><br>
-		Erik Cambria, Soujanya Poria, Devamanyu Hazarika, and Kenneth Kwok<br>
-        In Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
-		<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/download/16839/15882" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>WildMix Dataset and Spectro-Temporal Transformer Model for Monoaural Audio Source Separation</b> <br>
+        Amir Zadeh • Tianjun Ma • Soujanya Poria • Louis-Philippe Morency<br> 
+        <a href="http://arxiv.org/abs/1911.09783">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Concept-level sentiment analysis with dependency-based semantic parsing: a novel approach</b><br>
-		Basant Agarwal, Soujanya Poria, Namita Mittal, Alexander Gelbukh, and Amir Hussain<br>
-        Cognitive Computation 7, no. 4 (2015): 487-499.
-		<a href="https://idp.springer.com/authorize/casa?redirect_uri=https://link.springer.com/article/10.1007/s12559-014-9316-6&casa_token=3rxwZSNrx_AAAAAA:F5dlgpM7-Y2YUmcMtzK0lWbyi-Gkz522ynVBFli272g2vTVAvRHGnsTlzoUvXwUPXThaUh_m06sxPJboJsM" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Factorized Multimodal Transformer for Multimodal Sequential Learning</b> <br>
+        Amir Zadeh • Chengfeng Mao • Kelly Shi • Yiwei Zhang • Paul Liang • Soujanya Poria • Louis-Philippe Morency<br> 
+        <a href="http://arxiv.org/abs/1911.09826">arXiv</a>
 	</p>
 </div>
+
+## 2018
 
 <div class="notice">
 	<p>
-        <b>SeNTU: sentiment analysis of tweets by combining a rule-based classifier with supervised learning</b><br>
-		Prerna Chikersal, Soujanya Poria, and Erik Cambria<br>
-        In Proceedings of the 9th International Workshop on Semantic Evaluation (SemEval 2015), pp. 647-651. 2015.
-		<a href="https://www.aclweb.org/anthology/S15-2108.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Recent Trends in Deep Learning Based Natural Language Processing [Review Article]</b> <br>
+        Tom Young • Devamanyu Hazarika • Soujanya Poria • Erik Cambria<br> 
+        IEEE Comput. Intell. Mag.
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>OntoSenticNet: A Commonsense Ontology for Sentiment Analysis</b> <br>
+        Mauro Dragoni • Soujanya Poria • Erik Cambria<br> 
+        IEEE Intell. Syst.
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Multilingual sentiment analysis: state of the art and independent comparison of techniques</b><br>
-		Kia Dashtipour, Soujanya Poria, Amir Hussain, Erik Cambria, Ahmad YA Hawalah, Alexander Gelbukh, and Qiang Zhou<br>
-        Cognitive computation 8, no. 4 (2016): 757-771.
-		<a href="https://link.springer.com/article/10.1007/s12559-016-9415-7" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multimodal Sentiment Analysis: Addressing Key Issues and Setting Up the Baselines</b> <br>
+        Soujanya Poria • Navonil Majumder • Devamanyu Hazarika • Erik Cambria • Alexander Gelbukh • Amir Hussain<br> 
+        IEEE Intell. Syst.
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>Multimodal sentiment analysis using hierarchical fusion with context modeling</b> <br>
+        Navonil Majumder • Devamanyu Hazarika • Alexander Gelbukh • Erik Cambria • Soujanya Poria<br> 
+        Knowl. Based Syst.
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Merging SenticNet and WordNet-Affect emotion lists for sentiment analysis</b><br>
-		Soujanya Poria, Alexander Gelbukh, Erik Cambria, Peipei Yang, Amir Hussain, and Tariq Durrani<br>
-        In 2012 IEEE 11th International Conference on Signal Processing, vol. 2, pp. 1251-1255. IEEE, 2012.
-		<a href="https://dspace.stir.ac.uk/bitstream/1893/20592/1/IEEE%20ICSP.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>SenticNet 5: Discovering Conceptual Primitives for Sentiment Analysis by Means of Context Embeddings</b> <br>
+        Erik Cambria • Soujanya Poria • Devamanyu Hazarika • Kenneth Kwok<br> 
+        Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence, (AAAI-18), the 30th innovative Applications of Artificial Intelligence (IAAI-18), and the 8th AAAI Symposium on Educational Advances in Artificial Intelligence (EAAI-18), New Orleans, Louisiana, USA, February 2-7, 2018
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>Memory Fusion Network for Multi-view Sequential Learning</b> <br>
+        Amir Zadeh • Paul Liang • Navonil Mazumder • Soujanya Poria • Erik Cambria • Louis-Philippe Morency<br> 
+        Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence, (AAAI-18), the 30th innovative Applications of Artificial Intelligence (IAAI-18), and the 8th AAAI Symposium on Educational Advances in Artificial Intelligence (EAAI-18), New Orleans, Louisiana, USA, February 2-7, 2018
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Modelling public sentiment in Twitter: using linguistic patterns to enhance supervised learning</b><br>
-		Prerna Chikersal, Soujanya Poria, Erik Cambria, Alexander Gelbukh, and Chng Eng Siong<br>
-        In International Conference on Intelligent Text Processing and Computational Linguistics, pp. 49-65. Springer, Cham, 2015.
-		<a href="https://ww.w.sentic.net/modelling-public-sentiment-in-twitter.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multi-attention Recurrent Network for Human Communication Comprehension</b> <br>
+        Amir Zadeh • Paul Liang • Soujanya Poria • Prateek Vij • Erik Cambria • Louis-Philippe Morency<br> 
+        Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence, (AAAI-18), the 30th innovative Applications of Artificial Intelligence (IAAI-18), and the 8th AAAI Symposium on Educational Advances in Artificial Intelligence (EAAI-18), New Orleans, Louisiana, USA, February 2-7, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentic LDA: Improving on LDA with semantic similarity for aspect-based sentiment analysis</b><br>
-		Soujanya Poria, Iti Chaturvedi, Erik Cambria, and Federica Bisio<br>
-        In 2016 international joint conference on neural networks (IJCNN), pp. 4465-4473. IEEE, 2016.
-		<a href="https://ww.sentic.net/sentic-lda.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multimodal Language Analysis in the Wild: CMU-MOSEI Dataset and Interpretable Dynamic Fusion Graph</b> <br>
+        Amir Zadeh • Paul Liang • Soujanya Poria • Erik Cambria • Louis-Philippe Morency<br> 
+        Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics, ACL 2018, Melbourne, Australia, July 15-20, 2018, Volume 1: Long Papers
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Enriching SenticNet polarity scores through semi-supervised fuzzy clustering</b><br>
-		Soujanya Poria, Alexander Gelbukh, Erik Cambria, Dipankar Das, and Sivaji Bandyopadhyay<br>
-        In 2012 IEEE 12th International Conference on Data Mining Workshops, pp. 709-716. IEEE, 2012.
-		<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.309.9382&rep=rep1&type=pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Deep Learning Approach for Multimodal Deception Detection</b> <br>
+        Gangeshwar Krishnamurthy • Navonil Majumder • Soujanya Poria • Erik Cambria<br> 
+        Computational Linguistics and Intelligent Text Processing - 19th International Conference, CICLing 2018, Hanoi, Vietnam, March 18-24, 2018, Revised Selected Papers, Part I
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Dependency-based semantic parsing for concept-level text analysis</b><br>
-		Soujanya Poria, Basant Agarwal, Alexander Gelbukh, Amir Hussain, and Newton Howard<br>
-        In International Conference on Intelligent Text Processing and Computational Linguistics, pp. 113-127. Springer, Berlin, Heidelberg, 2014.
-		<a href="https://nlp.cic.ipn.mx/Publications/2014/Dependency-Based%20Semantic%20Parsing%20for%20Concept-Level%20Text%20Analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>CASCADE: Contextual Sarcasm Detection in Online Discussion Forums</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Sruthi Gorantla • Erik Cambria • Roger Zimmermann • Rada Mihalcea<br> 
+        Proceedings of the 27th International Conference on Computational Linguistics, COLING 2018, Santa Fe, New Mexico, USA, August 20-26, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>The CLSA model: A novel framework for concept-level sentiment analysis</b><br>
-		Erik Cambria, Soujanya Poria, Federica Bisio, Rajiv Bajpai, and Iti Chaturvedi<br>
-        In International Conference on Intelligent Text Processing and Computational Linguistics, pp. 3-22. Springer, Cham, 2015.
-		<a href="https://ww.w.sentic.net/clsa-model.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>ICON: Interactive Conversational Memory Network for Multimodal Emotion Detection</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Rada Mihalcea • Erik Cambria • Roger Zimmermann<br> 
+        Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31 - November 4, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>OntoSenticNet: A commonsense ontology for sentiment analysis</b><br>
-		Mauro Dragoni, Soujanya Poria, and Erik Cambria<br>
-        IEEE Intelligent Systems 33, no. 3 (2018): 77-85.
-		<a href="https://ww.sentic.net/ontosenticnet.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>IARM: Inter-Aspect Relation Modeling with Memory Networks in Aspect-Based Sentiment Analysis</b> <br>
+        Navonil Majumder • Soujanya Poria • Alexander Gelbukh • Md. Akhtar • Erik Cambria • Asif Ekbal<br> 
+        Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31 - November 4, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentic API: a common-sense based API for concept-level sentiment analysis</b><br>
-		Erik Cambria, Soujanya Poria, Alexander Gelbukh, and Kenneth Kwok<br>
-        (2014).
-		<a href="https://dr.ntu.edu.sg/bitstream/10356/84835/1/Sentic%20API-%20A%20common-sense%20based%20API%20for%20concept-level%20sentiment%20analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Contextual Inter-modal Attention for Multi-modal Sentiment Analysis</b> <br>
+        Deepanway Ghosal • Md. Akhtar • Dushyant Chauhan • Soujanya Poria • Asif Ekbal • Pushpak Bhattacharyya<br> 
+        Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, Brussels, Belgium, October 31 - November 4, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Dependency tree-based rules for concept-level aspect-based sentiment analysis</b><br>
-		Soujanya Poria, Nir Ofek, Alexander Gelbukh, Amir Hussain, and Lior Rokach<br>
-        In Semantic Web Evaluation Challenge, pp. 41-47. Springer, Cham, 2014.
-		<a href="https://link.springer.com/chapter/10.1007%2F978-3-319-12024-9_5" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Self-Attentive Feature-Level Fusion for Multimodal Emotion Detection</b> <br>
+        Devamanyu Hazarika • Sruthi Gorantla • Soujanya Poria • Roger Zimmermann<br> 
+        IEEE 1st Conference on Multimedia Information Processing and Retrieval, MIPR 2018, Miami, FL, USA, April 10-12, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentic Demo: A hybrid concept-level aspect-based sentiment analysis toolkit</b><br>
-		Soujanya Poria, Alexander Gelbukh, B. Agarwal, E. Cambria, and N. Howard<br>
-        ESWC 2014 (2014).
-		<a href="http://mayor2.dia.fi.upm.es/oeg-upm/files/eswc2014/SemWebEval/ContLevelSentAnChallenge/eswc2014-challenges_submission_31.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Modeling Inter-Aspect Dependencies for Aspect-Based Sentiment Analysis</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Prateek Vij • Gangeshwar Krishnamurthy • Erik Cambria • Roger Zimmermann<br> 
+        Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT, New Orleans, Louisiana, USA, June 1-6, 2018, Volume 2 (Short Papers)
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Unsupervised commonsense knowledge enrichment for domain-specific sentiment analysis</b><br>
-		Nir Ofek, Soujanya Poria, Lior Rokach, Erik Cambria, Amir Hussain, and Asaf Shabtai<br>
-        Cognitive Computation 8, no. 3 (2016): 467-477.
-		<a href="https://idp.springer.com/authorize/casa?redirect_uri=https://link.springer.com/article/10.1007/s12559-015-9375-3&casa_token=if3SgT801uQAAAAA:yhDDLw7r7Z4hDBrQ8wbSGDS_TAiSwL0yPFijEdQsN-fCYHvUQ8j0zAg-RtSfSXIsXxLW8zz57_p7D4TQ8P8" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Conversational Memory Network for Emotion Recognition in Dyadic Dialogue Videos</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Amir Zadeh • Erik Cambria • Louis-Philippe Morency • Roger Zimmermann<br> 
+        Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, NAACL-HLT 2018, New Orleans, Louisiana, USA, June 1-6, 2018, Volume 1 (Long Papers)
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Bayesian deep convolution belief networks for subjectivity detection</b><br>
-		Iti Chaturvedi, Erik Cambria, Soujanya Poria, and Rajiv Bajpai<br>
-        In 2016 IEEE 16th International Conference on Data Mining Workshops (ICDMW), pp. 916-923. IEEE, 2016.
-		<a href="https://sentic.net/sentire2016chaturvedi.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Learning Visual Concepts in Images Using Temporal Convolutional Networks</b> <br>
+        Qian Chen • Iti Chaturvedi • Soujanya Poria • Erik Cambria • Lorenzo Malandri<br> 
+        IEEE Symposium Series on Computational Intelligence, SSCI 2018, Bangalore, India, November 18-21, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Developing a concept-level knowledge base for sentiment analysis in Singlish</b><br>
-		Rajiv Bajpai, Soujanya Poria, Danyuan Ho, and Erik Cambria<br>
-        In International Conference on Intelligent Text Processing and Computational Linguistics, pp. 347-361. Springer, Cham, 2016.
-		<a href="https://arxiv.org/pdf/1707.04408" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Singlish SenticNet: A Concept-Based Sentiment Resource for Singapore English</b> <br>
+        Danyuan Ho • Diyana Hamzah • Soujanya Poria • Erik Cambria<br> 
+        IEEE Symposium Series on Computational Intelligence, SSCI 2018, Bangalore, India, November 18-21, 2018
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>A common-sense based api for concept-level sentiment analysis</b><br>
-		Erik Cambria, Soujanya Poria, Alexander Gelbukh, and Kenneth Kwok<br>
-        Making Sense of Microposts (# Microposts2014) (2014): 2.
-		<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.648.9353&rep=rep1&type=pdf#page=27" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentiment Analysis, Basic Tasks of</b> <br>
+        Iti Chaturvedi • Soujanya Poria • Erik Cambria<br> 
+        Encyclopedia of Social Network Analysis and Mining, 2nd Edition
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>Multi-attention Recurrent Network for Human Communication Comprehension</b> <br>
+        Amir Zadeh • Paul Liang • Soujanya Poria • Prateek Vij • Erik Cambria • Louis-Philippe Morency<br> 
+        <a href="http://arxiv.org/abs/1802.00923">arXiv</a>
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Phonetic-enriched Text Representation for Chinese Sentiment Analysis with Reinforcement Learning</b><br>
-		Haiyun Peng, Yukun Ma, Soujanya Poria, Yang Li, and Erik Cambria<br>
-        arXiv preprint arXiv:1901.07880 (2019).
-		<a href="https://arxiv.org/pdf/1901.07880" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Memory Fusion Network for Multi-view Sequential Learning</b> <br>
+        Amir Zadeh • Paul Liang • Navonil Mazumder • Soujanya Poria • Erik Cambria • Louis-Philippe Morency<br> 
+        <a href="http://arxiv.org/abs/1802.00927">arXiv</a>
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>A Deep Learning Approach for Multimodal Deception Detection</b> <br>
+        Gangeshwar Krishnamurthy • Navonil Majumder • Soujanya Poria • Erik Cambria<br> 
+        <a href="http://arxiv.org/abs/1803.00344">arXiv</a>
+	</p>
+</div>
 
-## Dialogue systems/ Emotion recognition in conversations
+<div class="notice">
+	<p>
+        <b>Multimodal Sentiment Analysis: Addressing Key Issues and Setting up Baselines</b> <br>
+        Soujanya Poria • Navonil Majumder • Devamanyu Hazarika • Erik Cambria • Amir Hussain • Alexander Gelbukh<br> 
+        <a href="http://arxiv.org/abs/1803.07427">arXiv</a>
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Conversational memory network for emotion recognition in dyadic dialogue videos</b><br>
-		Devamanyu Hazarika, Soujanya Poria, Amir Zadeh, Erik Cambria, Louis-Philippe Morency, and Roger Zimmermann<br>
-        In Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), pp. 2122-2132. 2018.
-		<a href="https://www.aclweb.org/anthology/N18-1193.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>CASCADE: Contextual Sarcasm Detection in Online Discussion Forums</b> <br>
+        Devamanyu Hazarika • Soujanya Poria • Sruthi Gorantla • Erik Cambria • Roger Zimmermann • Rada Mihalcea<br> 
+        <a href="http://arxiv.org/abs/1805.06413">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Dialoguernn: An attentive rnn for emotion detection in conversations</b><br>
-		Navonil Majumder, Soujanya Poria, Devamanyu Hazarika, Rada Mihalcea, Alexander Gelbukh, and Erik Cambria<br>
-        In Proceedings of the AAAI Conference on Artificial Intelligence, vol. 33, pp. 6818-6825. 2019.
-		<a href="https://www.aaai.org/ojs/index.php/AAAI/article/download/4657/4535" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Anaphora and Coreference Resolution: A Review</b> <br>
+        Rhea Sukthanker • Soujanya Poria • Erik Cambria • Ramkumar Thirunavukarasu<br> 
+        <a href="http://arxiv.org/abs/1805.11824">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>MELD: A multimodal multi-party dataset for emotion recognition in conversations</b><br>
-		Soujanya Poria, Devamanyu Hazarika, Navonil Majumder, Gautam Naik, Erik Cambria, and Rada Mihalcea<br>
-        ACL (2019).
-		<a href="https://arxiv.org/pdf/1810.02508" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multimodal Sentiment Analysis using Hierarchical Fusion with Context Modeling</b> <br>
+        Navonil Majumder • Devamanyu Hazarika • Alexander Gelbukh • Erik Cambria • Soujanya Poria<br> 
+        <a href="http://arxiv.org/abs/1806.06228">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>ICON: interactive conversational memory network for multimodal emotion detection</b><br>
-		Devamanyu Hazarika, Soujanya Poria, Rada Mihalcea, Erik Cambria, and Roger Zimmermann<br>
-        In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pp. 2594-2604. 2018.
-		<a href="https://www.aclweb.org/anthology/D18-1280.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>MELD: A Multimodal Multi-Party Dataset for Emotion Recognition in Conversations</b> <br>
+        Soujanya Poria • Devamanyu Hazarika • Navonil Majumder • Gautam Naik • Erik Cambria • Rada Mihalcea<br> 
+        <a href="http://arxiv.org/abs/1810.02508">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Emotion recognition in conversation: Research challenges, datasets, and recent advances</b><br>
-		Soujanya Poria, Navonil Majumder, Rada Mihalcea, and Eduard Hovy<br>
-        IEEE Access 7 (2019): 100943-100953.
-		<a href="https://ieeexplore.ieee.org/iel7/6287639/8600701/08764449.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>DialogueRNN: An Attentive RNN for Emotion Detection in Conversations</b> <br>
+        Navonil Majumder • Soujanya Poria • Devamanyu Hazarika • Rada Mihalcea • Alexander Gelbukh • Erik Cambria<br> 
+        <a href="http://arxiv.org/abs/1811.00405">arXiv</a>
 	</p>
 </div>
 
+## 2017
+
 <div class="notice">
 	<p>
-        <b>Dialoguegcn: A graph convolutional neural network for emotion recognition in conversation</b><br>
-		Deepanway Ghosal, Navonil Majumder, Soujanya Poria, Niyati Chhaya, and Alexander Gelbukh<br>
-        arXiv preprint arXiv:1908.11540 (2019).
-		<a href="https://arxiv.org/pdf/1908.11540" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Novel symbolic and machine-learning approaches for text-based and multimodal sentiment analysis</b> <br>
+        Soujanya Poria<br> 
+        <a href="https://ethos.bl.uk/OrderDetails.do?uin=uk.bl.ethos.714680">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Dialogue Systems with Audio Context</b><br>
-		Tom Young, Vlad Pandelea, Soujanya Poria, and Erik Cambria<br>
-        Neurocomputing (2020).
-		<a href="https://www.sciencedirect.com/science/article/abs/pii/S0925231220300758" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Deep Learning-Based Document Modeling for Personality Detection from Text</b> <br>
+        Navonil Majumder • Soujanya Poria • Alexander Gelbukh • Erik Cambria<br> 
+        IEEE Intell. Syst.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Emotion Recognition in Conversations with Transfer Learning from Generative Conversation Modeling</b><br>
-		Devamanyu Hazarika, Soujanya Poria, Roger Zimmermann, and Rada Mihalcea<br>
-        arXiv preprint arXiv:1910.04980 (2019).
-		<a href="https://arxiv.org/pdf/1910.04980" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentiment Analysis Is a Big Suitcase</b> <br>
+        Erik Cambria • Soujanya Poria • Alexander Gelbukh • Mike Thelwall<br> 
+        IEEE Intell. Syst.
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>Ensemble application of convolutional neural networks and multiple kernel learning for multimodal sentiment analysis</b> <br>
+        Soujanya Poria • Haiyun Peng • Amir Hussain • Newton Howard • Erik Cambria<br> 
+        Neurocomputing
+	</p>
+</div>
 
-## Multimodal sentiment analysis
+<div class="notice">
+	<p>
+        <b>A review of affective computing: From unimodal analysis to multimodal fusion</b> <br>
+        Soujanya Poria • Erik Cambria • Rajiv Bajpai • Amir Hussain<br> 
+        Inf. Fusion
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>A review of affective computing: From unimodal analysis to multimodal fusion</b><br>
-		Soujanya Poria, Erik Cambria, Rajiv Bajpai, and Amir Hussain<br>
-        Information Fusion 37 (2017): 98-125.
-		<a href="https://dspace.stir.ac.uk/bitstream/1893/25490/1/affective-computing-review.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Context-Dependent Sentiment Analysis in User-Generated Videos</b> <br>
+        Soujanya Poria • Erik Cambria • Devamanyu Hazarika • Navonil Majumder • Amir Zadeh • Louis-Philippe Morency<br> 
+        Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics, ACL 2017, Vancouver, Canada, July 30 - August 4, Volume 1: Long Papers
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Fusing audio, visual and textual clues for sentiment analysis from multimodal content</b><br>
-		Soujanya Poria, Erik Cambria, Newton Howard, Guang-Bin Huang, and Amir Hussain<br>
-        Neurocomputing 174 (2016): 50-59.
-		<a href="https://ww.w.sentic.net/multimodal-sentiment-analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Benchmarking Multimodal Sentiment Analysis</b> <br>
+        Erik Cambria • Devamanyu Hazarika • Soujanya Poria • Amir Hussain • R. Subramanyam<br> 
+        Computational Linguistics and Intelligent Text Processing - 18th International Conference, CICLing 2017, Budapest, Hungary, April 17-23, 2017, Revised Selected Papers, Part II
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Deep convolutional neural network textual features and multiple kernel learning for utterance-level multimodal sentiment analysis</b><br>
-		Soujanya Poria, Erik Cambria, and Alexander Gelbukh<br>
-        In Proceedings of the 2015 conference on empirical methods in natural language processing, pp. 2539-2544. 2015.
-		<a href="https://www.aclweb.org/anthology/D15-1303.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Tensor Fusion Network for Multimodal Sentiment Analysis</b> <br>
+        Amir Zadeh • Minghai Chen • Soujanya Poria • Erik Cambria • Louis-Philippe Morency<br> 
+        Proceedings of the 2017 Conference on Empirical Methods in Natural Language Processing, EMNLP 2017, Copenhagen, Denmark, September 9-11, 2017
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Convolutional MKL based multimodal emotion recognition and sentiment analysis</b><br>
-		Soujanya Poria, Iti Chaturvedi, Erik Cambria, and Amir Hussain<br>
-        In 2016 IEEE 16th international conference on data mining (ICDM), pp. 439-448. IEEE, 2016.
-		<a href="https://dspace.stir.ac.uk/bitstream/1893/25317/1/convolutional-mkl-based-mulimodal-sentiment-analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multi-level Multiple Attentions for Contextual Multimodal Sentiment Analysis</b> <br>
+        Soujanya Poria • Erik Cambria • Devamanyu Hazarika • Navonil Majumder • Amir Zadeh • Louis-Philippe Morency<br> 
+        2017 IEEE International Conference on Data Mining, ICDM 2017, New Orleans, LA, USA, November 18-21, 2017
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Context-dependent sentiment analysis in user-generated videos</b><br>
-		Soujanya Poria, Erik Cambria, Devamanyu Hazarika, Navonil Majumder, Amir Zadeh, and Louis-Philippe Morency<br>
-        In Proceedings of the 55th annual meeting of the association for computational linguistics (volume 1: Long papers), pp. 873-883. 2017.
-		<a href="https://www.aclweb.org/anthology/P17-1081.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Developing a concept-level knowledge base for sentiment analysis in Singlish</b> <br>
+        Rajiv Bajpai • Soujanya Poria • Danyuan Ho • Erik Cambria<br> 
+        <a href="http://arxiv.org/abs/1707.04408">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Tensor fusion network for multimodal sentiment analysis</b><br>
-		Amir Zadeh, Minghai Chen, Soujanya Poria, Erik Cambria, and Louis-Philippe Morency<br>
-        EMNLP. (2017).
-		<a href="https://arxiv.org/pdf/1707.07250" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Tensor Fusion Network for Multimodal Sentiment Analysis</b> <br>
+        Amir Zadeh • Minghai Chen • Soujanya Poria • Erik Cambria • Louis-Philippe Morency<br> 
+        <a href="http://arxiv.org/abs/1707.07250">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Towards an intelligent framework for multimodal affective data analysis</b><br>
-		Soujanya Poria, Erik Cambria, Amir Hussain, and Guang-Bin Huang<br>
-        Neural Networks 63 (2015): 104-116.
-		<a href="https://dspace.stir.ac.uk/bitstream/1893/21310/1/Neural%20Networks%202014.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Benchmarking Multimodal Sentiment Analysis</b> <br>
+        Erik Cambria • Devamanyu Hazarika • Soujanya Poria • Amir Hussain • R. Subramanyam<br> 
+        <a href="http://arxiv.org/abs/1707.09538">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Ensemble application of convolutional neural networks and multiple kernel learning for multimodal sentiment analysis</b><br>
-		Soujanya Poria, Haiyun Peng, Amir Hussain, Newton Howard, and Erik Cambria<br>
-        Neurocomputing 261 (2017): 217-230.
-		<a href="https://w.sentic.net/cnn-and-mkl-for-multimodal-sentiment-analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Recent Trends in Deep Learning Based Natural Language Processing</b> <br>
+        Tom Young • Devamanyu Hazarika • Soujanya Poria • Erik Cambria<br> 
+        <a href="http://arxiv.org/abs/1708.02709">arXiv</a>
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multi-attention recurrent network for human communication comprehension</b><br>
-		Amir Zadeh, Paul Pu Liang, Soujanya Poria, Prateek Vij, Erik Cambria, and Louis-Philippe Morency<br>
-        In Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
-		<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/17390/16123" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Basic tasks of sentiment analysis</b> <br>
+        Iti Chaturvedi • Soujanya Poria • Erik Cambria<br> 
+        <a href="http://arxiv.org/abs/1710.06536">arXiv</a>
 	</p>
 </div>
+
+## 2016
 
 <div class="notice">
 	<p>
-        <b>Memory fusion network for multi-view sequential learning</b><br>
-		Amir Zadeh, Paul Pu Liang, Navonil Mazumder, Soujanya Poria, Erik Cambria, and Louis-Philippe Morency<br>
-        In Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
-		<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewPDFInterstitial/17341/16122" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Unsupervised Commonsense Knowledge Enrichment for Domain-Specific Sentiment Analysis</b> <br>
+        Nir Ofek • Soujanya Poria • Lior Rokach • Erik Cambria • Amir Hussain • Asaf Shabtai<br> 
+        Cogn. Comput.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multimodal language analysis in the wild: Cmu-mosei dataset and interpretable dynamic fusion graph</b><br>
-		AmirAli Bagher Zadeh, Paul Pu Liang, Soujanya Poria, Erik Cambria, and Louis-Philippe Morency<br>
-        In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 2236-2246. 2018.
-		<a href="https://www.aclweb.org/anthology/P18-1208.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Multilingual Sentiment Analysis: State of the Art and Independent Comparison of Techniques</b> <br>
+        Kia Dashtipour • Soujanya Poria • Amir Hussain • Erik Cambria • Ahmad Hawalah • Alexander Gelbukh • Qiang Zhou<br> 
+        Cogn. Comput.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multimodal sentiment analysis using hierarchical fusion with context modeling</b><br>
-		Navonil Majumder, Devamanyu Hazarika, Alexander Gelbukh, Erik Cambria, and Soujanya Poria<br>
-        Knowledge-Based Systems 161 (2018): 124-133.
-		<a href="https://arxiv.org/pdf/1806.06228" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Erratum to: Multilingual Sentiment Analysis: State of the Art and Independent Comparison of Techniques</b> <br>
+        Kia Dashtipour • Soujanya Poria • Amir Hussain • Erik Cambria • Ahmad Hawalah • Alexander Gelbukh • Qiang Zhou<br> 
+        Cogn. Comput.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multi-level multiple attentions for contextual multimodal sentiment analysis</b><br>
-		Soujanya Poria, Erik Cambria, Devamanyu Hazarika, Navonil Mazumder, Amir Zadeh, and Louis-Philippe Morency<br>
-        In 2017 IEEE International Conference on Data Mining (ICDM), pp. 1033-1038. IEEE, 2017.
-		<a href="https://ww.w.sentic.net/multiple-attentions-for-multimodal-sentiment-analysis.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Fusing audio, visual and textual clues for sentiment analysis from multimodal content</b> <br>
+        Soujanya Poria • Erik Cambria • Newton Howard • Guang-Bin Huang • Amir Hussain<br> 
+        Neurocomputing
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multimodal sentiment analysis: Addressing key issues and setting up the baselines</b><br>
-		Soujanya Poria, Navonil Majumder, Devamanyu Hazarika, Erik Cambria, Alexander Gelbukh, and Amir Hussain<br>
-        IEEE Intelligent Systems 33, no. 6 (2018): 17-25.
-		<a href="https://arxiv.org/pdf/1803.07427" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Aspect extraction for opinion mining with a deep convolutional neural network</b> <br>
+        Soujanya Poria • Erik Cambria • Alexander Gelbukh<br> 
+        Knowl. Based Syst.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Benchmarking multimodal sentiment analysis</b><br>
-		Erik Cambria, Devamanyu Hazarika, Soujanya Poria, Amir Hussain, and R. B. V. Subramanyam<br>
-        In International Conference on Computational Linguistics and Intelligent Text Processing, pp. 166-179. Springer, Cham, 2017.
-		<a href="https://arxiv.org/pdf/1707.09538" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Deeper Look into Sarcastic Tweets Using Deep Convolutional Neural Networks</b> <br>
+        Soujanya Poria • Erik Cambria • Devamanyu Hazarika • Prateek Vij<br> 
+        COLING 2016, 26th International Conference on Computational Linguistics, Proceedings of the Conference: Technical Papers, December 11-16, 2016, Osaka, Japan
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Contextual inter-modal attention for multi-modal sentiment analysis</b><br>
-		Deepanway Ghosal, Md Shad Akhtar, Dushyant Chauhan, Soujanya Poria, Asif Ekbal, and Pushpak Bhattacharyya<br>
-        In Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing, pp. 3454-3466. 2018.
-		<a href="https://www.aclweb.org/anthology/D18-1382.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>SenticNet 4: A Semantic Resource for Sentiment Analysis Based on Conceptual Primitives</b> <br>
+        Erik Cambria • Soujanya Poria • Rajiv Bajpai • Bj\"orn Schuller<br> 
+        COLING 2016, 26th International Conference on Computational Linguistics, Proceedings of the Conference: Technical Papers, December 11-16, 2016, Osaka, Japan
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multimodal sentiment analysis</b><br>
-		Soujanya Poria, Amir Hussain, and Erik Cambria<br>
-        Vol. 8. Cham, Switzerland: Springer, 2018.
-		<a href="https://link.springer.com/content/pdf/10.1007/978-3-319-95020-4.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Convolutional MKL Based Multimodal Emotion Recognition and Sentiment Analysis</b> <br>
+        Soujanya Poria • Iti Chaturvedi • Erik Cambria • Amir Hussain<br> 
+        IEEE 16th International Conference on Data Mining, ICDM 2016, December 12-15, 2016, Barcelona, Spain
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Multi-task Learning for Multi-modal Emotion Recognition and Sentiment Analysis</b><br>
-		Md Shad Akhtar, Dushyant Singh Chauhan, Deepanway Ghosal, Soujanya Poria, Asif Ekbal, and Pushpak Bhattacharyya<br>
-        arXiv preprint arXiv:1905.05812 (2019).
-		<a href="https://arxiv.org/pdf/1905.05812" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Bayesian Deep Convolution Belief Networks for Subjectivity Detection</b> <br>
+        Iti Chaturvedi • Erik Cambria • Soujanya Poria • Rajiv Bajpai<br> 
+        IEEE International Conference on Data Mining Workshops, ICDM Workshops 2016, December 12-15, 2016, Barcelona, Spain
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Human multimodal language in the wild: A novel dataset and interpretable dynamic fusion model</b><br>
-		Amir Zadeh, Paul Pu Liang, Soujanya Poria, Erik Cambria, and Louis-Philippe Morency<br>
-        In Association for Computational Linguistics. 2018.
-		<a href="https://www.aclweb.org/anthology/P18-1208.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentic LDA: Improving on LDA with semantic similarity for aspect-based sentiment analysis</b> <br>
+        Soujanya Poria • Iti Chaturvedi • Erik Cambria • Federica Bisio<br> 
+        2016 International Joint Conference on Neural Networks, IJCNN 2016, Vancouver, BC, Canada, July 24-29, 2016
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Factorized Multimodal Transformer for Multimodal Sequential Learning</b><br>
-		Amir Zadeh, Chengfeng Mao, Kelly Shi, Yiwei Zhang, Paul Pu Liang, Soujanya Poria, and Louis-Philippe Morency<br>
-        arXiv preprint arXiv:1911.09826 (2019).
-		<a href="https://arxiv.org/pdf/1911.09826" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Deeper Look into Sarcastic Tweets Using Deep Convolutional Neural Networks</b> <br>
+        Soujanya Poria • Erik Cambria • Devamanyu Hazarika • Prateek Vij<br> 
+        <a href="http://arxiv.org/abs/1610.08815">arXiv</a>
 	</p>
 </div>
 
+## 2015
+
 <div class="notice">
 	<p>
-        <b>WildMix Dataset and Spectro-Temporal Transformer Model for Monoaural Audio Source Separation</b><br>
-		Amir Zadeh, Tianjun Ma, Soujanya Poria, and Louis-Philippe Morency<br>
-        arXiv preprint arXiv:1911.09783 (2019).
-		<a href="https://arxiv.org/pdf/1911.09783" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentiment Data Flow Analysis by Means of Dynamic Linguistic Patterns</b> <br>
+        Soujanya Poria • Erik Cambria • Alexander Gelbukh • Federica Bisio • Amir Hussain<br> 
+        IEEE Comput. Intell. Mag.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Variational Fusion for Multimodal Sentiment Analysis</b><br>
-		Navonil Majumder, Soujanya Poria, Gangeshwar Krishnamurthy, Niyati Chhaya, Rada Mihalcea, and Alexander Gelbukh<br>
-        arXiv preprint arXiv:1908.06008 (2019).
-		<a href="https://arxiv.org/pdf/1908.06008" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Concept-Level Sentiment Analysis with Dependency-Based Semantic Parsing: A Novel Approach</b> <br>
+        Basant Agarwal • Soujanya Poria • Namita Mittal • Alexander Gelbukh • Amir Hussain<br> 
+        Cogn. Comput.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Speaker-Independent Multimodal Sentiment Analysis for Big Data</b><br>
-		Erik Cambria, Soujanya Poria, and Amir Hussain<br>
-        In Multimodal Analytics for Next-Generation Big Data Technologies and Applications, pp. 13-43. Springer, Cham, 2019.
-		<a href="https://link.springer.com/chapter/10.1007%2F978-3-319-97598-6_2" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Towards an intelligent framework for multimodal affective data analysis</b> <br>
+        Soujanya Poria • Erik Cambria • Amir Hussain • Guang-Bin Huang<br> 
+        Neural Networks
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Learning Visual Concepts in Images Using Temporal Convolutional Networks</b><br>
-		Chen Qian, Iti Chaturvedi, Soujanya Poria, Erik Cambria, and Lorenzo Malandri<br>
-        In 2018 IEEE Symposium Series on Computational Intelligence (SSCI), pp. 1280-1284. IEEE, 2018.
-		<a href="https://www.ntu.edu.sg/home/iti/pages/pdf/SSCI.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>AffectiveSpace 2: Enabling Affective Intuition for Concept-Level Sentiment Analysis</b> <br>
+        Erik Cambria • Jie Fu • Federica Bisio • Soujanya Poria<br> 
+        Proceedings of the Twenty-Ninth AAAI Conference on Artificial Intelligence, January 25-30, 2015, Austin, Texas, USA
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Proceedings of Grand Challenge and Workshop on Human Multimodal Language (Challenge-HML)</b><br>
-		Amir Zadeh, Paul Pu Liang, Louis-Philippe Morency, Soujanya Poria, Erik Cambria, and Stefan Scherer<br>
-        In Proceedings of Grand Challenge and Workshop on Human Multimodal Language (Challenge-HML). 2018.
-		<a href="https://www.aclweb.org/anthology/W18-3300.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>The CLSA Model: A Novel Framework for Concept-Level Sentiment Analysis</b> <br>
+        Erik Cambria • Soujanya Poria • Federica Bisio • Rajiv Bajpai • Iti Chaturvedi<br> 
+        Computational Linguistics and Intelligent Text Processing - 16th International Conference, CICLing 2015, Cairo, Egypt, April 14-20, 2015, Proceedings, Part II
 	</p>
 </div>
 
-## NLP applications/ Machine learning
+<div class="notice">
+	<p>
+        <b>Modelling Public Sentiment in Twitter: Using Linguistic Patterns to Enhance Supervised Learning</b> <br>
+        Prerna Chikersal • Soujanya Poria • Erik Cambria • Alexander Gelbukh • Chng Siong<br> 
+        Computational Linguistics and Intelligent Text Processing - 16th International Conference, CICLing 2015, Cairo, Egypt, April 14-20, 2015, Proceedings, Part II
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Recent trends in deep learning based natural language processing</b><br>
-		Tom Young, Devamanyu Hazarika, Soujanya Poria, and Erik Cambria<br>
-        ieee Computational intelligenCe magazine 13, no. 3 (2018): 55-75.
-		<a href="https://arxiv.org/pdf/1708.02709" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Deep Convolutional Neural Network Textual Features and Multiple Kernel Learning for Utterance-level Multimodal Sentiment Analysis</b> <br>
+        Soujanya Poria • Erik Cambria • Alexander Gelbukh<br> 
+        Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing, EMNLP 2015, Lisbon, Portugal, September 17-21, 2015
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Deep learning-based document modeling for personality detection from text</b><br>
-		Navonil Majumder, Soujanya Poria, Alexander Gelbukh, and Erik Cambria<br>
-        IEEE Intelligent Systems 32, no. 2 (2017): 74-79.
-		<a href="https://ww.w.sentic.net/deep-learning-based-personality-detection.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>SeNTU: Sentiment Analysis of Tweets by Combining a Rule-based Classifier with Supervised Learning</b> <br>
+        Prerna Chikersal • Soujanya Poria • Erik Cambria<br> 
+        Proceedings of the 9th International Workshop on Semantic Evaluation, SemEval@NAACL-HLT 2015, Denver, Colorado, USA, June 4-5, 2015
 	</p>
 </div>
 
+## 2014
 
 <div class="notice">
 	<p>
-        <b>Common sense knowledge based personality recognition from text</b><br>
-		Soujanya Poria, Alexandar Gelbukh, Basant Agarwal, Erik Cambria, and Newton Howard<br>
-        In Mexican International Conference on Artificial Intelligence, pp. 484-496. Springer, Berlin, Heidelberg, 2013.
-		<a href="http://www.academia.edu/download/50470968/Common_Sense_Knowledge_Based_Personality20161121-7108-102xmoe.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentic patterns: Dependency-based rules for concept-level sentiment analysis</b> <br>
+        Soujanya Poria • Erik Cambria • Grégoire Winterstein • Guang-Bin Huang<br> 
+        Knowl. Based Syst.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Fuzzy clustering for semi-supervised learning–case study: Construction of an emotion lexicon</b><br>
-		Soujanya Poria, Alexander Gelbukh, Dipankar Das, and Sivaji Bandyopadhyay<br>
-        In Mexican International Conference on Artificial Intelligence, pp. 73-86. Springer, Berlin, Heidelberg, 2012.
-		<a href="https://www.researchgate.net/profile/Soujanya_Poria/publication/258351926_Fuzzy_Clustering_for_Semi-Supervised_Learning-_Case_study_Construction_of_an_Emotion_Lexicon/data/00b7d52808e7ccbe32000000/Fuzzy-Clustering-for-Semi-Supervised-Learning-Case-study-Construction-of-an-Emotion-Lexicon.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>EmoSenticSpace: A novel framework for affective common-sense reasoning</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Erik Cambria • Amir Hussain • Guang-Bin Huang<br> 
+        Knowl. Based Syst.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Music genre classification: A semi-supervised approach</b><br>
-		Soujanya Poria, Alexander Gelbukh, Amir Hussain, Sivaji Bandyopadhyay, and Newton Howard<br>
-        In Mexican Conference on Pattern Recognition, pp. 254-263. Springer, Berlin, Heidelberg, 2013.
-		<a href="https://link.springer.com/content/pdf/10.1007/978-3-642-38989-4_26.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Rule-Based Approach to Aspect Extraction from Product Reviews</b> <br>
+        Soujanya Poria • Erik Cambria • Lun-Wei Ku • Chen Gui • Alexander Gelbukh<br> 
+        Proceedings of the Second Workshop on Natural Language Processing for Social Media, SocialNLP@COLING 2014, Dublin, Ireland, August 24, 2014
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Semantic textual entailment recognition using UNL</b><br>
-		Partha Pakray, Soujanya Poria, Sivaji Bandyopadhyay, and Alexander Gelbukh<br>
-        Polibits 43 (2011): 23-27.
-		<a href="http://www.scielo.org.mx/pdf/poli/n43/n43a3.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Dependency-Based Semantic Parsing for Concept-Level Text Analysis</b> <br>
+        Soujanya Poria • Basant Agarwal • Alexander Gelbukh • Amir Hussain • Newton Howard<br> 
+        Computational Linguistics and Intelligent Text Processing - 15th International Conference, CICLing 2014, Kathmandu, Nepal, April 6-12, 2014, Proceedings, Part I
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>A Textual Entailment System using Anaphora Resolution</b><br>
-		Partha Pakray, Snehasis Neogi, Pinaki Bhaskar, Soujanya Poria, Sivaji Bandyopadhyay, and Alexander F. Gelbukh<br>
-        In TAC. 2011.
-		<a href="https://www.sivajibandyopadhyay.com/Pinaki_Bhaskar/Publication_files/JU_CSE_TAC.proceedings.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Dependency Tree-Based Rules for Concept-Level Aspect-Based Sentiment Analysis</b> <br>
+        Soujanya Poria • Nir Ofek • Alexander Gelbukh • Amir Hussain • Lior Rokach<br> 
+        Semantic Web Evaluation Challenge - SemWebEval 2014 at ESWC 2014, Anissaras, Crete, Greece, May 25-29, 2014, Revised Selected Papers
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>JU_CSE_TAC: Textual Entailment Recognition System at TAC RTE-6</b><br>
-		Partha Pakray, Santanu Pal, Soujanya Poria, Sivaji Bandyopadhyay, and Alexander F. Gelbukh<br>
-        In TAC. 2010.
-		<a href="https://www.researchgate.net/profile/Dr_Partha_Pakray/publication/260368705_JU_CSE_TAC_Textual_Entailment_Recognition_System_at_TAC_RTE-6/links/0f317530effb081d8d000000/JU-CSE-TAC-Textual-Entailment-Recognition-System-at-TAC-RTE-6.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentic API: A Common and Common-Sense Knowledge API for Cognition-Driven Sentiment Analysis</b> <br>
+        Erik Cambria • Soujanya Poria • Alexander Gelbukh • Kenneth Kwok<br> 
+        Proceedings of the the 4th Workshop on Making Sense of Microposts co-located with the 23rd International World Wide Web Conference (WWW 2014), Seoul, Korea, April 7th, 2014
 	</p>
 </div>
+
+## 2013
 
 <div class="notice">
 	<p>
-        <b>A deep learning approach for multimodal deception detection</b><br>
-		Gangeshwar Krishnamurthy, Navonil Majumder, Soujanya Poria, and Erik Cambria<br>
-        arXiv preprint arXiv:1803.00344 (2018).
-		<a href="https://arxiv.org/pdf/1803.00344" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Enhanced SenticNet with Affective Labels for Concept-Based Opinion Mining</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Amir Hussain • Newton Howard • Dipankar Das • Sivaji Bandyopadhyay<br> 
+        IEEE Intell. Syst.
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>A classifier based approach to emotion lexicon construction</b><br>
-		Dipankar Das, Soujanya Poria, and Sivaji Bandyopadhyay<br>
-        In International Conference on Application of Natural Language to Information Systems, pp. 320-326. Springer, Berlin, Heidelberg, 2012.
-		<a href="https://www.researchgate.net/profile/Soujanya_Poria/publication/262322545_A_Classifier_Based_Approach_to_Emotion_Lexicon_Construction/links/547df5220cf241dc999260d7.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Review of Artificial Intelligence and Biologically Inspired Computational Approaches to Solving Issues in Narrative Financial Disclosure</b> <br>
+        Saliha Minhas • Soujanya Poria • Amir Hussain • Khalid Hussainey<br> 
+        Advances in Brain Inspired Cognitive Systems - 6th International Conference, BICS 2013, Beijing, China, June 9-11, 2013. Proceedings
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Anaphora and coreference resolution: A review</b><br>
-		Rhea Sukthanker, Soujanya Poria, Erik Cambria, and Ramkumar Thirunavukarasu<br>
-        arXiv preprint arXiv:1805.11824 (2018).
-		<a href="https://arxiv.org/pdf/1805.11824" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Music Genre Classification: A Semi-supervised Approach</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Amir Hussain • Sivaji Bandyopadhyay • Newton Howard<br> 
+        Pattern Recognition - 5th Mexican Conference, MCPR 2013, Querétaro, Mexico, June 26-29, 2013. Proceedings
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>A review of artificial intelligence and biologically inspired computational approaches to solving issues in narrative financial disclosure</b><br>
-		Saliha Minhas, Soujanya Poria, Amir Hussain, and Khalid Hussainey<br>
-        In International Conference on Brain Inspired Cognitive Systems, pp. 317-327. Springer, Berlin, Heidelberg, 2013.
-		<a href="https://link.springer.com/chapter/10.1007/978-3-642-38786-9_36" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Common Sense Knowledge Based Personality Recognition from Text</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Basant Agarwal • Erik Cambria • Newton Howard<br> 
+        Advances in Soft Computing and Its Applications - 12th Mexican International Conference on Artificial Intelligence, MICAI 2013, Mexico City, Mexico, November 24-30, 2013, Proceedings, Part II
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentic computing for social media analysis, representation, and retrieval</b><br>
-		Erik Cambria, Marco Grassi, Soujanya Poria, and Amir Hussain<br>
-        In Social media retrieval, pp. 191-215. Springer, London, 2013.
-		<a href="https://link.springer.com/chapter/10.1007/978-1-4471-4555-4_9" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Erratum: Common Sense Knowledge Based Personality Recognition from Text</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Basant Agarwal • Erik Cambria • Newton Howard<br> 
+        Advances in Soft Computing and Its Applications - 12th Mexican International Conference on Artificial Intelligence, MICAI 2013, Mexico City, Mexico, November 24-30, 2013, Proceedings, Part II
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>The Nitty–GRITties of Success: Computational Analysis of Grit From Language</b><br>
-		Tushar Maheshwari, Aishwarya Reganti, Soujanya Poria, and Rada Mihalcea<br>
-        IEEE Access 7 (2019): 179364-179372.
-		<a href="https://ieeexplore.ieee.org/iel7/6287639/8600701/08891742.pdf" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Sentic Computing for Social Media Analysis, Representation, and Retrieval</b> <br>
+        Erik Cambria • Marco Grassi • Soujanya Poria • Amir Hussain<br> 
+        Social Media Retrieval
 	</p>
 </div>
 
+## 2012
+
 <div class="notice">
 	<p>
-        <b>An Attention-Based Model for Learning Dynamic Interaction Networks</b><br>
-		Sandro Cavallari, Soujanya Poria, Erik Cambria, Vincent W. Zheng, and Hongyun Cai<br>
-        In 2019 International Joint Conference on Neural Networks (IJCNN), pp. 1-8. IEEE, 2019.
-		<a href="https://ieeexplore.ieee.org/abstract/document/8852191/" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Enriching SenticNet Polarity Scores through Semi-Supervised Fuzzy Clustering</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Erik Cambria • Dipankar Das • Sivaji Bandyopadhyay<br> 
+        12th IEEE International Conference on Data Mining Workshops, ICDM Workshops, Brussels, Belgium, December 10, 2012
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>SMSFR: SMS-Based FAQ Retrieval System</b> <br>
+        Partha Pakray • Santanu Pal • Soujanya Poria • Sivaji Bandyopadhyay • Alexander Gelbukh<br> 
+        Advances in Computational Intelligence - 11th Mexican International Conference on Artificial Intelligence, MICAI 2012, San Luis Potosí, Mexico, October 27 - November 4, 2012. Revised Selected Papers, Part II
+	</p>
+</div>
 
-## Sarcasm detection
+<div class="notice">
+	<p>
+        <b>Fuzzy Clustering for Semi-supervised Learning - Case Study: Construction of an Emotion Lexicon</b> <br>
+        Soujanya Poria • Alexander Gelbukh • Dipankar Das • Sivaji Bandyopadhyay<br> 
+        Advances in Artificial Intelligence - 11th Mexican International Conference on Artificial Intelligence, MICAI 2012, San Luis Potosí, Mexico, October 27 - November 4, 2012. Revised Selected Papers, Part I
+	</p>
+</div>
 
 <div class="notice">
 	<p>
-        <b>Cascade: Contextual sarcasm detection in online discussion forums</b><br>
-		Devamanyu Hazarika, Soujanya Poria, Sruthi Gorantla, Erik Cambria, Roger Zimmermann, and Rada Mihalcea<br>
-        COLING (2018).
-		<a href="https://arxiv.org/pdf/1805.06413" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Classifier Based Approach to Emotion Lexicon Construction</b> <br>
+        Dipankar Das • Soujanya Poria • Sivaji Bandyopadhyay<br> 
+        Natural Language Processing and Information Systems - 17th International Conference on Applications of Natural Language to Information Systems, NLDB 2012, Groningen, The Netherlands, June 26-28, 2012. Proceedings
 	</p>
 </div>
 
+## 2011
+
 <div class="notice">
 	<p>
-        <b>A deeper look into sarcastic tweets using deep convolutional neural networks</b><br>
-		Soujanya Poria, Erik Cambria, Devamanyu Hazarika, and Prateek Vij<br>
-        COLING. (2016).
-		<a href="https://arxiv.org/pdf/1610.08815" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>Semantic Textual Entailment Recognition using UNL</b> <br>
+        Partha Pakray • Soujanya Poria • Sivaji Bandyopadhyay • Alexander Gelbukh<br> 
+        Polibits
 	</p>
 </div>
 
 <div class="notice">
 	<p>
-        <b>Sentiment and sarcasm classification with multitask learning</b><br>
-		Navonil Majumder, Soujanya Poria, Haiyun Peng, Niyati Chhaya, Erik Cambria, and Alexander Gelbukh<br>
-        IEEE Intelligent Systems 34, no. 3 (2019): 38-43.
-		<a href="https://arxiv.org/pdf/1901.08014" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>A Textual Entailment System using Anaphora Resolution</b> <br>
+        Partha Pakray • Snehasis Neogi • Pinaki Bhaskar • Soujanya Poria • Sivaji Bandyopadhyay • Alexander Gelbukh<br> 
+        Proceedings of the Fourth Text Analysis Conference, TAC 2011, Gaithersburg, Maryland, USA, November 14-15, 2011
 	</p>
 </div>
+
+## 2010
 
 <div class="notice">
 	<p>
-        <b>Towards Multimodal Sarcasm Detection (An _Obviously_ Perfect Paper)</b><br>
-		Santiago Castro, Devamanyu Hazarika, Verónica Pérez-Rosas, Roger Zimmermann, Rada Mihalcea, and Soujanya Poria<br>
-        ACL. (2019).
-		<a href="https://arxiv.org/pdf/1906.01815" target="_blank" class="btn btn--info btn--small" role="button">pdf</a>
+        <b>JU_CSE_TAC: Textual Entailment Recognition System at TAC RTE-6</b> <br>
+        Partha Pakray • Santanu Pal • Soujanya Poria • Sivaji Bandyopadhyay • Alexander Gelbukh<br> 
+        Proceedings of the Third Text Analysis Conference, TAC 2010, Gaithersburg, Maryland, USA, November 15-16, 2010
 	</p>
 </div>
