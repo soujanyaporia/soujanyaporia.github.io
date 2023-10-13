@@ -14,12 +14,9 @@ toc_sticky: true
 ## Research Interests
 
 - Natural language processing
-- Question answering using knowledge bases and commonsense
-- Argumentation mining
-- Sarcasm detection
-- Sentiment analysis and emotion recognition
-- Understanding affect in conversations
-- Personalized, empathetic dialogue generation
+- Large Language Models (LLMs)
+- Responsible/ Safe LLMs
+- Trustworthy LLMs
 - Multimodal machine learning
 
 ## Grants
