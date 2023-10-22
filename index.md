@@ -25,6 +25,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>EMNLP 2023</h4>
+  <p> Four papers accepted at EMNLP 2023. Congratulations to all the co-authors!
+  </p>
+</div>
+<div class="notice--success">
   <h4>IEEE 10 to Watch in AI</h4>
   <p> Excited to be named as one of <a href = "https://ieeexplore.ieee.org/document/10111517">IEEE's 2022 edition of 10 to Watch in AI</a>. Thanks to my colleagues and students. Find the complete list <a href = "/assets/pdfs/AIs_10_to_Watch_2022.pdf">here</a>.
   </p>
