@@ -25,6 +25,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>Young Scientist Award (YSA) 2023</h4>
+  <p> Excited to be one of the recipients of Singapore's Young Scientist Award! Very thankful to all my collaborators and students.
+  </p>
+</div>
+<div class="notice--success">
   <h4>EMNLP 2023</h4>
   <p> Four papers accepted at EMNLP 2023. Congratulations to all the co-authors!
   </p>
