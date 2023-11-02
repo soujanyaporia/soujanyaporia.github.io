@@ -48,12 +48,14 @@ toc_sticky: true
 
 ## Awards
 
-- Presidential Postdoctoral Fellowship (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
+- President's Young Scientist Award, Singapore (2023)
+- MIT Technology Review 35 under 35 Asia Pacific (2023)
+- IEEE CIS Outstanding Early Career Award (2024)
+- IEEE IS 10 to Watch in AI (2022)
+- Aminer's AI2000 one of the most influential researchers 2023 (honorable mention)
+- Presidential Postdoctoral Fellowship 2018 (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
 - IEEE CIM Outstanding Paper Award 2021
 - Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
-- IMPACT International Research Scholarship Award, University of Stirling
-- Tata Consultancy Best Undergraduate Software Project Award: gold medal, Jadavpur University
-- Best student paper, MICAI 2012, Mexico
 
 ## Editorship & Chair
 
