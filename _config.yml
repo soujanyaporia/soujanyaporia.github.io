@@ -120,7 +120,7 @@ author:
        url: mailto:sporia@sutd.edu.sg
      - label: "Lab's Website"
        icon: "fas fa-fw fa-link"
-       url: "https://declare-lab.net"
+       url: "https://declare-lab.github.io"
      - label: "Twitter"
        icon: "fab fa-fw fa-twitter"
        url: "https://twitter.com/soujanyaporia"
