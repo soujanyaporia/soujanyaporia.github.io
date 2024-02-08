@@ -11,37 +11,52 @@ toc_sticky: true
 articlecolour: "#00001a"
 ---
 
-## 2023
+## 2024
 <div class="notice">
 	<p>
         <b>Chain of Knowledge: A Framework for Grounding Large Language Models with Structured Knowledge Bases</b> <br>
        X Li • R Zhao • YK Chia • B Ding • L Bing • S Joty • S Poria<br> 
+		ICLR 2024
 	</p>
 </div>
 <div class="notice">
 	<p>
-        <b>LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models</b> <br>
-       Z Hu • Y Lan • L Wang • W Xu • EP Lim • RKW Lee • L Bing • S Poria<br> 
+        <b>Consistency Guided Knowledge Retrieval and Denoising in LLMs for Zero-shot Document-level Relation Triplet Extraction
+</b> <br>
+       Q Sun • K Huang • X Yang • R Tong • K Zhang • S Poria<br> 
+		WWW 2024
 	</p>
 </div>
 <div class="notice">
 	<p>
         <b>Beyond Words: A Comprehensive Survey of Sentence Representations</b> <br>
        AR Kashyap • TT Nguyen • V Schlegel • S Winkler • SK Ng • S Poria<br> 
-	</p>
-</div>
-<div class="notice">
-	<p>
-        <b>Domain-Expanded ASTE: Rethinking Generalization in Aspect Sentiment Triplet Extraction</b> <br>
-       C Ken • H Chen • W Han • G Chen • SM Aljunied • S Poria • L Bing<br> 
+		EACL 2024
 	</p>
 </div>
 <div class="notice">
 	<p>
         <b>INSTRUCTEVAL: Towards Holistic Evaluation of Instruction-Tuned Large Language Models</b> <br>
        C Ken • P Hong • L Bing • S Poria<br> 
+		EACL Scale-LLM 2024
 	</p>
 </div>
+## 2023
+<div class="notice">
+	<p>
+        <b>LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models</b> <br>
+       Z Hu • Y Lan • L Wang • W Xu • EP Lim • RKW Lee • L Bing • S Poria<br> 
+		EMNLP 2023
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Domain-Expanded ASTE: Rethinking Generalization in Aspect Sentiment Triplet Extraction</b> <br>
+       C Ken • H Chen • W Han • G Chen • SM Aljunied • S Poria • L Bing<br> 
+	</p>
+</div>
+
 <div class="notice">
 	<p>
         <b>Flacuna: Unleashing the Problem Solving Power of Vicuna using FLAN Fine-Tuning</b> <br>
