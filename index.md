@@ -25,6 +25,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>COLING</h4>
+  <p> We got one paper accepted at COLING. Congratulations to all the co-authors!
+  </p>
+</div>
+<div class="notice--success">
   <h4>ICLR, EACL and WWW</h4>
   <p> We got one paper at ICLR, one at EACL, and one at WWW. Congratulations to all the co-authors!
   </p>
