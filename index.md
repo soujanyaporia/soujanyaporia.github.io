@@ -24,7 +24,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     Our lab is called [*DeCLaRe Lab*](https://declare-lab.net). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
     
 # News
-
+<div class="notice--success">
+  <h4>New Work on Multimodal Reasoning</h4>
+  <p> Are LLMs good enough to solve algorithmic puzzles? Check out our new work- <a href="https://github.com/declare-lab/puzzle-reasoning">https://github.com/declare-lab/resta</a>
+  </p>
+</div>
 <div class="notice--success">
   <h4>New Work on AI safety</h4>
   <p> Check out our new work- <a href="https://github.com/declare-lab/resta">https://github.com/declare-lab/resta</a>
