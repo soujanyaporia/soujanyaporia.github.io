@@ -26,7 +26,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 # News
 <div class="notice--success">
   <h4>New Work on Multimodal Reasoning</h4>
-  <p> Are LLMs good enough to solve algorithmic puzzles? Check out our new work- <a href="https://github.com/declare-lab/puzzle-reasoning">https://github.com/declare-lab/resta</a>
+  <p> Are LLMs good enough to solve algorithmic puzzles? Check out our new work- <a href="https://github.com/declare-lab/puzzle-reasoning">https://github.com/declare-lab/puzzle-reasoning</a>
   </p>
 </div>
 <div class="notice--success">
