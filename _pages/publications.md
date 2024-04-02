@@ -54,6 +54,30 @@ articlecolour: "#00001a"
 
 <div class="notice">
 	<p>
+        <b>Adapter Pruning using Tropical Characterization</b> <br>
+       R Bhardwaj • T Vaidya • S Poria<br> 
+		EMNLP 2023 Findings
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>Language guided visual question answering: Elevate your multimodal language model using knowledge-enriched prompts</b> <br>
+       D Ghosal • N Majumder • RKW Lee • R Mihalcea • S Poria<br> 
+		EMNLP 2023 Findings
+	</p>
+</div>
+
+<div class="notice">
+	<p>
+        <b>kNN-CM: A Non-parametric Inference-Phase Adaptation of Parametric Text Classifiers</b> <br>
+       R Bhardwaj • Y Li • N Majumder • B Cheng • S Poria<br> 
+		EMNLP 2023 Findings
+	</p>
+</div>
+
+<div class="notice">
+	<p>
         <b>LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models</b> <br>
        Z Hu • Y Lan • L Wang • W Xu • EP Lim • RKW Lee • L Bing • S Poria<br> 
 		EMNLP 2023
