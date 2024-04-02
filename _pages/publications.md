@@ -42,6 +42,14 @@ articlecolour: "#00001a"
 	</p>
 </div>
 
+<div class="notice">
+	<p>
+        <b>SAS Video-QA: Self-Adaptive Sampling for Efficient Video Question-Answering</b> <br>
+       W Han • H Chen • M Kan • S Poria<br> 
+	NAACL 2024 Findings.
+	</p>
+</div>
+
 ## 2023
 
 <div class="notice">
@@ -65,12 +73,7 @@ articlecolour: "#00001a"
        D Ghosal • C Ken • N Majumder • S Poria<br> 
 	</p>
 </div>
-<div class="notice">
-	<p>
-        <b>SAS Video-QA: Self-Adaptive Sampling for Efficient Video Question-Answering</b> <br>
-       W Han • H Chen • M Kan • S Poria<br> 
-	</p>
-</div>
+
 <div class="notice">
 	<p>
         <b>Red-Teaming Large Language Models using Chain of Utterances for Safety-Alignment</b> <br>
