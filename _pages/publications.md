@@ -14,6 +14,22 @@ articlecolour: "#00001a"
 ## 2024
 <div class="notice">
 	<p>
+        <b>Mustango: Toward controllable text-to-music generation</b> <br>
+       J Melechovsky • Z Guo • D Ghosal • N Majumder • D Herremans • S Poria
+<br> 
+		NAACL 2024
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>Understanding the Capabilities and Limitations of Large Language Models for Cultural Commonsense</b> <br>
+       S Shen • L Logeswaran • M Lee • H Lee • S Poria • R Mihalcea
+<br> 
+		NAACL 2024
+	</p>
+</div>
+<div class="notice">
+	<p>
         <b>Chain of Knowledge: A Framework for Grounding Large Language Models with Structured Knowledge Bases</b> <br>
        X Li • R Zhao • YK Chia • B Ding • L Bing • S Joty • S Poria<br> 
 		ICLR 2024
@@ -46,7 +62,15 @@ articlecolour: "#00001a"
 	<p>
         <b>SAS Video-QA: Self-Adaptive Sampling for Efficient Video Question-Answering</b> <br>
        W Han • H Chen • M Kan • S Poria<br> 
-	NAACL 2024 Findings.
+	NAACL 2024 Findings
+	</p>
+</div>
+<div class="notice">
+	<p>
+        <b>CM-TTS: Enhancing Real Time Text-to-Speech Synthesis Efficiency through Weighted Samplers and Consistency Models</b> <br>
+       Xiang Li • Fan Bu • Ambuj Mehrish • Yingting Li • Jiale Han • Bo Cheng • Soujanya Poria
+<br> 
+		NAACL 2024 Findings
 	</p>
 </div>
 
