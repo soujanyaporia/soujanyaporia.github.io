@@ -26,12 +26,12 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 # News
 <div class="notice--success">
   <h4>New Research Grant from Meta</h4>
-  <p>we are thrilled to receive a research grant from FAIR, Meta! Thank you! Meta.</a>
+  <p> We are thrilled to receive a research grant from FAIR, Meta! Thank you! Meta.
   </p>
 </div>
 <div class="notice--success">
   <h4>NAACL 2024</h4>
-  <p>Four papers accepted at NAACL 2024. Congratulations to Ambuj, Deepanway, Siqi, Ambuj, Yingting, Navonil, Wei, and all other collaborators!</a>
+  <p>Four papers accepted at NAACL 2024. Congratulations to Ambuj, Deepanway, Siqi, Ambuj, Yingting, Navonil, Wei, and all other collaborators!
   </p>
 </div>
 <div class="notice--success">
