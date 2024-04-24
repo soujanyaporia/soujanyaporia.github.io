@@ -25,6 +25,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>Google's Gemma Academic Program Award!</h4>
+  <p> We are thrilled to receive a research grant from Google. Full credits to my student, Rishabh! 
+  </p>
+</div>
+<div class="notice--success">
   <h4>New Research Grant from Meta</h4>
   <p> We are thrilled to receive a research grant from FAIR, Meta! Thank you! Meta.
   </p>
