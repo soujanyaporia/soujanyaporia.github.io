@@ -25,6 +25,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>ACL 2024</h4>
+  <p> We got four papers accepted at ACL 2024! Congratulations to my awesome collaborators.
+  </p>
+</div>
+<div class="notice--success">
   <h4>Google's Gemma Academic Program Award!</h4>
   <p> We are thrilled to receive a research grant from Google. Full credits to my student, Rishabh! 
   </p>
