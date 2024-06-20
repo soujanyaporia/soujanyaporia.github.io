@@ -25,6 +25,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>Award at NAACL 2024</h4>
+  <p> Siqi's paper got the "Social Impact Award" at NAACL 2024. Congratulations to all my awesome co-authors and kudos to Siqi for the tremendous amount of hard work. <a href="https://arxiv.org/pdf/2405.04655">Read the paper</a>.
+  </p>
+</div>
+<div class="notice--success">
   <h4>ACL 2024</h4>
   <p> We got four papers accepted at ACL 2024! Congratulations to my awesome collaborators.
   </p>
