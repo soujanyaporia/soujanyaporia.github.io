@@ -13,7 +13,7 @@ logo:
     I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
     <br>
     <br>
-    Our lab is called [*DeCLaRe Lab*](https://declare-lab.net). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more."
+    Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more."
 ---
 Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are Large Language Models, Multimodal AI, and Natural Language Processing. At present, I am a <b>Provost's Chair Early Career Professor</b> at the Singapore University of Technology and Design (SUTD), Singapore. I was also part of the Institute of High-Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded the prestigious NTU presidential postdoctoral fellowship.
     <br>
@@ -21,7 +21,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
     <br>
     <br>
-    Our lab is called [*DeCLaRe Lab*](https://declare-lab.net). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
+    Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
     
 # News
 <div class="notice--success">
