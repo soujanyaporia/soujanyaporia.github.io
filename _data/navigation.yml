@@ -10,6 +10,8 @@ main:
     url: /resources/
   - title: "DeCLaRe Lab"
     url: https://declare-lab.github.io/
+  - title: "Walled AI"
+    url: https://walled.ai/
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
