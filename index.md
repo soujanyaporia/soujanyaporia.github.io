@@ -26,7 +26,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 # News
 <div class="notice--success">
   <h4>Provost's Chair Early Career Professor</h4>
-  <p>I am thrilled to share that I have been conferred by SUTD the prestigious Provost's Chair Early Career Professorship. Thanks to all my students, collaborators, and colleagues.</a>.
+  <p>I am thrilled to share that I have been conferred by SUTD the prestigious Provost's Chair Early Career Professorship. Thanks to all my students, collaborators, and colleagues.
   </p>
 </div>
 <div class="notice--success">
