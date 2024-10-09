@@ -26,6 +26,11 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 # News
 <div class="notice--success">
   <h4>EMNLP 2024</h4>
+  <p>One demo paper accepted at EMNLP 2024. 
+  </p>
+</div>
+<div class="notice--success">
+  <h4>EMNLP 2024</h4>
   <p>Two papers accepted at EMNLP 2024. 
   </p>
 </div>
