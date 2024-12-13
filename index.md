@@ -25,13 +25,18 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
-  <h4>EMNLP 2024</h4>
-  <p>One demo paper accepted at EMNLP 2024. 
+  <h4>AAAI 2025</h4>
+  <p>One paper is accepted at AAAI 2025 (senior member track). [Read the paper here](https://arxiv.org/abs/2410.16315). 
   </p>
 </div>
 <div class="notice--success">
   <h4>EMNLP 2024</h4>
-  <p>Two papers accepted at EMNLP 2024. 
+  <p>One demo paper accepted at EMNLP 2024. [Read the paper here](https://arxiv.org/abs/2408.03837). 
+  </p>
+</div>
+<div class="notice--success">
+  <h4>EMNLP 2024</h4>
+  <p>Two papers accepted at EMNLP 2024. [Link 1](https://arxiv.org/pdf/2410.10858)[Link 2](https://arxiv.org/pdf/2406.11801).
   </p>
 </div>
 <div class="notice--success">
