@@ -26,7 +26,7 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
 # News
 <div class="notice--success">
   <h4>New SOTA in Text to Audio Generation</h4>
-  <p>Thrilled to release TangoFlux which is the new state-of-the-art in text to audio generation. Read our paper <a href="https://github.com/soujanyaporia/soujanyaporia.github.io/blob/master/assets/pdfs/TangoFlux.pdf">here</a>. 
+  <p>Thrilled to release TangoFlux which is the new state-of-the-art in text to audio generation. Read our paper <a href="https://soujanyaporia.github.io/assets/pdfs/TangoFlux.pdf">here</a>. 
   </p>
 </div>
 <div class="notice--success">
