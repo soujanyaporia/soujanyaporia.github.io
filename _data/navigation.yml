@@ -5,9 +5,9 @@ main:
   - title: "Research"
     url: /research/
   - title: "Publications"
-    url: /publications/
-  - title: "Resources"
-    url: /resources/
+    url: https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works&sortby=pubdate
+  # - title: "Resources"
+  #   url: /resources/
   - title: "DeCLaRe Lab"
     url: https://declare-lab.github.io/
   - title: "Walled AI"
