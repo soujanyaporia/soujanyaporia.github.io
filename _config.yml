@@ -119,7 +119,7 @@ author:
        icon: "fas fa-fw fa-envelope"
        url: mailto:sporia@sutd.edu.sg
      - label: "Lab's Website"
-       icon: "fas fa-fw fa-link"
+       icon: "fa fa-link"
        url: "https://declare-lab.github.io"
      - label: "Twitter"
        icon: "fab fa-fw fa-twitter"
