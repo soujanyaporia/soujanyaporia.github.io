@@ -51,6 +51,25 @@ toc_sticky: true
 - IEEE CIM Outstanding Paper Award 2021
 - Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
 
+## Graduated PhD Students
+
+- Devamanyu Hazarika, 2018 - 2022, now works at Amazon.
+- Deepanway Ghosal, 2019 - 2024, now works at Deepmind.
+- Rishabh Bhardwaj, 2020 - 2025, founded Walled AI.
+- Chen Hui, 2018 - 2023, postdoc at NTU.
+- Chia Yew Ken, 2021 - 2025, now works at Alibaba DAMO Academy.
+
+## Current Students
+
+- Hong Pengfei
+- Maojia Song
+- Jaavid Akhtar
+- Vernon Toh
+- Pala Tej Deep
+- Chia Yu
+- Weisheng Jin
+- Shaozuo Zhang
+
 ## Editorship & Chair (not updated)
 
 - Senior Area chair / Area Chair at multiple CL conferences: NAACL, EMNLP, EMNLP, ACL
