@@ -22,6 +22,13 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     <br>
     <br>
     Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
+
+# Keen to Join Our Lab?
+<div class="notice--success">
+  <h4>Please Read these Slides</h4>
+  <p> If you would like to join our lab, we encourage you to get familiar with the research topics we are interested in. <a href = "https://docs.google.com/presentation/d/17edmwBfMHhduRq4KSKrXz8_pK_aokH0SHawiR4ZNK9U/edit?usp=sharing">Here are the slides for this.</a>  
+  </p>
+</div>
     
 # News
 <div class="notice--success">
