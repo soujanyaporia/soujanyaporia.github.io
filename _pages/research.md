@@ -59,7 +59,7 @@ toc_sticky: true
 - Chen Hui, 2018 - 2023, postdoc at NTU.
 - Chia Yew Ken, 2021 - 2025, now works at Alibaba DAMO Academy.
 
-## Current Students
+## Current PhD Students
 
 - Hong Pengfei
 - Maojia Song
