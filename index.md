@@ -39,8 +39,13 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     
 # News
 <div class="notice--success">
+  <h4>ACL 2025</h4>
+  <p>Four papers accepted at ACL 2025 (Three in Main and one in Findings) 
+  </p>
+</div>
+<div class="notice--success">
   <h4>ICLR 2025</h4>
-  <p>Two papers accepted at ICLR 2025 (one Oral [**top 1.8%**] and one Poster. 
+  <p>Two papers accepted at ICLR 2025 (one Oral [**top 1.8%**] and one Poster). 
   </p>
 </div>
 <div class="notice--success">
