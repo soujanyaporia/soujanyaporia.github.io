@@ -24,10 +24,9 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
     <br>
 <p>
-  <span style="color: #007ACC;">🌞 I'm excited to share that I’ll be joining <strong>NTU</strong> after this summer! 🎓</span><br>
+  <span style="color: #007ACC;">🌞 I’ll be joining <strong>NTU</strong> after this summer! 🎓</span><br>
   We're looking for passionate <strong>Postdocs</strong> and <strong>PhD students</strong> to join our team. 🚀🧠<br>
-  Interested? Feel free to drop me a message at <em>soujanya [dot] poria [at] gmail [dot] com</em>.<br>
-  Let’s build something amazing together! 🌟
+  Interested? Feel free to drop me a message at <em>soujanya [dot] poria [at] gmail [dot] com</em>.<br>🌟
 </p>
 
 # Keen to Join Our Lab?
