@@ -20,7 +20,7 @@ minimal_mistakes_skin    : # "default", "air", "aqua", "contrast", "dark", "dirt
 locale                   : "en-US"
 title                    : "Soujanya Poria (সৌজন্য পড়িয়া)"
 title_separator          : "-"
-subtitle                 : "Tenured Associate Professor at SUTD. Incoming Tenured Associate Professor at NTU" # site tagline that appears below site title in masthead
+subtitle                 : "Associate Professor at SUTD. Incoming Associate Professor at NTU" # site tagline that appears below site title in masthead
 name                     : "Soujanya Poria (সৌজন্য পড়িয়া)"
 description              : "Hey folks! I am Soujanya Poria (সৌজন্য পড়িয়া). Soujanya (সৌজন্য) is the bengali translation of the English word Courtesy"
 url                      : "https://soujanyaporia.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
@@ -111,7 +111,7 @@ analytics:
 author:
   name             :  Soujanya Poria<br>সৌজন্য পড়িয়া
   avatar           : "/assets/images/ysa.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Provost's Chair Associate Professor (Tenured), Singapore University of Technology and Design. Incoming Tenured Associate Professor, Nanyang Technological University (NTU)."
+  bio              : "Provost's Chair Associate Professor, Singapore University of Technology and Design. Incoming Associate Professor, Nanyang Technological University (NTU)."
   location         : "Singapore"
   email            : 
   links:
