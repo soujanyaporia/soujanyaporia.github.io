@@ -7,7 +7,7 @@ title: নমস্কার!
 logo:
   - image_path: /assets/images/big-logo.jpeg
     id: "big-home-logo"
-    excerpt: "Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are Large Language Models, Multimodal AI, and Natural Language Processing. At present, I am a <b>Provost's Chair Associate Professor (Tenured)</b> at the Singapore University of Technology and Design (SUTD), Singapore. I was also part of the Institute of High-Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded the prestigious NTU presidential postdoctoral fellowship.
+    excerpt: "Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are Large Language Models, Multimodal AI, and Natural Language Processing. At present, I am an <b>Associate Professor (Tenured)</b> at the Nanyang Technological University (NTU), Singapore. Before joining NTU, I worked at SUTD, where I was an Associate Chair Professor. I was also part of the Institute of High-Performance Computing (IHPC), ASTAR, as a senior scientist.
     <br>
     <br>
     I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
@@ -15,7 +15,7 @@ logo:
     <br>
     Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more."
 ---
-Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are Large Language Models, Multimodal AI, and Natural Language Processing. At present, I am a <b>Provost's Chair Associate Professor (Tenured)</b> at the Singapore University of Technology and Design (SUTD), Singapore. I was also part of the Institute of High-Performance Computing (IHPC), ASTAR as a senior scientist. Before joining SUTD, I worked at NTU where I was awarded the prestigious NTU presidential postdoctoral fellowship.
+Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are Large Language Models, Multimodal AI, and Natural Language Processing. At present, I am an <b>Associate Professor (Tenured)</b> at the Nanyang Technological University (NTU), Singapore. Before joining NTU, I worked at SUTD, where I was an Associate Chair Professor. I was also part of the Institute of High-Performance Computing (IHPC), ASTAR, as a senior scientist.
     <br>
     <br>
     I am open to collaborations. If you are interested please drop me an email. To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
@@ -23,11 +23,6 @@ Welcome fellow researchers to my website! I hold a Ph.D. in Computer Science. My
     <br>
     Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
     <br>
-<p>
-  <span style="color: #007ACC;">🌞 I’ll be joining <strong>NTU</strong> after this summer! 🎓</span><br>
-  We're looking for passionate <strong>Postdocs</strong> and <strong>PhD students</strong> to join our team. 🚀🧠<br>
-  Interested? Feel free to drop me a message at <em>soujanya [dot] poria [at] gmail [dot] com</em>.<br>🌟
-</p>
 
 # Keen to Join Our Lab?
 <div class="notice--success">
