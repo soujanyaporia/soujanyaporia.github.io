@@ -18,10 +18,10 @@ logo:
 Hello and welcome! I am an Associate Professor at Nanyang Technological University (NTU), Singapore. My research explores large language models, reasoning, AI safety, embodied AI, multimodal AI, and natural language processing. I completed my Ph.D. in Computer Science at the University of Stirling, UK. Before joining NTU, I worked at the Singapore University of Technology and Design as an Associate Professor and at the Institute of High Performance Computing (IHPC), A*STAR, as a Senior Scientist.
     <br>
     <br>
-    I am open to collaborations. If you are interested, please drop me an [email](mailto:soujanya.poria@ntu.edu.sg). To know more about my work, please browse the catalog of my [publications](/publications/). You may also visit my [Google Scholar profile](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
+    I am open to collaborations. If you are interested, please drop me an [email](mailto:soujanya.poria@ntu.edu.sg). To know more about our work, please check my [Google Scholar](https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works).
     <br>
     <br>
-    Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Commonsense Reasoning, and more.
+    Our lab is called [*DeCLaRe Lab*](https://declare-lab.github.io). We work on different challenging AI problems centered on Large Language Models (LLMs), Multimodal AI, Reasoning, Safety, Embodied AI, and more.
     <br>
 
 # Keen to Join Our Lab?
