@@ -20,7 +20,7 @@ minimal_mistakes_skin    : # "default", "air", "aqua", "contrast", "dark", "dirt
 locale                   : "en-US"
 title                    : "Soujanya Poria (সৌজন্য পড়িয়া)"
 title_separator          : "-"
-subtitle                 : "Associate Professor at the School of Electronical and Electronic Engineering (EEE), Nanyang Technological University (NTU)" # site tagline that appears below site title in masthead
+subtitle                 : "Associate Professor at EEE, Nanyang Technological University (NTU)" # site tagline that appears below site title in masthead
 name                     : "Soujanya Poria (সৌজন্য পড়িয়া)"
 description              : "Hey folks! I am Soujanya Poria (সৌজন্য পড়িয়া). Soujanya (সৌজন্য) is the Bengali translation of the English word Courtesy"
 url                      : "https://soujanyaporia.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
