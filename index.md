@@ -5,7 +5,7 @@ author_profile: true
 classes: wide
 title: নমস্কার!
 logo:
-  - image_path: /assets/images/big-logo.jpeg
+  - image_path: /assets/images/faculty-soujanya-poria.png
     id: "big-home-logo"
     excerpt: "Welcome, fellow researchers, to my website! I hold a Ph.D. in Computer Science. My main areas of research interest are Large Language Models, Multimodal AI, and Natural Language Processing. At present, I am an <b>Associate Professor</b> at the Nanyang Technological University (NTU), Singapore. Before joining NTU, I worked at SUTD, where I was an Associate Chair Professor. I was also part of the Institute of High-Performance Computing (IHPC), ASTAR, as a senior scientist.
     <br>
