@@ -110,7 +110,7 @@ analytics:
 # Site Author
 author:
   name             :  Soujanya Poria<br>সৌজন্য পড়িয়া
-  avatar           : "/assets/images/faculty-soujanya-poria.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/sj.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Associate Professor, The School of Electrical and Electronic Engineering, Nanyang Technological University (NTU)"
   location         : "Singapore"
   email            : 
