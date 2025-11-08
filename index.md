@@ -42,6 +42,11 @@ Here are some key research works by our lab that got some attention:
     
 # News
 <div class="notice--success">
+  <h4>AAAI 2026</h4>
+  <p>Two papers accepted at AAAI 2026
+  </p>
+</div>
+<div class="notice--success">
   <h4>EMNLP 2025</h4>
   <p>Four papers accepted at EMNLP 2025
   </p>
