@@ -43,7 +43,7 @@ Here are some key research works by our lab that got some attention:
 # News
 <div class="notice--success">
   <h4>NORA 1.5</h4>
-  <p>We released NORA-1.5, and it was one of the trending papers on Huggingface: https://huggingface.co/papers/trending. Project page: https://declare-lab.github.io/nora-1.5
+  <p>We released NORA-1.5, and it was one of the trending papers on Huggingface: <a href="https://huggingface.co/papers/trending">https://huggingface.co/papers/trending</a>. Project page: <a href="https://declare-lab.github.io/nora-1.5">https://declare-lab.github.io/nora-1.5</a>
   </p>
 </div>
 <div class="notice--success">
