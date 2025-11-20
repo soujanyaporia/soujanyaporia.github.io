@@ -42,6 +42,16 @@ Here are some key research works by our lab that got some attention:
     
 # News
 <div class="notice--success">
+  <h4>NORA 1.5</h4>
+  <p>We released NORA-1.5, and it was one of the trending papers on Huggingface: https://huggingface.co/papers/trending. Project page: https://declare-lab.github.io/nora-1.5
+  </p>
+</div>
+<div class="notice--success">
+  <h4>Grant from Google Deepmind</h4>
+  <p>Thanks to Google Deemind's Gemini team for awarding us with 100K USD GCP credits.
+  </p>
+</div>
+<div class="notice--success">
   <h4>AAAI 2026</h4>
   <p>Two papers accepted at AAAI 2026
   </p>
