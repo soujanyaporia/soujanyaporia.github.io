@@ -42,6 +42,11 @@ Here are some key research works by our lab that got some attention:
     
 # News
 <div class="notice--success">
+  <h4>ICML 2026</h4>
+  <p> We got two research papers accepted at ICML. Congratulations to all the co-authors.
+  </p>
+</div>
+<div class="notice--success">
   <h4>ICLR 2026</h4>
   <p> We got four research papers accepted at ICLR. Congratulations to all the co-authors.
   </p>
