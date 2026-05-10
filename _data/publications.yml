@@ -39,7 +39,6 @@
     - 'Alignment'
     - 'GenAI'
     - 'Speech & Audio'
-    - 'Trustworthiness'
   abstract: |
     We introduce TangoFlux, an efficient Text-to-Audio (TTA) generative model with 515M parameters,
     capable of generating up to 30 seconds of 44.1kHz audio in just 3.7 seconds on a single A40 GPU. A
@@ -92,9 +91,8 @@
   categories:
     - 'Agentic AI'
     - 'Alignment'
-    - 'RAG'
+    - 'Evaluation'
     - 'Safety'
-    - 'Trustworthiness'
   abstract: |
     Large Language Model (LLM) safety is one of the most pressing challenges for enabling wide-scale
     deployment. While most studies and global discussions focus on generic harms, such as models
@@ -124,8 +122,6 @@
   pdf: 'https://arxiv.org/pdf/2508.18321'
   categories:
     - 'Agentic AI'
-    - 'Responsible AI'
-    - 'Trustworthiness'
   abstract: |
     Large language models (LLMs) are increasingly integrated into multi-agent systems (MAS), where peer
     interactions shape individual decisions. While prior work has mainly examined conformity bias, we
@@ -150,7 +146,6 @@
   publication_url: 'https://link.springer.com/article/10.1007/s12559-026-10568-9'
   pdf: 'https://link.springer.com/content/pdf/10.1007/s12559-026-10568-9.pdf'
   categories:
-    - 'Agentic AI'
     - 'Alignment'
     - 'Safety'
   abstract: |
@@ -173,9 +168,9 @@
   categories:
     - 'Agentic AI'
     - 'Embodied AI'
+    - 'Multimodality'
     - 'Question Answering'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     Understanding the physical structure is essential for real-world applications such as embodied
     agents, interactive design, and long-horizon manipulation. Yet, prevailing Vision-Language Model
@@ -227,10 +222,10 @@
   pdf: 'https://arxiv.org/pdf/2510.05137'
   categories:
     - 'Agentic AI'
+    - 'Evaluation'
     - 'Hypothesis Discovery'
     - 'RAG'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     RAG (Retrieval-Augmented Generation) systems and web agents are increasingly evaluated on multi-hop
     deep search tasks, yet current practice suffers from two major limitations. First, most benchmarks
@@ -260,8 +255,6 @@
   pdf: 'https://arxiv.org/pdf/2603.07433'
   categories:
     - 'Agentic AI'
-    - 'ML Efficiency'
-    - 'Trustworthiness'
   abstract: |
     Dynamic Data selection aims to accelerate training by prioritizing informative samples during
     online training. However, existing methods typically rely on task-specific handcrafted metrics or
@@ -287,11 +280,8 @@
   publication_url: 'https://arxiv.org/abs/2604.14692'
   pdf: 'https://arxiv.org/pdf/2604.14692'
   categories:
-    - 'Agentic AI'
     - 'Multimodality'
-    - 'RAG'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     Video understanding requires identifying and reasoning over semantically discriminative visual
     objects across frames, yet existing object-agnostic solutions struggle to effectively handle
@@ -318,9 +308,9 @@
   categories:
     - 'Agentic AI'
     - 'Embodied AI'
-    - 'Multimodality'
     - 'Reasoning'
     - 'Safety'
+    - 'Survey'
   abstract: |
     Due to their ability to follow natural language instructions, vision-language-action (VLA) models
     are increasingly prevalent in the embodied AI arena. In this paper, we discuss 10 principal
@@ -356,11 +346,10 @@
   publication_url: 'https://arxiv.org/abs/2509.23250'
   pdf: 'https://arxiv.org/pdf/2509.23250'
   categories:
+    - 'Evaluation'
     - 'Multimodality'
-    - 'RAG'
     - 'Reasoning'
     - 'Speech & Audio'
-    - 'Trustworthiness'
   abstract: |
     Process Reward Models (PRMs) provide step-level supervision that improves the reliability of
     reasoning in large language models. While PRMs have been extensively studied in text-based domains,
@@ -392,7 +381,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Trustworthiness'
   abstract: |
     This paper investigates robust approaches to multimodal sentiment analysis using multimodal
     foundational models. We analyze model robustness under modality corruption, distributional shifts,
@@ -410,7 +398,6 @@
     - 'Evaluation'
     - 'Multimodality'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     The releases of OpenAI's o-[n] series, such as o1, o3, and o4-mini, mark a significant paradigm
     shift in Large Language Models towards advanced reasoning capabilities. Notably, models like o3 have
@@ -442,7 +429,6 @@
     - 'Dialogue Systems'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Speech & Audio'
   abstract: |
     Understanding fine-grained sentiment dynamics in human conversations is central for next-generation
     AI, especially when interactions are rich in modalities and context. To advance research, we
@@ -514,7 +500,6 @@
   pdf: 'https://arxiv.org/pdf/2501.06276?'
   categories:
     - 'Affective Computing'
-    - 'GenAI'
     - 'Speech & Audio'
   abstract: |
     Speech synthesis has significantly advanced from statistical methods to deep neural network
@@ -536,7 +521,6 @@
   publication_url: 'https://aclanthology.org/2025.findings-naacl.150/'
   pdf: 'https://aclanthology.org/2025.findings-naacl.150.pdf'
   categories:
-    - 'ML Efficiency'
     - 'Multimodality'
   abstract: |
     We present PREMISE, a new architecture for the matching-based learning in the multimodal fields for
@@ -557,10 +541,8 @@
   publication_url: 'https://aclanthology.org/2025.acl-long.864/'
   pdf: 'https://aclanthology.org/2025.acl-long.864.pdf'
   categories:
-    - 'Alignment'
     - 'Dialogue Systems'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     Existing visual perception systems focus on region-level segmentation in single-turn dialogues,
     relying on complex and explicit query instructions. Such systems cannot reason at the pixel level
@@ -585,9 +567,7 @@
   publication_url: 'https://openreview.net/forum?noteId=uw2FhekYtc'
   pdf: 'https://openreview.net/pdf?id=uw2FhekYtc'
   categories:
-    - 'Alignment'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     Large language models (LLMs) have become increasingly capable of solving mathematical reasoning
     problems. However, many open-source LLMs still encounter issues with calculation errors and semantic
@@ -608,10 +588,8 @@
   publication_url: 'https://arxiv.org/abs/2504.19854'
   pdf: 'https://arxiv.org/pdf/2504.19854?'
   categories:
-    - 'Agentic AI'
     - 'Embodied AI'
     - 'Multimodality'
-    - 'RAG'
     - 'Reasoning'
   abstract: |
     Existing Visual-Language-Action (VLA) models have shown promising performance in zero-shot
@@ -641,8 +619,6 @@
     - 'Agentic AI'
     - 'Alignment'
     - 'Embodied AI'
-    - 'GenAI'
-    - 'Trustworthiness'
   abstract: |
     Vision--language--action (VLA) models have recently shown promising performance on a variety of
     embodied tasks, yet they still fall short in reliability and generalization, especially when
@@ -670,7 +646,6 @@
   categories:
     - 'Affective Computing'
     - 'Multimodality'
-    - 'Speech & Audio'
   abstract: |
     Embodiments provide techniques for mental health screening using multimodal analysis (video, audio,
     speech). Features are extracted per modality and fused (late fusion) to classify fused features
@@ -706,7 +681,6 @@
     - 'Evaluation'
     - 'Multimodality'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     The emergence of multimodal large language models (MLLMs) has triggered extensive research in model
     evaluation. While existing evaluation studies primarily focus on unimodal (vision-only)
@@ -737,7 +711,6 @@
   publication_url: 'https://proceedings.iclr.cc/paper_files/paper/2025/hash/4c88827decab6c046b881a2c3a99c76f-Abstract-Conference.html'
   pdf: 'https://proceedings.iclr.cc/paper_files/paper/2025/file/4c88827decab6c046b881a2c3a99c76f-Paper-Conference.pdf'
   categories:
-    - 'Alignment'
     - 'RAG'
     - 'Trustworthiness'
   abstract: |
@@ -763,9 +736,9 @@
   publication_url: 'https://aclanthology.org/2025.emnlp-main.469/'
   pdf: 'https://aclanthology.org/2025.emnlp-main.469.pdf'
   categories:
-    - 'Document AI'
     - 'Evaluation'
     - 'Multimodality'
+    - 'RAG'
   abstract: |
     The ability to understand and answer questions over documents can be useful in many business and
     practical applications. However, documents often contain lengthy and diverse multimodal contents
@@ -868,9 +841,7 @@
   publication_url: 'https://arxiv.org/abs/2505.24615'
   pdf: 'https://arxiv.org/pdf/2505.24615'
   categories:
-    - 'Alignment'
     - 'Hypothesis Discovery'
-    - 'ML Efficiency'
   abstract: |
     In an era of exponential scientific growth, identifying novel research ideas is crucial and
     challenging in academia. Despite potential, the lack of an appropriate benchmark dataset hinders the
@@ -897,7 +868,6 @@
     - 'Agentic AI'
     - 'Embodied AI'
     - 'Multimodality'
-    - 'RAG'
   abstract: |
     Foundation models (FMs) are increasingly applied to bridge language and action in embodied agents,
     yet the operational characteristics of different integration strategies remain under-explored. We
@@ -932,11 +902,8 @@
   publication_url: 'https://aclanthology.org/2025.findings-acl.1172/'
   pdf: 'https://arxiv.org/pdf/2401.09395'
   categories:
-    - 'Commonsense'
-    - 'Evaluation'
     - 'Knowledge Graphs'
     - 'Reasoning'
-    - 'Trustworthiness'
   abstract: |
     Recent advancements in Large Language Models (LLMs) have showcased striking results on existing
     logical reasoning benchmarks, with some models even surpassing human performance. However, the true
@@ -959,8 +926,6 @@
   publication_url: 'https://aclanthology.org/2025.emnlp-industry.189/'
   pdf: 'https://aclanthology.org/2025.emnlp-industry.189.pdf'
   categories:
-    - 'Alignment'
-    - 'Evaluation'
     - 'Trustworthiness'
   abstract: |
     We assess whether AI systems can credibly evaluate investment risk appetite—a task that must be
@@ -982,7 +947,6 @@
   pdf: 'https://arxiv.org/pdf/2512.12602'
   categories:
     - 'Linear Attention'
-    - 'Trustworthiness'
   abstract: |
     Linear-time attention and State Space Models (SSMs) promise to solve the quadratic cost bottleneck
     in long-context language models employing softmax attention. We introduce Error-Free Linear
@@ -1024,9 +988,8 @@
   publication_url: 'https://aclanthology.org/2025.acl-long.695/'
   pdf: 'https://aclanthology.org/2025.acl-long.695.pdf'
   categories:
-    - 'Agentic AI'
     - 'Embodied AI'
-    - 'RAG'
+    - 'Multimodality'
     - 'Reasoning'
     - 'Trustworthiness'
   abstract: |
@@ -1138,7 +1101,6 @@
   publication_url: 'https://www.sciencedirect.com/science/article/pii/S1566253524003555'
   categories:
     - 'Multimodality'
-    - 'RAG'
   abstract: |
     Video grounding aims to locate a moment-of-interest semantically corresponding to a given query. We
     claim that existing methods overlook two critical issues: (1) the sparsity of language, and (2) the
@@ -1180,7 +1142,6 @@
     - 'Affective Computing'
     - 'GenAI'
     - 'Multimodality'
-    - 'Speech & Audio'
   abstract: |
     We develop Video2Music, a generative music framework that matches provided videos by extracting
     semantic, scene, motion, and emotion features from curated music videos. Audio is transcribed into
@@ -1197,7 +1158,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Understanding%2C+Leveraging%2C+and+Improving+Large+Language+Models'
   publication_url: 'https://doi.org/10.1145/3589335.3653009'
   categories:
-    - 'Commonsense'
+    - 'Alignment'
     - 'Knowledge Graphs'
     - 'Reasoning'
     - 'Safety'
@@ -1226,7 +1187,6 @@
   pdf: 'https://aclanthology.org/2024.naacl-long.316.pdf'
   categories:
     - 'Commonsense'
-    - 'Responsible AI'
   abstract: |
     Large language models (LLMs) have demonstrated substantial commonsense understanding through
     numerous benchmark evaluations. However, their understanding of cultural commonsense remains largely
@@ -1267,7 +1227,6 @@
   pdf: 'https://arxiv.org/pdf/2402.14492'
   categories:
     - 'Multimodality'
-    - 'Trustworthiness'
   abstract: |
     Abstract:Fine-tuning large language models (LLMs) on multi-task instruction-following data has been
     proven to be a powerful learning paradigm for improving their zero-shot capabilities on new tasks.
@@ -1290,7 +1249,6 @@
   categories:
     - 'Alignment'
     - 'GenAI'
-    - 'Hypothesis Discovery'
     - 'Multimodality'
     - 'Speech & Audio'
   abstract: |
@@ -1318,9 +1276,7 @@
   publication_url: 'https://aclanthology.org/2024.findings-acl.960'
   pdf: 'https://aclanthology.org/2024.findings-acl.960.pdf'
   categories:
-    - 'Responsible AI'
     - 'Safety'
-    - 'Trustworthiness'
   abstract: |
     In the rapidly advancing field of artificial intelligence, the concept of ‘Red-Teaming’ or
     ‘Jailbreaking’ large language models (LLMs) has emerged as a crucial area of study. This approach is
@@ -1344,8 +1300,6 @@
   publication_url: 'https://aclanthology.org/2024.findings-naacl.162'
   pdf: 'https://aclanthology.org/2024.findings-naacl.162.pdf'
   categories:
-    - 'Hypothesis Discovery'
-    - 'ML Efficiency'
     - 'Multimodality'
     - 'Question Answering'
   abstract: |
@@ -1395,7 +1349,6 @@
   publication_url: 'https://arxiv.org/abs/2406.11654'
   pdf: 'https://arxiv.org/pdf/2406.11654'
   categories:
-    - 'Linear Attention'
     - 'Safety'
   abstract: |
     Abstract:We propose Ruby Teaming, a method that improves on Rainbow Teaming by including a memory
@@ -1488,10 +1441,10 @@
   publication_url: 'https://doi.org/10.1145/3664647.3680705'
   categories:
     - 'Dialogue Systems'
+    - 'Evaluation'
     - 'Multimodality'
     - 'Reasoning'
     - 'Sentiment Analysis'
-    - 'Trustworthiness'
   abstract: |
     While existing Aspect-based Sentiment Analysis (ABSA) has received extensive effort and
     advancement, there are still gaps in defining a more holistic research target seamlessly integrating
@@ -1521,7 +1474,6 @@
     - 'Document AI'
     - 'ML Efficiency'
     - 'Relation Extraction'
-    - 'Responsible AI'
   abstract: |
     Documents that consist of diverse templates and exhibit complex spatial structures pose a challenge
     for document entity classification. We propose KNN-Former, which incorporates a new kind of spatial
@@ -1545,7 +1497,6 @@
   publication_url: 'https://arxiv.org/abs/2406.17257'
   pdf: 'https://arxiv.org/pdf/2406.17257'
   categories:
-    - 'GenAI'
     - 'ML Efficiency'
     - 'Speech & Audio'
   abstract: |
@@ -1570,7 +1521,6 @@
   pdf: 'https://aclanthology.org/2024.findings-acl.804.pdf'
   categories:
     - 'Commonsense'
-    - 'Hypothesis Discovery'
     - 'Reasoning'
   abstract: |
     Hypothetical induction is recognized as the main reasoning type when scientists make observations
@@ -1692,7 +1642,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=HyperTTS%3A+Parameter+Efficient+Adaptation+in+Text+to+Speech+using+Hypernetworks'
   publication_url: 'https://doi.org/10.63317/2yuckiomnwga'
   categories:
-    - 'GenAI'
     - 'ML Efficiency'
     - 'Speech & Audio'
   abstract: |
@@ -1706,11 +1655,8 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Hate+speech+detection%3A+A+comprehensive+review+of+recent+works'
   publication_url: 'https://doi.org/10.1111/exsy.13562'
   categories:
-    - 'Responsible AI'
     - 'Social NLP'
-    - 'Speech & Audio'
     - 'Survey'
-    - 'Trustworthiness'
   abstract: |
     This review surveys recent advances in hate speech detection, covering datasets, annotation
     practices, model architectures, and evaluation metrics. We discuss challenges including implicit
@@ -1725,7 +1671,6 @@
   publication_url: 'https://aclanthology.org/2024.sicon-1.11/'
   pdf: 'https://aclanthology.org/2024.sicon-1.11.pdf'
   categories:
-    - 'Dialogue Systems'
     - 'Sentiment Analysis'
     - 'Trustworthiness'
   abstract: |
@@ -1795,7 +1740,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Consistency+Guided+Knowledge+Retrieval+and+Denoising+in+LLMs+for+Zero-shot+Document-level+Relation+Triplet+Extraction'
   publication_url: 'https://doi.org/10.1145/3589334.3645678'
   categories:
-    - 'Dialogue Systems'
     - 'RAG'
     - 'Reasoning'
     - 'Relation Extraction'
@@ -1824,7 +1768,6 @@
   publication_url: 'https://aclanthology.org/2024.findings-naacl.240'
   pdf: 'https://aclanthology.org/2024.findings-naacl.240.pdf'
   categories:
-    - 'GenAI'
     - 'Speech & Audio'
   abstract: |
     Neural Text-to-Speech (TTS) systems find broad applications in voice assistants, e-learning, and
@@ -1880,9 +1823,9 @@
   publication_url: 'https://arxiv.org/abs/2409.14277'
   pdf: 'https://arxiv.org/pdf/2409.14277'
   categories:
-    - 'Agentic AI'
     - 'Commonsense'
     - 'Embodied AI'
+    - 'Multimodality'
     - 'Reasoning'
     - 'Safety'
   abstract: |
@@ -1908,7 +1851,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=WikiDes%3A+A+Wikipedia-based+dataset+for+generating+short+descriptions+from+paragraphs'
   publication_url: 'https://doi.org/10.1016/j.inffus.2022.09.022'
   categories:
-    - 'Knowledge Graphs'
     - 'Multimodality'
     - 'Sentiment Analysis'
   abstract: |
@@ -1941,7 +1883,6 @@
   pdf: 'https://aclanthology.org/2023.acl-long.889.pdf'
   categories:
     - 'Relation Extraction'
-    - 'Trustworthiness'
   abstract: |
     Document-level relation extraction (DocRE) aims to infer complex semantic relations among entities
     in a document. Distant supervision (DS) is able to generate massive auto-labeled data, which can
@@ -2176,10 +2117,7 @@
   publication_url: 'https://arxiv.org/abs/2310.14303'
   pdf: 'https://arxiv.org/pdf/2310.14303'
   categories:
-    - 'Agentic AI'
     - 'Alignment'
-    - 'Dialogue Systems'
-    - 'Responsible AI'
     - 'Safety'
   abstract: |
     Abstract:Red-teaming has been a widely adopted way to evaluate the harmfulness of Large Language
@@ -2287,8 +2225,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Social NLP'
-    - 'Trustworthiness'
   abstract: |
     Multimodal sentiment analysis has gained significant attention due to the proliferation of
     multimodal content on social media. However, existing studies in this area rely heavily on
@@ -2318,7 +2254,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Social NLP'
   abstract: |
     We have witnessed the rapid proliferation of multimodal data on numerous social media platforms.
     Conventional studies typically require massive labeled data to train models for Multimodal
@@ -2341,7 +2276,6 @@
   categories:
     - 'Evaluation'
     - 'ML Efficiency'
-    - 'Speech & Audio'
   abstract: |
     Fine-tuning is widely used as the default algorithm for transfer learning from pre-trained models.
     Parameter inefficiency can however arise when, during transfer learning, all the parameters of a
@@ -2364,7 +2298,6 @@
   publication_url: 'https://doi.org/10.1007/s12559-023-10110-1'
   categories:
     - 'Dialogue Systems'
-    - 'Linear Attention'
     - 'Reasoning'
     - 'Relation Extraction'
   abstract: |
@@ -2393,7 +2326,6 @@
   pdf: 'https://arxiv.org/pdf/2311.09277'
   categories:
     - 'Reasoning'
-    - 'Speech & Audio'
   abstract: |
     Abstract:Despite the success of chain of thought in enhancing language model reasoning, the
     underlying process remains less well understood. Although logically sound reasoning appears
@@ -2414,7 +2346,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=ADAPTERMIX%3A+Exploring+the+Efficacy+of+Mixture+of+Adapters+for+Low-Resource+TTS+Adaptation'
   publication_url: 'https://doi.org/10.21437/interspeech.2023-1568'
   categories:
-    - 'GenAI'
     - 'ML Efficiency'
     - 'Speech & Audio'
   abstract: |
@@ -2459,7 +2390,6 @@
   pdf: 'https://aclanthology.org/2023.findings-acl.231.pdf'
   categories:
     - 'Text Style Transfer'
-    - 'Trustworthiness'
   abstract: |
     Domain shift is a big challenge in NLP. Many approaches, thus, resort to learning domain-invariant
     features to mitigate the hurdles of domain shift during inference. Such methods, however, inexorably
@@ -2486,7 +2416,6 @@
   publication_url: 'https://doi.org/10.1016/j.inffus.2023.101869'
   categories:
     - 'Affective Computing'
-    - 'GenAI'
     - 'ML Efficiency'
     - 'Multimodality'
     - 'Speech & Audio'
@@ -2519,7 +2448,6 @@
   publication_url: 'https://aclanthology.org/2024.eacl-long.104'
   pdf: 'https://aclanthology.org/2024.eacl-long.104.pdf'
   categories:
-    - 'Reasoning'
     - 'Survey'
   abstract: |
     Sentence representations are a critical component in NLP applications such as retrieval, question
@@ -2544,8 +2472,6 @@
   pdf: 'https://aclanthology.org/2022.emnlp-main.455.pdf'
   categories:
     - 'ML Efficiency'
-    - 'NLI'
-    - 'Trustworthiness'
   abstract: |
     Prompt Tuning has been largely successful as a parameter-efficient method of conditioning
     large-scale pre-trained language models to perform downstream tasks. Thus far, soft prompt tuning
@@ -2653,8 +2579,6 @@
   publication_url: 'https://aclanthology.org/2022.coling-1.499/'
   pdf: 'https://aclanthology.org/2022.coling-1.499.pdf'
   categories:
-    - 'Alignment'
-    - 'Linear Attention'
     - 'Multimodality'
   abstract: |
     With the boom of e-commerce, Multimodal Review Helpfulness Prediction (MRHP) that identifies the
@@ -2710,7 +2634,6 @@
   publication_url: 'https://doi.org/10.1007/978-3-031-19833-5_24'
   categories:
     - 'Embodied AI'
-    - 'GenAI'
   abstract: |
     Accurate prediction of physical interaction outcomes is a crucial component of human intelligence
     and is important for safe and efficient deployments of robots in the real world. While there are
@@ -2847,7 +2770,6 @@
   categories:
     - 'Commonsense'
     - 'Knowledge Graphs'
-    - 'Relation Extraction'
   abstract: |
     Zero-shot learning — the problem of training and testing on a completely disjoint set of classes —
     relies greatly on its ability to transfer knowledge from train classes to test classes.
@@ -2867,7 +2789,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Improving+aspect-level+sentiment+analysis+with+aspect+extraction'
   publication_url: 'https://doi.org/10.1007/s00521-020-05287-7'
   categories:
-    - 'Hypothesis Discovery'
     - 'Sentiment Analysis'
   abstract: |
     Aspect-based sentiment analysis (ABSA), a popular research area in NLP, has two distinct
@@ -2887,8 +2808,6 @@
   publication_url: 'https://doi.org/10.1109/access.2022.3193159'
   categories:
     - 'Affective Computing'
-    - 'Dialogue Systems'
-    - 'GenAI'
     - 'Sentiment Analysis'
   abstract: |
     Empathy is fundamental to humans among other animals. It is key to strengthening social cohesion,
@@ -2917,8 +2836,7 @@
   publication_url: 'https://aclanthology.org/2022.coling-1.409/'
   pdf: 'https://aclanthology.org/2022.coling-1.409.pdf'
   categories:
-    - 'ML Efficiency'
-    - 'Trustworthiness'
+    - 'Sentiment Analysis'
   abstract: |
     This paper proposes a simple yet effective interpolation-based data augmentation approach termed
     DoubleMix, to improve the robustness of models in text classification. DoubleMix first leverages a
@@ -2945,6 +2863,7 @@
   categories:
     - 'Affective Computing'
     - 'Commonsense'
+    - 'Conversational Reasoning'
     - 'Dialogue Systems'
     - 'Reasoning'
   abstract: |
@@ -2968,7 +2887,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Trustworthiness'
   abstract: |
     Building robust multimodal models are crucial for achieving reliable deployment in the wild.
     Despite its importance, less attention has been paid to identifying and improving the robustness of
@@ -2991,7 +2909,6 @@
   pdf: 'https://aclanthology.org/2022.emnlp-main.688.pdf'
   categories:
     - 'Knowledge Graphs'
-    - 'ML Efficiency'
     - 'Relation Extraction'
   abstract: |
     Relation extraction has the potential for large-scale knowledge graph construction, but current
@@ -3039,7 +2956,6 @@
   pdf: 'https://arxiv.org/pdf/2101.00774'
   categories:
     - 'Question Answering'
-    - 'RAG'
     - 'Survey'
   abstract: |
     Abstract:Open-domain Question Answering (OpenQA) is an important task in Natural Language
@@ -3092,7 +3008,6 @@
   publication_url: 'https://doi.org/10.1016/j.inffus.2021.01.005'
   categories:
     - 'Multimodality'
-    - 'Responsible AI'
     - 'Sentiment Analysis'
   abstract: |
     The Chinese pronunciation system offers two characteristics that distinguish it from other
@@ -3114,11 +3029,8 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Persuasive+dialogue+understanding%3A+The+baselines+and+negative+results'
   publication_url: 'https://doi.org/10.1016/j.neucom.2020.11.040'
   categories:
+    - 'Conversational Reasoning'
     - 'Dialogue Systems'
-    - 'Linear Attention'
-    - 'Reasoning'
-    - 'Relation Extraction'
-    - 'Speech & Audio'
   abstract: |
     Persuasion aims at forming one's opinion and action via a series of persuasive messages containing
     persuader's strategies. Due to its potential application in persuasive dialogue systems, the task of
@@ -3172,7 +3084,6 @@
   categories:
     - 'Dialogue Systems'
     - 'Multimodality'
-    - 'Social NLP'
     - 'Speech & Audio'
   abstract: |
     Humor recognition in conversations is a challenging task that has recently gained popularity due to
@@ -3240,9 +3151,9 @@
   publication_url: 'https://doi.org/10.1016/j.inffus.2021.02.010'
   categories:
     - 'Affective Computing'
-    - 'Agentic AI'
     - 'Embodied AI'
-    - 'Relation Extraction'
+    - 'ML Efficiency'
+    - 'Multimodality'
     - 'Sentiment Analysis'
   abstract: |
     Emotions are intrinsically part of our mental activity and play a key role in communication and
@@ -3303,7 +3214,6 @@
   publication_url: 'https://doi.org/10.26615/978-954-452-072-4_116'
   categories:
     - 'Relation Extraction'
-    - 'Trustworthiness'
   abstract: |
     Distantly supervised models are very popular for relation extraction since we can obtain a large
     amount of training data using the distant supervision method without human annotation. In distant
@@ -3326,6 +3236,7 @@
   pdf: 'https://aclanthology.org/2021.findings-acl.124.pdf'
   categories:
     - 'Affective Computing'
+    - 'Conversational Reasoning'
     - 'Dialogue Systems'
   abstract: |
     the user inten-tion and background. In recent years, a number of context-aware approaches have been
@@ -3345,9 +3256,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=DOZEN%3A+Cross-domain+zero+shot+named+entity+recognition+with+knowledge+graph'
   publication_url: 'https://doi.org/10.1145/3404835.3463113'
   categories:
-    - 'Commonsense'
     - 'Knowledge Graphs'
-    - 'Relation Extraction'
   abstract: |
     With the new developments of natural language processing, increasing attention has been given to
     the task of Named Entity Recognition (NER). However, the vast majority of work focus on a small
@@ -3368,7 +3277,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Discriminative+dictionary+design+for+action+classification+in+still+images+and+videos'
   publication_url: 'https://doi.org/10.1007/s12559-021-09851-8'
   categories:
-    - 'Trustworthiness'
+    - 'Reasoning'
   abstract: |
     In this paper, we address the problem of action recognition from still images and videos.
     Traditional local features such as SIFT and STIP invariably pose two potential problems: 1) they are
@@ -3425,8 +3334,8 @@
   publication_url: 'https://aclanthology.org/2021.sigdial-1.33'
   pdf: 'https://aclanthology.org/2021.sigdial-1.33.pdf'
   categories:
-    - 'Agentic AI'
     - 'Commonsense'
+    - 'Conversational Reasoning'
     - 'Dialogue Systems'
     - 'Reasoning'
   abstract: |
@@ -3452,8 +3361,7 @@
   publication_url: 'https://aclanthology.org/2021.cinlp-1.1'
   pdf: 'https://aclanthology.org/2021.cinlp-1.1.pdf'
   categories:
-    - 'Text Style Transfer'
-    - 'Trustworthiness'
+    - 'Sentiment Analysis'
   abstract: |
     Scarcity of annotated causal texts leads to poor robustness when training state-of-the-art language
     models for causal sentence classification. In particular, we found that models misclassify on
@@ -3525,7 +3433,6 @@
   publication_url: 'https://doi.org/10.1007/s12559-020-09738-0'
   categories:
     - 'Affective Computing'
-    - 'Agentic AI'
     - 'Dialogue Systems'
     - 'Multimodality'
     - 'Speech & Audio'
@@ -3591,7 +3498,6 @@
   publication_url: 'https://doi.org/10.1016/j.ipm.2020.102314'
   categories:
     - 'Multimodality'
-    - 'Social NLP'
   abstract: |
     The last decade has witnessed a huge development in social media interactions. To2 day, social
     media is becoming ubiquitous in two senses: (1) it crosses boundaries and 3 expands to more nations,
@@ -3629,7 +3535,6 @@
   publication_url: 'https://doi.org/10.1145/3340531.3412003'
   categories:
     - 'Commonsense'
-    - 'Knowledge Graphs'
     - 'Reasoning'
     - 'Sentiment Analysis'
   abstract: |
@@ -3653,10 +3558,8 @@
   pdf: 'https://aclanthology.org/2021.naacl-main.79.pdf'
   categories:
     - 'Affective Computing'
-    - 'ML Efficiency'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Speech & Audio'
   abstract: |
     Human communication is multimodal in nature; it is through multiple modalities such as language,
     voice, and facial expressions, that opinions and emotions are expressed. Data in this domain
@@ -3681,7 +3584,6 @@
     - 'Affective Computing'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Speech & Audio'
   abstract: |
     Human emotion judgments usually receive information from multiple modalities such as language,
     audio, as well as facial expressions and gestures. Because different modalities are represented
@@ -3725,8 +3627,7 @@
   pdf: 'https://aclanthology.org/2020.acl-main.292.pdf'
   categories:
     - 'Commonsense'
-    - 'RAG'
-    - 'Relation Extraction'
+    - 'Knowledge Graphs'
     - 'Sentiment Analysis'
     - 'Text Style Transfer'
   abstract: |
@@ -3750,7 +3651,6 @@
     - 'Dialogue Systems'
     - 'GenAI'
     - 'Multimodality'
-    - 'Speech & Audio'
   abstract: |
     Abstract Research on building dialogue systems that converse with humans naturally has recently
     attracted a lot of attention. Most work on this area assumes text-based conversation, where the user
@@ -3773,6 +3673,7 @@
   categories:
     - 'Affective Computing'
     - 'Commonsense'
+    - 'Conversational Reasoning'
     - 'Dialogue Systems'
   abstract: |
     In this paper, we address the task of utterance level emotion recognition in conversations using
@@ -3795,7 +3696,6 @@
     - 'Affective Computing'
     - 'Dialogue Systems'
     - 'Multimodality'
-    - 'Trustworthiness'
   abstract: |
     Recognizing emotions in conversations is a challenging task due to the presence of contextual
     dependencies governed by self- and inter-personal influences. Recent approaches have focused on
@@ -3823,7 +3723,6 @@
   categories:
     - 'Affective Computing'
     - 'Multimodality'
-    - 'Responsible AI'
     - 'Sentiment Analysis'
   abstract: |
     Modeling multimodal language is a core research area in natural language processing. While
@@ -3914,7 +3813,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=The+Nitty-GRITties+of+Success%3A+Computational+Analysis+of+Grit+From+Language'
   publication_url: 'https://doi.org/10.1109/access.2019.2951683'
   categories:
-    - 'Social NLP'
+    - 'Reasoning'
   abstract: |
     Grit is a prominent personality trait that measures an individuals passion and perseverance for
     long-term goals. Grit entails that zeal and persistence of motive play a key role in determining an
@@ -3937,7 +3836,6 @@
     - 'Sarcasm Detection'
     - 'Sentiment Analysis'
     - 'Social NLP'
-    - 'Survey'
   abstract: |
     Sentiment classification and sarcasm detection are both important natural language processing
     tasks. Sentiment is always coupled with sarcasm where intensive emotion is expressed. Nevertheless,
@@ -3956,7 +3854,6 @@
   pdf: 'https://aclanthology.org/N19-1034.pdf'
   categories:
     - 'Affective Computing'
-    - 'Agentic AI'
     - 'Multimodality'
     - 'Sentiment Analysis'
     - 'Speech & Audio'
@@ -3983,7 +3880,6 @@
     - 'Dialogue Systems'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Speech & Audio'
   abstract: |
     Emotion recognition in conversations is a challenging task that has recently gained popularity due
     to its potential applications. Until now, however, a large-scale multimodal multi-party emotional
@@ -4005,7 +3901,6 @@
   categories:
     - 'Multimodality'
     - 'Speech & Audio'
-    - 'Survey'
   abstract: |
     Abstract:The complex world around us is inherently multimodal and sequential (continuous).
     Information is scattered across different modalities and requires multiple continuous sensors to be
@@ -4033,7 +3928,6 @@
   categories:
     - 'Affective Computing'
     - 'Dialogue Systems'
-    - 'Reasoning'
   abstract: |
     Emotion is intrinsic to humans and consequently, emotion understanding is a key part of human-like
     artificial intelligence (AI). Emotion recognition in conversation (ERC) is becoming increasingly
@@ -4058,7 +3952,6 @@
     - 'Affective Computing'
     - 'Dialogue Systems'
     - 'Sentiment Analysis'
-    - 'Social NLP'
   abstract: |
     Emotion detection in conversations is a necessary step for a number of applications, including
     opinion mining over chat history, social media threads, debates, argumentation mining, understanding
@@ -4134,10 +4027,8 @@
   publication_url: 'https://doi.org/10.1609/aaai.v32i1.11559'
   categories:
     - 'Commonsense'
-    - 'RAG'
     - 'Reasoning'
     - 'Sentiment Analysis'
-    - 'Speech & Audio'
   abstract: |
     With the recent development of deep learning, research in AI has gained new vigor and prominence.
     While machine learning has succeeded in revitalizing many research fields, such as computer vision,
@@ -4157,7 +4048,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Recent+trends+in+deep+learning+based+natural+language+processing'
   publication_url: 'https://doi.org/10.1109/mci.2018.2840738'
   categories:
-    - 'Survey'
+    - 'Sentiment Analysis'
   abstract: |
     Deep learning methods employ multiple processing layers to learn hierarchical representations of
     data and have produced state-of-the-art results in many domains. Recently, a variety of model
@@ -4240,7 +4131,6 @@
     - 'Multimodality'
     - 'Sentiment Analysis'
     - 'Speech & Audio'
-    - 'Survey'
   abstract: |
     Analyzing human multimodal language is an emerging area of research in NLP. Intrinsically this
     language is multimodal (heterogeneous), sequential and asynchronous; it consists of the language
@@ -4262,7 +4152,6 @@
   publication_url: 'https://doi.org/10.1609/aaai.v32i1.12024'
   categories:
     - 'Affective Computing'
-    - 'Linear Attention'
     - 'Multimodality'
     - 'Sentiment Analysis'
     - 'Speech & Audio'
@@ -4304,7 +4193,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Memory+fusion+network+for+multi-view+sequential+learning'
   publication_url: 'https://doi.org/10.1609/aaai.v32i1.12021'
   categories:
-    - 'Linear Attention'
     - 'Multimodality'
   abstract: |
     Multi-view sequential learning is a fundamental problem in machine learning dealing with multi-view
@@ -4331,9 +4219,7 @@
   categories:
     - 'Affective Computing'
     - 'Dialogue Systems'
-    - 'Linear Attention'
     - 'Multimodality'
-    - 'Speech & Audio'
   abstract: |
     Emotion recognition in conversations is crucial for the development of empathetic machines. Present
     methods mostly ignore the role of inter-speaker dependency relations while classifying emotions in
@@ -4376,8 +4262,6 @@
   publication_url: 'https://doi.org/10.1007/978-3-031-23793-5_8'
   categories:
     - 'Multimodality'
-    - 'Social NLP'
-    - 'Speech & Audio'
   abstract: |
     Automatic deception detection is an important task that has gained momentum in computational
     linguistics due to its potential applications. In this paper, we propose a simple yet tough to beat
@@ -4417,7 +4301,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Survey'
   abstract: |
     Multimodal sentiment analysis involves identifying sentiment in videos and is a developing field of
     research. Unlike current works, which model utterances individually, we propose a recurrent model
@@ -4434,7 +4317,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Trustworthiness'
   abstract: |
     We propose a multimodal sentiment analysis framework that ensembles convolutional neural networks
     for textual and visual feature extraction with multiple kernel learning for fusion. The approach
@@ -4449,7 +4331,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Deep+learning-based+document+modeling+for+personality+detection+from+text'
   publication_url: 'https://doi.org/10.1109/mis.2017.23'
   categories:
-    - 'Document AI'
     - 'Social NLP'
   abstract: |
     Text blocks, tables, headers, and images are all part of the intricate structural layouts found in
@@ -4481,8 +4362,6 @@
   categories:
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Survey'
-    - 'Trustworthiness'
   abstract: |
     Multimodal sentiment analysis is a developing area of research, which involves the identification
     of sentiments in videos. Current research considers utterances as independent entities, i.e.,
@@ -4500,7 +4379,6 @@
   categories:
     - 'Affective Computing'
     - 'Multimodality'
-    - 'Speech & Audio'
     - 'Survey'
   abstract: |
     First review on affective computing that is dealing with both unimodal and multimodal analysis.The
@@ -4572,9 +4450,7 @@
   publication_url: 'https://doi.org/10.1007/s12559-016-9415-7'
   categories:
     - 'Sentiment Analysis'
-    - 'Social NLP'
     - 'Survey'
-    - 'Trustworthiness'
   abstract: |
     With the advent of Internet, people actively express their opinions about products, services,
     events, political parties, etc., in social media, blogs, and website comments. The amount of
@@ -4597,8 +4473,6 @@
     - 'Affective Computing'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Social NLP'
-    - 'Speech & Audio'
   abstract: |
     A huge number of videos are posted every day on social media platforms such as Facebook and
     YouTube. This makes the Internet an unlimited source of information. In the coming decades, coping
@@ -4622,8 +4496,6 @@
     - 'Affective Computing'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Social NLP'
-    - 'Speech & Audio'
   abstract: |
     A huge number of videos are posted every day on social media platforms, making the Internet an
     unlimited source of information. This paper proposes a methodology for multimodal sentiment analysis
@@ -4638,9 +4510,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Aspect+extraction+for+opinion+mining+with+a+deep+convolutional+neural+network'
   publication_url: 'https://doi.org/10.1016/j.knosys.2016.06.009'
   categories:
-    - 'Linear Attention'
     - 'Sentiment Analysis'
-    - 'Survey'
   abstract: |
     Users of e‐commerce websites review different aspects of a product in the comment section. In this
     research, an approach is proposed for opinion aspect extraction and recognition in selling systems.
@@ -4668,7 +4538,6 @@
     - 'Sarcasm Detection'
     - 'Sentiment Analysis'
     - 'Social NLP'
-    - 'Survey'
   abstract: |
     Sarcasm detection is a key task for many natural language processing tasks. In sentiment analysis,
     for example, sarcasm can flip the polarity of an “apparently positive” sentence and, hence,
@@ -4689,10 +4558,8 @@
   publication_url: 'https://doi.org/10.1016/j.neunet.2014.10.005'
   categories:
     - 'Affective Computing'
-    - 'Agentic AI'
     - 'Multimodality'
     - 'Relation Extraction'
-    - 'Speech & Audio'
   abstract: |
     An increasingly large amount of multimodal content is posted on social media websites such as
     YouTube and Facebook everyday. In order to cope with the growth of such so much multimodal data,
@@ -4735,8 +4602,6 @@
     - 'Dialogue Systems'
     - 'Multimodality'
     - 'Sentiment Analysis'
-    - 'Speech & Audio'
-    - 'Survey'
   abstract: |
     We present a novel way of extracting features from short texts, based on the activation values of
     an inner layer of a deep convolutional neural network. We use the extracted features in multimodal
@@ -4771,10 +4636,9 @@
   publication_url: 'https://doi.org/10.1016/j.knosys.2014.06.011'
   categories:
     - 'Affective Computing'
+    - 'Commonsense'
     - 'Reasoning'
     - 'Sentiment Analysis'
-    - 'Social NLP'
-    - 'Survey'
   abstract: |
     Emotions play a key role in natural language understanding and sensemaking. Pure machine learning
     usually fails to recognize and interpret emotions in text accurately. This paper proposes
@@ -4792,6 +4656,7 @@
   publication_url: 'https://doi.org/10.1109/mis.2013.4'
   categories:
     - 'Affective Computing'
+    - 'Commonsense'
     - 'Sentiment Analysis'
   abstract: |
     SenticNet 1.0 is one of the most widely used, publicly available resources for concept-based
@@ -4824,6 +4689,7 @@
   publication_url: 'https://doi.org/10.1109/icosp.2012.6491803'
   categories:
     - 'Affective Computing'
+    - 'Commonsense'
     - 'Sentiment Analysis'
   abstract: |
     SenticNet is currently one of the most comprehensive freely available semantic resources for
@@ -4841,6 +4707,7 @@
   publication_url: 'https://doi.org/10.1007/978-3-642-37807-2_7'
   categories:
     - 'Affective Computing'
+    - 'Commonsense'
     - 'Sentiment Analysis'
   abstract: |
     We consider the task of semi-supervised classification: extending category labels from a small
@@ -4899,7 +4766,6 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Semantic%20Textual%20Entailment%20Recognition%20using%20UNL'
   publication_url: 'https://doi.org/10.17562/pb-43-3'
   categories:
-    - 'Hypothesis Discovery'
     - 'NLI'
   abstract: |
     A two-way textual entailment (TE) recognition system that uses semantic features has been described
@@ -4939,7 +4805,6 @@
   publication_url: 'https://tac.nist.gov/publications/2010/participant.papers/JU_CSE_TAC.proceedings.pdf'
   categories:
     - 'NLI'
-    - 'Relation Extraction'
   abstract: |
     The note describes the Recognizing Textual Entailment (RTE) system developed at the Computer
     Science and Engineering Department, Jadavpur University, India. We participated in the RTE-6 Main,

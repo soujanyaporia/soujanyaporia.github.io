@@ -117,10 +117,13 @@ function filterPubs() {
     } else if (filter === 'pdf') {
       matchesFilter = c.getAttribute('data-has-pdf') === 'true';
     } else if (activeCategories.size > 0) {
+      // AND logic: paper must match ALL selected categories
       var cardCats = (c.getAttribute('data-categories') || '').split(',').map(function(x){ return x.trim().toLowerCase(); });
+      var matchAll = true;
       activeCategories.forEach(function(ac) {
-        if (cardCats.indexOf(ac.toLowerCase()) !== -1) matchesFilter = true;
+        if (cardCats.indexOf(ac.toLowerCase()) === -1) matchAll = false;
       });
+      matchesFilter = matchAll;
     }
 
     c.style.display = matchesQuery && matchesFilter ? '' : 'none';
@@ -141,7 +144,6 @@ function filterPubs() {
 
 function setPubFilter(filter, button) {
   document.body.setAttribute('data-pub-filter', filter);
-  // Clear category selections when All/PDF is clicked
   activeCategories.clear();
   document.querySelectorAll('.pub-cat-btn').forEach(function(b) { b.classList.remove('active'); });
   document.querySelectorAll('.pub-filter').forEach(function(b) { b.classList.remove('active'); });
@@ -154,18 +156,19 @@ function toggleCatFilter(cat) {
     activeCategories.delete(cat);
   } else {
     activeCategories.add(cat);
-    // Clear All/PDF filter
+  }
+  // Clear All/PDF buttons when categories are active
+  if (activeCategories.size > 0) {
     document.body.setAttribute('data-pub-filter', 'cat');
     document.querySelectorAll('.pub-filter').forEach(function(b) { b.classList.remove('active'); });
-  }
-  // Update button states
-  document.querySelectorAll('.pub-cat-btn').forEach(function(b) {
-    b.classList.toggle('active', activeCategories.has(b.getAttribute('data-cat')));
-  });
-  if (activeCategories.size === 0) {
+  } else {
     document.body.setAttribute('data-pub-filter', 'all');
     document.querySelector('.pub-filter[data-filter="all"]').classList.add('active');
   }
+  // Update button highlights
+  document.querySelectorAll('.pub-cat-btn').forEach(function(b) {
+    b.classList.toggle('active', activeCategories.has(b.getAttribute('data-cat')));
+  });
   filterPubs();
 }
 
