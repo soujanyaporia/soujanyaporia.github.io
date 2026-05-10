@@ -7,141 +7,156 @@ toc: true
 toc_label: "Contents"
 ---
 
-## Research Interests
+## Research Areas
 
-- Natural language processing
-- Large Language Models (LLMs)
-- Responsible/ Safe LLMs
-- Trustworthy LLMs
-- Multimodal Machine Learning
+<div class="research-area-grid">
+  <section class="research-area-card"><span>01</span><h3>Large Language Models</h3><p>Evaluation, reasoning, instruction following, tool use, and robust deployment of LLM-based systems.</p></section>
+  <section class="research-area-card"><span>02</span><h3>Responsible & Trustworthy AI</h3><p>Safety, alignment, hallucination prevention, governance, refusal, and trustworthy generation.</p></section>
+  <section class="research-area-card"><span>03</span><h3>Multimodal Machine Learning</h3><p>Language, vision, audio, and affective signals for multimodal reasoning and interaction.</p></section>
+  <section class="research-area-card"><span>04</span><h3>Embodied & Agentic AI</h3><p>Vision-language-action models, embodied planning, grounded reasoning, and interactive agents.</p></section>
+</div>
 
 ## Grants
-(external grants as main PI)
-- Embodied Foundational Models, CNRS@CREATE, NRF, *Grant Value: Total value: S$10M, Awarded to us: S$3.33M*
-- Toward Generalist Vision Language Action Models, KLASS, *Grant Value: S$1.5M*
-- Google Deepmind's GCP Grant, Google Deepmind, *Grant Value: S$100K*
-- Meta Audiobox Research Grant, Meta, *Grant Value: S$70K*
-- Prevent Hallucination in LLMs, Dec 2023 - Dec 2026, DSO, *Grant Value: S$800K*
-- AI Governance Grant, Jan 2024 - Dec 2026, AI Singapore, *Grant Value: S$500K*
-- Commonsense-aware Natural Language Processing, Ministry of Education (MoE) Tier-2, Aug 2021 - Aug 2024, *Grant Value: S$736K*
-- K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning for General Expertise, AME research grant, Feb. 2020 - Feb. 2023, *Grant Value: S$910K*
-- Geopolitical Question Answering, DSO research grant, Feb. 2020 - Feb. 2022, *Grant Value: S$800K*
-- Hate speech detection, Feb 2020 - Sept 2021, *Grant Value: S$85K*
-- Alibaba Gift Funding through IPP Program, Jan 2021 - Dec 2025, *Grant Value: S$100K*
-- Multimodal personalized affective dialogue systems, NTU Presidential Postdoctoral Research Grant, Sept. 2018 - Sept. 2020, *Grant Value: S$200K*
 
-(as co-PI)
-- NMLP Research Grant, AI Singapore, Apr 2025 - Mar 2028, *Grant Value: S$4.9M*
-- OpenAI Superalignment Grant, OpenAI, *Grant Value: S$200K*
-- Intent Inference, DSO research grant, Feb 2020 - Feb 2022, *Grant Value: S$148K*. *Total Grant Value: S$800K*. Lead PI: Prof. Kwan Hui Lim (SUTD). Other CO-PIs: Prof. Roy Lee (SUTD). Both Kwan Hui and Roy are great people. If you are reading this and want to do a PhD in CS, NLP, AI, Complex Networks etc. they are the finest people to work with. Do email them :)
-- Estate-IQ: An Advanced AI System for Enabling Smart HDB Estate Services, HDB, July 2021 - June 2024, *Grant Value: S$4.9M*.
-- SUTD AI Program: Discovery by AI, SUTD, June 2020 - June 2023, *Grant Value: S$150K*
+### Main PI
+
+<div class="table-wrap">
+<table class="profile-table">
+  <thead><tr><th>Project</th><th>Funder</th><th>Period</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>Embodied Foundational Models</td><td>CNRS@CREATE, NRF</td><td>-Jan 2026 - Dec 2029</td><td>Total S$10M; awarded S$3.33M</td></tr>
+    <tr><td>Toward Generalist Vision Language Action Models</td><td>KLASS</td><td>Jan 2026 - Dec 2028</td><td>S$1.5M</td></tr>
+    <tr><td>Google DeepMind GCP Grant</td><td>Google DeepMind</td><td>Jan 2026 - Dec 2026</td><td>S$100K</td></tr>
+    <tr><td>Meta Audiobox Research Grant</td><td>Meta</td><td>Jan 2025 - Dec 2025</td><td>S$70K</td></tr>
+    <tr><td>Prevent Hallucination in LLMs</td><td>DSO</td><td>Dec 2023 - Dec 2026</td><td>S$800K</td></tr>
+    <tr><td>AI Governance Grant</td><td>AI Singapore</td><td>Jan 2024 - Dec 2026</td><td>S$500K</td></tr>
+    <tr><td>Commonsense-aware Natural Language Processing</td><td>MoE Tier-2</td><td>Aug 2021 - Aug 2024</td><td>S$736K</td></tr>
+    <tr><td>K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning</td><td>AME</td><td>Feb 2020 - Feb 2023</td><td>S$910K</td></tr>
+    <tr><td>Geopolitical Question Answering</td><td>DSO</td><td>Feb 2020 - Feb 2022</td><td>S$800K</td></tr>
+    <tr><td>Hate Speech Detection</td><td>-</td><td>Feb 2020 - Sept 2021</td><td>S$85K</td></tr>
+    <tr><td>Alibaba Gift Funding through IPP Program</td><td>Alibaba</td><td>Jan 2021 - Dec 2025</td><td>S$100K</td></tr>
+    <tr><td>Multimodal Personalized Affective Dialogue Systems</td><td>NTU Presidential Postdoctoral Research Grant</td><td>Sept 2018 - Sept 2020</td><td>S$200K</td></tr>
+  </tbody>
+</table>
+</div>
+
+### Co-PI
+
+<div class="table-wrap">
+<table class="profile-table">
+  <thead><tr><th>Project</th><th>Funder</th><th>Period</th><th>Value</th></tr></thead>
+  <tbody>
+    <tr><td>NMLP Research Grant</td><td>AI Singapore</td><td>Apr 2025 - Mar 2028</td><td>S$4.9M</td></tr>
+    <tr><td>OpenAI Superalignment Grant</td><td>OpenAI</td><td>-</td><td>S$200K</td></tr>
+    <tr><td>Intent Inference</td><td>DSO</td><td>Feb 2020 - Feb 2022</td><td>S$148K; total grant S$800K</td></tr>
+    <tr><td>Estate-IQ: Smart HDB Estate Services</td><td>HDB</td><td>July 2021 - June 2024</td><td>S$4.9M</td></tr>
+    <tr><td>SUTD AI Program: Discovery by AI</td><td>SUTD</td><td>June 2020 - June 2023</td><td>S$150K</td></tr>
+  </tbody>
+</table>
+</div>
 
 ## Awards
 
-- Highly Cited Researcher, Web of Science (2025)
-- President's Young Scientist Award, Singapore (2023)
-- MIT Technology Review 35 under 35 Asia Pacific (2023)
-- IEEE CIS Outstanding Early Career Award (2024)
-- NAACL Social Impact Award (2024)
-- SCALE-LLM Best Paper Award (2024)
-- IEEE IS 10 to Watch in AI (2022)
-- Aminer's AI2000 one of the most influential researchers 2023 (honorable mention)
-- Presidential Postdoctoral Fellowship 2018 (early career research award), NTU, Singapore (600 applicants, 12 total fellowships)
-- IEEE CIM Outstanding Paper Award 2021
-- Emerald Citations of Excellence (tinyurl.com/2017citationsofexcellence)
+<div class="award-grid">
+  <div><strong>Highly Cited Researcher</strong><span>Web of Science, 2025</span></div>
+  <div><strong>President's Young Scientist Award</strong><span>Singapore, 2023</span></div>
+  <div><strong>MIT Technology Review 35 under 35</strong><span>Asia Pacific, 2023</span></div>
+  <div><strong>IEEE CIS Outstanding Early Career Award</strong><span>2024</span></div>
+  <div><strong>NAACL Social Impact Award</strong><span>2024</span></div>
+  <div><strong>SCALE-LLM Best Paper Award</strong><span>2024</span></div>
+  <div><strong>IEEE IS 10 to Watch in AI</strong><span>2022</span></div>
+  <div><strong>Aminer AI2000 Honorable Mention</strong><span>2023</span></div>
+  <div><strong>Presidential Postdoctoral Fellowship</strong><span>NTU Singapore, 2018</span></div>
+  <div><strong>IEEE CIM Outstanding Paper Award</strong><span>2021</span></div>
+  <div><strong>Emerald Citations of Excellence</strong><span>-</span></div>
+</div>
 
-## Graduated PhD Students
+## Students
 
-- Devamanyu Hazarika, 2018 - 2022, now works at Amazon.
-- Deepanway Ghosal, 2019 - 2024, now works at Deepmind.
-- Rishabh Bhardwaj, 2020 - 2025, founded Walled AI.
-- Chen Hui, 2018 - 2023, postdoc at NTU.
-- Chia Yew Ken, 2021 - 2025, now works at Alibaba DAMO Academy.
-- Pengfei Hong, 2021 - 2025.
-- Wei Han, 2021 - 2025, now works at Huawei.
+### Current PhD Students
 
-## Current PhD Students
+<div class="people-grid compact-people">
+  <span>Richmond Sin</span><span>Vernon Toh</span><span>Varun Gumma</span><span>Lei Jingdi</span><span>Renhang Liu</span><span>Nitish Muthuchamy</span><span>Maojia Song</span><span>Jaavid Akhtar</span><span>Pala Tej Deep</span><span>Chia Yu</span><span>Weisheng Jin</span>
+</div>
 
-- Richmond Sin
-- Vernon Toh
-- Varun Gumma
-- Lei Jingdi
-- Renhang Liu
-- Nitish Muthuchamy
-- Maojia Song
-- Jaavid Akhtar
-- Vernon Toh
-- Pala Tej Deep
-- Chia Yu
-- Weisheng Jin
+### Graduated PhD Students
 
-## Editorship & Chair (not updated)
+<div class="table-wrap">
+<table class="profile-table">
+  <thead><tr><th>Name</th><th>Years</th><th>Current role</th></tr></thead>
+  <tbody>
+    <tr><td>Devamanyu Hazarika</td><td>2018 - 2022</td><td>Amazon</td></tr>
+    <tr><td>Deepanway Ghosal</td><td>2019 - 2024</td><td>DeepMind</td></tr>
+    <tr><td>Rishabh Bhardwaj</td><td>2020 - 2025</td><td>Founder, Walled AI</td></tr>
+    <tr><td>Chen Hui</td><td>2018 - 2023</td><td>Postdoc, NTU</td></tr>
+    <tr><td>Chia Yew Ken</td><td>2021 - 2025</td><td>Alibaba DAMO Academy</td></tr>
+    <tr><td>Pengfei Hong</td><td>2021 - 2025</td><td>-</td></tr>
+    <tr><td>Wei Han</td><td>2021 - 2025</td><td>Huawei</td></tr>
+  </tbody>
+</table>
+</div>
 
-- Senior Area chair / Area Chair at multiple CL conferences: NAACL, AAAI, EMNLP, ACL
-- Associate Editor, Cognitive Computation
-- Associate Editor, Neurocomputing
-- Associate Editor, Information Fusion
-- SPC, IJCAI 2023
-- Workshop chair, AACL 2022
-- Publicity chair, ACL 2022
-- Area chair, ARR (2021-)
-- Area chair at NeuRIPS 2021
-- Publicity chair at *SEM 2019
-- Co-guest editor, Affect Recognition in Multimodal Language, Cognitive Computation, 2020
-- Co-guest editor of special issue of IEEE Computational Intelligence Magazine on Computational Intelligence for Affective Computing and Sentiment Analysis (CIACSA)
-- Co-guest editor for the (Springer) Cognitive Computation journal (Impact Factor: 3.44) Special Issue on “Multimodal natural language processing for Cybersecurity applications”, 2018-19
-- Co-chair of Advancing Artificial Intelligence Understanding of Human Multimodal Language workshop in conjunction with ACL 2018
-- Co-chair of MR2AMC workshop in conjunction with ICMR 2018
-- Organized SENTIRE workshop in conjunction with ICDM 2017
+## Service
 
-## PC Membership (not updated)
+### Editorship & Chair (not updated)
 
-- AAAI, IJCAI, EMNLP, ACL, NAACL, COLING, etc.
+<div class="service-list">
+  <p>Senior Area Chair / Area Chair at NAACL, AAAI, EMNLP, ACL and related CL venues.</p>
+  <p>Associate Editor: Cognitive Computation, Neurocomputing, Information Fusion.</p>
+  <p>SPC, IJCAI 2023; Workshop Chair, AACL 2022; Publicity Chair, ACL 2022; Area Chair, ARR; Area Chair, NeurIPS 2021.</p>
+  <p>Co-editor and organizer for special issues and workshops on affective computing, multimodal NLP, and sentiment analysis.</p>
+</div>
+
+### PC Membership (not updated)
+
+<p>AAAI, IJCAI, EMNLP, ACL, NAACL, COLING, and related venues.</p>
 
 ## Keynote & Invited Talks (not updated)
 
-- Invited speaker, [IndoML 2025](https://indoml.in/speakers.php), Indian Symposium on Machine Learning.
-- Talk, [Understanding, Leveraging, and Improving Large Language Models](https://www.sigweb.org/toc/www24a.html), The Web Conference Companion 2024.
-- Keynote talk on Utterance Level Dialogue Understanding, ICON 2020, India
-- Keynote talk on Utterance Level Dialogue Understanding, MICAI 2020, Mexico
-- Keynote talk, on Emotion Recognition in Conversation: Research Challenges, Negative Results, and
-Benchmarks, SocialNLP, IJCAI 2019, Macau
-- Invited talk, on the Role of Context in Natural Language Processing, University of Michigan, USA
-- Invited talk, on Emotion Recognition in Conversation: Research Challenges, Negative Results, and
-Benchmarks, NUS, Singapore
-- Invited talk, on the Evolving Sentiment Analysis, NTU, Singapore
-- Keynote Speaker, on Multimodal sentiment analysis, CICLing 2018, Hanoi, Vietnam
-- Invited Speaker, on Aspect extraction from product reviews, Deep Learning Finance Summit 2018, Singapore
+<div class="service-list">
+  <p>Invited speaker, <a href="https://indoml.in/speakers.php">IndoML 2025</a>, Indian Symposium on Machine Learning.</p>
+  <p>Talk, <a href="https://www.sigweb.org/toc/www24a.html">Understanding, Leveraging, and Improving Large Language Models</a>, The Web Conference Companion 2024.</p>
+  <p>Keynote talk on Utterance Level Dialogue Understanding, ICON 2020, India.</p>
+  <p>Keynote talk on Utterance Level Dialogue Understanding, MICAI 2020, Mexico.</p>
+  <p>Keynote talk on Emotion Recognition in Conversation, SocialNLP, IJCAI 2019, Macau.</p>
+  <p>Invited talks at University of Michigan, NUS, NTU, CICLing 2018, and Deep Learning Finance Summit 2018.</p>
+</div>
 
 ## News Coverage
 
-- News coverage by mlreview.com, for our work - [www.nlpoverview.com](www.nlpoverview.com)
-- News coverage by Kdnuggets, for our paper titled ”Recent Trends in Deep Learning Based NLP”.
-[https://www.kdnuggets.com/2018/09/deep-learning-nlp-overview-recent-trends.html](https://www.kdnuggets.com/2018/09/deep-learning-nlp-overview-recent-trends.html)
-- News coverage by Kdnuggets, for our paper titled ”A Deeper Look into Sarcastic Tweets Using Deep
-Convolutional Neural Networks” – [https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html](https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html)
-- News coverage by Datanami, for our paper titled ”Deep Learning-Based Document Modeling for
-Personality Detection from Text” –
-[https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/](https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/)
+<div class="service-list">
+  <p>News coverage by mlreview.com for <a href="https://www.nlpoverview.com">nlpoverview.com</a>.</p>
+  <p>KDnuggets coverage of <a href="https://www.kdnuggets.com/2018/09/deep-learning-nlp-overview-recent-trends.html">Recent Trends in Deep Learning Based NLP</a>.</p>
+  <p>KDnuggets coverage of <a href="https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html">sarcasm detection with deep convolutional neural networks</a>.</p>
+  <p>Datanami coverage of <a href="https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/">personality detection from text</a>.</p>
+</div>
 
 ## Education
 
-- Ph.D. in Computer Science and Mathematics, *Thesis: Novel symbolic and machine-learning approaches for text-based and multimodal sentiment analysis*, Feb 2014 - June 2017, University of Stirling, Scotland, UK
-- Bachelor of Engineering (B.E.) in Computer Science and Engineering, Aug 2009 - Dec 2013, Jadavpur University, India
+<div class="table-wrap">
+<table class="profile-table">
+  <thead><tr><th>Degree</th><th>Institution</th><th>Period</th></tr></thead>
+  <tbody>
+    <tr><td>Ph.D. in Computer Science and Mathematics</td><td>University of Stirling, Scotland, UK</td><td>Feb 2014 - June 2017</td></tr>
+    <tr><td>B.E. in Computer Science and Engineering</td><td>Jadavpur University, India</td><td>Aug 2009 - Dec 2013</td></tr>
+  </tbody>
+</table>
+</div>
 
 ## Honorific Position
 
-- Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020
+<p>Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020.</p>
 
 ## Bibliometrics
 
-- One of the most productive authors in sentiment analysis research from 2000 to 2015 (tinyurl.com/kwmboyy)
-- One of the most prolific and impactful authors in sentiment analysis from 2003 to 2016 (tinyurl.com/y8yj7974)
-- Google Scholar profile (https://scholar.google.co.in/citations?user=oS6gRc4AAAAJ&hl=en)
+<div class="service-list">
+  <p>One of the most productive authors in sentiment analysis research from 2000 to 2015.</p>
+  <p>One of the most prolific and impactful authors in sentiment analysis from 2003 to 2016.</p>
+  <p><a href="https://scholar.google.co.in/citations?user=oS6gRc4AAAAJ&hl=en">Google Scholar profile</a>.</p>
+</div>
 
 ## Teaching
 
-- Database IE4791, NTU, Singapore
-- Computational Data Science, ISTD, SUTD, Singapore
-- Information Retrieval, ISTD, SUTD, Singapore
+<div class="people-grid compact-people">
+  <span>Database IE4791, NTU, Singapore</span><span>Computational Data Science, SUTD, Singapore</span><span>Information Retrieval, SUTD, Singapore</span>
+</div>

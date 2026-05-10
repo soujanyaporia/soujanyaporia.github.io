@@ -6,25 +6,76 @@ title: ""
 ---
 
 <section class="home-hero">
-  <p class="eyebrow">Nanyang Technological University, Singapore</p>
-  <h1>Soujanya Poria</h1>
-  <p class="hero-subtitle">Associate Professor working on large language models, multimodal AI, AI safety, reasoning, embodied AI, and natural language processing.</p>
+  <h2 class="hero-greeting-name">নমস্কার — I am Soujanya Poria (সৌজন্য পড়িয়া)</h2>
+  <p class="eyebrow">School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore</p>
+  <p class="hero-subtitle">I am an Associate Professor at EEE, NTU. Previously I was Assistant Professor (later Associate Professor) at the Singapore University of Technology and Design (SUTD). I lead the DeCLaRe Lab.</p>
   <div class="hero-actions">
     <a class="btn-primary" href="/publications/">View Publications</a>
+    <a class="btn-secondary" href="#selected-publications">Selected Publications</a>
     <a class="btn-secondary" href="#recent-updates">Recent Updates</a>
     <a class="btn-secondary" href="https://declare-lab.github.io/">DeCLaRe Lab</a>
     <a class="btn-secondary" href="mailto:soujanya.poria@ntu.edu.sg">Email</a>
   </div>
 </section>
 
-<section class="intro-panel">
-  <div>
-    <h2>Research Focus</h2>
-    <p>My research focuses on language and multimodal intelligence, with emphasis on systems that reason, explain, align with human values, and operate robustly across modalities. My recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
+<div class="home-overview">
+  <section class="intro-panel">
+    <div>
+      <h2>Research Focus</h2>
+      <p>My research focuses on language and multimodal intelligence, with emphasis on systems that reason, explain, align with human values, and operate robustly across modalities. My recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
+    </div>
+    <div class="intro-aside">
+      <p><strong>Open to collaboration.</strong> Prospective students and collaborators should first review the lab research slides and current publications.</p>
+      <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
+    </div>
+  </section>
+
+  <section class="updates-panel" id="recent-updates">
+    <div class="updates-header">
+      <span class="work-kicker">Recent Updates</span>
+      <a class="btn-secondary" href="/publications/">All publications</a>
+    </div>
+    <div class="news-timeline compact">
+      <div class="news-item">
+        <h4><span class="news-badge">Award</span> Highly Cited Researcher 2026</h4>
+        <p>Recognized by Web of Science.</p>
+      </div>
+      <div class="news-item">
+        <h4><span class="news-badge">AAAI 2026</span> Two papers accepted</h4>
+      </div>
+      <div class="news-item">
+        <h4><span class="news-badge">ICLR 2026</span> Four papers accepted</h4>
+      </div>
+      <div class="news-item">
+        <h4><span class="news-badge">ICML 2026</span> Two papers accepted</h4>
+      </div>
+      <div class="news-item">
+        <h4><span class="news-badge">2025</span> Joined EEE, NTU</h4>
+        <p>Moved to the School of Electrical and Electronic Engineering at NTU.</p>
+      </div>
+      <div class="news-item">
+        <h4><span class="news-badge">ACL 2025</span> Four papers accepted</h4>
+      </div>
+      <div class="news-item">
+        <h4><span class="news-badge">EMNLP 2025</span> Five papers accepted</h4>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="lab-panel">
+  <div class="lab-identity">
+    <img class="lab-logo lab-logo-light" src="/assets/images/logos/declare-square-light.png" alt="DeCLaRe Lab logo">
+    <img class="lab-logo lab-logo-dark" src="/assets/images/logos/declare-square-dark.png" alt="DeCLaRe Lab logo">
   </div>
-  <div class="intro-aside">
-    <p><strong>Open to collaboration.</strong> Prospective students and collaborators should first review the lab research slides and current publications.</p>
-    <a href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
+  <div class="lab-copy">
+    <span class="lab-kicker">Research Group</span>
+    <h2>DeCLaRe Lab</h2>
+    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents that can act with better grounding.</p>
+    <div class="lab-actions">
+      <a class="lab-link" href="https://declare-lab.github.io/">Visit the lab website</a>
+      <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
+    </div>
   </div>
 </section>
 
@@ -121,36 +172,4 @@ title: ""
       <li><a href="https://arxiv.org/pdf/2409.14277">Can-Do!</a><span>arXiv</span></li>
     </ul>
   </section>
-</div>
-
-<h2 id="recent-updates">Recent Updates</h2>
-
-<div class="news-timeline">
-  <div class="news-item">
-    <h4><span class="news-badge">ICML 2026</span> Two papers accepted</h4>
-    <p>Congratulations to all co-authors.</p>
-  </div>
-  <div class="news-item">
-    <h4><span class="news-badge">ICLR 2026</span> Four papers accepted</h4>
-    <p>New work on LLM evaluation, social interactions, and text-to-audio generation.</p>
-  </div>
-  <div class="news-item">
-    <h4><span class="news-badge">Release</span> NORA 1.5</h4>
-    <p>One of the trending papers on Hugging Face. <a href="https://declare-lab.github.io/nora-1.5">Project page</a>.</p>
-  </div>
-  <div class="news-item">
-    <h4><span class="news-badge">Grant</span> Google DeepMind</h4>
-    <p>100K USD GCP credits from Google DeepMind's Gemini team.</p>
-  </div>
-  <div class="news-item">
-    <h4><span class="news-badge">Award</span> IEEE CIS Outstanding Early Career Award 2024</h4>
-  </div>
-  <div class="news-item">
-    <h4><span class="news-badge">Award</span> NAACL 2024 Social Impact Award</h4>
-    <p><a href="https://arxiv.org/pdf/2405.04655">Read the paper</a>.</p>
-  </div>
-  <div class="news-item">
-    <h4><span class="news-badge">Award</span> MIT TR-35 Asia Pacific 2023</h4>
-    <p>Named one of the 35 innovators under 35 by MIT Technology Review.</p>
-  </div>
 </div>
