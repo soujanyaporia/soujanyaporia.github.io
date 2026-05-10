@@ -1,0 +1,22 @@
+{% capture tocContent %}{{ include.html }}{% endcapture %}
+{% assign lines = tocContent | split: '<h' %}
+<ul class="toc-list">
+{% for line in lines %}
+  {% if line contains 'id="' %}
+    {% assign level_char = line | slice: 0, 1 %}
+    {% assign h_min = include.h_min | default: 2 %}
+    {% assign h_max = include.h_max | default: 3 %}
+    {% assign level = level_char | plus: 0 %}
+    {% if level >= h_min and level <= h_max %}
+      {% assign id_start = line | split: 'id="' %}
+      {% assign id = id_start[1] | split: '"' | first %}
+      {% assign title_start = line | split: '>' %}
+      {% assign title_with_end = title_start[1] | split: '</h' | first %}
+      {% assign title_clean = title_with_end | strip_html | strip %}
+      {% if title_clean != "" %}
+      <li class="toc-level-{{ level }}"><a href="#{{ id }}">{{ title_clean }}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+</ul>

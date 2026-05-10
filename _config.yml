@@ -1,0 +1,86 @@
+# Site Settings
+locale: "en-US"
+title: "Soujanya Poria"
+title_separator: "-"
+subtitle: "Associate Professor, NTU Singapore"
+name: "Soujanya Poria"
+description: "Associate Professor at the School of Electrical and Electronic Engineering, Nanyang Technological University (NTU), Singapore. Research in LLMs, Multimodal AI, and NLP."
+url: "https://soujanyaporia.github.io"
+repository: "soujanyaporia/soujanyaporia.github.io"
+
+# Author
+author:
+  name: "Soujanya Poria"
+  avatar: "/assets/images/sj.png"
+  bio: "Associate Professor, School of Electrical and Electronic Engineering, Nanyang Technological University (NTU)"
+  location: "Singapore"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:soujanya.poria@ntu.edu.sg"
+    - label: "Lab Website"
+      icon: "fas fa-fw fa-flask"
+      url: "https://declare-lab.github.io"
+    - label: "Google Scholar"
+      icon: "fas fa-fw fa-graduation-cap"
+      url: "https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works"
+    - label: "DBLP"
+      icon: "fas fa-fw fa-database"
+      url: "https://dblp.org/pid/116/4904"
+    - label: "ACL Anthology"
+      icon: "fas fa-fw fa-book"
+      url: "https://aclanthology.org/people/soujanya-poria/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/soujanyaporia"
+    - label: "Twitter"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://twitter.com/soujanyaporia"
+
+# Analytics
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "G-H4JB4HZRJ2"
+
+# Build
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+
+# Reading Files
+include:
+  - _pages
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - vendor
+
+keep_files:
+  - .git
+
+encoding: "utf-8"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
