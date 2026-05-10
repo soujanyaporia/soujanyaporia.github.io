@@ -3,12 +3,8 @@ layout: single
 title: "Research"
 permalink: /research/
 author_profile: true
-related: false
 toc: true
-toc_label: "Table of Contents"
-articlecolour: "#00001a"
-toc_sticky: true
-
+toc_label: "Contents"
 ---
 
 ## Research Interests
@@ -21,6 +17,9 @@ toc_sticky: true
 
 ## Grants
 (external grants as main PI)
+- Embodied Foundational Models, CNRS@CREATE, NRF, *Grant Value: Total value: S$10M, Awarded to us: S$3.33M*
+- Toward Generalist Vision Language Action Models, KLASS, *Grant Value: S$1.5M*
+- Google Deepmind's GCP Grant, Google Deepmind, *Grant Value: S$100K*
 - Meta Audiobox Research Grant, Meta, *Grant Value: S$70K*
 - Prevent Hallucination in LLMs, Dec 2023 - Dec 2026, DSO, *Grant Value: S$800K*
 - AI Governance Grant, Jan 2024 - Dec 2026, AI Singapore, *Grant Value: S$500K*
@@ -40,6 +39,7 @@ toc_sticky: true
 
 ## Awards
 
+- Highly Cited Researcher, Web of Science (2025)
 - President's Young Scientist Award, Singapore (2023)
 - MIT Technology Review 35 under 35 Asia Pacific (2023)
 - IEEE CIS Outstanding Early Career Award (2024)
@@ -58,21 +58,27 @@ toc_sticky: true
 - Rishabh Bhardwaj, 2020 - 2025, founded Walled AI.
 - Chen Hui, 2018 - 2023, postdoc at NTU.
 - Chia Yew Ken, 2021 - 2025, now works at Alibaba DAMO Academy.
+- Pengfei Hong, 2021 - 2025.
+- Wei Han, 2021 - 2025, now works at Huawei.
 
 ## Current PhD Students
 
-- Hong Pengfei
+- Richmond Sin
+- Vernon Toh
+- Varun Gumma
+- Lei Jingdi
+- Renhang Liu
+- Nitish Muthuchamy
 - Maojia Song
 - Jaavid Akhtar
 - Vernon Toh
 - Pala Tej Deep
 - Chia Yu
 - Weisheng Jin
-- Shaozuo Zhang
 
 ## Editorship & Chair (not updated)
 
-- Senior Area chair / Area Chair at multiple CL conferences: NAACL, EMNLP, EMNLP, ACL
+- Senior Area chair / Area Chair at multiple CL conferences: NAACL, AAAI, EMNLP, ACL
 - Associate Editor, Cognitive Computation
 - Associate Editor, Neurocomputing
 - Associate Editor, Information Fusion
@@ -93,8 +99,10 @@ toc_sticky: true
 
 - AAAI, IJCAI, EMNLP, ACL, NAACL, COLING, etc.
 
-## Keynote & Invited Talks
+## Keynote & Invited Talks (not updated)
 
+- Invited speaker, [IndoML 2025](https://indoml.in/speakers.php), Indian Symposium on Machine Learning.
+- Talk, [Understanding, Leveraging, and Improving Large Language Models](https://www.sigweb.org/toc/www24a.html), The Web Conference Companion 2024.
 - Keynote talk on Utterance Level Dialogue Understanding, ICON 2020, India
 - Keynote talk on Utterance Level Dialogue Understanding, MICAI 2020, Mexico
 - Keynote talk, on Emotion Recognition in Conversation: Research Challenges, Negative Results, and
@@ -134,5 +142,6 @@ Personality Detection from Text” –
 
 ## Teaching
 
+- Database IE4791, NTU, Singapore
 - Computational Data Science, ISTD, SUTD, Singapore
 - Information Retrieval, ISTD, SUTD, Singapore

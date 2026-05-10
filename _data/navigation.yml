@@ -1,11 +1,11 @@
 # main links
 main:
   - title: "About me"
-    url: /index
+    url: /
   - title: "Research"
     url: /research/
   - title: "Publications"
-    url: https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works&sortby=pubdate
+    url: /publications/
   # - title: "Resources"
   #   url: /resources/
   - title: "DeCLaRe Lab"

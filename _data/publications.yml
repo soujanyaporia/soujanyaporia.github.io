@@ -1,0 +1,1357 @@
+# Publications data file - easy to maintain
+# Fields: title, authors, venue, year
+# Optional: publication_url, scholar_url, pdf, abstract, code, project
+
+- title: Tracking the Evolution of Multimodal Reasoning on Visual Puzzles
+  authors: V Toh, YK Chia, D Ghosal, S Poria
+  venue: Logical and Symbolic Reasoning in Language Models @ AAAI 2026
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Tracking+the+Evolution+of+Multimodal+Reasoning+on+Visual+Puzzles
+  publication_url: https://openreview.net/forum?id=eNeizNe72k
+  pdf: https://openreview.net/pdf?id=eNeizNe72k
+- title: 'Tangoflux: Super fast and faithful text to audio generation with flow matching and clap-ranked preference optimization'
+  authors: CY Hung, N Majumder, Z Kong, A Mehrish, AA Bagherzadeh, C Li, S Poria
+  venue: ICLR
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Tangoflux%3A+Super+fast+and+faithful+text+to+audio+generation+with+flow+matching+and+clap-ranked+preference+optimization
+  publication_url: https://arxiv.org/abs/2412.21037
+  pdf: https://arxiv.org/pdf/2412.21037?
+- title: 'Stacked from One: Multi-Scale Self-Injection for Context Window Extension'
+  authors: W Han, P Zhou, S Poria, S Yan
+  venue: arXiv preprint arXiv:2603.04759
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Stacked+from+One%3A+Multi-Scale+Self-Injection+for+Context+Window+Extension
+  publication_url: https://arxiv.org/abs/2603.04759
+  pdf: https://arxiv.org/pdf/2603.04759
+- title: 'OffTopicEval: When Large Language Models Enter the Wrong Chat, Almost Always!'
+  authors: J Lei, V Gumma, R Bhardwaj, SM Lim, C Li, A Zadeh, S Poria
+  venue: ICLR
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=OffTopicEval%3A+When+Large+Language+Models+Enter+the+Wrong+Chat%2C+Almost+Always%21
+  publication_url: https://arxiv.org/abs/2509.26495
+  pdf: https://arxiv.org/pdf/2509.26495
+- title: 'LLMs Can''t Handle Peer Pressure: Crumbling under Multi-Agent Social Interactions'
+  authors: M Song, TD Pala, R Zhou, W Jin, A Zadeh, C Li, D Herremans, S Poria
+  venue: ICLR
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=LLMs+Can%27t+Handle+Peer+Pressure%3A+Crumbling+under+Multi-Agent+Social+Interactions
+  publication_url: https://arxiv.org/abs/2508.18321
+  pdf: https://arxiv.org/pdf/2508.18321
+- title: LLM Alignment should go beyond Harmlessness–Helpfulness and incorporate Human Agency
+  authors: U Naseem, T Chakraborty, KW Chang, M Dras, P Nakov, N Peng, S Poria
+  venue: Cognitive Computation
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=LLM+Alignment+should+go+beyond+Harmlessness%E2%80%93Helpfulness+and+incorporate+Human+Agency
+  publication_url: https://link.springer.com/article/10.1007/s12559-026-10568-9
+  pdf: https://link.springer.com/content/pdf/10.1007/s12559-026-10568-9.pdf
+- title: 'From Perception to Action: An Interactive Benchmark for Vision Reasoning'
+  authors: Y Wu, M Song, Y Lan, L Wang, Z Hu, Y Xiao, H Zhou, W Zheng, D Raharja, S Poria
+  venue: arXiv preprint arXiv:2602.21015
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=From+Perception+to+Action%3A+An+Interactive+Benchmark+for+Vision+Reasoning
+  publication_url: https://arxiv.org/abs/2602.21015
+  pdf: https://arxiv.org/pdf/2602.21015
+- title: 'Epistemic Context Learning: Building Trust the Right Way in LLM-Based Multi-Agent Systems'
+  authors: R Zhou, M Song, X Wu, S Cheng, X Yin, Y Xie, Z Hao, W Hua, L Pan, S Poria
+  venue: arXiv preprint arXiv:2601.21742
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Epistemic+Context+Learning%3A+Building+Trust+the+Right+Way+in+LLM-Based+Multi-Agent+Systems
+  publication_url: https://arxiv.org/abs/2601.21742
+  pdf: https://arxiv.org/pdf/2601.21742
+- title: 'Demystifying deep search: a holistic evaluation with hint-free multi-hop questions and factorised metrics'
+  authors: M Song, R Liu, X Wang, Y Jiang, P Xie, F Huang, J Zhou, D Herremans, S Poria
+  venue: ICLR
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Demystifying+deep+search%3A+a+holistic+evaluation+with+hint-free+multi-hop+questions+and+factorised+metrics
+  publication_url: https://arxiv.org/abs/2510.05137
+  pdf: https://arxiv.org/pdf/2510.05137
+- title: 'Data Agent: Learning to Select Data via End-to-End Dynamic Optimization'
+  authors: S Yang, F Su, H Gan, Z Ye, J Li, B Xu, F Shen, S Poria
+  venue: ICML
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Data+Agent%3A+Learning+to+Select+Data+via+End-to-End+Dynamic+Optimization
+  publication_url: https://arxiv.org/abs/2603.07433
+  pdf: https://arxiv.org/pdf/2603.07433
+- title: 'Chain-of-Glimpse: Search-Guided Progressive Object-Grounded Reasoning for Video Understanding'
+  authors: Z Wu, Q Zha, T Wang, G Xu, W Gu, W Rao, N Ma, B Cheng, S Poria
+  venue: ICML
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=Chain-of-Glimpse%3A+Search-Guided+Progressive+Object-Grounded+Reasoning+for+Video+Understanding
+  publication_url: https://arxiv.org/abs/2604.14692
+  pdf: https://arxiv.org/pdf/2604.14692
+- title: 10 Open Challenges Steering the Future of Vision-Language-Action Models
+  authors: S Poria, N Majumder, CY Hung, AA Bagherzadeh, C Li, K Kwok, Z Wang
+  venue: AAAI
+  year: 2026
+  scholar_url: https://scholar.google.com/scholar?q=10+Open+Challenges+Steering+the+Future+of+Vision-Language-Action+Models
+  publication_url: https://ojs.aaai.org/index.php/AAAI/article/view/41333
+  pdf: https://ojs.aaai.org/index.php/AAAI/article/view/41333/45294
+- title: 'Why AI is weird and should not be this way: Towards AI for everyone, with everyone, by everyone'
+  authors: R Mihalcea, O Ignat, L Bai, A Borah, L Chiruzzo, Z Jin, C Kwizera, J Nwatu, S Poria
+  venue: AAAI
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Why+AI+is+weird+and+should+not+be+this+way%3A+Towards+AI+for+everyone%2C+with+everyone%2C+by+everyone
+  publication_url: https://ojs.aaai.org/index.php/AAAI/article/view/35092
+  pdf: https://ojs.aaai.org/index.php/AAAI/article/download/35092/37247
+- title: 'Training vision-language process reward models for test-time scaling in multimodal reasoning: Key insights and lessons learned'
+  authors: B Ong, TD Pala, V Toh, WC Tjhi, S Poria
+  venue: arXiv preprint arXiv:2509.23250
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Training+vision-language+process+reward+models+for+test-time+scaling+in+multimodal+reasoning%3A+Key+insights+and+lessons+learned
+  publication_url: https://arxiv.org/abs/2509.23250
+  pdf: https://arxiv.org/pdf/2509.23250
+- title: Toward robust multimodal sentiment analysis using multimodal foundational models
+  authors: X Zhao, S Poria, X Li, Y Chen, B Tang
+  venue: Expert Systems with Applications
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Toward+robust+multimodal+sentiment+analysis+using+multimodal+foundational+models
+  publication_url: https://www.sciencedirect.com/science/article/pii/S0957417425005962
+  pdf: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=4778141
+- title: The jumping reasoning curve? Tracking the evolution of reasoning performance in GPT-[n] and o-[n] models on multimodal puzzles
+  authors: VYH Toh, YK Chia, D Ghosal, S Poria
+  venue: arXiv preprint arXiv:2502.01081
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=The+jumping+reasoning+curve%3F+Tracking+the+evolution+of+reasoning+performance+in+GPT-%5Bn%5D+and+o-%5Bn%5D+models+on+multimodal+puzzles
+  publication_url: https://arxiv.org/abs/2502.01081
+  pdf: https://arxiv.org/pdf/2502.01081
+- title: The ACM Multimedia 2025 Grand Challenge of Multimodal Conversational Aspect-based Sentiment Analysis
+  authors: M Luo, H Fei, B Li, S Wu, Q Liu, S Poria, E Cambria, ML Lee, W Hsu
+  venue: ACM MM
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=The+ACM+Multimedia+2025+Grand+Challenge+of+Multimodal+Conversational+Aspect-based+Sentiment+Analysis
+  publication_url: https://dl.acm.org/doi/abs/10.1145/3746027.3762091
+  pdf: https://dl.acm.org/doi/pdf/10.1145/3746027.3762091
+- title: Reward-Guided Tree Search for Inference Time Alignment of Large Language Models
+  authors: CY Hung, N Majumder, A Mehrish, S Poria
+  venue: NAACL
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Reward-Guided+Tree+Search+for+Inference+Time+Alignment+of+Large+Language+Models
+  publication_url: https://aclanthology.org/2025.naacl-long.625/
+  pdf: https://aclanthology.org/2025.naacl-long.625.pdf
+- title: 'PromptDistill: Query-based Selective Token Retention in Intermediate Layers for Efficient Large Language Model Inference'
+  authors: W Jin, M Song, TD Pala, YK Chia, A Zadeh, C Li, S Poria
+  venue: arXiv preprint arXiv:2503.23274
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=PromptDistill%3A+Query-based+Selective+Token+Retention+in+Intermediate+Layers+for+Efficient+Large+Language+Model+Inference
+  publication_url: https://arxiv.org/abs/2503.23274
+  pdf: https://arxiv.org/pdf/2503.23274?
+- title: 'PROEMO: Prompt-driven text-to-speech synthesis based on emotion and intensity control'
+  authors: S Zhang, A Mehrish, Y Li, S Poria
+  venue: arXiv preprint arXiv:2501.06276
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=PROEMO%3A+Prompt-driven+text-to-speech+synthesis+based+on+emotion+and+intensity+control
+  publication_url: https://arxiv.org/abs/2501.06276
+  pdf: https://arxiv.org/pdf/2501.06276?
+- title: 'PREMISE: Matching-based Prediction for Accurate Review Recommendation'
+  authors: W Han, H Chen, S Poria
+  venue: NAACL Findings
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=PREMISE%3A+Matching-based+Prediction+for+Accurate+Review+Recommendation
+  publication_url: https://aclanthology.org/2025.findings-naacl.150/
+  pdf: https://aclanthology.org/2025.findings-naacl.150.pdf
+- title: Pixel-level reasoning segmentation via multi-turn conversations
+  authors: D Cai, X Yang, Y Liu, D Wang, S Feng, Y Zhang, S Poria
+  venue: ACL
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Pixel-level+reasoning+segmentation+via+multi-turn+conversations
+  publication_url: https://aclanthology.org/2025.acl-long.864/
+  pdf: https://aclanthology.org/2025.acl-long.864.pdf
+- title: Not all votes count! Translated program for verification improves self-consistency of language models for math reasoning
+  authors: V Toh, D Ghosal, S Poria
+  venue: AI for Math Workshop @ ICML 2025
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Not+all+votes+count%21+Translated+program+for+verification+improves+self-consistency+of+language+models+for+math+reasoning
+  publication_url: https://openreview.net/forum?noteId=uw2FhekYtc
+  pdf: https://openreview.net/pdf?id=uw2FhekYtc
+- title: 'Nora: A small open-sourced generalist vision language action model for embodied tasks'
+  authors: CY Hung, Q Sun, P Hong, A Zadeh, C Li, U Tan, N Majumder, S Poria
+  venue: arXiv preprint arXiv:2504.19854
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Nora%3A+A+small+open-sourced+generalist+vision+language+action+model+for+embodied+tasks
+  publication_url: https://arxiv.org/abs/2504.19854
+  pdf: https://arxiv.org/pdf/2504.19854?
+- title: 'Nora-1.5: A vision-language-action model trained using world model-and action-based preference rewards'
+  authors: CY Hung, N Majumder, H Deng, L Renhang, Y Ang, A Zadeh, C Li, S Poria
+  venue: arXiv preprint arXiv:2511.14659
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Nora-1.5%3A+A+vision-language-action+model+trained+using+world+model-and+action-based+preference+rewards
+  publication_url: https://arxiv.org/abs/2511.14659
+  pdf: https://arxiv.org/pdf/2511.14659
+- title: Multimodal analysis combining monitoring modalities to elicit cognitive states and perform screening for mental disorders
+  authors: N Howard, S Poria, N Majumder, S Kanareykin, S Rawlley, T Juarez
+  venue: US Patent App. 18/887,228
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Multimodal+analysis+combining+monitoring+modalities+to+elicit+cognitive+states+and+perform+screening+for+mental+disorders
+  publication_url: https://patents.google.com/patent/US20250191760A1/en
+- title: 'MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses'
+  authors: Z Yang, W Liu, B Gao, T Xie, Y Li, W Ouyang, S Poria, E Cambria, D Zhou
+  venue: ICLR
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=MOOSE-Chem%3A+Large+Language+Models+for+Rediscovering+Unseen+Chemistry+Scientific+Hypotheses
+  publication_url: https://proceedings.iclr.cc/paper_files/paper/2025/hash/51fd9a7d1706023cb9f8210cc6ac357c-Abstract-Conference.html
+  pdf: https://proceedings.iclr.cc/paper_files/paper/2025/file/51fd9a7d1706023cb9f8210cc6ac357c-Paper-Conference.pdf
+- title: 'MM-InstructEval: Zero-shot evaluation of (Multimodal) Large Language Models on multimodal reasoning tasks'
+  authors: X Yang, W Wu, S Feng, M Wang, D Wang, Y Li, Q Sun, Y Zhang, X Fu, S Poria
+  venue: Information Fusion
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=MM-InstructEval%3A+Zero-shot+evaluation+of+%28Multimodal%29+Large+Language+Models+on+multimodal+reasoning+tasks
+  publication_url: https://www.sciencedirect.com/science/article/pii/S1566253525002775
+  pdf: https://arxiv.org/pdf/2405.07229
+- title: Measuring and Enhancing Trustworthiness of LLMs in RAG through Grounded Attributions and Learning to Refuse
+  authors: M Song, SH Sim, R Bhardwaj, HL Chieu, N Majumder, S Poria
+  venue: ICLR
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Measuring+and+Enhancing+Trustworthiness+of+LLMs+in+RAG+through+Grounded+Attributions+and+Learning+to+Refuse
+  publication_url: https://proceedings.iclr.cc/paper_files/paper/2025/hash/4c88827decab6c046b881a2c3a99c76f-Abstract-Conference.html
+  pdf: https://proceedings.iclr.cc/paper_files/paper/2025/file/4c88827decab6c046b881a2c3a99c76f-Paper-Conference.pdf
+- title: 'M-longdoc: A benchmark for multimodal super-long document understanding and a retrieval-aware tuning framework'
+  authors: YK Chia, L Cheng, HP Chan, C Liu, M Song, SM Aljunied, S Poria, L Bing
+  venue: EMNLP
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=M-longdoc%3A+A+benchmark+for+multimodal+super-long+document+understanding+and+a+retrieval-aware+tuning+framework
+  publication_url: https://aclanthology.org/2025.emnlp-main.469/
+  pdf: https://aclanthology.org/2025.emnlp-main.469.pdf
+- title: 'Libra-leaderboard: Towards responsible AI through a balanced leaderboard of safety and capability'
+  authors: H Li, X Han, Z Zhai, H Mu, H Wang, Z Zhang, Y Geng, S Lin, R Wang, S Poria
+  venue: NAACL
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Libra-leaderboard%3A+Towards+responsible+AI+through+a+balanced+leaderboard+of+safety+and+capability
+  publication_url: https://aclanthology.org/2025.naacl-demo.23/
+  pdf: https://aclanthology.org/2025.naacl-demo.23.pdf
+- title: Lessons from Training Grounded LLMs with Verifiable Rewards
+  authors: SH Sim, TD Pala, V Toh, HL Chieu, A Zadeh, C Li, N Majumder, S Poria
+  venue: arXiv preprint arXiv:2506.15522
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Lessons+from+Training+Grounded+LLMs+with+Verifiable+Rewards
+  publication_url: https://arxiv.org/abs/2506.15522
+  pdf: https://arxiv.org/pdf/2506.15522?
+- title: 'JAM: A Tiny Flow-based Song Generator with Fine-grained Controllability and Aesthetic Alignment'
+  authors: R Liu, CY Hung, N Majumder, T Gautreaux, AA Bagherzadeh, C Li, S Poria
+  venue: arXiv preprint arXiv:2507.20880
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=JAM%3A+A+Tiny+Flow-based+Song+Generator+with+Fine-grained+Controllability+and+Aesthetic+Alignment
+  publication_url: https://arxiv.org/abs/2507.20880
+  pdf: https://arxiv.org/pdf/2507.20880
+- title: Harnessing large language models for scientific novelty detection
+  authors: Y Liu, Z Yang, S Poria, TS Nguyen, E Cambria
+  venue: arXiv preprint arXiv:2505.24615
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Harnessing+large+language+models+for+scientific+novelty+detection
+  publication_url: https://arxiv.org/abs/2505.24615
+  pdf: https://arxiv.org/pdf/2505.24615
+- title: 'From grounding to manipulation: Case studies of foundation model integration in embodied robotic systems'
+  authors: X Sui, D Tian, Q Sun, R Chen, D Choi, K Kwok, S Poria
+  venue: EMNLP (Findings)
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=From+grounding+to+manipulation%3A+Case+studies+of+foundation+model+integration+in+embodied+robotic+systems
+  publication_url: https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.69.pdf
+  pdf: https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.69.pdf
+- title: 'Ferret: Faster and effective automated red teaming with reward-based scoring technique'
+  authors: TD Pala, VYH Toh, R Bhardwaj, S Poria
+  venue: EMNLP (Findings)
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Ferret%3A+Faster+and+effective+automated+red+teaming+with+reward-based+scoring+technique
+  publication_url: https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.634.pdf
+  pdf: https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.634.pdf
+- title: Evaluating LLMs' Mathematical and Coding Competency through Ontology-guided Interventions
+  authors: P Hong, N Majumder, D Ghosal, S Aditya, R Mihalcea, S Poria
+  venue: ACL (Findings)
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Evaluating+LLMs%27+Mathematical+and+Coding+Competency+through+Ontology-guided+Interventions
+  publication_url: https://aclanthology.org/2025.findings-acl.1172/
+  pdf: https://arxiv.org/pdf/2401.09395
+- title: 'Evaluating AI for Finance: Is AI Credible at Assessing Investment Risk Appetite?'
+  authors: D Chawla, A Bhutada, DA Do, A Raghunathan, V Sp, C Guo, DW Liew, S Poria
+  venue: EMNLP
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Evaluating+AI+for+Finance%3A+Is+AI+Credible+at+Assessing+Investment+Risk+Appetite%3F
+  publication_url: https://aclanthology.org/2025.emnlp-industry.189/
+  pdf: https://aclanthology.org/2025.emnlp-industry.189.pdf
+- title: 'Error-Free Linear Attention is a Free Lunch: Exact Solution from Continuous-Time Dynamics'
+  authors: J Lei, D Zhang, S Poria
+  venue: arXiv preprint arXiv:2512.12602
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Error-Free+Linear+Attention+is+a+Free+Lunch%3A+Exact+Solution+from+Continuous-Time+Dynamics
+  publication_url: https://arxiv.org/abs/2512.12602
+  pdf: https://arxiv.org/pdf/2512.12602
+- title: 'Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision'
+  authors: TD Pala, P Sharma, A Zadeh, C Li, S Poria
+  venue: EMNLP Findings
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Error+Typing+for+Smarter+Rewards%3A+Improving+Process+Reward+Models+with+Error-Aware+Hierarchical+Supervision
+  publication_url: https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.807.pdf
+  pdf: https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.807.pdf
+- title: 'Emma-x: An embodied multimodal action model with grounded chain of thought and look-ahead spatial reasoning'
+  authors: Q Sun, P Hong, TD Pala, V Toh, U Tan, D Ghosal, S Poria
+  venue: ACL
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Emma-x%3A+An+embodied+multimodal+action+model+with+grounded+chain+of+thought+and+look-ahead+spatial+reasoning
+  publication_url: https://aclanthology.org/2025.acl-long.695/
+  pdf: https://aclanthology.org/2025.acl-long.695.pdf
+- title: 'DiffPO: Diffusion-styled Preference Optimization for Inference Time Alignment of Large Language Models'
+  authors: R Chen, W Chai, Z Yang, X Zhang, Z Wang, T Quek, JT Zhou, S Poria
+  venue: ACL
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=DiffPO%3A+Diffusion-styled+Preference+Optimization+for+Inference+Time+Alignment+of+Large+Language+Models
+  publication_url: https://aclanthology.org/2025.acl-long.926/
+  pdf: https://aclanthology.org/2025.acl-long.926.pdf
+- title: 'DialogXpert: Driving Intelligent and Emotion-Aware Conversations through Online Value-Based Reinforcement Learning with LLM Priors'
+  authors: TB Abdur Rakib, A Mehrish, LK Soon, WH Lim, S Poria
+  venue: AAAI
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=DialogXpert%3A+Driving+Intelligent+and+Emotion-Aware+Conversations+through+Online+Value-Based+Reinforcement+Learning+with+LLM+Priors
+  publication_url: https://ui.adsabs.harvard.edu/abs/2025arXiv250517795A/abstract
+- title: Content extraction based on hop distance within a graph model
+  authors: Y Dong, Y Deng, J Zhang, F Gelli, T Lin, Y Zhuo, H Wang, S Poria
+  venue: US Patent 12,277,788
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Content+extraction+based+on+hop+distance+within+a+graph+model
+  publication_url: https://patents.google.com/patent/US12277788B2/en
+- title: Are Language Models Puzzle Prodigies? Algorithmic Puzzles Unveil Serious Challenges in Multimodal Reasoning
+  authors: D Ghosal, VTY Han, CY Ken, S Poria
+  venue: NAACL
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Are+Language+Models+Puzzle+Prodigies%3F+Algorithmic+Puzzles+Unveil+Serious+Challenges+in+Multimodal+Reasoning
+  publication_url: https://arxiv.org/abs/2403.03864
+  pdf: https://arxiv.org/pdf/2403.03864
+- title: Action-guided prompt tuning for video grounding
+  authors: J Wang, R Tsao, X Wang, X Wang, F Feng, S Tian, S Poria
+  venue: Information Fusion
+  year: 2025
+  scholar_url: https://scholar.google.com/scholar?q=Action-guided+prompt+tuning+for+video+grounding
+  publication_url: https://www.sciencedirect.com/science/article/pii/S1566253524003555
+- title: 'Walledeval: A comprehensive safety evaluation toolkit for large language models'
+  authors: P Gupta, LQ Yau, HH Low, IS Lee, HM Lim, YX Teoh, KJ Hng, DW Liew, R Bhardwaj, S Poria
+  venue: EMNLP
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Walledeval%3A+A+comprehensive+safety+evaluation+toolkit+for+large+language+models
+  publication_url: https://aclanthology.org/2024.emnlp-demo.42/
+  pdf: https://aclanthology.org/2024.emnlp-demo.42.pdf
+- title: 'Video2music: Suitable music generation from videos using an affective multimodal transformer model'
+  authors: J Kang, S Poria, D Herremans
+  venue: Expert Systems with Applications
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Video2music%3A+Suitable+music+generation+from+videos+using+an+affective+multimodal+transformer+model
+  publication_url: https://www.sciencedirect.com/science/article/pii/S0957417424005062
+  pdf: https://arxiv.org/pdf/2311.00968
+- title: Understanding, Leveraging, and Improving Large Language Models
+  authors: S Poria
+  venue: Companion Proceedings of the ACM Web Conference
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Understanding%2C+Leveraging%2C+and+Improving+Large+Language+Models
+  publication_url: https://doi.org/10.1145/3589335.3653009
+- title: Understanding the Capabilities and Limitations of Large Language Models for Cultural Commonsense
+  authors: S Shen, L Logeswaran, M Lee, H Lee, S Poria, R Mihalcea
+  venue: NAACL (Social Impact Award)
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Understanding+the+Capabilities+and+Limitations+of+Large+Language+Models+for+Cultural+Commonsense
+  publication_url: https://aclanthology.org/2024.naacl-long.316
+  pdf: https://aclanthology.org/2024.naacl-long.316.pdf
+- title: 'Two are better than one: Context window extension with multi-grained self-injection'
+  authors: W Han, P Zhou, S Poria, S Yan
+  venue: arXiv preprint arXiv:2410.19318
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Two+are+better+than+one%3A+Context+window+extension+with+multi-grained+self-injection
+  publication_url: https://arxiv.org/abs/2410.19318
+  pdf: https://arxiv.org/pdf/2410.19318?
+- title: Towards robust instruction tuning on multimodal large language models
+  authors: W Han, H Chen, S Poria
+  venue: arXiv preprint arXiv:2402.14492
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Towards+robust+instruction+tuning+on+multimodal+large+language+models
+  publication_url: https://arxiv.org/abs/2402.14492
+  pdf: https://arxiv.org/pdf/2402.14492
+- title: 'Tango 2: Aligning diffusion-based text-to-audio generations through direct preference optimization'
+  authors: N Majumder, CY Hung, D Ghosal, WN Hsu, R Mihalcea, S Poria
+  venue: ACM MM
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Tango+2%3A+Aligning+diffusion-based+text-to-audio+generations+through+direct+preference+optimization
+  publication_url: https://doi.org/10.1145/3664647.3681688
+- title: 'Sowing the wind, reaping the whirlwind: The impact of editing language models'
+  authors: R Hazra, S Layek, S Banerjee, S Poria
+  venue: ACL
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Sowing+the+wind%2C+reaping+the+whirlwind%3A+The+impact+of+editing+language+models
+  publication_url: https://aclanthology.org/2024.findings-acl.960
+  pdf: https://aclanthology.org/2024.findings-acl.960.pdf
+- title: Self-adaptive sampling for accurate video question answering on image text models
+  authors: W Han, H Chen, MY Kan, S Poria
+  venue: NAACL Findings
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Self-adaptive+sampling+for+accurate+video+question+answering+on+image+text+models
+  publication_url: https://aclanthology.org/2024.findings-naacl.162
+  pdf: https://aclanthology.org/2024.findings-naacl.162.pdf
+- title: 'Safety Arithmetic: A Framework for Test-time Safety Alignment of Language Models by Steering Parameters and Activations'
+  authors: R Hazra, S Layek, S Banerjee, S Poria
+  venue: EMNLP
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Safety+Arithmetic%3A+A+Framework+for+Test-time+Safety+Alignment+of+Language+Models+by+Steering+Parameters+and+Activations
+  publication_url: https://aclanthology.org/2024.emnlp-main.1212
+  pdf: https://aclanthology.org/2024.emnlp-main.1212.pdf
+- title: 'Ruby teaming: Improving quality diversity search with memory for automated red teaming'
+  authors: VTY Han, R Bhardwaj, S Poria
+  venue: arXiv preprint arXiv:2406.11654
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Ruby+teaming%3A+Improving+quality+diversity+search+with+memory+for+automated+red+teaming
+  publication_url: https://arxiv.org/abs/2406.11654
+  pdf: https://arxiv.org/pdf/2406.11654
+- title: Reward Steering with Evolutionary Heuristics for Decoding-time Alignment
+  authors: CY Hung, N Majumder, A Mehrish, S Poria
+  venue: arXiv
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Reward+Steering+with+Evolutionary+Heuristics+for+Decoding-time+Alignment
+  publication_url: https://arxiv.org/abs/2406.15193
+  pdf: https://arxiv.org/pdf/2406.15193
+- title: 'Reasoning Paths Optimization: Learning to Reason and Explore From Diverse Paths'
+  authors: YK Chia, G Chen, W Xu, LA Tuan, S Poria, L Bing
+  venue: EMNLP
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Reasoning+Paths+Optimization%3A+Learning+to+Reason+and+Explore+From+Diverse+Paths
+  publication_url: https://aclanthology.org/2024.findings-emnlp.977/
+  pdf: https://aclanthology.org/2024.findings-emnlp.977.pdf
+- title: 'PuzzleVQA: Diagnosing Multimodal Reasoning Challenges of Language Models with Abstract Visual Patterns'
+  authors: YK Chia, VTY Han, D Ghosal, L Bing, S Poria
+  venue: ACL
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=PuzzleVQA%3A+Diagnosing+Multimodal+Reasoning+Challenges+of+Language+Models+with+Abstract+Visual+Patterns
+  publication_url: https://aclanthology.org/2024.findings-acl.962
+  pdf: https://aclanthology.org/2024.findings-acl.962.pdf
+- title: 'PanoSent: A Panoptic Sextuple Extraction Benchmark for Multimodal Conversational Aspect-based Sentiment Analysis'
+  authors: M Luo, H Fei, B Li, S Wu, Q Liu, S Poria, E Cambria, ML Lee, W Hsu
+  venue: ACM MM
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=PanoSent%3A+A+Panoptic+Sextuple+Extraction+Benchmark+for+Multimodal+Conversational+Aspect-based+Sentiment+Analysis
+  publication_url: https://doi.org/10.1145/3664647.3680705
+- title: Lightweight Spatial Modeling for Combinatorial Information Extraction From Documents
+  authors: Y Dong, L Deng, J Zhang, X Yu, T Lin, F Gelli, S Poria, WS Lee
+  venue: EACL
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Lightweight+Spatial+Modeling+for+Combinatorial+Information+Extraction+From+Documents
+  publication_url: https://aclanthology.org/2023.findings-eacl.108
+  pdf: https://aclanthology.org/2023.findings-eacl.108.pdf
+- title: Leveraging Parameter-Efficient Transfer Learning for Multi-Lingual Text-to-Speech Adaptation
+  authors: Y Li, A Mehrish, B Chew, B Cheng, S Poria
+  venue: arXiv preprint arXiv:2406.17257
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Leveraging+Parameter-Efficient+Transfer+Learning+for+Multi-Lingual+Text-to-Speech+Adaptation
+  publication_url: https://arxiv.org/abs/2406.17257
+  pdf: https://arxiv.org/pdf/2406.17257
+- title: Large language models for automated open-domain scientific hypotheses discovery
+  authors: Z Yang, X Du, J Li, J Zheng, S Poria, E Cambria
+  venue: ACL
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Large+language+models+for+automated+open-domain+scientific+hypotheses+discovery
+  publication_url: https://aclanthology.org/2024.findings-acl.804
+  pdf: https://aclanthology.org/2024.findings-acl.804.pdf
+- title: Language Models are Homer Simpson! Safety Re-Alignment of Fine-tuned Language Models through Task Arithmetic
+  authors: R Bhardwaj, DD Anh, S Poria
+  venue: ACL
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Language+Models+are+Homer+Simpson%21+Safety+Re-Alignment+of+Fine-tuned+Language+Models+through+Task+Arithmetic
+  publication_url: https://aclanthology.org/2024.acl-long.762
+  pdf: https://aclanthology.org/2024.acl-long.762.pdf
+- title: 'InstructEval: Towards holistic evaluation of instruction-tuned large language models'
+  authors: YK Chia, P Hong, L Bing, S Poria
+  venue: Workshop on the Scaling Behavior of Large Language Models
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=InstructEval%3A+Towards+holistic+evaluation+of+instruction-tuned+large+language+models
+  publication_url: https://aclanthology.org/2024.scalellm-1.4
+  pdf: https://aclanthology.org/2024.scalellm-1.4.pdf
+- title: 'INSTRAUG: Automatic Instruction Augmentation for Multimodal Instruction Fine-tuning'
+  authors: W Han, H Chen, S Poria
+  venue: arXiv
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=INSTRAUG%3A+Automatic+Instruction+Augmentation+for+Multimodal+Instruction+Fine-tuning
+  publication_url: https://arxiv.org/abs/2402.14492
+  pdf: https://arxiv.org/pdf/2402.14492
+- title: Improving text-to-audio models with synthetic captions
+  authors: Z Kong, S Lee, D Ghosal, N Majumder, A Mehrish, R Valle, S Poria, B Catanzaro
+  venue: arXiv preprint arXiv:2406.15487
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Improving+text-to-audio+models+with+synthetic+captions
+  publication_url: https://arxiv.org/abs/2406.15487
+  pdf: https://arxiv.org/pdf/2406.15487
+- title: 'HyperTTS: Parameter Efficient Adaptation in Text to Speech using Hypernetworks'
+  authors: Y Li, R Bhardwaj, A Mehrish, B Cheng, S Poria
+  venue: COLING
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=HyperTTS%3A+Parameter+Efficient+Adaptation+in+Text+to+Speech+using+Hypernetworks
+  publication_url: https://doi.org/10.63317/2yuckiomnwga
+- title: 'Hate speech detection: A comprehensive review of recent works'
+  authors: A Gandhi, P Ahir, K Adhvaryu, P Shah, R Lohiya, E Cambria, S Poria, A Hussain
+  venue: Expert Systems
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Hate+speech+detection%3A+A+comprehensive+review+of+recent+works
+  publication_url: https://doi.org/10.1111/exsy.13562
+- title: 'Domain-expanded ASTE: Rethinking generalization in aspect sentiment triplet extraction'
+  authors: YK Chia, H Chen, G Chen, W Han, SM Aljunied, S Poria, L Bing
+  venue: Workshop on Social Influence in Conversations
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Domain-expanded+ASTE%3A+Rethinking+generalization+in+aspect+sentiment+triplet+extraction
+  publication_url: https://aclanthology.org/2024.sicon-1.11/
+  pdf: https://aclanthology.org/2024.sicon-1.11.pdf
+- title: 'DELLA-Merging: Reducing interference in model merging through magnitude-based sampling'
+  authors: PT Deep, R Bhardwaj, S Poria
+  venue: arXiv preprint arXiv:2406.11617
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=DELLA-Merging%3A+Reducing+interference+in+model+merging+through+magnitude-based+sampling
+  publication_url: https://arxiv.org/abs/2406.11617
+  pdf: https://arxiv.org/pdf/2406.11617
+- title: Content extraction based on hop distance within a graph model
+  authors: Y Dong, Y Deng, J Zhang, F Gelli, T Lin, Y Zhuo, H Wang, S Poria
+  venue: US Patent App. 17/983,908
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Content+extraction+based+on+hop+distance+within+a+graph+model
+  publication_url: https://patents.google.com/patent/US12277788B2/en
+- title: Consistency Guided Knowledge Retrieval and Denoising in LLMs for Zero-shot Document-level Relation Triplet Extraction
+  authors: Q Sun, K Huang, X Yang, R Tong, K Zhang, S Poria
+  venue: WWW
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Consistency+Guided+Knowledge+Retrieval+and+Denoising+in+LLMs+for+Zero-shot+Document-level+Relation+Triplet+Extraction
+  publication_url: https://doi.org/10.1145/3589334.3645678
+- title: 'CM-TTS: Enhancing Real Time Text-to-Speech Synthesis Efficiency through Weighted Samplers and Consistency Models'
+  authors: X Li, F Bu, A Mehrish, Y Li, J Han, B Cheng, S Poria
+  venue: NAACL Findings
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=CM-TTS%3A+Enhancing+Real+Time+Text-to-Speech+Synthesis+Efficiency+through+Weighted+Samplers+and+Consistency+Models
+  publication_url: https://aclanthology.org/2024.findings-naacl.240
+  pdf: https://aclanthology.org/2024.findings-naacl.240.pdf
+- title: 'Chain-of-Knowledge: Grounding large language models via dynamic knowledge adapting over heterogeneous sources'
+  authors: X Li, R Zhao, YK Chia, B Ding, S Joty, S Poria, L Bing
+  venue: ICLR
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Chain-of-Knowledge%3A+Grounding+large+language+models+via+dynamic+knowledge+adapting+over+heterogeneous+sources
+  publication_url: https://proceedings.iclr.cc/paper_files/paper/2024/hash/285ba60a67a66d2efeeb7cb25c5067fe-Abstract-Conference.html
+  pdf: https://openreview.net/pdf?id=cPgh4gWZlz
+- title: Can-do! A dataset and neuro-symbolic grounded framework for embodied planning with large multimodal models
+  authors: YK Chia, Q Sun, L Bing, S Poria
+  venue: arXiv preprint arXiv:2409.14277
+  year: 2024
+  scholar_url: https://scholar.google.com/scholar?q=Can-do%21+A+dataset+and+neuro-symbolic+grounded+framework+for+embodied+planning+with+large+multimodal+models
+  publication_url: https://arxiv.org/abs/2409.14277
+  pdf: https://arxiv.org/pdf/2409.14277
+- title: 'WikiDes: A Wikipedia-based dataset for generating short descriptions from paragraphs'
+  authors: HT Ta, ABS Rahman, N Majumder, A Hussain, L Najjar, N Howard, S Poria, A Gelbukh
+  venue: Information Fusion
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=WikiDes%3A+A+Wikipedia-based+dataset+for+generating+short+descriptions+from+paragraphs
+  publication_url: https://doi.org/10.1016/j.inffus.2022.09.022
+- title: Uncertainty Guided Label Denoising for Document-level Distant Relation Extraction
+  authors: Q Sun, K Huang, X Yang, P Hong, K Zhang, S Poria
+  venue: ACL
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Uncertainty+Guided+Label+Denoising+for+Document-level+Distant+Relation+Extraction
+  publication_url: https://aclanthology.org/2023.acl-long.889
+  pdf: https://aclanthology.org/2023.acl-long.889.pdf
+- title: 'UDApter: Efficient Domain Adaptation Using Adapters'
+  authors: B Malik, AR Kashyap, MY Kan, S Poria
+  venue: EACL
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=UDApter%3A+Efficient+Domain+Adaptation+Using+Adapters
+  publication_url: https://aclanthology.org/2023.eacl-main.165
+  pdf: https://aclanthology.org/2023.eacl-main.165.pdf
+- title: Text-to-Audio Generation using Instruction-Tuned LLM and Latent Diffusion Model
+  authors: D Ghosal, N Majumder, A Mehrish, S Poria
+  venue: ACM MM
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Text-to-Audio+Generation+using+Instruction-Tuned+LLM+and+Latent+Diffusion+Model
+  publication_url: https://doi.org/10.1145/3581783.3612348
+- title: Sentence Embedder Guided Utterance Encoder (SEGUE) for Spoken Language Understanding
+  authors: YX Tan, N Majumder, S Poria
+  venue: Interspeech
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Sentence+Embedder+Guided+Utterance+Encoder+%28SEGUE%29+for+Spoken+Language+Understanding
+  publication_url: https://doi.org/10.21437/interspeech.2023-1392
+- title: Red-teaming large language models using chain of utterances for safety-alignment
+  authors: R Bhardwaj, S Poria
+  venue: arXiv preprint arXiv:2308.09662
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Red-teaming+large+language+models+using+chain+of+utterances+for+safety-alignment
+  publication_url: https://arxiv.org/abs/2308.09662
+  pdf: https://arxiv.org/pdf/2308.09662
+- title: 'Mustango: Toward controllable text-to-music generation'
+  authors: J Melechovsky, Z Guo, D Ghosal, N Majumder, D Herremans, S Poria
+  venue: NAACL
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Mustango%3A+Toward+controllable+text-to-music+generation
+  publication_url: https://aclanthology.org/2024.naacl-long.459
+  pdf: https://aclanthology.org/2024.naacl-long.459.pdf
+- title: 'Multimodal sentiment analysis: A systematic review of history, datasets, multimodal fusion methods, applications, challenges and future directions'
+  authors: A Gandhi, K Adhvaryu, S Poria, E Cambria, A Hussain
+  venue: Information Fusion
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Multimodal+sentiment+analysis%3A+A+systematic+review+of+history%2C+datasets%2C+multimodal+fusion+methods%2C+applications%2C+challenges+and+future+directions
+  publication_url: https://doi.org/10.1016/j.inffus.2022.09.025
+- title: 'MM-BigBench: Evaluating multimodal models on multimodal content comprehension tasks'
+  authors: X Yang, W Wu, S Feng, M Wang, D Wang, Y Li, Q Sun, Y Zhang, X Fu, S Poria
+  venue: arXiv preprint arXiv:2310.09036
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=MM-BigBench%3A+Evaluating+multimodal+models+on+multimodal+content+comprehension+tasks
+  publication_url: https://arxiv.org/abs/2310.09036
+  pdf: https://arxiv.org/pdf/2310.09036
+- title: 'LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models'
+  authors: Z Hu, Y Lan, L Wang, W Xu, EP Lim, RKW Lee, L Bing, S Poria
+  venue: EMNLP
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=LLM-Adapters%3A+An+Adapter+Family+for+Parameter-Efficient+Fine-Tuning+of+Large+Language+Models
+  publication_url: https://aclanthology.org/2023.emnlp-main.319
+  pdf: https://aclanthology.org/2023.emnlp-main.319.pdf
+- title: 'Language model unalignment: Parametric red-teaming to expose hidden harms and biases'
+  authors: R Bhardwaj, S Poria
+  venue: arXiv preprint arXiv:2310.14303
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Language+model+unalignment%3A+Parametric+red-teaming+to+expose+hidden+harms+and+biases
+  publication_url: https://arxiv.org/abs/2310.14303
+  pdf: https://arxiv.org/pdf/2310.14303
+- title: 'Language guided visual question answering: Elevate your multimodal language model using knowledge-enriched prompts'
+  authors: D Ghosal, N Majumder, RKW Lee, R Mihalcea, S Poria
+  venue: EMNLP
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Language+guided+visual+question+answering%3A+Elevate+your+multimodal+language+model+using+knowledge-enriched+prompts
+  publication_url: https://aclanthology.org/2023.findings-emnlp.809
+  pdf: https://aclanthology.org/2023.findings-emnlp.809.pdf
+- title: 'kNN-CM: A Non-parametric Inference-Phase Adaptation of Parametric Text Classifiers'
+  authors: R Bhardwaj, Y Li, N Majumder, B Cheng, S Poria
+  venue: EMNLP Findings
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=kNN-CM%3A+A+Non-parametric+Inference-Phase+Adaptation+of+Parametric+Text+Classifiers
+  publication_url: https://aclanthology.org/2023.findings-emnlp.903
+  pdf: https://aclanthology.org/2023.findings-emnlp.903.pdf
+- title: 'Flacuna: Unleashing the problem solving power of vicuna using flan fine-tuning'
+  authors: D Ghosal, YK Chia, N Majumder, S Poria
+  venue: arXiv preprint arXiv:2307.02053
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Flacuna%3A+Unleashing+the+problem+solving+power+of+vicuna+using+flan+fine-tuning
+  publication_url: https://arxiv.org/abs/2307.02053
+  pdf: https://arxiv.org/pdf/2307.02053
+- title: Few-shot multimodal sentiment analysis based on multimodal probabilistic fusion prompts
+  authors: X Yang, S Feng, D Wang, Y Zhang, S Poria
+  venue: ACM MM
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Few-shot+multimodal+sentiment+analysis+based+on+multimodal+probabilistic+fusion+prompts
+  publication_url: https://doi.org/10.1145/3581783.3612181
+- title: Few-shot joint multimodal aspect-sentiment analysis based on generative multimodal prompt
+  authors: X Yang, S Feng, D Wang, Q Sun, W Wu, Y Zhang, P Hong, S Poria
+  venue: ACL Findings
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Few-shot+joint+multimodal+aspect-sentiment+analysis+based+on+generative+multimodal+prompt
+  publication_url: https://aclanthology.org/2023.findings-acl.735
+  pdf: https://aclanthology.org/2023.findings-acl.735.pdf
+- title: Evaluating parameter-efficient transfer learning approaches on SURE benchmark for speech understanding
+  authors: Y Li, A Mehrish, R Bhardwaj, N Majumder, B Cheng, S Zhao, A Zadeh, R Mihalcea, S Poria
+  venue: ICASSP
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Evaluating+parameter-efficient+transfer+learning+approaches+on+SURE+benchmark+for+speech+understanding
+  publication_url: https://doi.org/10.1109/icassp49357.2023.10095656
+- title: Dialogue relation extraction with document-level heterogeneous graph attention networks
+  authors: H Chen, P Hong, W Han, N Majumder, S Poria
+  venue: Cognitive Computation
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Dialogue+relation+extraction+with+document-level+heterogeneous+graph+attention+networks
+  publication_url: https://doi.org/10.1007/s12559-023-10110-1
+- title: Contrastive chain-of-thought prompting
+  authors: YK Chia, G Chen, LA Tuan, S Poria, L Bing
+  venue: arXiv preprint arXiv:2311.09277
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Contrastive+chain-of-thought+prompting
+  publication_url: https://arxiv.org/abs/2311.09277
+  pdf: https://arxiv.org/pdf/2311.09277
+- title: 'ADAPTERMIX: Exploring the Efficacy of Mixture of Adapters for Low-Resource TTS Adaptation'
+  authors: A Mehrish, AR Kashyap, L Yingting, N Majumder, S Poria
+  venue: Interspeech
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=ADAPTERMIX%3A+Exploring+the+Efficacy+of+Mixture+of+Adapters+for+Low-Resource+TTS+Adaptation
+  publication_url: https://doi.org/10.21437/interspeech.2023-1568
+- title: Adapter Pruning using Tropical Characterization
+  authors: R Bhardwaj, T Vaidya, S Poria
+  venue: EMNLP Findings
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=Adapter+Pruning+using+Tropical+Characterization
+  publication_url: https://aclanthology.org/2023.findings-emnlp.116
+  pdf: https://aclanthology.org/2023.findings-emnlp.116.pdf
+- title: A Robust Information-Masking Approach for Domain Counterfactual Generation
+  authors: P Hong, R Bhardwaj, N Majumder, S Aditya, S Poria
+  venue: ACL Findings
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=A+Robust+Information-Masking+Approach+for+Domain+Counterfactual+Generation
+  publication_url: https://aclanthology.org/2023.findings-acl.231
+  pdf: https://aclanthology.org/2023.findings-acl.231.pdf
+- title: A Review of Deep Learning Techniques for Speech Processing
+  authors: A Mehrish, N Majumder, R Bhardwaj, R Mihalcea, S Poria
+  venue: Information Fusion
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=A+Review+of+Deep+Learning+Techniques+for+Speech+Processing
+  publication_url: https://doi.org/10.1016/j.inffus.2023.101869
+- title: 'A Comprehensive Survey of Sentence Representations: From the BERT Epoch to the ChatGPT Era and Beyond'
+  authors: AR Kashyap, TT Nguyen, V Schlegel, S Winkler, SK Ng, S Poria
+  venue: EACL
+  year: 2023
+  scholar_url: https://scholar.google.com/scholar?q=A+Comprehensive+Survey+of+Sentence+Representations%3A+From+the+BERT+Epoch+to+the+ChatGPT+Era+and+Beyond
+  publication_url: https://aclanthology.org/2024.eacl-long.104
+  pdf: https://aclanthology.org/2024.eacl-long.104.pdf
+- title: Vector-Quantized Input-Contextualized Soft Prompts for Natural Language Understanding
+  authors: R Bhardwaj, A Saha, SCH Hoi, S Poria
+  venue: EMNLP
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Vector-Quantized+Input-Contextualized+Soft+Prompts+for+Natural+Language+Understanding
+  publication_url: https://aclanthology.org/2022.emnlp-main.455
+  pdf: https://aclanthology.org/2022.emnlp-main.455.pdf
+- title: Two is Better than Many? Binary Classification as an Effective Approach to Multi-Choice Question Answering
+  authors: D Ghosal, N Majumder, R Mihalcea, S Poria
+  venue: EMNLP
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Two+is+Better+than+Many%3F+Binary+Classification+as+an+Effective+Approach+to+Multi-Choice+Question+Answering
+  publication_url: https://aclanthology.org/2022.emnlp-main.691
+  pdf: https://aclanthology.org/2022.emnlp-main.691.pdf
+- title: Towards solving NLP tasks with optimal transport loss
+  authors: R Bhardwaj, T Vaidya, S Poria
+  venue: Journal of King Saud University-Computer and Information Sciences
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Towards+solving+NLP+tasks+with+optimal+transport+loss
+  publication_url: https://doi.org/10.1016/j.jksuci.2022.10.031
+- title: So Different Yet So Alike! Constrained Unsupervised Text Style Transfer
+  authors: AR Kashyap, D Hazarika, MY Kan, R Zimmermann, S Poria
+  venue: ACL
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=So+Different+Yet+So+Alike%21+Constrained+Unsupervised+Text+Style+Transfer
+  publication_url: https://aclanthology.org/2022.acl-long.32
+  pdf: https://aclanthology.org/2022.acl-long.32.pdf
+- title: 'SAT: Improving Semi-Supervised Text Classification with Simple Instance-Adaptive Self-Training'
+  authors: H Chen, W Han, S Poria
+  venue: COLING
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=SAT%3A+Improving+Semi-Supervised+Text+Classification+with+Simple+Instance-Adaptive+Self-Training
+  publication_url: https://aclanthology.org/2022.findings-emnlp.456
+  pdf: https://aclanthology.org/2022.findings-emnlp.456.pdf
+- title: 'SANCL: Multimodal Review Helpfulness Prediction with Selective Attention and Natural Contrastive Learning'
+  authors: W Han, H Chen, Z Hai, S Poria, L Bing
+  venue: COLING
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=SANCL%3A+Multimodal+Review+Helpfulness+Prediction+with+Selective+Attention+and+Natural+Contrastive+Learning
+  publication_url: https://aclanthology.org/2022.coling-1.499/
+  pdf: https://aclanthology.org/2022.coling-1.499.pdf
+- title: 'RelationPrompt: Leveraging Prompts to Generate Synthetic Data for Zero-Shot Relation Triplet Extraction'
+  authors: YK Chia, L Bing, S Poria, L Si
+  venue: ACL
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=RelationPrompt%3A+Leveraging+Prompts+to+Generate+Synthetic+Data+for+Zero-Shot+Relation+Triplet+Extraction
+  publication_url: https://aclanthology.org/2022.findings-acl.5
+  pdf: https://aclanthology.org/2022.findings-acl.5.pdf
+- title: Proceedings of the 3rd Workshop on Figurative Language Processing (FLP)
+  authors: D Ghosh, BB Klebanov, S Muresan, A Feldman, S Poria, T Chakrabarty
+  venue: Workshop on Figurative Language Processing
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Proceedings+of+the+3rd+Workshop+on+Figurative+Language+Processing+%28FLP%29
+  publication_url: https://aclanthology.org/2022.flp-1
+  pdf: https://aclanthology.org/2022.flp-1.pdf
+- title: 'PIP: Physical Interaction Prediction via mental simulation with span selection'
+  authors: J Duan, S Yu, S Poria, B Wen, C Tan
+  venue: ECCV
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=PIP%3A+Physical+Interaction+Prediction+via+mental+simulation+with+span+selection
+  publication_url: https://doi.org/10.1007/978-3-031-19833-5_24
+- title: 'Multiview contextual commonsense inference: A new dataset and task'
+  authors: S Shen, D Ghosal, N Majumder, H Lim, R Mihalcea, S Poria
+  venue: arXiv preprint arXiv:2210.02890
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Multiview+contextual+commonsense+inference%3A+A+new+dataset+and+task
+  publication_url: https://arxiv.org/abs/2210.02890
+  pdf: https://arxiv.org/pdf/2210.02890
+- title: 'Multimodal Research in Vision and Language: A Review of Current and Emerging Trends'
+  authors: S Uppal, S Bhagat, D Hazarika, N Majumdar, S Poria, R Zimmermann, A Zadeh
+  venue: Information Fusion
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Multimodal+Research+in+Vision+and+Language%3A+A+Review+of+Current+and+Emerging+Trends
+  publication_url: https://doi.org/10.1016/j.inffus.2021.07.009
+- title: 'MM-Align: Learning Optimal Transport-based Alignment Dynamics for Fast and Accurate Inference on Missing Modality Sequences'
+  authors: W Han, H Chen, MY Kan, S Poria
+  venue: EMNLP
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=MM-Align%3A+Learning+Optimal+Transport-based+Alignment+Dynamics+for+Fast+and+Accurate+Inference+on+Missing+Modality+Sequences
+  publication_url: https://aclanthology.org/2022.emnlp-main.717
+  pdf: https://aclanthology.org/2022.emnlp-main.717.pdf
+- title: Knowledge enhanced reflection generation for counseling dialogues
+  authors: S Shen, V Pérez-Rosas, C Welch, S Poria, R Mihalcea
+  venue: ACL
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Knowledge+enhanced+reflection+generation+for+counseling+dialogues
+  publication_url: https://aclanthology.org/2022.acl-long.221
+  pdf: https://aclanthology.org/2022.acl-long.221.pdf
+- title: 'KNOT: Knowledge Distillation using Optimal Transport for Solving NLP Tasks'
+  authors: R Bhardwaj, T Vaidya, S Poria
+  venue: COLING
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=KNOT%3A+Knowledge+Distillation+using+Optimal+Transport+for+Solving+NLP+Tasks
+  publication_url: https://aclanthology.org/2022.coling-1.425/
+  pdf: https://aclanthology.org/2022.coling-1.425.pdf
+- title: Improving zero-shot learning baselines with commonsense knowledge
+  authors: A Roy, D Ghosal, E Cambria, N Majumder, R Mihalcea, S Poria
+  venue: Cognitive Computation
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Improving+zero-shot+learning+baselines+with+commonsense+knowledge
+  publication_url: https://doi.org/10.1007/s12559-022-10044-0
+- title: Improving aspect-level sentiment analysis with aspect extraction
+  authors: N Majumder, R Bhardwaj, S Poria, A Gelbukh, A Hussain
+  venue: Neural Computing and Applications
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Improving+aspect-level+sentiment+analysis+with+aspect+extraction
+  publication_url: https://doi.org/10.1007/s00521-020-05287-7
+- title: Exemplars-guided empathetic response generation controlled by the elements of human communication
+  authors: N Majumder, D Ghosal, D Hazarika, A Gelbukh, R Mihalcea, S Poria
+  venue: IEEE Access
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Exemplars-guided+empathetic+response+generation+controlled+by+the+elements+of+human+communication
+  publication_url: https://doi.org/10.1109/access.2022.3193159
+- title: 'DoubleMix: Simple Interpolation-Based Data Augmentation for Text Classification'
+  authors: H Chen, W Han, D Yang, S Poria
+  venue: COLING
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=DoubleMix%3A+Simple+Interpolation-Based+Data+Augmentation+for+Text+Classification
+  publication_url: https://aclanthology.org/2022.coling-1.409/
+  pdf: https://aclanthology.org/2022.coling-1.409.pdf
+- title: 'CICERO: A Dataset for Contextualized Commonsense Inference in Dialogues'
+  authors: D Ghosal, S Shen, N Majumder, R Mihalcea, S Poria
+  venue: ACL
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=CICERO%3A+A+Dataset+for+Contextualized+Commonsense+Inference+in+Dialogues
+  publication_url: https://aclanthology.org/2022.acl-long.344
+  pdf: https://aclanthology.org/2022.acl-long.344.pdf
+- title: Analyzing Modality Robustness in Multimodal Sentiment Analysis
+  authors: D Hazarika, Y Li, B Cheng, S Zhao, R Zimmermann, S Poria
+  venue: NAACL
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=Analyzing+Modality+Robustness+in+Multimodal+Sentiment+Analysis
+  publication_url: https://aclanthology.org/2022.naacl-main.50
+  pdf: https://aclanthology.org/2022.naacl-main.50.pdf
+- title: A dataset for hyper-relational extraction and a cube-filling approach
+  authors: YK Chia, L Bing, SM Aljunied, L Si, S Poria
+  venue: EMNLP
+  year: 2022
+  scholar_url: https://scholar.google.com/scholar?q=A+dataset+for+hyper-relational+extraction+and+a+cube-filling+approach
+  publication_url: https://aclanthology.org/2022.emnlp-main.688
+  pdf: https://aclanthology.org/2022.emnlp-main.688.pdf
+- title: 'STACK: Sentence ordering with temporal commonsense knowledge'
+  authors: D Ghosal, N Majumder, R Mihalcea, S Poria
+  venue: EMNLP
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=STACK%3A+Sentence+ordering+with+temporal+commonsense+knowledge
+  publication_url: https://aclanthology.org/2021.emnlp-main.683
+  pdf: https://aclanthology.org/2021.emnlp-main.683.pdf
+- title: 'Retrieving and reading: A comprehensive survey on open-domain question answering'
+  authors: F Zhu, W Lei, C Wang, J Zheng, S Poria, TS Chua
+  venue: arXiv preprint arXiv:2101.00774
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Retrieving+and+reading%3A+A+comprehensive+survey+on+open-domain+question+answering
+  publication_url: https://arxiv.org/abs/2101.00774
+  pdf: https://arxiv.org/pdf/2101.00774
+- title: Recognizing emotion cause in conversations
+  authors: S Poria, N Majumder, D Hazarika, D Ghosal, R Bhardwaj, SYB Jian, P Hong, R Ghosh, A Roy, N Chhaya, A Gelbukh, R Mihalcea
+  venue: Cognitive Computation
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Recognizing+emotion+cause+in+conversations
+  publication_url: https://doi.org/10.1007/s12559-021-09925-7
+- title: Phonetic-enriched text representation for Chinese sentiment analysis with reinforcement learning
+  authors: H Peng, Y Ma, S Poria, Y Li, E Cambria
+  venue: Information Fusion
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Phonetic-enriched+text+representation+for+Chinese+sentiment+analysis+with+reinforcement+learning
+  publication_url: https://doi.org/10.1016/j.inffus.2021.01.005
+- title: 'Persuasive dialogue understanding: The baselines and negative results'
+  authors: H Chen, D Ghosal, N Majumder, A Hussain, S Poria
+  venue: Neurocomputing
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Persuasive+dialogue+understanding%3A+The+baselines+and+negative+results
+  publication_url: https://doi.org/10.1016/j.neucom.2020.11.040
+- title: More identifiable yet equally performant transformers for text classification
+  authors: R Bhardwaj, N Majumder, S Poria, E Hovy
+  venue: ACL
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=More+identifiable+yet+equally+performant+transformers+for+text+classification
+  publication_url: https://aclanthology.org/2021.acl-long.94
+  pdf: https://aclanthology.org/2021.acl-long.94.pdf
+- title: 'M2H2: A multimodal multiparty hindi dataset for humor recognition in conversations'
+  authors: DS Chauhan, GV Singh, N Majumder, A Zadeh, A Ekbal, P Bhattacharyya, S Poria
+  venue: ICMI
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=M2H2%3A+A+multimodal+multiparty+hindi+dataset+for+humor+recognition+in+conversations
+  publication_url: https://doi.org/10.1145/3462244.3479959
+- title: Investigating gender bias in BERT
+  authors: R Bhardwaj, N Majumder, S Poria
+  venue: Cognitive Computation
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Investigating+gender+bias+in+BERT
+  publication_url: https://doi.org/10.1007/s12559-021-09881-2
+- title: Information fusion for affective computing and sentiment analysis
+  authors: A Hussain, E Cambria, S Poria, A Hawalah, F Herrera
+  venue: Information Fusion
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Information+fusion+for+affective+computing+and+sentiment+analysis
+  publication_url: https://doi.org/10.1016/j.inffus.2021.02.010
+- title: Improving multimodal fusion with hierarchical mutual information maximization for multimodal sentiment analysis
+  authors: W Han, H Chen, S Poria
+  venue: EMNLP
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Improving+multimodal+fusion+with+hierarchical+mutual+information+maximization+for+multimodal+sentiment+analysis
+  publication_url: https://aclanthology.org/2021.emnlp-main.723
+  pdf: https://aclanthology.org/2021.emnlp-main.723.pdf
+- title: Improving distantly supervised relation extraction with self-ensemble noise filtering
+  authors: T Nayak, N Majumder, S Poria
+  venue: RANLP
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Improving+distantly+supervised+relation+extraction+with+self-ensemble+noise+filtering
+  publication_url: https://doi.org/10.26615/978-954-452-072-4_116
+- title: 'Exploring the role of context in utterance-level emotion, act and intent classification in conversations: An empirical study'
+  authors: D Ghosal, N Majumder, R Mihalcea, S Poria
+  venue: ACL Findings
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Exploring+the+role+of+context+in+utterance-level+emotion%2C+act+and+intent+classification+in+conversations%3A+An+empirical+study
+  publication_url: https://aclanthology.org/2021.findings-acl.124
+  pdf: https://aclanthology.org/2021.findings-acl.124.pdf
+- title: 'DOZEN: Cross-domain zero shot named entity recognition with knowledge graph'
+  authors: HV Nguyen, F Gelli, S Poria
+  venue: SIGIR
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=DOZEN%3A+Cross-domain+zero+shot+named+entity+recognition+with+knowledge+graph
+  publication_url: https://doi.org/10.1145/3404835.3463113
+- title: Discriminative dictionary design for action classification in still images and videos
+  authors: A Roy, B Banerjee, A Hussain, S Poria
+  venue: Cognitive Computation
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Discriminative+dictionary+design+for+action+classification+in+still+images+and+videos
+  publication_url: https://doi.org/10.1007/s12559-021-09851-8
+- title: 'Deep neural approaches to relation triplets extraction: a comprehensive survey'
+  authors: T Nayak, N Majumder, P Goyal, S Poria
+  venue: Cognitive Computation
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Deep+neural+approaches+to+relation+triplets+extraction%3A+a+comprehensive+survey
+  publication_url: https://doi.org/10.1007/s12559-021-09917-7
+- title: 'CIDER: Commonsense inference for dialogue explanation and reasoning'
+  authors: D Ghosal, P Hong, S Shen, N Majumder, R Mihalcea, S Poria
+  venue: SIGDIAL
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=CIDER%3A+Commonsense+inference+for+dialogue+explanation+and+reasoning
+  publication_url: https://aclanthology.org/2021.sigdial-1.33
+  pdf: https://aclanthology.org/2021.sigdial-1.33.pdf
+- title: Causal augmentation for causal sentence classification
+  authors: FA Tan, D Hazarika, SK Ng, S Poria, R Zimmermann
+  venue: Workshop on Causal Inference and NLP
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Causal+augmentation+for+causal+sentence+classification
+  publication_url: https://aclanthology.org/2021.cinlp-1.1
+  pdf: https://aclanthology.org/2021.cinlp-1.1.pdf
+- title: Bi-bimodal modality fusion for correlation-controlled multimodal sentiment analysis
+  authors: W Han, H Chen, A Gelbukh, A Zadeh, L Morency, S Poria
+  venue: ICMI
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Bi-bimodal+modality+fusion+for+correlation-controlled+multimodal+sentiment+analysis
+  publication_url: https://doi.org/10.1145/3462244.3479919
+- title: Aspect sentiment triplet extraction using reinforcement learning
+  authors: S Yu Bai Jian, T Nayak, N Majumder, S Poria
+  venue: CIKM
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Aspect+sentiment+triplet+extraction+using+reinforcement+learning
+  publication_url: https://doi.org/10.1145/3459637.3482058
+- title: Affect recognition for multimodal natural language processing
+  authors: S Poria, OY Soon, B Liu, L Bing
+  venue: Cognitive Computation
+  year: 2021
+  scholar_url: https://scholar.google.com/scholar?q=Affect+recognition+for+multimodal+natural+language+processing
+  publication_url: https://doi.org/10.1007/s12559-020-09738-0
+- title: 'Utterance-level dialogue understanding: An empirical study'
+  authors: D Ghosal, N Majumder, R Mihalcea, S Poria
+  venue: NAACL
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=Utterance-level+dialogue+understanding%3A+An+empirical+study
+  publication_url: https://arxiv.org/abs/2009.13902
+  pdf: https://arxiv.org/pdf/2009.13902
+- title: Social media marketing and financial forecasting
+  authors: F Xing, S Poria, E Cambria, R Welsch
+  venue: Information Processing & Management
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=Social+media+marketing+and+financial+forecasting
+  publication_url: https://doi.org/10.1016/j.ipm.2020.102314
+- title: 'SenticNet 6: Ensemble application of symbolic and subsymbolic AI for sentiment analysis'
+  authors: E Cambria, Y Li, FZ Xing, S Poria, K Kwok
+  venue: CIKM
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=SenticNet+6%3A+Ensemble+application+of+symbolic+and+subsymbolic+AI+for+sentiment+analysis
+  publication_url: https://doi.org/10.1145/3340531.3412003
+- title: 'MTAG: Modal-temporal attention graph for unaligned human multimodal language sequences'
+  authors: J Yang, Y Wang, R Yi, Y Zhu, A Rehman, A Zadeh, S Poria, LP Morency
+  venue: NAACL
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=MTAG%3A+Modal-temporal+attention+graph+for+unaligned+human+multimodal+language+sequences
+  publication_url: https://aclanthology.org/2021.naacl-main.79
+  pdf: https://aclanthology.org/2021.naacl-main.79.pdf
+- title: 'MISA: Modality-invariant and-specific representations for multimodal sentiment analysis'
+  authors: D Hazarika, R Zimmermann, S Poria
+  venue: ACM MM
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=MISA%3A+Modality-invariant+and-specific+representations+for+multimodal+sentiment+analysis
+  publication_url: https://doi.org/10.1088/1742-6596/2224/1/012024
+- title: 'MIME: MIMicking emotions for empathetic response generation'
+  authors: N Majumder, P Hong, S Peng, J Lu, D Ghosal, A Gelbukh, R Mihalcea, S Poria
+  venue: EMNLP
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=MIME%3A+MIMicking+emotions+for+empathetic+response+generation
+  publication_url: https://aclanthology.org/2020.emnlp-main.721
+  pdf: https://aclanthology.org/2020.emnlp-main.721.pdf
+- title: 'KinGDOM: Knowledge-Guided DOMain adaptation for sentiment analysis'
+  authors: D Ghosal, D Hazarika, A Roy, N Majumder, R Mihalcea, S Poria
+  venue: ACL
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=KinGDOM%3A+Knowledge-Guided+DOMain+adaptation+for+sentiment+analysis
+  publication_url: https://aclanthology.org/2020.acl-main.292
+  pdf: https://aclanthology.org/2020.acl-main.292.pdf
+- title: Dialogue systems with audio context
+  authors: T Young, V Pandelea, S Poria, E Cambria
+  venue: Neurocomputing
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=Dialogue+systems+with+audio+context
+  publication_url: https://doi.org/10.1016/j.neucom.2019.12.126
+- title: 'COSMIC: Commonsense knowledge for emotion identification in conversations'
+  authors: D Ghosal, N Majumder, A Gelbukh, R Mihalcea, S Poria
+  venue: EMNLP Findings
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=COSMIC%3A+Commonsense+knowledge+for+emotion+identification+in+conversations
+  publication_url: https://aclanthology.org/2020.findings-emnlp.224
+  pdf: https://aclanthology.org/2020.findings-emnlp.224.pdf
+- title: Conversational Transfer Learning for Emotion Recognition
+  authors: D Hazarika, S Poria, R Zimmermann, R Mihalcea
+  venue: Information Fusion
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=Conversational+Transfer+Learning+for+Emotion+Recognition
+  publication_url: https://doi.org/10.1016/j.inffus.2020.06.005
+- title: 'CMU-MOSEAS: A multimodal language dataset for Spanish, Portuguese, German and French'
+  authors: AAB Zadeh, Y Cao, S Hessner, PP Liang, S Poria, LP Morency
+  venue: EMNLP
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=CMU-MOSEAS%3A+A+multimodal+language+dataset+for+Spanish%2C+Portuguese%2C+German+and+French
+  publication_url: https://aclanthology.org/2020.emnlp-main.141
+  pdf: https://aclanthology.org/2020.emnlp-main.141.pdf
+- title: 'Beneath the tip of the iceberg: Current challenges and new directions in sentiment analysis research'
+  authors: S Poria, D Hazarika, N Majumder, R Mihalcea
+  venue: IEEE Transactions on Affective Computing
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=Beneath+the+tip+of+the+iceberg%3A+Current+challenges+and+new+directions+in+sentiment+analysis+research
+  publication_url: https://doi.org/10.1109/taffc.2020.3038167
+- title: 'Anaphora and coreference resolution: A review'
+  authors: R Sukthanker, S Poria, E Cambria, R Thirunavukarasu
+  venue: Information Fusion
+  year: 2020
+  scholar_url: https://scholar.google.com/scholar?q=Anaphora+and+coreference+resolution%3A+A+review
+  publication_url: https://doi.org/10.1016/j.inffus.2020.01.010
+- title: Towards Multimodal Sarcasm Detection (An Obviously Perfect Paper)
+  authors: S Castro, D Hazarika, V Pérez-Rosas, R Zimmermann, R Mihalcea, S Poria
+  venue: ACL
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=Towards+Multimodal+Sarcasm+Detection+%28An+Obviously+Perfect+Paper%29
+  publication_url: https://aclanthology.org/p19-1455
+  pdf: https://aclanthology.org/p19-1455.pdf
+- title: 'The Nitty-GRITties of Success: Computational Analysis of Grit From Language'
+  authors: T Maheshwari, A Reganti, S Poria, R Mihalcea
+  venue: IEEE Access
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=The+Nitty-GRITties+of+Success%3A+Computational+Analysis+of+Grit+From+Language
+  publication_url: https://doi.org/10.1109/access.2019.2951683
+- title: Sentiment and Sarcasm Classification with Multitask Learning
+  authors: N Majumder, S Poria, H Peng, N Chhaya, E Cambria, A Gelbukh
+  venue: IEEE Intelligent Systems
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=Sentiment+and+Sarcasm+Classification+with+Multitask+Learning
+  publication_url: https://doi.org/10.1109/mis.2019.2904691
+- title: Multi-task Learning for Multi-Modal Emotion Recognition and Sentiment Analysis
+  authors: MS Akhtar, DS Chauhan, D Ghosal, S Poria, A Ekbal, P Bhattacharyya
+  venue: NAACL
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=Multi-task+Learning+for+Multi-Modal+Emotion+Recognition+and+Sentiment+Analysis
+  publication_url: https://aclanthology.org/n19-1034
+  pdf: https://aclanthology.org/n19-1034.pdf
+- title: 'MELD: A multimodal multi-party dataset for emotion recognition in conversations'
+  authors: S Poria, D Hazarika, N Majumder, G Naik, E Cambria, R Mihalcea
+  venue: ACL
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=MELD%3A+A+multimodal+multi-party+dataset+for+emotion+recognition+in+conversations
+  publication_url: https://aclanthology.org/p19-1050
+  pdf: https://aclanthology.org/p19-1050.pdf
+- title: Factorized multimodal transformer for multimodal sequential learning
+  authors: A Zadeh, C Mao, K Shi, Y Zhang, PP Liang, S Poria, LP Morency
+  venue: arXiv preprint arXiv:1911.09826
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=Factorized+multimodal+transformer+for+multimodal+sequential+learning
+  publication_url: https://arxiv.org/abs/1911.09826
+  pdf: https://arxiv.org/pdf/1911.09826
+- title: 'Emotion Recognition in Conversation: Research Challenges, Datasets, and Recent Advances'
+  authors: S Poria, N Majumder, R Mihalcea, E Hovy
+  venue: IEEE Access
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=Emotion+Recognition+in+Conversation%3A+Research+Challenges%2C+Datasets%2C+and+Recent+Advances
+  publication_url: https://doi.org/10.1109/access.2019.2929050
+- title: 'DialogueRNN: An attentive RNN for emotion detection in conversations'
+  authors: N Majumder, S Poria, D Hazarika, R Mihalcea, A Gelbukh, E Cambria
+  venue: AAAI
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=DialogueRNN%3A+An+attentive+RNN+for+emotion+detection+in+conversations
+  publication_url: https://doi.org/10.1609/aaai.v33i01.33016818
+- title: 'DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation'
+  authors: D Ghosal, N Majumder, S Poria, N Chhaya, A Gelbukh
+  venue: EMNLP
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=DialogueGCN%3A+A+Graph+Convolutional+Neural+Network+for+Emotion+Recognition+in+Conversation
+  publication_url: https://aclanthology.org/d19-1015
+  pdf: https://aclanthology.org/d19-1015.pdf
+- title: An Attention-Based Model for Learning Dynamic Interaction Networks
+  authors: S Cavallari, S Poria, E Cambria, VW Zheng, H Cai
+  venue: IJCNN
+  year: 2019
+  scholar_url: https://scholar.google.com/scholar?q=An+Attention-Based+Model+for+Learning+Dynamic+Interaction+Networks
+  publication_url: https://doi.org/10.1109/ijcnn.2019.8852191
+- title: Sentiment analysis is a big suitcase
+  authors: E Cambria, S Poria, A Gelbukh, M Thelwall
+  venue: IEEE Intelligent Systems
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Sentiment+analysis+is+a+big+suitcase
+  publication_url: https://doi.org/10.1109/mis.2017.4531228
+- title: 'SenticNet 5: Discovering conceptual primitives for sentiment analysis by means of context embeddings'
+  authors: E Cambria, S Poria, D Hazarika, K Kwok
+  venue: AAAI
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=SenticNet+5%3A+Discovering+conceptual+primitives+for+sentiment+analysis+by+means+of+context+embeddings
+  publication_url: https://doi.org/10.1609/aaai.v32i1.11559
+- title: Recent trends in deep learning based natural language processing
+  authors: T Young, D Hazarika, S Poria, E Cambria
+  venue: IEEE Computational Intelligence Magazine
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Recent+trends+in+deep+learning+based+natural+language+processing
+  publication_url: https://doi.org/10.1109/mci.2018.2840738
+- title: 'OntoSenticNet: A commonsense ontology for sentiment analysis'
+  authors: M Dragoni, S Poria, E Cambria
+  venue: IEEE Intelligent Systems
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=OntoSenticNet%3A+A+commonsense+ontology+for+sentiment+analysis
+  publication_url: https://doi.org/10.1109/mis.2018.033001419
+- title: 'Multimodal Sentiment Analysis: Addressing Key Issues and Setting Up the Baselines'
+  authors: S Poria, N Majumder, D Hazarika, E Cambria, A Gelbukh, A Hussain
+  venue: IEEE Intelligent Systems
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Multimodal+Sentiment+Analysis%3A+Addressing+Key+Issues+and+Setting+Up+the+Baselines
+  publication_url: https://doi.org/10.1109/mis.2018.2882362
+- title: Multimodal sentiment analysis using hierarchical fusion with context modeling
+  authors: N Majumder, D Hazarika, A Gelbukh, E Cambria, S Poria
+  venue: Knowledge-Based Systems
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Multimodal+sentiment+analysis+using+hierarchical+fusion+with+context+modeling
+  publication_url: https://doi.org/10.1016/j.knosys.2018.07.041
+- title: 'Multimodal language analysis in the wild: CMU-MOSEI dataset and interpretable dynamic fusion graph'
+  authors: AAB Zadeh, PP Liang, S Poria, E Cambria, LP Morency
+  venue: ACL
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Multimodal+language+analysis+in+the+wild%3A+CMU-MOSEI+dataset+and+interpretable+dynamic+fusion+graph
+  publication_url: https://aclanthology.org/p18-1208
+  pdf: https://aclanthology.org/p18-1208.pdf
+- title: Multi-attention recurrent network for human communication comprehension
+  authors: A Zadeh, PP Liang, S Poria, P Vij, E Cambria, LP Morency
+  venue: AAAI
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Multi-attention+recurrent+network+for+human+communication+comprehension
+  publication_url: https://doi.org/10.1609/aaai.v32i1.12024
+- title: Modeling inter-aspect dependencies for aspect-based sentiment analysis
+  authors: D Hazarika, S Poria, P Vij, G Krishnamurthy, E Cambria, R Zimmermann
+  venue: NAACL
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Modeling+inter-aspect+dependencies+for+aspect-based+sentiment+analysis
+  publication_url: https://aclanthology.org/n18-2043
+  pdf: https://aclanthology.org/n18-2043.pdf
+- title: Memory fusion network for multi-view sequential learning
+  authors: A Zadeh, PP Liang, N Mazumder, S Poria, E Cambria, LP Morency
+  venue: AAAI
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=Memory+fusion+network+for+multi-view+sequential+learning
+  publication_url: https://doi.org/10.1609/aaai.v32i1.12021
+- title: 'MEMN: Multimodal emotional memory network for emotion recognition in dyadic conversational videos'
+  authors: D Hazarika, S Poria, A Zadeh, E Cambria, LP Morency, R Zimmermann
+  venue: NAACL
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=MEMN%3A+Multimodal+emotional+memory+network+for+emotion+recognition+in+dyadic+conversational+videos
+  publication_url: https://aclanthology.org/N18-1193/
+  pdf: https://aclanthology.org/N18-1193.pdf
+- title: 'CASCADE: Contextual sarcasm detection in online discussion forums'
+  authors: D Hazarika, S Poria, S Gorantla, E Cambria, R Zimmermann, R Mihalcea
+  venue: COLING
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=CASCADE%3A+Contextual+sarcasm+detection+in+online+discussion+forums
+  publication_url: https://aclanthology.org/C18-1156/
+  pdf: https://aclanthology.org/C18-1156.pdf
+- title: A deep learning approach for multimodal deception detection
+  authors: G Krishnamurthy, N Majumder, S Poria, E Cambria
+  venue: CICLing
+  year: 2018
+  scholar_url: https://scholar.google.com/scholar?q=A+deep+learning+approach+for+multimodal+deception+detection
+  publication_url: https://doi.org/10.1007/978-3-031-23793-5_8
+- title: Tensor fusion network for multimodal sentiment analysis
+  authors: A Zadeh, M Chen, S Poria, E Cambria, LP Morency
+  venue: EMNLP
+  year: 2017
+  scholar_url: https://scholar.google.com/scholar?q=Tensor+fusion+network+for+multimodal+sentiment+analysis
+  publication_url: https://aclanthology.org/d17-1115
+  pdf: https://aclanthology.org/d17-1115.pdf
+- title: Multi-level multiple attentions for contextual multimodal sentiment analysis
+  authors: S Poria, E Cambria, D Hazarika, N Mazumder, A Zadeh, LP Morency
+  venue: ICDM
+  year: 2017
+  scholar_url: https://scholar.google.com/scholar?q=Multi-level+multiple+attentions+for+contextual+multimodal+sentiment+analysis
+  publication_url: https://doi.org/10.1109/icdm.2017.134
+- title: Ensemble application of convolutional neural networks and multiple kernel learning for multimodal sentiment analysis
+  authors: S Poria, H Peng, A Hussain, N Howard, E Cambria
+  venue: Neurocomputing
+  year: 2017
+  scholar_url: https://scholar.google.com/scholar?q=Ensemble+application+of+convolutional+neural+networks+and+multiple+kernel+learning+for+multimodal+sentiment+analysis
+  publication_url: https://doi.org/10.1016/j.neucom.2016.09.117
+- title: Deep learning-based document modeling for personality detection from text
+  authors: N Majumder, S Poria, A Gelbukh, E Cambria
+  venue: IEEE Intelligent Systems
+  year: 2017
+  scholar_url: https://scholar.google.com/scholar?q=Deep+learning-based+document+modeling+for+personality+detection+from+text
+  publication_url: https://doi.org/10.1109/mis.2017.23
+- title: Context-dependent sentiment analysis in user-generated videos
+  authors: S Poria, E Cambria, D Hazarika, N Majumder, A Zadeh, LP Morency
+  venue: ACL
+  year: 2017
+  scholar_url: https://scholar.google.com/scholar?q=Context-dependent+sentiment+analysis+in+user-generated+videos
+  publication_url: https://aclanthology.org/p17-1081
+  pdf: https://aclanthology.org/p17-1081.pdf
+- title: 'A review of affective computing: From unimodal analysis to multimodal fusion'
+  authors: S Poria, E Cambria, R Bajpai, A Hussain
+  venue: Information Fusion
+  year: 2017
+  scholar_url: https://scholar.google.com/scholar?q=A+review+of+affective+computing%3A+From+unimodal+analysis+to+multimodal+fusion
+  publication_url: https://doi.org/10.1016/j.inffus.2017.02.003
+- title: 'SenticNet 4: A semantic resource for sentiment analysis based on conceptual primitives'
+  authors: E Cambria, S Poria, R Bajpai, B Schuller
+  venue: COLING
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=SenticNet+4%3A+A+semantic+resource+for+sentiment+analysis+based+on+conceptual+primitives
+  publication_url: https://aclanthology.org/C16-1251/
+  pdf: https://aclanthology.org/C16-1251.pdf
+- title: 'Sentic LDA: Improving on LDA with semantic similarity for aspect-based sentiment analysis'
+  authors: S Poria, I Chaturvedi, E Cambria, F Bisio
+  venue: IJCNN
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=Sentic+LDA%3A+Improving+on+LDA+with+semantic+similarity+for+aspect-based+sentiment+analysis
+  publication_url: https://doi.org/10.1109/ijcnn.2016.7727784
+- title: 'Multilingual sentiment analysis: state of the art and independent comparison of techniques'
+  authors: K Dashtipour, S Poria, A Hussain, E Cambria, AYA Hawalah, A Gelbukh
+  venue: Cognitive Computation
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=Multilingual+sentiment+analysis%3A+state+of+the+art+and+independent+comparison+of+techniques
+  publication_url: https://doi.org/10.1007/s12559-016-9415-7
+- title: Fusing audio, visual and textual clues for sentiment analysis from multimodal content
+  authors: S Poria, E Cambria, N Howard, GB Huang, A Hussain
+  venue: Neurocomputing
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=Fusing+audio%2C+visual+and+textual+clues+for+sentiment+analysis+from+multimodal+content
+  publication_url: https://doi.org/10.1016/j.neucom.2015.01.095
+- title: Convolutional MKL based multimodal emotion recognition and sentiment analysis
+  authors: S Poria, I Chaturvedi, E Cambria, A Hussain
+  venue: ICDM
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=Convolutional+MKL+based+multimodal+emotion+recognition+and+sentiment+analysis
+  publication_url: https://doi.org/10.1109/icdm.2016.0055
+- title: Aspect extraction for opinion mining with a deep convolutional neural network
+  authors: S Poria, E Cambria, A Gelbukh
+  venue: Knowledge-Based Systems
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=Aspect+extraction+for+opinion+mining+with+a+deep+convolutional+neural+network
+  publication_url: https://doi.org/10.1016/j.knosys.2016.06.009
+- title: A deeper look into sarcastic tweets using deep convolutional neural networks
+  authors: S Poria, E Cambria, D Hazarika, P Vij
+  venue: COLING
+  year: 2016
+  scholar_url: https://scholar.google.com/scholar?q=A+deeper+look+into+sarcastic+tweets+using+deep+convolutional+neural+networks
+  publication_url: https://aclanthology.org/C16-1151/
+  pdf: https://aclanthology.org/C16-1151.pdf
+- title: Towards an intelligent framework for multimodal affective data analysis
+  authors: S Poria, E Cambria, A Hussain, GB Huang
+  venue: Neural Networks
+  year: 2015
+  scholar_url: https://scholar.google.com/scholar?q=Towards+an+intelligent+framework+for+multimodal+affective+data+analysis
+  publication_url: https://doi.org/10.1016/j.neunet.2014.10.005
+- title: Sentiment data flow analysis by means of dynamic linguistic patterns
+  authors: S Poria, E Cambria, A Gelbukh, F Bisio, A Hussain
+  venue: IEEE Computational Intelligence Magazine
+  year: 2015
+  scholar_url: https://scholar.google.com/scholar?q=Sentiment+data+flow+analysis+by+means+of+dynamic+linguistic+patterns
+  publication_url: https://doi.org/10.1109/mci.2015.2471215
+- title: Deep convolutional neural network textual features and multiple kernel learning for utterance-level multimodal sentiment analysis
+  authors: S Poria, E Cambria, A Gelbukh
+  venue: EMNLP
+  year: 2015
+  scholar_url: https://scholar.google.com/scholar?q=Deep+convolutional+neural+network+textual+features+and+multiple+kernel+learning+for+utterance-level+multimodal+sentiment+analysis
+  publication_url: https://aclanthology.org/d15-1303
+  pdf: https://aclanthology.org/d15-1303.pdf
+- title: 'Sentic patterns: Dependency-based rules for concept-level sentiment analysis'
+  authors: S Poria, E Cambria, G Winterstein, GB Huang
+  venue: Knowledge-Based Systems
+  year: 2014
+  scholar_url: https://scholar.google.com/scholar?q=Sentic+patterns%3A+Dependency-based+rules+for+concept-level+sentiment+analysis
+  publication_url: https://doi.org/10.1016/j.knosys.2014.05.005
+- title: 'EmoSenticSpace: A novel framework for affective common-sense reasoning'
+  authors: S Poria, A Gelbukh, E Cambria, A Hussain, GB Huang
+  venue: Knowledge-Based Systems
+  year: 2014
+  scholar_url: https://scholar.google.com/scholar?q=EmoSenticSpace%3A+A+novel+framework+for+affective+common-sense+reasoning
+  publication_url: https://doi.org/10.1016/j.knosys.2014.06.011
+- title: Enhanced SenticNet with affective labels for concept-based opinion mining
+  authors: S Poria, A Gelbukh, A Hussain, N Howard, D Das, S Bandyopadhyay
+  venue: IEEE Intelligent Systems
+  year: 2013
+  scholar_url: https://scholar.google.com/scholar?q=Enhanced+SenticNet+with+affective+labels+for+concept-based+opinion+mining
+  publication_url: https://doi.org/10.1109/mis.2013.4
+- title: 'SMSFR: SMS-Based FAQ Retrieval System'
+  authors: Partha Pakray, Santanu Pal, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh
+  venue: MICAI (2)
+  year: 2012
+  scholar_url: https://scholar.google.com/scholar?q=SMSFR%3A%20SMS-Based%20FAQ%20Retrieval%20System
+  publication_url: https://doi.org/10.1007/978-3-642-37798-3_4
+- title: Merging SenticNet and WordNet-Affect emotion lists for sentiment analysis
+  authors: S Poria, A Gelbukh, E Cambria, P Yang, A Hussain, T Durrani
+  venue: IEEE International Conference on Signal Processing
+  year: 2012
+  scholar_url: https://scholar.google.com/scholar?q=Merging+SenticNet+and+WordNet-Affect+emotion+lists+for+sentiment+analysis
+  publication_url: https://doi.org/10.1109/icosp.2012.6491803
+- title: 'Fuzzy Clustering for Semi-supervised Learning - Case Study: Construction of an Emotion Lexicon'
+  authors: Soujanya Poria, Alexander F. Gelbukh, Dipankar Das 0001, Sivaji Bandyopadhyay
+  venue: MICAI (1)
+  year: 2012
+  scholar_url: https://scholar.google.com/scholar?q=Fuzzy%20Clustering%20for%20Semi-supervised%20Learning%20-%20Case%20Study%3A%20Construction%20of%20an%20Emotion%20Lexicon
+  publication_url: https://doi.org/10.1007/978-3-642-37807-2_7
+- title: Enriching SenticNet polarity scores through semi-supervised fuzzy clustering
+  authors: S Poria, A Gelbukh, E Cambria, D Das, S Bandyopadhyay
+  venue: IEEE ICDM Workshops
+  year: 2012
+  scholar_url: https://scholar.google.com/scholar?q=Enriching+SenticNet+polarity+scores+through+semi-supervised+fuzzy+clustering
+  publication_url: https://doi.org/10.1109/icdmw.2012.142
+- title: A Classifier Based Approach to Emotion Lexicon Construction
+  authors: Dipankar Das 0001, Soujanya Poria, Sivaji Bandyopadhyay
+  venue: NLDB
+  year: 2012
+  scholar_url: https://scholar.google.com/scholar?q=A%20Classifier%20Based%20Approach%20to%20Emotion%20Lexicon%20Construction
+  publication_url: https://doi.org/10.1007/978-3-642-31178-9_41
+- title: Semantic Textual Entailment Recognition using UNL
+  authors: Partha Pakray, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh
+  venue: Polibits
+  year: 2011
+  scholar_url: https://scholar.google.com/scholar?q=Semantic%20Textual%20Entailment%20Recognition%20using%20UNL
+  publication_url: https://doi.org/10.17562/pb-43-3
+- title: A Textual Entailment System using Anaphora Resolution
+  authors: Partha Pakray, Snehasis Neogi, Pinaki Bhaskar, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh
+  venue: TAC
+  year: 2011
+  scholar_url: https://scholar.google.com/scholar?q=A%20Textual%20Entailment%20System%20using%20Anaphora%20Resolution
+  publication_url: https://tac.nist.gov/publications/2011/participant.papers/JU_CSE_TAC.proceedings.pdf
+- title: 'JU_CSE_TAC: Textual Entailment Recognition System at TAC RTE-6'
+  authors: Partha Pakray, Santanu Pal, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh
+  venue: TAC
+  year: 2010
+  scholar_url: https://scholar.google.com/scholar?q=JU_CSE_TAC%3A%20Textual%20Entailment%20Recognition%20System%20at%20TAC%20RTE-6
+  publication_url: https://tac.nist.gov/publications/2010/participant.papers/JU_CSE_TAC.proceedings.pdf

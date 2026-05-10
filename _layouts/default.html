@@ -1,73 +1,39 @@
----
----
-
 <!doctype html>
-<!--
-  Minimal Mistakes Jekyll Theme 4.18.1 by Michael Rose
-  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
-  Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
--->
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
-  <script src="{{ '/assets/js/skinToggle.js' | relative_url }}"></script>
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
+<html lang="{{ site.locale | slice: 0,2 | default: 'en' }}" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncatewords: 50 }}">
+  <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
+<body>
+  {% include nav.html %}
 
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-    {% include_cached skip-links.html %}
-    {% include_cached browser-upgrade.html %}
-    {% include_cached masthead.html %}
+  <main class="site-main">
+    {{ content }}
+  </main>
 
-    <div class="initial-content">
-      {{ content }}
-    </div>
-    <script>
-        let darkMode = localStorage.getItem("darkMode");
+  {% include footer.html %}
 
-        if (darkMode === "enabled") {
-            link = document.getElementById('dark-toggle-link');
-            link.href =  link.href.replace('light', 'dark');
-        }
-        else {
-            link = document.getElementById('dark-toggle-link');
-            link.href =  link.href.replace('dark', 'light');
-        }
-    </script>
-
-
-    {% if site.search == true %}
-      <div class="search-content">
-        {% include_cached search/search_form.html %}
-      </div>
-    {% endif %}
-
-    <div id="footer" class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include_cached footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
-
-    <script>
-        if (darkMode === "enabled") {
-            var e = document.getElementById('dark-toggle');
-            if (e !== null)
-                e.classList.add('fa-toggle-on');
-                if (e !== null)
-                    e.classList.remove('fa-toggle-off');
-        }
-        else {
-            var e = document.getElementById('dark-toggle');
-            if (e !== null)
-                e.classList.add('fa-toggle-off');
-                if (e !== null)
-                    e.classList.remove('fa-toggle-on');
-        }
-    </script>
-
-  </body>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.setAttribute('data-theme', saved);
+      toggle.addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    }
+  </script>
+</body>
 </html>

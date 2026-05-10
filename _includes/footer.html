@@ -1,19 +1,11 @@
-<!-- <div class="page__footer-follow"> -->
-<!--   <ul class="social-icons"> -->
-<!--     {% if site.data.ui-text[site.locale].follow_label %} -->
-<!--       <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li> -->
-<!--     {% endif %} -->
-
-<!--     {% if site.footer.links %} -->
-<!--       {% for link in site.footer.links %} -->
-<!--         {% if link.label and link.url %} -->
-<!--           <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li> -->
-<!--         {% endif %} -->
-<!--       {% endfor %} -->
-<!--     {% endif %} -->
-
-<!--     <!-1- <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li> -1-> -->
-<!--   </ul> -->
-<!-- </div> -->
-
-<div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}. {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<a onclick="darkToggle()" role="button" style="float:right; cursor:pointer;"><i id="dark-toggle" class="fas fa-toggle-off fa-2x"></i></a></div>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}.</p>
+    <p class="footer-links">
+      <a href="/publications/">Publications</a>
+      <a href="/research/">Research</a>
+      <a href="https://declare-lab.github.io/" target="_blank" rel="noopener">DeCLaRe Lab</a>
+      <a href="mailto:soujanya.poria@ntu.edu.sg">Contact</a>
+    </p>
+  </div>
+</footer>
