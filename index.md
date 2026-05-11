@@ -8,12 +8,13 @@ title: ""
 <section class="home-hero">
   <h2 class="hero-greeting-name">নমস্কার — I am Soujanya Poria (সৌজন্য পড়িয়া)</h2>
   <p class="eyebrow">School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore</p>
-  <p class="hero-subtitle">I am an Associate Professor at EEE, NTU. Previously I was Assistant Professor (later Associate Professor) at the Singapore University of Technology and Design (SUTD). I lead the DeCLaRe Lab.</p>
+  <p class="hero-subtitle">My group studies how AI can reason, explain itself, and act safely across language, vision, and audio. I'm an Associate Professor at EEE, NTU, leading the DeCLaRe Lab. Before NTU, I was at SUTD.</p>
   <div class="hero-actions">
     <a class="btn-primary" href="/publications/">View Publications</a>
     <a class="btn-secondary" href="#selected-publications">Selected Publications</a>
     <a class="btn-secondary" href="#recent-updates">Recent Updates</a>
     <a class="btn-secondary" href="https://declare-lab.github.io/">DeCLaRe Lab</a>
+    <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research Slides</a>
     <a class="btn-secondary" href="mailto:soujanya.poria@ntu.edu.sg">Email</a>
   </div>
 </section>
@@ -25,7 +26,8 @@ title: ""
       <p>My research focuses on language and multimodal intelligence, with emphasis on systems that reason, explain, align with human values, and operate robustly across modalities. My recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
     </div>
     <div class="intro-aside">
-      <p><strong>Open to collaboration.</strong> Prospective students and collaborators should first review the lab research slides and current publications.</p>
+      <h2>Open to Collaboration</h2>
+      <p>Prospective students and collaborators should first review the lab research slides and current publications before reaching out.</p>
       <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
     </div>
   </section>
