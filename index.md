@@ -6,10 +6,6 @@ title: ""
 ---
 
 <section class="home-hero">
-  <div class="hero-logos">
-    <img class="logo ntu-logo" src="/assets/images/logos/ntu-transparent.png" alt="Nanyang Technological University">
-    <img class="logo dec-logo" src="/assets/images/logos/declare-transparent.png" alt="DeCLaRe Lab">
-  </div>
   <h2 class="hero-greeting-name">নমস্কার — I am Soujanya Poria (সৌজন্য পড়িয়া)</h2>
   <p class="eyebrow">School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore</p>
   <p class="hero-subtitle">I am an Associate Professor at EEE, NTU. Previously I was Assistant Professor (later Associate Professor) at the Singapore University of Technology and Design (SUTD). I lead the DeCLaRe Lab.</p>
