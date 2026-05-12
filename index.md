@@ -9,18 +9,22 @@ title: ""
   <h2 class="hero-greeting-name">নমস্কার — I am Soujanya Poria (সৌজন্য পড়িয়া)</h2>
   <p class="eyebrow">School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore</p>
   <p class="hero-subtitle">My group studies how AI can reason, explain itself, and act safely across language, vision, and audio. I'm an Associate Professor at EEE, NTU, leading the DeCLaRe Lab. Before NTU, I was at SUTD.</p>
-  <div class="hero-actions">
-    <a class="btn-primary" href="/publications/">View Publications</a>
-    <a class="btn-secondary" href="#selected-publications">Selected Publications</a>
-    <a class="btn-secondary" href="#recent-updates">Recent Updates</a>
-    <a class="btn-secondary" href="https://declare-lab.github.io/">DeCLaRe Lab</a>
-    <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research Slides</a>
-    <a class="btn-secondary" href="mailto:soujanya.poria@ntu.edu.sg">Email</a>
+  <div class="hero-actions" aria-label="Landing page actions">
+    <a class="btn-primary" href="/publications/"><i class="fas fa-book-open" aria-hidden="true"></i> View Publications</a>
+    <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Research Slides</a>
+    <a class="btn-secondary" href="mailto:soujanya.poria@ntu.edu.sg"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
   </div>
 </section>
 
+<nav class="home-section-nav" aria-label="Landing page sections">
+  <a href="#research-focus"><i class="fas fa-compass" aria-hidden="true"></i> Research Focus</a>
+  <a href="#recent-updates"><i class="fas fa-bolt" aria-hidden="true"></i> Recent Updates</a>
+  <a href="#research-group"><i class="fas fa-flask" aria-hidden="true"></i> DeCLaRe Lab</a>
+  <a href="#selected-publications"><i class="fas fa-star" aria-hidden="true"></i> Selected Publications</a>
+</nav>
+
 <div class="home-overview">
-  <section class="intro-panel">
+  <section class="intro-panel" id="research-focus">
     <div>
       <h2>Research Focus</h2>
       <p>My research focuses on language and multimodal intelligence, with emphasis on systems that reason, explain, align with human values, and operate robustly across modalities. My recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
@@ -65,7 +69,7 @@ title: ""
   </section>
 </div>
 
-<section class="lab-panel">
+<section class="lab-panel" id="research-group">
   <div class="lab-identity">
     <img class="lab-logo lab-logo-light" src="/assets/images/logos/declare-square-light.png" alt="DeCLaRe Lab logo">
     <img class="lab-logo lab-logo-dark" src="/assets/images/logos/declare-square-dark.png" alt="DeCLaRe Lab logo">

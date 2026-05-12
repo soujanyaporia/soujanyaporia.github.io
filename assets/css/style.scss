@@ -304,10 +304,9 @@ strong { font-weight: 600; }
 
 /* ===== Home ===== */
 .home-hero {
-  padding: 0 0 1.4em;
+  padding: 0 0 1.1em;
   border-top: none;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 1.6em;
+  margin-bottom: 0.85em;
 }
 
 .eyebrow {
@@ -412,17 +411,69 @@ strong { font-weight: 600; }
   align-items: center;
 }
 
-.hero-actions a[href^="#"]::after {
-  content: "↓";
-  font-size: 0.95em;
-  margin-left: 0.45em;
-  line-height: 1;
+.home-section-nav {
+  position: sticky;
+  top: calc(72px + 0.75em);
+  z-index: 80;
+  margin: 0 0 1.6em;
+  padding: 0.55em 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg-page) 88%, transparent);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-section-nav::before,
+.home-section-nav::after {
+  content: none;
+}
+
+.home-section-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  min-height: 34px;
+  padding: 0.36em 0.68em;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.62);
+  font-size: 0.78em;
+  font-weight: 750;
+  text-decoration: none;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .home-section-nav a {
+  background: rgba(19,28,42,0.72);
+}
+
+.home-section-nav a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-light);
+  text-decoration: none;
+}
+
+#recent-updates,
+#research-group,
+#research-focus,
+#selected-publications {
+  scroll-margin-top: 150px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5em;
   min-height: 42px;
   border-radius: 8px;
   padding: 0.55em 1em;
@@ -430,6 +481,11 @@ strong { font-weight: 600; }
   font-size: 0.9em;
   text-decoration: none;
   transition: all var(--transition);
+}
+
+.btn i {
+  font-size: 0.95em;
+  line-height: 1;
 }
 
 .btn-primary {
@@ -1557,6 +1613,25 @@ strong { font-weight: 600; }
 @media (max-width: 700px) {
   .header-inner { padding: 0 1em; }
   .site-main { padding: 1.5em 1em; }
+
+  .home-section-nav {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-left: -1em;
+    margin-right: -1em;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    padding: 0.55em 1em;
+    scrollbar-width: none;
+  }
+  .home-section-nav::-webkit-scrollbar { display: none; }
+  .home-section-nav::before,
+  .home-section-nav::after { display: none; }
+  .home-section-nav a {
+    flex: 0 0 auto;
+  }
 
   .menu-toggle { display: flex; }
 
