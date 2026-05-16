@@ -398,6 +398,8 @@ strong { font-weight: 650; color: var(--text); }
   border-top: 1px dashed var(--border);
   padding-top: 0.85em;
   margin-top: 0.4em;
+  /* Desktop: ensure icon+text are left-aligned */
+  text-align: left;
 }
 
 .author-links a {
@@ -529,8 +531,10 @@ strong { font-weight: 650; color: var(--text); }
   gap: 0.9em;
   margin: 0.5em auto 0.6em;
   padding: 0.6em 0;
-  border-top: 1px dashed var(--border);
-  border-bottom: 1px dashed var(--border);
+  /* keep the sidebar visually light; remove extra dashed separators
+     — the single dashed divider below the profile (author-links) is retained */
+  border-top: 0;
+  border-bottom: 0;
   width: 100%;
 }
 
@@ -2121,6 +2125,34 @@ strong { font-weight: 650; color: var(--text); }
   .work-links span { white-space: normal; align-self: flex-start; }
   .lab-panel::before { display: none; }
   h1 { font-size: 1.9em; }
+
+  /* Mobile: present sidebar links as a centered 2-column grid
+     so items consistently pair two-per-row (no accidental 3-up rows). */
+  .author-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5em;
+    width: min(420px, 100%);
+    margin: 0.8em auto 0;
+    border-top: 1px dashed var(--border);
+    padding-top: 0.8em;
+    box-sizing: border-box;
+    justify-items: stretch;
+  }
+
+  .author-links a {
+    width: 100%;
+    display: grid;
+    grid-template-columns: var(--author-icon-width) 1fr;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.5em 0.6em;
+    border-radius: 8px;
+    justify-content: flex-start; /* keep icon+text left inside each cell */
+  }
+
+  /* remove extra dotted separators inside the header area on mobile */
+  .author-affiliations { border-top: 0; border-bottom: 0; }
 
   /* Mobile-specific overrides to prevent horizontal clipping */
   html, body {
