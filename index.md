@@ -6,9 +6,9 @@ title: ""
 ---
 
 <section class="home-hero">
-  <h2 class="hero-greeting-name">নমস্কার — I am Soujanya Poria (সৌজন্য পড়িয়া)</h2>
-  <p class="eyebrow">School of Electrical and Electronic Engineering, Nanyang Technological University, Singapore</p>
-  <p class="hero-subtitle">My group studies how AI can reason, explain itself, and act safely across language, vision, and audio. I'm an Associate Professor at EEE, NTU, leading the DeCLaRe Lab. Before NTU, I was at SUTD.</p>
+  <p class="eyebrow">Associate Professor · EEE · NTU Singapore</p>
+  <h1 class="hero-greeting-name">নমস্কার — I am <em>Soujanya Poria</em><span style="display:block;font-size:0.48em;color:var(--text-secondary);font-style:normal;margin-top:0.25em;letter-spacing:-0.005em;font-weight:500;">সৌজন্য পড়িয়া</span></h1>
+  <p class="hero-subtitle">My group studies how AI can <strong>reason, explain itself, and act safely</strong> across language, vision, and audio. I lead the <strong>DeCLaRe Lab</strong> at the School of Electrical and Electronic Engineering, Nanyang Technological University. Before NTU, I was at SUTD.</p>
   <div class="hero-actions" aria-label="Landing page actions">
     <a class="btn-primary" href="/publications/"><i class="fas fa-book-open" aria-hidden="true"></i> View Publications</a>
     <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Research Slides</a>
@@ -38,8 +38,7 @@ title: ""
 
   <section class="updates-panel" id="recent-updates">
     <div class="updates-header">
-      <span class="work-kicker">Recent Updates</span>
-      <a class="btn-secondary" href="/publications/">All publications</a>
+      <h2>Recent Updates</h2>
     </div>
     <div class="news-timeline compact">
       <div class="news-item">
@@ -75,7 +74,7 @@ title: ""
     <img class="lab-logo lab-logo-dark" src="/assets/images/logos/declare-square-dark.png" alt="DeCLaRe Lab logo">
   </div>
   <div class="lab-copy">
-    <span class="lab-kicker">Research Group</span>
+    <span class="work-kicker">Research Group</span>
     <h2>DeCLaRe Lab</h2>
     <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents that can act with better grounding.</p>
     <div class="lab-actions">
@@ -85,14 +84,15 @@ title: ""
   </div>
 </section>
 
-## Selected Publications
+<section id="selected-publications">
+<h2>Selected Publications</h2>
 
 <p class="section-lede">A small set of representative papers, grouped by research direction.</p>
 
 <div class="selected-work-grid publication-showcase">
   <section class="selected-work-card">
     <span class="work-kicker">Multimodal AI</span>
-    <h3>Representation Learning & Fusion</h3>
+    <h3>Representation Learning &amp; Fusion</h3>
     <p class="work-note"><strong>MISA</strong> was one of the early works to use attention for fusing multimodalities.</p>
     <ul class="work-links">
       <li><a href="https://dl.acm.org/doi/pdf/10.1145/3394171.3413678">MISA</a><span>ACM MM</span></li>
@@ -104,7 +104,7 @@ title: ""
 
   <section class="selected-work-card">
     <span class="work-kicker">Affective Computing</span>
-    <h3>Emotion, Sentiment & Dialogue</h3>
+    <h3>Emotion, Sentiment &amp; Dialogue</h3>
     <p class="work-note"><strong>MELD</strong> is used as a benchmark in Qwen-Audio, Qwen2-Audio, Audio-Flamingo, SALMONN, MiniCPM-o-4.5, and Phi-4.</p>
     <ul class="work-links">
       <li><a href="https://arxiv.org/pdf/1810.02508">MELD</a><span>ACL</span></li>
@@ -128,7 +128,7 @@ title: ""
 
   <section class="selected-work-card">
     <span class="work-kicker">Evaluation</span>
-    <h3>LLM Evaluation & Reasoning</h3>
+    <h3>LLM Evaluation &amp; Reasoning</h3>
     <ul class="work-links">
       <li><a href="https://arxiv.org/pdf/2306.04757">InstructEval</a><span>arXiv</span></li>
       <li><a href="https://arxiv.org/pdf/2401.09395">Mathematical and Coding Competency</a><span>ACL Findings</span></li>
@@ -139,7 +139,7 @@ title: ""
 
   <section class="selected-work-card">
     <span class="work-kicker">Efficient Foundation Models</span>
-    <h3>Data-Efficient ML, Attention & Memory</h3>
+    <h3>Data-Efficient ML, Attention &amp; Memory</h3>
     <ul class="work-links">
       <li><a href="https://arxiv.org/pdf/2603.07433">Data-Agent</a><span>ICML</span></li>
       <li><a href="https://arxiv.org/pdf/2512.12602">EFLA</a><span>arXiv</span></li>
@@ -149,7 +149,7 @@ title: ""
 
   <section class="selected-work-card">
     <span class="work-kicker">Responsible AI</span>
-    <h3>AI Safety, Alignment & Trustworthiness</h3>
+    <h3>AI Safety, Alignment &amp; Trustworthiness</h3>
     <ul class="work-links">
       <li><a href="https://arxiv.org/pdf/2308.09662">Red Teaming LLMs</a><span>Arxiv</span></li>
       <li><a href="https://aclanthology.org/2024.emnlp-main.1212.pdf">Safety Arithmetic</a><span>EMNLP</span></li>
@@ -170,7 +170,7 @@ title: ""
 
   <section class="selected-work-card">
     <span class="work-kicker">Embodied AI</span>
-    <h3>Agents, Planning & Robotics</h3>
+    <h3>Agents, Planning &amp; Robotics</h3>
     <ul class="work-links">
       <li><a href="https://aclanthology.org/2025.acl-long.695.pdf">Emma-X</a><span>ACL</span></li>
       <li><a href="https://www.arxiv.org/abs/2504.19854">NORA</a><span>Project</span></li>
@@ -179,3 +179,4 @@ title: ""
     </ul>
   </section>
 </div>
+</section>
