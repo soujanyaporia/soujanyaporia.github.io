@@ -6,14 +6,14 @@
 
 /* ===== Theme Variables ===== */
 :root {
-  /* Editorial palette — warm parchment + deep ink, with terracotta accent */
+  /* Clean light palette — white surfaces with warm editorial accents */
   --ink:           #14171f;
   --ink-soft:      #2a3041;
-  --paper:         #f6f1e8;
-  --paper-2:       #ede5d3;
-  --paper-card:    #fffdf6;
-  --rule:          #d9cfba;
-  --rule-strong:   #8b7c5e;
+  --paper:         #ffffff;
+  --paper-2:       #f7f8fb;
+  --paper-card:    #ffffff;
+  --rule:          #e5e7eb;
+  --rule-strong:   #a8b0bf;
 
   --accent:        #c0432b;   /* terracotta */
   --accent-hover:  #9a3320;
@@ -29,20 +29,20 @@
   --warm-gradient:   linear-gradient(135deg, #f6f1e8 0%, #ede5d3 100%);
 
   --text:           var(--ink);
-  --text-secondary: #5e6577;
-  --text-muted:     #8a8474;
+  --text-secondary: #566174;
+  --text-muted:     #7d8796;
   --bg:             var(--paper);
   --bg-page:        var(--paper);
   --bg-card:        var(--paper-card);
-  --bg-soft:        #eee5d1;
+  --bg-soft:        #f5f7fb;
   --border:         var(--rule);
-  --border-hover:   #b8a988;
+  --border-hover:   #c1c7d2;
 
   --radius: 4px;
   --radius-lg: 10px;
-  --shadow-sm: 0 1px 0 rgba(20,23,31,0.04), 0 1px 3px rgba(20,23,31,0.05);
-  --shadow-md: 0 24px 60px -20px rgba(20,23,31,0.16), 0 6px 14px rgba(20,23,31,0.06);
-  --shadow-lg: 0 40px 100px -30px rgba(20,23,31,0.30);
+  --shadow-sm: 0 1px 0 rgba(20,23,31,0.04), 0 1px 3px rgba(20,23,31,0.06);
+  --shadow-md: 0 20px 48px -24px rgba(20,23,31,0.18), 0 6px 14px rgba(20,23,31,0.06);
+  --shadow-lg: 0 34px 80px -34px rgba(20,23,31,0.26);
   --transition: 0.22s cubic-bezier(.2,.7,.2,1);
 
   --font-serif: "Fraunces", "Newsreader", "Source Serif Pro", "EB Garamond", Georgia, "Times New Roman", serif;
@@ -119,10 +119,12 @@ body::before {
   background-size: 3px 3px;
   opacity: 0.6;
   mix-blend-mode: multiply;
+  display: none;
 }
 [data-theme="dark"] body::before {
   background-image: radial-gradient(rgba(255,255,255,0.022) 1px, transparent 1px);
   mix-blend-mode: screen;
+  display: block;
 }
 
 /* A soft chromatic glow behind the top of the page */
@@ -141,12 +143,14 @@ body::after {
   pointer-events: none;
   z-index: 0;
   filter: blur(20px);
+  display: none;
 }
 [data-theme="dark"] body::after {
   background:
     radial-gradient(closest-side, rgba(233,135,107,0.22), transparent 70%),
     radial-gradient(closest-side at 30% 60%, rgba(127,207,178,0.15), transparent 70%),
     radial-gradient(closest-side at 75% 50%, rgba(230,199,114,0.15), transparent 70%);
+  display: block;
 }
 
 a {
