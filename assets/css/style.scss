@@ -690,29 +690,13 @@ strong { font-weight: 650; color: var(--text); }
   color: #fff;
 }
 
-.btn-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--accent-gradient);
-  opacity: 0;
-  transition: opacity var(--transition);
-  z-index: 0;
-}
-
 .btn-primary:hover {
   color: #fff;
+  background: var(--accent-gradient);
   text-decoration: none;
   transform: translateY(-2px);
   box-shadow: 0 14px 32px -10px rgba(192,67,43,0.4);
   border-color: transparent;
-}
-
-.btn-primary:hover::before { opacity: 1; }
-
-.btn-primary > * {
-  position: relative;
-  z-index: 1;
 }
 
 .btn-secondary,
