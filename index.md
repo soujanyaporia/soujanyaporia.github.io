@@ -17,10 +17,10 @@ title: ""
 </section>
 
 <nav class="home-section-nav" aria-label="Landing page sections">
-  <a href="#research-focus"><i class="fas fa-compass" aria-hidden="true"></i> Research Focus</a>
-  <a href="#recent-updates"><i class="fas fa-bolt" aria-hidden="true"></i> Recent Updates</a>
-  <a href="#research-group"><i class="fas fa-flask" aria-hidden="true"></i> DeCLaRe Lab</a>
-  <a href="#selected-publications"><i class="fas fa-star" aria-hidden="true"></i> Selected Publications</a>
+  <a href="#research-focus" data-section-nav><i class="fas fa-compass" aria-hidden="true"></i> <span>Research Focus</span></a>
+  <a href="#recent-updates" data-section-nav><i class="fas fa-bolt" aria-hidden="true"></i> <span>Recent Updates</span></a>
+  <a href="#research-group" data-section-nav><i class="fas fa-flask" aria-hidden="true"></i> <span>DeCLaRe Lab</span></a>
+  <a href="#selected-publications" data-section-nav><i class="fas fa-star" aria-hidden="true"></i> <span>Selected Publications</span></a>
 </nav>
 
 <div class="home-overview">
@@ -70,8 +70,8 @@ title: ""
 
 <section class="lab-panel" id="research-group">
   <div class="lab-identity">
-    <img class="lab-logo lab-logo-light" src="/assets/images/logos/declare-square-light.png" alt="DeCLaRe Lab logo">
-    <img class="lab-logo lab-logo-dark" src="/assets/images/logos/declare-square-dark.png" alt="DeCLaRe Lab logo">
+    <img class="lab-logo lab-logo-light" src="/assets/images/logos/declare-square-theme-light.svg" alt="DeCLaRe Lab logo">
+    <img class="lab-logo lab-logo-dark" src="/assets/images/logos/declare-square-theme-dark.svg" alt="DeCLaRe Lab logo">
   </div>
   <div class="lab-copy">
     <span class="work-kicker">Research Group</span>

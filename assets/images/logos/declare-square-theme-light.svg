@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="13.72 29.27 322.56 302.96" xml:space="preserve" role="img" aria-labelledby="title desc"
+  >
+<title id="title">DeCLaRe square theme logo, light theme</title>
+<desc id="desc">Robot icon, modular DeCLaRe wordmark, and the Deep Cognition and Language Research theme text.</desc>
+<style type="text/css">
+  /*
+    DeCLaRe identity constants:
+    main stroke: 10px; chamfer: 12px.
+    wordmark purple: #7C3AED.
+    green eye: #34A853; red angular eye: #EB4336.
+  */
+  /* The robot is a single themeable silhouette (currentColor) with the
+     interior detail carved out as true transparency via #robot-knockout,
+     so it composites cleanly on any background in both themes. */
+  .module { fill: none; stroke: #7C3AED; stroke-width: 10; stroke-linecap: square; stroke-linejoin: bevel; }
+  .a-terminal { fill: #7C3AED; }
+  .clean-terminal { stroke-linecap: butt; }
+  /* Internal construction thread: a single continuous horizontal line on the
+     wordmark's shared axis (y74, the lowercase crossbar line), but masked to
+     the letter ink (#wordmark-ink) so it is visible only *inside* the glyph
+     strokes and never floats in the gaps between letters. It reads as an
+     internal assembly seam: thinner than the 10px letter stroke, in a slightly
+     lighter/brighter purple than the main wordmark. */
+  .thread { fill: none; stroke: #A78BFA; stroke-width: 4; stroke-linecap: butt; }
+  /* Recolour the cloned glyph strokes to white inside the mask only, so the
+     mask's luminance is solid where the letters are drawn. */
+  #wordmark-ink .module { stroke: #fff; }
+  .theme { fill: #9272DB; font-family: Arial, Helvetica, sans-serif; font-size: 25px; font-weight: 500; letter-spacing: .2px; }
+
+</style>
+
+<defs>
+  <!-- Robot knockout mask. The exact geometry and the painter's-order
+       layering are preserved from logo-sq-color-correct-new2.svg; the
+       original opaque-white cutouts become real holes (black in the mask)
+       so nothing is left "unmasked" on transparent or coloured backgrounds.
+       White = silhouette, black = transparent hole. -->
+  <clipPath id="robot-antenna-clip"><rect x="71.5" y="8.7" width="21.5" height="24.2"/></clipPath>
+  <mask id="robot-knockout" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+    <!-- right mouth tab -->
+    <rect x="133.6" y="63.7" width="14.6" height="11.8" fill="#fff"/>
+    <!-- head ring: outer silhouette minus inner counter -->
+    <path fill="#fff" d="M94.7,11.2c0.2,0,5.3,0,10.5,0.5c17.2,2.1,30.7,15.6,32.8,32.8c0.5,5.2,0.5,10.3,0.5,10.5c0,0.2,0,5.3-0.5,10.5c-2.1,17.2-15.6,30.7-32.8,32.8c-5.2,0.5-10.3,0.5-10.5,0.5c-0.2,0-5.3,0-10.5-0.5c-17.2-2.1-30.7-15.6-32.8-32.8c-0.5-5.2-0.5-10.3-0.5-10.5c0-0.2,0-5.3,0.5-10.5c2.1-17.2,15.6-30.7,32.8-32.8C89.4,11.2,94.5,11.2,94.7,11.2z"/>
+    <path fill="#000" d="M94.7,13.3c0.2,0,4.6,0,9.2,0.5c15.1,1.8,27,13.8,28.9,28.9c0.5,4.6,0.5,9.1,0.5,9.2s0,4.6-0.5,9.2c-1.8,15.1-13.8,27-28.9,28.9c-4.6,0.5-9.1,0.5-9.2,0.5c-0.2,0-4.6,0-9.2-0.5c-15.1-1.8-27-13.8-28.9-28.9c-0.5-4.6-0.5-9.1-0.5-9.2s0-4.6,0.5-9.2c1.8-15.1,13.8-27,28.9-28.9C90.1,13.3,94.6,13.3,94.7,13.3z"/>
+    <!-- carve the head crown so only the chin bowl of the ring remains -->
+    <rect x="43.7" y="1" width="102" height="66.2" fill="#000"/>
+    <!-- left mouth tab -->
+    <rect x="41.3" y="63.7" width="14.6" height="11.8" fill="#fff"/>
+    <!-- base bar -->
+    <rect x="34.1" y="167.5" width="121.3" height="20.7" fill="#fff"/>
+    <!-- screen body with its two window cut-outs -->
+    <rect x="52.1" y="106.2" width="85.3" height="53.9" fill="#fff"/>
+    <rect x="60.4" y="112.4" width="68.5" height="25.9" fill="#000"/>
+    <rect x="60.4" y="144.3" width="68.5" height="8.3" fill="#000"/>
+    <!-- antenna -->
+    <rect x="84" y="9.9" width="13.7" height="20.7" transform="matrix(0.9301 -0.3673 0.3673 0.9301 -1.0708 34.7719)" fill="#fff"/>
+    <path clip-path="url(#robot-antenna-clip)" fill="none" stroke="#000" stroke-width="6" d="M73.9,12.4c3.4,1.8,6.5,4.4,9.3,7.5c2.9,3.3,5.3,7.2,5.8,11.7"/>
+    <!-- visor band with its screen carved out -->
+    <rect x="34.1" y="24.6" width="121.3" height="43.4" fill="#fff"/>
+    <rect x="41.2" y="33.5" width="107" height="34.9" fill="#000"/>
+  </mask>
+  <g id="robot-master">
+    <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#robot-knockout)"/>
+    <circle cx="72.5" cy="52.5" r="12.9" fill="#34A853"/>
+    <rect x="103.9" y="57.2" width="26" height="5.4" fill="#EB4336"/>
+    <polygon points="103.8,57.1 123.4,43.2 125.4,47.3 105.9,61.1" fill="#EB4336"/>
+  </g>
+
+  <!-- Shared lowercase family: 48px wide, 72px high, with 12px chamfers. -->
+  <path id="lower-bowl" d="M0 36H48V12L36 0H12L0 12V60L12 72H36L48 60"/>
+  <g id="lower-e">
+    <use xlink:href="#lower-bowl" class="module"/>
+  </g>
+
+  <!-- Exact spelling: DeCLaRe. Cap height 110px; lowercase x-height 72px. -->
+  <g id="wordmark-master">
+    <!-- Letters are spaced OPTICALLY, not on equal metric gaps: the open
+         counters of C/L/R and the inset 'a' bowl mean equal bbox gaps read
+         unevenly. Each letter carries a small x nudge (optical offset) chosen
+         so the facing-channel gap between every adjacent pair is ~equal. The
+         letter outlines themselves are untouched; only the x positions move. -->
+    <g id="wordmark-shapes">
+      <g id="letter-D">
+        <path class="module" d="M0 110V0H36L48 12V98L36 110H0"/>
+      </g>
+      <use id="letter-e-1" xlink:href="#lower-e" transform="translate(71 38)"/>
+      <g id="letter-C" transform="translate(1.5 0)">
+        <path class="module clean-terminal" d="M196 12L184 0H152L140 12V98L152 110H184L196 98"/>
+      </g>
+      <g id="letter-L" transform="translate(-0.7 0)">
+        <path class="module" d="M218 0V110H258"/>
+      </g>
+      <g id="letter-a" transform="translate(263 38)">
+        <!-- Single-storey 'a': straight full-height right stem, chamfered open
+             top, and a smaller closed lower bowl joined into the stem. -->
+        <path class="module" d="M48 72V0H28L16 12V24 M48 36H16L8 44V60L16 68H48Z"/>
+      </g>
+      <g id="letter-R" transform="translate(-24 0)">
+        <path class="module" d="M358 110V0H394L406 12V50L394 62H358"/>
+        <path class="module clean-terminal" d="M370 62L408 112"/>
+      </g>
+      <use id="letter-e-2" xlink:href="#lower-e" transform="translate(404 38)"/>
+    </g>
+    <!-- One continuous construction thread on the y74 axis, masked to the glyph
+         ink so it surfaces only inside the strokes (see #wordmark-ink). The span
+         is wider than the wordmark; the mask trims it to the letters, so it
+         never appears in the gaps, before the first letter, or after the last. -->
+    <path class="thread" d="M-10 74H480" mask="url(#wordmark-ink)"/>
+  </g>
+
+  <!-- Luminance mask = the glyph strokes themselves (recoloured white via CSS),
+       used to confine the construction thread to the inside of the letters. -->
+  <mask id="wordmark-ink" maskUnits="userSpaceOnUse" x="-20" y="-20" width="540" height="160">
+    <use xlink:href="#wordmark-shapes"/>
+  </mask>
+</defs>
+<g id="square-composition" transform="translate(0 37.5)">
+<g id="robot" style="color:#000000" transform="translate(4 0)"><use xlink:href="#robot-master"/></g>
+<g id="theme-text" class="theme">
+  <text x="190" y="43">Deep</text>
+  <text x="190" y="75">Cognition</text>
+  <text x="190" y="107">and</text>
+  <text x="190" y="139">Language</text>
+  <text x="190" y="171">Research</text>
+</g>
+<g id="wordmark" transform="translate(34.3 207) scale(.62)"><use xlink:href="#wordmark-master"/></g>
+</g>
+</svg>

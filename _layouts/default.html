@@ -34,6 +34,121 @@
         localStorage.setItem('theme', next);
       });
     }
+
+    (function() {
+      const navConfigs = [
+        ...Array.from(document.querySelectorAll('.home-section-nav')).map((nav) => ({
+          nav,
+          links: Array.from(nav.querySelectorAll('[data-section-nav]'))
+        })),
+        ...Array.from(document.querySelectorAll('.toc-nav')).map((nav) => ({
+          nav,
+          links: Array.from(nav.querySelectorAll('.toc-list a[href^="#"]'))
+        }))
+      ];
+
+      const trackers = navConfigs.map(({ nav, links }) => {
+        const isHomeNav = nav.classList.contains('home-section-nav');
+        const isTocNav = nav.classList.contains('toc-nav');
+        const sections = links
+          .map((link) => document.getElementById(link.hash.slice(1)))
+          .filter(Boolean);
+
+        if (!links.length || !sections.length) return null;
+
+        let activeId = '';
+
+        function setActiveSection(id) {
+          if (!id || id === activeId) return;
+          activeId = id;
+
+          links.forEach((link) => {
+            const isActive = link.hash === '#' + id;
+            link.classList.toggle('is-active', isActive);
+            if (isActive) {
+              link.setAttribute('aria-current', 'location');
+              if (nav.scrollWidth > nav.clientWidth) {
+                const navRect = nav.getBoundingClientRect();
+                const linkRect = link.getBoundingClientRect();
+                const centeredLeft = nav.scrollLeft + linkRect.left - navRect.left - ((nav.clientWidth - linkRect.width) / 2);
+                nav.scrollTo({ left: centeredLeft, behavior: 'smooth' });
+              }
+            } else {
+              link.removeAttribute('aria-current');
+            }
+          });
+        }
+
+        function update() {
+          const isMobile = window.matchMedia('(max-width: 720px)').matches;
+          const marker = Math.min(window.innerHeight * (isMobile ? 0.3 : 0.36), 170);
+          const navTop = parseFloat(window.getComputedStyle(nav).top) || 0;
+          let current = sections[0].id;
+
+          sections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= marker) {
+              current = section.id;
+            }
+          });
+
+          if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 24) {
+            current = sections[sections.length - 1].id;
+          }
+
+          if ((isHomeNav || isTocNav) && isMobile) {
+            const firstRect = sections[0].getBoundingClientRect();
+            const lastRect = sections[sections.length - 1].getBoundingClientRect();
+            const shouldDock = firstRect.top <= navTop && lastRect.bottom > navTop + nav.offsetHeight;
+            nav.classList.toggle('is-docked', shouldDock);
+          } else if (isHomeNav || isTocNav) {
+            nav.classList.remove('is-docked');
+          }
+
+          setActiveSection(current);
+        }
+
+        links.forEach((link) => {
+          link.addEventListener('click', function(event) {
+            const target = document.getElementById(this.hash.slice(1));
+            if (!target) return;
+
+            event.preventDefault();
+            const navTop = parseFloat(window.getComputedStyle(nav).top) || 0;
+            const isMobileClick = window.matchMedia('(max-width: 720px)').matches;
+            const dockShift = isMobileClick && isTocNav ? nav.offsetHeight + 64 : 0;
+            const offset = isMobileClick
+              ? navTop + nav.offsetHeight + 18 + dockShift
+              : 120;
+            const targetTop = window.scrollY + target.getBoundingClientRect().top - offset;
+
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+            window.history.pushState(null, '', this.hash);
+            setActiveSection(this.hash.slice(1));
+          });
+        });
+
+        return update;
+      }).filter(Boolean);
+
+      if (!trackers.length) return;
+
+      let ticking = false;
+
+      function updateAll() {
+        trackers.forEach((update) => update());
+        ticking = false;
+      }
+
+      function requestUpdate() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateAll);
+      }
+
+      updateAll();
+      window.addEventListener('scroll', requestUpdate, { passive: true });
+      window.addEventListener('resize', requestUpdate);
+    })();
   </script>
 </body>
 </html>
