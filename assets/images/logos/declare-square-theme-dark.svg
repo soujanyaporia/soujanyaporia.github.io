@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  viewBox="13.39 29.27 328.72 302.96" xml:space="preserve" role="img" aria-labelledby="title desc"
+  viewBox="29.2 43.43 297.38 274.36" xml:space="preserve" role="img" aria-labelledby="title desc"
   >
 <title id="title">DeCLaRe square theme logo, dark theme</title>
 <desc id="desc">Robot icon, modular DeCLaRe wordmark, and the Deep Cognition and Language Research theme text.</desc>
@@ -17,10 +17,10 @@
   .module { fill: none; stroke: #7C3AED; stroke-width: 10; stroke-linecap: square; stroke-linejoin: bevel; }
   .a-terminal { fill: #7C3AED; }
   .clean-terminal { stroke-linecap: butt; }
-  /* Construction thread: a single faded light-purple line on the wordmark's
-     shared axis (y74), masked to the glyph ink (#wordmark-ink) so it only shows
-     *inside* the letters as a subtle internal assembly seam. */
-  .thread { fill: none; stroke: #A78BFA; stroke-width: 5; stroke-linecap: butt; }
+  /* Construction thread on the wordmark's shared axis (y74), masked to the glyph
+     ink (#wordmark-ink) so it only shows *inside* the letters. Colour/weight come
+     from the selected thread variant (see threadSpec): glow. */
+  .thread { fill: none; stroke: #E8E0FF; stroke-width: 6; stroke-linecap: butt; }
   /* Recolour the cloned glyph strokes to white inside the mask only, so the
      mask's luminance is solid where the letters are drawn. */
   #wordmark-ink .module { stroke: #fff; }
@@ -92,10 +92,9 @@
         <path class="module" d="M218 0V110H258"/>
       </g>
       <g id="letter-a" transform="translate(272 38)">
-        <!-- Single-storey 'a': straight full-height right stem and chamfered open
-             top; the bowl now drops to a flat, wide base at the baseline (y72)
-             so the letter sits solidly like the caps instead of floating. -->
-        <path class="module" d="M48 72V0H28L16 12V24 M48 36H16L8 44V72H48"/>
+        <!-- Single-storey 'a'; geometry selected by VARIANTS.letterA. Full-height
+             right stem, flat wide base at y72; see letterAPath(). -->
+        <path class="module" d="M48 72V0H18L6 12V18 M48 36H12L0 48V60L12 72H48"/>
       </g>
       <g id="letter-R" transform="translate(-15 0)">
         <path class="module" d="M358 110V0H394L406 12V50L394 62H358"/>
