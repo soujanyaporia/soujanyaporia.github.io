@@ -1,131 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-  viewBox="29.2 43.43 297.38 274.36" xml:space="preserve" role="img" aria-labelledby="title desc"
-  >
-<title id="title">DeCLaRe square theme logo, dark theme</title>
-<desc id="desc">Robot icon, modular DeCLaRe wordmark, and the Deep Cognition and Language Research theme text.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="42.02 32.93 267.71 289.58" role="img" aria-labelledby="t d">
+<title id="t">DeCLaRe square logo, dark</title>
+<desc id="d">Robot icon, the Deep Cognition and Language Research name, and the DeCLaRe wordmark.</desc>
 <style type="text/css">
-  /*
-    DeCLaRe identity constants:
-    main stroke: 10px; chamfer: 12px.
-    wordmark purple: #7C3AED.
-    green eye: #34A853; red angular eye: #EB4336.
-  */
-  /* The robot is a single themeable silhouette (currentColor) with the
-     interior detail carved out as true transparency via #robot-knockout,
-     so it composites cleanly on any background in both themes. */
-  .module { fill: none; stroke: #7C3AED; stroke-width: 10; stroke-linecap: square; stroke-linejoin: bevel; }
-  .a-terminal { fill: #7C3AED; }
-  .clean-terminal { stroke-linecap: butt; }
-  /* Construction thread on the wordmark's shared axis (y74), masked to the glyph
-     ink (#wordmark-ink) so it only shows *inside* the letters. Colour/weight come
-     from the selected thread variant (see threadSpec): glow. */
-  .thread { fill: none; stroke: #E8E0FF; stroke-width: 6; stroke-linecap: butt; }
-  /* Recolour the cloned glyph strokes to white inside the mask only, so the
-     mask's luminance is solid where the letters are drawn. */
-  #wordmark-ink .module { stroke: #fff; }
-  .theme { fill: #9272DB; font-family: Arial, Helvetica, sans-serif; font-size: 25px; font-weight: 500; letter-spacing: .2px; }
-
+  .module { fill:none; stroke:#A78BFA; stroke-width:6;
+            stroke-linejoin:miter; stroke-miterlimit:8; stroke-linecap:square; }
+  .r-panel { fill:#A78BFA; fill-opacity:.10; stroke:#A78BFA; stroke-width:6;
+            stroke-linejoin:miter; stroke-linecap:butt; }
+  .r-line  { fill:none; stroke:#A78BFA; stroke-width:6; stroke-linecap:butt; stroke-linejoin:miter; }
+  .r-node  { fill:#A78BFA; }
+  .theme { fill:#B9A6EE; font-family:Arial,Helvetica,sans-serif; font-size:25px; font-weight:500; letter-spacing:.2px; }
 </style>
-
-<defs>
-  <!-- Robot knockout mask. The exact geometry and the painter's-order
-       layering are preserved from logo-sq-color-correct-new2.svg; the
-       original opaque-white cutouts become real holes (black in the mask)
-       so nothing is left "unmasked" on transparent or coloured backgrounds.
-       White = silhouette, black = transparent hole. -->
-  <clipPath id="robot-antenna-clip"><rect x="71.5" y="8.7" width="21.5" height="24.2"/></clipPath>
-  <mask id="robot-knockout" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
-    <!-- right mouth tab -->
-    <rect x="133.6" y="63.7" width="14.6" height="11.8" fill="#fff"/>
-    <!-- head ring: outer silhouette minus inner counter -->
-    <path fill="#fff" d="M94.7,11.2c0.2,0,5.3,0,10.5,0.5c17.2,2.1,30.7,15.6,32.8,32.8c0.5,5.2,0.5,10.3,0.5,10.5c0,0.2,0,5.3-0.5,10.5c-2.1,17.2-15.6,30.7-32.8,32.8c-5.2,0.5-10.3,0.5-10.5,0.5c-0.2,0-5.3,0-10.5-0.5c-17.2-2.1-30.7-15.6-32.8-32.8c-0.5-5.2-0.5-10.3-0.5-10.5c0-0.2,0-5.3,0.5-10.5c2.1-17.2,15.6-30.7,32.8-32.8C89.4,11.2,94.5,11.2,94.7,11.2z"/>
-    <path fill="#000" d="M94.7,13.3c0.2,0,4.6,0,9.2,0.5c15.1,1.8,27,13.8,28.9,28.9c0.5,4.6,0.5,9.1,0.5,9.2s0,4.6-0.5,9.2c-1.8,15.1-13.8,27-28.9,28.9c-4.6,0.5-9.1,0.5-9.2,0.5c-0.2,0-4.6,0-9.2-0.5c-15.1-1.8-27-13.8-28.9-28.9c-0.5-4.6-0.5-9.1-0.5-9.2s0-4.6,0.5-9.2c1.8-15.1,13.8-27,28.9-28.9C90.1,13.3,94.6,13.3,94.7,13.3z"/>
-    <!-- carve the head crown so only the chin bowl of the ring remains -->
-    <rect x="43.7" y="1" width="102" height="66.2" fill="#000"/>
-    <!-- left mouth tab -->
-    <rect x="41.3" y="63.7" width="14.6" height="11.8" fill="#fff"/>
-    <!-- base bar -->
-    <rect x="34.1" y="167.5" width="121.3" height="20.7" fill="#fff"/>
-    <!-- screen body with its two window cut-outs -->
-    <rect x="52.1" y="106.2" width="85.3" height="53.9" fill="#fff"/>
-    <rect x="60.4" y="112.4" width="68.5" height="25.9" fill="#000"/>
-    <rect x="60.4" y="144.3" width="68.5" height="8.3" fill="#000"/>
-    <!-- antenna -->
-    <rect x="84" y="9.9" width="13.7" height="20.7" transform="matrix(0.9301 -0.3673 0.3673 0.9301 -1.0708 34.7719)" fill="#fff"/>
-    <path clip-path="url(#robot-antenna-clip)" fill="none" stroke="#000" stroke-width="6" d="M73.9,12.4c3.4,1.8,6.5,4.4,9.3,7.5c2.9,3.3,5.3,7.2,5.8,11.7"/>
-    <!-- visor band with its screen carved out -->
-    <rect x="34.1" y="24.6" width="121.3" height="43.4" fill="#fff"/>
-    <rect x="41.2" y="33.5" width="107" height="34.9" fill="#000"/>
-  </mask>
-  <g id="robot-master">
-    <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#robot-knockout)"/>
-    <circle cx="72.5" cy="52.5" r="12.9" fill="#34A853"/>
-    <rect x="103.9" y="57.2" width="26" height="5.4" fill="#EB4336"/>
-    <polygon points="103.8,57.1 123.4,43.2 125.4,47.3 105.9,61.1" fill="#EB4336"/>
-  </g>
-
-  <!-- Shared lowercase family: 48px wide, 72px high. The bottom is widened
-       (base spans x8..40) so the 'e' sits on a broad, stable base. -->
-  <path id="lower-bowl" d="M0 36H48V12L36 0H12L0 12V60L8 72H40L48 60"/>
-  <g id="lower-e">
-    <use xlink:href="#lower-bowl" class="module"/>
-  </g>
-
-  <!-- Exact spelling: DeCLaRe. Cap height 110px; lowercase x-height 72px. -->
-  <g id="wordmark-master">
-    <!-- Letters are spaced OPTICALLY, not on equal metric gaps: the open
-         counters of C/L/R and the inset 'a' bowl mean equal bbox gaps read
-         unevenly. Each letter carries a small x nudge (optical offset) chosen
-         so the facing-channel gap between every adjacent pair is ~equal. The
-         letter outlines themselves are untouched; only the x positions move. -->
-    <g id="wordmark-shapes">
-      <g id="letter-D">
-        <path class="module" d="M0 110V0H36L48 12V98L36 110H0"/>
-      </g>
-      <use id="letter-e-1" xlink:href="#lower-e" transform="translate(71 38)"/>
-      <g id="letter-C" transform="translate(1.5 0)">
-        <!-- bottom bar widened (x150..186) for a broader base. -->
-        <path class="module clean-terminal" d="M196 12L184 0H152L140 12V98L150 110H186L196 98"/>
-      </g>
-      <g id="letter-L" transform="translate(-0.7 0)">
-        <path class="module" d="M218 0V110H258"/>
-      </g>
-      <g id="letter-a" transform="translate(272 38)">
-        <!-- Single-storey 'a'; geometry selected by VARIANTS.letterA. Full-height
-             right stem, flat wide base at y72; see letterAPath(). -->
-        <path class="module" d="M48 72V0H18L6 12V18 M48 36H12L0 48V60L12 72H48"/>
-      </g>
-      <g id="letter-R" transform="translate(-15 0)">
-        <path class="module" d="M358 110V0H394L406 12V50L394 62H358"/>
-        <!-- Diagonal leg, same 10px weight, turning level so it lands flat (0deg)
-             on the baseline instead of ending at an angled point. -->
-        <path class="module clean-terminal" d="M370 62L403 110H413"/>
-      </g>
-      <use id="letter-e-2" xlink:href="#lower-e" transform="translate(413 38)"/>
-    </g>
-    <!-- One continuous construction thread on the y74 axis, masked to the glyph
-         ink so it surfaces only inside the strokes (see #wordmark-ink). The span
-         is wider than the wordmark; the mask trims it to the letters, so it
-         never appears in the gaps, before the first letter, or after the last. -->
-    <path class="thread" d="M-10 74H480" mask="url(#wordmark-ink)"/>
-  </g>
-
-  <!-- Luminance mask = the glyph strokes themselves (recoloured white via CSS),
-       used to confine the construction thread to the inside of the letters. -->
-  <mask id="wordmark-ink" maskUnits="userSpaceOnUse" x="-20" y="-20" width="540" height="160">
-    <use xlink:href="#wordmark-shapes"/>
-  </mask>
-</defs>
-<g id="square-composition" transform="translate(0 37.5)">
-<g id="robot" style="color:#FFFFFF" transform="translate(4 0)"><use xlink:href="#robot-master"/></g>
-<g id="theme-text" class="theme">
-  <text x="190" y="43">Deep</text>
-  <text x="190" y="75">Cognition</text>
-  <text x="190" y="107">and</text>
-  <text x="190" y="139">Language</text>
-  <text x="190" y="171">Research</text>
+<g id="robot" transform="translate(6.10 24.00)">
+    <path class="r-node" d="M90 35L100 35L88 14L76 11Q82 25 90 35Z"/>
+    <path class="r-panel" d="M52 36H148L159 47V93L148 104H52L41 93V47Z"/>
+    <circle cx="78" cy="62" r="11" fill="#34A853"/>
+    <path d="M134 55L116 63L134 71" fill="none" stroke="#EB4336" stroke-width="6.5" stroke-linecap="butt" stroke-linejoin="miter"/>
+    <path class="r-line" d="M84 86Q100 97 116 86"/>
+    <path class="r-panel" d="M70 118H130L141 129V161L130 172H70L59 161V129Z"/>
+    <path class="r-line" d="M64 145H136"/>
+    <rect class="r-node" x="54" y="186" width="92" height="9"/>
 </g>
-<g id="wordmark" transform="translate(34.3 207) scale(.62)"><use xlink:href="#wordmark-master"/></g>
+<g id="theme-text" class="theme">
+  <text x="196.1" y="69.5">Deep</text>
+  <text x="196.1" y="102.5">Cognition</text>
+  <text x="196.1" y="135.5">and</text>
+  <text x="196.1" y="168.5">Language</text>
+  <text x="196.1" y="201.5">Research</text>
+</g>
+<g id="wordmark" transform="translate(51.56 261.00) scale(0.52)">
+    <path class="module" d="M0.00 0.00L37.00 0.00L48.00 11.00L48.00 99.00L37.00 110.00L0.00 110.00Z"/>
+    <path class="module" d="M73.00 74.00L121.00 74.00L121.00 49.00L110.00 38.00L84.00 38.00L73.00 49.00L73.00 99.00L84.00 110.00L110.00 110.00L121.00 99.00L121.00 98.00"/>
+    <path class="module" d="M201.00 0.00L156.00 0.00L145.00 11.00L145.00 99.00L156.00 110.00L201.00 110.00"/>
+    <path class="module" d="M227.00 0.00L227.00 99.00L238.00 110.00L275.00 110.00"/>
+    <path class="module" d="M301.00 62.00L301.00 49.00L312.00 38.00L333.00 38.00L333.00 110.00L304.00 110.00L293.00 99.00L293.00 85.00L304.00 74.00L333.00 74.00"/>
+    <path class="module" d="M358.00 110.00L358.00 0.00L395.00 0.00L406.00 11.00L406.00 51.00L395.00 62.00L358.00 62.00"/>
+    <path class="module" d="M361.00 62.00L409.00 110.00"/>
+    <path class="module" d="M431.00 74.00L479.00 74.00L479.00 49.00L468.00 38.00L442.00 38.00L431.00 49.00L431.00 99.00L442.00 110.00L468.00 110.00L479.00 99.00L479.00 98.00"/>
 </g>
 </svg>
