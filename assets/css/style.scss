@@ -560,7 +560,7 @@ strong { font-weight: 650; color: var(--text); }
   filter: saturate(1);
 }
 .author-affiliations .affiliation-ntu { height: 56px; }
-.author-affiliations .affiliation-dec { height: 56px; }
+.author-affiliations .affiliation-dec { height: 60px; }
 
 @media (max-width: 720px) {
   .author-card {
@@ -569,7 +569,7 @@ strong { font-weight: 650; color: var(--text); }
   }
   .author-affiliations { gap: 0.7em; margin: 0.5em 0 0.7em; }
   .author-affiliations .affiliation-ntu { height: 46px; }
-  .author-affiliations .affiliation-dec { height: 46px; }
+  .author-affiliations .affiliation-dec { height: 50px; }
 }
 
 .hero-subtitle {
