@@ -15,7 +15,7 @@
   .r-line { fill: none; stroke: #7C3AED; stroke-width: 6; stroke-linecap: butt; stroke-linejoin: miter; }
   .r-node { fill: #7C3AED; }
   .thread { fill: none; stroke: #A78BFA; stroke-width: 5; stroke-linecap: butt; }
-  .theme { fill: currentColor; font-family: Futura, sans-serif; font-size: 25px; font-weight: 500; letter-spacing: .2px; }
+  .theme { fill: currentColor; font-family: Arial, Helvetica, sans-serif; font-size: 25px; font-weight: 500; letter-spacing: .2px; }
   /* Octagon style: lightweight monoline letters, bevel-cut (octagonal) corners,
      vertical gradient, and subtle "fused-lego" seams. */
   .octa { fill: none; stroke: url(#wm-grad); stroke-width: 14; stroke-linejoin: bevel; stroke-linecap: butt; }
@@ -34,18 +34,20 @@
     <rect x="41.3" y="63.7" width="14.6" height="11.8" fill="#fff"/>
     <rect x="34.1" y="167.5" width="121.3" height="20.7" fill="#fff"/>
     <rect x="52.1" y="106.2" width="85.3" height="53.9" fill="#fff"/>
-    <rect x="60.4" y="112.4" width="68.5" height="25.9" fill="#000"/>
-    <rect x="60.4" y="144.3" width="68.5" height="8.3" fill="#000"/>
+    <rect x="59.3" y="113.4" width="70.9" height="24" fill="#000"/>
+    <rect x="59.3" y="144.6" width="70.9" height="8.3" fill="#000"/>
     <rect x="84" y="9.9" width="13.7" height="20.7" transform="matrix(0.9301 -0.3673 0.3673 0.9301 -1.0708 34.7719)" fill="#fff"/>
     <path clip-path="url(#robot-antenna-clip)" fill="none" stroke="#000" stroke-width="6" d="M73.9,12.4c3.4,1.8,6.5,4.4,9.3,7.5c2.9,3.3,5.3,7.2,5.8,11.7"/>
     <rect x="34.1" y="24.6" width="121.3" height="43.4" fill="#fff"/>
-    <rect x="41.2" y="33.5" width="107" height="34.9" fill="#000"/>
+    <rect x="41.3" y="31.8" width="106.9" height="36.6" fill="#000"/>
   </mask>
   <g id="robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#robot-knockout)"/>
     <circle cx="72.5" cy="52.5" r="12.9" fill="#34A853"/>
-    <rect x="103.9" y="57.2" width="26" height="5.4" fill="#EB4336"/>
-    <polygon points="103.8,57.1 123.4,43.2 125.4,47.3 105.9,61.1" fill="#EB4336"/>
+    <!-- Angular eye as two filled rectangles (matching the head's wall logic):
+         a horizontal bar and a diagonal bar sharing a vertical left edge, so
+         their intersection reads as a clean square corner, not a beveled cut. -->
+    <g fill="#EB4336"><rect x="103.72" y="57.2" width="26.18" height="5.4"/><rect x="0" y="-5.4" width="27" height="5.4" transform="translate(103.72 62.6) rotate(-35.3)"/></g>
   </g>
   <g id="robot-premium">
     <!-- curved quiff "hair" (lighter take on the original logo's curl) -->
@@ -66,7 +68,7 @@
         <path transform="translate(175.75 100) scale(0.06414 -0.06414)" d="M1326 1461V1185Q1124 1354 908 1354Q670 1354 507 1183Q343 1013 343 767Q343 524 507.0 357.0Q671 190 909 190Q1032 190 1118 230Q1166 250 1217.5 284.0Q1269 318 1326 366V85Q1126 -28 906 -28Q575 -28 341 203Q108 436 108 765Q108 1060 303 1291Q543 1574 924 1574Q1132 1574 1326 1461Z"/>
         <path transform="translate(271.65 100) scale(0.06414 -0.06414)" d="M418 1544V219H872V0H185V1544Z"/>
         <path transform="translate(333.74 100) scale(0.06414 -0.06414)" d="M860 974H1086V0H860V102Q721 -28 561 -28Q359 -28 227 118Q96 267 96 490Q96 709 227.0 855.0Q358 1001 555 1001Q725 1001 860 861ZM326 490Q326 350 401 262Q478 173 595 173Q720 173 797 259Q874 348 874 485Q874 622 797 711Q720 798 597 798Q481 798 403 710Q326 621 326 490Z"/>
-        <path transform="translate(416.36 100) scale(0.06414 -0.06414)" d="M708 658 1186 0H901L460 632H418V0H185V1544H458Q764 1544 900 1429Q1050 1301 1050 1091Q1050 927 956.0 809.0Q862 691 708 658ZM418 835H492Q823 835 823 1088Q823 1325 501 1325H418Z"/>
+        <path fill="#EB4336" transform="translate(416.36 100) scale(0.06414 -0.06414)" d="M708 658 1186 0H901L460 632H418V0H185V1544H458Q764 1544 900 1429Q1050 1301 1050 1091Q1050 927 956.0 809.0Q862 691 708 658ZM418 835H492Q823 835 823 1088Q823 1325 501 1325H418Z"/>
         <path fill="#EB4336" transform="translate(499.29 100) scale(0.06414 -0.06414)" d="M1029 434H331Q340 314 409 243Q478 173 586 173Q670 173 725 213Q779 253 848 361L1038 255Q994 180 945.0 126.5Q896 73 840.0 38.5Q784 4 719.0 -12.0Q654 -28 578 -28Q360 -28 228 112Q96 253 96 486Q96 717 224 860Q353 1001 566 1001Q781 1001 906 864Q1030 728 1030 487ZM798 618Q751 798 571 798Q530 798 494.0 785.5Q458 773 428.5 749.5Q399 726 378.0 693.0Q357 660 346 618Z"/>
     </g>
   </g>
