@@ -157,12 +157,15 @@
             if (!target) return;
 
             event.preventDefault();
-            const navTop = parseFloat(window.getComputedStyle(nav).top) || 0;
+            const navStyles = window.getComputedStyle(nav);
+            const navTop = parseFloat(navStyles.top) || 0;
             const isMobileClick = window.matchMedia('(max-width: 720px)').matches;
-            const dockShift = isMobileClick && isTocNav ? nav.offsetHeight + 64 : 0;
-            const offset = isMobileClick
-              ? navTop + nav.offsetHeight + 18 + dockShift
-              : 120;
+            const homeDockShift = isMobileClick && isHomeNav
+              ? nav.offsetHeight + (parseFloat(navStyles.marginBottom) || 0)
+              : 0;
+            const tocDockShift = isMobileClick && isTocNav ? nav.offsetHeight + 64 : 0;
+            const dockShift = homeDockShift + tocDockShift;
+            const offset = navTop + nav.offsetHeight + 18 + dockShift;
             const targetTop = window.scrollY + target.getBoundingClientRect().top - offset;
 
             window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });

@@ -1,6 +1,6 @@
 # main links
 main:
-  - title: "About me"
+  - title: "About Me"
     url: /
     icon: "fas fa-user"
   - title: "Research"
