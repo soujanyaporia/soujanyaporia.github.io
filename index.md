@@ -7,7 +7,11 @@ title: ""
 
 <section class="home-hero">
   <p class="eyebrow">Associate Professor · EEE · NTU Singapore</p>
-  <h1 class="hero-greeting-name">Soujanya Poria<span style="display:block;font-size:0.48em;color:var(--text-secondary);font-style:normal;margin-top:0.25em;letter-spacing:0;font-weight:500;">সৌজন্য পড়িয়া</span></h1>
+  <h1 class="hero-greeting-name">
+    <span class="hero-greeting-intro"><span lang="bn">নমস্কার</span> <span aria-hidden="true">·</span> Hi, I am</span>
+    <span class="hero-name-primary">Soujanya Poria</span>
+    <span class="hero-native-name" lang="bn">সৌজন্য পড়িয়া</span>
+  </h1>
   <p class="hero-subtitle">My group studies how AI can <strong>reason, explain itself, and act safely</strong> across language, vision, and audio. At the <strong>DeCLaRe Lab</strong>, we conduct this work in the School of Electrical and Electronic Engineering at Nanyang Technological University. Before NTU, our group was based at SUTD.</p>
   <div class="hero-actions" aria-label="Landing page actions">
     <a class="btn-primary" href="/publications/"><i class="fas fa-book-open" aria-hidden="true"></i> Publications</a>

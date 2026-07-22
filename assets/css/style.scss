@@ -2794,7 +2794,7 @@ a:hover { color: var(--accent-hover); }
 }
 
 .home-hero .hero-greeting-name {
-  max-width: 14ch;
+  max-width: 18ch;
   margin-bottom: 0.32em;
   color: var(--ink);
   font-family: var(--font-sans);
@@ -2803,6 +2803,41 @@ a:hover { color: var(--accent-hover); }
   font-weight: var(--report-display-weight);
   letter-spacing: 0;
   line-height: 1.08;
+}
+
+.hero-greeting-intro,
+.hero-name-primary,
+.hero-native-name {
+  display: block;
+}
+
+.hero-greeting-intro {
+  margin-bottom: 0.42em;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-size: 0.34em;
+  font-variation-settings: normal;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hero-greeting-intro [lang="bn"] {
+  color: var(--accent);
+  font-family: "Noto Serif Bengali", var(--font-serif);
+}
+
+.hero-name-primary {
+  color: var(--ink);
+}
+
+.hero-native-name {
+  margin-top: 0.22em;
+  color: var(--ink-soft);
+  font-family: "Noto Serif Bengali", var(--font-serif);
+  font-size: 0.43em;
+  font-variation-settings: normal;
+  font-weight: 500;
+  line-height: 1.3;
 }
 
 .hero-subtitle {
@@ -3601,6 +3636,14 @@ hr {
   .home-hero .hero-greeting-name {
     font-size: 2.45rem;
     line-height: 1.08;
+  }
+
+  .hero-greeting-intro {
+    font-size: 0.42em;
+  }
+
+  .hero-native-name {
+    font-size: 0.48em;
   }
 
   .hero-subtitle { font-size: 1rem; }
