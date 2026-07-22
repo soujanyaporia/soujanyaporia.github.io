@@ -2625,6 +2625,10 @@ strong { font-weight: 650; color: var(--text); }
   --report-meta-height: 20px;
   --report-meta-padding: 0 7px;
   --report-meta-font-size: 9.5px;
+  --report-heading-width: 100;
+  --report-display-weight: 700;
+  --report-section-weight: 660;
+  --report-card-title-weight: 650;
 }
 
 [data-theme="dark"] {
@@ -2676,7 +2680,7 @@ h1, h2, h3, h4, h5, h6,
 .updates-header h2 {
   color: var(--ink);
   font-family: var(--font-sans);
-  font-variation-settings: "wdth" 108;
+  font-variation-settings: "wdth" var(--report-heading-width);
   letter-spacing: 0;
 }
 
@@ -2695,7 +2699,7 @@ a:hover { color: var(--accent-hover); }
   color: var(--ink);
   font-size: 1.05em;
   font-style: normal;
-  font-weight: 750;
+  font-weight: var(--report-display-weight);
 }
 
 .nav-links a {
@@ -2741,7 +2745,7 @@ a:hover { color: var(--accent-hover); }
 }
 
 .author-name {
-  font-weight: 760;
+  font-weight: var(--report-display-weight);
 }
 
 .author-bio,
@@ -2795,10 +2799,10 @@ a:hover { color: var(--accent-hover); }
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 3.65rem;
-  font-variation-settings: "wdth" 115;
-  font-weight: 820;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-display-weight);
   letter-spacing: 0;
-  line-height: 1.02;
+  line-height: 1.08;
 }
 
 .hero-subtitle {
@@ -2887,6 +2891,8 @@ a:hover { color: var(--accent-hover); }
   box-shadow: none;
 }
 
+.home-section-nav a.is-active { font-weight: 600; }
+
 .home-section-nav a i { color: var(--accent); }
 
 .intro-panel > div,
@@ -2934,10 +2940,10 @@ a:hover { color: var(--accent-hover); }
   border: 0;
   font-family: var(--font-sans);
   font-size: var(--report-section-title-size);
-  font-variation-settings: "wdth" 110;
-  font-weight: 750;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-section-weight);
   letter-spacing: 0;
-  line-height: 1.15;
+  line-height: 1.22;
 }
 
 .intro-panel h2::before,
@@ -2988,7 +2994,7 @@ a:hover { color: var(--accent-hover); }
   color: var(--accent);
   font-family: var(--font-sans);
   font-size: 2.6em;
-  font-weight: 800;
+  font-weight: var(--report-display-weight);
   line-height: 0.85;
 }
 
@@ -3052,8 +3058,8 @@ a:hover { color: var(--accent-hover); }
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 1.3rem;
-  font-variation-settings: "wdth" 108;
-  font-weight: 720;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: 680;
   letter-spacing: 0;
   line-height: 1;
   white-space: nowrap;
@@ -3119,7 +3125,8 @@ a:hover { color: var(--accent-hover); }
 
 .selected-work-card h3 {
   font-size: 1.05rem;
-  font-weight: 720;
+  font-weight: var(--report-card-title-weight);
+  line-height: 1.28;
 }
 
 .work-kicker {
@@ -3195,9 +3202,10 @@ a:hover { color: var(--accent-hover); }
   border-bottom: 1px solid var(--rule);
   font-family: var(--font-sans);
   font-size: 3.4rem;
-  font-variation-settings: "wdth" 115;
-  font-weight: 820;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-display-weight);
   letter-spacing: 0;
+  line-height: 1.08;
 }
 
 .page-header h1::after { display: none; }
@@ -3216,6 +3224,7 @@ a:hover { color: var(--accent-hover); }
   color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: 0.68em;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: lowercase;
 }
@@ -3238,6 +3247,8 @@ a:hover { color: var(--accent-hover); }
   background: var(--accent-light);
   border-left-color: var(--accent);
 }
+
+.toc-list a.is-active { font-weight: 600; }
 
 .content-text {
   counter-reset: report-section;
@@ -3262,10 +3273,10 @@ a:hover { color: var(--accent-hover); }
   border-top: 1px solid var(--rule);
   font-family: var(--font-sans);
   font-size: var(--report-section-title-size);
-  font-variation-settings: "wdth" 110;
-  font-weight: 750;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-section-weight);
   letter-spacing: 0;
-  line-height: 1.15;
+  line-height: 1.22;
 }
 
 .content-text > h2::before {
@@ -3292,9 +3303,10 @@ a:hover { color: var(--accent-hover); }
   margin: 1.8em 0 0.65em;
   font-family: var(--font-sans);
   font-size: 1.18rem;
-  font-variation-settings: "wdth" 105;
-  font-weight: 700;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-card-title-weight);
   letter-spacing: 0;
+  line-height: 1.3;
 }
 
 .content-text > h3::before {
@@ -3389,8 +3401,10 @@ hr {
 .research-area-card h3,
 .award-grid strong {
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-card-title-weight);
   letter-spacing: 0;
+  line-height: 1.25;
 }
 
 .people-grid > span {
@@ -3415,6 +3429,7 @@ hr {
   color: var(--ink-soft);
   font-family: var(--font-mono);
   font-size: 0.7em;
+  font-weight: 600;
   letter-spacing: 0.07em;
 }
 
@@ -3471,15 +3486,17 @@ hr {
 
 .pub-year-heading {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
   margin-top: 2.2em;
   padding-bottom: 0.55em;
   border-bottom: 1.5px solid var(--ink);
   font-family: var(--font-sans);
   font-size: 1.35rem;
-  font-weight: 750;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-section-weight);
   letter-spacing: 0;
+  line-height: 1.22;
 }
 
 .content-text > .pub-year-heading::before {
@@ -3523,7 +3540,9 @@ hr {
 .pub-title {
   font-family: var(--font-sans);
   font-size: 1rem;
-  font-weight: 720;
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--report-card-title-weight);
+  line-height: 1.3;
 }
 
 .pub-authors { font-family: var(--font-serif); }
@@ -3581,7 +3600,7 @@ hr {
 
   .home-hero .hero-greeting-name {
     font-size: 2.45rem;
-    line-height: 1.03;
+    line-height: 1.08;
   }
 
   .hero-subtitle { font-size: 1rem; }
