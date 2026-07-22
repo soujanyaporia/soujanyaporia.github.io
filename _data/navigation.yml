@@ -2,16 +2,21 @@
 main:
   - title: "About me"
     url: /
+    icon: "fas fa-user"
   - title: "Research"
     url: /research/
+    icon: "fas fa-compass"
   - title: "Publications"
     url: /publications/
+    icon: "fas fa-book-open"
   # - title: "Resources"
   #   url: /resources/
   - title: "DeCLaRe Lab"
     url: https://declare-lab.github.io/
+    icon: "fas fa-flask"
   - title: "Walled AI"
     url: https://walled.ai/
+    icon: "fas fa-shield-halved"
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"

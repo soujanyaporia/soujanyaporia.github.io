@@ -5,22 +5,34 @@
       <img class="site-logo theme-logo-dark" src="{{ '/assets/images/logos/declare-icon-dark.png' | relative_url }}" alt="">
       <span>{{ site.title }}</span>
     </a>
-    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">
+      <i class="fas fa-bars menu-icon-open" aria-hidden="true"></i>
+      <i class="fas fa-xmark menu-icon-close" aria-hidden="true"></i>
     </button>
-    <nav class="nav-links">
+    <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
       {%- for link in site.data.navigation.main -%}
         {%- if link.url contains '://' -%}
-          <a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title }}</a>
+          <a href="{{ link.url }}" target="_blank" rel="noopener">
+            <i class="nav-icon {{ link.icon }}" aria-hidden="true"></i>
+            <span>{{ link.title }}</span>
+            <i class="nav-external fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
         {%- else -%}
-          <a href="{{ link.url | relative_url }}" {% if page.url == link.url %}class="active"{% endif %}>{{ link.title }}</a>
+          <a href="{{ link.url | relative_url }}" {% if page.url == link.url %}class="active" aria-current="page"{% endif %}>
+            <i class="nav-icon {{ link.icon }}" aria-hidden="true"></i>
+            <span>{{ link.title }}</span>
+          </a>
         {%- endif -%}
       {%- endfor -%}
       <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <span class="theme-icon" aria-hidden="true">
+          <i class="fas fa-sun icon-sun"></i>
+          <i class="fas fa-moon icon-moon"></i>
+        </span>
+        <span class="theme-toggle-label">Appearance</span>
+        <span class="theme-toggle-value" aria-hidden="true"></span>
       </button>
     </nav>
   </div>
+  <div class="nav-scrim" aria-hidden="true"></div>
 </header>
