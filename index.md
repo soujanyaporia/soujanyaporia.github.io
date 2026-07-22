@@ -14,17 +14,17 @@ title: ""
   </h1>
   <p class="hero-subtitle">My group studies how AI can <strong>reason, explain itself, and act safely</strong> across language, vision, and audio. We pursue this work at the <strong>DeCLaRe Lab</strong>, NTU Singapore.</p>
   <div class="hero-actions" aria-label="Landing page actions">
-    <a class="btn-primary" href="/publications/"><i class="fas fa-book-open" aria-hidden="true"></i> Publications</a>
-    <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
-    <a class="btn-secondary" href="mailto:soujanya.poria@ntu.edu.sg"><i class="fas fa-envelope" aria-hidden="true"></i> Email</a>
+    <a class="btn-primary" href="/publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Publications</a>
+    <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
+    <a class="btn-secondary" href="mailto:soujanya.poria@ntu.edu.sg"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Email</a>
   </div>
 </section>
 
 <nav class="home-section-nav" aria-label="Landing page sections">
-  <a href="#research-focus" data-section-nav><i class="fas fa-compass" aria-hidden="true"></i> <span>Research focus</span></a>
-  <a href="#recent-updates" data-section-nav><i class="fas fa-bolt" aria-hidden="true"></i> <span>Recent updates</span></a>
-  <a href="#research-group" data-section-nav><i class="fas fa-flask" aria-hidden="true"></i> <span>DeCLaRe Lab</span></a>
-  <a href="#selected-publications" data-section-nav><i class="fas fa-star" aria-hidden="true"></i> <span>Selected publications</span></a>
+  <a href="#research-focus" data-section-nav><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Research focus</span></a>
+  <a href="#recent-updates" data-section-nav><i class="fa-solid fa-bolt" aria-hidden="true"></i> <span>Recent updates</span></a>
+  <a href="#research-group" data-section-nav><i class="fa-solid fa-flask" aria-hidden="true"></i> <span>DeCLaRe Lab</span></a>
+  <a href="#selected-publications" data-section-nav><i class="fa-solid fa-star" aria-hidden="true"></i> <span>Selected publications</span></a>
 </nav>
 
 <div class="home-overview">
@@ -36,7 +36,7 @@ title: ""
     <div class="intro-aside">
       <h2>Open to collaboration</h2>
       <p>Prospective students and collaborators should first review the lab research slides and current publications before reaching out.</p>
-      <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
+      <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
     </div>
   </section>
 
@@ -82,8 +82,8 @@ title: ""
     <h2>DeCLaRe Lab</h2>
     <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents that can act with better grounding. Before moving to NTU, the group was based at SUTD.</p>
     <div class="lab-actions">
-      <a class="lab-link" href="https://declare-lab.github.io/"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
-      <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
+      <a class="lab-link" href="https://declare-lab.github.io/"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
+      <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
     </div>
   </div>
 </section>
