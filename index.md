@@ -8,11 +8,11 @@ title: ""
 <section class="home-hero">
   <p class="eyebrow">Associate Professor · EEE · NTU Singapore</p>
   <h1 class="hero-greeting-name">
-    <span class="hero-greeting-intro"><span lang="bn">নমস্কার</span> <span aria-hidden="true">·</span> Hi, I am</span>
+    <span class="hero-greeting-intro"><span lang="bn">নমস্কার</span> <span aria-hidden="true">—</span> I am</span>
     <span class="hero-name-primary">Soujanya Poria</span>
     <span class="hero-native-name" lang="bn">সৌজন্য পড়িয়া</span>
   </h1>
-  <p class="hero-subtitle">My group studies how AI can <strong>reason, explain itself, and act safely</strong> across language, vision, and audio. At the <strong>DeCLaRe Lab</strong>, we conduct this work in the School of Electrical and Electronic Engineering at Nanyang Technological University. Before NTU, our group was based at SUTD.</p>
+  <p class="hero-subtitle">My group studies how AI can <strong>reason, explain itself, and act safely</strong> across language, vision, and audio. We pursue this work at the <strong>DeCLaRe Lab</strong>, NTU Singapore.</p>
   <div class="hero-actions" aria-label="Landing page actions">
     <a class="btn-primary" href="/publications/"><i class="fas fa-book-open" aria-hidden="true"></i> Publications</a>
     <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
@@ -80,7 +80,7 @@ title: ""
   </div>
   <div class="lab-copy">
     <h2>DeCLaRe Lab</h2>
-    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents that can act with better grounding.</p>
+    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents that can act with better grounding. Before moving to NTU, the group was based at SUTD.</p>
     <div class="lab-actions">
       <a class="lab-link" href="https://declare-lab.github.io/"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
       <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
