@@ -2118,7 +2118,7 @@ strong { font-weight: 650; color: var(--text); }
 
 @media (max-width: 720px) {
   body { font-size: 17px; overflow-x: clip; }
-  body.menu-open { overflow: hidden; }
+  body.menu-open { overflow-x: clip; }
 
   .site-header {
     background: color-mix(in srgb, var(--bg-page) 92%, transparent);
@@ -2238,14 +2238,18 @@ strong { font-weight: 650; color: var(--text); }
   .nav-links {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    position: fixed;
-    top: 76px;
+    position: absolute;
+    top: calc(100% + 8px);
     left: 0.75em;
     right: 0.75em;
     z-index: 104;
+    max-height: calc(100vh - 88px);
+    max-height: calc(100dvh - 88px);
     margin: 0;
     padding: 0.55em;
     gap: 0.25em;
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -2323,8 +2327,12 @@ strong { font-weight: 650; color: var(--text); }
 
   .nav-scrim {
     display: block;
-    position: fixed;
-    inset: 68px 0 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    height: calc(100vh - 68px);
+    height: calc(100dvh - 68px);
     z-index: 102;
     background: rgba(20, 23, 31, 0.28);
     opacity: 0;
@@ -2339,6 +2347,8 @@ strong { font-weight: 650; color: var(--text); }
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    touch-action: none;
+    overscroll-behavior: contain;
   }
 
   .author-card {

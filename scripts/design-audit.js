@@ -19,6 +19,8 @@
  *                         page-header divider, 1px border for section dividers.
  *   5. heading-spec       Every section heading renders at the same size and
  *                         weight and carries a label chip.
+ *   6. mobile-menu        Opening the mobile menu must not lock the body or
+ *                         place the menu/scrim outside the viewport.
  *
  * KNOWN_EXCEPTIONS lists deliberate departures so they do not show up as noise.
  */
@@ -131,6 +133,50 @@ window.__designAuditReport = (function designAudit() {
   specs.filter(function (v, i) { return specs.indexOf(v) === i; }).forEach(function (v, _, arr) {
     if (arr.length > 1) findings.push({ check: 'heading-spec', where: 'h2', detail: specs.join('  vs  ') });
   });
+
+  // 6. mobile menu geometry and scroll-lock safety
+  if (document.documentElement.clientWidth <= 720) {
+    var menu = document.querySelector('.nav-links');
+    var scrim = document.querySelector('.nav-scrim');
+    var bodyWasOpen = document.body.classList.contains('menu-open');
+    document.body.classList.add('menu-open');
+    var bodyOverflowY = C(document.body).overflowY;
+    if (!bodyWasOpen) document.body.classList.remove('menu-open');
+
+    if (bodyOverflowY === 'hidden') {
+      findings.push({
+        check: 'mobile-menu',
+        where: 'body.menu-open',
+        detail: 'overflow-y:hidden breaks sticky menu positioning after scrolling'
+      });
+    }
+
+    if (menu && scrim) {
+      var menuWasOpen = menu.classList.contains('open');
+      var scrimWasOpen = scrim.classList.contains('open');
+      menu.classList.add('open');
+      scrim.classList.add('open');
+      var menuRect = menu.getBoundingClientRect();
+      var scrimRect = scrim.getBoundingClientRect();
+      if (!menuWasOpen) menu.classList.remove('open');
+      if (!scrimWasOpen) scrim.classList.remove('open');
+
+      if (menuRect.top < 0 || menuRect.bottom > window.innerHeight) {
+        findings.push({
+          check: 'mobile-menu',
+          where: '.nav-links',
+          detail: 'open menu falls outside the viewport'
+        });
+      }
+      if (scrimRect.bottom < window.innerHeight - 1) {
+        findings.push({
+          check: 'mobile-menu',
+          where: '.nav-scrim',
+          detail: 'outside-click layer does not cover the remaining viewport'
+        });
+      }
+    }
+  }
 
   return {
     url: location.pathname,
