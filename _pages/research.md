@@ -7,15 +7,21 @@ toc: true
 toc_label: "Contents"
 ---
 
-## Research Areas
-{: data-section-label="AREAS"}
+## Research Themes
+{: data-section-label="THEMES"}
+
+My group at DeCLaRe works across six connected research themes. Together they cover the development, evaluation, and real-world use of capable AI systems.
 
 <div class="research-area-grid">
-  <section class="research-area-card"><span>01</span><h3>Large Language Models</h3><p>Evaluation, reasoning, instruction following, tool use, and robust deployment of LLM-based systems.</p></section>
-  <section class="research-area-card"><span>02</span><h3>Responsible & Trustworthy AI</h3><p>Safety, alignment, hallucination prevention, governance, refusal, and trustworthy generation.</p></section>
-  <section class="research-area-card"><span>03</span><h3>Multimodal Machine Learning</h3><p>Language, vision, audio, and affective signals for multimodal reasoning and interaction.</p></section>
-  <section class="research-area-card"><span>04</span><h3>Embodied & Agentic AI</h3><p>Vision-language-action models, embodied planning, grounded reasoning, and interactive agents.</p></section>
+  <section class="research-area-card"><span>01</span><h3>Safety</h3><p>Operational safety, red-teaming, refusal behavior, alignment, and test-time interventions for AI systems.</p></section>
+  <section class="research-area-card"><span>02</span><h3>Trustworthiness</h3><p>Grounded attribution, trustworthy RAG, hallucination mitigation, uncertainty, and calibrated reliance.</p></section>
+  <section class="research-area-card"><span>03</span><h3>Multimodality</h3><p>Language, vision, audio, and video models for reasoning, generation, interaction, and social understanding.</p></section>
+  <section class="research-area-card"><span>04</span><h3>AI for Science</h3><p>Scientific hypothesis discovery, chemistry, evidence synthesis, and literature-grounded reasoning.</p></section>
+  <section class="research-area-card"><span>05</span><h3>Efficiency</h3><p>Online memory, dynamic data selection, efficient attention, adaptation, model merging, and compact training.</p></section>
+  <section class="research-area-card"><span>06</span><h3>Embodied AI</h3><p>Vision-language-action models, action grounding, embodied planning, and interactive evaluation.</p></section>
 </div>
+
+Recent notable work includes <a href="https://arxiv.org/abs/2605.12357">online memory for LLMs</a>, <a href="https://arxiv.org/abs/2603.07433">dynamic data selection for efficient ML training</a>, <a href="https://arxiv.org/abs/2504.19854">vision-language-action models for embodied AI</a>, <a href="https://arxiv.org/abs/2412.21037">text-to-audio generation</a>, <a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/4c88827decab6c046b881a2c3a99c76f-Abstract-Conference.html">trustworthy RAG</a>, and <a href="https://arxiv.org/abs/2509.26495">operational AI safety</a>.
 
 ## Grants
 {: data-section-label="FUNDING"}

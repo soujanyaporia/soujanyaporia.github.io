@@ -12,7 +12,7 @@ title: ""
     <span class="hero-name-primary">Soujanya Poria</span>
     <span class="hero-native-name" lang="bn">সৌজন্য পড়িয়া</span>
   </h1>
-  <p class="hero-subtitle">My group studies how AI can <strong>reason, explain itself, and act safely</strong> across language, vision, and audio. We pursue this work at the <strong>DeCLaRe Lab</strong>, NTU Singapore.</p>
+  <p class="hero-subtitle">My group works across six research themes: <strong>Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI</strong>. We pursue this work at the <strong>DeCLaRe Lab</strong>, NTU Singapore.</p>
   <div class="hero-actions" aria-label="Landing page actions">
     <a class="btn-primary" href="/publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Publications</a>
     <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
@@ -21,7 +21,7 @@ title: ""
 </section>
 
 <nav class="home-section-nav" aria-label="Landing page sections">
-  <a href="#research-focus" data-section-nav><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Research focus</span></a>
+  <a href="#research-focus" data-section-nav><i class="fa-solid fa-compass" aria-hidden="true"></i> <span>Research themes</span></a>
   <a href="#recent-updates" data-section-nav><i class="fa-solid fa-bolt" aria-hidden="true"></i> <span>Recent updates</span></a>
   <a href="#research-group" data-section-nav><i class="fa-solid fa-flask" aria-hidden="true"></i> <span>DeCLaRe Lab</span></a>
   <a href="#selected-publications" data-section-nav><i class="fa-solid fa-star" aria-hidden="true"></i> <span>Selected publications</span></a>
@@ -30,8 +30,8 @@ title: ""
 <div class="home-overview">
   <section class="intro-panel" id="research-focus">
     <div>
-      <h2>Research focus</h2>
-      <p>Our research focuses on language and multimodal intelligence, with an emphasis on systems that reason, explain their decisions, align with human values, and operate robustly across modalities. Recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
+      <h2>Research themes</h2>
+      <p>Our work spans Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI. Recent notable work includes online memory for LLMs, dynamic data selection for efficient ML training, vision-language-action models, text-to-audio generation, trustworthy RAG, and operational AI safety.</p>
     </div>
     <div class="intro-aside">
       <h2>Open to collaboration</h2>
@@ -80,7 +80,7 @@ title: ""
   </div>
   <div class="lab-copy">
     <h2>DeCLaRe Lab</h2>
-    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents grounded in real-world contexts. Before moving to NTU, the group was based at SUTD.</p>
+    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where students and collaborators pursue the same six themes through foundational methods, evaluation, and open research systems. Before moving to NTU, the group was based at SUTD.</p>
     <div class="lab-actions">
       <a class="lab-link" href="https://declare-lab.github.io/"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
       <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
@@ -147,7 +147,7 @@ title: ""
     <ul class="work-links">
       <li><a href="https://arxiv.org/pdf/2603.07433">Data-Agent</a><span>ICML</span></li>
       <li><a href="https://arxiv.org/pdf/2512.12602">EFLA</a><span>arXiv</span></li>
-      <li><a href="https://arxiv.org/pdf/2605">Delta-Mem</a><span>arXiv</span></li>
+      <li><a href="https://arxiv.org/pdf/2605.12357">Delta-Mem</a><span>arXiv</span></li>
     </ul>
   </section>
 
