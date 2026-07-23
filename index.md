@@ -31,11 +31,11 @@ title: ""
   <section class="intro-panel" id="research-focus">
     <div>
       <h2>Research focus</h2>
-      <p>Our research focuses on language and multimodal intelligence, with emphasis on systems that reason, explain, align with human values, and operate robustly across modalities. Our recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
+      <p>Our research focuses on language and multimodal intelligence, with an emphasis on systems that reason, explain their decisions, align with human values, and operate robustly across modalities. Recent work spans LLM evaluation, safety and alignment, multimodal reasoning, text-to-audio generation, embodied AI, and affective computing.</p>
     </div>
     <div class="intro-aside">
       <h2>Open to collaboration</h2>
-      <p>Prospective students and collaborators should first review the lab research slides and current publications before reaching out.</p>
+      <p>Prospective students and collaborators can explore our research slides and recent publications to see where their interests intersect with our work.</p>
       <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
     </div>
   </section>
@@ -80,7 +80,7 @@ title: ""
   </div>
   <div class="lab-copy">
     <h2>DeCLaRe Lab</h2>
-    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents that can act with better grounding. Before moving to NTU, the group was based at SUTD.</p>
+    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where we study dependable, communicative, and reasoning-capable AI systems across language, vision, audio, and embodied interaction. The group brings together students and collaborators working on multimodal learning, affective computing, trustworthy LLMs, and agents grounded in real-world contexts. Before moving to NTU, the group was based at SUTD.</p>
     <div class="lab-actions">
       <a class="lab-link" href="https://declare-lab.github.io/"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
       <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
@@ -97,7 +97,7 @@ title: ""
   <section class="selected-work-card">
     <span class="work-kicker">Multimodal AI</span>
     <h3>Representation Learning &amp; Fusion</h3>
-    <p class="work-note"><strong>MISA</strong> was one of the early works to use attention for fusing multimodalities.</p>
+    <p class="work-note"><strong>MISA</strong> was an early approach to attention-based multimodal fusion.</p>
     <ul class="work-links">
       <li><a href="https://dl.acm.org/doi/pdf/10.1145/3394171.3413678">MISA</a><span>ACM MM</span></li>
       <li><a href="https://arxiv.org/pdf/1707.07250">Tensor Fusion Network</a><span>EMNLP</span></li>

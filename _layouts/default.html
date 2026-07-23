@@ -139,13 +139,11 @@
             current = sections[sections.length - 1].id;
           }
 
-          if ((isHomeNav || isTocNav) && isMobile) {
+          if (isHomeNav || isTocNav) {
             const firstRect = sections[0].getBoundingClientRect();
             const lastRect = sections[sections.length - 1].getBoundingClientRect();
             const shouldDock = firstRect.top <= navTop && lastRect.bottom > navTop + nav.offsetHeight;
             nav.classList.toggle('is-docked', shouldDock);
-          } else if (isHomeNav || isTocNav) {
-            nav.classList.remove('is-docked');
           }
 
           setActiveSection(current);
@@ -157,15 +155,11 @@
             if (!target) return;
 
             event.preventDefault();
-            const navStyles = window.getComputedStyle(nav);
-            const navTop = parseFloat(navStyles.top) || 0;
-            const isMobileClick = window.matchMedia('(max-width: 720px)').matches;
-            const homeDockShift = isMobileClick && isHomeNav
-              ? nav.offsetHeight + (parseFloat(navStyles.marginBottom) || 0)
-              : 0;
-            const tocDockShift = isMobileClick && isTocNav ? nav.offsetHeight + 64 : 0;
-            const dockShift = homeDockShift + tocDockShift;
-            const offset = navTop + nav.offsetHeight + 18 + dockShift;
+            const siteHeader = document.querySelector('.site-header');
+            const siteHeaderHeight = siteHeader ? siteHeader.getBoundingClientRect().height : 0;
+            const horizontalToc = isTocNav && window.matchMedia('(max-width: 960px)').matches;
+            const localNavHeight = isHomeNav || horizontalToc ? nav.getBoundingClientRect().height : 0;
+            const offset = siteHeaderHeight + localNavHeight + 18;
             const targetTop = window.scrollY + target.getBoundingClientRect().top - offset;
 
             window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });

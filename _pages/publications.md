@@ -12,9 +12,12 @@ toc_label: "Years"
 
 <div class="pub-toolbar">
   <input type="text" class="pub-search" id="pubSearch" placeholder="Search by title, author, venue, or year..." onkeyup="filterPubs()">
-  <div class="pub-filter-row">
-    <button class="pub-filter active" type="button" data-filter="all" onclick="setPubFilter('all', this)">All</button>
-    <button class="pub-filter" type="button" data-filter="pdf" onclick="setPubFilter('pdf', this)">Has PDF</button>
+  <div class="pub-toolbar__row">
+    <div class="pub-filter-row">
+      <button class="pub-filter active" type="button" data-filter="all" onclick="setPubFilter('all', this)">All</button>
+      <button class="pub-filter" type="button" data-filter="pdf" onclick="setPubFilter('pdf', this)">Has PDF</button>
+    </div>
+    <span id="pubCount" class="pub-count-display">{{ sorted_pubs | size }} papers</span>
   </div>
   <div class="pub-cat-row" id="categoryButtons"></div>
 </div>
@@ -206,11 +209,5 @@ document.addEventListener('DOMContentLoaded', function() {
     container.appendChild(btn);
   });
 
-  // Add count display
-  var countEl = document.createElement('span');
-  countEl.id = 'pubCount';
-  countEl.className = 'pub-count-display';
-  countEl.textContent = cards.length + ' papers';
-  container.parentNode.insertBefore(countEl, container.parentNode.firstChild.nextSibling);
 });
 </script>

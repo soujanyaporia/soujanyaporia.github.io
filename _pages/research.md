@@ -8,6 +8,7 @@ toc_label: "Contents"
 ---
 
 ## Research Areas
+{: data-section-label="AREAS"}
 
 <div class="research-area-grid">
   <section class="research-area-card"><span>01</span><h3>Large Language Models</h3><p>Evaluation, reasoning, instruction following, tool use, and robust deployment of LLM-based systems.</p></section>
@@ -17,6 +18,7 @@ toc_label: "Contents"
 </div>
 
 ## Grants
+{: data-section-label="FUNDING"}
 
 ### Main PI
 
@@ -56,6 +58,7 @@ toc_label: "Contents"
 </div>
 
 ## Awards
+{: data-section-label="AWARDS"}
 
 <div class="award-grid">
   <div><strong>Highly Cited Researcher</strong><span>Web of Science, 2025</span></div>
@@ -72,6 +75,7 @@ toc_label: "Contents"
 </div>
 
 ## Students
+{: data-section-label="SUPERVISION"}
 
 ### Current PhD Students
 
@@ -97,8 +101,9 @@ toc_label: "Contents"
 </div>
 
 ## Service
+{: data-section-label="SERVICE"}
 
-### Editorship & Chair (not updated)
+### Editorial and Program Leadership
 
 <div class="service-list">
   <p>Senior Area Chair / Area Chair at NAACL, AAAI, EMNLP, ACL and related CL venues.</p>
@@ -107,11 +112,12 @@ toc_label: "Contents"
   <p>Co-editor and organizer for special issues and workshops on affective computing, multimodal NLP, and sentiment analysis.</p>
 </div>
 
-### PC Membership (not updated)
+### Program Committee Membership
 
 <p>AAAI, IJCAI, EMNLP, ACL, NAACL, COLING, and related venues.</p>
 
-## Keynote & Invited Talks (not updated)
+## Keynote & Invited Talks
+{: data-section-label="TALKS"}
 
 <div class="service-list">
   <p>Invited speaker, <a href="https://indoml.in/speakers.php">IndoML 2025</a>, Indian Symposium on Machine Learning.</p>
@@ -123,6 +129,7 @@ toc_label: "Contents"
 </div>
 
 ## News Coverage
+{: data-section-label="PRESS"}
 
 <div class="service-list">
   <p>News coverage by mlreview.com for <a href="https://www.nlpoverview.com">nlpoverview.com</a>.</p>
@@ -132,6 +139,7 @@ toc_label: "Contents"
 </div>
 
 ## Education
+{: data-section-label="EDUCATION"}
 
 <div class="table-wrap">
 <table class="profile-table">
@@ -143,11 +151,13 @@ toc_label: "Contents"
 </table>
 </div>
 
-## Honorific Position
+## Past Academic Affiliation
+{: data-section-label="HONORS"}
 
 <p>Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020.</p>
 
 ## Bibliometrics
+{: data-section-label="METRICS"}
 
 <div class="service-list">
   <p>One of the most productive authors in sentiment analysis research from 2000 to 2015.</p>
@@ -156,6 +166,7 @@ toc_label: "Contents"
 </div>
 
 ## Teaching
+{: data-section-label="TEACHING"}
 
 <div class="people-grid compact-people">
   <span>Database IE4791, NTU, Singapore</span><span>Computational Data Science, SUTD, Singapore</span><span>Information Retrieval, SUTD, Singapore</span>

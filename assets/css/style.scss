@@ -1602,27 +1602,7 @@ strong { font-weight: 650; color: var(--text); }
   opacity: 0.7;
 }
 
-.pub-year-heading {
-  font-family: var(--font-serif);
-  font-size: 1.5em;
-  font-weight: 600;
-  color: var(--text);
-  margin: 2.2em 0 0.85em;
-  padding-bottom: 0.4em;
-  border-bottom: 1px solid var(--border);
-  letter-spacing: -0.02em;
-  position: relative;
-}
-
-.pub-year-heading::after {
-  content: "";
-  position: absolute;
-  bottom: -1px; left: 0;
-  width: 50px;
-  height: 2px;
-  background: var(--accent);
-}
-
+/* Year headings are section headings; see .pub-year-heading below. */
 .pub-year-heading:first-of-type { margin-top: 0; }
 
 .pub-card {
@@ -1739,16 +1719,11 @@ strong { font-weight: 650; color: var(--text); }
   margin-top: 0.5em;
 }
 
+/* Full spec lives with the other publication controls further down; a topic
+ * badge reads as a label, not as shouted text. */
 .pub-cat-badge {
   display: inline-block;
-  font-size: 0.68em;
-  font-weight: 700;
-  color: var(--accent-2);
-  background: var(--accent-2-light);
-  padding: 0.2em 0.6em;
-  border-radius: 999px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: none;
   cursor: pointer;
   transition: all var(--transition);
 }
@@ -1894,25 +1869,15 @@ strong { font-weight: 650; color: var(--text); }
 .footer-inner a:hover { color: var(--accent); }
 
 /* ===== Markdown content styling ===== */
+/* Section headings are defined once, further down, alongside the label chip.
+ * The earlier serif/rule/accent-bar treatment that lived here conflicted with
+ * it -- its absolutely positioned ::before was still winning `position`, which
+ * dropped the chip on top of the heading text on the publications page. */
 .content-text h2 {
-  margin-top: 2.4em;
-  padding-top: 0.7em;
-  border-top: 1px solid var(--border);
   scroll-margin-top: 110px;
-  font-family: var(--font-serif);
-  font-size: 1.85em;
-  position: relative;
 }
-.content-text h2:first-child { margin-top: 0; }
 
-.content-text h2::before {
-  content: "";
-  position: absolute;
-  top: -1px; left: 0;
-  width: 60px;
-  height: 2px;
-  background: var(--accent);
-}
+.content-text h2:first-child { margin-top: 0; }
 
 .content-text h3 {
   font-family: var(--font-serif);
@@ -2622,7 +2587,7 @@ strong { font-weight: 650; color: var(--text); }
   --surface-panel: var(--paper-card);
   --surface-subtle: var(--paper-2);
   --card-border: 1px solid var(--rule);
-  --featured-border: 1.5px solid var(--ink);
+  --featured-border: 1px solid var(--ink);
   --accent-rule-width: 3px;
   --panel-padding-block: 1.4rem;
   --panel-padding-inline: 1.5rem;
@@ -2749,7 +2714,7 @@ a:hover { color: var(--accent-hover); }
   color: var(--ink-soft);
   font-family: var(--font-sans);
   font-size: var(--type-navigation);
-  font-weight: 650;
+  font-weight: 600; /* matches declare-lab.github.io */
   letter-spacing: 0;
 }
 
@@ -2992,21 +2957,44 @@ a:hover { color: var(--accent-hover); }
 }
 
 .home-section-nav {
-  padding: 0.38em;
-  border: var(--card-border);
+  width: max-content;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0.3rem;
+  flex-wrap: nowrap;
+  gap: 0.2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 0;
   border-radius: 0;
-  background: color-mix(in srgb, var(--surface-panel) 96%, transparent);
+  background: transparent;
   box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.home-section-nav::-webkit-scrollbar { display: none; }
+
+.home-section-nav.is-docked {
+  background: color-mix(in srgb, var(--paper-card) 88%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 8%, transparent);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
 }
 
 .home-section-nav a {
-  min-height: 34px;
-  padding: 0.38rem 0.8rem;
+  flex: 0 0 auto;
+  min-height: 32px;
+  padding: 0.34rem 0.68rem;
+  border-bottom: 2px solid transparent;
   border-radius: 0;
   color: var(--ink-soft);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 650;
+  font-size: 0.76rem;
+  font-weight: 600;
   letter-spacing: 0;
 }
 
@@ -3014,12 +3002,16 @@ a:hover { color: var(--accent-hover); }
 .home-section-nav a.is-active {
   color: var(--accent);
   background: var(--accent-light);
-  box-shadow: inset 0 -2px 0 var(--accent);
+  border-bottom-color: var(--accent);
+  box-shadow: none;
 }
 
 .home-section-nav a.is-active { font-weight: 600; }
 
-.home-section-nav a i { color: var(--accent); }
+.home-section-nav a i {
+  color: currentColor;
+  font-size: 0.82rem;
+}
 
 /*
  * Surface hierarchy:
@@ -3453,7 +3445,6 @@ a:hover { color: var(--accent-hover); }
 .toc-list a.is-active { font-weight: 600; }
 
 .content-text {
-  counter-reset: report-section;
   color: var(--ink);
   font-family: var(--font-serif);
   font-size: var(--type-body);
@@ -3465,14 +3456,15 @@ a:hover { color: var(--accent-hover); }
 .content-text > ol,
 .content-text > blockquote { max-width: 76ch; }
 
+/* Section heading. Matches declare-lab.github.io: the blue label chip is the
+ * only section marker, so no rule above or below and no extra padding. */
 .content-text > h2 {
-  counter-increment: report-section;
   display: flex;
   align-items: center;
   gap: var(--report-section-gap);
   margin: 2.5em 0 0.8em;
-  padding: 0.8em 0 0;
-  border-top: 1px solid var(--rule);
+  padding: 0;
+  border-top: 0;
   font-family: var(--font-sans);
   font-size: var(--type-section-title);
   font-variation-settings: "wdth" var(--report-heading-width);
@@ -3481,13 +3473,15 @@ a:hover { color: var(--accent-hover); }
   line-height: 1.22;
 }
 
-.content-text > h2::before {
+/* The chip reads the section's own label rather than an auto counter, so it
+ * says what the section is instead of where it falls in the page. */
+.content-text > h2[data-section-label]::before {
   position: static;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
-  content: "P" counter(report-section);
+  content: attr(data-section-label);
   width: auto;
   min-width: 0;
   height: var(--report-label-height);
@@ -3549,7 +3543,7 @@ pre,
   margin: 1.5em 0;
   padding: 1.2em 1.35em;
   overflow: auto;
-  border: 1.5px solid var(--ink);
+  border: 1px solid var(--ink);
   border-radius: 0;
   background: var(--code-bg);
   color: var(--code-text);
@@ -3759,6 +3753,13 @@ hr {
 .profile-table tr:hover td { background: var(--accent-light); }
 
 .pub-toolbar {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
   padding: var(--card-padding-block) var(--card-padding-inline);
   border: var(--card-border);
   border-top: 2px solid var(--ink);
@@ -3766,7 +3767,28 @@ hr {
   background: var(--paper-card);
 }
 
+.pub-toolbar__row {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pub-toolbar__row .pub-filter-row {
+  min-width: 0;
+}
+
+.pub-toolbar__row .pub-count-display {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
 .pub-search {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
   border: 1px solid var(--rule);
   border-bottom: 1px solid var(--ink);
   border-radius: 0;
@@ -3781,6 +3803,8 @@ hr {
   box-shadow: 0 0 0 3px var(--accent-light);
 }
 
+/* Matches declare-lab.github.io: controls a reader acts on are sans; mono is
+ * reserved for the metadata chips (venue, year). Same sizes and padding. */
 .pub-filter,
 .pub-cat-btn,
 .pub-abstract-toggle,
@@ -3788,21 +3812,37 @@ hr {
 .pub-cat-badge,
 .pub-venue {
   border-radius: 0;
-  font-family: var(--font-mono);
   letter-spacing: 0;
 }
 
-.pub-filter { font-size: 0.82rem; }
-
+.pub-filter,
 .pub-cat-btn,
 .pub-abstract-toggle,
-.pub-links a {
+.pub-links a,
+.pub-cat-badge {
+  font-family: var(--font-sans);
+  font-weight: 650;
+}
+
+.pub-venue {
+  font-family: var(--font-mono);
+  font-weight: 500;
+}
+
+.pub-filter,
+.pub-cat-btn,
+.pub-abstract-toggle,
+.pub-links a,
+.pub-cat-badge {
   min-height: 32px;
+  padding: 0.34rem 0.58rem;
   font-size: 0.75rem;
 }
 
-.pub-cat-badge,
-.pub-venue { font-size: var(--type-label); }
+.pub-venue {
+  padding: 0.22rem 0.5rem;
+  font-size: 0.75rem;
+}
 
 .pub-filter.active,
 .pub-cat-btn.active {
@@ -3826,15 +3866,16 @@ hr {
   font-size: 0.75rem;
 }
 
+/* A year heading is a section heading: same size, gap and chip, no rule. */
 .pub-year-heading {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--report-section-gap);
   margin-top: 2.2em;
-  padding-bottom: 0.55em;
-  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0;
+  border-bottom: 0;
   font-family: var(--font-sans);
-  font-size: 1.3125rem;
+  font-size: var(--type-section-title);
   font-variation-settings: "wdth" var(--report-heading-width);
   font-weight: var(--report-section-weight);
   letter-spacing: 0;
@@ -3861,10 +3902,6 @@ hr {
 }
 
 .pub-year-heading::after { display: none; }
-
-.content-text > .pub-year-heading {
-  counter-increment: none;
-}
 
 .pub-card {
   margin-bottom: 0;
@@ -3895,19 +3932,35 @@ hr {
   font-size: var(--type-small);
 }
 
-.pub-venue,
-.pub-cat-badge {
+/* Venue is a metadata chip: mono on a tinted ground, no border.
+ * Topic badges are the same bordered sans object as the link controls. */
+.pub-venue {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: var(--report-meta-height);
-  padding: var(--report-meta-padding);
+  padding: 0.22rem 0.5rem;
   color: var(--accent);
   background: var(--accent-light);
-  font-size: var(--report-meta-font-size);
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1;
+}
+
+.pub-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0.34rem 0.58rem;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  background: var(--paper-card);
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  line-height: 1.2;
 }
 
 .pub-abstract {
@@ -3947,7 +4000,7 @@ hr {
   :root {
     --type-display: 2.45rem;
     --type-page-title: 2.3rem;
-    --type-section-title: 1.35rem;
+    --type-section-title: 1.5rem;
     --panel-padding-block: 1rem;
     --panel-padding-inline: 1rem;
     --card-padding-block: 1rem;
@@ -4012,7 +4065,7 @@ hr {
   .lab-copy h2,
   .content-text > h2 {
     gap: 10px;
-    font-size: 1.35rem;
+    font-size: var(--type-section-title);
   }
 
   .lab-panel {
@@ -4189,7 +4242,7 @@ body {
 
 .theme-toggle-label,
 .theme-toggle-value {
-  display: none !important;
+  display: none;
 }
 
 .site-main {
@@ -4232,8 +4285,8 @@ body {
 }
 
 .site-footer {
-  margin-top: 4rem;
-  border-top: 2px solid var(--text);
+  margin-top: 0;
+  border-top: 1px solid var(--border);
   background: var(--bg-page);
 }
 
@@ -4273,5 +4326,304 @@ body {
   .theme-toggle .icon-sun,
   .theme-toggle .icon-moon {
     transition: none;
+  }
+}
+
+/* ===== Section separation (single source of truth) =====
+ * Section boundaries use one hairline and one spacing rhythm. The 2px ink rule
+ * stays reserved for page headers and the opening rules inside the overview.
+ *
+ * Sections on these pages are delimited two different ways, so there are two
+ * selectors -- but each boundary is matched by only one of them, so they can
+ * never draw two lines at the same place:
+ *
+ *   1. Heading-delimited (Research, Publications): a section is an h2 and
+ *      everything until the next h2, with no wrapper to hang a rule on. The
+ *      divider is drawn above each heading except the first. New sections get
+ *      one automatically -- nothing to register.
+ *   2. Wrapped (home page): the section is a real element, so it closes with a
+ *      rule on its own bottom edge.
+ */
+:root {
+  --section-rule-space: 2.5rem;
+  --section-nav-offset: 1.25rem;
+}
+
+/* 1. Heading-delimited sections. */
+.content-text > h2:not(:first-of-type) {
+  border-top: 1px solid var(--rule);
+  margin-top: var(--section-rule-space);
+  padding-top: var(--section-rule-space);
+}
+
+/* 2. Wrapped homepage sections. */
+.content-text > .home-hero {
+  border-top: 0;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--section-rule-space);
+  margin-bottom: var(--section-nav-offset);
+}
+
+.content-text > .home-overview {
+  border-top: 0;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--section-rule-space);
+  margin-bottom: var(--section-rule-space);
+}
+
+/* Navigation is a compact wayfinding control, not another page section. */
+.content-text > .home-section-nav {
+  border-top: 0;
+  border-bottom: 0;
+  margin-bottom: var(--section-rule-space);
+}
+
+.content-text > .home-section-nav a:not(.is-active) {
+  color: var(--ink-soft);
+}
+
+.content-text > .home-section-nav a:hover,
+.content-text > .home-section-nav a.is-active {
+  color: var(--accent);
+}
+
+/* The personal TOC keeps its dossier-oriented left rail, while sharing the
+ * DeCLaRe navigation states, spacing, type, and docked surface treatment. */
+.toc-nav {
+  padding: 0.2rem 0 0.2rem 0.8rem;
+  border: 0;
+  border-left: 1px solid var(--rule);
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.toc-nav.is-docked {
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 8%, transparent);
+  backdrop-filter: saturate(130%) blur(14px);
+  -webkit-backdrop-filter: saturate(130%) blur(14px);
+}
+
+.toc-title {
+  margin: 0 0 0.6rem 0.45rem;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.toc-list a,
+.toc-level-3 a {
+  padding: 0.4rem 0.7rem;
+  border-radius: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.toc-list a:hover,
+.toc-list a.is-active {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* Inner grids no longer draw a boundary of their own; their section does. */
+.content-text .research-area-grid,
+.content-text .award-grid,
+.content-text .service-list,
+.content-text .table-wrap,
+.content-text .selected-work-grid {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.pub-cat-row {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pub-cat-row > * {
+  flex: 0 0 auto;
+}
+
+/* The columns inside the overview each open with an ink rule. This is the line
+ * above "Research focus"; removing it as a stray 2px weight was wrong -- it is
+ * the divider that opens the section, and the page reads worse without it. */
+.home-overview .intro-panel > div,
+.intro-aside {
+  border-top: 2px solid var(--ink);
+}
+
+/* The collaboration aside uses the same top axis as its neighboring panel. */
+.intro-aside {
+  padding: 1rem 0 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+}
+
+/* The lab identity is a featured object, but it observes the same section gap. */
+.lab-panel {
+  border: 1px solid var(--rule-strong);
+  margin-bottom: var(--section-rule-space);
+}
+
+/* The final homepage section owns one closing hairline. The generic inner-page
+ * pseudo-rule below is excluded on home so this boundary is never duplicated. */
+.content-text > #selected-publications {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--section-rule-space);
+  margin-bottom: 0;
+}
+
+/* Shared inner-page header: metadata, one 2px rule, then the title. */
+.page-header {
+  margin-bottom: var(--section-rule-space);
+}
+
+.page-header::before {
+  display: none;
+  content: none;
+}
+
+.page-header .page-meta-strip {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.content-text {
+  font-size: 17px;
+}
+
+.page-header h1 {
+  margin: 0;
+  padding-bottom: 0;
+  border: 0;
+}
+
+/* Heading-delimited inner pages need an explicit final boundary. The homepage
+ * already closes on #selected-publications and therefore does not match. */
+.page-wrapper:not(.is-home) .page-header + .page-body .content-text::after {
+  display: block;
+  margin-top: var(--section-rule-space);
+  border-bottom: 1px solid var(--rule);
+  content: "";
+}
+
+@media (max-width: 720px) {
+  :root {
+    --section-rule-space: 1.75rem;
+    --section-nav-offset: 0.9rem;
+  }
+
+  .content-text > .home-section-nav {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .content-text > .home-section-nav.is-docked {
+    width: auto;
+    margin: 0;
+  }
+
+  .home-section-nav a {
+    min-height: 36px;
+    padding: 0.42rem 0.72rem;
+    font-size: 0.78rem;
+  }
+
+  .toc-nav,
+  .toc-nav.is-docked {
+    width: auto;
+    padding: 0.38rem;
+    border: 1px solid var(--rule);
+  }
+
+  .toc-nav {
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .toc-nav.is-docked {
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 8%, transparent);
+    backdrop-filter: saturate(130%) blur(14px);
+    -webkit-backdrop-filter: saturate(130%) blur(14px);
+  }
+
+  .toc-title {
+    display: none;
+  }
+
+  .nav-links .theme-toggle {
+    display: grid;
+    width: 100%;
+    height: auto;
+    min-height: 48px;
+    grid-template-columns: 20px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.65rem;
+    align-self: auto;
+    margin: 0.25rem 0 0;
+    padding: 0.65rem 0.75rem;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    text-align: left;
+  }
+
+  .theme-toggle-label {
+    display: inline;
+    color: var(--text-secondary);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  .theme-toggle-value {
+    display: inline;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    font-weight: 650;
+    text-transform: uppercase;
+  }
+
+  .theme-toggle-value::after {
+    content: "Light";
+  }
+
+  [data-theme="dark"] .theme-toggle-value::after {
+    content: "Dark";
+  }
+}
+
+@media (max-width: 960px) {
+  .toc-nav.is-docked {
+    position: sticky;
+    right: auto;
+    left: auto;
+    width: 100%;
+    margin: 0 0 1.25em;
   }
 }
