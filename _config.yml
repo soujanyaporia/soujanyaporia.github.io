@@ -71,6 +71,13 @@ keep_files:
 
 encoding: "utf-8"
 
+# Sass
+sass:
+  sass_dir: _sass
+  load_paths:
+    - assets/declare-core/scss
+  style: compressed
+
 # Plugins
 plugins:
   - jekyll-feed

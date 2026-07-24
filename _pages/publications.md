@@ -5,12 +5,13 @@ permalink: /publications/
 author_profile: true
 toc: true
 toc_label: "Years"
+toc_max: 2
 ---
 
 {% assign sorted_pubs = site.data.publications | sort: "year" | reverse %}
 {% assign grouped = sorted_pubs | group_by: "year" %}
 
-<div class="pub-toolbar">
+<div class="pub-toolbar pub-toolbar--sticky">
   <input type="text" class="pub-search" id="pubSearch" placeholder="Search by title, author, venue, or year..." onkeyup="filterPubs()">
   <div class="pub-toolbar__row">
     <div class="pub-filter-row">
@@ -26,11 +27,11 @@ toc_label: "Years"
 <h2 class="pub-year-heading" id="{{ group.name }}">{{ group.name }}</h2>
 
 {% for pub in group.items %}
-<div class="pub-card" data-categories="{% if pub.categories %}{{ pub.categories | join:',' }}{% endif %}" data-has-pdf="{% if pub.pdf %}true{% else %}false{% endif %}" data-searchable="{{ pub.title | downcase }} {{ pub.authors | downcase }} {{ pub.venue | downcase }} {{ pub.year }} {% if pub.categories %}{{ pub.categories | join:' ' | downcase }}{% endif %}">
+<article class="pub-card" data-categories="{% if pub.categories %}{{ pub.categories | join:',' }}{% endif %}" data-has-pdf="{% if pub.pdf %}true{% else %}false{% endif %}" data-searchable="{{ pub.title | downcase }} {{ pub.authors | downcase }} {{ pub.venue | downcase }} {{ pub.year }} {% if pub.categories %}{{ pub.categories | join:' ' | downcase }}{% endif %}">
   {% if pub.abstract %}
-    <div class="pub-title clickable" onclick="toggleAbstract('abs-{{ group.name }}-{{ forloop.index }}')">{{ pub.title }}</div>
+    <h3 class="pub-title clickable" onclick="toggleAbstract('abs-{{ group.name }}-{{ forloop.index }}')">{{ pub.title }}</h3>
   {% else %}
-    <div class="pub-title">{{ pub.title }}</div>
+    <h3 class="pub-title">{{ pub.title }}</h3>
   {% endif %}
   <div class="pub-authors">
     {% assign author_list = pub.authors | split: ", " %}
@@ -93,7 +94,7 @@ toc_label: "Years"
       {{ pub.abstract }}
     </div>
   {% endif %}
-</div>
+</article>
 {% endfor %}
 {% endfor %}
 
@@ -129,17 +130,17 @@ function filterPubs() {
       matchesFilter = matchAll;
     }
 
-    c.style.display = matchesQuery && matchesFilter ? '' : 'none';
+    c.hidden = !(matchesQuery && matchesFilter);
   });
 
   headings.forEach(function(h) {
     var next = h.nextElementSibling;
     var vis = false;
     while (next && !next.classList.contains('pub-year-heading')) {
-      if (next.classList.contains('pub-card') && next.style.display !== 'none') vis = true;
+      if (next.classList.contains('pub-card') && !next.hidden) vis = true;
       next = next.nextElementSibling;
     }
-    h.style.display = vis ? '' : 'none';
+    h.hidden = !vis;
   });
 
   updateCount();
@@ -176,10 +177,9 @@ function toggleCatFilter(cat) {
 }
 
 function updateCount() {
-  var visible = document.querySelectorAll('.pub-card[style=""], .pub-card:not([style])');
   var count = 0;
   document.querySelectorAll('.pub-card').forEach(function(c) {
-    if (c.style.display !== 'none') count++;
+    if (!c.hidden) count++;
   });
   var el = document.getElementById('pubCount');
   if (el) el.textContent = count + ' papers';

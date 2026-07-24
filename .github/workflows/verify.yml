@@ -1,0 +1,45 @@
+name: Verify Jekyll site
+
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Verify shared design core
+        run: ./assets/declare-core/scripts/verify-consumer.sh .
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+          bundler-cache: true
+      - name: Setup typography verifier
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install typography verifier
+        run: python -m pip install -r assets/declare-core/requirements.txt
+      - name: Build
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - name: Apply semantic typography contract
+        run: |
+          python assets/declare-core/scripts/typography_dom.py fix --site _site
+          python assets/declare-core/scripts/typography_dom.py verify --site _site
+      - name: Audit style ownership
+        run: python assets/declare-core/scripts/style_ownership.py audit --site-root . --built-site _site
+      - name: Audit generated site
+        run: bundle exec ruby scripts/audit_site.rb _site

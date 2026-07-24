@@ -9,6 +9,9 @@ main:
   - title: "Publications"
     url: /publications/
     icon: "fa-solid fa-book-open"
+  - title: "Activities"
+    url: /activities/
+    icon: "fa-solid fa-microphone-lines"
   # - title: "Resources"
   #   url: /resources/
   - title: "DeCLaRe Lab"

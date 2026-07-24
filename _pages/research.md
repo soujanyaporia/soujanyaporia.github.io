@@ -5,175 +5,179 @@ permalink: /research/
 author_profile: true
 toc: true
 toc_label: "Contents"
+toc_max: 2
+body_class: "research-profile-page"
+intro: "Our lab studies how AI systems can reason, remember, perceive, act, and remain dependable. The work is organized around six connected themes: Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI."
+intro_actions:
+  - label: "DeCLaRe research"
+    url: "https://declare-lab.github.io/research/"
+    style: "primary"
+    icon: "fa-solid fa-flask"
+  - label: "Publications"
+    url: "https://declare-lab.github.io/publications/"
+    style: "secondary"
+    icon: "fa-solid fa-book-open"
 ---
 
-## Research Themes
-{: data-section-label="THEMES"}
+## Research Agenda
+{: data-section-label="01"}
 
-My group at DeCLaRe works across six connected research themes. Together they cover the development, evaluation, and real-world use of capable AI systems.
+The agenda connects questions about capability with questions about evidence, cost, safety, and interaction. These themes are shared with [DeCLaRe Lab](https://declare-lab.github.io/research/), where the complete project portfolio and current team contributions are maintained.
 
 <div class="research-area-grid">
-  <section class="research-area-card"><span>01</span><h3>Safety</h3><p>Operational safety, red-teaming, refusal behavior, alignment, and test-time interventions for AI systems.</p></section>
-  <section class="research-area-card"><span>02</span><h3>Trustworthiness</h3><p>Grounded attribution, trustworthy RAG, hallucination mitigation, uncertainty, and calibrated reliance.</p></section>
-  <section class="research-area-card"><span>03</span><h3>Multimodality</h3><p>Language, vision, audio, and video models for reasoning, generation, interaction, and social understanding.</p></section>
-  <section class="research-area-card"><span>04</span><h3>AI for Science</h3><p>Scientific hypothesis discovery, chemistry, evidence synthesis, and literature-grounded reasoning.</p></section>
-  <section class="research-area-card"><span>05</span><h3>Efficiency</h3><p>Online memory, dynamic data selection, efficient attention, adaptation, model merging, and compact training.</p></section>
-  <section class="research-area-card"><span>06</span><h3>Embodied AI</h3><p>Vision-language-action models, action grounding, embodied planning, and interactive evaluation.</p></section>
+  <a class="research-area-card" href="https://declare-lab.github.io/research/#safety"><span>01</span><h3>Safety</h3><p>Operational evaluation, red-teaming, refusal behavior, alignment, and test-time interventions.</p></a>
+  <a class="research-area-card" href="https://declare-lab.github.io/research/#trustworthiness"><span>02</span><h3>Trustworthiness</h3><p>Grounded attribution, trustworthy RAG, hallucination mitigation, uncertainty, and calibrated reliance.</p></a>
+  <a class="research-area-card" href="https://declare-lab.github.io/research/#multimodality"><span>03</span><h3>Multimodality</h3><p>Language, vision, audio, and video models for reasoning, generation, and social understanding.</p></a>
+  <a class="research-area-card" href="https://declare-lab.github.io/research/#ai-for-science"><span>04</span><h3>AI for Science</h3><p>Scientific hypothesis discovery, chemistry, evidence synthesis, and literature-grounded reasoning.</p></a>
+  <a class="research-area-card" href="https://declare-lab.github.io/research/#efficiency"><span>05</span><h3>Efficiency</h3><p>Online memory, dynamic data selection, efficient attention, adaptation, and compact training.</p></a>
+  <a class="research-area-card" href="https://declare-lab.github.io/research/#embodied-ai"><span>06</span><h3>Embodied AI</h3><p>Vision-language-action models, action grounding, embodied planning, and interactive evaluation.</p></a>
 </div>
 
-Recent notable work includes <a href="https://arxiv.org/abs/2605.12357">online memory for LLMs</a>, <a href="https://arxiv.org/abs/2603.07433">dynamic data selection for efficient ML training</a>, <a href="https://arxiv.org/abs/2504.19854">vision-language-action models for embodied AI</a>, <a href="https://arxiv.org/abs/2412.21037">text-to-audio generation</a>, <a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/4c88827decab6c046b881a2c3a99c76f-Abstract-Conference.html">trustworthy RAG</a>, and <a href="https://arxiv.org/abs/2509.26495">operational AI safety</a>.
+## Current Programs
+{: data-section-label="02"}
 
-## Grants
-{: data-section-label="FUNDING"}
+<div class="contribution-index research-programs">
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2026</span><span>Memory</span></div>
+    <div class="contribution-copy">
+      <h3>Online memory for language models</h3>
+      <p>δ-mem asks whether frozen language models can maintain a compact, continually updated state instead of repeatedly rereading an expanding context.</p>
+      <div class="program-links"><a href="https://arxiv.org/abs/2605.12357">Paper</a><a href="https://declare-lab.github.io/lab-notes/delta-mem/">Lab note</a><a href="https://github.com/declare-lab/delta-Mem">Code</a></div>
+    </div>
+    <a class="contribution-arrow" href="https://declare-lab.github.io/research/#efficiency" aria-label="Explore efficiency research">→</a>
+  </article>
 
-### Main PI
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2026</span><span>Data-centric ML</span></div>
+    <div class="contribution-copy">
+      <h3>Learning what data to use, and how much</h3>
+      <p>Data Agent learns sample-wise selection policies; PODS treats the selected data volume as a dynamic training signal under a fixed budget.</p>
+      <div class="program-links"><a href="https://arxiv.org/abs/2603.07433">Data Agent</a><a href="https://arxiv.org/abs/2605.14773">PODS</a><a href="https://declare-lab.github.io/lab-notes/data-centric-training-part-i/">Part I</a><a href="https://declare-lab.github.io/lab-notes/data-centric-training-part-ii/">Part II</a></div>
+    </div>
+    <a class="contribution-arrow" href="https://declare-lab.github.io/research/#efficiency" aria-label="Explore efficiency research">→</a>
+  </article>
 
-<div class="table-wrap">
-<table class="profile-table">
-  <thead><tr><th>Project</th><th>Funder</th><th>Period</th><th>Value</th></tr></thead>
-  <tbody>
-    <tr><td>Embodied Foundational Models</td><td>CNRS@CREATE, NRF</td><td>-Jan 2026 - Dec 2029</td><td>Total S$10M; awarded S$3.33M</td></tr>
-    <tr><td>Toward Generalist Vision Language Action Models</td><td>KLASS</td><td>Jan 2026 - Dec 2028</td><td>S$1.5M</td></tr>
-    <tr><td>Google DeepMind GCP Grant</td><td>Google DeepMind</td><td>Jan 2026 - Dec 2026</td><td>S$100K</td></tr>
-    <tr><td>Meta Audiobox Research Grant</td><td>Meta</td><td>Jan 2025 - Dec 2025</td><td>S$70K</td></tr>
-    <tr><td>Prevent Hallucination in LLMs</td><td>DSO</td><td>Dec 2023 - Dec 2026</td><td>S$800K</td></tr>
-    <tr><td>AI Governance Grant</td><td>AI Singapore</td><td>Jan 2024 - Dec 2026</td><td>S$500K</td></tr>
-    <tr><td>Commonsense-aware Natural Language Processing</td><td>MoE Tier-2</td><td>Aug 2021 - Aug 2024</td><td>S$736K</td></tr>
-    <tr><td>K-EMERGE: Knowledge Extraction, Modelling, and Explainable Reasoning</td><td>AME</td><td>Feb 2020 - Feb 2023</td><td>S$910K</td></tr>
-    <tr><td>Geopolitical Question Answering</td><td>DSO</td><td>Feb 2020 - Feb 2022</td><td>S$800K</td></tr>
-    <tr><td>Hate Speech Detection</td><td>-</td><td>Feb 2020 - Sept 2021</td><td>S$85K</td></tr>
-    <tr><td>Alibaba Gift Funding through IPP Program</td><td>Alibaba</td><td>Jan 2021 - Dec 2025</td><td>S$100K</td></tr>
-    <tr><td>Multimodal Personalized Affective Dialogue Systems</td><td>NTU Presidential Postdoctoral Research Grant</td><td>Sept 2018 - Sept 2020</td><td>S$200K</td></tr>
-  </tbody>
-</table>
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2025–26</span><span>Embodied AI</span></div>
+    <div class="contribution-copy">
+      <h3>Compact vision-language-action models</h3>
+      <p>NORA and NORA 1.5 study efficient action grounding, preference optimization, and dependable behavior in generalist embodied agents.</p>
+      <div class="program-links"><a href="https://declare-lab.github.io/nora/">NORA</a><a href="https://declare-lab.github.io/nora-1.5/">NORA 1.5</a><a href="https://arxiv.org/abs/2504.19854">Paper</a></div>
+    </div>
+    <a class="contribution-arrow" href="https://declare-lab.github.io/research/#embodied-ai" aria-label="Explore embodied AI research">→</a>
+  </article>
+
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2024–26</span><span>Safe &amp; trustworthy AI</span></div>
+    <div class="contribution-copy">
+      <h3>Operational safety and trustworthy generation</h3>
+      <p>Recent work evaluates off-topic behavior, restores safety after fine-tuning, and improves grounding, citation, and refusal in retrieval-augmented generation.</p>
+      <div class="program-links"><a href="https://arxiv.org/abs/2509.26495">OffTopicEval</a><a href="https://aclanthology.org/2024.acl-long.762">RESTA</a><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/4c88827decab6c046b881a2c3a99c76f-Abstract-Conference.html">Trust-Align</a></div>
+    </div>
+    <a class="contribution-arrow" href="https://declare-lab.github.io/research/#safety" aria-label="Explore safety research">→</a>
+  </article>
+
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2024–25</span><span>Generation &amp; science</span></div>
+    <div class="contribution-copy">
+      <h3>Generative audio and scientific discovery</h3>
+      <p>TangoFlux develops fast preference-optimized text-to-audio generation, while MOOSE-Chem tests literature-grounded hypothesis rediscovery in chemistry.</p>
+      <div class="program-links"><a href="https://arxiv.org/abs/2412.21037">TangoFlux</a><a href="https://proceedings.iclr.cc/paper_files/paper/2025/hash/51fd9a7d1706023cb9f8210cc6ac357c-Abstract-Conference.html">MOOSE-Chem</a></div>
+    </div>
+    <a class="contribution-arrow" href="https://declare-lab.github.io/research/#ai-for-science" aria-label="Explore AI for Science research">→</a>
+  </article>
 </div>
 
-### Co-PI
+## Foundational Contributions
+{: data-section-label="03"}
 
-<div class="table-wrap">
-<table class="profile-table">
-  <thead><tr><th>Project</th><th>Funder</th><th>Period</th><th>Value</th></tr></thead>
-  <tbody>
-    <tr><td>NMLP Research Grant</td><td>AI Singapore</td><td>Apr 2025 - Mar 2028</td><td>S$4.9M</td></tr>
-    <tr><td>OpenAI Superalignment Grant</td><td>OpenAI</td><td>-</td><td>S$200K</td></tr>
-    <tr><td>Intent Inference</td><td>DSO</td><td>Feb 2020 - Feb 2022</td><td>S$148K; total grant S$800K</td></tr>
-    <tr><td>Estate-IQ: Smart HDB Estate Services</td><td>HDB</td><td>July 2021 - June 2024</td><td>S$4.9M</td></tr>
-    <tr><td>SUTD AI Program: Discovery by AI</td><td>SUTD</td><td>June 2020 - June 2023</td><td>S$150K</td></tr>
-  </tbody>
-</table>
+Earlier work on multimodal fusion and conversational intelligence established several of the questions that continue to shape our lab’s research.
+
+<div class="contribution-index foundational-index">
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2017</span><span>Multimodal fusion</span></div>
+    <div class="contribution-copy"><h3><a href="https://aclanthology.org/D17-1115/">Tensor Fusion Network</a></h3><p>Models unimodal, bimodal, and trimodal interactions explicitly for multimodal sentiment analysis.</p></div>
+    <a class="contribution-arrow" href="https://aclanthology.org/D17-1115/" aria-label="Read Tensor Fusion Network">→</a>
+  </article>
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2019</span><span>Conversation</span></div>
+    <div class="contribution-copy"><h3><a href="https://ojs.aaai.org/index.php/AAAI/article/view/4657">DialogueRNN</a></h3><p>Tracks speaker states and conversational context for emotion recognition in multiparty dialogue.</p></div>
+    <a class="contribution-arrow" href="https://ojs.aaai.org/index.php/AAAI/article/view/4657" aria-label="Read DialogueRNN">→</a>
+  </article>
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2019</span><span>Dataset</span></div>
+    <div class="contribution-copy"><h3><a href="https://aclanthology.org/P19-1050/">MELD</a></h3><p>A multimodal, multiparty benchmark for emotion recognition and sentiment analysis in conversation.</p></div>
+    <a class="contribution-arrow" href="https://aclanthology.org/P19-1050/" aria-label="Read MELD">→</a>
+  </article>
+  <article class="contribution-row">
+    <div class="contribution-meta"><span>2019</span><span>Graph reasoning</span></div>
+    <div class="contribution-copy"><h3><a href="https://aclanthology.org/D19-1015/">DialogueGCN</a></h3><p>Represents dialogue as a graph to reason over speaker dependencies and conversational structure.</p></div>
+    <a class="contribution-arrow" href="https://aclanthology.org/D19-1015/" aria-label="Read DialogueGCN">→</a>
+  </article>
 </div>
 
-## Awards
-{: data-section-label="AWARDS"}
+<p class="section-link"><a href="https://declare-lab.github.io/publications/">Browse the complete DeCLaRe publication archive →</a></p>
 
-<div class="award-grid">
-  <div><strong>Highly Cited Researcher</strong><span>Web of Science, 2025</span></div>
-  <div><strong>President's Young Scientist Award</strong><span>Singapore, 2023</span></div>
-  <div><strong>MIT Technology Review 35 under 35</strong><span>Asia Pacific, 2023</span></div>
+## Research Support
+{: data-section-label="04"}
+
+Selected active grants support longer research programs across embodied intelligence, trustworthy AI, and efficient learning. The [DeCLaRe funded-projects page](https://declare-lab.github.io/funded-projects/) maintains the complete active and completed portfolio.
+
+<div class="research-support-list funding-list">
+  <article><span>Principal Investigator · 2026–29</span><h3>Embodied Foundational Models</h3><p>CNRS@CREATE and Singapore’s National Research Foundation · S$10M program; S$3.33M awarded.</p></article>
+  <article><span>Principal Investigator · 2026–28</span><h3>Toward Generalist Vision-Language-Action Models</h3><p>KLASS · S$1.5M.</p></article>
+  <article><span>Principal Investigator · 2026</span><h3>Google DeepMind GCP Research Grant</h3><p>Google DeepMind · S$100K.</p></article>
+  <article><span>Principal Investigator · 2023–26</span><h3>Detecting, Measuring and Mitigating Hallucinations in LLMs</h3><p>DSO · S$800K.</p></article>
+  <article><span>Principal Investigator · 2024–26</span><h3>Trustworthy and Responsible LLMs for Singapore Governance</h3><p>AI Singapore · S$500K.</p></article>
+  <article><span>Co-Principal Investigator · 2025–28</span><h3>Language Models with Linear Transformers</h3><p>AI Singapore · S$4.9M program.</p></article>
+</div>
+
+## Mentorship
+{: data-section-label="05"}
+
+<div class="mentorship-grid">
+  <section class="mentorship-block">
+    <h3>Research training</h3>
+    <p>Students develop an independent scientific voice while working across themes, methods, and collaborations. Current supervision spans AI safety, trustworthy generation, efficient learning, multimodality, and embodied intelligence.</p>
+    <a class="text-link" href="https://declare-lab.github.io/people/">Meet the current DeCLaRe team →</a>
+  </section>
+  <section class="mentorship-block">
+    <h3>Graduated researchers</h3>
+    <p>Former PhD researchers include Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Chen Hui, Chia Yew Ken, Pengfei Hong, and Wei Han.</p>
+    <a class="text-link" href="https://declare-lab.github.io/join/">Explore research opportunities →</a>
+  </section>
+</div>
+
+## Recognition
+{: data-section-label="06"}
+
+<div class="award-grid recognition-grid">
+  <div><strong>Highly Cited Researcher</strong><span>Web of Science, 2026</span></div>
+  <div><strong>President’s Young Scientist Award</strong><span>Singapore, 2023</span></div>
+  <div><strong>MIT Technology Review 35 Under 35</strong><span>Asia Pacific, 2023</span></div>
   <div><strong>IEEE CIS Outstanding Early Career Award</strong><span>2024</span></div>
   <div><strong>NAACL Social Impact Award</strong><span>2024</span></div>
-  <div><strong>SCALE-LLM Best Paper Award</strong><span>2024</span></div>
-  <div><strong>IEEE IS 10 to Watch in AI</strong><span>2022</span></div>
-  <div><strong>Aminer AI2000 Honorable Mention</strong><span>2023</span></div>
-  <div><strong>Presidential Postdoctoral Fellowship</strong><span>NTU Singapore, 2018</span></div>
+  <div><strong>IEEE Intelligent Systems AI’s 10 to Watch</strong><span>2022</span></div>
   <div><strong>IEEE CIM Outstanding Paper Award</strong><span>2021</span></div>
-  <div><strong>Emerald Citations of Excellence</strong><span>-</span></div>
+  <div><strong>Presidential Postdoctoral Fellowship</strong><span>NTU Singapore, 2018</span></div>
 </div>
 
-## Students
-{: data-section-label="SUPERVISION"}
+## Academic Contribution
+{: data-section-label="07"}
 
-### Current PhD Students
-
-<div class="people-grid compact-people">
-  <span>Richmond Sin</span><span>Vernon Toh</span><span>Varun Gumma</span><span>Lei Jingdi</span><span>Renhang Liu</span><span>Nitish Muthuchamy</span><span>Maojia Song</span><span>Jaavid Akhtar</span><span>Pala Tej Deep</span><span>Chia Yu</span><span>Weisheng Jin</span>
+<div class="academic-contribution-grid">
+  <section>
+    <h3>Editorial and program leadership</h3>
+    <p>Senior Area Chair and Area Chair roles across ACL, EMNLP, NAACL, AAAI, ARR, and related venues; editorial service for Cognitive Computation, Neurocomputing, and Information Fusion.</p>
+  </section>
+  <section>
+    <h3>Keynotes and invited talks</h3>
+    <p>Recent invitations include IndoML 2025 and The Web Conference 2024, alongside earlier keynotes on dialogue understanding and emotion recognition.</p>
+  </section>
+  <section>
+    <h3>Teaching and education</h3>
+    <p>Teaching has included databases, computational data science, and information retrieval. Academic training spans computer science, engineering, and mathematics.</p>
+  </section>
 </div>
 
-### Graduated PhD Students
-
-<div class="table-wrap">
-<table class="profile-table">
-  <thead><tr><th>Name</th><th>Years</th><th>Current role</th></tr></thead>
-  <tbody>
-    <tr><td>Devamanyu Hazarika</td><td>2018 - 2022</td><td>Amazon</td></tr>
-    <tr><td>Deepanway Ghosal</td><td>2019 - 2024</td><td>DeepMind</td></tr>
-    <tr><td>Rishabh Bhardwaj</td><td>2020 - 2025</td><td>Founder, Walled AI</td></tr>
-    <tr><td>Chen Hui</td><td>2018 - 2023</td><td>Postdoc, NTU</td></tr>
-    <tr><td>Chia Yew Ken</td><td>2021 - 2025</td><td>Alibaba DAMO Academy</td></tr>
-    <tr><td>Pengfei Hong</td><td>2021 - 2025</td><td>-</td></tr>
-    <tr><td>Wei Han</td><td>2021 - 2025</td><td>Huawei</td></tr>
-  </tbody>
-</table>
-</div>
-
-## Service
-{: data-section-label="SERVICE"}
-
-### Editorial and Program Leadership
-
-<div class="service-list">
-  <p>Senior Area Chair / Area Chair at NAACL, AAAI, EMNLP, ACL and related CL venues.</p>
-  <p>Associate Editor: Cognitive Computation, Neurocomputing, Information Fusion.</p>
-  <p>SPC, IJCAI 2023; Workshop Chair, AACL 2022; Publicity Chair, ACL 2022; Area Chair, ARR; Area Chair, NeurIPS 2021.</p>
-  <p>Co-editor and organizer for special issues and workshops on affective computing, multimodal NLP, and sentiment analysis.</p>
-</div>
-
-### Program Committee Membership
-
-<p>AAAI, IJCAI, EMNLP, ACL, NAACL, COLING, and related venues.</p>
-
-## Keynote & Invited Talks
-{: data-section-label="TALKS"}
-
-<div class="service-list">
-  <p>Invited speaker, <a href="https://indoml.in/speakers.php">IndoML 2025</a>, Indian Symposium on Machine Learning.</p>
-  <p>Talk, <a href="https://www.sigweb.org/toc/www24a.html">Understanding, Leveraging, and Improving Large Language Models</a>, The Web Conference Companion 2024.</p>
-  <p>Keynote talk on Utterance Level Dialogue Understanding, ICON 2020, India.</p>
-  <p>Keynote talk on Utterance Level Dialogue Understanding, MICAI 2020, Mexico.</p>
-  <p>Keynote talk on Emotion Recognition in Conversation, SocialNLP, IJCAI 2019, Macau.</p>
-  <p>Invited talks at University of Michigan, NUS, NTU, CICLing 2018, and Deep Learning Finance Summit 2018.</p>
-</div>
-
-## News Coverage
-{: data-section-label="PRESS"}
-
-<div class="service-list">
-  <p>News coverage by mlreview.com for <a href="https://www.nlpoverview.com">nlpoverview.com</a>.</p>
-  <p>KDnuggets coverage of <a href="https://www.kdnuggets.com/2018/09/deep-learning-nlp-overview-recent-trends.html">Recent Trends in Deep Learning Based NLP</a>.</p>
-  <p>KDnuggets coverage of <a href="https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html">sarcasm detection with deep convolutional neural networks</a>.</p>
-  <p>Datanami coverage of <a href="https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/">personality detection from text</a>.</p>
-</div>
-
-## Education
-{: data-section-label="EDUCATION"}
-
-<div class="table-wrap">
-<table class="profile-table">
-  <thead><tr><th>Degree</th><th>Institution</th><th>Period</th></tr></thead>
-  <tbody>
-    <tr><td>Ph.D. in Computer Science and Mathematics</td><td>University of Stirling, Scotland, UK</td><td>Feb 2014 - June 2017</td></tr>
-    <tr><td>B.E. in Computer Science and Engineering</td><td>Jadavpur University, India</td><td>Aug 2009 - Dec 2013</td></tr>
-  </tbody>
-</table>
-</div>
-
-## Past Academic Affiliation
-{: data-section-label="HONORS"}
-
-<p>Adjunct Faculty, Indraprastha Institute of Information Technology (IIITD), India, Aug 2018 - Aug 2020.</p>
-
-## Bibliometrics
-{: data-section-label="METRICS"}
-
-<div class="service-list">
-  <p>One of the most productive authors in sentiment analysis research from 2000 to 2015.</p>
-  <p>One of the most prolific and impactful authors in sentiment analysis from 2003 to 2016.</p>
-  <p><a href="https://scholar.google.co.in/citations?user=oS6gRc4AAAAJ&hl=en">Google Scholar profile</a>.</p>
-</div>
-
-## Teaching
-{: data-section-label="TEACHING"}
-
-<div class="people-grid compact-people">
-  <span>Database IE4791, NTU, Singapore</span><span>Computational Data Science, SUTD, Singapore</span><span>Information Retrieval, SUTD, Singapore</span>
-</div>
+<p class="section-link"><a href="https://scholar.google.com/citations?user=oS6gRc4AAAAJ&amp;hl=en">View the full research record on Google Scholar →</a></p>

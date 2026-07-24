@@ -2,16 +2,16 @@
 layout: default
 ---
 
-<div class="page-wrapper {% if page.url == '/' %}is-home{% endif %} {% if page.toc %}has-toc{% endif %} {% if page.author_profile %}has-sidebar{% endif %}">
+<div class="page-wrapper site-shell {% if page.url == '/' %}is-home{% endif %} {% if page.toc %}has-toc{% endif %} {% if page.author_profile %}has-sidebar{% endif %}">
 
   {% if page.author_profile %}
-  <aside class="sidebar">
+  <aside class="sidebar site-shell__sidebar">
     {% include author-profile.html %}
   </aside>
   {% endif %}
 
-  <article class="page-content">
-    {% if page.title %}
+  <article class="page-content site-shell__content">
+    {% if page.title and page.title != "" %}
     <header class="page-header">
       <div class="page-meta-strip" aria-label="Institutional affiliation">
         <span>Nanyang Technological University, Singapore</span>
@@ -20,17 +20,35 @@ layout: default
     </header>
     {% endif %}
 
-    <div class="page-body">
+    {% if page.intro %}
+    <section class="page-lead page-lead--split page-lead--wide">
+      <p class="page-lead__copy">{{ page.intro }}</p>
+      {% if page.intro_actions %}
+      <div class="page-lead__actions">
+        {% for action in page.intro_actions %}
+        <a class="btn btn-{{ action.style | default: 'secondary' }}" href="{{ action.url }}">
+          {% if action.icon %}<i class="{{ action.icon }}" aria-hidden="true"></i>{% endif %}
+          <span>{{ action.label }}</span>
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    <div class="page-body site-content{% if page.toc %} page-rail-layout{% endif %}">
       {% if page.toc %}
-      <nav class="toc-nav">
-        <div class="toc-sticky">
-          <h4 class="toc-title">{{ page.toc_label | default: "On this page" }}</h4>
-          {% include toc.html html=content h_min=2 h_max=3 %}
+      <nav class="section-menu section-menu--rail toc-nav" data-section-menu data-section-menu-bounded>
+        <div class="section-menu__inner toc-sticky">
+          <span class="section-menu__label toc-title">{{ page.toc_label | default: "On this page" }}</span>
+          {% assign toc_h_min = page.toc_min | default: 2 %}
+          {% assign toc_h_max = page.toc_max | default: 3 %}
+          {% include toc.html html=content h_min=toc_h_min h_max=toc_h_max %}
         </div>
       </nav>
       {% endif %}
 
-      <div class="content-text">
+      <div class="content-text{% if page.toc %} page-rail-layout__main{% endif %}">
         {{ content }}
       </div>
     </div>

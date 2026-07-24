@@ -1,6 +1,6 @@
 {% capture tocContent %}{{ include.html }}{% endcapture %}
 {% assign lines = tocContent | split: '<h' %}
-<ul class="toc-list">
+<ul class="section-menu__items toc-list" data-section-menu-scroll>
 {% for line in lines %}
   {% if line contains 'id="' %}
     {% assign level_char = line | slice: 0, 1 %}
@@ -14,7 +14,7 @@
       {% assign title_with_end = title_start[1] | split: '</h' | first %}
       {% assign title_clean = title_with_end | strip_html | strip %}
       {% if title_clean != "" %}
-      <li class="toc-level-{{ level }}"><a href="#{{ id }}">{{ title_clean }}</a></li>
+      <li class="section-menu__item section-menu__item--level-{{ level }} toc-level-{{ level }}"><a href="#{{ id }}">{{ title_clean }}</a></li>
       {% endif %}
     {% endif %}
   {% endif %}
