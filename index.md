@@ -12,7 +12,7 @@ title: ""
     <span class="hero-name-primary">Soujanya Poria</span>
     <span class="hero-native-name" lang="bn">সৌজন্য পড়িয়া</span>
   </h1>
-  <p class="hero-subtitle">Our lab works across six research themes: <strong>Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI</strong>. We pursue this work at the <strong>DeCLaRe Lab</strong>, NTU Singapore.</p>
+  <p class="hero-subtitle">I lead <strong>DeCLaRe Lab</strong> at NTU Singapore.</p>
   <div class="hero-actions hero-actions--personal" aria-label="Landing page actions">
     <a class="btn-primary" href="/publications/"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Publications</a>
     <a class="btn-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
@@ -31,7 +31,7 @@ title: ""
   <section class="intro-panel" id="research-focus">
     <div>
       <h2 class="home-section-heading" data-section-label="01">Research themes</h2>
-      <p>Our work spans Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI. Recent notable work includes online memory for LLMs, dynamic data selection for efficient ML training, vision-language-action models, text-to-audio generation, trustworthy RAG, and operational AI safety.</p>
+      <p>Our lab works across six research themes: <strong>Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI</strong>. We pursue this work at the <strong><a href="https://declare-lab.github.io/">DeCLaRe Lab</a></strong>, NTU Singapore.</p>
     </div>
     <div class="intro-aside">
       <h3>Work with our lab</h3>
@@ -44,48 +44,72 @@ title: ""
     <div class="updates-header">
       <h2 class="home-section-heading" data-section-label="02">Recent updates</h2>
     </div>
-    <div class="news-timeline compact">
-      <div class="news-item">
-        <h3><span class="news-badge">Award</span> Highly Cited Researcher 2026</h3>
-        <p>Recognized by Web of Science.</p>
+    <div class="news-timeline compact timeline-list">
+      <div class="news-item timeline-item">
+        <div class="timeline-item__marker">
+          <time class="date-marker date-marker--timeline" datetime="2026"><span class="date-marker__primary">2026</span></time>
+        </div>
+        <div class="news-item__content timeline-item__content">
+          <span class="news-badge record-badge">Award</span>
+          <h3>Highly Cited Researcher</h3>
+          <p>Recognized by Web of Science.</p>
+        </div>
       </div>
-      <div class="news-item">
-        <h3><span class="news-badge">Media</span> VentureBeat features δ-mem</h3>
-        <p>An interview on working memory for long-running AI agents.</p>
+      <div class="news-item timeline-item">
+        <div class="timeline-item__marker">
+          <time class="date-marker date-marker--timeline" datetime="2026-05"><span class="date-marker__primary">May</span><span class="date-marker__secondary">2026</span></time>
+        </div>
+        <div class="news-item__content timeline-item__content">
+          <span class="news-badge record-badge">Media</span>
+          <h3>VentureBeat features δ-mem</h3>
+          <p>An interview on working memory for long-running AI agents.</p>
+        </div>
       </div>
-      <div class="news-item">
-        <h3><span class="news-badge">Talk</span> Healthcare AI Symposium 2025</h3>
-        <p>Invited master class in Singapore.</p>
+      <div class="news-item timeline-item">
+        <div class="timeline-item__marker">
+          <time class="date-marker date-marker--timeline" datetime="2025"><span class="date-marker__primary">2025</span></time>
+        </div>
+        <div class="news-item__content timeline-item__content">
+          <span class="news-badge record-badge">Talk</span>
+          <h3>Healthcare AI Symposium</h3>
+          <p>Invited master class in Singapore.</p>
+        </div>
       </div>
-      <div class="news-item">
-        <h3><span class="news-badge">NTU</span> Joined EEE in 2025</h3>
-        <p>Moved to the School of Electrical and Electronic Engineering at NTU.</p>
+      <div class="news-item timeline-item">
+        <div class="timeline-item__marker">
+          <time class="date-marker date-marker--timeline" datetime="2025"><span class="date-marker__primary">2025</span></time>
+        </div>
+        <div class="news-item__content timeline-item__content">
+          <span class="news-badge record-badge">NTU</span>
+          <h3>Joined EEE, NTU</h3>
+          <p>Moved to the School of Electrical and Electronic Engineering.</p>
+        </div>
       </div>
     </div>
     <a class="updates-more" href="/activities/">More academic activities <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
   </section>
-</div>
 
-<section class="lab-panel" id="research-group">
-  <div class="lab-identity" role="img" aria-label="DeCLaRe Lab">
-    <img class="lab-symbol theme-logo-light" src="/assets/images/logos/declare-icon-light.svg" alt="">
-    <img class="lab-symbol theme-logo-dark" src="/assets/images/logos/declare-icon-dark.svg" alt="">
-    <span class="lab-wordmark" aria-hidden="true">DeCLa<span>Re</span></span>
-  </div>
-  <div class="lab-copy">
-    <h2 class="home-section-heading" data-section-label="03">DeCLaRe Lab</h2>
-    <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>, where students and collaborators pursue the same six themes through foundational methods, evaluation, and open research systems. Before moving to NTU, the group was based at SUTD.</p>
-    <div class="lab-actions">
-      <a class="lab-link" href="https://declare-lab.github.io/"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
-      <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
+  <section class="lab-panel" id="research-group">
+    <div class="lab-identity" role="img" aria-label="DeCLaRe Lab">
+      <img class="lab-symbol theme-logo-light" src="/assets/images/logos/declare-icon-light.svg" alt="">
+      <img class="lab-symbol theme-logo-dark" src="/assets/images/logos/declare-icon-dark.svg" alt="">
+      <span class="lab-wordmark" aria-hidden="true">DeCLa<span>Re</span></span>
     </div>
-  </div>
-</section>
+    <div class="lab-copy">
+      <h2 class="home-section-heading" data-section-label="03">DeCLaRe Lab</h2>
+      <p>Much of this work grows out of the <strong>DeCLaRe Lab</strong>. Founded at SUTD in 2019, the lab has been based at NTU since 2025.</p>
+      <div class="lab-actions">
+        <a class="lab-link" href="https://declare-lab.github.io/"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Visit the lab</a>
+        <a class="lab-link-secondary" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"><i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i> Research slides</a>
+      </div>
+    </div>
+  </section>
+</div>
 
 <section class="selected-contributions" id="selected-publications">
   <h2 class="home-section-heading" data-section-label="04">Selected contributions</h2>
   <div class="contributions-intro">
-    <p class="section-lede">Selected research programs from our lab, spanning memory and data-efficient learning, embodied and multimodal AI, trustworthy language models, scientific discovery, and affective computing.</p>
+    <p class="section-lede">Selected recent and foundational work.</p>
     <a class="btn-secondary" href="/publications/">Complete publication record <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
   </div>
 

@@ -7,12 +7,6 @@ toc: true
 toc_label: "Contents"
 toc_max: 2
 body_class: "activity-profile-page"
-intro: "Academic life extends beyond papers. Teaching, mentoring, field-building, invited lectures, and explaining research beyond the lab are all part of how I approach the work."
-intro_actions:
-  - label: "Visit DeCLaRe Lab"
-    url: "https://declare-lab.github.io/"
-    style: "secondary"
-    icon: "fa-solid fa-flask"
 ---
 
 ## Keynotes and Invited Talks
@@ -63,8 +57,6 @@ intro_actions:
 
 ## Editorial and Conference Service
 {: data-section-label="02"}
-
-<p>Selected roles in journal editing and conference leadership. Dates reflect the academic record supplied in my CV.</p>
 
 <div class="activity-list activity-list--two-column">
   <article class="activity-record">

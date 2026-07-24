@@ -7,22 +7,10 @@ toc: true
 toc_label: "Contents"
 toc_max: 2
 body_class: "research-profile-page"
-intro: "Our lab studies how AI systems can reason, remember, perceive, act, and remain dependable. The work is organized around six connected themes: Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI."
-intro_actions:
-  - label: "DeCLaRe research"
-    url: "https://declare-lab.github.io/research/"
-    style: "primary"
-    icon: "fa-solid fa-flask"
-  - label: "Publications"
-    url: "https://declare-lab.github.io/publications/"
-    style: "secondary"
-    icon: "fa-solid fa-book-open"
 ---
 
 ## Research Agenda
 {: data-section-label="01"}
-
-The agenda connects questions about capability with questions about evidence, cost, safety, and interaction. These themes are shared with [DeCLaRe Lab](https://declare-lab.github.io/research/), where the complete project portfolio and current team contributions are maintained.
 
 <div class="research-area-grid">
   <a class="research-area-card" href="https://declare-lab.github.io/research/#safety"><span>01</span><h3>Safety</h3><p>Operational evaluation, red-teaming, refusal behavior, alignment, and test-time interventions.</p></a>
@@ -135,18 +123,9 @@ Selected active grants support longer research programs across embodied intellig
 ## Mentorship
 {: data-section-label="05"}
 
-<div class="mentorship-grid">
-  <section class="mentorship-block">
-    <h3>Research training</h3>
-    <p>Students develop an independent scientific voice while working across themes, methods, and collaborations. Current supervision spans AI safety, trustworthy generation, efficient learning, multimodality, and embodied intelligence.</p>
-    <a class="text-link" href="https://declare-lab.github.io/people/">Meet the current DeCLaRe team →</a>
-  </section>
-  <section class="mentorship-block">
-    <h3>Graduated researchers</h3>
-    <p>Former PhD researchers include Devamanyu Hazarika, Deepanway Ghosal, Rishabh Bhardwaj, Chen Hui, Chia Yew Ken, Pengfei Hong, and Wei Han.</p>
-    <a class="text-link" href="https://declare-lab.github.io/join/">Explore research opportunities →</a>
-  </section>
-</div>
+Our current DeCLaRe team includes **12 PhD students, 3 research scientists, 1 research assistant, and 1 visiting student**. The lab's People page maintains the current roster, research interests, and affiliations of 19 alumni.
+
+<p class="section-link"><a href="https://declare-lab.github.io/people/">Meet current members and alumni at DeCLaRe Lab →</a></p>
 
 ## Recognition
 {: data-section-label="06"}
@@ -162,22 +141,5 @@ Selected active grants support longer research programs across embodied intellig
   <div><strong>Presidential Postdoctoral Fellowship</strong><span>NTU Singapore, 2018</span></div>
 </div>
 
-## Academic Contribution
-{: data-section-label="07"}
-
-<div class="academic-contribution-grid">
-  <section>
-    <h3>Editorial and program leadership</h3>
-    <p>Senior Area Chair and Area Chair roles across ACL, EMNLP, NAACL, AAAI, ARR, and related venues; editorial service for Cognitive Computation, Neurocomputing, and Information Fusion.</p>
-  </section>
-  <section>
-    <h3>Keynotes and invited talks</h3>
-    <p>Recent invitations include IndoML 2025 and The Web Conference 2024, alongside earlier keynotes on dialogue understanding and emotion recognition.</p>
-  </section>
-  <section>
-    <h3>Teaching and education</h3>
-    <p>Teaching has included databases, computational data science, and information retrieval. Academic training spans computer science, engineering, and mathematics.</p>
-  </section>
-</div>
-
+<p class="section-link"><a href="/activities/">Keynotes, editorial service, teaching, and other academic activities →</a></p>
 <p class="section-link"><a href="https://scholar.google.com/citations?user=oS6gRc4AAAAJ&amp;hl=en">View the full research record on Google Scholar →</a></p>
