@@ -2614,11 +2614,26 @@ strong { font-weight: 650; color: var(--text); }
   --type-display: 3.65rem;
   --type-page-title: 3.4rem;
   --type-section-title: 1.5rem;
+  --type-feature-title: 1.2rem;
   --type-card-title: 1.0625rem;
-  --type-body: 1rem;
+  --type-body: 17px;
+  --type-supporting: 1rem;
   --type-small: 0.875rem;
+  --type-control: 0.8125rem;
+  --type-meta: 0.75rem;
   --type-label: 0.6875rem;
+  --type-context-nav: 0.84rem;
   --type-navigation: 0.9em;
+  --content-leading: 1.68;
+  --card-leading: 1.55;
+  --compact-leading: 1.35;
+  --weight-body: 400;
+  --weight-meta: 500;
+  --weight-emphasis: 600;
+  --weight-label: 600;
+  --weight-card: 650;
+  --weight-section: 660;
+  --weight-display: 700;
   --report-section-title-size: var(--type-section-title);
   --report-section-gap: 14px;
   --report-label-height: 26px;
@@ -2629,9 +2644,9 @@ strong { font-weight: 650; color: var(--text); }
   --report-meta-padding: 0 8px;
   --report-meta-font-size: var(--type-label);
   --report-heading-width: 100;
-  --report-display-weight: 700;
-  --report-section-weight: 660;
-  --report-card-title-weight: 650;
+  --report-display-weight: var(--weight-display);
+  --report-section-weight: var(--weight-section);
+  --report-card-title-weight: var(--weight-card);
 }
 
 [data-theme="dark"] {
@@ -4636,4 +4651,170 @@ body {
     width: 100%;
     margin: 0 0 1.25em;
   }
+}
+
+/* ===== Shared typography contract =====
+ * The personal and lab sites use the same semantic scale. The personal site
+ * keeps its dossier layout, but equivalent text no longer changes size,
+ * weight, or contrast from one section to another. */
+.content-text {
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: var(--type-body);
+  font-weight: var(--weight-body);
+  line-height: var(--content-leading);
+}
+
+.hero-subtitle,
+.intro-panel p,
+.intro-aside p,
+.lab-copy p {
+  font-size: var(--type-body);
+  font-weight: var(--weight-body);
+  line-height: var(--content-leading);
+}
+
+.section-lede {
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+  font-size: var(--type-supporting);
+  font-weight: var(--weight-body);
+  line-height: 1.6;
+}
+
+.research-area-card h3,
+.content-text > h3,
+.news-item h4,
+.news-timeline .news-item h4,
+.news-timeline.compact .news-item h4,
+.updates-panel .news-timeline.compact .news-item h4,
+.award-grid strong,
+.pub-title {
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--type-card-title);
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--weight-card);
+  line-height: 1.3;
+}
+
+.selected-work-card h3 {
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--type-feature-title);
+  font-variation-settings: "wdth" var(--report-heading-width);
+  font-weight: var(--weight-card);
+  line-height: 1.3;
+}
+
+.research-area-card p,
+.work-note,
+.selected-work-card .work-note,
+.news-item p,
+.award-grid span,
+.people-grid > span,
+.service-list p,
+.pub-authors,
+.pub-abstract,
+.profile-table td,
+.author-bio,
+.author-location,
+.author-links a {
+  font-size: var(--type-small);
+  line-height: var(--card-leading);
+}
+
+.research-area-card p,
+.work-note,
+.selected-work-card .work-note,
+.news-item p,
+.pub-authors,
+.pub-abstract,
+.author-bio,
+.author-location,
+.author-links a {
+  color: var(--text-secondary);
+  font-family: var(--font-serif);
+  font-weight: var(--weight-body);
+}
+
+.work-links a {
+  font-family: var(--font-serif);
+  font-size: var(--type-small);
+  font-weight: var(--weight-emphasis);
+  line-height: var(--compact-leading);
+}
+
+.author-location {
+  font-weight: var(--weight-emphasis);
+}
+
+.eyebrow,
+.work-links span,
+.pub-venue,
+.pub-count-display,
+.pub-year-tag,
+.page-meta-strip {
+  font-size: var(--type-meta);
+  font-weight: var(--weight-meta);
+  line-height: 1.45;
+}
+
+.work-kicker,
+.news-badge,
+.content-text > h2[data-section-label]::before,
+.content-text > .pub-year-heading::before {
+  font-size: var(--type-label);
+  font-weight: var(--weight-label);
+  line-height: 1.35;
+}
+
+.home-section-nav a,
+.toc-list a,
+.toc-level-3 a {
+  font-size: var(--type-context-nav);
+  font-weight: var(--weight-meta);
+  line-height: var(--compact-leading);
+}
+
+.home-section-nav a.is-active,
+.toc-list a.is-active {
+  font-weight: var(--weight-emphasis);
+}
+
+.btn,
+.btn-primary,
+.btn-secondary,
+.lab-link,
+.lab-link-secondary {
+  font-family: var(--font-sans);
+  font-size: var(--type-control);
+  font-weight: var(--weight-card);
+  line-height: 1.2;
+}
+
+.pub-filter,
+.pub-cat-btn,
+.pub-abstract-toggle,
+.pub-links a,
+.pub-cat-badge {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta);
+  font-weight: var(--weight-card);
+  line-height: 1.2;
+}
+
+.content-text strong,
+.hero-subtitle strong,
+.work-note strong {
+  font-weight: var(--weight-emphasis);
+}
+
+.footer-inner,
+.footer-links {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--type-meta);
+  font-weight: var(--weight-meta);
+  line-height: 1.6;
 }
