@@ -783,7 +783,7 @@
 .profile-eyebrow {
   margin: 0 0 1.7em;
   padding: 0 0 1.25em;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: var(--rule-heavy);
 }
 
 .profile-eyebrow::before {
@@ -853,7 +853,7 @@
 .updates-panel {
   padding: 1rem 0 0;
   border: 0;
-  border-top: 2px solid var(--ink);
+  border-top: var(--rule-heavy);
   background: transparent;
 }
 
@@ -1034,7 +1034,7 @@
 
 .table-wrap {
   border: var(--card-border);
-  border-top: 2px solid var(--ink);
+  border-top: var(--rule-heavy);
   border-radius: 0;
   background: var(--paper-card);
 }
@@ -1172,7 +1172,7 @@
  * the divider that opens the section, and the page reads worse without it. */
 .home-overview .intro-panel > div,
 .intro-aside {
-  border-top: 2px solid var(--ink);
+  border-top: var(--rule-heavy);
 }
 
 /* The collaboration aside uses the same top axis as its neighboring panel. */
@@ -1223,7 +1223,7 @@
 }
 
 .contribution-index {
-  border-top: 2px solid var(--ink);
+  border-top: var(--rule-heavy);
 }
 
 .contribution-divider {
@@ -1459,7 +1459,7 @@
 .academic-contribution-grid > section {
   min-width: 0;
   padding: 1rem 0 1.15rem;
-  border-top: 2px solid var(--ink);
+  border-top: var(--rule-heavy);
 }
 
 .mentorship-block h3,
