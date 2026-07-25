@@ -3,9 +3,7 @@ layout: single
 title: "Academic Activities"
 permalink: /activities/
 author_profile: true
-toc: true
-toc_label: "Contents"
-toc_max: 2
+toc: false
 body_class: "activity-profile-page"
 ---
 

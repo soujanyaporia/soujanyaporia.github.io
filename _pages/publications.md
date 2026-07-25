@@ -3,9 +3,7 @@ layout: single
 title: "Publications"
 permalink: /publications/
 author_profile: true
-toc: true
-toc_label: "Years"
-toc_max: 2
+toc: false
 ---
 
 {% assign sorted_pubs = site.data.publications | sort: "year" | reverse %}
@@ -18,6 +16,13 @@ toc_max: 2
       <button class="pub-filter active" type="button" data-filter="all" onclick="setPubFilter('all', this)">All</button>
       <button class="pub-filter" type="button" data-filter="pdf" onclick="setPubFilter('pdf', this)">Has PDF</button>
     </div>
+    <label class="pub-year-jump">
+      <span class="pub-year-jump__label">Year</span>
+      <select class="pub-year-select" data-year-jump aria-label="Jump to publication year">
+        <option value="">All years</option>
+        {% for group in grouped %}<option value="{{ group.name }}">{{ group.name }}</option>{% endfor %}
+      </select>
+    </label>
     <span id="pubCount" class="pub-count-display">{{ sorted_pubs | size }} papers</span>
   </div>
   <div class="pub-cat-row" id="categoryButtons"></div>
