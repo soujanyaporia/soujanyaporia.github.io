@@ -44,3 +44,5 @@ jobs:
         run: python assets/declare-core/scripts/style_ownership.py audit --site-root . --built-site _site
       - name: Audit generated site
         run: bundle exec ruby scripts/audit_site.rb _site
+      - name: Audit content clarity
+        run: bundle exec ruby scripts/audit_content.rb _site

@@ -4,9 +4,13 @@
     <img class="author-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
     {% endif %}
     <div class="author-profile-content">
-      <p class="author-name">{{ site.author.name }}</p>
-      {% if site.author.bio %}
-      <p class="author-bio">{{ site.author.bio }}</p>
+      <div class="author-name" data-type-role="subsection-title">{{ site.author.name }}</div>
+      {% if site.author.affiliation_lines %}
+      <div class="author-bio" data-prose-align="center" aria-label="{{ site.author.bio }}">
+        {% for line in site.author.affiliation_lines %}<span class="author-bio-line" data-type-role="small">{{ line }}</span>{% unless forloop.last %}<br>{% endunless %}{% endfor %}
+      </div>
+      {% elsif site.author.bio %}
+      <div class="author-bio"><span data-type-role="small">{{ site.author.bio }}</span></div>
       {% endif %}
       <div class="author-affiliation-block">
         <div class="author-affiliations" aria-label="Affiliations">

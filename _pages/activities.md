@@ -96,6 +96,11 @@ body_class: "activity-profile-page"
 
 <div class="activity-list">
   <article class="activity-record activity-record--wide">
+    <span>NTU Singapore</span>
+    <h3>IE4422 Database Systems</h3>
+    <p>Undergraduate course on relational data modeling, SQL, normalization, transactions, indexing, and database design.</p>
+  </article>
+  <article class="activity-record activity-record--wide">
     <span>2019–24 · SUTD</span>
     <h3>Computational Data Science</h3>
     <p>Instructor for the undergraduate computational data science course.</p>
