@@ -1033,7 +1033,7 @@
 - title: 'DialogXpert: Driving Intelligent and Emotion-Aware Conversations through Online Value-Based Reinforcement Learning with LLM Priors'
   authors: "TB Abdur Rakib, A Mehrish, LK Soon, WH Lim, S Poria"
   venue: AAAI
-  year: 2025
+  year: 2026
   scholar_url: 'https://scholar.google.com/scholar?q=DialogXpert%3A+Driving+Intelligent+and+Emotion-Aware+Conversations+through+Online+Value-Based+Reinforcement+Learning+with+LLM+Priors'
   publication_url: 'https://ui.adsabs.harvard.edu/abs/2025arXiv250517795A/abstract'
   categories:
@@ -4812,4 +4812,3 @@
     named-entity features, and uses an SVM classifier with a set of lexical and structural features.
     Evaluation on the RTE-6 test sets reports micro-average F-scores for the submitted runs and provides
     detailed analysis for the main, novelty and KBP slot-filling validation tasks.
-

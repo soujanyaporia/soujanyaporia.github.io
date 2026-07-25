@@ -172,7 +172,7 @@
   filter: saturate(1);
 }
 .author-affiliations .affiliation-ntu { height: 56px; }
-.author-affiliations .affiliation-dec { height: 63px; }
+.author-affiliations .affiliation-dec { height: 59px; }
 
 @media (max-width: 720px) {
   .author-card {
@@ -181,7 +181,7 @@
   }
   .author-affiliations { gap: 0.7em; margin: 0.5em 0 0.7em; }
   .author-affiliations .affiliation-ntu { height: 46px; }
-  .author-affiliations .affiliation-dec { height: 53px; }
+  .author-affiliations .affiliation-dec { height: 49px; }
 }
 
 .hero-subtitle strong {
@@ -310,7 +310,6 @@
   align-items: center;
   align-self: flex-start;
   gap: 0.45rem;
-  margin-top: 0.9rem;
   color: var(--accent);
   text-decoration: none;
 }
@@ -319,6 +318,20 @@
   color: var(--accent-hover);
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+.updates-more-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 1rem;
+  margin-top: 0.9rem;
+}
+
+.news-paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.45rem;
 }
 
 /* ===== TOC ===== */
@@ -487,7 +500,7 @@
   }
 
   .author-affiliations .affiliation-ntu { height: 34px; }
-  .author-affiliations .affiliation-dec { height: 40px; }
+  .author-affiliations .affiliation-dec { height: 39px; }
 
   .author-location {
     justify-content: var(--author-content-justify);
@@ -1090,42 +1103,6 @@
   padding: 0;
   border-top: 0;
   border-bottom: 0;
-}
-
-.home-updates .updates-header {
-  margin-bottom: 0;
-}
-
-/* Home-page update entries are one-liners ("Recognized by Web of Science"), so
- * a single full-width column left roughly 480px empty beside every row. Two
- * columns give each entry a width that matches its content. Newest fills the
- * left column first, so reading down-then-across stays chronological.
- *
- * The vertical dashed connector is suppressed here: it threads one continuous
- * column and cannot span two. The per-entry dot and date still carry the
- * chronology. /activities/ keeps the full single-column timeline, where the
- * entries are long enough to earn the width. */
-.home-updates .timeline-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, auto);
-  grid-auto-flow: column;
-  column-gap: 2.5rem;
-  align-items: start;
-}
-
-.home-updates .timeline-list > .timeline-item::after {
-  content: none;
-}
-
-/* Below the two-column breakpoint the pair would be ~150px each, so the list
- * returns to a single column in plain document order. */
-@media (max-width: 900px) {
-  .home-updates .timeline-list {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: none;
-    grid-auto-flow: row;
-  }
 }
 
 /* ===== Research themes and selected work =====
