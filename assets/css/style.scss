@@ -77,6 +77,19 @@
   margin: 0 0 0.7em;
 }
 
+/* The sidebar card is a self-contained identity block, not page prose, so the
+ * name and affiliation centre. The core aligns .site-main body text to
+ * --prose-align (justify) and small text to left, both with !important, so the
+ * override is scoped to these two elements and left-aligned link rows are
+ * untouched. text-align-last must be set too: the name is a single line, and
+ * the core forces --prose-last-line-align (left) on the last line, which would
+ * otherwise keep the one-line name flush-left despite text-align: center. */
+.declare-core .site-main .author-card .author-name,
+.declare-core .site-main .author-card .author-bio {
+  text-align: center !important;
+  text-align-last: center !important;
+}
+
 .author-location {
   width: max-content;
   max-width: 100%;
