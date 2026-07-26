@@ -6,6 +6,7 @@ subtitle: "Associate Professor, NTU Singapore"
 name: "Soujanya Poria"
 description: "Associate Professor at Nanyang Technological University. Research across Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI."
 url: "https://soujanyaporia.github.io"
+baseurl: ""
 repository: "soujanyaporia/soujanyaporia.github.io"
 
 # Author
@@ -68,6 +69,8 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
+  - assets/declare-core/CHANGELOG.md
+  - assets/declare-core/README.md
   - vendor
 
 keep_files:

@@ -36,6 +36,7 @@ jobs:
         run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
+          JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Apply semantic typography contract
         run: |
           python assets/declare-core/scripts/typography_dom.py fix --site _site
