@@ -204,11 +204,6 @@
   margin-bottom: 2.6em;
 }
 
-
-
-
-
-
 /* ===== Updates panel ===== */
 .updates-panel {
   background: var(--bg-card);
@@ -235,15 +230,7 @@
   white-space: nowrap;
 }
 
-
 /* ===== Lab panel — featured ===== */
-
-
-
-
-
-
-
 
 /* ===== Research grids (research page) ===== */
 
@@ -253,7 +240,6 @@
   gap: 0.85em;
   margin: 1em 0 1.6em;
 }
-
 
 .research-area-card,
 .award-grid > div {
@@ -270,9 +256,6 @@
   border-color: var(--border-hover);
   transform: translateY(-1px);
 }
-
-
-
 
 .award-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -295,15 +278,7 @@
   margin-top: 0.3em;
 }
 
-
-
-
-
-
-
-
 /* ===== Selected work grid ===== */
-
 
 .updates-more {
   display: inline-flex;
@@ -337,7 +312,6 @@
 /* ===== TOC ===== */
 
 /* ===== Publications ===== */
-
 
 /* Full spec lives with the other publication controls further down; a topic
  * badge reads as a label, not as shouted text. */
@@ -605,9 +579,6 @@
   filter: none;
 }
 
-.author-location {
-}
-
 .author-affiliations .affiliation-logo,
 .author-affiliations .affiliation-logo:hover {
   opacity: 1;
@@ -720,26 +691,16 @@
   background: transparent;
 }
 
-
 .home-section-heading {
   margin: 0 0 0.75em;
   padding: 0;
   border: 0;
 }
 
-
-
 .updates-header {
   padding-bottom: 0.8em;
   border-bottom: 1px solid var(--ink);
 }
-
-
-
-
-
-
-
 
 .award-grid { gap: var(--card-gap); }
 
@@ -771,7 +732,6 @@
   box-shadow: none;
 }
 
-
 .award-grid > div {
   padding: var(--card-padding-block) var(--card-padding-inline);
   border: var(--card-border);
@@ -796,23 +756,6 @@
   transform: none;
 }
 
-
-
-
-
-
-.award-grid span {
-}
-
-.award-grid strong {
-}
-
-
-
-
-
-
-
 /* Matches declare-lab.github.io: controls a reader acts on are sans; mono is
  * reserved for the metadata chips (venue, year). Same sizes and padding. */
 
@@ -826,25 +769,11 @@
 @media (max-width: 720px) {
   .author-card { border-radius: 0; }
 
-  .home-hero .hero-greeting-name {
-  }
-
-  .hero-greeting-intro {
-  }
-
-  .hero-native-name {
-  }
-
   .intro-panel > div,
   .intro-aside,
   .updates-panel,
   .lab-panel,
   .research-area-card { border-radius: 0; }
-
-
-
-
-
 
 }
 
@@ -928,42 +857,11 @@
  * owns the theme portfolio; this remains an editorial index, not another card
  * taxonomy. */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 720px) {
-
-
-
-
-
-}
-
 /* ===== Research profile =====
  * The personal research page is an authored agenda. It uses open records and
  * rules; the lab site remains the project-card archive. Typography is assigned
  * by the shared semantic contract imported below.
  */
-
-
-
-
-
-
-
 
 .section-link {
   margin: 1.1rem 0 0;
@@ -976,22 +874,9 @@
   text-underline-offset: 0.2em;
 }
 
-
-
-
-
-
 .recognition-grid {
   margin-bottom: 0;
 }
-
-@media (max-width: 1020px) {
-}
-
-@media (max-width: 720px) {
-
-}
-
 
 /* ===== Academic activities =====
  * Activities are open records rather than cards. Typography comes entirely
@@ -1013,9 +898,6 @@
   min-width: 0;
   padding: 1rem 0 1.15rem;
   border-top: 1px solid var(--rule);
-  /* Two-column records sit near 390px, below the width justification needs.
-   * Matches the card rule on the lab site: cards read ragged, prose justifies. */
-  --prose-align: left;
 }
 
 .activity-record > span {
@@ -1137,15 +1019,11 @@
 
 .update-log__body > h3 {
   margin: 0;
-  font-size: var(--type-card-title);
-  line-height: 1.3;
 }
 
 .update-log__body > p {
   margin: 0.35rem 0 0;
-  font-size: var(--type-small);
   color: var(--text-secondary);
-  --prose-align: left;
 }
 
 @media (max-width: 640px) {
