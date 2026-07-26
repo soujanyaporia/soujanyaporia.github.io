@@ -34,7 +34,7 @@ toc: false
 {% for pub in group.items %}
 <article class="pub-card" data-categories="{% if pub.categories %}{{ pub.categories | join:',' }}{% endif %}" data-has-pdf="{% if pub.pdf %}true{% else %}false{% endif %}" data-searchable="{{ pub.title | downcase }} {{ pub.authors | downcase }} {{ pub.venue | downcase }} {{ pub.year }} {% if pub.categories %}{{ pub.categories | join:' ' | downcase }}{% endif %}">
   {% if pub.abstract %}
-    <h3 class="pub-title clickable" onclick="toggleAbstract('abs-{{ group.name }}-{{ forloop.index }}')">{{ pub.title }}</h3>
+    <h3 class="pub-title clickable" data-abstract-target="abs-{{ group.name }}-{{ forloop.index }}">{{ pub.title }}</h3>
   {% else %}
     <h3 class="pub-title">{{ pub.title }}</h3>
   {% endif %}
@@ -61,7 +61,7 @@ toc: false
     <span class="pub-year-tag">{{ pub.year }}</span>
     <span class="pub-links">
       {% if pub.abstract %}
-        <button class="pub-abstract-toggle" onclick="event.stopPropagation(); toggleAbstract('abs-{{ group.name }}-{{ forloop.index }}')">Abstract</button>
+        <button class="pub-abstract-toggle" type="button" aria-expanded="false" aria-controls="abs-{{ group.name }}-{{ forloop.index }}">Abstract</button>
       {% endif %}
       {% if pub.pdf %}
         <a href="{{ pub.pdf }}" target="_blank" rel="noopener">PDF</a>
@@ -104,11 +104,6 @@ toc: false
 {% endfor %}
 
 <script>
-function toggleAbstract(id) {
-  var el = document.getElementById(id);
-  if (el) el.classList.toggle('show');
-}
-
 var activeCategories = new Set();
 
 function filterPubs() {

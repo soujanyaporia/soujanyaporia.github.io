@@ -2,6 +2,20 @@
 <html class="declare-core" lang="{{ site.locale | slice: 0,2 | default: 'en' }}" data-theme="light">
 <head>
   <meta charset="utf-8">
+  <!-- Resolve the theme before first paint. Two things were wrong without it:
+       the document was hardcoded to light, so a visitor whose system is set to
+       dark got a light site until they found the toggle; and a returning dark
+       visitor saw a light flash while the deferred script caught up. -->
+  <script>
+    (function () {
+      try {
+        var saved = window.localStorage.getItem("theme");
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var theme = saved === "light" || saved === "dark" ? saved : (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    }());
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.url == '/' %}{{ site.title }}{% elsif page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | truncatewords: 50 }}">

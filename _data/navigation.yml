@@ -1,8 +1,8 @@
 # main links
 main:
-  - title: "About Me"
+  - title: "Home"
     url: /
-    icon: "fa-solid fa-user"
+    icon: "fa-solid fa-house"
   - title: "Research"
     url: /research/
     icon: "fa-solid fa-compass"

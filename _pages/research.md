@@ -19,7 +19,6 @@ body_class: "research-profile-page"
 </div>
 
 ## Recognition
-{: data-section-label="01"}
 
 <div class="award-grid recognition-grid">
   <div><strong>Highly Cited Researcher</strong><span>Web of Science, 2026</span></div>
