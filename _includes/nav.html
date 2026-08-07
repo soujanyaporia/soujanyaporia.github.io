@@ -1,8 +1,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="site-title" href="{{ '/' | relative_url }}">
-      <img class="site-logo theme-logo-light" src="{{ '/assets/declare-core/brand/logos/declare-icon-light.svg' | relative_url }}" alt="">
-      <img class="site-logo theme-logo-dark" src="{{ '/assets/declare-core/brand/logos/declare-icon-dark.svg' | relative_url }}" alt="">
+      {% include brand/logo-icon.html class="site-logo" %}
       <span>{{ site.title }}</span>
     </a>
     <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">
