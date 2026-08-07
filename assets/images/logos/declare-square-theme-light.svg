@@ -34,12 +34,23 @@
     <rect x="41.3" y="63.7" width="14.6" height="11.8" fill="#fff"/>
     <rect x="34.1" y="167.5" width="121.3" height="20.7" fill="#fff"/>
     <rect x="52.1" y="106.2" width="85.3" height="53.9" fill="#fff"/>
-    <rect x="59.3" y="113.4" width="70.9" height="24" fill="#000"/>
-    <rect x="59.3" y="144.6" width="70.9" height="8.3" fill="#000"/>
+    <!-- chest panel: one tall cut-out carrying the circuit board -->
+    <rect x="59.3" y="113.4" width="70.9" height="39.5" fill="#000"/>
     <rect x="84" y="9.9" width="13.7" height="20.7" transform="matrix(0.9301 -0.3673 0.3673 0.9301 -1.0708 34.7719)" fill="#fff"/>
     <path clip-path="url(#robot-antenna-clip)" fill="none" stroke="#000" stroke-width="6" d="M73.9,12.4c3.4,1.8,6.5,4.4,9.3,7.5c2.9,3.3,5.3,7.2,5.8,11.7"/>
     <rect x="34.1" y="24.6" width="121.3" height="43.4" fill="#fff"/>
     <rect x="41.3" y="31.8" width="106.9" height="36.6" fill="#000"/>
+    <!-- Circuit board, display cut.  Two mirrored Z-traces: one enters from
+         the left wall and steps down to a terminal node on the right, the other
+         enters from the right wall and steps up to a node on the left, so the
+         pair is rotationally symmetric about the panel centre.  Stroke 6 against
+         the 7.2 walls keeps the board subordinate to the silhouette. -->
+    <g stroke="#fff" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter" fill="none">
+      <path d="M59.3 121H88l10 10h16"/>
+      <path d="M130.2 145H101l-10-10H75"/>
+    </g>
+    <circle cx="114" cy="131" r="7" fill="#fff"/>
+    <circle cx="75" cy="135" r="7" fill="#fff"/>
   </mask>
   <g id="robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#robot-knockout)"/>
