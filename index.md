@@ -8,7 +8,7 @@ title: ""
 <section class="home-hero">
   <p class="eyebrow profile-eyebrow">Associate Professor · EEE · NTU Singapore</p>
   <h1 class="hero-greeting-name">
-    <span class="hero-greeting-intro"><span lang="bn">নমস্কার</span> <span aria-hidden="true">—</span> I am</span>
+    <span class="hero-greeting-intro"><span lang="bn">নমস্কার</span> <span aria-hidden="true">·</span> I am</span>
     <span class="hero-name-primary">Soujanya Poria</span>
     <span class="hero-native-name" lang="bn">সৌজন্য পড়িয়া</span>
   </h1>

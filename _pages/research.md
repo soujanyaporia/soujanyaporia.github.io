@@ -8,7 +8,7 @@ body_class: "research-profile-page"
 ---
 
 <div class="research-profile-intro">
-  <p>I work across the six research themes of the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> — Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI. My own current focus is <strong>memory for AI agents</strong>, <strong>efficient and reliable multi-agent systems</strong>, and <strong>reasoning</strong>.</p>
+  <p>I work across the six research themes of the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a>: Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI. My own current focus is <strong>memory for AI agents</strong>, <strong>efficient and reliable multi-agent systems</strong>, and <strong>reasoning</strong>.</p>
   <p>Earlier work centred on <strong>multimodal representation learning</strong>, <strong>affective computing</strong>, and <strong>sentiment analysis</strong>.</p>
   <p class="research-foundation-links"><span>Foundational work</span><a href="https://aclanthology.org/2020.findings-emnlp.224/">COSMIC</a><a href="https://aclanthology.org/D19-1015/">DialogueGCN</a><a href="https://ojs.aaai.org/index.php/AAAI/article/view/4657">DialogueRNN</a><a href="https://aclanthology.org/P19-1050/">MELD</a><a href="https://dl.acm.org/doi/10.1145/3394171.3413678">MISA</a><a href="https://aclanthology.org/2021.emnlp-main.723/">Multimodal-Infomax</a><a href="https://aclanthology.org/D17-1115/">Tensor Fusion Network</a></p>
   <div class="research-profile-actions">
