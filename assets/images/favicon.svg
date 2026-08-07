@@ -41,13 +41,17 @@
     <rect x="34.1" y="24.6" width="7.2" height="43.4" fill="#fff"/>
     <rect x="148.2" y="24.6" width="7.2" height="43.4" fill="#fff"/>
     <rect x="41.3" y="31.8" width="106.9" height="36.6" fill="#000"/>
-    <!-- Circuit board, small cut.  One trace at wall weight.  Below ~32 px
-         the panel is about 7 px tall; two thin traces silt up into grey, while a
-         single heavy trace and node still resolve. -->
-    <g stroke="#fff" stroke-width="7.5" stroke-linecap="butt" stroke-linejoin="miter" fill="none">
-      <path d="M59.3 128H92l10 10h10"/>
+    <!-- Circuit board, display cut.  Two mirrored Z-traces: one enters from
+         the left wall and steps down to a terminal node on the right, the other
+         enters from the right wall and steps up to a node on the left, so the
+         pair is rotationally symmetric about the panel centre.  Stroke 6 against
+         the 7.2 walls keeps the board subordinate to the silhouette. -->
+    <g stroke="#fff" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter" fill="none">
+      <path d="M59.3 121H88l10 10h16"/>
+      <path d="M130.2 145H101l-10-10H75"/>
     </g>
-    <circle cx="112" cy="138" r="8.5" fill="#fff"/>
+    <circle cx="114" cy="131" r="7" fill="#fff"/>
+    <circle cx="75" cy="135" r="7" fill="#fff"/>
   </mask>
   <g id="robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#robot-knockout)"/>
