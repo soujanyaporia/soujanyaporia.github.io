@@ -6,7 +6,7 @@
 <desc id="desc">The DeCLaRe robot mascot with circular green eye and angular red eye.</desc>
 <style type="text/css">
   /* DeCLaRe identity: wordmark purple #7C3AED; green eye
-     #34A853; red angular eye #EB4336. */
+     #1C9444; red angular eye #E22D39. */
   /* Classic robot: one themeable silhouette (currentColor) with interior detail
      carved out via #robot-knockout. */
   .theme { fill: currentColor; font-family: Arial, Helvetica, sans-serif; font-size: 25px; font-weight: 500; letter-spacing: .2px; }
@@ -55,11 +55,11 @@
   </mask>
   <g id="robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#robot-knockout)"/>
-    <circle cx="72.5" cy="52.5" r="12.9" fill="#34A853"/>
+    <circle cx="72.5" cy="52.5" r="12.9" fill="#1C9444"/>
     <!-- Angular eye as two filled rectangles (matching the head's wall logic):
          a horizontal bar and a diagonal bar sharing a vertical left edge, so
          their intersection reads as a clean square corner, not a beveled cut. -->
-    <g fill="#EB4336"><rect x="103.72" y="57.2" width="26.18" height="5.4"/><rect x="0" y="-5.4" width="27" height="5.4" transform="translate(103.72 62.6) rotate(-35.3)"/></g>
+    <g fill="#E22D39"><rect x="103.72" y="57.2" width="26.18" height="5.4"/><rect x="0" y="-5.4" width="27" height="5.4" transform="translate(103.72 62.6) rotate(-35.3)"/></g>
   </g>
   
 </defs>
