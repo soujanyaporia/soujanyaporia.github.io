@@ -2,7 +2,156 @@
 # Fields: title, authors, venue, year
 # Optional: publication_url, scholar_url, pdf, abstract, code, project, categories
 
+- title: 'ScrambleToolBench: Agents Search Exhaustively Even When Their Own Map Points to the Next Step'
+  authors: "V Toh, N Majumder, Z Liu, NF Chen, S Poria"
+  venue: 'arXiv preprint arXiv:2608.02358'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=ScrambleToolBench%3A+Agents+Search+Exhaustively+Even+When+Their+Own+Map+Points+to+the+Next+Step'
+  publication_url: 'https://arxiv.org/abs/2608.02358'
+  pdf: 'https://arxiv.org/pdf/2608.02358'
+  categories:
+    - 'Agentic AI'
+    - 'Evaluation'
+    - 'Reasoning'
+  abstract: |
+    ScrambleToolBench evaluates whether agents can discover the behavior of unfamiliar tools through
+    interaction rather than semantic tool descriptions. The benchmark introduces changing mappings,
+    stochastic failures, and time-sensitive actions. Current models often fall back to exhaustive
+    search even after their own observations reveal a more efficient strategy.
+
+- title: 'Σ-Mem: An Online Reliability Memory for LLM-based Multi-Agent Systems'
+  authors: "P Feng, S Yang, S Poria"
+  venue: 'arXiv preprint arXiv:2607.27958'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=Sigma-Mem%3A+An+Online+Reliability+Memory+for+LLM-based+Multi-Agent+Systems'
+  publication_url: 'https://arxiv.org/abs/2607.27958'
+  pdf: 'https://arxiv.org/pdf/2607.27958'
+  categories:
+    - 'Agentic AI'
+    - 'Reasoning'
+    - 'Trustworthiness'
+  abstract: |
+    Σ-Mem gives multi-agent systems an online memory of which peers have been reliable, and under what
+    conditions. It maintains competence and relationship evidence that can steer a central model,
+    route queries, or weight votes without retraining the underlying agents. The memory adapts as new
+    correctness feedback arrives and generalizes to unseen peers and tasks.
+
+- title: 'IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation'
+  authors: "V Gumma, N Majumder, S Sinhahajari, S Poria"
+  venue: 'arXiv preprint arXiv:2607.22375'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=IDEAgent%3A+Agentic+Quality-Diversity+Search+for+Research+Idea+Generation'
+  publication_url: 'https://arxiv.org/abs/2607.22375'
+  pdf: 'https://arxiv.org/pdf/2607.22375'
+  code: 'https://github.com/declare-lab/IDEAgent'
+  categories:
+    - 'AI for Science'
+    - 'Agentic AI'
+    - 'Hypothesis Discovery'
+  abstract: |
+    IDEAgent treats scientific ideation as a quality-diversity search rather than optimizing isolated
+    ideas. A multi-agent process repairs and refines ideas while tracking their lineages and comparing
+    them with accepted, rejected, and ancestral proposals. Its Yield metric measures how many ideas in
+    a set are both sufficiently strong and meaningfully distinct.
+
+- title: 'On the Limits of LLM-as-Judge for Scientific Novelty Assessment'
+  authors: "S Sinhahajari, N Majumder, S Poria"
+  venue: 'arXiv preprint arXiv:2606.12071'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=On+the+Limits+of+LLM-as-Judge+for+Scientific+Novelty+Assessment'
+  publication_url: 'https://arxiv.org/abs/2606.12071'
+  pdf: 'https://arxiv.org/pdf/2606.12071'
+  project: 'https://huggingface.co/datasets/declare-lab/rq-bench'
+  categories:
+    - 'AI for Science'
+    - 'Evaluation'
+    - 'Trustworthiness'
+  abstract: |
+    RQ-Bench tests whether language models can judge the novelty of scientific research questions.
+    Questions reconstructed from real papers provide author-grounded references for comparison.
+    Whereas model judges tend to favor model-generated questions, domain experts more often prefer the
+    questions pursued by the original authors, exposing a systematic novelty mirage.
+
+- title: 'GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards'
+  authors: "TD Pala, V Toh, S Poria"
+  venue: 'arXiv preprint arXiv:2606.04889'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=GRAIL%3A+Gradient-Reweighted+Advantages+for+Reinforcement+Learning+with+Verifiable+Rewards'
+  publication_url: 'https://arxiv.org/abs/2606.04889'
+  pdf: 'https://arxiv.org/pdf/2606.04889'
+  code: 'https://github.com/declare-lab/grail'
+  categories:
+    - 'Alignment'
+    - 'ML Efficiency'
+    - 'Reasoning'
+  abstract: |
+    GRAIL improves reinforcement learning with verifiable rewards by assigning token-level credit from
+    gradient-activation saliency. This gives pivotal reasoning tokens more influence than filler or
+    flawed steps without requiring a separate process reward model. Across several model families and
+    mathematical reasoning benchmarks, it improves both accuracy and pass-rate measures over GRPO.
+
+- title: 'Beyond What to Select: A Plug-and-play Oscillatory Data-Volume Scheduling for Efficient Model Training'
+  authors: "S Yang, H Zhu, H Gan, F Su, G Li, F Shen, S Poria"
+  venue: 'arXiv preprint arXiv:2605.14773'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=Beyond+What+to+Select%3A+A+Plug-and-play+Oscillatory+Data-Volume+Scheduling+for+Efficient+Model+Training'
+  publication_url: 'https://arxiv.org/abs/2605.14773'
+  pdf: 'https://arxiv.org/pdf/2605.14773'
+  categories:
+    - 'ML Efficiency'
+  abstract: |
+    Data selection accelerates training by identifying representative training data while preserving
+    model performance. However, most methods focus on what to select while keeping the selected data
+    volume fixed throughout training. We revisit data selection from an optimization perspective and
+    show that selected-data training induces an implicit regularization effect modulated by the
+    instantaneous selection ratio. Motivated by this observation, we propose PODS, a plug-and-play
+    oscillatory data-volume scheduling framework that alternates between low-ratio regularization
+    phases and high-ratio recovery phases under the same target data budget. PODS is compatible with
+    existing static and dynamic selection methods and improves the efficiency-generalization trade-off
+    across vision and language-model training settings, including ImageNet-1k and LLM instruction tuning.
+
+- title: 'δ-mem: Efficient Online Memory for Large Language Models'
+  authors: "J Lei, D Zhang, J Li, W Wang, K Fan, X Liu, Q Liu, X Ma, B Chen, S Poria"
+  venue: 'arXiv preprint arXiv:2605.12357'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=delta-mem%3A+Efficient+Online+Memory+for+Large+Language+Models'
+  publication_url: 'https://arxiv.org/abs/2605.12357'
+  pdf: 'https://arxiv.org/pdf/2605.12357'
+  code: 'https://github.com/declare-lab/delta-Mem'
+  categories:
+    - 'ML Efficiency'
+    - 'Reasoning'
+    - 'Long Context'
+  abstract: |
+    Large language models increasingly need to accumulate and reuse historical information in long-term
+    assistants and agent systems. Simply expanding the context window is costly and often fails to
+    ensure effective context utilization. We propose δ-mem, a lightweight memory mechanism that augments
+    a frozen full-attention backbone with a compact online state of associative memory. δ-mem compresses
+    past information into a fixed-size state matrix updated by delta-rule learning, and uses its readout
+    to generate low-rank corrections to the backbone's attention computation during generation. With
+    only an 8 x 8 online memory state, δ-mem improves the average score to 1.10x that of the frozen
+    backbone and 1.15x that of the strongest non-δ-mem memory baseline. It achieves larger gains on
+    memory-heavy benchmarks, reaching 1.31x on MemoryAgentBench and 1.20x on LoCoMo, while largely
+    preserving general capabilities.
+
+- title: 'Post Reasoning: Improving the Performance of Non-Thinking Models at No Cost'
+  authors: "R Sin Jing Xuan, R Bhardwaj, S Poria"
+  venue: 'arXiv preprint arXiv:2605.06165'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=Post+Reasoning%3A+Improving+the+Performance+of+Non-Thinking+Models+at+No+Cost'
+  publication_url: 'https://arxiv.org/abs/2605.06165'
+  pdf: 'https://arxiv.org/pdf/2605.06165'
+  categories:
+    - 'ML Efficiency'
+    - 'Reasoning'
+  abstract: |
+    Post-Reasoning asks a model to justify an answer after producing it, so the answer itself is
+    available without additional reasoning latency. The same ordering can be learned through
+    supervised tuning. Experiments across model families and reasoning benchmarks show consistent
+    gains over direct answering while retaining direct-answer inference cost.
+
 - title: Tracking the Evolution of Multimodal Reasoning on Visual Puzzles
+  scholar_title: 'The Jumping Reasoning Curve? Tracking the Evolution of Reasoning Performance in GPT-[n] and o-[n] Models on Multimodal Puzzles'
   authors: "V Toh, YK Chia, D Ghosal, S Poria"
   venue: Logical and Symbolic Reasoning in Language Models @ AAAI 2026
   year: 2026
@@ -35,6 +184,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Tangoflux%3A+Super+fast+and+faithful+text+to+audio+generation+with+flow+matching+and+clap-ranked+preference+optimization'
   publication_url: 'https://arxiv.org/abs/2412.21037'
   pdf: 'https://arxiv.org/pdf/2412.21037?'
+  code: 'https://github.com/declare-lab/TangoFlux'
   categories:
     - 'Alignment'
     - 'GenAI'
@@ -253,6 +403,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Data+Agent%3A+Learning+to+Select+Data+via+End-to-End+Dynamic+Optimization'
   publication_url: 'https://arxiv.org/abs/2603.07433'
   pdf: 'https://arxiv.org/pdf/2603.07433'
+  code: 'https://github.com/Jackbrocp/Data-Agent'
   categories:
     - 'Agentic AI'
   abstract: |
@@ -587,6 +738,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Nora%3A+A+small+open-sourced+generalist+vision+language+action+model+for+embodied+tasks'
   publication_url: 'https://arxiv.org/abs/2504.19854'
   pdf: 'https://arxiv.org/pdf/2504.19854?'
+  code: 'https://github.com/declare-lab/nora'
   categories:
     - 'Embodied AI'
     - 'Multimodality'
@@ -660,6 +812,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=MOOSE-Chem%3A+Large+Language+Models+for+Rediscovering+Unseen+Chemistry+Scientific+Hypotheses'
   publication_url: 'https://proceedings.iclr.cc/paper_files/paper/2025/hash/51fd9a7d1706023cb9f8210cc6ac357c-Abstract-Conference.html'
   pdf: 'https://proceedings.iclr.cc/paper_files/paper/2025/file/51fd9a7d1706023cb9f8210cc6ac357c-Paper-Conference.pdf'
+  code: 'https://github.com/ZonglinY/MOOSE-Chem'
   categories:
     - 'Agentic AI'
     - 'Hypothesis Discovery'
@@ -710,6 +863,7 @@
   scholar_url: 'https://scholar.google.com/scholar?q=Measuring+and+Enhancing+Trustworthiness+of+LLMs+in+RAG+through+Grounded+Attributions+and+Learning+to+Refuse'
   publication_url: 'https://proceedings.iclr.cc/paper_files/paper/2025/hash/4c88827decab6c046b881a2c3a99c76f-Abstract-Conference.html'
   pdf: 'https://proceedings.iclr.cc/paper_files/paper/2025/file/4c88827decab6c046b881a2c3a99c76f-Paper-Conference.pdf'
+  code: 'https://github.com/declare-lab/trust-align'
   categories:
     - 'RAG'
     - 'Trustworthiness'
@@ -939,6 +1093,7 @@
     demographics, thereby violating AI and finance regulations.
 
 - title: 'Error-Free Linear Attention is a Free Lunch: Exact Solution from Continuous-Time Dynamics'
+  scholar_title: 'Exact Flow Linear Attention: Exact Solution from Continuous-Time Dynamics'
   authors: "J Lei, D Zhang, S Poria"
   venue: 'arXiv preprint arXiv:2512.12602'
   year: 2025
@@ -1711,27 +1866,6 @@
     (AlpacaEval, GSM8K, MBPP), DELLA shows an average improvement of 2.4 points over baseline methods
     employing delta parameter pruning (an improvement of 3.6 points over TIES, 1.2 points over DARE),
     and 11.1 points over the no-pruning baseline (TA). We release the source code at: this https URL.
-
-- title: Content extraction based on hop distance within a graph model
-  authors: "Y Dong, Y Deng, J Zhang, F Gelli, T Lin, Y Zhuo, H Wang, S Poria"
-  venue: US Patent App. 17/983,908
-  year: 2024
-  scholar_url: 'https://scholar.google.com/scholar?q=Content+extraction+based+on+hop+distance+within+a+graph+model'
-  publication_url: 'https://patents.google.com/patent/US12277788B2/en'
-  categories:
-    - 'Document AI'
-  abstract: |
-    A method of categorizing text entries on a document can include determining, for each of a
-    plurality of text bounding boxes in the document, respective text, respective coordinates, and
-    respective input embeddings. The method may further include defining a graph of the plurality of
-    bounding boxes, the graph comprising a plurality of connections among the plurality of bounding
-    boxes, each connection comprising a first and second bounding box and zero or more respective
-    intermediate bounding boxes. The method may further include determining a respective attention value
-    for each connection according to a quantity of intermediate bounding boxes in the connection and,
-    based on the respective attention values and a transformer-based machine learning model applied to
-    the respective input embeddings and respective coordinates, determining output embeddings for each
-    bounding box and, based on the respective output embeddings, generating a bounding box label for
-    each bounding box.
 
 - title: Consistency Guided Knowledge Retrieval and Denoising in LLMs for Zero-shot Document-level Relation Triplet Extraction
   authors: "Q Sun, K Huang, X Yang, R Tong, K Zhang, S Poria"

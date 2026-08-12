@@ -1,0 +1,993 @@
+---
+profile_url: https://scholar.google.com/citations?user=oS6gRc4AAAAJ&hl=en
+profile_citations: 48380
+last_verified: '2026-08-12'
+publication_count: 212
+matched_publications: 209
+coverage: 0.9858
+papers:
+  'ScrambleToolBench: Agents Search Exhaustively Even When Their Own Map Points to the Next Step':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Vztgr1qGG8IC
+    scholar_title: 'ScrambleToolBench: Agents Search Exhaustively Even When Their
+      Own Map Points to the Next Step'
+  'Σ-Mem: An Online Reliability Memory for LLM-based Multi-Agent Systems':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:hefNtdE4IMkC
+    scholar_title: "-Mem: An Online Reliability Memory for LLM-based Multi-Agent Systems"
+  'IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:c1AJUTjuCtUC
+    scholar_title: 'IDEAgent: Agentic Quality-Diversity Search for Research Idea Generation'
+  On the Limits of LLM-as-Judge for Scientific Novelty Assessment:
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:AFmTUeZ1pmEC
+    scholar_title: On the Limits of LLM-as-Judge for Scientific Novelty Assessment
+  'GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning with Verifiable Rewards':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:qCpRzq7zkD8C
+    scholar_title: 'GRAIL: Gradient-Reweighted Advantages for Reinforcement Learning
+      with Verifiable Rewards'
+  'Beyond What to Select: A Plug-and-play Oscillatory Data-Volume Scheduling for Efficient Model Training':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:sgsej9ZJWHMC
+    scholar_title: 'Beyond What to Select: A Plug-and-play Oscillatory Data-Volume
+      Scheduling for Efficient Model Training'
+  'δ-mem: Efficient Online Memory for Large Language Models':
+    citations: 5
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:j5aT6aphRxQC
+    scholar_title: "\U0001D6FF-mem: Efficient online memory for large language models"
+  'Post Reasoning: Improving the Performance of Non-Thinking Models at No Cost':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:gV6rEsy15s0C
+    scholar_title: 'Post Reasoning: Improving the Performance of Non-Thinking Models
+      at No Cost'
+  Tracking the Evolution of Multimodal Reasoning on Visual Puzzles:
+    citations: 10
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:J3LtWjKFLicC
+    scholar_title: The jumping reasoning curve? tracking the evolution of reasoning
+      performance in gpt-[n] and o-[n] models on multimodal puzzles
+  'Tangoflux: Super fast and faithful text to audio generation with flow matching and clap-ranked preference optimization':
+    citations: 89
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:BAanoTsO0WEC
+    scholar_title: 'Tangoflux: Super fast and faithful text to audio generation with
+      flow matching and clap-ranked preference optimization'
+  'Stacked from One: Multi-Scale Self-Injection for Context Window Extension':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:l6Q3WhenKVUC
+    scholar_title: 'Stacked from One: Multi-Scale Self-Injection for Context Window
+      Extension'
+  'OffTopicEval: When Large Language Models Enter the Wrong Chat, Almost Always!':
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:X4-KO54GjGYC
+    scholar_title: 'OffTopicEval: When Large Language Models Enter the Wrong Chat,
+      Almost Always!'
+  'LLMs Can''t Handle Peer Pressure: Crumbling under Multi-Agent Social Interactions':
+    citations: 14
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:BJtnxTr0fRcC
+    scholar_title: 'LLMs Can''t Handle Peer Pressure: Crumbling under Multi-Agent
+      Social Interactions'
+  LLM Alignment should go beyond Harmlessness–Helpfulness and incorporate Human Agency:
+    citations: 3
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:bXQfdp6S9ecC
+    scholar_title: LLM Alignment should go beyond Harmlessness–Helpfulness and incorporate
+      Human Agency
+  'From Perception to Action: An Interactive Benchmark for Vision Reasoning':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:lK9BDNCuzFgC
+    scholar_title: 'From Perception to Action: An Interactive Benchmark for Vision
+      Reasoning'
+  'Epistemic Context Learning: Building Trust the Right Way in LLM-Based Multi-Agent Systems':
+    citations: 6
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:MDX3w3dAD3YC
+    scholar_title: 'Epistemic context learning: Building trust the right way in llm-based
+      multi-agent systems'
+  'Demystifying deep search: a holistic evaluation with hint-free multi-hop questions and factorised metrics':
+    citations: 4
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:SpPTWFSNUtQC
+    scholar_title: 'Demystifying deep search: a holistic evaluation with hint-free
+      multi-hop questions and factorised metrics'
+  'Data Agent: Learning to Select Data via End-to-End Dynamic Optimization':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:oqD4_j7ulsYC
+    scholar_title: 'Data Agent: Learning to Select Data via End-to-End Dynamic Optimization'
+  'Chain-of-Glimpse: Search-Guided Progressive Object-Grounded Reasoning for Video Understanding':
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:u3T1itk59dMC
+    scholar_title: 'Chain-of-Glimpse: Search-Guided Progressive Object-Grounded Reasoning
+      for Video Understanding'
+  10 Open Challenges Steering the Future of Vision-Language-Action Models:
+    citations: 3
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:RfUwGJFMQ-0C
+    scholar_title: 10 Open Challenges Steering the Future of Vision-Language-Action
+      Models
+  'Why AI is weird and should not be this way: Towards AI for everyone, with everyone, by everyone':
+    citations: 72
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:lbI08cpqPnQC
+    scholar_title: 'Why ai is weird and should not be this way: Towards ai for everyone,
+      with everyone, by everyone'
+  'Training vision-language process reward models for test-time scaling in multimodal reasoning: Key insights and lessons learned':
+    citations: 12
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:hHIA4WEVY-EC
+    scholar_title: 'Training vision-language process reward models for test-time scaling
+      in multimodal reasoning: Key insights and lessons learned'
+  Toward robust multimodal sentiment analysis using multimodal foundational models:
+    citations: 28
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:cBPnxVikjH8C
+    scholar_title: Toward robust multimodal sentiment analysis using multimodal foundational
+      models
+  The jumping reasoning curve? Tracking the evolution of reasoning performance in GPT-[n] and o-[n] models on multimodal puzzles:
+    citations: 10
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:J3LtWjKFLicC
+    scholar_title: The jumping reasoning curve? tracking the evolution of reasoning
+      performance in gpt-[n] and o-[n] models on multimodal puzzles
+  The ACM Multimedia 2025 Grand Challenge of Multimodal Conversational Aspect-based Sentiment Analysis:
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:e84hm74t-eoC
+    scholar_title: The acm multimedia 2025 grand challenge of multimodal conversational
+      aspect-based sentiment analysis
+  Reward-Guided Tree Search for Inference Time Alignment of Large Language Models:
+    citations: 12
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:60iIaj97TE0C
+    scholar_title: Reward-guided tree search for inference time alignment of large
+      language models
+  'PromptDistill: Query-based Selective Token Retention in Intermediate Layers for Efficient Large Language Model Inference':
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:3lUAU8Oskd0C
+    scholar_title: 'PromptDistill: Query-based Selective Token Retention in Intermediate
+      Layers for Efficient Large Language Model Inference'
+  'PROEMO: Prompt-driven text-to-speech synthesis based on emotion and intensity control':
+    citations: 8
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:PuOEWVtPfzwC
+    scholar_title: 'Proemo: Prompt-driven text-to-speech synthesis based on emotion
+      and intensity control'
+  'PREMISE: Matching-based Prediction for Accurate Review Recommendation':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:E7VqQtBCVmcC
+    scholar_title: 'PREMISE: Matching-based Prediction for Accurate Review Recommendation'
+  Pixel-level reasoning segmentation via multi-turn conversations:
+    citations: 8
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:aDl3D7KC1E4C
+    scholar_title: Pixel-level reasoning segmentation via multi-turn conversations
+  Not all votes count! Translated program for verification improves self-consistency of language models for math reasoning:
+    citations: 9
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Kqc1aDSOPooC
+    scholar_title: Not all votes count! translated program for verification improves
+      self-consistency of language models for math reasoning
+  'Nora: A small open-sourced generalist vision language action model for embodied tasks':
+    citations: 99
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:QaSi33NTfwYC
+    scholar_title: 'Nora: A small open-sourced generalist vision language action model
+      for embodied tasks'
+  'Nora-1.5: A vision-language-action model trained using world model-and action-based preference rewards':
+    citations: 26
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:qsWQJNntlusC
+    scholar_title: 'Nora-1.5: A vision-language-action model trained using world model-and
+      action-based preference rewards'
+  Multimodal analysis combining monitoring modalities to elicit cognitive states and perform screening for mental disorders:
+    citations: 5
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:NxmKEeNBbOMC
+    scholar_title: Multimodal analysis combining monitoring modalities to elicit cognitive
+      states and perform screening for mental disorders
+  'MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry Scientific Hypotheses':
+    citations: 107
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:U0iAMwwPxtsC
+    scholar_title: 'MOOSE-Chem: Large Language Models for Rediscovering Unseen Chemistry
+      Scientific Hypotheses'
+  'MM-InstructEval: Zero-shot evaluation of (Multimodal) Large Language Models on multimodal reasoning tasks':
+    citations: 66
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Y0-TYkg6YM4C
+    scholar_title: 'MM-InstructEval: Zero-shot evaluation of (Multimodal) Large Language
+      Models on multimodal reasoning tasks'
+  Measuring and Enhancing Trustworthiness of LLMs in RAG through Grounded Attributions and Learning to Refuse:
+    citations: 46
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:VRfTbSk87rEC
+    scholar_title: Measuring and Enhancing Trustworthiness of LLMs in RAG through
+      Grounded Attributions and Learning to Refuse
+  'M-longdoc: A benchmark for multimodal super-long document understanding and a retrieval-aware tuning framework':
+    citations: 48
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:6ZzL7HXColQC
+    scholar_title: 'M-longdoc: A benchmark for multimodal super-long document understanding
+      and a retrieval-aware tuning framework'
+  'Libra-leaderboard: Towards responsible AI through a balanced leaderboard of safety and capability':
+    citations: 10
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:eH23hyXCXa4C
+    scholar_title: 'Libra-leaderboard: Towards responsible ai through a balanced leaderboard
+      of safety and capability'
+  Lessons from Training Grounded LLMs with Verifiable Rewards:
+    citations: 4
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:NtCmTCuxid4C
+    scholar_title: Lessons from Training Grounded LLMs with Verifiable Rewards
+  'JAM: A Tiny Flow-based Song Generator with Fine-grained Controllability and Aesthetic Alignment':
+    citations: 11
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:rbGdIwl2e6cC
+    scholar_title: 'Jam: A tiny flow-based song generator with fine-grained controllability
+      and aesthetic alignment'
+  Harnessing large language models for scientific novelty detection:
+    citations: 8
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:q0uBw5dMOAkC
+    scholar_title: Harnessing large language models for scientific novelty detection
+  'From grounding to manipulation: Case studies of foundation model integration in embodied robotic systems':
+    citations: 6
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:JH5k92_tO-AC
+    scholar_title: 'From grounding to manipulation: Case studies of foundation model
+      integration in embodied robotic systems'
+  'Ferret: Faster and effective automated red teaming with reward-based scoring technique':
+    citations: 11
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:R22Rs3tN8aoC
+    scholar_title: 'Ferret: Faster and effective automated red teaming with reward-based
+      scoring technique'
+  Evaluating LLMs' Mathematical and Coding Competency through Ontology-guided Interventions:
+    citations: 36
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:DXE8ND7PrJAC
+    scholar_title: Evaluating LLMs’ Mathematical and Coding Competency through Ontology-guided
+      Interventions
+  'Evaluating AI for Finance: Is AI Credible at Assessing Investment Risk Appetite?':
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:V_vSwabWVtYC
+    scholar_title: 'Evaluating AI for Finance: Is AI Credible at Assessing Investment
+      Risk Appetite?'
+  'Error-Free Linear Attention is a Free Lunch: Exact Solution from Continuous-Time Dynamics':
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:X5YyAB84Iw4C
+    scholar_title: 'Exact Flow Linear Attention: Exact Solution from Continuous-Time
+      Dynamics'
+  'Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision':
+    citations: 10
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:h168fVGZblEC
+    scholar_title: 'Error Typing for Smarter Rewards: Improving Process Reward Models
+      with Error-Aware Hierarchical Supervision'
+  'Emma-x: An embodied multimodal action model with grounded chain of thought and look-ahead spatial reasoning':
+    citations: 50
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:XDrR66g3YHsC
+    scholar_title: 'Emma-x: An embodied multimodal action model with grounded chain
+      of thought and look-ahead spatial reasoning'
+  'DiffPO: Diffusion-styled Preference Optimization for Inference Time Alignment of Large Language Models':
+    citations: 18
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:WzTVkKNmPSkC
+    scholar_title: 'DiffPO: Diffusion-styled preference optimization for inference
+      time alignment of large language models'
+  ? 'DialogXpert: Driving Intelligent and Emotion-Aware Conversations through Online
+    Value-Based Reinforcement Learning with LLM Priors'
+  : citations: 7
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:v_tt_AnqfNMC
+    scholar_title: 'DialogXpert: Driving Intelligent and Emotion-Aware Conversations
+      through Online Value-Based Reinforcement Learning with LLM Priors'
+  Content extraction based on hop distance within a graph model:
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:9NZAP19TdFAC
+    scholar_title: Content extraction based on hop distance within a graph model
+  Are Language Models Puzzle Prodigies? Algorithmic Puzzles Unveil Serious Challenges in Multimodal Reasoning:
+    citations: 41
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:QoJ_w57xiyAC
+    scholar_title: Are Language Models Puzzle Prodigies? Algorithmic Puzzles Unveil
+      Serious Challenges in Multimodal Reasoning
+  Action-guided prompt tuning for video grounding:
+    citations: 5
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:PlWzFYVEG4EC
+    scholar_title: Action-guided prompt tuning for video grounding
+  'Walledeval: A comprehensive safety evaluation toolkit for large language models':
+    citations: 33
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:aEW5N-EHWIMC
+    scholar_title: 'Walledeval: A comprehensive safety evaluation toolkit for large
+      language models'
+  'Video2music: Suitable music generation from videos using an affective multimodal transformer model':
+    citations: 110
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:PQEM9vzQD9gC
+    scholar_title: 'Video2music: Suitable music generation from videos using an affective
+      multimodal transformer model'
+  Understanding, Leveraging, and Improving Large Language Models:
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:In6cVmBjs0IC
+    scholar_title: Understanding, Leveraging, and Improving Large Language Models
+  Understanding the Capabilities and Limitations of Large Language Models for Cultural Commonsense:
+    citations: 93
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:L24QuVWYgZ0C
+    scholar_title: Understanding the Capabilities and Limitations of Large Language
+      Models for Cultural Commonsense
+  'Two are better than one: Context window extension with multi-grained self-injection':
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:g8uWPOAv7ggC
+    scholar_title: 'Two are better than one: Context window extension with multi-grained
+      self-injection'
+  Towards robust instruction tuning on multimodal large language models:
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:KI9T_ytC6pkC
+    scholar_title: Towards robust instruction tuning on multimodal large language
+      models
+  'Tango 2: Aligning diffusion-based text-to-audio generations through direct preference optimization':
+    citations: 203
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:7H_jS4BsgvYC
+    scholar_title: 'Tango 2: Aligning diffusion-based text-to-audio generations through
+      direct preference optimization'
+  'Sowing the wind, reaping the whirlwind: The impact of editing language models':
+    citations: 20
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:orDZ08hpP44C
+    scholar_title: 'Sowing the wind, reaping the whirlwind: The impact of editing
+      language models'
+  Self-adaptive sampling for accurate video question answering on image text models:
+    citations: 17
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:TesyEGJKHF4C
+    scholar_title: Self-adaptive sampling for accurate video question answering on
+      image text models
+  'Safety Arithmetic: A Framework for Test-time Safety Alignment of Language Models by Steering Parameters and Activations':
+    citations: 32
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:rOcdG6UcVlcC
+    scholar_title: 'Safety Arithmetic: A Framework for Test-time Safety Alignment
+      of Language Models by Steering Parameters and Activations'
+  'Ruby teaming: Improving quality diversity search with memory for automated red teaming':
+    citations: 12
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:xGWFX6Gbr9MC
+    scholar_title: 'Ruby teaming: Improving quality diversity search with memory for
+      automated red teaming'
+  'Reasoning Paths Optimization: Learning to Reason and Explore From Diverse Paths':
+    citations: 7
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:kUhpeDhEZMUC
+    scholar_title: 'Reasoning Paths Optimization: Learning to Reason and Explore From
+      Diverse Paths'
+  'PuzzleVQA: Diagnosing Multimodal Reasoning Challenges of Language Models with Abstract Visual Patterns':
+    citations: 83
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:x21FZCSn4ZoC
+    scholar_title: 'PuzzleVQA: Diagnosing Multimodal Reasoning Challenges of Language
+      Models with Abstract Visual Patterns'
+  'PanoSent: A Panoptic Sextuple Extraction Benchmark for Multimodal Conversational Aspect-based Sentiment Analysis':
+    citations: 59
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:9shLKfS_uJEC
+    scholar_title: 'PanoSent: A Panoptic Sextuple Extraction Benchmark for Multimodal
+      Conversational Aspect-based Sentiment Analysis'
+  Lightweight Spatial Modeling for Combinatorial Information Extraction From Documents:
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:c59VksA5Vz4C
+    scholar_title: Lightweight Spatial Modeling for Combinatorial Information Extraction
+      From Documents
+  Leveraging Parameter-Efficient Transfer Learning for Multi-Lingual Text-to-Speech Adaptation:
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:natZJ_-F0IUC
+    scholar_title: Leveraging Parameter-Efficient Transfer Learning for Multi-Lingual
+      Text-to-Speech Adaptation
+  Large language models for automated open-domain scientific hypotheses discovery:
+    citations: 155
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:nPTYJWkExTIC
+    scholar_title: Large language models for automated open-domain scientific hypotheses
+      discovery
+  Language Models are Homer Simpson! Safety Re-Alignment of Fine-tuned Language Models through Task Arithmetic:
+    citations: 140
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:xm0LlTxljI0C
+    scholar_title: Language Models are Homer Simpson! Safety Re-Alignment of Fine-tuned
+      Language Models through Task Arithmetic
+  'InstructEval: Towards holistic evaluation of instruction-tuned large language models':
+    citations: 167
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:m4fbC6XIj1kC
+    scholar_title: 'Instructeval: Towards holistic evaluation of instruction-tuned
+      large language models'
+  'INSTRAUG: Automatic Instruction Augmentation for Multimodal Instruction Fine-tuning':
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:7Frjd3zlGBUC
+    scholar_title: 'INSTRAUG: Automatic Instruction Augmentation for Multimodal Instruction
+      Fine-tuning'
+  Improving text-to-audio models with synthetic captions:
+    citations: 25
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:wyM6WWKXmoIC
+    scholar_title: Improving text-to-audio models with synthetic captions
+  'HyperTTS: Parameter Efficient Adaptation in Text to Speech using Hypernetworks':
+    citations: 6
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:W2uZP3ddy8sC
+    scholar_title: 'HyperTTS: Parameter Efficient Adaptation in Text to Speech using
+      Hypernetworks'
+  'Hate speech detection: A comprehensive review of recent works':
+    citations: 102
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Azgs6IHzeyYC
+    scholar_title: 'Hate speech detection: A comprehensive review of recent works'
+  'Domain-expanded ASTE: Rethinking generalization in aspect sentiment triplet extraction':
+    citations: 11
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:2vr6o8x5NLkC
+    scholar_title: 'Domain-expanded aste: Rethinking generalization in aspect sentiment
+      triplet extraction'
+  'DELLA-Merging: Reducing interference in model merging through magnitude-based sampling':
+    citations: 80
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:YPNY0knpFBYC
+    scholar_title: 'Della-merging: Reducing interference in model merging through
+      magnitude-based sampling'
+  Consistency Guided Knowledge Retrieval and Denoising in LLMs for Zero-shot Document-level Relation Triplet Extraction:
+    citations: 71
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:_tF6a-HnqWAC
+    scholar_title: Consistency Guided Knowledge Retrieval and Denoising in LLMs for
+      Zero-shot Document-level Relation Triplet Extraction
+  'CM-TTS: Enhancing Real Time Text-to-Speech Synthesis Efficiency through Weighted Samplers and Consistency Models':
+    citations: 18
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:FsLZdJ3BAzkC
+    scholar_title: 'CM-TTS: Enhancing Real Time Text-to-Speech Synthesis Efficiency
+      through Weighted Samplers and Consistency Models'
+  'Chain-of-Knowledge: Grounding large language models via dynamic knowledge adapting over heterogeneous sources':
+    citations: 315
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:KS-xo-ZNxMsC
+    scholar_title: 'Chain-of-knowledge: Grounding large language models via dynamic
+      knowledge adapting over heterogeneous sources'
+  Can-do! A dataset and neuro-symbolic grounded framework for embodied planning with large multimodal models:
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Vno172sVVMwC
+    scholar_title: Can-do! a dataset and neuro-symbolic grounded framework for embodied
+      planning with large multimodal models
+  'WikiDes: A Wikipedia-based dataset for generating short descriptions from paragraphs':
+    citations: 18
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:RtRctb2lSbAC
+    scholar_title: 'WikiDes: A Wikipedia-based dataset for generating short descriptions
+      from paragraphs'
+  Uncertainty Guided Label Denoising for Document-level Distant Relation Extraction:
+    citations: 23
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:yY3RG6sOEgwC
+    scholar_title: Uncertainty Guided Label Denoising for Document-level Distant Relation
+      Extraction
+  'UDApter: Efficient Domain Adaptation Using Adapters':
+    citations: 35
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:37UQlXuwjP4C
+    scholar_title: UDApter--Efficient Domain Adaptation Using Adapters
+  Text-to-Audio Generation using Instruction-Tuned LLM and Latent Diffusion Model:
+    citations: 375
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:jmjb1lOE9QIC
+    scholar_title: Text-to-Audio Generation using Instruction-Tuned LLM and Latent
+      Diffusion Model
+  Sentence Embedder Guided Utterance Encoder (SEGUE) for Spoken Language Understanding:
+    citations: 3
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Og1tA8FjbJAC
+    scholar_title: Sentence Embedder Guided Utterance Encoder (SEGUE) for Spoken Language
+      Understanding
+  Red-teaming large language models using chain of utterances for safety-alignment:
+    citations: 286
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:1r-w4gtu6w8C
+    scholar_title: Red-teaming large language models using chain of utterances for
+      safety-alignment
+  'Mustango: Toward controllable text-to-music generation':
+    citations: 184
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:WwIwg2wKZ0QC
+    scholar_title: 'Mustango: Toward controllable text-to-music generation'
+  ? 'Multimodal sentiment analysis: A systematic review of history, datasets, multimodal
+    fusion methods, applications, challenges and future directions'
+  : citations: 996
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:hGdtkIFZdKAC
+    scholar_title: 'Multimodal sentiment analysis: A systematic review of history,
+      datasets, multimodal fusion methods, applications, challenges and future directions'
+  'LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models':
+    citations: 498
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:pQTOvowfQioC
+    scholar_title: 'LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning
+      of Large Language Models'
+  'Language model unalignment: Parametric red-teaming to expose hidden harms and biases':
+    citations: 37
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:M0leSnx2MbUC
+    scholar_title: 'Language model unalignment: Parametric red-teaming to expose hidden
+      harms and biases'
+  'Language guided visual question answering: Elevate your multimodal language model using knowledge-enriched prompts':
+    citations: 25
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:ymY9cBF3mdcC
+    scholar_title: 'Language guided visual question answering: Elevate your multimodal
+      language model using knowledge-enriched prompts'
+  'kNN-CM: A Non-parametric Inference-Phase Adaptation of Parametric Text Classifiers':
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Vr2j17o0sqMC
+    scholar_title: 'kNN-CM: A Non-parametric Inference-Phase Adaptation of Parametric
+      Text Classifiers'
+  'Flacuna: Unleashing the problem solving power of vicuna using flan fine-tuning':
+    citations: 24
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:iyewoVqAXLQC
+    scholar_title: 'Flacuna: Unleashing the problem solving power of vicuna using
+      flan fine-tuning'
+  Few-shot multimodal sentiment analysis based on multimodal probabilistic fusion prompts:
+    citations: 63
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:s85pQhAUCrAC
+    scholar_title: Few-shot multimodal sentiment analysis based on multimodal probabilistic
+      fusion prompts
+  Few-shot joint multimodal aspect-sentiment analysis based on generative multimodal prompt:
+    citations: 58
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:sJPMR1oEGYQC
+    scholar_title: Few-shot joint multimodal aspect-sentiment analysis based on generative
+      multimodal prompt
+  Evaluating parameter-efficient transfer learning approaches on SURE benchmark for speech understanding:
+    citations: 32
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Ic1VZgkJnDsC
+    scholar_title: Evaluating parameter-efficient transfer learning approaches on
+      sure benchmark for speech understanding
+  Dialogue relation extraction with document-level heterogeneous graph attention networks:
+    citations: 71
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:rTD5ala9j4wC
+    scholar_title: Dialogue relation extraction with document-level heterogeneous
+      graph attention networks
+  Contrastive chain-of-thought prompting:
+    citations: 125
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:lg2tdxc6qMwC
+    scholar_title: Contrastive chain-of-thought prompting
+  'ADAPTERMIX: Exploring the Efficacy of Mixture of Adapters for Low-Resource TTS Adaptation':
+    citations: 15
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:eI34FqJmdUoC
+    scholar_title: 'ADAPTERMIX: Exploring the Efficacy of Mixture of Adapters for
+      Low-Resource TTS Adaptation'
+  Adapter Pruning using Tropical Characterization:
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:N4u4nq0IxgcC
+    scholar_title: Adapter Pruning using Tropical Characterization
+  A Robust Information-Masking Approach for Domain Counterfactual Generation:
+    citations: 2
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:4e5Qn2KL_jwC
+    scholar_title: A robust information-masking approach for domain counterfactual
+      generation
+  A Review of Deep Learning Techniques for Speech Processing:
+    citations: 561
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:dAp6zn-oMfAC
+    scholar_title: A Review of Deep Learning Techniques for Speech Processing
+  'A Comprehensive Survey of Sentence Representations: From the BERT Epoch to the ChatGPT Era and Beyond':
+    citations: 42
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:AZju0d2GQJ0C
+    scholar_title: 'A Comprehensive Survey of Sentence Representations: From the BERT
+      Epoch to the ChatGPT Era and Beyond'
+  Vector-Quantized Input-Contextualized Soft Prompts for Natural Language Understanding:
+    citations: 15
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:t-hv7AR41mYC
+    scholar_title: Vector-Quantized Input-Contextualized Soft Prompts for Natural
+      Language Understanding
+  Two is Better than Many? Binary Classification as an Effective Approach to Multi-Choice Question Answering:
+    citations: 20
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:nPT8s1NX_-sC
+    scholar_title: Two is Better than Many? Binary Classification as an Effective
+      Approach to Multi-Choice Question Answering
+  Towards solving NLP tasks with optimal transport loss:
+    citations: 13
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:LK8CI43ZvvMC
+    scholar_title: Towards solving NLP tasks with optimal transport loss
+  So Different Yet So Alike! Constrained Unsupervised Text Style Transfer:
+    citations: 22
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:JP7YXuLIOvAC
+    scholar_title: So Different Yet So Alike! Constrained Unsupervised Text Style
+      Transfer
+  'SAT: Improving Semi-Supervised Text Classification with Simple Instance-Adaptive Self-Training':
+    citations: 32
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:oPLKW5k6eA4C
+    scholar_title: 'SAT: Improving Semi-Supervised Text Classification with Simple
+      Instance-Adaptive Self-Training'
+  'SANCL: Multimodal Review Helpfulness Prediction with Selective Attention and Natural Contrastive Learning':
+    citations: 29
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:mel-f30kHHgC
+    scholar_title: 'SANCL: Multimodal Review Helpfulness Prediction with Selective
+      Attention and Natural Contrastive Learning'
+  'RelationPrompt: Leveraging Prompts to Generate Synthetic Data for Zero-Shot Relation Triplet Extraction':
+    citations: 188
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:AzKEL7Gb_04C
+    scholar_title: 'RelationPrompt: Leveraging Prompts to Generate Synthetic Data
+      for Zero-Shot Relation Triplet Extraction'
+  Proceedings of the 3rd Workshop on Figurative Language Processing (FLP):
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:lYAcb2jw7qUC
+    scholar_title: Proceedings of the 3rd Workshop on Figurative Language Processing
+      (FLP)
+  'PIP: Physical Interaction Prediction via mental simulation with span selection':
+    citations: 16
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:LGlY6t8CeOMC
+    scholar_title: 'Pip: Physical interaction prediction via mental simulation with
+      span selection'
+  'Multiview contextual commonsense inference: A new dataset and task':
+    citations: 16
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:YTuZlYwrTOUC
+    scholar_title: 'Multiview contextual commonsense inference: A new dataset and
+      task'
+  'Multimodal Research in Vision and Language: A Review of Current and Emerging Trends':
+    citations: 170
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:DrR-2ekChdkC
+    scholar_title: 'Multimodal Research in Vision and Language: A Review of Current
+      and Emerging Trends'
+  'MM-Align: Learning Optimal Transport-based Alignment Dynamics for Fast and Accurate Inference on Missing Modality Sequences':
+    citations: 28
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:hQUaER0FWQ4C
+    scholar_title: 'MM-Align: Learning Optimal Transport-based Alignment Dynamics
+      for Fast and Accurate Inference on Missing Modality Sequences'
+  Knowledge enhanced reflection generation for counseling dialogues:
+    citations: 44
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:-uzm3Y7AvW0C
+    scholar_title: Knowledge enhanced reflection generation for counseling dialogues
+  'KNOT: Knowledge Distillation using Optimal Transport for Solving NLP Tasks':
+    citations: 14
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:BJrgspguQaEC
+    scholar_title: 'KNOT: Knowledge Distillation using Optimal Transport for Solving
+      NLP Tasks'
+  Improving zero-shot learning baselines with commonsense knowledge:
+    citations: 39
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:rbm3iO8VlycC
+    scholar_title: Improving zero-shot learning baselines with commonsense knowledge
+  Improving aspect-level sentiment analysis with aspect extraction:
+    citations: 51
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:EPG8bYD4jVwC
+    scholar_title: Improving aspect-level sentiment analysis with aspect extraction
+  Exemplars-guided empathetic response generation controlled by the elements of human communication:
+    citations: 36
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:tHtfpZlB6tUC
+    scholar_title: Exemplars-guided empathetic response generation controlled by the
+      elements of human communication
+  'DoubleMix: Simple Interpolation-Based Data Augmentation for Text Classification':
+    citations: 32
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:s9ia6_kGH2AC
+    scholar_title: 'DoubleMix: Simple Interpolation-Based Data Augmentation for Text
+      Classification'
+  'CICERO: A Dataset for Contextualized Commonsense Inference in Dialogues':
+    citations: 72
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:H_jBuBxbQIAC
+    scholar_title: 'CICERO: A Dataset for Contextualized Commonsense Inference in
+      Dialogues'
+  Analyzing Modality Robustness in Multimodal Sentiment Analysis:
+    citations: 92
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:4aZ_i-5WJEQC
+    scholar_title: Analyzing Modality Robustness in Multimodal Sentiment Analysis
+  A dataset for hyper-relational extraction and a cube-filling approach:
+    citations: 29
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:_AeoHAGD03cC
+    scholar_title: A dataset for hyper-relational extraction and a cube-filling approach
+  'STACK: Sentence ordering with temporal commonsense knowledge':
+    citations: 18
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:unp9ATQDT5gC
+    scholar_title: 'Stack: Sentence ordering with temporal commonsense knowledge'
+  'Retrieving and reading: A comprehensive survey on open-domain question answering':
+    citations: 453
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:jSAVyFp_754C
+    scholar_title: 'Retrieving and reading: A comprehensive survey on open-domain
+      question answering'
+  Recognizing emotion cause in conversations:
+    citations: 203
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:IsPWOBWtZBwC
+    scholar_title: Recognizing emotion cause in conversations
+  Phonetic-enriched text representation for Chinese sentiment analysis with reinforcement learning:
+    citations: 69
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Ade32sEp0pkC
+    scholar_title: Phonetic-enriched text representation for Chinese sentiment analysis
+      with reinforcement learning
+  'Persuasive dialogue understanding: The baselines and negative results':
+    citations: 14
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:PkcyUWeTMh0C
+    scholar_title: 'Persuasive dialogue understanding: The baselines and negative
+      results'
+  More identifiable yet equally performant transformers for text classification:
+    citations: 11
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:qE4H1tSSYIIC
+    scholar_title: More identifiable yet equally performant transformers for text
+      classification
+  'M2H2: A multimodal multiparty hindi dataset for humor recognition in conversations':
+    citations: 34
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:T_ojBgVMvoEC
+    scholar_title: 'M2h2: A multimodal multiparty hindi dataset for humor recognition
+      in conversations'
+  Investigating gender bias in BERT:
+    citations: 167
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:pS0ncopqnHgC
+    scholar_title: Investigating gender bias in bert
+  Information fusion for affective computing and sentiment analysis:
+    citations: 32
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:RJOyoaXV5v8C
+    scholar_title: Information fusion for affective computing and sentiment analysis
+  Improving multimodal fusion with hierarchical mutual information maximization for multimodal sentiment analysis:
+    citations: 816
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:c1e4I3QdEKYC
+    scholar_title: Improving multimodal fusion with hierarchical mutual information
+      maximization for multimodal sentiment analysis
+  Improving distantly supervised relation extraction with self-ensemble noise filtering:
+    citations: 9
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:__bU50VfleQC
+    scholar_title: Improving distantly supervised relation extraction with self-ensemble
+      noise filtering
+  'Exploring the role of context in utterance-level emotion, act and intent classification in conversations: An empirical study':
+    citations: 28
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:L_l9e5I586QC
+    scholar_title: 'Exploring the role of context in utterance-level emotion, act
+      and intent classification in conversations: An empirical study'
+  'DOZEN: Cross-domain zero shot named entity recognition with knowledge graph':
+    citations: 33
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:D_tqNUsBuKoC
+    scholar_title: 'DOZEN: cross-domain zero shot named entity recognition with knowledge
+      graph'
+  Discriminative dictionary design for action classification in still images and videos:
+    citations: 7
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:eAlLMO4JVmQC
+    scholar_title: Discriminative dictionary design for action classification in still
+      images and videos
+  'Deep neural approaches to relation triplets extraction: a comprehensive survey':
+    citations: 81
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:isU91gLudPYC
+    scholar_title: 'Deep neural approaches to relation triplets extraction: A comprehensive
+      survey'
+  'CIDER: Commonsense inference for dialogue explanation and reasoning':
+    citations: 33
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Wq2b2clWBLsC
+    scholar_title: 'CIDER: Commonsense inference for dialogue explanation and reasoning'
+  Causal augmentation for causal sentence classification:
+    citations: 13
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:zwpXiJ37cpgC
+    scholar_title: Causal augmentation for causal sentence classification
+  Bi-bimodal modality fusion for correlation-controlled multimodal sentiment analysis:
+    citations: 355
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:SAZ1SQo2q1kC
+    scholar_title: Bi-bimodal modality fusion for correlation-controlled multimodal
+      sentiment analysis
+  Aspect sentiment triplet extraction using reinforcement learning:
+    citations: 54
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:z6xuaG2dYH0C
+    scholar_title: Aspect sentiment triplet extraction using reinforcement learning
+  Affect recognition for multimodal natural language processing:
+    citations: 13
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:DkZNVXde3BIC
+    scholar_title: Affect recognition for multimodal natural language processing
+  'Utterance-level dialogue understanding: An empirical study':
+    citations: 24
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:QUX0mv85b1cC
+    scholar_title: 'Utterance-level dialogue understanding: An empirical study'
+  Social media marketing and financial forecasting:
+    citations: 12
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:An6A6Jpfc1oC
+    scholar_title: Social media marketing and financial forecasting
+  'SenticNet 6: Ensemble application of symbolic and subsymbolic AI for sentiment analysis':
+    citations: 629
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:eO3_k5sD8BwC
+    scholar_title: 'SenticNet 6: Ensemble application of symbolic and subsymbolic
+      AI for sentiment analysis'
+  'MTAG: Modal-temporal attention graph for unaligned human multimodal language sequences':
+    citations: 189
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:CNPyR2KL9-0C
+    scholar_title: 'Mtag: Modal-temporal attention graph for unaligned human multimodal
+      language sequences'
+  'MISA: Modality-invariant and-specific representations for multimodal sentiment analysis':
+    citations: 1722
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:5bg8sr1QxYwC
+    scholar_title: 'Misa: Modality-invariant and-specific representations for multimodal
+      sentiment analysis'
+  'MIME: MIMicking emotions for empathetic response generation':
+    citations: 335
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:69ZgNCALVd0C
+    scholar_title: 'MIME: MIMicking emotions for empathetic response generation'
+  'KinGDOM: Knowledge-Guided DOMain adaptation for sentiment analysis':
+    citations: 99
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:kF1pexMAQbMC
+    scholar_title: 'KinGDOM: Knowledge-Guided DOMain adaptation for sentiment analysis'
+  Dialogue systems with audio context:
+    citations: 46
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:ziOE8S1-AIUC
+    scholar_title: Dialogue systems with audio context
+  'COSMIC: Commonsense knowledge for emotion identification in conversations':
+    citations: 557
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:SnGPuo6Feq8C
+    scholar_title: 'Cosmic: Commonsense knowledge for emotion identification in conversations'
+  Conversational Transfer Learning for Emotion Recognition:
+    citations: 150
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:HhcuHIWmDEUC
+    scholar_title: Conversational Transfer Learning for Emotion Recognition
+  'CMU-MOSEAS: A multimodal language dataset for Spanish, Portuguese, German and French':
+    citations: 104
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:JTqpx9DYBaYC
+    scholar_title: 'CMU-MOSEAS: A multimodal language dataset for Spanish, Portuguese,
+      German and French'
+  'Beneath the tip of the iceberg: Current challenges and new directions in sentiment analysis research':
+    citations: 461
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:kzcSZmkxUKAC
+    scholar_title: 'Beneath the tip of the iceberg: Current challenges and new directions
+      in sentiment analysis research'
+  'Anaphora and coreference resolution: A review':
+    citations: 309
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:fFSKOagxvKUC
+    scholar_title: 'Anaphora and coreference resolution: A review'
+  Towards Multimodal Sarcasm Detection (An Obviously Perfect Paper):
+    citations: 537
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:-95Q15plzcUC
+    scholar_title: Towards Multimodal Sarcasm Detection (An _Obviously_ Perfect Paper)
+  'The Nitty-GRITties of Success: Computational Analysis of Grit From Language':
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:oi2SiIJ9l4AC
+    scholar_title: 'The Nitty–GRITties of Success: Computational Analysis of Grit
+      From Language'
+  Sentiment and Sarcasm Classification with Multitask Learning:
+    citations: 283
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:SjuI4pbJlxcC
+    scholar_title: Sentiment and Sarcasm Classification with Multitask Learning
+  Multi-task Learning for Multi-Modal Emotion Recognition and Sentiment Analysis:
+    citations: 309
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:1DsIQWDZLl8C
+    scholar_title: Multi-task Learning for Multi-modal Emotion Recognition and Sentiment
+      Analysis
+  'MELD: A multimodal multi-party dataset for emotion recognition in conversations':
+    citations: 2441
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:MhiOAD_qIWkC
+    scholar_title: 'Meld: A multimodal multi-party dataset for emotion recognition
+      in conversations'
+  Factorized multimodal transformer for multimodal sequential learning:
+    citations: 69
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:-nhnvRiOwuoC
+    scholar_title: Factorized multimodal transformer for multimodal sequential learning
+  'Emotion Recognition in Conversation: Research Challenges, Datasets, and Recent Advances':
+    citations: 716
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:kWvqk_afx_IC
+    scholar_title: 'Emotion Recognition in Conversation: Research Challenges, Datasets,
+      and Recent Advances'
+  'DialogueRNN: An attentive RNN for emotion detection in conversations':
+    citations: 1292
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:L1USKYWJimsC
+    scholar_title: 'Dialoguernn: An attentive rnn for emotion detection in conversations'
+  'DialogueGCN: A Graph Convolutional Neural Network for Emotion Recognition in Conversation':
+    citations: 1098
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:KNjnJ3z-R6IC
+    scholar_title: 'DialogueGCN: A Graph Convolutional Neural Network for Emotion
+      Recognition in Conversation'
+  An Attention-Based Model for Learning Dynamic Interaction Networks:
+    citations: 1
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:3bvyWxjaHKcC
+    scholar_title: An Attention-Based Model for Learning Dynamic Interaction Networks
+  Sentiment analysis is a big suitcase:
+    citations: 605
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:48xauSegjOkC
+    scholar_title: Sentiment analysis is a big suitcase
+  'SenticNet 5: Discovering conceptual primitives for sentiment analysis by means of context embeddings':
+    citations: 567
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:nZcligLrVowC
+    scholar_title: 'SenticNet 5: discovering conceptual primitives for sentiment analysis
+      by means of context embeddings'
+  Recent trends in deep learning based natural language processing:
+    citations: 4870
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:BJbdYPG6LGMC
+    scholar_title: Recent trends in deep learning based natural language processing
+  'OntoSenticNet: A commonsense ontology for sentiment analysis':
+    citations: 164
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:5icHVeHT4IsC
+    scholar_title: 'OntoSenticNet: A commonsense ontology for sentiment analysis'
+  'Multimodal Sentiment Analysis: Addressing Key Issues and Setting Up the Baselines':
+    citations: 326
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:LgRImbQfgY4C
+    scholar_title: 'Multimodal Sentiment Analysis: Addressing Key Issues and Setting
+      Up the Baselines'
+  Multimodal sentiment analysis using hierarchical fusion with context modeling:
+    citations: 490
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:tH6gc1N1XXoC
+    scholar_title: Multimodal sentiment analysis using hierarchical fusion with context
+      modeling
+  'Multimodal language analysis in the wild: CMU-MOSEI dataset and interpretable dynamic fusion graph':
+    citations: 2442
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:RoXSNcbkSzsC
+    scholar_title: 'Multimodal language analysis in the wild: Cmu-mosei dataset and
+      interpretable dynamic fusion graph'
+  Multi-attention recurrent network for human communication comprehension:
+    citations: 738
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:sJsF-0ZLhtgC
+    scholar_title: Multi-attention recurrent network for human communication comprehension
+  Modeling inter-aspect dependencies for aspect-based sentiment analysis:
+    citations: 95
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:5MTHONV0fEkC
+    scholar_title: Modeling inter-aspect dependencies for aspect-based sentiment analysis
+  Memory fusion network for multi-view sequential learning:
+    citations: 1254
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:_OXeSy2IsFwC
+    scholar_title: Memory fusion network for multi-view sequential learning
+  'CASCADE: Contextual sarcasm detection in online discussion forums':
+    citations: 276
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:LdasjJ6CEcoC
+    scholar_title: 'Cascade: Contextual sarcasm detection in online discussion forums'
+  A deep learning approach for multimodal deception detection:
+    citations: 174
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=100&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:8xutWZnSdmoC
+    scholar_title: A deep learning approach for multimodal deception detection
+  Tensor fusion network for multimodal sentiment analysis:
+    citations: 0
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:PVgj2kMGcgYC
+    scholar_title: Tensor fusion network for multimodal sentiment analysis
+  Multi-level multiple attentions for contextual multimodal sentiment analysis:
+    citations: 270
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:zCSUwVk65WsC
+    scholar_title: Multi-level multiple attentions for contextual multimodal sentiment
+      analysis
+  Ensemble application of convolutional neural networks and multiple kernel learning for multimodal sentiment analysis:
+    citations: 255
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Aul-kAQHnToC
+    scholar_title: Ensemble application of convolutional neural networks and multiple
+      kernel learning for multimodal sentiment analysis
+  Deep learning-based document modeling for personality detection from text:
+    citations: 766
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:jgBuDB5drN8C
+    scholar_title: Deep learning-based document modeling for personality detection
+      from text
+  Context-dependent sentiment analysis in user-generated videos:
+    citations: 1242
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:43bX7VzcjpAC
+    scholar_title: Context-dependent sentiment analysis in user-generated videos
+  'A review of affective computing: From unimodal analysis to multimodal fusion':
+    citations: 2299
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:MpfHP-DdYjUC
+    scholar_title: 'A review of affective computing: From unimodal analysis to multimodal
+      fusion'
+  'SenticNet 4: A semantic resource for sentiment analysis based on conceptual primitives':
+    citations: 448
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:IaI1MmNe2tcC
+    scholar_title: 'SenticNet 4: A semantic resource for sentiment analysis based
+      on conceptual primitives'
+  'Sentic LDA: Improving on LDA with semantic similarity for aspect-based sentiment analysis':
+    citations: 202
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:j7_hQOaDUrUC
+    scholar_title: 'Sentic LDA: Improving on LDA with semantic similarity for aspect-based
+      sentiment analysis'
+  'Multilingual sentiment analysis: state of the art and independent comparison of techniques':
+    citations: 392
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:r_AWSJRzSzQC
+    scholar_title: 'Multilingual sentiment analysis: state of the art and independent
+      comparison of techniques'
+  Fusing audio, visual and textual clues for sentiment analysis from multimodal content:
+    citations: 704
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:1lhNe0rCu4AC
+    scholar_title: Fusing audio, visual and textual clues for sentiment analysis from
+      multimodal content
+  Convolutional MKL based multimodal emotion recognition and sentiment analysis:
+    citations: 788
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:gVv57TyPmFsC
+    scholar_title: Convolutional MKL based multimodal emotion recognition and sentiment
+      analysis
+  Aspect extraction for opinion mining with a deep convolutional neural network:
+    citations: 1083
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:uDGL6kOW6j0C
+    scholar_title: Aspect extraction for opinion mining with a deep convolutional
+      neural network
+  A deeper look into sarcastic tweets using deep convolutional neural networks:
+    citations: 507
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:wMgC3FpKEyYC
+    scholar_title: A deeper look into sarcastic tweets using deep convolutional neural
+      networks
+  Towards an intelligent framework for multimodal affective data analysis:
+    citations: 303
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:jL-93Qbq4QoC
+    scholar_title: Towards an intelligent framework for multimodal affective data
+      analysis
+  Sentiment data flow analysis by means of dynamic linguistic patterns:
+    citations: 182
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:nVrZBo8bIpAC
+    scholar_title: Sentiment data flow analysis by means of dynamic linguistic patterns
+  ? Deep convolutional neural network textual features and multiple kernel learning
+    for utterance-level multimodal sentiment analysis
+  : citations: 691
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:Ak0FvsSvgGUC
+    scholar_title: Deep convolutional neural network textual features and multiple
+      kernel learning for utterance-level multimodal sentiment analysis
+  'Sentic patterns: Dependency-based rules for concept-level sentiment analysis':
+    citations: 474
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:vDZJ-YLwNdEC
+    scholar_title: 'Sentic patterns: Dependency-based rules for concept-level sentiment
+      analysis'
+  'EmoSenticSpace: A novel framework for affective common-sense reasoning':
+    citations: 225
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:OP4eGU-M3BUC
+    scholar_title: 'EmoSenticSpace: A novel framework for affective common-sense reasoning'
+  Enhanced SenticNet with affective labels for concept-based opinion mining:
+    citations: 280
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:v1_lew4L6wgC
+    scholar_title: Enhanced SenticNet with affective labels for concept-based opinion
+      mining
+  'SMSFR: SMS-Based FAQ Retrieval System':
+    citations: 6
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:bVQMTfhMCi4C
+    scholar_title: 'Smsfr: Sms-based faq retrieval system'
+  Merging SenticNet and WordNet-Affect emotion lists for sentiment analysis:
+    citations: 130
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:gKiMpY-AVTkC
+    scholar_title: Merging SenticNet and WordNet-Affect emotion lists for sentiment
+      analysis
+  'Fuzzy Clustering for Semi-supervised Learning - Case Study: Construction of an Emotion Lexicon':
+    citations: 50
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:RuPIJ_LgqDgC
+    scholar_title: 'Fuzzy clustering for semi-supervised learning–case study: Construction
+      of an emotion lexicon'
+  Enriching SenticNet polarity scores through semi-supervised fuzzy clustering:
+    citations: 81
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:kVjdVfd2voEC
+    scholar_title: Enriching SenticNet polarity scores through semi-supervised fuzzy
+      clustering
+  A Classifier Based Approach to Emotion Lexicon Construction:
+    citations: 24
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:P7Ujq4OLJYoC
+    scholar_title: A classifier based approach to emotion lexicon construction
+  Semantic Textual Entailment Recognition using UNL:
+    citations: 27
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:yeL6HyUMUGUC
+    scholar_title: Semantic textual entailment recognition using UNL
+  A Textual Entailment System using Anaphora Resolution:
+    citations: 39
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:FiytvqdAVhgC
+    scholar_title: A Textual Entailment System using Anaphora Resolution.
+  'JU_CSE_TAC: Textual Entailment Recognition System at TAC RTE-6':
+    citations: 28
+    scholar_url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=oS6gRc4AAAAJ&cstart=200&pagesize=100&sortby=pubdate&citation_for_view=oS6gRc4AAAAJ:lvd772isFD0C
+    scholar_title: 'JU_CSE_TAC: Textual Entailment Recognition System at TAC RTE-6.'

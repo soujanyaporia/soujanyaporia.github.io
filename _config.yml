@@ -71,6 +71,8 @@ exclude:
   - README.md
   - assets/declare-core/CHANGELOG.md
   - assets/declare-core/README.md
+  - assets/declare-core/node_modules
+  - artifacts
   - vendor
 
 keep_files:
