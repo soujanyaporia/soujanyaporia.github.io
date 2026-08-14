@@ -4,15 +4,10 @@
 /* Shared tokens, reset, typography, and interface primitives come from
  * declare-design-core. Only personal-site composition tokens live here. */
 :root {
-  --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-hover));
-  --accent-rule-width: 3px;
+
   --brand-red: var(--logo-red);
   --report-meta-height: 22px;
   --report-meta-padding: 0 8px;
-}
-
-[data-theme="dark"] {
-  --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-hover));
 }
 
 /* ===== Header / Nav ===== */
@@ -26,7 +21,7 @@
 .author-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   --author-link-width: 100%;
   --author-icon-width: 18px;
@@ -43,20 +38,12 @@
 
 .author-summary { min-width: 0; }
 
-.author-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 4px;
-  background: var(--accent-gradient);
-}
-
 .author-avatar {
   width: 100%;
   max-width: 200px;
   aspect-ratio: 1 / 1;
   height: auto;
-  border-radius: 12px;
+  border-radius: var(--radius);
   object-fit: cover;
   object-position: top;
   border: 1px solid var(--border);
@@ -118,7 +105,7 @@
 .author-links a {
   width: 100%;
   padding: 0.5em 0.7em;
-  border-radius: 6px;
+  border-radius: var(--radius);
   display: grid;
   grid-template-columns: var(--author-icon-width) auto;
   align-items: center;
@@ -208,7 +195,7 @@
 .updates-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius);
   padding: 1.4em 1.3em 1.1em;
   box-shadow: var(--shadow-sm);
   display: flex;
@@ -245,7 +232,7 @@
 .award-grid > div {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: 1em 1.1em;
   box-shadow: var(--shadow-sm);
   transition: border-color var(--transition), transform var(--transition);
@@ -262,7 +249,6 @@
 }
 
 .award-grid > div {
-  border-left: 3px solid var(--accent-3);
   position: relative;
   padding-left: 1.15em;
 }
@@ -438,7 +424,7 @@
   .hero-actions--personal a { width: 100%; padding-inline: 0.8em; }
   .author-card {
     padding: 0.9em;
-    border-radius: 8px;
+    border-radius: var(--radius);
   }
 
   .author-summary {
@@ -449,7 +435,7 @@
 
   .author-avatar {
     max-width: 84px;
-    border-radius: 8px;
+    border-radius: var(--radius);
   }
 
   .author-name {
@@ -492,7 +478,7 @@
   .award-grid > div,
   .service-list p,
   .table-wrap {
-    border-radius: 8px;
+    border-radius: var(--radius);
   }
 
   .intro-panel > div,
@@ -523,7 +509,7 @@
     gap: 0.5em;
     min-height: 40px;
     padding: 0.45em 0.55em;
-    border-radius: 6px;
+    border-radius: var(--radius);
     justify-content: flex-start;
   }
 
@@ -564,7 +550,7 @@
 .author-card {
   padding: var(--panel-padding-block) var(--panel-padding-inline);
   border: var(--card-border);
-  border-top: 3px solid var(--ink);
+  border-top: 1px solid var(--rule);
   border-radius: 0;
   background: var(--card, var(--paper-card));
   box-shadow: none;
@@ -735,7 +721,6 @@
 .award-grid > div {
   padding: var(--card-padding-block) var(--card-padding-inline);
   border: var(--card-border);
-  border-left: var(--accent-rule-width) solid var(--accent);
   background: var(--surface-panel);
 }
 
@@ -767,13 +752,6 @@
  * Topic badges are the same bordered sans object as the link controls. */
 
 @media (max-width: 720px) {
-  .author-card { border-radius: 0; }
-
-  .intro-panel > div,
-  .intro-aside,
-  .updates-panel,
-  .lab-panel,
-  .research-area-card { border-radius: 0; }
 
 }
 
