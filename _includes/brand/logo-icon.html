@@ -44,11 +44,11 @@
   </mask>
   <g id="{{ include.uid | default: 'brandicon' }}-robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#{{ include.uid | default: 'brandicon' }}-robot-knockout)"/>
-    <circle cx="72.5" cy="52.5" r="12.9" fill="var(--logo-green)"/>
+    <circle class="declare-mark__eye declare-mark__eye--green" cx="72.5" cy="52.5" r="12.9" fill="var(--logo-green)"/>
     <!-- Angular eye as two filled rectangles (matching the head's wall logic):
          a horizontal bar and a diagonal bar sharing a vertical left edge, so
          their intersection reads as a clean square corner, not a beveled cut. -->
-    <g fill="var(--logo-red)"><rect x="103.72" y="57.2" width="26.18" height="5.4"/><rect x="0" y="-5.4" width="27" height="5.4" transform="translate(103.72 62.6) rotate(-35.3)"/></g>
+    <g class="declare-mark__eye declare-mark__eye--red" fill="var(--logo-red)"><rect x="103.72" y="57.2" width="26.18" height="5.4"/><rect x="0" y="-5.4" width="27" height="5.4" transform="translate(103.72 62.6) rotate(-35.3)"/></g>
   </g>
   
 </defs>
