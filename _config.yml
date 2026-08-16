@@ -69,9 +69,19 @@ exclude:
   - Gemfile.lock
   - LICENSE
   - README.md
+  # The shared core is private. Publish only its browser runtime under
+  # config/ and js/; Sass is compiled into the site's own stylesheet.
+  - assets/declare-core/.github
   - assets/declare-core/CHANGELOG.md
   - assets/declare-core/README.md
+  - assets/declare-core/VERSION
+  - assets/declare-core/brand
   - assets/declare-core/node_modules
+  - assets/declare-core/package.json
+  - assets/declare-core/pnpm-lock.yaml
+  - assets/declare-core/requirements.txt
+  - assets/declare-core/scripts
+  - assets/declare-core/scss
   - artifacts
   - vendor
 
