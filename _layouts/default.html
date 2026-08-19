@@ -2,17 +2,28 @@
 <html class="declare-core" lang="{{ site.locale | slice: 0,2 | default: 'en' }}" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <!-- Resolve the theme before first paint. Two things were wrong without it:
-       the document was hardcoded to light, so a visitor whose system is set to
-       dark got a light site until they found the toggle; and a returning dark
-       visitor saw a light flash while the deferred script caught up. -->
+  <!-- The site follows the operating system. There is no in-page control any
+       more, so this is the only thing that decides the theme, and it runs
+       before first paint: a visitor on a dark system never sees a light flash.
+       It also listens, because the setting can change while the page is open --
+       shared core only wired that up alongside the control that is now gone.
+       The data-theme on <html> above is the no-script fallback. -->
   <script>
     (function () {
       try {
-        var saved = window.localStorage.getItem("theme");
-        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var theme = saved === "light" || saved === "dark" ? saved : (prefersDark ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", theme);
+        var media = window.matchMedia("(prefers-color-scheme: dark)");
+        var apply = function (dark) {
+          document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+        };
+
+        apply(media.matches);
+
+        var onChange = function (event) { apply(event.matches); };
+        if (typeof media.addEventListener === "function") {
+          media.addEventListener("change", onChange);
+        } else if (typeof media.addListener === "function") {
+          media.addListener(onChange);
+        }
       } catch (e) {}
     }());
   </script>
