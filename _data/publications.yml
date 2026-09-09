@@ -2,6 +2,48 @@
 # Fields: title, authors, venue, year
 # Optional: publication_url, scholar_url, pdf, abstract, code, project, categories
 
+- title: 'Not All Tokens Are Equal: Intrinsic Loss Reweighting for Verifiable Reinforcement Learning'
+  authors: 'Tej Deep Pala, Vernon Toh, Soujanya Poria'
+  venue: '3rd AI for Math Workshop @ ICML 2026'
+  year: 2026
+  publication_url: 'https://openreview.net/forum?id=EHbCWedsUK'
+  pdf: 'https://openreview.net/pdf/408268d20e283bb20d2e4d07f3a28790689c47fd.pdf'
+  categories:
+    - 'Reasoning'
+    - 'Reinforcement Learning'
+  abstract: |
+    GRPO gives every token in a response the same sequence-level advantage, even though some tokens
+    matter more to the answer than others. ALTO uses gradient-activation saliency to reweight the
+    training loss at the token level, without a separate process reward model. The paper evaluates
+    this approach on mathematical reasoning with models from the Qwen3 and OctoThinker families.
+
+- title: 'WildMix Dataset and Spectro-Temporal Transformer Model for Monoaural Audio Source Separation'
+  authors: 'Amir Zadeh, Tianjun Ma, Soujanya Poria, Louis-Philippe Morency'
+  venue: 'arXiv preprint arXiv:1911.09783'
+  year: 2019
+  publication_url: 'https://arxiv.org/abs/1911.09783'
+  pdf: 'https://arxiv.org/pdf/1911.09783'
+  categories:
+    - 'Speech & Audio'
+  abstract: |
+    WildMix combines recordings from 25 sound classes to test whether a model can separate the
+    individual sources in a single-channel audio mixture. The accompanying Spectro-Temporal
+    Transformer models dependencies across both time and frequency while separating the sources.
+
+- title: 'Variational Fusion for Multimodal Sentiment Analysis'
+  authors: 'Navonil Majumder, Soujanya Poria, Gangeshwar Krishnamurthy, Niyati Chhaya, Rada Mihalcea, Alexander Gelbukh'
+  venue: 'arXiv preprint arXiv:1908.06008'
+  year: 2019
+  publication_url: 'https://arxiv.org/abs/1908.06008'
+  pdf: 'https://arxiv.org/pdf/1908.06008'
+  categories:
+    - 'Multimodality'
+    - 'Sentiment Analysis'
+  abstract: |
+    Combining modalities can discard information that each input represented on its own. This paper
+    uses a variational autoencoder to learn a fused representation while retaining information from
+    the individual modalities, and evaluates it on multimodal sentiment analysis.
+
 - title: 'ScrambleToolBench: Agents Search Exhaustively Even When Their Own Map Points to the Next Step'
   authors: "V Toh, N Majumder, Z Liu, NF Chen, S Poria"
   venue: 'arXiv preprint arXiv:2608.02358'
@@ -18,6 +60,25 @@
     interaction rather than semantic tool descriptions. The benchmark introduces changing mappings,
     stochastic failures, and time-sensitive actions. Current models often fall back to exhaustive
     search even after their own observations reveal a more efficient strategy.
+
+- title: 'MNIST-PRO: MNIST is Back as a Partially Observable World for AI Agents'
+  authors: "V Toh, N Majumder, Z Liu, NF Chen, S Poria"
+  venue: 'arXiv preprint arXiv:2608.31022'
+  year: 2026
+  scholar_url: 'https://scholar.google.com/scholar?q=MNIST-PRO%3A+MNIST+is+Back+as+a+Partially+Observable+World+for+AI+Agents'
+  publication_url: 'https://arxiv.org/abs/2608.31022'
+  pdf: 'https://arxiv.org/pdf/2608.31022'
+  code: 'https://github.com/declare-lab/MNIST-PRO'
+  categories:
+    - 'Agentic AI'
+    - 'Evaluation'
+    - 'Multimodality'
+    - 'Reasoning'
+  abstract: |
+    MNIST-PRO isolates perceptual-state construction by turning digit recognition into a sequential
+    glimpse task with limited visual lookback. Ten multimodal models are evaluated with raw visual
+    history, textual state, a structured grid map, and a consolidated visual canvas. The experiments
+    distinguish failures to acquire evidence from failures to store, interpret, and revise that evidence.
 
 - title: 'Σ-Mem: An Online Reliability Memory for LLM-based Multi-Agent Systems'
   authors: "P Feng, S Yang, S Poria"
@@ -263,12 +324,13 @@
     urgent need for operational safety interventions and the promise of prompt-based steering as a first
     step toward more reliable LLM-based agents.
 
-- title: 'LLMs Can''t Handle Peer Pressure: Crumbling under Multi-Agent Social Interactions'
+- title: 'Measuring and Mitigating Rapport Bias of Large Language Models under Multi-Agent Social Interactions'
+  scholar_title: 'LLMs Can''t Handle Peer Pressure: Crumbling under Multi-Agent Social Interactions'
   authors: "M Song, TD Pala, R Zhou, W Jin, A Zadeh, C Li, D Herremans, S Poria"
   venue: ICLR
   year: 2026
   scholar_url: 'https://scholar.google.com/scholar?q=LLMs+Can%27t+Handle+Peer+Pressure%3A+Crumbling+under+Multi-Agent+Social+Interactions'
-  publication_url: 'https://arxiv.org/abs/2508.18321'
+  publication_url: 'https://proceedings.iclr.cc/paper_files/paper/2026/hash/0be44cc1d459731928501cae5699f57a-Abstract-Conference.html'
   pdf: 'https://arxiv.org/pdf/2508.18321'
   categories:
     - 'Agentic AI'
@@ -814,6 +876,7 @@
   pdf: 'https://proceedings.iclr.cc/paper_files/paper/2025/file/51fd9a7d1706023cb9f8210cc6ac357c-Paper-Conference.pdf'
   code: 'https://github.com/ZonglinY/MOOSE-Chem'
   categories:
+    - 'AI for Science'
     - 'Agentic AI'
     - 'Hypothesis Discovery'
   abstract: |
@@ -1092,8 +1155,7 @@
     scores in the low- and mid-risk ranges, none maintain consistent scores across regions and
     demographics, thereby violating AI and finance regulations.
 
-- title: 'Error-Free Linear Attention is a Free Lunch: Exact Solution from Continuous-Time Dynamics'
-  scholar_title: 'Exact Flow Linear Attention: Exact Solution from Continuous-Time Dynamics'
+- title: 'Exact Flow Linear Attention: Exact Solution from Continuous-Time Dynamics'
   authors: "J Lei, D Zhang, S Poria"
   venue: 'arXiv preprint arXiv:2512.12602'
   year: 2025
@@ -1103,16 +1165,11 @@
   categories:
     - 'Linear Attention'
   abstract: |
-    Linear-time attention and State Space Models (SSMs) promise to solve the quadratic cost bottleneck
-    in long-context language models employing softmax attention. We introduce Error-Free Linear
-    Attention (EFLA), a numerically stable, full parallelism and generalized formulation of the delta
-    rule. Specifically, we formulate the online learning update as a continuous-time dynamical system
-    and prove that its exact solution is not only attainable but also computable in linear time with
-    full parallelism. By leveraging the rank-1 structure of the dynamics matrix, we directly derive the
-    exact closed-form solution effectively. This attention mechanism is theoretically free from error
-    accumulation, perfectly capturing the continuous dynamics while preserving linear-time complexity.
-    Through experiments, we show EFLA enables robust performance in noisy environments and superior
-    downstream benchmark performance.
+    Exact Flow Linear Attention replaces the Euler update used in delta-rule linear attention with
+    the exact solution of its underlying continuous-time dynamics. The rank-one structure keeps the
+    update linear in sequence length and supports chunkwise parallelism without extra parameters.
+    The paper evaluates stability under corrupted inputs, language-model perplexity and performance
+    on the MAD synthetic benchmark.
 
 - title: 'Error Typing for Smarter Rewards: Improving Process Reward Models with Error-Aware Hierarchical Supervision'
   authors: "TD Pala, P Sharma, A Zadeh, C Li, S Poria"
@@ -2129,7 +2186,7 @@
 - title: 'Mustango: Toward controllable text-to-music generation'
   authors: "J Melechovsky, Z Guo, D Ghosal, N Majumder, D Herremans, S Poria"
   venue: NAACL
-  year: 2023
+  year: 2024
   scholar_url: 'https://scholar.google.com/scholar?q=Mustango%3A+Toward+controllable+text-to-music+generation'
   publication_url: 'https://aclanthology.org/2024.naacl-long.459'
   pdf: 'https://aclanthology.org/2024.naacl-long.459.pdf'
@@ -2577,7 +2634,7 @@
 - title: 'A Comprehensive Survey of Sentence Representations: From the BERT Epoch to the ChatGPT Era and Beyond'
   authors: "AR Kashyap, TT Nguyen, V Schlegel, S Winkler, SK Ng, S Poria"
   venue: EACL
-  year: 2023
+  year: 2024
   scholar_url: 'https://scholar.google.com/scholar?q=A+Comprehensive+Survey+of+Sentence+Representations%3A+From+the+BERT+Epoch+to+the+ChatGPT+Era+and+Beyond'
   publication_url: 'https://aclanthology.org/2024.eacl-long.104'
   pdf: 'https://aclanthology.org/2024.eacl-long.104.pdf'
@@ -3708,27 +3765,25 @@
     interactions within the graph, MTAG achieves state-of-the-art performance on multimodal sentiment
     analysis and emotion recognition benchmarks, while utilizing significantly fewer model parameters.
 
-- title: 'MISA: Modality-invariant and-specific representations for multimodal sentiment analysis'
+- title: 'MISA: Modality-Invariant and -Specific Representations for Multimodal Sentiment Analysis'
   authors: "D Hazarika, R Zimmermann, S Poria"
   venue: ACM MM
   year: 2020
-  scholar_url: 'https://scholar.google.com/scholar?q=MISA%3A+Modality-invariant+and-specific+representations+for+multimodal+sentiment+analysis'
-  publication_url: 'https://doi.org/10.1088/1742-6596/2224/1/012024'
+  scholar_url: 'https://scholar.google.com/scholar?q=MISA%3A+Modality-Invariant+and+-Specific+Representations+for+Multimodal+Sentiment+Analysis'
+  publication_url: 'https://doi.org/10.1145/3394171.3413678'
+  pdf: 'https://arxiv.org/pdf/2005.03545'
+  code: 'https://github.com/declare-lab/MISA'
   categories:
     - 'Affective Computing'
     - 'Multimodality'
     - 'Sentiment Analysis'
   abstract: |
-    Human emotion judgments usually receive information from multiple modalities such as language,
-    audio, as well as facial expressions and gestures. Because different modalities are represented
-    differently, multimodal data exhibit redundancy and complementarity, so a reasonable multimodal
-    fusion approach is essential to improve the accuracy of sentiment analysis. Inspired by the
-    Crossmodal Transformer for multimodal data fusion in the MulT (Multimodal Transformer) model, this
-    paper adds the Crossmodal transformer for modal enhancement of different modal data in the fusion
-    part of the MISA (Modality-Invariant and -Specific Representations for Multimodal Sentiment
-    Analysis) model, and proposes three MISA-CT models. Tested on two publicly available multimodal
-    sentiment analysis datasets MOSI and MOSEI, the experimental results of the models outperformed the
-    original MISA model.
+    MISA addresses the distributional gap among language, acoustic and visual signals before fusion.
+    It projects each modality into a shared modality-invariant subspace and a private modality-specific
+    subspace, using similarity, orthogonality and reconstruction objectives to keep the two roles
+    distinct. The resulting representations are fused for prediction. The paper evaluates the method
+    on CMU-MOSI, CMU-MOSEI and UR-FUNNY, with ablations testing the contribution of the shared and
+    private spaces.
 
 - title: 'MIME: MIMicking emotions for empathetic response generation'
   authors: "N Majumder, P Hong, S Peng, J Lu, D Ghosal, A Gelbukh, R Mihalcea, S Poria"

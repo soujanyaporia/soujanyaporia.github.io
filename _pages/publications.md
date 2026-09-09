@@ -42,7 +42,7 @@ toc: false
 
   {% for pub in group.items %}
   {% assign category_string = pub.categories | join: "," %}
-  {% assign searchable = pub.title | append: " " | append: pub.authors | append: " " | append: pub.venue | append: " " | append: pub.year | append: " " | append: pub.abstract | append: " " | append: category_string | downcase %}
+  {% assign searchable = pub.title | append: " " | append: pub.scholar_title | append: " " | append: pub.authors | append: " " | append: pub.venue | append: " " | append: pub.year | append: " " | append: pub.abstract | append: " " | append: category_string | downcase %}
   {% assign scholar_paper = site.data.scholar.papers[pub.title] %}
   {% if scholar_paper %}
     {% assign citation_count = scholar_paper.citations %}
@@ -51,12 +51,12 @@ toc: false
     {% assign citation_count = pub.citation_count %}
     {% assign scholar_url = pub.scholar_url %}
   {% endif %}
-  <article class="pub-card" data-year="{{ pub.year }}" data-categories="{{ category_string | escape }}" data-has-pdf="{% if pub.pdf %}true{% else %}false{% endif %}" data-hot="{% if citation_count and citation_count > 50 %}true{% else %}false{% endif %}" data-searchable="{{ searchable | escape }}">
+  <article class="pub-card" data-year="{{ pub.year }}" data-categories="{{ category_string | escape }}" data-has-pdf="{% if pub.pdf %}true{% else %}false{% endif %}" data-hot="{% if citation_count and citation_count >= 50 %}true{% else %}false{% endif %}" data-searchable="{{ searchable | escape }}">
     <div class="pub-card__top">
       <div>
         <div class="pub-title-line">
           <h3 class="pub-title">{{ pub.title }}</h3>
-          {% if citation_count and citation_count > 50 %}<span class="pub-hot-star" title="{{ citation_count }} Google Scholar citations" aria-label="Highly cited, {{ citation_count }} Google Scholar citations">★</span>{% endif %}
+          {% if citation_count and citation_count >= 50 %}<span class="pub-hot-star" title="{{ citation_count }} Google Scholar citations" aria-label="Highly cited, {{ citation_count }} Google Scholar citations">★</span>{% endif %}
         </div>
         <p class="pub-authors">
           {% assign author_list = pub.authors | split: ", " %}
@@ -73,12 +73,13 @@ toc: false
         {% if pub.project %}<a href="{{ pub.project }}" target="_blank" rel="noopener">Project</a>{% endif %}
         {% if scholar_url %}<a href="{{ scholar_url }}" target="_blank" rel="noopener">Scholar</a>{% else %}<a href="https://scholar.google.com/scholar?q={{ pub.title | url_encode }}" target="_blank" rel="noopener">Scholar</a>{% endif %}
         {% if pub.abstract %}<button class="pub-abstract-toggle" type="button" aria-expanded="false" aria-controls="abs-{{ group.name }}-{{ forloop.index }}">Abstract</button>{% endif %}
+        <button class="pub-bibtex-local" type="button" data-type-role="control" aria-expanded="false" aria-controls="bib-{{ group.name }}-{{ forloop.index }}" aria-label="Show BibTeX for {{ pub.title | escape }}" title="Generated from the displayed archive metadata" data-bibtex-title="{{ pub.title | escape }}" data-bibtex-authors="{{ pub.authors | escape }}" data-bibtex-venue="{{ pub.venue | escape }}" data-bibtex-year="{{ pub.year }}" data-bibtex-url="{{ pub.publication_url | escape }}">BibTeX</button>
       </div>
     </div>
     <div class="pub-meta">
       {% if pub.venue %}<span class="pub-venue">{{ pub.venue }}</span>{% endif %}
       <span class="pub-year-tag">{{ pub.year }}</span>
-      {% if citation_count and citation_count > 50 %}<span class="pub-citation-badge">{{ citation_count }} citations</span>{% endif %}
+      {% if citation_count and citation_count >= 50 %}<span class="pub-citation-badge">{{ citation_count }} citations</span>{% endif %}
       {% if pub.award %}<span class="pub-award">{{ pub.award }}</span>{% endif %}
     </div>
     {% if pub.categories %}
@@ -87,7 +88,17 @@ toc: false
     </div>
     {% endif %}
     {% if pub.abstract %}<div class="pub-abstract" id="abs-{{ group.name }}-{{ forloop.index }}">{{ pub.abstract }}</div>{% endif %}
+    <div class="pub-bibtex-panel" id="bib-{{ group.name }}-{{ forloop.index }}" role="region" aria-label="BibTeX for {{ pub.title | escape }}" hidden>
+      <div class="pub-bibtex-panel__toolbar">
+        <span class="work-kicker">BibTeX</span>
+        <button class="copy-icon-button" type="button" data-bibtex-copy aria-label="Copy BibTeX for {{ pub.title | escape }}" title="Copy BibTeX"></button>
+      </div>
+      <pre class="pub-bibtex-panel__text" id="citation-{{ group.name }}-{{ forloop.index }}" data-bibtex-code tabindex="0" aria-label="BibTeX citation"></pre>
+      <p class="pub-bibtex-panel__status" data-bibtex-status role="status" aria-live="polite"></p>
+    </div>
   </article>
   {% endfor %}
   {% endfor %}
 </div>
+
+<script src="{{ '/assets/js/publications.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>

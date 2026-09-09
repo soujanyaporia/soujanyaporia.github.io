@@ -63,7 +63,11 @@ jobs:
       - name: Verify shared design core
         run: ./assets/declare-core/scripts/verify-consumer.sh .
       - name: Verify Scholar metadata
-        run: bundle exec ruby assets/declare-core/scripts/sync_scholar.rb --output _data/scholar.yml --check --max-age 45 --minimum-coverage 0.95
+        run: |
+          bundle exec ruby assets/declare-core/scripts/sync_scholar_test.rb
+          bundle exec ruby assets/declare-core/scripts/sync_scholar.rb --output _data/scholar.yml --check --max-age 45 --minimum-coverage 0.95
+      - name: Test publication BibTeX controls
+        run: node --test scripts/publications_bibtex.test.cjs
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
