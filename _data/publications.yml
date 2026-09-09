@@ -3,7 +3,7 @@
 # Optional: publication_url, scholar_url, pdf, abstract, code, project, categories
 
 - title: 'Not All Tokens Are Equal: Intrinsic Loss Reweighting for Verifiable Reinforcement Learning'
-  authors: 'Tej Deep Pala, Vernon Toh, Soujanya Poria'
+  authors: 'TD Pala, V Toh, S Poria'
   venue: '3rd AI for Math Workshop @ ICML 2026'
   year: 2026
   publication_url: 'https://openreview.net/forum?id=EHbCWedsUK'
@@ -18,7 +18,7 @@
     this approach on mathematical reasoning with models from the Qwen3 and OctoThinker families.
 
 - title: 'WildMix Dataset and Spectro-Temporal Transformer Model for Monoaural Audio Source Separation'
-  authors: 'Amir Zadeh, Tianjun Ma, Soujanya Poria, Louis-Philippe Morency'
+  authors: 'A Zadeh, T Ma, S Poria, LP Morency'
   venue: 'arXiv preprint arXiv:1911.09783'
   year: 2019
   publication_url: 'https://arxiv.org/abs/1911.09783'
@@ -31,7 +31,7 @@
     Transformer models dependencies across both time and frequency while separating the sources.
 
 - title: 'Variational Fusion for Multimodal Sentiment Analysis'
-  authors: 'Navonil Majumder, Soujanya Poria, Gangeshwar Krishnamurthy, Niyati Chhaya, Rada Mihalcea, Alexander Gelbukh'
+  authors: 'N Majumder, S Poria, G Krishnamurthy, N Chhaya, R Mihalcea, A Gelbukh'
   venue: 'arXiv preprint arXiv:1908.06008'
   year: 2019
   publication_url: 'https://arxiv.org/abs/1908.06008'
@@ -601,7 +601,7 @@
     performance across benchmarks.
 
 - title: 'The jumping reasoning curve? Tracking the evolution of reasoning performance in GPT-[n] and o-[n] models on multimodal puzzles'
-  authors: "VYH Toh, YK Chia, D Ghosal, S Poria"
+  authors: "V Toh, YK Chia, D Ghosal, S Poria"
   venue: 'arXiv preprint arXiv:2502.01081'
   year: 2025
   scholar_url: 'https://scholar.google.com/scholar?q=The+jumping+reasoning+curve%3F+Tracking+the+evolution+of+reasoning+performance+in+GPT-%5Bn%5D+and+o-%5Bn%5D+models+on+multimodal+puzzles'
@@ -1095,7 +1095,7 @@
     identifying opportunities and challenges for FM-powered robotics in real-world settings.
 
 - title: 'Ferret: Faster and effective automated red teaming with reward-based scoring technique'
-  authors: "TD Pala, VYH Toh, R Bhardwaj, S Poria"
+  authors: "TD Pala, V Toh, R Bhardwaj, S Poria"
   venue: EMNLP (Findings)
   year: 2025
   scholar_url: 'https://scholar.google.com/scholar?q=Ferret%3A+Faster+and+effective+automated+red+teaming+with+reward-based+scoring+technique'
@@ -4853,7 +4853,7 @@
     assigning an emotion label.
 
 - title: 'SMSFR: SMS-Based FAQ Retrieval System'
-  authors: "Partha Pakray, Santanu Pal, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh"
+  authors: "P Pakray, S Pal, S Poria, S Bandyopadhyay, A Gelbukh"
   venue: MICAI (2)
   year: 2012
   scholar_url: 'https://scholar.google.com/scholar?q=SMSFR%3A%20SMS-Based%20FAQ%20Retrieval%20System'
@@ -4889,7 +4889,7 @@
     labels to more than 2700 concepts.
 
 - title: 'Fuzzy Clustering for Semi-supervised Learning - Case Study: Construction of an Emotion Lexicon'
-  authors: "Soujanya Poria, Alexander F. Gelbukh, Dipankar Das 0001, Sivaji Bandyopadhyay"
+  authors: "S Poria, A Gelbukh, D Das, S Bandyopadhyay"
   venue: MICAI (1)
   year: 2012
   scholar_url: 'https://scholar.google.com/scholar?q=Fuzzy%20Clustering%20for%20Semi-supervised%20Learning%20-%20Case%20Study%3A%20Construction%20of%20an%20Emotion%20Lexicon'
@@ -4930,7 +4930,7 @@
     with features extracted from various lexical resources.
 
 - title: A Classifier Based Approach to Emotion Lexicon Construction
-  authors: "Dipankar Das 0001, Soujanya Poria, Sivaji Bandyopadhyay"
+  authors: "D Das, S Poria, S Bandyopadhyay"
   venue: NLDB
   year: 2012
   scholar_url: 'https://scholar.google.com/scholar?q=A%20Classifier%20Based%20Approach%20to%20Emotion%20Lexicon%20Construction'
@@ -4949,7 +4949,7 @@
     identifying emotion orientations of the words from the WordNet Affect based lexical network.
 
 - title: Semantic Textual Entailment Recognition using UNL
-  authors: "Partha Pakray, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh"
+  authors: "P Pakray, S Poria, S Bandyopadhyay, A Gelbukh"
   venue: Polibits
   year: 2011
   scholar_url: 'https://scholar.google.com/scholar?q=Semantic%20Textual%20Entailment%20Recognition%20using%20UNL'
@@ -4968,7 +4968,7 @@
     recall.
 
 - title: A Textual Entailment System using Anaphora Resolution
-  authors: "Partha Pakray, Snehasis Neogi, Pinaki Bhaskar, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh"
+  authors: "P Pakray, S Neogi, P Bhaskar, S Poria, S Bandyopadhyay, A Gelbukh"
   venue: TAC
   year: 2011
   scholar_url: 'https://scholar.google.com/scholar?q=A%20Textual%20Entailment%20System%20using%20Anaphora%20Resolution'
@@ -4987,7 +4987,7 @@
     the paper for both main/novelty and KBP validation tasks.
 
 - title: 'JU_CSE_TAC: Textual Entailment Recognition System at TAC RTE-6'
-  authors: "Partha Pakray, Santanu Pal, Soujanya Poria, Sivaji Bandyopadhyay, Alexander F. Gelbukh"
+  authors: "P Pakray, S Pal, S Poria, S Bandyopadhyay, A Gelbukh"
   venue: TAC
   year: 2010
   scholar_url: 'https://scholar.google.com/scholar?q=JU_CSE_TAC%3A%20Textual%20Entailment%20Recognition%20System%20at%20TAC%20RTE-6'

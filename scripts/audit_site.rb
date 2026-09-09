@@ -12,6 +12,19 @@ checked_images = 0
 
 abort "Built site not found: #{site_root}" unless site_root.directory?
 
+# Publication bylines use given-name initials throughout the archive.
+publication_page = site_root.join("publications/index.html")
+if publication_page.file?
+  Nokogiri::HTML5(publication_page.read).css(".pub-authors").each do |byline|
+    byline.text.split(",").each do |raw_author|
+      author = raw_author.gsub(/\s+/, " ").strip
+      unless author.match?(/\A[A-Z]+ [^,]+\z/)
+        errors << "publications/index.html: use initials in author name '#{author}'"
+      end
+    end
+  end
+end
+
 def local_reference?(value)
   return false if value.nil? || value.empty? || value.start_with?("//")
 
