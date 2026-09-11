@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.recovery/
+.private/
+.env*
+*.log
+*.tar.gz
+.DS_Store
+school-api/node_modules/
+school-api/dist/
+school-api/*.sqlite*
+school-api/.git/

@@ -1,0 +1,118 @@
+.mascot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
+.mascot svg {
+  overflow: visible;
+  flex: none;
+}
+
+.mascot.animate .dot-body {
+  animation: dot-bob 3.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.mascot.animate.mood-cheer .dot-body {
+  animation: dot-cheer 0.9s var(--spring) 2;
+}
+
+.mascot.animate.mood-oops .dot-body {
+  animation: dot-tilt 1.2s ease-in-out 1;
+}
+
+.mascot.animate .dot-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dot-twinkle 2.6s ease-in-out infinite;
+}
+
+.mascot.animate .blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dot-blink 5s infinite;
+}
+
+.mascot .pet {
+  animation: dot-bob 2.4s ease-in-out infinite reverse;
+}
+
+@keyframes dot-bob {
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes dot-cheer {
+  30% {
+    transform: translateY(-14px) scale(1.03, 0.97);
+  }
+  60% {
+    transform: translateY(0) scale(1.05, 0.95);
+  }
+}
+
+@keyframes dot-tilt {
+  30% {
+    transform: rotate(-6deg);
+  }
+  60% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes dot-twinkle {
+  50% {
+    transform: rotate(20deg) scale(1.15);
+  }
+}
+
+@keyframes dot-blink {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.1);
+  }
+}
+
+.mascot-bubble {
+  position: relative;
+  max-width: 280px;
+  padding: 10px 16px;
+  border-radius: 18px;
+  background: #fff;
+  border: 2px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  font-weight: 850;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  color: var(--ink);
+  animation: bubble-in 0.35s var(--spring);
+}
+
+.mascot-bubble::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-left: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateX(-6px);
+  }
+}

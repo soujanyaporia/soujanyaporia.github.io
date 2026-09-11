@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1789115598550,
+      "tag": "0000_orange_sunfire",
+      "breakpoints": true
+    }
+  ]
+}

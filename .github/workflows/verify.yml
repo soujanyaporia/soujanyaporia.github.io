@@ -114,6 +114,15 @@ jobs:
             find _site/assets/declare-core -type f -print >&2
             exit 1
           fi
+      - name: Build and test Math for Primary
+        working-directory: _apps/math-for-primary
+        run: |
+          npm ci
+          npm test
+          npm run build
+          mkdir -p ../../_site/math-for-primary
+          cp -R dist/. ../../_site/math-for-primary/
+          test -f ../../_site/math-for-primary/index.html
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

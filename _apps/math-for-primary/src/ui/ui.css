@@ -1,0 +1,156 @@
+/* ---------------------------------------------------------------- progress dots */
+
+.dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #eee4d6;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  transition: background-color 0.3s, transform 0.3s var(--spring);
+}
+
+.dot.current {
+  background: #fff;
+  box-shadow: inset 0 0 0 4px var(--blue);
+  transform: scale(1.12);
+}
+
+.dot.done {
+  background: var(--blue);
+}
+
+.dot.done.star {
+  background: var(--yellow);
+  color: #fff;
+  animation: pop-in 0.4s var(--spring);
+}
+
+/* ---------------------------------------------------------------- stars */
+
+.stars {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.star {
+  color: #e9dfd0;
+}
+
+.star.on {
+  color: var(--yellow);
+  filter: drop-shadow(0 3px 0 var(--yellow-dark));
+  animation: star-in 0.6s var(--spring) both;
+  animation-delay: calc(var(--i) * 0.25s + 0.2s);
+}
+
+@keyframes star-in {
+  from {
+    transform: scale(0) rotate(-40deg);
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- confetti */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 30;
+}
+
+.confetti span {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 16px;
+  border-radius: 3px;
+  opacity: 0.9;
+  animation-name: confetti-fall;
+  animation-timing-function: cubic-bezier(0.3, 0.6, 0.5, 1);
+  animation-fill-mode: both;
+}
+
+.confetti span.round {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+@keyframes confetti-fall {
+  from {
+    transform: translateY(0) rotate(var(--r));
+  }
+  to {
+    transform: translateY(105vh) rotate(calc(var(--r) + 540deg));
+    opacity: 0.8;
+  }
+}
+
+/* ---------------------------------------------------------------- dialog */
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(29, 39, 66, 0.35);
+  animation: fade-in 0.2s;
+}
+
+.dialog {
+  width: min(100%, 440px);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  animation: pop-in 0.3s var(--spring);
+}
+
+.dialog h2 {
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.dialog-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.dialog-actions .btn {
+  flex: 1;
+}
+
+.speak-btn {
+  color: var(--blue);
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}

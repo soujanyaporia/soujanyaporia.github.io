@@ -65,6 +65,7 @@ kramdown:
 include:
   - _pages
 exclude:
+  - _apps
   - Gemfile
   - Gemfile.lock
   - LICENSE

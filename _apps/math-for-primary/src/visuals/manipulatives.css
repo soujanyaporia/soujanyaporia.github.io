@@ -1,0 +1,331 @@
+/* ---------------------------------------------------------------- shared */
+
+.dot-item {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.15), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+.counter.item {
+  background: transparent;
+  box-shadow: none;
+}
+
+.counter.item svg {
+  width: 100%;
+  height: 100%;
+}
+
+.counter.item.crossed {
+  background: transparent;
+  opacity: 0.45;
+}
+
+/* ---------------------------------------------------------------- equal groups */
+
+.groups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px 18px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  animation: pop-in 0.4s var(--spring) both;
+  animation-delay: calc(var(--g) * 90ms);
+}
+
+.plate {
+  min-width: 88px;
+  min-height: 88px;
+  padding: 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 45%, #fff 0 60%, #f6eee3 61% 100%);
+  border: 3px solid #e8dac6;
+  box-shadow: 0 4px 0 #eadfce;
+}
+
+.plate-items {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), auto);
+  gap: 3px;
+  justify-content: center;
+}
+
+.plate-item {
+  display: grid;
+  place-items: center;
+  animation: pop-in 0.3s var(--spring) both;
+  animation-delay: calc(var(--i) * 28ms + 120ms);
+}
+
+.plate-unknown {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--blue-ink);
+}
+
+.group-size,
+.group-total {
+  padding: 1px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.group-size {
+  background: var(--orange-soft);
+  color: var(--orange-ink);
+}
+
+.group-total {
+  background: var(--green-soft);
+  color: var(--green-ink);
+  animation: pop-in 0.3s var(--spring) both;
+  animation-delay: calc(var(--g) * 260ms + 250ms);
+}
+
+/* ---------------------------------------------------------------- arrays */
+
+.array-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.array-top,
+.array-side {
+  font-size: 0.92rem;
+  font-weight: 850;
+  color: var(--ink-3);
+}
+
+.array-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.array-side {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.array-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 52px 10px 10px;
+  border-radius: 18px;
+  background: #fff;
+  border: 3px solid var(--line-2);
+  animation: fade-in 0.3s;
+}
+
+.array-grid.turned {
+  animation: array-turn 0.75s var(--spring);
+}
+
+@keyframes array-turn {
+  from {
+    opacity: 0.3;
+    transform: rotate(-90deg) scale(0.85);
+  }
+}
+
+.array-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--cell));
+  gap: 6px;
+  padding: 2px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  transition-delay: calc(var(--r) * 120ms);
+}
+
+.array-row.lit {
+  background: var(--yellow-soft);
+}
+
+.array-cell {
+  width: var(--cell);
+  height: var(--cell);
+  display: grid;
+  place-items: center;
+}
+
+.array-cell .dot-item {
+  width: 78%;
+  height: 78%;
+}
+
+.array-running {
+  position: absolute;
+  right: -46px;
+  top: 50%;
+  padding: 0 8px;
+  border-radius: 999px;
+  transform: translateY(-50%);
+  background: var(--green-soft);
+  color: var(--green-ink);
+  font-weight: 900;
+  animation: pop-in 0.3s var(--spring) both;
+  animation-delay: calc(var(--r) * 120ms);
+}
+
+/* ---------------------------------------------------------------- sharing & grouping */
+
+.share-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.share-pile {
+  min-height: 52px;
+  max-width: 440px;
+  padding: 10px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border-radius: 18px;
+  background: #fdf1dd;
+  border: 3px dashed #eed5ad;
+}
+
+.share-pile.empty {
+  background: var(--green-soft);
+  border-color: #bfe8d4;
+}
+
+.pile-item {
+  display: grid;
+  place-items: center;
+  animation: pop-in 0.25s var(--spring) both;
+}
+
+.pile-done {
+  font-weight: 900;
+  color: var(--green-ink);
+}
+
+.share-plates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.share-plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.grouping-view {
+  max-width: 560px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.grouping-set {
+  position: relative;
+  max-width: 150px;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 18px;
+  border: 3px dashed transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.grouping-set.circled {
+  border-color: var(--purple);
+  background: var(--purple-soft);
+  animation: pop-in 0.35s var(--spring) both;
+  animation-delay: calc(var(--g) * 120ms);
+}
+
+.grouping-label {
+  position: absolute;
+  top: -12px;
+  left: -10px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+/* ---------------------------------------------------------------- fact family */
+
+.family {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.family-tri {
+  width: 190px;
+}
+
+.family-num {
+  font-family: var(--font);
+  font-size: 26px;
+  font-weight: 900;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--ink);
+}
+
+.family-op {
+  font-family: var(--font);
+  font-size: 20px;
+  font-weight: 900;
+  text-anchor: middle;
+  fill: var(--ink-2);
+}
+
+.family-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.family-fact {
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid var(--line);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.family-fact.focus {
+  border-color: var(--green);
+  background: var(--green-soft);
+}

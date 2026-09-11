@@ -1,0 +1,44 @@
+import { test,after } from 'node:test';
+import assert from 'node:assert/strict';
+import worker from '../dist/server/index.js';
+import { localDb } from '../local-db.mjs';
+const DB=localDb();after(()=>DB.close());const env={DB,BOOTSTRAP_SECRET:'test-private-bootstrap'};
+async function call(path,method='GET',body,token,origin='https://soujanyaporia.github.io'){
+ const r=await worker.fetch(new Request('https://test'+path,{method,headers:{Origin:origin,'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},...(body?{body:JSON.stringify(body)}:{})}),env);return {status:r.status,body:await r.json()};
+}
+const bootstrap=(code)=>call('/api/bootstrap','POST',{code,schoolName:code,name:'Admin',username:'admin',password:'Long-school-password!'},env.BOOTSTRAP_SECRET);
+const login=(code,username,password='Long-school-password!')=>call('/api/login','POST',{schoolCode:code,username,password});
+test('tenant permissions, password reset, progress idempotency and multi-device conflict',async()=>{
+ assert.equal((await call('/api/bootstrap','POST',{})).status,401);
+ assert.equal((await call('/health','GET',null,null,'https://evil.example')).status,403);
+ assert.equal((await bootstrap('A')).status,201);assert.equal((await bootstrap('B')).status,201);
+ const a=(await login('A','admin')).body.token,b=(await login('B','admin')).body.token;
+ const year=(await call('/api/school','GET',null,a)).body.years[0].id;
+ const c=(await call('/api/classes','POST',{yearId:year,level:1,name:'Courage',track:'standard'},a)).body.id;
+ assert.equal((await call('/api/classes','POST',{yearId:year,level:1,name:'Wrong',track:'foundation'},a)).status,400);
+ assert.equal((await call('/api/classes','POST',{yearId:year,level:1,name:'Cross',track:'standard'},b)).status,400);
+ const teacher=(await call('/api/users','POST',{role:'teacher',username:'teacher',name:'Teacher',password:'Long-school-password!',classId:c},a)).body.id;
+ const student=(await call('/api/users','POST',{username:'pupil',name:'Pupil',password:'12345678',classId:c},a)).body.id;
+ const t=(await login('A','teacher')).body.token,s=(await login('A','pupil','12345678')).body.token;
+ assert.equal((await call('/api/progress','GET',null,s)).status,403);
+ assert.equal((await call('/api/password','POST',{current:'12345678',password:'87654321'},s)).status,200);
+ await call('/api/password','POST',{current:'Long-school-password!',password:'Different-long-password!'},t);
+ assert.equal((await call('/api/school','GET',null,s)).status,403);
+ assert.equal((await call('/api/classes/'+c+'/report','GET',null,b)).status,404);
+ assert.equal((await call('/api/users/'+teacher,'PATCH',{password:'Reset-long-password!'},t)).status,403);
+ const event={id:crypto.randomUUID(),at:Date.now(),kind:'attempt',outcome:{skill:'add.result',level:1,firstTry:true,correct:true,tries:1,hints:0,revealed:false,at:Date.now()}};
+ const p=await call('/api/progress','POST',{version:0,events:[event]},s);assert.equal(p.status,200,JSON.stringify(p.body));assert.equal(p.body.progress.totals.attempted,1);
+ const duplicate=await call('/api/progress','POST',{version:1,events:[event]},s);assert.equal(duplicate.body.progress.totals.attempted,1);
+ const second={...event,id:crypto.randomUUID()};assert.equal((await call('/api/progress','POST',{version:0,events:[second]},s)).status,409);
+ const next=await call('/api/progress','POST',{version:2,events:[second]},s);assert.equal(next.body.progress.totals.attempted,2);
+ const s2=(await login('A','pupil','87654321')).body.token;assert.equal((await call('/api/progress','GET',null,s2)).body.progress.totals.attempted,2);
+ assert.equal((await call('/api/progress','POST',{version:3,events:[{...event,id:crypto.randomUUID(),outcome:{...event.outcome,skill:'__proto__'}}]},s)).status,400);
+ assert.equal((await call('/api/users/'+student,'PATCH',{password:'11223344'},b)).status,404);
+ assert.equal((await call('/api/users/'+student,'PATCH',{password:'11223344'},t)).status,200);
+ assert.equal((await call('/api/me','GET',null,s2)).status,401);
+ const fresh=(await login('A','pupil','11223344')).body.token;assert.equal((await call('/api/me','GET',null,fresh)).body.user.mustChange,true);
+ const im=await call('/api/import','POST',{classId:c,students:[{student_id:'new',name:'New'},{student_id:'pupil',name:'Duplicate'}]},a);assert.equal(im.status,409);assert.equal((await call('/api/school','GET',null,a)).body.users.some(x=>x.username==='new'),false);
+ assert.equal((await call('/api/users/'+student,'PATCH',{active:false},a)).status,200);assert.equal((await login('A','pupil','11223344')).status,401);
+ assert.equal((await call('/api/logout','POST',{},a)).status,200);assert.equal((await call('/api/me','GET',null,a)).status,401);
+});
+test('unknown users are throttled without account enumeration',async()=>{for(let i=0;i<8;i++)assert.equal((await login('A','unknown')).status,401);assert.equal((await login('A','unknown')).status,429);});

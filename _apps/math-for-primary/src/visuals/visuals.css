@@ -1,0 +1,603 @@
+.visual {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  animation: visual-in 0.4s var(--ease-out);
+}
+
+@keyframes visual-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- counters */
+
+.counters {
+  --size: clamp(30px, 4.6vw, 46px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 18px 30px;
+}
+
+.counter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.counter-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), var(--size));
+  gap: 8px;
+}
+
+.counter {
+  --cc: var(--blue);
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--cc);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.14), inset 0 3px 0 rgba(255, 255, 255, 0.3);
+  animation: pop-in 0.42s var(--spring) both;
+  animation-delay: var(--pop-delay);
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition-delay: var(--cross-delay);
+}
+
+.c-blue {
+  --cc: var(--blue);
+  --cc-soft: var(--blue-soft);
+  --cc-ink: var(--blue-ink);
+}
+
+.c-orange {
+  --cc: var(--orange);
+  --cc-soft: var(--orange-soft);
+  --cc-ink: var(--orange-ink);
+}
+
+.c-green {
+  --cc: var(--green);
+  --cc-soft: var(--green-soft);
+  --cc-ink: var(--green-ink);
+}
+
+.c-purple {
+  --cc: var(--purple);
+  --cc-soft: var(--purple-soft);
+  --cc-ink: var(--purple-ink);
+}
+
+.c-grey {
+  --cc: #b8bfcc;
+  --cc-soft: #eef0f4;
+  --cc-ink: var(--ink-2);
+}
+
+.counter.ghost {
+  background: transparent;
+  box-shadow: none;
+  border: 3px dashed var(--cc);
+  opacity: 0.8;
+}
+
+.counter::before,
+.counter::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--ink);
+  transform: rotate(45deg) scaleX(0);
+  transition: transform 0.22s var(--ease-out);
+  transition-delay: var(--cross-delay);
+}
+
+.counter::after {
+  transform: rotate(-45deg) scaleX(0);
+}
+
+.counter.crossed {
+  background: #dde1e8;
+  box-shadow: none;
+  transform: scale(0.9);
+}
+
+.counter.crossed::before {
+  transform: rotate(45deg) scaleX(1);
+}
+
+.counter.crossed::after {
+  transform: rotate(-45deg) scaleX(1);
+  transition-delay: calc(var(--cross-delay) + 90ms);
+}
+
+.counter-num {
+  font-size: calc(var(--size) * 0.44);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  animation: pop-in 0.3s var(--spring) both;
+  animation-delay: var(--num-delay);
+}
+
+.counter.ghost .counter-num {
+  color: var(--cc-ink);
+}
+
+.counter-label {
+  min-width: 44px;
+  padding: 3px 14px;
+  border-radius: 999px;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.15rem;
+  background: var(--cc-soft);
+  color: var(--cc-ink);
+}
+
+.counter-label.ghost {
+  background: #fff;
+  border: 2px dashed var(--cc);
+}
+
+.counters.frames {
+  gap: 14px;
+}
+
+.ten-frame {
+  display: grid;
+  grid-template-columns: repeat(5, var(--size));
+  gap: 6px;
+  padding: 8px;
+  border-radius: 16px;
+  background: #fff;
+  border: 3px solid var(--line-2);
+}
+
+.frame-slot {
+  width: var(--size);
+  height: var(--size);
+  border-radius: 12px;
+  background: var(--surface-2);
+  display: grid;
+  place-items: center;
+}
+
+.frame-slot .counter {
+  width: 84%;
+  height: 84%;
+}
+
+.frame-labels {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ---------------------------------------------------------------- number line */
+
+.numberline {
+  width: 100%;
+  max-width: 980px;
+}
+
+.numberline svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.nl-axis {
+  stroke: var(--ink-2);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.nl-tick line {
+  stroke: var(--ink-3);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.nl-label {
+  font-family: var(--font);
+  font-size: 26px;
+  font-weight: 800;
+  fill: var(--ink-2);
+  text-anchor: middle;
+}
+
+.nl-jump path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 4.5;
+  stroke-linecap: round;
+}
+
+.nl-jump.back path {
+  stroke: var(--orange);
+}
+
+.nl-arrowhead {
+  fill: var(--blue);
+}
+
+.nl-arrowhead.back {
+  fill: var(--orange);
+}
+
+.nl-jump.animate path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: nl-draw 0.46s var(--ease-out) forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes nl-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.nl-jump.animate .nl-head,
+.nl-jump.animate .nl-jump-label {
+  opacity: 0;
+  animation: fade-in 0.2s forwards;
+  animation-delay: calc(var(--delay) + 360ms);
+}
+
+.nl-jump-label circle {
+  fill: #fff;
+  stroke: var(--blue-soft);
+  stroke-width: 3;
+}
+
+.nl-jump.back .nl-jump-label circle {
+  stroke: var(--orange-soft);
+}
+
+.nl-jump-label text {
+  font-family: var(--font);
+  font-size: 22px;
+  font-weight: 900;
+  fill: var(--blue-ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.nl-jump.back .nl-jump-label text {
+  fill: var(--orange-ink);
+}
+
+.nl-start circle {
+  fill: #fff;
+  stroke: var(--blue);
+  stroke-width: 5;
+}
+
+.nl-end circle {
+  fill: var(--green);
+  stroke: #fff;
+  stroke-width: 4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pop-in 0.4s var(--spring) both;
+  animation-delay: var(--delay);
+}
+
+@media (max-width: 560px) {
+  .nl-odd {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- number bond */
+
+.bond svg {
+  width: min(100%, 330px);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.bond-link {
+  stroke: var(--line-2);
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.bond-node circle {
+  fill: var(--blue-soft);
+  stroke: var(--blue);
+  stroke-width: 5;
+  transition: fill 0.3s, stroke 0.3s;
+}
+
+.bond-node.tone-part1 circle {
+  fill: var(--orange-soft);
+  stroke: var(--orange);
+}
+
+.bond-node.tone-part2 circle {
+  fill: var(--green-soft);
+  stroke: var(--green);
+}
+
+.bond-node text {
+  font-family: var(--font);
+  font-size: 42px;
+  font-weight: 900;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.bond-node.unknown circle {
+  fill: #fff;
+  stroke: var(--ink-3);
+  stroke-dasharray: 10 8;
+}
+
+.bond-node.unknown text {
+  fill: var(--ink-3);
+}
+
+.bond-node.focus circle {
+  stroke-width: 7;
+}
+
+.bond-node.active circle {
+  fill: #fff;
+  stroke: var(--blue);
+  stroke-width: 6;
+  stroke-dasharray: 12 8;
+  animation: bond-pulse 1.6s ease-in-out infinite;
+}
+
+.bond-node.active.filled circle {
+  stroke-dasharray: none;
+}
+
+.bond-node.active text {
+  fill: var(--blue-ink);
+}
+
+@keyframes bond-pulse {
+  50% {
+    stroke: #8fa9f7;
+  }
+}
+
+/* ---------------------------------------------------------------- bar model */
+
+.bar-model,
+.bar-compare {
+  width: min(100%, 660px);
+  margin: 0 auto;
+}
+
+.bar-brace {
+  position: relative;
+  height: 20px;
+  margin: 44px 6px 10px;
+  border: 3px solid var(--ink-3);
+  border-bottom: 0;
+  border-radius: 14px 14px 0 0;
+}
+
+.bar-brace-label {
+  position: absolute;
+  left: 50%;
+  top: -44px;
+  transform: translateX(-50%);
+  min-width: 56px;
+  height: 42px;
+  padding: 0 14px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #fff;
+  border: 3px solid var(--ink-3);
+  font-weight: 900;
+  font-size: 1.45rem;
+}
+
+.bar-brace-label.unknown,
+.bar-block.unknown {
+  border: 3px dashed var(--blue);
+  color: var(--blue-ink);
+  background: repeating-linear-gradient(135deg, #fff 0 9px, var(--blue-soft) 9px 18px);
+}
+
+.bar-brace-caption {
+  position: absolute;
+  right: 0;
+  top: -30px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--ink-3);
+}
+
+.bar-row,
+.bar-track {
+  display: flex;
+}
+
+.bar-cell {
+  flex: var(--grow) 1 0;
+  min-width: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: flex-grow 0.4s var(--ease-out);
+}
+
+.bar-block {
+  height: 62px;
+  display: grid;
+  place-items: center;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #fff;
+  background: var(--blue);
+  border: 3px solid rgba(29, 39, 66, 0.1);
+  animation: fade-in 0.3s;
+}
+
+.bar-cell.part-b .bar-block {
+  background: var(--orange);
+}
+
+.bar-cell.diff .bar-block {
+  background: transparent;
+  border: 3px dashed var(--ink-3);
+  color: var(--ink-2);
+}
+
+.bar-cell.diff .bar-block.unknown {
+  border-color: var(--blue);
+  color: var(--blue-ink);
+  background: repeating-linear-gradient(135deg, #fff 0 9px, var(--blue-soft) 9px 18px);
+}
+
+.bar-cell:first-child .bar-block {
+  border-radius: 14px 0 0 14px;
+}
+
+.bar-cell:last-child .bar-block {
+  border-radius: 0 14px 14px 0;
+}
+
+.bar-cell:only-child .bar-block {
+  border-radius: 14px;
+}
+
+.bar-caption {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.bar-compare {
+  display: grid;
+  gap: 16px;
+}
+
+.bar-line {
+  display: grid;
+  grid-template-columns: minmax(64px, auto) 1fr;
+  align-items: start;
+  gap: 12px;
+}
+
+.bar-compare.no-names .bar-line {
+  grid-template-columns: 1fr;
+}
+
+.bar-name {
+  font-weight: 900;
+  text-align: right;
+  line-height: 62px;
+}
+
+/* ---------------------------------------------------------------- balance */
+
+.balance svg {
+  width: min(100%, 540px);
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.balance-stand,
+.balance-base {
+  fill: var(--line-2);
+}
+
+.balance-beam {
+  transform-box: view-box;
+  transform-origin: 260px 92px;
+  transition: transform 0.9s var(--spring);
+}
+
+.balance-beam rect {
+  fill: var(--ink-2);
+  transition: fill 0.4s;
+}
+
+.balance-pivot {
+  fill: var(--ink);
+}
+
+.balance-pan {
+  transition: transform 0.9s var(--spring);
+}
+
+.balance-pan line {
+  stroke: var(--ink-3);
+  stroke-width: 3;
+}
+
+.pan-plate {
+  fill: var(--line-2);
+}
+
+.pan-sign rect {
+  fill: #fff;
+  stroke: var(--ink-3);
+  stroke-width: 3;
+  transition: stroke 0.4s;
+}
+
+.pan-sign text {
+  font-family: var(--font);
+  font-size: 30px;
+  font-weight: 900;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.pan-value {
+  font-family: var(--font);
+  font-size: 24px;
+  font-weight: 900;
+  fill: var(--ink-2);
+  text-anchor: middle;
+}
+
+.balance.balanced .balance-beam rect {
+  fill: var(--green);
+}
+
+.balance.balanced .pan-sign rect {
+  stroke: var(--green);
+}
+
+.balance.unknown .balance-beam rect {
+  fill: var(--ink-3);
+}
