@@ -1,5 +1,35 @@
 # Continuation and verification — 11 September 2026
 
+## Release 1 — returning feels purposeful (evening, 11 September 2026)
+
+This section supersedes the statements below that in-flight activity resume is not implemented.
+
+**Automated.** `npm test`: 351 tests in 14 files pass (previously 330 in 10). New tests:
+
+- `src/primary/session.test.ts`: stable UUID-shaped event IDs; question keys within the API's 200-character limit that rebuild the identical question for all 198 activities; exact regeneration of saved sessions and refusal of a changed generator, fingerprint or activity; strict session validation; near-transfer repair for every activity (never the identical question; the same strategy in more than 95% of 792 samples); the targeted-note rules.
+- `src/primary/resume.test.ts`: a reload restores the exact question and working without scoring the working; answers, completion and stars are counted once across repeated events, full replays and a repeat with a different ID; a second device rebuilds the session from saved answer history alone; guest and account session stores never share data; incomplete history is not trusted; an older generator is reported.
+- `src/state/__tests__/cloudSync.test.ts`: an event is queued once; a permanently rejected event is set aside without blocking later events; a 409 caused by another device is replayed; work and the cached snapshot survive an outage and a reload; an expired sign-in keeps work pending.
+- `src/engine/__tests__/stats.test.ts`: the progress reducer's level bound equals `clampLevel` for every skill.
+
+`npm run build` passes (TypeScript and Vite). The main script is 318 kB (98 kB gzip), down from one 606 kB bundle. The activity player (67 kB), school pages (31 kB) and original lessons (155 kB, plus an 85 kB shared engine chunk and their own CSS) load on demand, and Vite's chunk-size warning no longer appears.
+
+Backend (`school-api` commit `6333b79`): `node sync-shared.mjs`, build and 7 integration tests pass. New checks: the health capability; a draft restored on a second device without changing progress; a stale revision refused with the stored copy returned; malformed sessions rejected; sessions private to each pupil, school and role; deactivated (401) and must-change (403) accounts refused; the same answer and completion from two devices counted once; a repeat with a different event ID recognised from saved history; a malformed `sessionId` rejected.
+
+**Compatibility with the deployed API.** A scripted check ran the new client code (event IDs, question keys, history-based resume) against the saved build of the deployed v2 worker (`1e92699`) on an in-memory database. All new events were accepted; repeats from a second login were not recounted; the second login rebuilt the session at question 4 of 8; completion and stars were counted once; `/api/sessions` returned 404, which the app treats as “v2: keep working on this device”.
+
+**Browser-observed** (local Vite app, guest, Chromium viewport emulation):
+
+- 1280×900, P3 Equivalent-fraction bridge: after one answer and typed working, reload showed “Welcome back. You are on question 2 of 8, with your working restored.” A wrong check (`5`), the opened clue and a changed, unchecked answer (`4`) were restored exactly after a second reload, and progress still counted one answer. The correct answer was then recorded as not first time (1 clue, 2 tries, evidence `5`), with the explanation kept on screen and focus on Next.
+- Keyboard: the answer box is focused from P3 and a real Enter key press checks the answer. The browser tool's synthetic Enter (a keydown without a keypress) does not submit forms; a typed newline does.
+- Two tabs: the second tab opened the same session at the next unanswered question. After answering it there, the first tab showed that question as already recorded (input disabled). Totals stayed at 3 answers with 3 recorded event IDs.
+- Completion: 8 answers, 5 first time, 2 stars and 1 completed session; reloading the completion screen added nothing.
+- Repair: 3 tricky questions (clue used, wrong answer, steps shown). Each showed the original question, the evidence and the worked steps; the wrong answer 21 for 20 received “one away”; each follow-up was a different question with the same strategy; repair added 3 attempts and no stars or completions.
+- Phone 390×844 (touch emulation): a P1 keypad answer, question track, coach panel and the leave dialog (focus on “Keep playing”); the home Continue card with “Also unfinished”, P5 Standard/Foundation path cards and the next objective; no horizontal overflow. Tablet 768×1024 (home, and a resumed activity with the Welcome back banner) and 1024×768 (home): no horizontal overflow.
+- A fresh tab loaded curriculum, school setup, sign in, register, sample dashboard, original lessons home, lesson `add-10`, Learn, My progress, a P6 Foundation activity and an unknown activity (friendly fallback) from their on-demand chunks with no console errors.
+- Found and fixed during these checks: after an answer was recorded, the history-rebuilt copy of the session moved the player past the explanation; the player now keeps its own question and only takes in answers recorded elsewhere. An activity that was opened but not touched no longer appears under Continue.
+
+**Not verified.** Signed-in pupil flows in a browser: no accounts were created and no passwords were typed on the live service in this session. Authenticated behaviour is covered by the API integration tests, the v2 compatibility check and the upload-queue and merge tests. Physical iPad/Safari, screen readers and 200% zoom were not tested; reduced motion was checked by reviewing the CSS (the new animations and transitions are disabled under `prefers-reduced-motion`). API v3 is not deployed, so unfinished working does not yet move between devices in production.
+
 The handoff mixed working lesson screens with incompatible newer routing,
 progress, question-player, and completion APIs. `npm run build` initially failed.
 The engine's existing 313 tests passed before the repairs.
@@ -99,3 +129,12 @@ These checks do not establish exhaustive pedagogical coverage, a physical
 Safari/iPad test, full accessibility compliance or school-scale load capacity.
 See NEXT-PHASE-PLAN.md for remaining work and acceptance criteria. In-flight
 activity resume is explicitly not yet implemented.
+
+Final live verification: GitHub Actions run `34585224897` succeeded for commit
+`b46ff95190c00667a1b9bbb21ded973a905b2f88`, including personal-site audits,
+backend tests, app tests/build and Pages deployment. Public HTML references the
+renamed app and current asset hashes; the personal site's live footer contains
+the side-project link. A pupil completed all four Shape safari questions in the
+browser; a separate authenticated API login retrieved the four answer records,
+one completed primary session and three stars (progress version 6). The synthetic
+pupil was signed out and deactivated after testing.

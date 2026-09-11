@@ -1,4 +1,4 @@
-import { DAY, dayKey } from '../engine/adaptive';
+import { DAY, dayKey } from '../engine/stats';
 
 /**
  * Daily streaks that encourage a habit without punishing children:

@@ -1,13 +1,15 @@
 import {touchStreak} from '../game/streak';
-import {applyPrimary,initialPrimary,type PrimaryEvent} from '../primary/progress';
+import {alreadyCounted,applyPrimary,initialPrimary,type PrimaryEvent} from '../primary/progress';
 import { applyAttempt, applySessionComplete, type ProgressState, type Settings } from '../state/progress';
-import type { AttemptOutcome } from '../engine/adaptive';
+import type { AttemptOutcome } from '../engine/stats';
 import { newBadges } from '../content/badges';
 export type ProgressEvent = PrimaryEvent | ({ id: string; at: number } & (
   { kind: 'attempt'; outcome: AttemptOutcome } | { kind: 'session'; stars: number; lessonId?: string } | { kind: 'settings'; patch: Partial<Settings> }
 ));
 export function reduceEvent(state: ProgressState, e: ProgressEvent): ProgressState {
   if (e.kind === 'primary_selection' || e.kind === 'primary_answer' || e.kind === 'primary_complete') {
+    // A repeated answer or completion (retry, refresh, second tab or device) changes nothing.
+    if (alreadyCounted(state.primary, e)) return state;
     const totals={...state.totals};
     if(e.kind==='primary_answer'){totals.attempted++;totals.correct+=Number(e.correct);totals.firstTry+=Number(e.firstTry);totals.hints+=e.hints;totals.tries+=e.tries;}
     if(e.kind==='primary_complete'){totals.sessions++;totals.stars+=e.stars;}

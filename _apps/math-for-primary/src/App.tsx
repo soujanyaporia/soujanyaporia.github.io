@@ -1,16 +1,30 @@
-import { PrimaryHome, PrimaryGame } from './primary/PrimaryScreens';
+import { Suspense } from 'react';
+import { PrimaryHome } from './primary/PrimaryHome';
+import { SessionProvider } from './primary/SessionContext';
 import { useRoute, type Route } from './app/router';
-import { LessonScreen } from './lesson/LessonScreen';
-import { HomeScreen } from './screens/HomeScreen';
-import { LearnScreen } from './screens/LearnScreen';
-import { MixedScreen } from './screens/MixedScreen';
-import { PracticeScreen } from './screens/PracticeScreen';
-import { ProgressScreen } from './screens/ProgressScreen';
-import { TopicsScreen } from './screens/TopicsScreen';
+import { lazyScreen, RouteBoundary, RouteLoading } from './app/boundary';
 import { ProgressProvider } from './state/ProgressContext';
-import './screens/screens.css';
 import { AccountProvider, useAccount } from './school/AccountContext';
-import { SchoolNav, AccountScreen, CurriculumScreen, SchoolScreen, DemoSchoolScreen, SchoolStartScreen, RegisterSchoolScreen } from './school/SchoolScreens';
+import { SchoolNav } from './school/SchoolNav';
+
+// Route code loads on demand: the activity player, school pages and the original lessons.
+const game = () => import('./primary/PrimaryGame');
+const school = () => import('./school/SchoolScreens');
+const foundations = () => import('./screens/foundations');
+const PrimaryGame = lazyScreen(() => game().then((m) => m.PrimaryGame));
+const AccountScreen = lazyScreen(() => school().then((m) => m.AccountScreen));
+const CurriculumScreen = lazyScreen(() => school().then((m) => m.CurriculumScreen));
+const SchoolScreen = lazyScreen(() => school().then((m) => m.SchoolScreen));
+const DemoSchoolScreen = lazyScreen(() => school().then((m) => m.DemoSchoolScreen));
+const SchoolStartScreen = lazyScreen(() => school().then((m) => m.SchoolStartScreen));
+const RegisterSchoolScreen = lazyScreen(() => school().then((m) => m.RegisterSchoolScreen));
+const HomeScreen = lazyScreen(() => foundations().then((m) => m.HomeScreen));
+const LearnScreen = lazyScreen(() => foundations().then((m) => m.LearnScreen));
+const LessonScreen = lazyScreen(() => foundations().then((m) => m.LessonScreen));
+const MixedScreen = lazyScreen(() => foundations().then((m) => m.MixedScreen));
+const PracticeScreen = lazyScreen(() => foundations().then((m) => m.PracticeScreen));
+const ProgressScreen = lazyScreen(() => foundations().then((m) => m.ProgressScreen));
+const TopicsScreen = lazyScreen(() => foundations().then((m) => m.TopicsScreen));
 
 function Screen({ route }: { route: Route }) {
   switch (route.name) {
@@ -42,14 +56,19 @@ function Screen({ route }: { route: Route }) {
   }
 }
 
+const SCHOOL_ROUTES = ['account', 'school', 'demo', 'curriculum', 'school-start', 'register'];
+const loadingLabel = (route: Route) => (route.name === 'activity' ? 'Opening your activity…' : SCHOOL_ROUTES.includes(route.name) ? 'Opening…' : 'Opening the guided lessons…');
+
 function AccountApp() {
   const route = useRoute();
-  const {user,loading}=useAccount();
-  if(loading)return <main className="school-page"><h1>Opening your account…</h1></main>;
+  const {user,loading,connection,error,retry,continueAsGuest}=useAccount();
+  if(loading)return <main className="school-page loading-page" aria-busy="true"><p className="school-eyebrow">School account</p><h1>Opening your account…</h1></main>;
+  if(connection==='unreachable')return <main className="school-page loading-page"><p className="school-eyebrow">School account</p><h1>We can’t reach your school account right now.</h1><p role="status">{error}</p><p>Answers already waiting on this device are kept and will be saved the next time you sign in.</p><div className="loading-actions"><button className="btn" onClick={retry}>Try again</button><button className="btn btn-soft" onClick={continueAsGuest}>Play as a guest instead</button></div></main>;
   const screen=user?.mustChange?{name:'account' as const}:route;
   const focus=['lesson','practice-topic','mixed','activity'].includes(screen.name);
-  return <ProgressProvider key={user?.id+(user?.mustChange?'change':'ready')}><div className="app">
-    {!focus&&<SchoolNav/>}<Screen route={screen}/>
-  </div></ProgressProvider>;
+  const routeKey=JSON.stringify(screen);
+  return <ProgressProvider key={user?.id+(user?.mustChange?'change':'ready')}><SessionProvider><div className="app">
+    {!focus&&<SchoolNav/>}<RouteBoundary resetKey={routeKey}><Suspense fallback={<RouteLoading label={loadingLabel(screen)}/>}><Screen route={screen}/></Suspense></RouteBoundary>
+  </div></SessionProvider></ProgressProvider>;
 }
 export function App(){return <AccountProvider><AccountApp/></AccountProvider>;}

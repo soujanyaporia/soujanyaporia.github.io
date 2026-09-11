@@ -1,6 +1,6 @@
 import {initialPrimary,type PrimaryProgress} from '../primary/progress';
 import { touchStreak } from '../game/streak';
-import { updateStats, type AttemptOutcome, type StatsMap } from '../engine/adaptive';
+import { updateStats, type AttemptOutcome, type StatsMap } from '../engine/stats';
 import { emptyCounters, type Counters } from '../game/achievements';
 import type { ChestRecord } from '../game/chests';
 import type { QuestBoard } from '../game/quests';
@@ -143,7 +143,7 @@ export function sanitize(raw: unknown): ProgressState | null {
   return {
     ...base,
     ...d,
-    primary: d.primary && typeof d.primary === 'object' ? {selection:d.primary.selection??null,activities:d.primary.activities??{},history:d.primary.history??[]} : initialPrimary(),
+    primary: d.primary && typeof d.primary === 'object' ? {selection:d.primary.selection??null,activities:d.primary.activities??{},history:d.primary.history??[],applied:arr<string>(d.primary.applied).filter(id=>typeof id==='string').slice(-400)} : initialPrimary(),
     version: 2,
     profile: { ...base.profile, ...obj(d.profile) },
     totals: { ...base.totals, ...obj(d.totals) },
@@ -167,36 +167,46 @@ export function sanitize(raw: unknown): ProgressState | null {
 }
 
 export interface ProgressRepository {
+  /** Storage key, used to follow changes made in another tab. */
+  key?: string;
   load(): ProgressState | null;
   save(state: ProgressState): void;
   clear(): void;
 }
 
-export const localStorageRepository: ProgressRepository = {
-  load() {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY) ?? window.localStorage.getItem(LEGACY_KEY);
-      return raw ? sanitize(JSON.parse(raw)) : null;
-    } catch {
-      return null;
-    }
-  },
-  save(state) {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    } catch {
-      /* storage full or unavailable (private mode): keep playing */
-    }
-  },
-  clear() {
-    try {
-      window.localStorage.removeItem(STORAGE_KEY);
-      window.localStorage.removeItem(LEGACY_KEY);
-    } catch {
-      /* ignore */
-    }
-  },
-};
+/** Local progress for one scope. Guests keep the original key; signed-in staff get their own. */
+export const progressKeyFor = (scope: string) => (scope === 'guest' ? STORAGE_KEY : `${STORAGE_KEY}:${scope}`);
+
+export function localRepository(key: string, legacyKey?: string): ProgressRepository {
+  return {
+    key,
+    load() {
+      try {
+        const raw = window.localStorage.getItem(key) ?? (legacyKey ? window.localStorage.getItem(legacyKey) : null);
+        return raw ? sanitize(JSON.parse(raw)) : null;
+      } catch {
+        return null;
+      }
+    },
+    save(state) {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(state));
+      } catch {
+        /* storage full or unavailable (private mode): keep playing */
+      }
+    },
+    clear() {
+      try {
+        window.localStorage.removeItem(key);
+        if (legacyKey) window.localStorage.removeItem(legacyKey);
+      } catch {
+        /* ignore */
+      }
+    },
+  };
+}
+
+export const localStorageRepository: ProgressRepository = localRepository(STORAGE_KEY, LEGACY_KEY);
 
 /** Record an answer once, when the child advances to the next question. */
 export function applyAttempt(state: ProgressState, outcome: AttemptOutcome): ProgressState {

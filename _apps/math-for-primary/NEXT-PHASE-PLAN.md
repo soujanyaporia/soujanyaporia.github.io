@@ -10,7 +10,9 @@ The next improvement should be depth and continuity: a pupil returns to a meanin
 
 Keep the public name **Maths for SG Primary Schools** and the stable URL `/math-for-primary/`. Keep school administration behind the school navigation. Keep guest play immediate. Keep the personal website link small and in the footer.
 
-## Release 1 — Returning feels purposeful (next implementation)
+## Release 1 — Returning feels purposeful (implemented September 2026; API v3 deployment pending)
+
+Status, 11 September 2026: items 1–5 below are implemented and published with the frontend; evidence is in QA.md. Still open: deploy API v3 (the sessions endpoint, committed as `school-api` `6333b79`) so unfinished working and not-yet-answered activities follow pupils between devices; schedule a later revisit of repaired questions once review exists (Release 4); test on a physical iPad/Safari; observe pupils using Continue and repair before refining them.
 
 1. **Resume an unfinished activity.** Persist a versioned session ID, activity ID, generator version, seed, question order, current position, completed results and question draft. Recover exactly after reload; authenticated sessions also recover on a second device. Explicitly distinguish a saved draft from a scored answer. Do not award duplicate answers/stars after retry, refresh or simultaneous tabs. Old sessions with incompatible generators need an honest recovery message and safe restart.
 2. **Make the home a learning home.** Keep P1–P6 selection prominent, but lead with Continue when there is a real unfinished session. Show a compact recent discovery and a clear next objective. Give first-time guests a short, optional explanation of how to play. Do not render fake Teacher Tasks or invented mastery percentages.
@@ -124,4 +126,4 @@ Deliver one working slice at a time. Preserve the original guided lessons and al
 
 Publish compatible API changes before frontend changes. Use the existing backend Sites project and personal GitHub Pages repository. Never commit `.private/`, credentials, local databases, scratch workspaces or recovery archives. Keep package lockfiles tracked despite the parent repository's ignore rule. Verify the exact GitHub deployment run and public page after pushing.
 
-The immediate handoff is Release 1. Later releases are ordered work packages, not claims that all features will fit into one Claude session.
+Release 1 is implemented. The immediate handoff is deploying API v3 to the existing Sites project, then Release 2. Later releases are ordered work packages, not claims that all features will fit into one Claude session.

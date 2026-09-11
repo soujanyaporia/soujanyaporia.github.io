@@ -1,4 +1,4 @@
-import { bandIndex, masteryBand, type StatsMap } from '../engine/adaptive';
+import { bandIndex, masteryBand, type StatsMap } from '../engine/stats';
 
 /**
  * Achievements celebrate effort, persistence and understanding — not speed.

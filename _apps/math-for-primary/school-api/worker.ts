@@ -1,4 +1,5 @@
 import {activityById} from './shared/primary/catalog';
+import { validateSession } from './shared/primary/session';
 import bcrypt from 'bcryptjs';
 import { initialProgress } from './shared/state/progress';
 import { reduceEvent } from './shared/school/events';
@@ -25,7 +26,7 @@ export default { async fetch(request:Request,env:Env) {
   if(origin&&!origins.includes(origin)) fail(403,'This origin is not allowed.');
   if(request.method==='OPTIONS')return new Response(null,{status:204,headers});
   const path=new URL(request.url).pathname.replace(/\/$/,'') || '/';
-  if(path==='/'||path==='/health')return response({service:'Maths for SG Primary Schools accounts',version:1});
+  if(path==='/'||path==='/health')return response({service:'Maths for SG Primary Schools accounts',version:3,capabilities:['primary-sessions-1']});
   const db=env.DB;
   const q=(sql:string,...args:any[])=>db.prepare(sql).bind(...args);
   const first=async(sql:string,...args:any[])=>q(sql,...args).first();
@@ -97,7 +98,7 @@ export default { async fetch(request:Request,env:Env) {
      if(o.firstTry&&(!o.correct||o.revealed||o.tries!==1))fail(400,'Inconsistent attempt.');
      if(o.format!==undefined)str(o.format,50);if(o.misconception!==undefined)str(o.misconception,80);
     }else if(e.kind==='primary_selection'){integer(e.level,1,6);if(!['standard','foundation'].includes(e.track)||(e.level<5&&e.track!=='standard'))fail(400,'Invalid curriculum path.');}
-    else if(e.kind==='primary_answer'||e.kind==='primary_complete'){if(!activityById(e.activityId))fail(400,'Unknown primary activity.');if(e.kind==='primary_complete')integer(e.stars,0,3);else {integer(e.tries,1,10000);integer(e.hints,0,1000);if(e.questionKey!==undefined)str(e.questionKey,200);if(e.answer!==undefined&&(typeof e.answer!=='string'||e.answer.length>200))fail(400,'Invalid answer text.');if(typeof e.correct!=='boolean'||typeof e.firstTry!=='boolean'||(e.firstTry&&(!e.correct||e.tries!==1||e.hints!==0)))fail(400,'Invalid primary answer.');}}
+    else if(e.kind==='primary_answer'||e.kind==='primary_complete'){if(!activityById(e.activityId))fail(400,'Unknown primary activity.');if(e.sessionId!==undefined&&!/^[a-f0-9]{16}$/.test(e.sessionId))fail(400,'Invalid activity session.');if(e.position!==undefined)integer(e.position,0,19);if(e.kind==='primary_complete')integer(e.stars,0,3);else {integer(e.tries,1,10000);integer(e.hints,0,1000);if(e.questionKey!==undefined)str(e.questionKey,200);if(e.answer!==undefined&&(typeof e.answer!=='string'||e.answer.length>200))fail(400,'Invalid answer text.');if(typeof e.correct!=='boolean'||typeof e.firstTry!=='boolean'||(e.firstTry&&(!e.correct||e.tries!==1||e.hints!==0)))fail(400,'Invalid primary answer.');}}
     else if(e.kind==='session'){integer(e.stars,0,3);if(e.lessonId!==undefined&&!/^[-a-z0-9.]{1,80}$/.test(e.lessonId))fail(400,'Invalid lesson.');}
     else if(e.kind==='settings'){if(!e.patch||Object.entries(e.patch).some(([k,v])=>!['sound','readAloud','unlockAll'].includes(k)||typeof v!=='boolean'))fail(400,'Invalid settings.');}
     else fail(400,'Unknown event.');
@@ -108,6 +109,25 @@ export default { async fetch(request:Request,env:Env) {
    const results=await db.batch([...inserts,q('UPDATE progress SET data=?,version=version+1,updated_at=? WHERE user_id=? AND version=?',JSON.stringify(state),now(),u.id,p.version)]);
    if(!results.at(-1).meta.changes)fail(409,'Progress changed. Refresh and retry.');
    return response({version:p.version+1,progress:state});
+  }
+  // Resumable activity sessions: question identity, position, scored results and an unscored draft.
+  // Scored answers still arrive as progress events; a session here never changes progress or stars.
+  if(path==='/api/sessions'&&request.method==='GET'){
+   if(u.role!=='student')fail(403,'Student account required to save learning.');
+   return response({sessions:(await rows('SELECT data,rev FROM primary_sessions WHERE user_id=? ORDER BY updated_at DESC LIMIT 200',u.id)).map((r:any)=>({...JSON.parse(r.data),rev:r.rev}))});
+  }
+  const sessionRoute=path.match(/^\/api\/sessions\/([A-Za-z0-9-]{1,80})$/);
+  if(sessionRoute&&request.method==='POST'){
+   if(u.role!=='student')fail(403,'Student account required to save learning.');
+   const b=await body(),activityId=sessionRoute[1],session=validateSession(b.session,now()),baseRev=integer(b.baseRev,0,1e9);
+   if(!session||session.activityId!==activityId)fail(400,'Invalid activity session.');
+   const conflict=async()=>{const s=await first('SELECT data,rev FROM primary_sessions WHERE user_id=? AND activity_id=?',u.id,activityId);return response({error:'This activity was saved on another device.',rev:s?.rev??0,session:s?JSON.parse(s.data):null},409);};
+   const stored=await first('SELECT rev FROM primary_sessions WHERE user_id=? AND activity_id=?',u.id,activityId);
+   if((stored?.rev??0)!==baseRev)return conflict();
+   const data=JSON.stringify(session),rev=baseRev+1;
+   const r=stored?await q('UPDATE primary_sessions SET session_id=?,data=?,rev=?,updated_at=? WHERE user_id=? AND activity_id=? AND rev=?',session!.id,data,rev,now(),u.id,activityId,baseRev).run():await q('INSERT INTO primary_sessions(user_id,activity_id,session_id,data,rev,updated_at) VALUES(?,?,?,?,?,?) ON CONFLICT(user_id,activity_id) DO NOTHING',u.id,activityId,session!.id,data,rev,now()).run();
+   if(!r.meta.changes)return conflict();
+   return response({rev,session});
   }
   if(path==='/api/school'&&request.method==='GET'){
    staff();const cs=u.role==='admin'?await rows('SELECT c.*,y.year FROM classes c JOIN years y ON c.year_id=y.id WHERE c.school_id=? ORDER BY y.year DESC,c.level,c.name',u.school_id):await rows('SELECT c.*,y.year FROM classes c JOIN years y ON c.year_id=y.id JOIN memberships m ON m.class_id=c.id WHERE m.user_id=? ORDER BY c.level,c.name',u.id);

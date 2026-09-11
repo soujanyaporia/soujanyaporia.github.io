@@ -1,4 +1,4 @@
-import { masteryBand } from '../engine/adaptive';
+import { masteryBand } from '../engine/stats';
 import type { SkillId } from '../engine/types';
 import type { ProgressState } from '../state/progress';
 
