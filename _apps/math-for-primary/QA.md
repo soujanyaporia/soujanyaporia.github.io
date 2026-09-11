@@ -64,3 +64,38 @@ http://localhost:5174/ because port 5173 belongs to Claude's separate scratch co
 The existing scratch server was left alone.
 
 The original workspace handoff is preserved in `.recovery/claude-handoff.tar.gz`.
+
+## P1–P6 and school release — 11 September 2026
+
+This section supersedes the V1-only scope above. The current app is named
+**Maths for SG Primary Schools** and has 198 playable activities: P1 21, P2 23,
+P3 24, P4 27, P5 Standard 24, P6 Standard 24, P5 Foundation 33 and P6 Foundation 22.
+The original guided lessons remain available.
+
+Automated: `npm test` passes 330 tests in 10 files. Primary generation checks
+200 seeds per activity (39,600 primary questions), independent evaluation of
+numerical answer proofs, deterministic generation, unique choices, valid answer
+formats, curriculum references, grade/track boundaries and separated progress.
+`npm run build` passes TypeScript and production bundling. The approximately
+606 kB JavaScript bundle triggers a size warning; route splitting is roadmap work.
+
+Backend build and 3 integration tests pass, with assertions for tenant/class
+isolation, mandatory password change, resets/session revocation, deactivation,
+atomic roster import, replay/idempotence/concurrency, primary activity events,
+Foundation boundaries, login throttling and isolated self-service registration.
+Backend v2 was deployed successfully and its public health endpoint is available.
+
+Browser-observed: the actual local app loads different year catalogs and separate
+P6 Foundation activities; P2 fraction shading accepts the intended selection;
+P6 fraction division accepts `10/9` for `5/9 ÷ 3/6` and explains the reciprocal
+calculation. New mobile registration and gameplay screens were inspected at
+390×844. A synthetic school was created through the actual registration UI
+against the live API: school code, current academic year, empty real dashboard
+and next setup instructions appeared immediately without manual approval.
+Earlier live pupil sign-in required a password change; an original arithmetic
+answer saved and was retrieved through a separate authenticated session.
+
+These checks do not establish exhaustive pedagogical coverage, a physical
+Safari/iPad test, full accessibility compliance or school-scale load capacity.
+See NEXT-PHASE-PLAN.md for remaining work and acceptance criteria. In-flight
+activity resume is explicitly not yet implemented.

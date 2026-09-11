@@ -1,41 +1,47 @@
-# School foundation release — 11 September 2026
+# School platform release — 11 September 2026
 
 Public app: https://soujanyaporia.github.io/math-for-primary/
-Account service: https://math-for-primary-school-api.soujanya-poria.chatgpt.site
 
-This increment implements the brief's Phase A and Phase B foundation. It preserves the 16 existing interactive addition/subtraction lessons, generated practice, explanations, stars and local guest progress.
+Account API: https://math-for-primary-school-api.soujanya-poria.chatgpt.site
 
-## Available now
+## Implemented
 
-- School-scoped student, teacher and administrator accounts. Pupil usernames do not require email.
-- Staff-created temporary credentials; first-login password change; teacher PIN resets; session revocation on resets/deactivation; school and assigned-class permissions enforced by the API.
-- Academic years, P1–P6 classes, separate P5/P6 Standard and Foundation settings, teacher membership in several classes, pupil moves without deleting learning.
-- CSV roster import (50 rows per request, one selected class, atomic validation) and private generated-password download. Account creation is the current teacher onboarding mechanism; email invitations are not sent.
-- Cloud learning events, full progress state, idempotent uploads and optimistic concurrency. Accounts resume on other devices; failed uploads remain in a per-user local queue. Sign-out waits for saving. Guest data is kept separate.
-- Class evidence table and CSV report for implemented arithmetic. Teacher demo is a read-only synthetic preview, not live accounts or real learner evidence.
-- Versioned MOE curriculum map covering all three strands, P1–P6 Standard and P5/P6 Foundation, objective IDs, source pages, prerequisite links and links to implemented lessons.
-- Progress includes existing engine skill statistics, first attempts, hints, misconceptions, review due dates, lesson completions, streaks and rewards. The stored model retains XP, gems, inventory and avatar fields; it does not claim these unfinished game systems are enabled in the current UI.
+- Grade-first home with 198 playable activities across P1–P6 Standard and dedicated P5/P6 Foundation catalogs. Changing the exploration level does not change a pupil's school membership.
+- All three curriculum strands, generated questions, interactive fraction shading/ordering, SVG diagrams, explanations, clues, session stars, activity history and replay of tricky questions.
+- The original 16 guided arithmetic lessons and story reasoning remain available.
+- Self-service school registration: administrator account, unique school code and current academic year are created together. There is no manual backend approval.
+- School, academic year and class structure; pupil, teacher and administrator accounts; assigned-class teacher permissions; CSV roster imports of up to 50 rows with atomic validation; pupil moves and deactivation.
+- Temporary-password change, teacher pupil-password resets, session revocation, school separation and persistent login throttling. Staff use an email as username; pupils do not need email.
+- Cloud learning events and versioned progress. Completed answers, activity records, settings, lesson completions, first-attempt results, hints and rewards already exposed by the UI survive a fresh session on another device. Offline uploads queue per user; conflicts replay events against the server snapshot. Sign-out waits for saving.
+- Real class activity heatmaps and reports; original arithmetic skill evidence; CSV export. No-answer cells are labelled as missing evidence. A separate read-only synthetic dashboard is available only as a sample.
+- Versioned curriculum objective map, source pages, app-authored prerequisites, representations, vocabulary, activity links and original-lesson links.
 
-## Curriculum provenance and boundary
+## Important boundaries
 
-Based on the official 2021 Primary Mathematics Syllabus, updated October 2025, applicable to P6 from 2026. Source: https://www.moe.gov.sg/api/media/92bff26d-b2b4-4535-b868-b8415c744b91/2021-Primary-Mathematics-Syllabus-P1-to-P6-Updated-October-2025.pdf
+This is a playable development release, not a completed school deployment programme. An activity label or curriculum node does not establish full teaching/assessment coverage of its objective. The new primary engine supplies practice and explanations; many activities share an interaction pattern. It does not yet give every objective a full concrete-to-abstract teaching sequence.
 
-`src/school/curriculum.ts` contains paraphrased objectives and page references. This is an initial instructional map, not an MOE endorsement or a claim of exhaustive independently audited syllabus compliance. Prerequisite edges are application-authored and versioned separately. “Mapped” means metadata exists; it does not mean a lesson or assessment exists. Only four P1 objective collections currently link to the 16 implemented lessons. Existing generator levels are difficulty settings and are not relabelled as school years.
+Partially completed sessions are not yet resumed at the exact current question. Only answers advanced past are saved. The roadmap prioritises resumable sessions. Primary practice indicators use observed attempts and first-try accuracy; they are not yet a validated fine-grained mastery model. The original arithmetic engine has richer skill evidence than the new primary engine.
 
-## Later phases
+Assignments, diagnostics, prerequisite remediation, spaced primary review, teacher feedback, method/partial-credit grading, parent access, live teaching, formal PSLE practice and complete curriculum teaching remain future work. Existing profile fields for XP, gems, inventory and avatars do not imply that those game systems are active in the UI.
 
-Full diagnostics, individual curriculum mastery, teacher assignments/exit tickets, assessment rubrics, parent access, written working, all non-arithmetic lessons and PSLE preparation remain future development. The schema reserves versioned learning records for these features. Basic practice indicators are not school-wide curriculum certification. Before a real-school rollout, arrange a curriculum review, operational ownership, retention/backups, load testing and the school's data-protection process. This release is a playable foundation for demonstration and development.
+No invitation emails, verified-school affiliation, email password recovery, academic-year rollover wizard or load-tested operations are currently provided. Schools must retain administrator credentials. A new workspace cannot access another workspace even when its displayed school name matches.
 
-## Development and operation
+## Curriculum source
 
-Frontend: `npm ci`, `npm run dev -- --port 5174`, visit `/math-for-primary/`. Production: `npm run build`. Tests: `npm test`.
+Official [2021 Primary Mathematics Syllabus, updated October 2025](https://www.moe.gov.sg/api/media/92bff26d-b2b4-4535-b868-b8415c744b91/2021-Primary-Mathematics-Syllabus-P1-to-P6-Updated-October-2025.pdf), including the P6 rollout in 2026 and separate Foundation content. `src/school/curriculum.ts` paraphrases objectives and supplies page references; prerequisite edges are our instructional graph, not official MOE sequencing. This product has no MOE endorsement. Current examination format must be checked against official SEAB sources before implementing PSLE mode.
 
-Service in `school-api/`: `npm ci`, `npm run build`, `npm test`. Local SQLite adapter: `BOOTSTRAP_SECRET=<local secret> npm run dev`; use `VITE_SCHOOL_API=http://localhost:8788` for a local frontend. No passwords or tokens belong in source or frontend environment variables.
+## Account and data operation
 
-The service is a Cloudflare-compatible Worker with D1 SQLite, schema migrations generated by Drizzle. Source for its shared reducer is copied from the frontend using `cd school-api && node sync-shared.mjs` before building. When modifying reducers, sync and test both services, then deploy the API before the app. The Sites deployment source is also versioned separately in `school-api/.git` locally.
+The API uses a Cloudflare-compatible Worker and D1 SQLite with Drizzle migrations. School scope and assigned-class access are enforced server-side. Passwords use bcrypt cost 12 with a 72-byte maximum; minimum lengths are 12 for staff and 8 for pupils. Random 256-bit session tokens expire after eight hours; only their SHA-256 hashes are stored in the database. Browser tokens are sessionStorage entries. Password reset/deactivation revokes sessions.
 
-GitHub Pages builds the app from `_apps/math-for-primary/`, after the personal website's own audits, and copies its validated `dist` to `_site/math-for-primary`. Application source is excluded from Jekyll output. Hash routes preserve direct links under the subdirectory. The personal website remains intact.
+`/api/register-school` is self-service and rate limited. `/api/bootstrap` remains a secret-protected owner provisioning route. Local owner credentials are in an ignored `.private/` file. They must never enter a Git commit, published document, client bundle or Claude prompt.
 
-Account provisioning is restricted to `/api/bootstrap` with a production secret configured in Sites. The generated owner sign-in details are in the local `.private/school-owner.json` file (not committed). Use the admin workspace to create years, classes and accounts. Staff passwords must be at least 12 characters and pupil PIN/passwords at least 8; both have a 72-byte bcrypt limit. Passwords are bcrypt-hashed at cost 12. Only SHA-256 hashes of random 256-bit session tokens are stored server-side; browser sessions use sessionStorage and expire after eight hours. Persistent account/IP throttles protect login. No secrets appear in the public app bundle.
+The progress API persists idempotent events with optimistic concurrency and server reducer replay. Raw events preserve history; the current primary snapshot keeps its latest 100 answer details. Question outcomes are client-reported: this is learning software, not a tamper-proof examination system. A formal assessment system needs server-owned sessions/items and separate marking.
 
-Question outcomes currently come from the client engine; this is a learning app, not a tamper-proof examination system. Report accuracy denominators use attempted questions; missing evidence is never counted as an incorrect answer. Data is school-scoped; teachers can access assigned classes only.
+## Deployment
+
+Frontend source is mirrored into the personal website repository's `_apps/math-for-primary/` directory. Jekyll excludes this source; GitHub Actions builds the app and copies only `dist/` into `_site/math-for-primary/`. Hash routing supports shared activity links. A discreet side-project link belongs in the personal site footer.
+
+The API is deployed independently through its existing Sites project, identified in `school-api/.openai/hosting.json`. Reuse that project. Run shared-source synchronization, build and integration tests before deploying relevant backend changes; deploy compatible backend changes before the frontend. Do not expose local databases or credentials in either deployment.
+
+Before an actual school pilot: curriculum review, accessibility/device tests, recovery and retention procedures, tested backups, operational ownership, abuse/load testing and the school's data-protection process need explicit completion. See the roadmap for acceptance gates rather than treating these as already implemented.

@@ -1,9 +1,9 @@
 {
-  "name": "math-for-primary",
+  "name": "maths-for-sg-primary-schools",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Interactive addition and subtraction tutor for Primary 1-3 (Singapore).",
+  "description": "Singapore Primary 1\u20136 maths activities with school accounts and Standard/Foundation paths.",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit -p tsconfig.json && vite build",

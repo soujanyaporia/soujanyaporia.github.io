@@ -1,3 +1,4 @@
+import {initialPrimary,type PrimaryProgress} from '../primary/progress';
 import { touchStreak } from '../game/streak';
 import { updateStats, type AttemptOutcome, type StatsMap } from '../engine/adaptive';
 import { emptyCounters, type Counters } from '../game/achievements';
@@ -52,6 +53,7 @@ export interface SessionRecord {
 }
 
 export interface ProgressState {
+  primary: PrimaryProgress;
   version: 2;
   badges: string[];
   createdAt: number;
@@ -85,6 +87,7 @@ const LEGACY_KEY = 'math-for-primary.progress.v1';
 export function initialProgress(now = Date.now()): ProgressState {
   return {
     version: 2,
+    primary: initialPrimary(),
     badges: [],
     createdAt: now,
     profile: { name: '', onboarded: false },
@@ -140,6 +143,7 @@ export function sanitize(raw: unknown): ProgressState | null {
   return {
     ...base,
     ...d,
+    primary: d.primary && typeof d.primary === 'object' ? {selection:d.primary.selection??null,activities:d.primary.activities??{},history:d.primary.history??[]} : initialPrimary(),
     version: 2,
     profile: { ...base.profile, ...obj(d.profile) },
     totals: { ...base.totals, ...obj(d.totals) },

@@ -35,7 +35,7 @@ export function HomeScreen() {
       <header className="home-header">
         <div className="brand">
           <Logo />
-          <span>Math for Primary</span>
+          <span>Maths for SG Primary Schools</span>
         </div>
         <div className="home-meta">
           <span className="chip meta-chip streak" title="Days in a row">

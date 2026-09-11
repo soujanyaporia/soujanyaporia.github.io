@@ -1,3 +1,4 @@
+import { PrimaryHome, PrimaryGame } from './primary/PrimaryScreens';
 import { useRoute, type Route } from './app/router';
 import { LessonScreen } from './lesson/LessonScreen';
 import { HomeScreen } from './screens/HomeScreen';
@@ -9,17 +10,21 @@ import { TopicsScreen } from './screens/TopicsScreen';
 import { ProgressProvider } from './state/ProgressContext';
 import './screens/screens.css';
 import { AccountProvider, useAccount } from './school/AccountContext';
-import { SchoolNav, AccountScreen, CurriculumScreen, SchoolScreen, DemoSchoolScreen } from './school/SchoolScreens';
+import { SchoolNav, AccountScreen, CurriculumScreen, SchoolScreen, DemoSchoolScreen, SchoolStartScreen, RegisterSchoolScreen } from './school/SchoolScreens';
 
 function Screen({ route }: { route: Route }) {
   switch (route.name) {
+    case 'school-start': return <SchoolStartScreen />;
+    case 'register': return <RegisterSchoolScreen />;
+    case 'foundations': return <HomeScreen />;
+    case 'activity': return <PrimaryGame key={route.id} id={route.id} />;
     case 'account': return <AccountScreen />;
     case 'school': return <SchoolScreen />;
     case 'demo': return <DemoSchoolScreen />;
     case 'curriculum': return <CurriculumScreen />;
     default:
     case 'home':
-      return <HomeScreen />;
+      return <PrimaryHome />;
     case 'learn':
       return <LearnScreen />;
     case 'lesson':
@@ -42,7 +47,7 @@ function AccountApp() {
   const {user,loading}=useAccount();
   if(loading)return <main className="school-page"><h1>Opening your account…</h1></main>;
   const screen=user?.mustChange?{name:'account' as const}:route;
-  const focus=['lesson','practice-topic','mixed'].includes(screen.name);
+  const focus=['lesson','practice-topic','mixed','activity'].includes(screen.name);
   return <ProgressProvider key={user?.id+(user?.mustChange?'change':'ready')}><div className="app">
     {!focus&&<SchoolNav/>}<Screen route={screen}/>
   </div></ProgressProvider>;

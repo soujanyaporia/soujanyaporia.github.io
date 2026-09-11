@@ -9,8 +9,9 @@ export type RewardsTab = 'quests' | 'chests' | 'shop' | 'stickers';
 
 export type Route =
   | { name: 'home' }
-  | { name: 'account' | 'school' | 'demo' | 'curriculum' }
+  | { name: 'account' | 'school' | 'demo' | 'curriculum' | 'foundations' | 'school-start' | 'register' }
   | { name: 'lesson'; id: string }
+  | { name: 'activity'; id: string }
   | { name: 'words' }
   | { name: 'learn' }
   | { name: 'node'; id: string }
@@ -34,8 +35,9 @@ export function parseRoute(hash: string): Route {
   try { parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent); }
   catch { return { name: 'home' }; }
   switch (parts[0]) {
-    case 'account': case 'school': case 'demo': case 'curriculum':
+    case 'account': case 'school': case 'demo': case 'curriculum': case 'foundations': case 'school-start': case 'register':
       return {name:parts[0]};
+    case 'activity': return parts[1]?{name:'activity',id:parts[1]}:{name:'home'};
     case 'learn':
       return { name: 'learn' };
     case 'node':
@@ -66,6 +68,7 @@ export function href(route: Route): string {
   switch (route.name) {
     case 'home':
       return '#/';
+    case 'activity': return `#/activity/${encodeURIComponent(route.id)}`;
     case 'lesson':
       return `#/lesson/${encodeURIComponent(route.id)}`;
     case 'node':

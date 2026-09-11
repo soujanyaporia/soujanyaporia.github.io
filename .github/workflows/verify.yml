@@ -114,7 +114,13 @@ jobs:
             find _site/assets/declare-core -type f -print >&2
             exit 1
           fi
-      - name: Build and test Math for Primary
+      - name: Test maths school API
+        working-directory: _apps/math-for-primary/school-api
+        run: |
+          npm ci
+          npm run build
+          npm test
+      - name: Build and test Maths for SG Primary Schools
         working-directory: _apps/math-for-primary
         run: |
           npm ci

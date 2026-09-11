@@ -1,3 +1,4 @@
+import {ACTIVITIES} from '../primary/catalog';
 /** Versioned, paraphrased objective map. Page numbers refer to printed syllabus pages.
  * Prerequisites are this application's instructional choices, not MOE-prescribed edges.
  * A mapped objective does not imply that an interactive lesson has been implemented.
@@ -11,7 +12,7 @@ export type Track = 'standard' | 'foundation';
 export type Strand = 'Number & Algebra' | 'Measurement & Geometry' | 'Statistics';
 export interface CurriculumSkill {
  id:string; version:string; level:number; track:Track; strand:Strand; topic:string; subtopic:string;
- title:string; objective:string; prerequisites:string[]; sourcePage:number; lessonIds:string[];
+ title:string; objective:string; prerequisites:string[]; sourcePage:number; lessonIds:string[]; activityIds:string[];
  status:'available'|'mapped'; representations:string[]; vocabulary:string[];
 }
 type Row = [number,Track,Strand,string,string,number,string];
@@ -105,7 +106,7 @@ const lessonLinks:Record<string,string[]>={
 const topicNeeds:Record<string,string[]>={AS:['WN'],MD:['AS'],FRAC:['MD'],DEC:['FRAC'],PCT:['FRAC','DEC'],RATIO:['FRAC'],ALG:['AS'],AREA:['LENGTH'],CIRCLE:['AREA'],VOL:['AREA'],AVG:['AS','MD']};
 export const CURRICULUM_SKILLS:CurriculumSkill[]=rows.flatMap(([level,track,strand,code,topic,page,objectives])=>objectives.split('|').map((title,i)=>{
  const id=`P${level}.${track==='standard'?'S':'F'}.${code}.${String(i+1).padStart(2,'0')}`;
- return {id,version:CURRICULUM.id,level,track,strand,topic,subtopic:code,title,objective:title,prerequisites:[],sourcePage:page,lessonIds:lessonLinks[id]||[],status:lessonLinks[id]?'available':'mapped',representations:strand===N?['concrete objects','diagrams','symbols']:strand===S?['tables','graphs']:['physical models','diagrams'],vocabulary:topic.toLowerCase().split(/ and | of /)} as CurriculumSkill;
+ return {id,version:CURRICULUM.id,level,track,strand,topic,subtopic:code,title,objective:title,prerequisites:[],sourcePage:page,lessonIds:lessonLinks[id]||[],activityIds:[],status:lessonLinks[id]?'available':'mapped',representations:strand===N?['concrete objects','diagrams','symbols']:strand===S?['tables','graphs']:['physical models','diagrams'],vocabulary:topic.toLowerCase().split(/ and | of /)} as CurriculumSkill;
 }));
 for(const [index,skill] of CURRICULUM_SKILLS.entries()){
  const earlier=CURRICULUM_SKILLS.slice(0,index).filter(s=>s.id!==skill.id&&(s.level<skill.level||(s.level===skill.level&&s.track===skill.track))&&(s.track===skill.track||(skill.track==='foundation'&&s.level<=4)));
@@ -113,4 +114,5 @@ for(const [index,skill] of CURRICULUM_SKILLS.entries()){
  if(previous)skill.prerequisites.push(previous.id);
  else for(const need of topicNeeds[skill.subtopic]||[]){const p=earlier.filter(s=>s.subtopic===need).at(-1);if(p)skill.prerequisites.push(p.id);}
 }
+for(const skill of CURRICULUM_SKILLS){skill.activityIds=ACTIVITIES.filter(a=>a.skillIds.includes(skill.id)).map(a=>a.id);if(skill.activityIds.length)skill.status='available';}
 export function curriculumPath(level:number,track:Track){return CURRICULUM_SKILLS.filter(s=>s.level===level&&s.track===(level<5?'standard':track));}

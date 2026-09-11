@@ -1,3 +1,4 @@
+import {activityById} from './shared/primary/catalog';
 import bcrypt from 'bcryptjs';
 import { initialProgress } from './shared/state/progress';
 import { reduceEvent } from './shared/school/events';
@@ -24,7 +25,7 @@ export default { async fetch(request:Request,env:Env) {
   if(origin&&!origins.includes(origin)) fail(403,'This origin is not allowed.');
   if(request.method==='OPTIONS')return new Response(null,{status:204,headers});
   const path=new URL(request.url).pathname.replace(/\/$/,'') || '/';
-  if(path==='/'||path==='/health')return response({service:'Math for Primary accounts',version:1});
+  if(path==='/'||path==='/health')return response({service:'Maths for SG Primary Schools accounts',version:1});
   const db=env.DB;
   const q=(sql:string,...args:any[])=>db.prepare(sql).bind(...args);
   const first=async(sql:string,...args:any[])=>q(sql,...args).first();
@@ -42,6 +43,14 @@ export default { async fetch(request:Request,env:Env) {
    if(!env.BOOTSTRAP_SECRET || request.headers.get('Authorization')!==`Bearer ${env.BOOTSTRAP_SECRET}`)fail(401,'Not authorised.');
    const b=await body();if(await first('SELECT id FROM schools WHERE code=?',str(b.code,24).toUpperCase()))fail(409,'School already exists.');
    return response(await createSchool(b),201);
+  }
+  if(path==='/api/register-school'&&request.method==='POST'){
+   await throttle('register:'+await digest(request.headers.get('CF-Connecting-IP')||'local'),3);
+   const b=await body();const email=str(b.email,100).toLowerCase();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))fail(400,'Enter a valid staff email address.');
+   const created=await createSchool({code:'MP-'+token().slice(0,8).toUpperCase(),schoolName:str(b.schoolName),name:str(b.name),username:email,password:b.password});
+   const owner=await first('SELECT u.*,s.name school_name,s.code school_code,s.demo FROM users u JOIN schools s ON s.id=u.school_id WHERE u.id=?',created.userId);
+   const t=token();await q('INSERT INTO sessions(hash,user_id,expires_at) VALUES(?,?,?)',await digest(t),owner.id,now()+8*3600000).run();
+   return response({token:t,user:cleanUser(owner)},201);
   }
   if(path==='/api/login'&&request.method==='POST'){
    const b=await body(),code=str(b.schoolCode,24).toUpperCase(),username=str(b.username).toLowerCase();
@@ -87,7 +96,9 @@ export default { async fetch(request:Request,env:Env) {
      for(const key of ['correct','firstTry','revealed'])if(typeof o[key]!=='boolean')fail(400,'Invalid attempt.');
      if(o.firstTry&&(!o.correct||o.revealed||o.tries!==1))fail(400,'Inconsistent attempt.');
      if(o.format!==undefined)str(o.format,50);if(o.misconception!==undefined)str(o.misconception,80);
-    }else if(e.kind==='session'){integer(e.stars,0,3);if(e.lessonId!==undefined&&!/^[-a-z0-9.]{1,80}$/.test(e.lessonId))fail(400,'Invalid lesson.');}
+    }else if(e.kind==='primary_selection'){integer(e.level,1,6);if(!['standard','foundation'].includes(e.track)||(e.level<5&&e.track!=='standard'))fail(400,'Invalid curriculum path.');}
+    else if(e.kind==='primary_answer'||e.kind==='primary_complete'){if(!activityById(e.activityId))fail(400,'Unknown primary activity.');if(e.kind==='primary_complete')integer(e.stars,0,3);else {integer(e.tries,1,10000);integer(e.hints,0,1000);if(e.questionKey!==undefined)str(e.questionKey,200);if(e.answer!==undefined&&(typeof e.answer!=='string'||e.answer.length>200))fail(400,'Invalid answer text.');if(typeof e.correct!=='boolean'||typeof e.firstTry!=='boolean'||(e.firstTry&&(!e.correct||e.tries!==1||e.hints!==0)))fail(400,'Invalid primary answer.');}}
+    else if(e.kind==='session'){integer(e.stars,0,3);if(e.lessonId!==undefined&&!/^[-a-z0-9.]{1,80}$/.test(e.lessonId))fail(400,'Invalid lesson.');}
     else if(e.kind==='settings'){if(!e.patch||Object.entries(e.patch).some(([k,v])=>!['sound','readAloud','unlockAll'].includes(k)||typeof v!=='boolean'))fail(400,'Invalid settings.');}
     else fail(400,'Unknown event.');
     if(!await first('SELECT id FROM events WHERE user_id=? AND id=?',u.id,e.id)){

@@ -4,7 +4,7 @@ import type { AttemptOutcome } from '../engine/adaptive';
 import { initialProgress,localStorageRepository,type ProgressRepository,type ProgressState,type Settings } from './progress';
 import { reduceEvent,type ProgressEvent } from '../school/events';
 import { useAccount,ApiError } from '../school/AccountContext';
-interface ProgressApi {progress:ProgressState;recordAttempt:(o:AttemptOutcome)=>void;completeSession:(stars:number,lessonId?:string)=>BadgeDef[];updateSettings:(patch:Partial<Settings>)=>void;reset:()=>void;sync:()=>Promise<boolean>;syncStatus:string}
+interface ProgressApi {emit:(e:ProgressEvent)=>void;progress:ProgressState;recordAttempt:(o:AttemptOutcome)=>void;completeSession:(stars:number,lessonId?:string)=>BadgeDef[];updateSettings:(patch:Partial<Settings>)=>void;reset:()=>void;sync:()=>Promise<boolean>;syncStatus:string}
 const ProgressContext=createContext<ProgressApi|null>(null);
 export function ProgressProvider({children,repository=localStorageRepository}:{children:ReactNode;repository?:ProgressRepository}){
  const {user,api}=useAccount();const cloud=user?.role==='student'&&!user.mustChange;const key='math.school.pending.'+user?.id;
@@ -35,7 +35,7 @@ export function ProgressProvider({children,repository=localStorageRepository}:{c
  const completeSession=useCallback((stars:number,lessonId?:string)=>{const e:ProgressEvent={id:crypto.randomUUID(),at:Date.now(),kind:'session',stars,lessonId};const before=current.current;const earned=newBadges({...reduceEvent(before,e),badges:before.badges});emit(e);return earned;},[emit]);
  const updateSettings=useCallback((patch:Partial<Settings>)=>emit({id:crypto.randomUUID(),at:Date.now(),kind:'settings',patch}),[emit]);
  const reset=useCallback(()=>{if(cloud)return;repository.clear();commit({...initialProgress(),settings:current.current.settings})},[cloud,commit,repository]);
- const value=useMemo(()=>({progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus}),[progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus]);
+ const value=useMemo(()=>({emit,progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus}),[emit,progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus]);
  return <ProgressContext.Provider value={value}>{ready?children:<main className="school-page"><h1>Opening your learning journal…</h1><p role="status">{syncStatus}</p><button className="btn" onClick={()=>void sync()}>Try again</button><a href="#/account" onClick={()=>{setReady(true)}}>Account settings</a></main>}</ProgressContext.Provider>;
 }
 export function useProgress(){const c=useContext(ProgressContext);if(!c)throw new Error('ProgressProvider missing');return c;}

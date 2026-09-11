@@ -33,6 +33,12 @@ test('tenant permissions, password reset, progress idempotency and multi-device 
  const next=await call('/api/progress','POST',{version:2,events:[second]},s);assert.equal(next.body.progress.totals.attempted,2);
  const s2=(await login('A','pupil','87654321')).body.token;assert.equal((await call('/api/progress','GET',null,s2)).body.progress.totals.attempted,2);
  assert.equal((await call('/api/progress','POST',{version:3,events:[{...event,id:crypto.randomUUID(),outcome:{...event.outcome,skill:'__proto__'}}]},s)).status,400);
+ const primary=await call('/api/progress','POST',{version:3,events:[
+  {id:crypto.randomUUID(),at:Date.now(),kind:'primary_selection',level:6,track:'standard'},
+  {id:crypto.randomUUID(),at:Date.now(),kind:'primary_answer',activityId:'p6s-equation-n8',correct:true,firstTry:true,tries:1,hints:0},
+  {id:crypto.randomUUID(),at:Date.now(),kind:'primary_complete',activityId:'p6s-equation-n8',stars:3}
+ ]},s);assert.equal(primary.status,200,JSON.stringify(primary.body));assert.equal(primary.body.progress.primary.selection.level,6);assert.equal(primary.body.progress.primary.activities['p6s-equation-n8'].stars,3);assert.equal(primary.body.progress.totals.attempted,3);
+ assert.equal((await call('/api/progress','POST',{version:4,events:[{id:crypto.randomUUID(),at:Date.now(),kind:'primary_selection',level:2,track:'foundation'}]},s)).status,400);
  assert.equal((await call('/api/users/'+student,'PATCH',{password:'11223344'},b)).status,404);
  assert.equal((await call('/api/users/'+student,'PATCH',{password:'11223344'},t)).status,200);
  assert.equal((await call('/api/me','GET',null,s2)).status,401);
@@ -42,3 +48,8 @@ test('tenant permissions, password reset, progress idempotency and multi-device 
  assert.equal((await call('/api/logout','POST',{},a)).status,200);assert.equal((await call('/api/me','GET',null,a)).status,401);
 });
 test('unknown users are throttled without account enumeration',async()=>{for(let i=0;i<8;i++)assert.equal((await login('A','unknown')).status,401);assert.equal((await login('A','unknown')).status,429);});
+test('self-service registration creates a separate tenant without backend approval',async()=>{
+ const r=await call('/api/register-school','POST',{schoolName:'Registration test',name:'School owner',email:'owner@example.test',password:'Registration-password-2026'});assert.equal(r.status,201,JSON.stringify(r.body));assert.equal(r.body.user.role,'admin');assert.match(r.body.user.schoolCode,/^MP-[A-F0-9]{8}$/);assert.equal(r.body.user.mustChange,false);
+ const data=await call('/api/school','GET',null,r.body.token);assert.equal(data.status,200);assert.equal(data.body.users.length,1);assert.equal(data.body.classes.length,0);assert.equal(data.body.years.length,1);
+ assert.equal((await call('/api/register-school','POST',{schoolName:'Fail',name:'Bad',email:'invalid',password:'Registration-password-2026'})).status,400);
+});
