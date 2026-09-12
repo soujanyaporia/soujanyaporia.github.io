@@ -20,8 +20,8 @@ const TOOLS:LabTool[]=[
  {id:'bar-model',name:'Bar model',about:'A whole split into parts, and two bars compared.',group:'Fractions',tool:{kind:'bar',parts:[3,5],whole:8,labels:['part','part']}},
  {id:'place-value',name:'Place-value chart',about:'Build decimals from ones, tenths, hundredths and thousandths.',group:'Decimals and percentage',tool:{kind:'place',digits:[4,3,7],wholes:2}},
  {id:'hundred-grid',name:'Hundred grid',about:'Shade squares to see a fraction, a decimal and a percentage at once.',group:'Decimals and percentage',tool:{kind:'hundred',shaded:35}},
- {id:'percent-bar',name:'Percentage bar',about:'Take a percentage of an amount and watch the value change.',group:'Decimals and percentage',tool:{kind:'percent',whole:80,percent:25,unit:'$',step:10}},
- {id:'ratio-bars',name:'Ratio bars',about:'Compare quantities in units, then give each unit a value.',group:'Ratio and algebra',tool:{kind:'ratio',names:['Ali','Ben'],units:[3,2],unitValue:8,total:40}},
+ {id:'percent-bar',name:'Percentage bar',about:'Take a percentage of an amount and watch the value change.',group:'Decimals and percentage',tool:{kind:'percent',whole:80,percent:25,unit:'$',step:5}},
+ {id:'ratio-bars',name:'Ratio bars',about:'Compare quantities in units, then give each unit a value.',group:'Ratio and algebra',tool:{kind:'ratio',names:['Ali','Ben'],units:[3,2],unitValue:8}},
  {id:'balance',name:'Algebra balance',about:'Keep both sides equal while you take the same amount off each side.',group:'Ratio and algebra',tool:{kind:'balance',left:{x:2,n:3},right:{x:0,n:11},xValue:4}},
 ];
 function LabCard({item}:{item:LabTool}){
@@ -31,9 +31,9 @@ function LabCard({item}:{item:LabTool}){
 export function MathLab({tool}:{tool?:string}){
  const groups=[...new Set(TOOLS.map(t=>t.group))],picked=tool?TOOLS.filter(t=>t.id===tool):[];
  const shown=picked.length?picked:TOOLS;
- return <main className="teach math-lab"><a className="back-link" href="#/teach">← Back to Learn</a><p className="teach-eyebrow">Math Lab</p><h1>Play with the maths.</h1><p className="stage-text">These are the same tools the lessons use. Nothing is marked here: change them, break them and see what happens. Teachers can open a tool on a screen during a lesson.</p>
+ return <main className="teach math-lab"><a className="back-link" href="#/teach">← Back to Learn</a><p className="teach-eyebrow">Math Lab</p><h1>Play with the maths.</h1><p className="stage-text">These are the same tools the lessons use. Try changing one thing at a time. Watch what happens, then explain what you noticed. Teachers can open a tool on a screen during a lesson.</p>
   {picked.length>0&&<p className="stage-text"><a className="link-btn" href="#/lab">Show every tool</a></p>}
-  {picked.length===0&&<nav className="lab-jump" aria-label="Jump to a tool">{groups.map(g=><span key={g}><strong>{g}:</strong> {TOOLS.filter(t=>t.group===g).map(t=><a key={t.id} href={`#/lab/${t.id}`}>{t.name}</a>)}</span>)}</nav>}
+  {picked.length===0&&<nav className="lab-jump" aria-label="Jump to a tool">{groups.map(g=><section key={g}><h2>{g}</h2><ul>{TOOLS.filter(t=>t.group===g).map(t=><li key={t.id}><a href={`#/lab/${t.id}`}>{t.name}</a></li>)}</ul></section>)}</nav>}
   {shown.map(t=><LabCard key={t.id} item={t}/>)}
   <p className="teach-foot">Made with the help of AI. If a tool looks wrong, tell a teacher or parent.</p></main>;
 }

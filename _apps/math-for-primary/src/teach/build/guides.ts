@@ -1,3 +1,4 @@
+import {coachedGuide} from './coachedGuides';
 import {focusedGuide} from './focusedGuides';
 import type {PlanEntry} from './plan';
 import type {RevealStep,Tool} from '../model';
@@ -10,6 +11,7 @@ const frac=(ds:number[],ns:number[]):Tool=>({kind:'fractions',denominators:ds,sh
 const pic=(picture:Extract<Tool,{kind:'diagram'}>['picture'],caption:string):Tool=>({kind:'diagram',picture,caption});
 /** Authored demonstrations. The example stays small enough to see the idea before practising larger values. */
 export function visualGuide(p:PlanEntry):VisualGuide{
+ const coached=coachedGuide(p);if(coached)return coached;
  const focused=focusedGuide(p);if(focused)return focused;
  const code=p.code,o=p.objective.toLowerCase(),g=p.level;
  if(code==='AS'||code==='MD'||code==='WN'&&/order|multiply and divide/.test(o)&&!/compare/.test(o)){

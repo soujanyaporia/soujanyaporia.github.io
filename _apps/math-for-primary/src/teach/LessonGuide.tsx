@@ -14,7 +14,7 @@ function lessonTools(l:Lesson):Tool[]{
   if(s.kind==='readiness'){s.items.forEach(it=>add(it.tool));s.booster.forEach(b=>add(b.tool));}
   if(s.kind==='connect')s.rows.forEach(r=>add(r.tool));
   if(s.kind==='worked')s.steps.forEach(st=>add(st.tool));
-  if(s.kind==='explain')add(s.why?.tool);
+  if(s.kind==='explain'){add(s.why?.tool);s.frames?.forEach(f=>add(f.tool));}
   if(s.kind==='reason')s.items.forEach(it=>add(it.tool));
   if(s.kind==='practice'||s.kind==='apply'||s.kind==='mastery')stageItems(s,7,i).forEach(it=>add(it.tool));
  });
@@ -30,7 +30,7 @@ export function LessonGuide({id}:{id:string}){
   <section className="stage-card"><h2>Learning objectives</h2><ul className="guide-list">{lesson.objectives.map(o=><li key={o}>{o}</li>)}</ul>
    <h3>Syllabus objectives</h3><ul className="guide-list">{lesson.skillIds.map(sid=>{const s=CURRICULUM_SKILLS.find(c=>c.id===sid);return <li key={sid}><strong>{sid}</strong> — {s?.title}{s?` (MOE syllabus p. ${s.sourcePage})`:''}</li>;})}</ul>
    <p className="muted">Curriculum map {CURRICULUM.id}, {CURRICULUM.revision}. Objective wording is paraphrased; prerequisites below are this app's instructional choice, not MOE sequencing.</p>
-   <h3>Assumed before this lesson</h3><ul className="guide-list">{lesson.prerequisites.map(p=>{const s=CURRICULUM_SKILLS.find(c=>c.id===p),l=lessonById(p);return <li key={p}>{l?<a href={`#/guide/${l.id}`}>{l.title}</a>:s?`${s.id} — ${s.title}`:p}</li>;})}</ul>
+   {lesson.mission&&<><h3>Question that anchors the lesson</h3><p>{lesson.mission.question}</p><p>{lesson.mission.connection}</p></>}<h3>Assumed before this lesson</h3><ul className="guide-list">{lesson.prerequisites.map(p=>{const s=CURRICULUM_SKILLS.find(c=>c.id===p),l=lessonById(p);return <li key={p}>{l?<a href={`#/guide/${l.id}`}>{l.title}</a>:s?`${s.id} — ${s.title}`:p}</li>;})}</ul>
    <h3>About {lesson.minutes} minutes</h3><p className="muted">Representations used: {lesson.representations.map(r=>REP_LABEL[r]).join(', ')}.</p></section>
   <section className="stage-card"><h2>Teaching sequence</h2><ol className="guide-sequence">{lesson.stages.map((s,i)=>{const item=sample(s,i);return <li key={i}><strong>{STAGE_LABEL[s.kind]}</strong> — {'title' in s?s.title:''}
    {s.kind==='explore'&&<p className="muted">Goal: {s.goalHint} Manipulative: {s.tool.kind}.</p>}

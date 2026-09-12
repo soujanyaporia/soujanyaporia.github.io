@@ -12,6 +12,7 @@ const game = () => import('./primary/PrimaryGame');
 const school = () => import('./school/SchoolScreens');
 const foundations = () => import('./screens/foundations');
 const PrimaryGame = lazyScreen(() => game().then((m) => m.PrimaryGame));
+const GuestScreen = lazyScreen(() => import('./school/GuestScreen').then(m => m.GuestScreen));
 const AccountScreen = lazyScreen(() => school().then((m) => m.AccountScreen));
 const CurriculumScreen = lazyScreen(() => school().then((m) => m.CurriculumScreen));
 const SchoolScreen = lazyScreen(() => school().then((m) => m.SchoolScreen));
@@ -39,6 +40,7 @@ function Screen({ route }: { route: Route }) {
     case 'register': return <RegisterSchoolScreen />;
     case 'foundations': return <HomeScreen />;
     case 'activity': return <PrimaryGame key={route.id} id={route.id} />;
+    case 'guest': return <GuestScreen />;
     case 'account': return <AccountScreen />;
     case 'school': return <SchoolScreen />;
     case 'demo': return <DemoSchoolScreen />;

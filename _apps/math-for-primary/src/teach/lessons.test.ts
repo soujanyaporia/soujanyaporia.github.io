@@ -72,7 +72,8 @@ describe('Learn lessons',()=>{
    expect(l.objectives.length).toBeGreaterThan(0);expect(l.canDo.length).toBeGreaterThan(0);
    expect(l.misconceptions.length,`${l.id}: known misconceptions`).toBeGreaterThan(0);
    const kinds=l.stages.map(s=>s.kind);
-   for(const needed of ['readiness','explore','explain','worked','practice','apply','reason','mastery','discovery'])expect(kinds,`${l.id} is missing a ${needed} stage`).toContain(needed);
+   expect(kinds.some(k=>k==='explore'||k==='notice'),`${l.id}: an interactive model or reasoning activity`).toBe(true);
+   for(const needed of ['readiness','explain','worked','practice','apply','reason','mastery','discovery'])expect(kinds,`${l.id} is missing a ${needed} stage`).toContain(needed);
    const mastery=l.stages.find(s=>s.kind==='mastery')as Extract<Stage,{kind:'mastery'}>;
    expect(new Set(mastery.gens.map(g=>g.facet)).size,`${l.id}: mastery must cover different facets`).toBeGreaterThanOrEqual(5);
   }

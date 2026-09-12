@@ -1,5 +1,6 @@
 import {CURRICULUM_SKILLS} from '../school/curriculum';
 import {planFor} from './build/plan';
+import {annotateSteps} from './build/teachingNotes';
 import {visualGuide} from './build/guides';
 import type { Track } from '../school/curriculum';
 import { BUILT_LESSONS } from './build';
@@ -19,7 +20,7 @@ const VISUAL_HAND=HAND.map(lesson=>{
  const skill=CURRICULUM_SKILLS.find(s=>s.id===lesson.skillIds[0]);if(!skill)return lesson;
  const guide=visualGuide(planFor(skill));
  // Keep authored activities and examples; replace the dense conceptual paragraph with pictures.
- return {...lesson,revision:'visual-2026-09-12',stages:lesson.stages.map(s=>s.kind==='explain'?{...s,frames:guide.frames,alternatives:guide.alternatives}:s)};
+ return {...lesson,revision:'coached-2026-09-12',stages:lesson.stages.map(s=>s.kind==='explain'?{...s,frames:annotateSteps(guide.frames),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)}))}:s)};
 });
 export const LESSONS:Lesson[]=[...VISUAL_HAND,...BUILT_LESSONS].sort((a,b)=>a.level-b.level);
 export const lessonById=(id:string)=>LESSONS.find(l=>l.id===id);

@@ -1,3 +1,4 @@
+import {annotateSteps} from './teachingNotes';
 import {visualGuide} from './guides';
 import type { Lesson } from '../model';
 import {numberLesson,arithmeticLesson} from './families/numbers';
@@ -19,8 +20,8 @@ export const buildLesson=(p:PlanEntry):Lesson=>{
  const lesson=FAMILIES[p.code](p);
  if(p.code==='AVG'){
   const guide=visualGuide(p);
-  lesson.stages=lesson.stages.map(s=>s.kind==='explain'?{...s,title:guide.title,text:guide.frames[0].text,frames:guide.frames}:s);
-  lesson.revision='visual-2026-09-12';
+  lesson.stages=lesson.stages.map(s=>s.kind==='explain'?{...s,title:guide.title,text:guide.frames[0].text,frames:annotateSteps(guide.frames)}:s);
+  lesson.revision='coached-2026-09-12';
  }
  return lesson;
 };

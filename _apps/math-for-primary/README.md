@@ -2,7 +2,7 @@
 
 Play at **https://soujanyaporia.github.io/math-for-primary/**.
 
-A Singapore Primary 1–6 maths learning application. Choose a primary year to load its own activities; P5 and P6 also have separate Foundation paths. Guest play needs no account. School accounts save completed answers and learning progress across devices.
+A Singapore Primary 1–6 maths learning application. Choose a primary year to load its own activities; P5 and P6 also have separate Foundation paths. Guest play needs no sign-in. The **Create guest account** menu entry saves an optional nickname and chosen level on this browser, preserving existing progress. School accounts save completed answers and learning progress across devices.
 
 **Made with the help of AI.** The questions, explanations, hints, diagrams and code were produced with AI assistance, and AI can be confidently wrong. Automated tests check the mathematics, but a teacher has not reviewed every item. Use this as a learning resource alongside a teacher or parent, and check anything that looks wrong. See [About, privacy and AI](https://soujanyaporia.github.io/math-for-primary/#/about) in the app.
 

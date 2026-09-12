@@ -1,0 +1,17 @@
+import {useState,type FormEvent} from 'react';
+import {useAccount} from './AccountContext';
+import {useProgress} from '../state/ProgressContext';
+import type {Track} from './curriculum';
+import {localStorageRepository} from '../state/progress';
+import {guestSetup} from './guestSetup';
+import './school.css';
+export function GuestScreen(){
+ const {user}=useAccount(),{progress,restoreLocal}=useProgress();
+ const [name,setName]=useState(progress.profile.name||''),[level,setLevel]=useState(progress.primary?.selection?.level??1),[track,setTrack]=useState<Track>(progress.primary?.selection?.track??'standard'),[saved,setSaved]=useState(false),[temporary,setTemporary]=useState(false);
+ const exists=!!progress.profile.name;
+ function submit(e:FormEvent){e.preventDefault();if(user)return;const next=guestSetup(progress,name,level,track);if(restoreLocal(next)){setName(next.profile.name);const stored=localStorageRepository.load();setTemporary(stored?.profile.name!==next.profile.name||stored?.primary.selection?.level!==level||stored?.primary.selection?.track!==next.primary.selection?.track);setSaved(true);}}
+ if(user)return <main className="school-page"><h1>You’re using your school account.</h1><p>Sign out first to use the guest profile on this browser.</p><a className="btn" href="#/account">Open my account</a></main>;
+ return <main className="school-page guest-page"><p className="school-eyebrow">No email. No password.</p><h1>{saved?`You’re ready, ${name}!`:exists?'Your guest account':'Create a guest account'}</h1><p className="school-lead">Pick a nickname and your primary level. You can start learning straight away.</p>
+ {saved?<section className="school-panel" role="status"><h2>P{level}{level>=5?` ${track==='foundation'?'Foundation':'Standard'}`:''} is ready</h2><p>{temporary?'This browser could not save your profile. You can play now, but your changes may be lost when you close the page.':'Your profile is saved on this browser.'}</p><p>Your existing progress is still here. Lessons and games now use your chosen level.</p><div className="loading-actions"><a className="btn" href="#/teach">Start learning →</a><a className="btn btn-soft" href="#/">Play the games</a><button className="btn btn-soft" onClick={()=>setSaved(false)}>Edit profile</button></div></section>:<form className="school-panel school-form" onSubmit={submit}><label>Nickname <small>Optional — use a made-up name.</small><input value={name} onChange={e=>setName(e.target.value)} maxLength={30} placeholder="Explorer" autoComplete="off"/></label><label>Primary level<select value={level} onChange={e=>setLevel(Number(e.target.value))}>{[1,2,3,4,5,6].map(n=><option key={n} value={n}>Primary {n}</option>)}</select></label>{level>=5&&<label>Maths course<select value={track} onChange={e=>setTrack(e.target.value as Track)}><option value="standard">Standard Mathematics</option><option value="foundation">Foundation Mathematics</option></select></label>}<button className="btn">{exists?'Save changes':'Create guest account'} →</button></form>}
+ <div className="school-note"><strong>Saved on this browser only</strong><p>This is one local guest profile, shared by anyone using this browser. It has no sign-in and does not sync to other devices. Clearing browser data removes it. Keep a learning passport to save or move your progress.</p><a href="#/about/passport">Save or move my progress →</a></div><p><a href="#/account">Have school sign-in details?</a></p></main>;
+}

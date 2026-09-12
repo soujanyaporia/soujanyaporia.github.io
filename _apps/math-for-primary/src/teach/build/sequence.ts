@@ -1,3 +1,4 @@
+import {annotateSteps,friendly} from './teachingNotes';
 import {visualGuide} from './guides';
 import type {Rng} from '../../engine/random';
 import {choicesOf,rngFor} from '../gen';
@@ -27,32 +28,33 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  const itemFor=(mode:'direct'|'visual'|'word'|'reverse'|'reasoning'):Gen=>(seed,index)=>{
   const r=rngFor(p.id,seed,index,mode),e=spec.example(r,index+r.int(0,119)),key=`${mode}-${index}`;
   const base:Item={key,prompt:mode==='word'?e.context:e.prompt,display:e.display,answer:e.answer,unit:e.unit,choices:e.choices,exact:e.exact,facet:mode,rep:mode==='word'?'story':e.tool.kind==='fractions'?'fraction-wall':e.tool.kind==='bar'?'bar-model':'symbols',tool:e.tool,hints:[e.hint,...e.steps.slice(0,-1)],steps:e.steps,check:e.check};
-  if(mode==='reverse')return {...base,unit:undefined,display:undefined,prompt:`Check this result: ${e.prompt} Answer: ${e.answer}${e.unit?' '+e.unit:''}. Which relationship checks it?`,answer:e.check,choices:choicesOf(r,e.check,[e.error,'Changing one given quantity keeps this answer unchanged.']),exact:true,steps:[e.why,e.check],hints:['Work back to the given quantities. Check the units as well as the number.']};
-  if(mode==='reasoning')return {...base,unit:undefined,display:undefined,prompt:`A learner is solving this: ${e.prompt} Which explanation is sound?`,answer:e.why,choices:choicesOf(r,e.why,[e.error,'The diagram alone decides the answer, whatever its labels say.']),exact:true,steps:[e.why,...e.steps],hints:[e.hint]};
+  if(mode==='reverse')return {...base,unit:undefined,display:undefined,prompt:`Check this result: ${e.prompt} Answer: ${e.answer}${e.unit?' '+e.unit:''}. How can we check this answer?`,answer:e.check,choices:choicesOf(r,e.check,[friendly(e.error)]),exact:true,steps:[e.why,e.check],hints:['Work back to the given quantities. Check the units as well as the number.']};
+  if(mode==='reasoning')return {...base,unit:undefined,display:undefined,prompt:`A learner is solving this: ${e.prompt} Which explanation helps us solve it?`,answer:friendly(e.why),choices:choicesOf(r,friendly(e.why),[friendly(e.error)]),exact:true,steps:[e.why,...e.steps],hints:[e.hint]};
   return base;
  };
  const warm=itemFor('direct')(23,0),guided=itemFor('direct'),visual=itemFor('visual'),word=itemFor('word'),reverse=itemFor('reverse'),why=itemFor('reasoning');
  const reps:Rep[]=['symbols','story'];if(sample.tool.kind==='fractions')reps.push('fraction-wall');else if(sample.tool.kind==='bar')reps.push('bar-model');else if(sample.tool.kind==='table')reps.push('table');else reps.push('diagram');
  const result=makeLesson(p,{
-  canDo:[p.objective,`explain ${spec.vocabulary.slice(0,2).join(' and ')} using an example`,'check an answer against the quantities and units given'],
+  canDo:[p.objective,'use the picture to explain each step','check my answer using the starting information'],
   representations:reps,misconceptions:[{name:'A tempting shortcut',fix:spec.misconception}],
   stages:[
-   {kind:'readiness',title:'What do you already notice?',text:p.track==='foundation'?'Try one small step. A model and clues are always available.':'Try this first. It is fine to open a clue.',items:[warm],booster:[{text:guide.frames[0].text,tool:guide.frames[0].tool},{text:spec.misconception,tool:sample.tool}]},
-   {kind:'hook',title:guide.title,text:guide.frames[0].text,tool:guide.frames[0].tool},
-   spec.explore,
-   {kind:'explain',title:guide.title,text:guide.frames[0].text,frames:guide.frames,alternatives:guide.alternatives,why:{question:'What did the picture help us see?',answer:guide.frames.at(-1)!.text}},
-   {kind:'worked',title:'Think through an example',problem:sample.prompt+(sample.display?' '+sample.display:''),tool:sample.tool,steps:[{text:sample.hint},...sample.steps.map(text=>({text})),{text:'Check the result against the original information.',math:sample.check}]},
+   {kind:'readiness',title:'Try the idea with help',text:'Use what we just learned to try a new example. Open a clue whenever you need one.',items:[warm],booster:[{text:guide.frames[0].text,tool:guide.frames[0].tool},{text:spec.misconception,tool:sample.tool}]},
+   {kind:'hook',title:'Our question today',text:sample.prompt,tool:sample.tool},
+   {kind:'notice',title:'Be the maths detective',text:`Think about the example we just solved. ${sample.prompt} Which idea helps us solve it?`,tool:sample.tool,options:[{text:friendly(sample.error),correct:false,reply:`Let's look again. ${friendly(sample.why)} ${sample.hint}`},{text:friendly(sample.why),correct:true,reply:`Yes. ${friendly(sample.check)}`}]},
+   {kind:'explain',title:guide.title,text:guide.frames[0].text,frames:annotateSteps(guide.frames),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)})),why:{question:'What did the picture help us see?',answer:guide.frames.at(-1)!.text}},
+   {kind:'worked',title:'Let’s solve our question together',problem:sample.prompt+(sample.display?' '+sample.display:''),tool:sample.tool,steps:annotateSteps([{text:sample.hint,tool:sample.tool,because:friendly(sample.why)},...sample.steps.map(text=>({text:friendly(text),tool:sample.tool})),{text:'Now you finish the explanation. Use the picture and the steps above.',tool:sample.tool,ask:{prompt:sample.prompt,answer:sample.answer,choices:sample.choices}},{text:'Does our answer fit the starting information?',tool:sample.tool,math:sample.check,because:`We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`}])},
    ...(spec.practical?[{kind:'connect' as const,title:'Try a construction',text:'Use the model, then make your own drawing on paper. Compare the features; a teacher or adult can check your drawing.',rows:spec.practical.map(text=>({text}))}]:[]),
    {kind:'practice',mode:'guided',title:'Build your confidence',text:p.track==='foundation'?'Use the model. Say what one part represents before calculating.':'Open a clue whenever it helps.',gen:guided,count:p.track==='foundation'?5:3},
    {kind:'practice',mode:'independent',title:'Try another example',gen:visual,count:3},
    {kind:'apply',title:'Use the idea',gen:word,count:2},
    {kind:'reason',title:'Explain and check',items:[why(371,0),reverse(571,1)]},
    {kind:'mastery',title:'Check what I know',gens:[{facet:'direct',gen:guided},{facet:'visual',gen:visual},{facet:'reverse',gen:reverse},{facet:'word',gen:word},{facet:'reasoning',gen:why}]},
-   {kind:'discovery',title:'Look what you can explain',text:guide.frames.at(-1)!.text,math:guide.frames.at(-1)!.math,tool:guide.frames.at(-1)!.tool}
+   {kind:'discovery',title:'Bring the idea back to our question',text:`${sample.prompt} We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`,math:sample.check,tool:sample.tool}
   ]
  });
- const readiness=result.stages.shift()!;const explore=result.stages.splice(1,1)[0];result.stages.splice(2,0,explore,readiness);
- result.revision='visual-2026-09-12';
+ const readiness=result.stages.shift()!;const detective=result.stages.splice(1,1)[0];result.stages.splice(3,0,detective,readiness);
+ result.mission={goal:p.objective,question:sample.prompt,connection:`First we will build the idea with a picture: ${guide.title.toLowerCase()}. Then we will use that idea to solve our question together.`};
+ result.revision='coached-2026-09-12';
  return result;
 }
 export const table=(headers:string[],rows:(string|number)[][],caption:string):Tool=>({kind:'table',headers,rows:rows.map(r=>r.map(String)),caption});

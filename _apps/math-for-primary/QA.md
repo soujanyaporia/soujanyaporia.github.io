@@ -1,3 +1,17 @@
+# Guest setup and connected teaching — 12 September 2026
+
+This follow-up adds a menu entry at `#/guest`: an optional nickname, P1–P6 selection, and Standard/Foundation for P5/P6. It uses the existing single browser guest record, preserves learning history, requires no email/password, and explains the local-only limit. School accounts remain separate. Nicknames are removed from exported passports by the existing anonymisation. The form checks whether its saved preferences can be read back and reports temporary storage when they cannot.
+
+Expanded lessons now carry a visible learning goal and one anchor question through the opening, worked example and final takeaway. Topic-wide manipulative tasks that did not match the particular objective were replaced by a reasoning activity tied to the worked example. The earlier authored lessons retain their interactive models. Visual steps have readable captions; teacher notes explain model meaning, and focused fraction, triangle, clock, measurement, decimal-rounding and picture-graph introductions include prediction prompts with explanations. Learners must answer or reveal the worked question before continuing. This is an instructional improvement, not evidence of teacher-reviewed mastery of every objective.
+
+Math Lab navigation uses separate category panels and individual links, fixing concatenated labels such as “netNumbers”.
+
+Verification: 374 tests across 19 files passed, including preserved guest records, grade/course validation, route handling, question-to-takeaway consistency and the distinction between triangle height and area. Production compilation passed. Browser checks exercised guest creation, P5 Foundation lesson selection, the triangle picture sequence, prediction reveal, worked-answer gate and linked reasoning activity. Existing rewards remained after guest setup. Local and public visual checks are recorded in the task conversation.
+
+The previous release evidence follows; its earlier exploration/sequence description is superseded where described above.
+
+---
+
 # Visual teaching and syllabus expansion — 12 September 2026
 
 This release replaces dense conceptual paragraphs with picture sequences modelled on the existing Foundations lessons. The reusable presentation shows one illustrated step, one short explanation, read-aloud and previous/next controls. Alternative methods from the original explanation engine remain available for early arithmetic. Worked examples show the current step instead of accumulating text. Assisted exploration now displays the actual target model when the pupil asks “Show me how”; a final worked question must be answered or explicitly revealed before the stage completes.

@@ -22,3 +22,5 @@
 .school-wordmark:focus-visible,.school-header a:focus-visible{outline:3px solid #638973;outline-offset:5px;border-radius:5px}
 @media(max-width:700px){.school-header{padding:0 18px}.school-masthead{padding:22px 0 18px}.school-brand-note{display:none}.school-brand-symbol{width:44px;height:48px;font-size:26px;flex-shrink:0}.school-wordmark strong{font-size:25px}.school-wordmark small{font-size:11px}.school-header .school-nav>div{gap:14px}.school-header .school-nav{font-size:12px}.school-header .school-nav .account-link{margin-left:auto}.brand-break{display:block}}
 .school-header{width:100%;box-sizing:border-box}
+
+.school-nav .guest-link{background:#eaf0df;border:1px solid #d1dfc2;border-radius:10px;padding:9px 13px;font-weight:800;max-width:100%;overflow-wrap:anywhere}.guest-page{max-width:800px}.guest-page .school-form{max-width:540px}.guest-page .school-form small{font-weight:400}

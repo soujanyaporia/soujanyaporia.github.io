@@ -59,7 +59,7 @@ export interface Item {
 }
 export type Gen=(seed:number,index:number)=>Item;
 export interface Why {question:string;answer:string;tool?:Tool}
-export interface RevealStep {text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[]}}
+export interface RevealStep {caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[]}}
 export type Stage=
  |{kind:'readiness';title:string;text?:string;items:Item[];booster:{text:string;math?:string;tool?:Tool}[]}
  |{kind:'hook';title:string;text:string;tool?:Tool}
@@ -86,7 +86,7 @@ export const WORLDS:Record<WorldId,{title:string;blurb:string}>={
  'algebra-academy':{title:'Algebra Academy',blurb:'Unknowns, expressions and equations'},
 };
 export interface Lesson {
- revision?:string;
+ revision?:string;mission?:{goal:string;question:string;connection:string};
  /** Lowercase letters, digits and hyphens; stored as `learn.<id>` in progress. */
  id:string;level:number;track:Track|'both';world:WorldId;title:string;minutes:number;
  /** Curated MOE objective IDs from the curriculum map; never generated at runtime. */

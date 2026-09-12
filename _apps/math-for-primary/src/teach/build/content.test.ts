@@ -23,6 +23,24 @@ function spec(p:typeof PLAN[number]):TopicSpec|null{
  return proportionSpec(p);
 }
 describe('Expanded syllabus content',()=>{
+ it('keeps the opening question, coached example, response and takeaway connected',()=>{
+  for(const l of LESSONS.filter(l=>l.mission)){
+   const hook=l.stages.find(s=>s.kind==='hook')!,worked=l.stages.find(s=>s.kind==='worked')!,end=l.stages.at(-1)!;
+   expect(hook.kind==='hook'&&hook.text,l.id).toBe(l.mission!.question);
+   expect(worked.kind==='worked'&&worked.problem,l.id).toContain(l.mission!.question);
+   expect(worked.kind==='worked'&&worked.steps.some(s=>s.ask?.prompt===l.mission!.question),l.id).toBe(true);
+   expect(end.kind==='discovery'&&end.text,l.id).toContain(l.mission!.question);
+   expect(l.stages.some(s=>s.kind==='notice'),l.id).toBe(true);
+  }
+ });
+ it('explains the triangle-area model and distinguishes it from the height objective',()=>{
+  const area=visualGuide(PLAN.find(p=>p.id==='p5s-area-02')!);
+  expect(area.frames.every(f=>f.because&&f.because.length>30)).toBe(true);
+  expect(area.frames.some(f=>f.wonder?.answer.includes('Both triangles'))).toBe(true);
+  const height=visualGuide(PLAN.find(p=>p.code==='AREA'&&/Identify/.test(p.objective))!);
+  expect(height.title).toContain('height');expect(height.frames.at(-1)?.text).toContain('sloping');
+ });
+
  it('offers a dedicated lesson for every mapped objective in the correct class and course',()=>{
   expect(PLAN).toHaveLength(CURRICULUM_SKILLS.length);
   for(const skill of CURRICULUM_SKILLS){const l=LESSONS.find(l=>l.skillIds.length===1&&l.skillIds[0]===skill.id);expect(l,skill.id).toBeDefined();expect(l!.level).toBe(skill.level);expect(l!.track).toBe(skill.level<5?'both':skill.track);}
