@@ -1,16 +1,24 @@
+import {contextGuide} from './contextGuides';
+import {alignedGuide} from './alignedGuides';
+import {arithmeticFrames} from './arithmeticSteps';
 import {coachedGuide} from './coachedGuides';
 import {focusedGuide} from './focusedGuides';
 import type {PlanEntry} from './plan';
 import type {RevealStep,Tool} from '../model';
 import {explainFact} from '../../engine/explain/strategies';
 import type {SceneTool} from '../tools/LessonScene';
-export interface VisualGuide {title:string;frames:RevealStep[];alternatives?:{label:string;frames:RevealStep[]}[]}
+export interface VisualGuide {title:string;setup?:string;method?:{label:string;intro:string};frames:RevealStep[];alternatives?:{label:string;intro?:string;frames:RevealStep[]}[]}
 const frame=(text:string,tool:Tool,math?:string):RevealStep=>({text,tool,math});
 const scene=(name:SceneTool['scene'],values:number[],phase:number,...labels:string[]):Tool=>({kind:'scene',scene:name,values,phase,labels});
 const frac=(ds:number[],ns:number[]):Tool=>({kind:'fractions',denominators:ds,shaded:ns});
 const pic=(picture:Extract<Tool,{kind:'diagram'}>['picture'],caption:string):Tool=>({kind:'diagram',picture,caption});
 /** Authored demonstrations. The example stays small enough to see the idea before practising larger values. */
 export function visualGuide(p:PlanEntry):VisualGuide{
+ const guide=authoredGuide(p);return {...guide,setup:guide.setup??guide.frames[0].text};
+}
+function authoredGuide(p:PlanEntry):VisualGuide{
+ const context=contextGuide(p);if(context)return context;
+ const aligned=alignedGuide(p);if(aligned)return aligned;
  const coached=coachedGuide(p);if(coached)return coached;
  const focused=focusedGuide(p);if(focused)return focused;
  const code=p.code,o=p.objective.toLowerCase(),g=p.level;
@@ -19,8 +27,8 @@ export function visualGuide(p:PlanEntry):VisualGuide{
   if(/remainder/.test(o))return {title:'When there are some left over',frames:[frame('We have 14 counters. Put them into bags of 4.',{kind:'share',total:14,people:0,given:[],mode:'group',size:4}),frame('Three full bags use 12 counters. Two counters are still outside.',{kind:'share',total:14,people:3,given:[4,4,4],mode:'group',size:4}),frame('Two counters cannot fill another bag of 4. We call the 2 left over the remainder.',{kind:'share',total:14,people:3,given:[4,4,4],mode:'group',size:4},'14 ÷ 4 = 3 remainder 2')]};
   const addition=code==='AS',minus=/taking away|subtract/.test(o)&&(!/add/.test(o)||/facts|mentally|mental/.test(o)),divide=!addition&&/divide|division|share/.test(o),a=addition?(/combining/.test(o)?2:/taking away/.test(o)?5:minus?13:8):divide?12:3,b=addition?(/combining/.test(o)?1:/taking away/.test(o)?2:5):4,op=addition?(minus?'-':'+'):divide?'/':'*',c=op==='+'?a+b:op==='-'?a-b:op==='*'?a*b:a/b;
   const explanation=explainFact({a,b,c,op},{prefer:addition?['make-ten','take-away','count-on']:['equal-groups']});
-  const toFrames=(steps:typeof explanation.steps)=>steps.map(s=>frame(s.say,s.visual?{kind:'foundation-visual',visual:s.visual}:{kind:'bar',whole:addition?(minus?a:c):divide?a:c,parts:addition?[minus?c:a,b]:Array.from({length:divide?b:a},()=>divide?c:b)},s.reveal?`${a} ${op==='*'?'×':op==='/'?'÷':op==='-'?'−':'+'} ${b} = ${c}`:undefined));
-  if(addition)return {title:minus?'Take away, and see what remains':/combining/.test(o)?'Put two groups together':'Make a ten, then keep going',frames:toFrames(explanation.steps),alternatives:explanation.alternatives?.slice(0,2).map(s=>({label:s.label,frames:toFrames(s.steps)}))};
+  const toFrames=(steps:typeof explanation.steps)=>arithmeticFrames(steps,{type:'counters',groups:[{count:a,color:'blue'}]},op==='-'?{start:a,removed:b}:undefined);
+  if(addition)return {setup:minus?`We have ${a} counters and take away ${b}. How many are left? (${a} − ${b})`:`We have ${a} counters and add ${b} more. How many are there altogether? (${a} + ${b})`,method:{label:explanation.strategy,intro:methodIntroduction(explanation.strategy)},title:minus?'Take away, and see what remains':/combining/.test(o)?'Put two groups together':'Make a ten, then keep going',frames:toFrames(explanation.steps),alternatives:explanation.alternatives?.slice(0,2).map(s=>({label:s.label,intro:methodIntroduction(s.label),frames:toFrames(s.steps)}))};
   return divide?{title:'Give everyone an equal share',frames:[frame('Share 12 counters between 4 children. Nobody has any yet.',{kind:'share',total:12,people:4,given:[0,0,0,0],mode:'share'}),frame('Give each child one counter. Everyone must receive the same amount.',{kind:'share',total:12,people:4,given:[1,1,1,1],mode:'share'}),frame('Keep going around. After three rounds, the counters are all shared.',{kind:'share',total:12,people:4,given:[3,3,3,3],mode:'share'}),frame('Each child receives 3. Four equal shares of 3 make our original 12.',{kind:'groups',groups:4,size:3},'12 ÷ 4 = 3')]}:{title:'Count equal groups',frames:[frame('Here is one plate with 4 biscuits.',{kind:'groups',groups:1,size:4}),frame('A second plate has another 4. Both groups are the same size.',{kind:'groups',groups:2,size:4}),frame('With three plates, we have three groups of four.',{kind:'groups',groups:3,size:4},'4 + 4 + 4 = 12'),frame('We can turn the arrangement into rows. Every biscuit is still here.',{kind:'array',rows:3,cols:4},'3 × 4 = 12')]};
  }
  if(code==='WN'){
@@ -75,4 +83,19 @@ function spatialGuide(p:PlanEntry):VisualGuide{
  if(code==='GRAPH')return {title:'What does one symbol stand for?',frames:[frame('Three symbols represent the apples. Look at the key: each symbol means 2 apples.',pic({type:'bars',pictures:true,labels:['Apples','Pears'],values:[6,4],scale:2},'The key is two fruit per symbol')),frame('Count the apples in twos: 2, 4, 6. Three symbols stand for six apples.',pic({type:'bars',pictures:true,labels:['Apples','Pears'],values:[6,4],scale:2},'Three symbols represent six apples'),'3 × 2 = 6'),frame('Pears have two symbols: 4 pears. There are 2 more apples than pears.',{kind:'bar',whole:null,parts:[],compare:{top:6,bottom:4,names:['Apples','Pears']}},'6 − 4 = 2')]};
  const shape=pic({type:'shape',shape:/parallelogram|rhombus|trapezium/.test(o)?'parallelogram':p.level===1?'triangle':'rectangle'},'Follow the sides and corners.');
  return {title:'A turn does not change the shape',frames:[frame('Look for straight sides, corners and curved boundaries.',shape),frame('Turn the shape. Its sides are still the same length, and its corners have the same openings.',{kind:'focus',source:shape,rotate:25,caption:'The same figure, turned through 25 degrees.'}),frame('Use those features to recognise the shape, whichever way it is turned.',{kind:'focus',source:shape,rotate:-20,caption:'Changing orientation preserves the shape.'})]};
+}
+
+/** Explain a method before asking the learner to follow its actions. */
+export function methodIntroduction(label:string):string{
+ const descriptions:Record<string,string>={
+ 'Take away':'We will cross out the counters being removed, then count the ones that remain.',
+ 'Go through 10':'We will split the amount to take away into two easier parts: first reach 10, then subtract the rest.',
+ 'Count back':'We will start at the whole and make one backward jump for each counter taken away.',
+ 'Count on':'We will start with one group and count on as we add the other group.',
+ 'Make 10':'We will move just enough counters to fill a ten, then add what is left.',
+ 'Number line':'We will show the calculation as jumps on a number line. The landing point gives the answer.',
+ 'Use doubles':'We will use a double we know, then adjust if one group has an extra counter.',
+ 'Tens and ones':'We will split the change into tens and ones and work with one part at a time.'
+ };
+ return descriptions[label]??'We will follow a different set of steps for the same question. The starting amounts and answer stay the same.';
 }

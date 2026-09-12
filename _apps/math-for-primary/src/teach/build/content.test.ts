@@ -67,10 +67,14 @@ describe('Expanded syllabus content',()=>{
   }
  });
 
- it('keeps the opening question, coached example, response and takeaway connected',()=>{
+ it('introduces the picture example and announces the separate worked question',()=>{
   for(const l of LESSONS.filter(l=>l.mission)){
    const hook=l.stages.find(s=>s.kind==='hook')!,worked=l.stages.find(s=>s.kind==='worked')!,end=l.stages.at(-1)!;
-   expect(hook.kind==='hook'&&hook.text,l.id).toBe(l.mission!.question);
+   expect(hook.kind==='hook'&&hook.text,l.id).toBe(l.mission!.pictureExample);
+   const explain=l.stages.find(s=>s.kind==='explain')!;
+   expect(explain.kind==='explain'&&explain.example,l.id).toBe(l.mission!.pictureExample);
+   expect(explain.kind==='explain'&&explain.frames?.[0].tool,l.id).toEqual(hook.kind==='hook'&&hook.tool);
+   expect(worked.flow?.carry,l.id).toBe(explain.kind==='explain'&&explain.frames?.at(-1)?.text);
    expect(worked.kind==='worked'&&worked.problem,l.id).toContain(l.mission!.question);
    expect(worked.kind==='worked'&&worked.steps.some(s=>s.ask?.prompt===l.mission!.question),l.id).toBe(true);
    expect(end.kind==='discovery'&&end.text,l.id).toContain(l.mission!.question);

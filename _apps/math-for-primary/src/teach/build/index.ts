@@ -20,7 +20,7 @@ export const buildLesson=(p:PlanEntry):Lesson=>{
  const lesson=FAMILIES[p.code](p);
  if(p.code==='AVG'){
   const guide=visualGuide(p);
-  lesson.stages=lesson.stages.map(s=>s.kind==='explain'?{...s,title:guide.title,text:guide.frames[0].text,frames:annotateSteps(guide.frames)}:s);
+  lesson.stages=lesson.stages.map(s=>s.kind==='explain'?{...s,title:guide.title,text:guide.frames[0].text,example:guide.setup,method:guide.method,frames:annotateSteps(guide.frames)}:s);
   lesson.revision='coached-2026-09-12';
  }
  return lesson;

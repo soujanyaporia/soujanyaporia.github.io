@@ -224,3 +224,40 @@ the side-project link. A pupil completed all four Shape safari questions in the
 browser; a separate authenticated API login retrieved the four answer records,
 one completed primary session and three stars (progress version 6). The synthetic
 pupil was signed out and deactivated after testing.
+
+## Connected lesson flow — 12 September 2026
+
+The shared Learn player now names each stage's purpose and next action. Generated
+lessons introduce the actual picture example first, retain that question during
+its explanation, and announce the separate worked example before changing values.
+The first method is taught in order; alternative methods are optional after it,
+explain their purpose, and retain their individual step positions. Intermediate
+arithmetic equations and inverse-check pictures remain attached to their steps.
+Readiness clues use their own question's values. Picture-reading questions show
+the required picture without treating it as extra help. Recaps annotate their
+check pictures. Older unfinished drafts restart under the new lesson revision;
+earned progress is retained.
+
+Reviewed the objective-to-demonstration mapping for the 252 syllabus entries.
+Added focused explanations where the inherited primer taught a different topic:
+seconds, clock notation, table reading, factors/multiples, decimal place value and
+conversions, like-fraction arithmetic, sharing as a fraction, money, measurement
+units, shape construction, angle notation, ratios, and rectilinear perimeter.
+Time-question reasoning and given-information pictures now use the actual unit.
+This is a mapping review, not a claim that every lesson received a full teaching
+quality review or a complete browser walkthrough.
+
+Automated: 383 tests in 20 files pass; TypeScript and the production build pass.
+Tests check stage purposes across the entire Learn catalog, picture/worked-example
+connections, all model arithmetic, generated question validity, intermediate and
+inverse equations, readiness clue alignment, and topic-specific regressions.
+Decimal bar totals use a small numerical tolerance for floating-point arithmetic.
+
+Browser-observed locally: completed all 11 stages of p1s-as-07, including worked
+answers, explanation choices, practice, story problems, inverse checks, mastery
+and the completion screen. Checked optional method switching/resume and the
+explicit 13 − 5 to 17 − 3 transition. Sampled P2 fractions, P3 time, P4 decimals,
+P5 triangle area and P6 ratio sequences. Rechecked the corrected P3 seconds
+sequence through its new worked example, including its units and reasoning.
+Inspected mobile layouts at 390 px and 320 px, including a complete grid-copy
+picture sequence. These are browser viewport checks, not a physical iPhone test.

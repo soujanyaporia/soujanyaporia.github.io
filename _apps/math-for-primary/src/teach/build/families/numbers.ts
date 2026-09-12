@@ -66,10 +66,22 @@ export function arithmeticSpec(p:PlanEntry):TopicSpec{
    prompt=`Calculate ${a} ${op==='+'?'+':'−'} ${b}.`;
    const parts=String(b).split('').map((d,j)=>Number(d)*10**(String(b).length-j-1)).filter(Boolean);let running=a;
    steps=['Line up the place values. Split the second number into place-value parts.',...parts.map(v=>{const old=running;running=op==='+'?running+v:running-v;return `${old} ${op==='+'?'+':'−'} ${v} = ${running}.`;}),`The result is ${answer}. Check with the inverse operation.`];
-   why=op==='+'?'Joining place-value parts one at a time gives the same whole.':'Removing place-value parts one at a time gives the same difference.';error='Add or subtract digits in different columns as if they had the same value.';check=op==='+'?`${answer} − ${b} = ${a}.`:`${answer} + ${b} = ${a}.`;context=op==='+'?`The library receives ${a} books, then ${b} more. How many arrive?`:`The library has ${a} books; ${b} are borrowed. How many remain?`;
+   why=op==='+'?'Joining place-value parts one at a time gives the same whole.':'Removing place-value parts one at a time gives the same difference.';error='Add or subtract digits in different columns as if they had the same value.';check=op==='+'?`${answer} − ${b} = ${a}.`:`${answer} + ${b} = ${a}.`;context=op==='+'?`The library receives ${a} books, then ${b} more. How many arrive?`:`The library has ${a} books; ${b} ${b===1?'is':'are'} borrowed. How many remain?`;
   }
   tool=table(['First quantity','Operation','Second quantity'],[[a,op,b]],'Keep the units and place values aligned');
   if(p.code==='AS')tool=Math.max(a,b,answer)<=20?{kind:'foundation-visual',visual:op==='+'?joinCounters(a,b):takeAwayCounters(a,b)}:{kind:'bar',whole:op==='+'?null:a,parts:op==='+'?[a,b]:[null,b]};
+  if(p.code==='AS'&&Math.max(a,b,answer)<=20){
+   if(op==='-'){
+    tool={kind:'foundation-visual',visual:{type:'counters',groups:[{count:a,color:'blue',crossed:b}]}};
+    steps=[`Start with ${a} counters. Take away ${b}.`,`Count only the counters that remain: ${answer}.`,`Put back the ${b} to check: ${answer} + ${b} = ${a}.`];
+    why='Taking away removes one part of the starting whole. Count what remains.';
+    error='Add the amount taken away to the starting whole.';
+   }else{
+    steps=[`The two starting groups contain ${a} and ${b} counters.`,`Join them and count each counter once: ${a} + ${b} = ${answer}.`,`Take the ${b} counters back out to check that ${a} remain.`];
+    why='Addition joins both parts to make a whole. Count every counter once.';
+    error='Count just one group and leave the other group out.';
+   }
+  }
   if(p.code==='MD'&&a*b<=100&&op==='*')tool={kind:'foundation-visual',visual:{type:'counters',groups:Array.from({length:a},()=>({count:b,color:'blue' as const}))}};
 
   return {prompt,answer:fmt(answer),steps,hint:steps[0],tool,context,why,error,check,evidence:{op,a,b}};

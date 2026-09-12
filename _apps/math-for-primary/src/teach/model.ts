@@ -60,19 +60,21 @@ export interface Item {
 export type Gen=(seed:number,index:number)=>Item;
 export interface Why {question:string;answer:string;tool?:Tool}
 export interface RevealStep {caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[]}}
-export type Stage=
+export interface StageFlow {phase:'watch'|'together'|'try'|'check';label:string;transition:string;carry?:string}
+export type Stage=({flow?:StageFlow}&(
+
  |{kind:'readiness';title:string;text?:string;items:Item[];booster:{text:string;math?:string;tool?:Tool}[]}
- |{kind:'hook';title:string;text:string;tool?:Tool}
+ |{kind:'hook';title:string;text:string;tool?:Tool;caption?:string}
  |{kind:'explore';title:string;text:string;tool:Tool;goal:(t:Tool)=>boolean;goalHint:string;success:string}
  |{kind:'notice';title:string;text:string;tool?:Tool;options:{text:string;correct:boolean;reply:string}[]}
  |{kind:'connect';title:string;text?:string;rows:{text:string;math?:string;tool?:Tool}[]}
- |{kind:'explain';title:string;text:string;math?:string;tool?:Tool;why?:Why;frames?:RevealStep[];alternatives?:{label:string;frames:RevealStep[]}[]}
+ |{kind:'explain';title:string;text:string;math?:string;tool?:Tool;why?:Why;frames?:RevealStep[];example?:string;method?:{label:string;intro:string};alternatives?:{label:string;intro?:string;frames:RevealStep[]}[]}
  |{kind:'worked';title:string;problem:string;tool?:Tool;steps:RevealStep[]}
  |{kind:'practice';mode:'guided'|'independent';title:string;text?:string;gen:Gen;count:number}
  |{kind:'apply';title:string;text?:string;gen:Gen;count:number}
  |{kind:'reason';title:string;text?:string;items:Item[]}
  |{kind:'mastery';title:string;text?:string;gens:{facet:Facet;gen:Gen}[]}
- |{kind:'discovery';title:string;text:string;math?:string;tool?:Tool};
+ |{kind:'discovery';title:string;text:string;math?:string;tool?:Tool;caption?:string}));
 export type WorldId='number-kingdom'|'operation-station'|'fraction-forest'|'decimal-depths'|'measurement-metro'|'geometry-galaxy'|'data-city'|'ratio-realm'|'algebra-academy';
 export const WORLDS:Record<WorldId,{title:string;blurb:string}>={
  'number-kingdom':{title:'Number Kingdom',blurb:'Whole numbers and place value'},
@@ -86,7 +88,7 @@ export const WORLDS:Record<WorldId,{title:string;blurb:string}>={
  'algebra-academy':{title:'Algebra Academy',blurb:'Unknowns, expressions and equations'},
 };
 export interface Lesson {
- revision?:string;mission?:{goal:string;question:string;connection:string};
+ revision?:string;mission?:{goal:string;question:string;connection:string;pictureExample?:string};
  /** Lowercase letters, digits and hyphens; stored as `learn.<id>` in progress. */
  id:string;level:number;track:Track|'both';world:WorldId;title:string;minutes:number;
  /** Curated MOE objective IDs from the curriculum map; never generated at runtime. */
