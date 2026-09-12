@@ -12,6 +12,12 @@ const clock=(minutes:number,caption:string)=>picture({type:'clock',minutes},capt
 /** Specific objectives must not inherit a demonstration about a different operation or unit. */
 export function alignedGuide(p:PlanEntry):VisualGuide|null{
  const c=p.code,o=p.objective.toLowerCase();
+ if(c==='FRAC'&&/simplif/.test(o))return {title:'Fewer parts, the same share',setup:'Four of eight equal parts are shaded. Can we name that same share using fewer, larger equal parts?',frames:[
+  {text:'Start with four shaded eighths. Count the unshaded parts too: all eight belong to our one whole.',tool:strips([8],[4]),math:'4/8',caption:'Four shaded parts out of eight equal parts.',because:'A simpler fraction must cover exactly this same length. We may regroup the pieces, but must not change the whole or its shaded share.'},
+  {text:'Pair neighbouring eighths. Two small parts now make one larger part. Four shaded pieces become two shaded pairs; eight pieces become four pairs altogether.',tool:strips([8,4],[4,2]),math:'4/8 = (4 ÷ 2)/(8 ÷ 2) = 2/4',caption:'The lower strip groups the upper strip’s pieces in pairs. The blue lengths still match.'},
+  {text:'Pair the quarters once more. Two shaded quarters become one half, and the four quarters become two halves.',tool:strips([4,2],[2,1]),math:'2/4 = (2 ÷ 2)/(4 ÷ 2) = 1/2',caption:'The top has two shaded quarters. The bottom has one shaded half.',because:'Divide both counts by the same number because we regroup the shaded pieces and all the pieces in exactly the same way.'},
+  {text:'We can stop at one half: 1 and 2 have no common factor greater than 1. Check the first strip against the last. Their shaded lengths have not changed.',tool:strips([8,2],[4,1]),math:'4/8 = 1/2',caption:'Different counts of parts; one unchanged shaded amount.',because:'Simplifying changes the fraction’s name, not its size. Dividing only the bottom number would change the share.'}
+ ]};
  if(c==='TIME'&&/second/.test(o))return {title:'Sixty seconds make one minute',setup:'A timer runs for 2 minutes and 15 seconds. How many seconds pass altogether?',frames:[
   step('Seconds measure short stretches of time. Six groups of ten seconds make one minute.',bar(60,[10,10,10,10,10,10],Array(6).fill('10 s')),'60 s = 1 min','The whole bar is one minute. Each section is ten seconds.'),
   step('Our timer runs for two whole minutes first. Each minute contains 60 seconds.',bar(120,[60,60],['first minute','second minute']),'2 × 60 = 120 s'),

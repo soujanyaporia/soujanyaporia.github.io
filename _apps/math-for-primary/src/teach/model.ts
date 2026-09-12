@@ -14,7 +14,7 @@ export const REP_LABEL:Record<Rep,string>={diagram:'diagrams',table:'tables',obj
 export type Facet='direct'|'visual'|'reverse'|'missing'|'word'|'unfamiliar'|'reasoning';
 export const FACET_LABEL:Record<Facet,string>={direct:'calculate directly',visual:'read a picture or model',reverse:'work backwards',missing:'find a missing quantity',word:'solve a story',unfamiliar:'use a new representation',reasoning:'explain or find a mistake'};
 /** Manipulative states. Every tool can be shown read-only, or changed by the pupil through `onChange`. */
-export type Tool=
+export type Tool=(
  |{kind:'take-away';start:number;removed:number[]}
  |{kind:'triangle-pair';base:number;height:number;joined:boolean;lengthUnit?:'m'}
  |{kind:'fraction-pieces';widths:number[];selected:number[];shape?:'strip'|'circle'}
@@ -37,7 +37,7 @@ export type Tool=
  |{kind:'hundred';shaded:number}
  |{kind:'percent';whole:number;percent:number;unit?:string;step?:number}
  |{kind:'ratio';names:string[];units:number[];unitValue:number|null;total?:number|null;colours?:string[]}
- |{kind:'balance';left:{x:number;n:number};right:{x:number;n:number};xValue:number;letter?:string};
+ |{kind:'balance';left:{x:number;n:number};right:{x:number;n:number};xValue:number;letter?:string}) & {hideValue?:boolean};
 export type ToolKind=Tool['kind'];
 export interface Item {
  /** Stable identity within a lesson attempt, e.g. `guided-3`. */

@@ -135,7 +135,7 @@ export const P3_LESSONS:Lesson[]=[{
   {kind:'mastery',title:'Show what you know',gens:[
    {facet:'direct',gen:simplify(B,'m-direct')},{facet:'visual',gen:wallRead(B,'m-visual')},{facet:'reverse',gen:commonFactor(B,'m-reverse')},
    {facet:'missing',gen:missingNumerator(B,'m-missing')},{facet:'word',gen:halvesStory(B,'m-word')},
-   {facet:'unfamiliar',gen:(seed,i)=>{const r=rngFor(B,seed,i,'m-set'),d=r.pick([8,10,12]),k=r.int(2,d-2),answer=simplest(k,d);return {key:`m-set-${i}`,prompt:`${k} of ${d} counters are blue. What fraction is blue, in simplest form?`,answer,exact:true,facet:'unfamiliar',rep:'counters',tool:{kind:'counters',count:Math.min(d,20),frame:20},hints:[`${k} out of ${d} is ${k}/${d}.`,'Divide both numbers by a common factor.'],steps:[`${k}/${d}`,`Simplest form: ${answer}`],check:`${answer} of the counters are blue ✓`};}},
+   {facet:'unfamiliar',gen:(seed,i)=>{const r=rngFor(B,seed,i,'m-set'),d=r.pick([8,10,12]),k=r.int(2,d-2),answer=simplest(k,d);return {key:`m-set-${i}`,prompt:`${k} of ${d} counters are blue. What fraction is blue, in simplest form?`,answer,exact:true,facet:'unfamiliar',rep:'counters',tool:{kind:'foundation-visual',visual:{type:'counters',groups:[{count:k,color:'blue'},{count:d-k,color:'orange'}]}},hints:[`${k} out of ${d} is ${k}/${d}.`,'Divide both numbers by a common factor.'],steps:[`${k}/${d}`,`Simplest form: ${answer}`],check:`${answer} of the counters are blue ✓`};}},
    {facet:'reasoning',gen:unitCompare(B,'m-reason')}]},
   {kind:'discovery',title:'You discovered: the tidiest name',text:'Every fraction has one simplest form. Dividing the top and bottom by their biggest common factor gets you there in one step.',math:'12/16 = 3/4',tool:wall([[12,16],[3,4]])},
  ]}];

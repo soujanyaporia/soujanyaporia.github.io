@@ -20,7 +20,7 @@ export function stageFlow(stage:Stage,index:number,lesson:Lesson):StageFlow{
 }
 
 export function withLessonFlow(lesson:Lesson):Lesson{
- return {...lesson,revision:lesson.revision?.startsWith('depth-')?lesson.revision:'connected-flow-2026-09-12',stages:lesson.stages.map((s,i)=>({...s,flow:stageFlow(s,i,lesson)}))};
+ return {...lesson,revision:(lesson.revision?.startsWith('depth-')||lesson.revision?.startsWith('catalogue-depth-'))?lesson.revision:'connected-flow-2026-09-12',stages:lesson.stages.map((s,i)=>({...s,flow:stageFlow(s,i,lesson)}))};
 }
 
 export function nextStageLabel(stage?:Stage):string{

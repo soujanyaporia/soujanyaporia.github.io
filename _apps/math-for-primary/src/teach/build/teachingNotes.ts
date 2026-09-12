@@ -5,7 +5,7 @@ export function modelCaption(t?:Tool):string|undefined{
  switch(t.kind){
  case 'focus':return modelCaption(t.source);
  case 'diagram':return undefined; // The diagram component already shows its caption.
- case 'table':return `${t.caption}. Read each value with the heading above its column.`;
+ case 'table':return `${t.caption.replace(/[.]+$/,'')}. Read each value with the heading above its column.`;
  case 'counters':return 'Each dot stands for one object. A full row holds five; two full rows make ten.';
  case 'bond':return `The whole is ${t.hide==='whole'?'hidden':t.whole}. The two branches show the parts that belong to that whole.`;
  case 'fractions':return 'Each strip is one whole of the same size. Count all the equal parts, then count the shaded parts.';

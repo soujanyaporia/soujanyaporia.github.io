@@ -10,6 +10,7 @@ import { browserStorage } from '../primary/sessionStore';
 import { activityById } from '../primary/catalog';
 import { lessonById,nextLessonAfter } from './catalog';
 import { ToolView } from './tools/Tools';
+import {questionModel} from './tools/questionModel';
 import { feedbackFor,isCorrect } from './gen';
 import { FACET_LABEL,WORLDS,type Facet,type Item,type Lesson,type Stage,type Tool } from './model';
 import { answerEventId,completeEventId,masteryStars,nodeId,questionKey,readAttempts,reviewDue,reviewNodeId,reviewStages,writeAttempt,type ItemRecord,type LessonAttempt,type LessonMode } from './progress';
@@ -161,11 +162,11 @@ export function ItemCard({item,guided,level,record,onDone,onNext,practiceOnly=fa
  function check(v=value){if(finished||!v.trim())return;const n=tries+1;setTries(n);if(isCorrect(item,v))finish({answer:v,correct:true,firstTry:n===1&&!helped,hints:helped?Math.max(1,hints):0,tries:n,at:Date.now()});else setWrong(feedbackFor(item,v)??(n>=2?'Not quite. Open a clue, or press “Teach me” to go step by step.':'Not quite. Have another go.'));}
  const reveal=()=>finish({answer:value,correct:false,firstTry:false,hints:Math.max(1,hints),tries:Math.max(1,tries),at:Date.now()});
  const done=!!finished,choice=(c:string)=>{setValue(c);check(c);};
- if(simple&&item.simpler&&!done)return <div className="recovery-question"><p className="stage-feedback">Let’s practise the same idea with a smaller question. Then we will return to your original question.</p><ItemCard item={item.simpler} guided level={level} onDone={()=>{}} practiceOnly onNext={()=>setSimple(false)} nextLabel="Return to your question →"/><button className="link-btn" onClick={()=>setSimple(false)}>Back to your original question</button></div>;
+ if(simple&&item.simpler&&!done)return <div className="recovery-question"><p className="stage-feedback">Let’s practise one part of the idea. Then we will return to your original question.</p><ItemCard item={item.simpler} guided level={level} onDone={()=>{}} practiceOnly onNext={()=>setSimple(false)} nextLabel="Return to your question →"/><button className="link-btn" onClick={()=>setSimple(false)}>Back to your original question</button></div>;
  return <div className={`item-card${done?' done':''}`}>
   <div className="item-top">{item.facet&&<span className="item-facet">{FACET_LABEL[item.facet]}</span>}<SpeakButton text={`${item.prompt} ${item.display??''}`}/></div>
   <h3 className="item-prompt">{item.prompt}</h3>{item.display&&<div className="item-display">{item.display}</div>}
-  {item.tool&&(showTool||done)&&<figure className="teaching-figure"><ToolView tool={item.tool}/>{modelCaption(item.tool)&&<figcaption>{modelCaption(item.tool)}</figcaption>}</figure>}
+  {item.tool&&(showTool||done)&&<figure className="teaching-figure"><ToolView tool={done?item.tool:questionModel(item.tool)}/>{modelCaption(item.tool)&&<figcaption>{modelCaption(item.tool)}</figcaption>}</figure>}
   {item.tool&&!showTool&&!done&&<button className="link-btn" onClick={()=>setShowTool(true)}>Show me a picture</button>}
   {item.choices?<div className="item-choices" role="group" aria-label="Answer choices">{item.choices.map(c=>{const mine=(finished?.answer??value)===c;return <button key={c} disabled={done} aria-pressed={mine} className={mine?(done&&finished?.correct?'right':wrong?'wrong':'picked'):''} onClick={()=>choice(c)}>{c}</button>;})}</div>:
    <form className="item-answer" onSubmit={e=>{e.preventDefault();check();}}><label>Your answer<span><input ref={input} value={finished?finished.answer:value} disabled={done} maxLength={40} onChange={e=>{setValue(e.target.value);setWrong(null);}} inputMode={item.answer.includes('/')||item.answer.includes(':')?'text':'decimal'} autoComplete="off" placeholder={item.answer.includes('/')?'Top/bottom':'Type a number'}/>{item.unit&&<b>{item.unit}</b>}</span></label>

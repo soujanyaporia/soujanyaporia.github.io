@@ -11,7 +11,7 @@ const chart=(wholes:number,digits:number[]):{kind:'place';digits:number[];wholes
 const value=(wholes:number,digits:number[])=>Math.round((wholes+digits.reduce((s,d,i)=>s+d/10**(i+1),0))*1000)/1000;
 function digitValue(id:string,salt:string):Gen{return (seed,i)=>{
  const r=rngFor(id,seed,i,salt),wholes=r.int(1,9),digits=[r.int(1,9),r.int(1,9),r.int(1,9)],place=r.int(0,2),digit=digits[place],answer=digit/10**(place+1);
- return {key:`${salt}-${i}`,prompt:`What is the value of the digit ${digit} in this number?`,display:fmt(value(wholes,digits)),answer:fmt(answer),facet:'direct',rep:'place-value',tool:chart(wholes,digits),
+ return {key:`${salt}-${i}`,prompt:`What is the value of the ${digit} in the ${PLACES[place]} column?`,display:fmt(value(wholes,digits)),answer:fmt(answer),facet:'direct',rep:'place-value',tool:chart(wholes,digits),
   hints:[`Find which column the ${digit} sits in.`,`It is in the ${PLACES[place]} column.`,`${digit} ${PLACES[place]} = ${digit} ÷ ${10**(place+1)}.`],
   steps:[`The digit ${digit} is in the ${PLACES[place]} column.`,`${digit} ${PLACES[place]} means ${digit} ÷ ${10**(place+1)}.`,'What is its value?'],
   wrong:{...(digit!==answer?{[String(digit)]:`${digit} is the digit. Its value depends on the column it sits in: here it means ${digit} ${PLACES[place]}.`}:{})},
@@ -32,7 +32,7 @@ function fractionToDecimal(id:string,salt:string):Gen{return (seed,i)=>{
 };}
 function compareDecimals(id:string,salt:string):Gen{return (seed,i)=>{
  const r=rngFor(id,seed,i,salt),a=r.int(1,9)/10,b=r.int(11,99)/100,answer=a>b?'>':a<b?'<':'=';
- return {key:`${salt}-${i}`,prompt:'Choose the sign that makes this true.',display:`${fmt(a)}  □  ${fmt(b)}`,answer,choices:['<','>','='],facet:'reasoning',rep:'place-value',tool:{kind:'hundred',shaded:Math.round(a*100)},
+ return {key:`${salt}-${i}`,prompt:'Choose the sign that makes this true.',display:`${fmt(a)}  □  ${fmt(b)}`,answer,choices:['<','>','='],facet:'reasoning',rep:'place-value',tool:{kind:'fractions',denominators:[100,100],shaded:[Math.round(a*100),Math.round(b*100)],hideValue:true},
   hints:['Compare the tenths first, then the hundredths.',`${fmt(a)} has ${Math.round(a*10)} tenths; ${fmt(b)} has ${Math.floor(b*10)} tenths.`,'More digits does not mean a bigger number.'],
   steps:[`${fmt(a)} is ${Math.round(a*100)} hundredths.`,`${fmt(b)} is ${Math.round(b*100)} hundredths.`,`So ${fmt(a)} ${answer} ${fmt(b)}.`]};
 };}
@@ -55,15 +55,20 @@ function longerLooksBigger(id:string,salt:string):Gen{return (seed,i)=>{
 function addSubtract(id:string,salt:string,op?:'+'|'-'):Gen{return (seed,i)=>{
  const r=rngFor(id,seed,i,salt),plus=op?op==='+':r.chance(.5),x=r.int(105,899),y=r.int(15,Math.min(x-5,499));
  const a=x/100,b=y/100,answer=(plus?x+y:x-y)/100;
- return {key:`${salt}-${i}`,prompt:plus?'Add the decimals.':'Subtract the decimals.',display:`${fmt(a)} ${plus?'+':'−'} ${fmt(b)}`,answer:fmt(answer),facet:plus?'direct':'missing',rep:'place-value',tool:chart(Math.floor(a),[Math.floor((x%100)/10),x%10,0]),
+ return {key:`${salt}-${i}`,prompt:plus?'Add the decimals.':'Subtract the decimals.',display:`${fmt(a)} ${plus?'+':'−'} ${fmt(b)}`,answer:fmt(answer),facet:plus?'direct':'missing',rep:'place-value',tool:{kind:'bar',whole:plus?null:a,parts:plus?[a,b]:[null,b],labels:plus?['first amount','second amount']:['remaining','removed']},
   hints:['Match the columns: ones with ones, tenths with tenths, hundredths with hundredths.','Write both numbers with the same number of decimal places if it helps.',`${x} hundredths ${plus?'+':'−'} ${y} hundredths`],
   steps:[`${fmt(a)} is ${x} hundredths and ${fmt(b)} is ${y} hundredths.`,`${x} ${plus?'+':'−'} ${y} = ${plus?x+y:x-y} hundredths.`,`That is ${fmt(answer)}.`],
   another:[{title:'Count in hundredths',steps:[`Work entirely in hundredths: ${x} ${plus?'+':'−'} ${y} = ${plus?x+y:x-y}.`,`Then put the point back: ${fmt(answer)}.`]}],
   check:plus?`${fmt(answer)} − ${fmt(b)} = ${fmt(a)} ✓`:`${fmt(answer)} + ${fmt(b)} = ${fmt(a)} ✓`};
 };}
+function missingAddend(id:string,salt:string):Gen{return (seed,i)=>{
+ const r=rngFor(id,seed,i,salt),a=r.int(105,499),b=r.int(15,399),total=a+b;
+ return {key:`${salt}-${i}`,prompt:'Find the missing amount that completes this addition.',display:`${fmt(a/100)} + □ = ${fmt(total/100)}`,answer:fmt(b/100),facet:'missing',rep:'bar-model',tool:{kind:'bar',whole:total/100,parts:[a/100,null]},
+ hints:['The total contains the known part and the missing part.','Remove the known part from the total.'],steps:[`The whole is ${total} hundredths.`,`Remove ${a} hundredths: ${total} − ${a} = ${b}.`,`The missing part is ${fmt(b/100)}.`],check:`${fmt(a/100)} + ${fmt(b/100)} = ${fmt(total/100)}.`};
+};}
 function moneyStory(id:string,salt:string):Gen{return (seed,i)=>{
  const r=rngFor(id,seed,i,salt),cost=r.int(125,899),paid=r.pick([1000,2000]),change=(paid-cost)/100;
- return {key:`${salt}-${i}`,prompt:`A book costs $${(cost/100).toFixed(2)}. Kai pays with a $${paid/100} note. How much change should he get?`,answer:fmt(change),unit:'dollars',facet:'word',rep:'story',
+ return {key:`${salt}-${i}`,prompt:`A book costs $${(cost/100).toFixed(2)}. Kai pays with a $${paid/100} note. How much change should he get?`,answer:fmt(change),unit:'dollars',facet:'word',rep:'story',tool:{kind:'bar',whole:paid/100,parts:[cost/100,null],labels:['price ($)','change ($)']},
   hints:['Change is what is left after paying.',`$${paid/100} − $${(cost/100).toFixed(2)}`,'Match the columns: dollars with dollars, cents with cents.'],
   steps:[`${paid} cents − ${cost} cents = ${paid-cost} cents.`,`That is $${change.toFixed(2)}.`],check:`$${(cost/100).toFixed(2)} + $${change.toFixed(2)} = $${(paid/100).toFixed(2)} ✓`};
 };}
@@ -86,7 +91,7 @@ export const P4_LESSONS:Lesson[]=[{
    booster:[{text:'Each place is ten times the one to its right: 100, 10, 1.',math:'400 + 60 = 460'},{text:'A hundred square shows hundredths: each small square is 1/100 of the whole.',tool:{kind:'hundred',shaded:25}}]},
   {kind:'hook',title:'Cutting one metre',text:'A one-metre ribbon is cut into 10 equal pieces. Each piece is one tenth of a metre, written 0.1 m. Cut each of those into 10 again and you get hundredths: 0.01 m, which is 1 cm.',tool:chart(1,[0,0,0])},
   {kind:'explore',title:'Build a decimal',text:'Use the columns to build the number 2.45: two ones, four tenths and five hundredths.',tool:chart(2,[0,0,0]),goal:t=>t.kind==='place'&&(t.wholes??0)===2&&t.digits[0]===4&&t.digits[1]===5&&t.digits[2]===0,goalHint:'You need 4 in the tenths column and 5 in the hundredths column.',success:'2.45 is 2 ones + 4 tenths + 5 hundredths.'},
-  {kind:'notice',title:'What do you notice?',text:'Look at 0.8 and 0.75 shaded on hundred squares.',tool:{kind:'hundred',shaded:80},options:[
+  {kind:'notice',title:'What do you notice?',text:'Compare the same-sized strips: 0.8 is shaded above, and 0.75 below. Both wholes contain 100 equal parts.',tool:{kind:'fractions',denominators:[100,100],shaded:[80,75],hideValue:true},options:[
    {text:'0.8 covers more of the square: 80 hundredths against 75',correct:true,reply:'Yes. 0.8 is 8 tenths, which is 80 hundredths.'},
    {text:'0.75 is bigger because 75 is bigger than 8',correct:false,reply:'That compares the digits, not their value. 0.75 is 75 hundredths and 0.8 is 80 hundredths.'},
    {text:'They are the same',correct:false,reply:'80 hundredths and 75 hundredths differ by 5 hundredths.'}]},
@@ -146,7 +151,7 @@ export const P4_LESSONS:Lesson[]=[{
   {kind:'apply',title:'Use it in a story',gen:moneyStory(B,'story'),count:2},
   {kind:'reason',title:'Maths detective',items:[alignmentMistake(B,'detective')(0,0),{key:'estimate-check',prompt:'Without calculating exactly: about how much is 4.85 + 3.2?',answer:'About 8',choices:['About 8','About 5','About 80'],facet:'reasoning',rep:'symbols',hints:['Round each number to the nearest whole one.'],steps:['4.85 is nearly 5 and 3.2 is about 3.','5 + 3 = 8, so the answer should be close to 8.']}]},
   {kind:'mastery',title:'Show what you know',gens:[
-   {facet:'direct',gen:addSubtract(B,'m-direct','+')},{facet:'visual',gen:gridRead(B,'m-visual')},{facet:'reverse',gen:addSubtract(B,'m-reverse','-')},
-   {facet:'missing',gen:buildDecimal(B,'m-missing')},{facet:'word',gen:moneyStory(B,'m-word')},{facet:'unfamiliar',gen:measureStory(B,'m-measure')},{facet:'reasoning',gen:alignmentMistake(B,'m-reason')}]},
+   {facet:'direct',gen:addSubtract(B,'m-direct','+')},{facet:'visual',gen:(seed,i)=>({...addSubtract(B,'m-visual','+')(seed,i),prompt:'The bar shows two lengths in metres. What total length do they make?',display:undefined,unit:'m'})},{facet:'reverse',gen:addSubtract(B,'m-reverse','-')},
+   {facet:'missing',gen:missingAddend(B,'m-missing')},{facet:'word',gen:moneyStory(B,'m-word')},{facet:'unfamiliar',gen:(seed,i)=>({...moneyStory(B,'m-change')(seed,i),prompt:'The bar shows the payment and the book price in dollars. How much change is due?'})},{facet:'reasoning',gen:alignmentMistake(B,'m-reason')}]},
   {kind:'discovery',title:'You discovered: columns rule, not the dot',text:'Adding decimals is the same as adding whole numbers, as long as each digit stays in its own column. The decimal point simply marks where the ones end.',math:'3.40 + 2.75 = 6.15',tool:chart(6,[1,5,0])},
  ]}];

@@ -41,7 +41,7 @@ describe('Connected teaching sequence',()=>{
 
  it('provides a purpose and a descriptive next action throughout every Learn lesson',()=>{
   for(const l of LESSONS){
-   expect(l.revision,l.id).toMatch(/^(connected-flow-2026-09-12|depth-2026-09-12-v1)$/);
+   expect(l.revision,l.id).toMatch(/^(connected-flow-2026-09-12|depth-2026-09-12-v1|catalogue-depth-2026-09-12-v1)$/);
    for(const [i,s] of l.stages.entries()){
     expect(s.flow?.transition.length,`${l.id}:${i}`).toBeGreaterThan(25);
     expect(s.flow?.label.length,`${l.id}:${i}`).toBeGreaterThan(5);
@@ -51,11 +51,11 @@ describe('Connected teaching sequence',()=>{
   }
  });
 
- it('keeps the first independent question and its booster on the same values',()=>{
+ it('keeps prerequisite booster pictures on the same values',()=>{
   for(const l of LESSONS.filter(l=>l.mission)){
    const s=l.stages.find(s=>s.kind==='readiness')!;
    if(s.kind!=='readiness')continue;
-   expect(s.booster.every(b=>JSON.stringify(b.tool)===JSON.stringify(s.items[0].tool)),l.id).toBe(true);
+   expect(s.booster.filter(b=>b.tool).every(b=>JSON.stringify(b.tool)===JSON.stringify(s.items[0].tool)),l.id).toBe(true);
   }
  });
 
