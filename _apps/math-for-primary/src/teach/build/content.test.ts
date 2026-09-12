@@ -1,3 +1,6 @@
+import {modelCaption} from './teachingNotes';
+import {numberBondGuide,numberBondSpec,numberBondExample} from './families/numberBonds';
+import {Rng} from '../../engine/random';
 import {visualGuide} from './guides';
 import {describe,it,expect} from 'vitest';
 import {CURRICULUM_SKILLS} from '../../school/curriculum';
@@ -23,6 +26,47 @@ function spec(p:typeof PLAN[number]):TopicSpec|null{
  return proportionSpec(p);
 }
 describe('Expanded syllabus content',()=>{
+ it('explains removed and repeated groups without revealing a ghost quantity',()=>{
+  const picture=(groups:import('../../engine/types').CountersSpec['groups'])=>modelCaption({kind:'foundation-visual',visual:{type:'counters',groups}});
+  expect(picture([{count:7,color:'blue'},{count:13,color:'blue',crossed:13}])).toContain('starts with 20 counters');
+  expect(picture([{count:7,color:'blue'},{count:13,color:'blue',crossed:13}])).toContain('13 taken away');
+  expect(picture(Array.from({length:8},()=>({count:10,color:'blue'})))).toContain('8 equal groups, with 10 counters in each');
+  expect(picture([{count:3,color:'blue'},{count:7,color:'green',ghost:true}])).not.toMatch(/7|10/);
+ });
+
+ it('keeps eight objects and their colours consistent across the number-bond story',()=>{
+  const s=numberBondSpec();
+  expect(s.anchor!.answer).toBe('3');
+  expect(s.anchor!.evidence).toEqual({op:'-',a:8,b:5});
+  const tools=[s.anchor!.tool,...numberBondGuide.frames.map(f=>f.tool),...s.worked!.map(f=>f.tool)];
+  for(const tool of tools){
+   expect(tool).toBeDefined();
+   if(tool?.kind==='foundation-visual'){
+    expect(tool.visual.type).toBe('counters');
+    if(tool.visual.type==='counters'){
+     const groups=tool.visual.groups;
+     expect(groups.map(g=>[g.count,g.color])).toEqual([[5,'blue'],[3,'orange']]);
+     expect(groups.reduce((n,g)=>n+g.count,0)).toBe(8);
+     if(groups.some(g=>g.crossed)){
+      expect(groups.reduce((n,g)=>n+(g.crossed??0),0)).toBe(5);
+      expect(groups.filter(g=>!g.crossed).map(g=>g.color)).toEqual(['orange']);
+     }
+    }
+   }else{expect(tool?.kind).toBe('bond');if(tool?.kind==='bond'){expect(tool.whole).toBe(8);expect(tool.parts).toEqual([5,3]);}}
+  }
+ });
+ it('asks for the hidden quantity in each number-bond practice variant',()=>{
+  for(let seed=0;seed<80;seed++)for(let mode=0;mode<3;mode++){
+   const e=numberBondExample(new Rng(seed),mode),t=e.tool;
+   expect(t.kind).toBe('bond');if(t.kind!=='bond')continue;
+   expect(t.whole).toBe(t.parts[0]+t.parts[1]);
+   expect(t.hide).toBe(['whole','b','a'][mode]);
+   expect(Number(e.answer)).toBe(mode===0?t.whole:mode===1?t.parts[1]:t.parts[0]);
+   const {a,b,op}=e.evidence!;
+   expect(Number(e.answer)).toBe(op==='+'?a+b:a-b);
+  }
+ });
+
  it('keeps the opening question, coached example, response and takeaway connected',()=>{
   for(const l of LESSONS.filter(l=>l.mission)){
    const hook=l.stages.find(s=>s.kind==='hook')!,worked=l.stages.find(s=>s.kind==='worked')!,end=l.stages.at(-1)!;

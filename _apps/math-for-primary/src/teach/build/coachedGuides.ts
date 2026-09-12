@@ -1,3 +1,4 @@
+import {numberBondGuide} from './families/numberBonds';
 import type {PlanEntry} from './plan';
 import type {VisualGuide} from './guides';
 import type {RevealStep,Tool} from '../model';
@@ -7,6 +8,7 @@ const strips=(denominators:number[],shaded:number[]):Tool=>({kind:'fractions',de
 /** Focused introductions where a broad topic demonstration would obscure the actual objective. */
 export function coachedGuide(p:PlanEntry):VisualGuide|null{
  const o=p.objective.toLowerCase(),c=p.code;
+ if(c==='AS'&&/number bonds/.test(o))return numberBondGuide;
  if(c==='FRAC'&&/represent a fraction|notation|unit fractions/.test(o)){
  if(/compare/.test(o))return {title:'Same whole, different-sized pieces',frames:[
  step('Imagine sharing two identical cakes. Cut the first cake into two equal pieces and the second into four.',strips([2,4],[0,0]),'We must start with equal-sized cakes. Otherwise, comparing the fractions would not compare equal wholes.'),

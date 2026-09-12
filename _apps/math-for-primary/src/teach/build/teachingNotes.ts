@@ -10,7 +10,7 @@ export function modelCaption(t?:Tool):string|undefined{
  case 'bond':return `The whole is ${t.hide==='whole'?'hidden':t.whole}. The two branches show the parts that belong to that whole.`;
  case 'fractions':return 'Each strip is one whole of the same size. Count all the equal parts, then count the shaded parts.';
  case 'hundred':return 'The whole grid has 100 equal squares. One full row is 10 hundredths, or one tenth.';
- case 'groups':return `There are ${t.groups} groups, with ${t.size} objects in each group. Count a group before counting them all.`;
+ case 'groups':return `${t.groups===1?'There is 1 group':`There are ${t.groups} groups`}, with ${t.size} objects in each group. Count a group before counting them all.`;
  case 'array':return `${t.rows} rows run across the picture; each row contains ${t.cols} objects.`;
  case 'share':return t.mode==='share'?'Each plate is one share. Counters outside the plates have not been shared yet.':'Each bag is one group. Counters outside the bags are left over.';
  case 'line':return 'Read from left to right. The starting dot tells us where to begin; an arrow shows a change.';
@@ -21,7 +21,16 @@ export function modelCaption(t?:Tool):string|undefined{
  case 'place':return 'Read the place heading before the digit. A counter in a different column has a different value.';
  case 'net-model':return `The flat shapes are the faces of a ${t.shape}. The joined edges are the folds.`;
  case 'geometry':return {angle:'The two rays meet at a vertex. The angle measures the opening between them.',clock:'The short hand shows the hour; the long hand shows the minutes.',rectangle:'Width counts squares across. Height counts rows upwards.',ruler:'The length is the distance from zero to the end, measured in equal spaces.',solid:'Count cubes across a layer, then count the layers. Some cubes are hidden.',mirror:'The dotted line is the fold. Matching points must be equally far from it.',lines:'Look at how the two lines meet, or whether the space between them stays constant.'}[t.mode];
- case 'foundation-visual':return undefined; // These original models already carry their own labels.
+ case 'foundation-visual':{
+  if(t.visual.type!=='counters')return;
+  const groups=t.visual.groups;
+  if(groups.some(g=>g.ghost))return 'Solid counters show the known part. Dashed counters mark the part we still need to find.';
+  const total=groups.reduce((n,g)=>n+g.count,0),removed=groups.reduce((n,g)=>n+(g.crossed??0),0);
+  if(removed)return `The picture starts with ${total} counters. Crosses mark ${removed} taken away. Count only the counters without crosses to find what remains.`;
+  if(groups.length>2&&groups.every(g=>g.count===groups[0].count))return `There are ${groups.length} equal groups, with ${groups[0].count} counters in each. Count one group, then count in equal steps to find the total.`;
+  return groups.length>1?'Each counter stands for one object. The separate groups are parts; count all the groups to find the whole.':'Each counter stands for one object. Count each counter once to find how many there are.';
+ }
+
  case 'scene':{
  const [a,b,c,d]=t.values;
  const notes:Record<string,string>={

@@ -1,3 +1,4 @@
+import {numberBondSpec} from './numberBonds';
 import {joinCounters,takeAwayCounters} from '../../../engine/explain/visuals';
 import {fmt,choicesOf} from '../../gen';
 import {words} from './wn';
@@ -34,6 +35,7 @@ export function numberSpec(p:PlanEntry):TopicSpec{
  return spec;
 }
 export function arithmeticSpec(p:PlanEntry):TopicSpec{
+ if(p.code==='AS'&&/number bonds/.test(p.objective.toLowerCase()))return numberBondSpec();
  const o=p.objective.toLowerCase(),g=p.level,f=p.track==='foundation',mul=p.code==='MD',fact=p.code==='FACT';
  const concept=fact?'A factor divides a number exactly. Multiplying that factor by another whole number gives a multiple. List factor pairs to avoid missing factors; common factors or multiples must belong to both lists.':mul?'Equal groups connect multiplication and division. Number of groups × amount in each group = total. Division finds a missing group count or group size. For larger numbers, split by place value; remainders are smaller than the divisor.':'Addition joins parts to make a whole; subtraction finds a remaining part or a difference. Align ones with ones, tens with tens and hundreds with hundreds. Exchange ten units for one of the next place when needed. Mental strategies split a number into useful parts.';
  return {concept,vocabulary:fact?['factor','multiple','common']:mul?['equal groups','product','quotient','remainder']:['part','whole','difference','exchange'],misconception:fact?'A factor fits exactly into the number; a multiple is made by multiplying. They are not interchangeable.':mul?'Dividing a total by the number of groups gives the amount in each group, not a new total.':'Align place values rather than the left edges of numbers. An exchange changes the representation, not the quantity.',explore:mul||fact?exploreArray():{kind:'explore',title:'Join two parts',text:'Start with 5 counters and add 3 more.',tool:{kind:'counters',count:5,frame:10},goal:t=>t.kind==='counters'&&t.count===8,goalHint:'Add counters until there are 8.',success:'5 and 3 join to make 8.'},example:(r,i)=>{

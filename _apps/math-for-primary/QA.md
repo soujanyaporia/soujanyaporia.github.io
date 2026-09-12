@@ -1,3 +1,15 @@
+# Counter clarity and phone layouts — 12 September 2026
+
+Fixed the screenshot-reported counter overlap at its source: the activity picture and Foundations counter renderer shared a global `.counter-group` selector. Their layouts now have separate names. Teaching tools also have separate selectors for ten frames, bars, number lines, arrays and plates so navigation between modules cannot mix those styles.
+
+The P1 number-bond introduction now keeps one example throughout: five blue counters and three orange counters make eight; taking the blue part away leaves three. Pictures label the parts, explain crosses, connect to a labelled number bond, and require an answer before continuing the worked example. Practice varies which quantity is missing. The learning goal is concise and collapsible, empty captions are omitted, and a changed picture is brought back into view when a phone has scrolled below it. Other counter-based teaching figures explain removed counters, equal groups and unknown parts without revealing ghost quantities.
+
+Phone fixes also cover wrapping counter groups, narrow number-bond parts, ten-column arrays, place-value controls and percentage bars. Percentage sections share one readable key instead of repeated cramped labels.
+
+Verification: 377 tests in 19 files passed; production compilation passed. New checks verify quantity/colour conservation across the number-bond story, hidden-quantity answers across 240 generated practice cases, and captions for subtraction, repeated groups and unknown parts. Browser checks at 320, 390, 430, 768 and 1280 CSS pixels found no document overflow in the revised number-bond lesson. At 320 pixels, inspected addition, subtraction, multiplication (including plates and array), the complete Math Lab and original Foundations addition. Exercised number-bond answer 3, the picture-step scroll behaviour, a 3-by-10 array and its rotation, and a +10 number-line jump. This is browser viewport testing, not a physical iPhone Safari test or a claim that every lesson has received a teaching-quality review.
+
+---
+
 # Guest setup and connected teaching — 12 September 2026
 
 This follow-up adds a menu entry at `#/guest`: an optional nickname, P1–P6 selection, and Standard/Foundation for P5/P6. It uses the existing single browser guest record, preserves learning history, requires no email/password, and explains the local-only limit. School accounts remain separate. Nicknames are removed from exported passports by the existing anonymisation. The form checks whether its saved preferences can be read back and reports temporary storage when they cannot.
