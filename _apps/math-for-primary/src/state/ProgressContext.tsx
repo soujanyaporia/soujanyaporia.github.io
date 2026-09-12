@@ -6,7 +6,7 @@ import { reduceEvent,type ProgressEvent } from '../school/events';
 import { useAccount } from '../school/AccountContext';
 import { CloudSync,syncLabel,type SyncInfo } from './cloudSync';
 import { browserStorage,type KV } from '../primary/sessionStore';
-interface ProgressApi {emit:(e:ProgressEvent)=>void;progress:ProgressState;recordAttempt:(o:AttemptOutcome)=>void;completeSession:(stars:number,lessonId?:string)=>BadgeDef[];updateSettings:(patch:Partial<Settings>)=>void;reset:()=>void;sync:()=>Promise<boolean>;syncStatus:string;status:SyncInfo;scope:string}
+interface ProgressApi {emit:(e:ProgressEvent)=>void;progress:ProgressState;recordAttempt:(o:AttemptOutcome)=>void;completeSession:(stars:number,lessonId?:string)=>BadgeDef[];updateSettings:(patch:Partial<Settings>)=>void;reset:()=>void;sync:()=>Promise<boolean>;syncStatus:string;status:SyncInfo;scope:string;restoreLocal:(state:ProgressState)=>boolean}
 const ProgressContext=createContext<ProgressApi|null>(null);
 const memory=():KV=>{const m=new Map<string,string>();return {getItem:k=>m.get(k)??null,setItem:(k,v)=>void m.set(k,v),removeItem:k=>void m.delete(k)};};
 /**
@@ -39,8 +39,10 @@ export function ProgressProvider({children,repository}:{children:ReactNode;repos
  const updateSettings=useCallback((patch:Partial<Settings>)=>emit({id:crypto.randomUUID(),at:Date.now(),kind:'settings',patch}),[emit]);
  const reset=useCallback(()=>{if(engine)return;repo.clear();const next={...initialProgress(),settings:current.current.settings};current.current=next;repo.save(next);setProgress(next);},[engine,repo]);
  const sync=useCallback(()=>engine?engine.flush():Promise.resolve(true),[engine]);
+ /** Replace guest or staff progress in this browser (learning passport). Pupil progress lives in the school account. */
+ const restoreLocal=useCallback((state:ProgressState)=>{if(engine)return false;current.current=state;repo.save(state);setProgress(state);return true;},[engine,repo]);
  const syncStatus=syncLabel(status);
- const value=useMemo(()=>({emit,progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus,status,scope}),[emit,progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus,status,scope]);
+ const value=useMemo(()=>({emit,progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus,status,scope,restoreLocal}),[emit,progress,recordAttempt,completeSession,updateSettings,reset,sync,syncStatus,status,scope,restoreLocal]);
  return <ProgressContext.Provider value={value}>{ready?children:<main className="school-page loading-page" aria-busy="true"><p className="school-eyebrow">Your learning journal</p><h1>{status.state==='offline'?'We can’t reach your school account yet.':'Opening your learning journal…'}</h1><p role="status">{status.state==='offline'?'Check the connection. Nothing you have saved will be lost; we will keep trying.':syncStatus}</p><div className="loading-actions"><button className="btn" onClick={()=>void engine?.flush()}>Try again</button><a href="#/account" onClick={()=>setReady(true)}>Account settings</a></div></main>}</ProgressContext.Provider>;
 }
 export function useProgress(){const c=useContext(ProgressContext);if(!c)throw new Error('ProgressProvider missing');return c;}

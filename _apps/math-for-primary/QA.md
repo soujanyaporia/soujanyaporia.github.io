@@ -1,4 +1,27 @@
-# Continuation and verification — 11 September 2026
+# Continuation and verification — 12 September 2026
+
+## Teaching release, AI statement and guest passport — 12 September 2026
+
+**What is new.** Learn (`#/teach`): 13 micro-lessons, 169 stages, about 150 minutes, across the six exemplar topics, built as lesson *data* rendered by one generic player, with 13 interactive manipulatives that are also open for free exploration in the Math Lab (`#/lab`). Per-lesson teacher guides (`#/guide/<lesson>`) and a curriculum coverage map (`#/coverage`). Mastery spans seven facets, reviews fall due after 1, 4, 10 and 30 days, and XP, Gems, level and streak are derived from recorded learning rather than stored separately. The About page (`#/about`) carries the AI-generated-content statement and a PDPA-oriented privacy statement, and hosts the guest learning passport.
+
+**Automated.** `npm test`: 362 tests in 17 files pass (previously 351 in 14). New suites:
+
+- `src/teach/lessons.test.ts`: for every lesson, objectives resolve to real curriculum skills, prerequisites resolve, the linked practice activity exists, the required stage sequence is present, the mastery check spans at least five distinct facets, and the lightweight lesson index matches the full catalog. For generated items: deterministic across six seeds, an independently checked and solvable answer, unique choices and valid answer formats. For manipulatives: tool states are arithmetically consistent, explore goals start unmet, and each “what do you notice?” has exactly one correct option. Lesson prose is rejected if it teaches a keyword rule.
+- `src/primary/passport.test.ts`: a passport round trip restores progress, unfinished sessions and lesson attempts; tampered, truncated and foreign-format codes are refused; invalid sessions inside an otherwise valid code are dropped.
+
+`npm run build` passes TypeScript and Vite. The main script is 327 kB (101 kB gzip). Lesson content and manipulatives ship in the on-demand `screens` chunk (185 kB, 50 kB gzip — confirmed by locating lesson text inside `dist/assets/screens-*.js`), the About page with the passport is its own 14 kB (5 kB gzip) chunk, the activity player 32 kB, school pages 31 kB, and the original lessons 155 kB plus the 85 kB shared engine.
+
+Backend (`school-api`): `node sync-shared.mjs`, `npm run build` and the 7 integration tests pass, including the second-device draft restore, session privacy per pupil/school/role, and the same answer and completion from two devices counting once. The resynchronised shared sources are committed as `8e0bc3e`; the worker is unchanged from `6333b79` and API v3 remains undeployed.
+
+**Browser-observed** (local Vite app, guest, Chromium):
+
+- P6 “Letters and balanced equations” resumed at step 3 of 13 (“Welcome back… Keep it balanced”). Pressing “Take 1 off both sides” three times moved the equation `x + 3 = 8` → `x + 2 = 7` → `x = 5`, with the beam level at every step; Check then answered “The box balances 5 weights, so x = 5. Doing the same to both sides kept the scales level all the way,” and unlocked Next. Taking a weight from one side only tips the beam and reports “not balanced any more”, which is exactly what the following stage asks pupils to explain.
+- Found and fixed during these checks: a pupil who used “Take 1 off the left only” could not restore the balance with the remaining controls, so the explore stage now offers “Start again”. Verified: it restores the opening state and clears the message, and does not re-lock a goal that was already met.
+- About page: the AI statement (“built with the help of AI tools”, “it can sound confident when it is wrong”, “under the guidance of a teacher, parent or another adult”, “not an official MOE resource”) and all ten privacy headings render.
+- Guest passport, exercised in the browser rather than only in tests: “Create my passport” produced a 2,883-character `MFP1-` code, and checking that code back reported “2 activities explored · 0 lessons finished · 12 answers · 2 stars · 2 unfinished · saved 12 Sept 2026”, with the replace-progress warning shown before anything is applied.
+- P3 “Equivalent fractions” renders at 390×844 with no horizontal overflow; the Math Lab lists all 13 manipulatives; a lesson guide renders its five sections; the coverage map reports, for P1, 3 of 27 objectives with a Learn lesson, 19 of 27 with practice activities and 8 mapped only.
+
+**Not verified.** No child has used these lessons, and no qualified teacher has reviewed the content: the automated tests check mathematics and structure, not whether a nine-year-old understands the wording. Signed-in pupil flows were not exercised in a browser (no accounts were created and no passwords typed on the live service); authenticated behaviour rests on the API integration tests and the v2 compatibility check. Physical iPad/Safari, screen readers and 200% zoom were not tested. P5 and P6 Foundation have no lessons yet. API v3 is still not deployed, so unfinished working does not yet move between devices in production.
 
 ## Release 1 — returning feels purposeful (evening, 11 September 2026)
 

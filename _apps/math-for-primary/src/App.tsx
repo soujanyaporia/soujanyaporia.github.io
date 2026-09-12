@@ -18,6 +18,13 @@ const SchoolScreen = lazyScreen(() => school().then((m) => m.SchoolScreen));
 const DemoSchoolScreen = lazyScreen(() => school().then((m) => m.DemoSchoolScreen));
 const SchoolStartScreen = lazyScreen(() => school().then((m) => m.SchoolStartScreen));
 const RegisterSchoolScreen = lazyScreen(() => school().then((m) => m.RegisterSchoolScreen));
+const AboutScreen = lazyScreen(() => import('./school/AboutScreen').then((m) => m.AboutScreen));
+const teach = () => import('./teach/screens');
+const LessonPlayer = lazyScreen(() => teach().then((m) => m.LessonPlayer));
+const LearnIndex = lazyScreen(() => teach().then((m) => m.LearnIndex));
+const MathLab = lazyScreen(() => teach().then((m) => m.MathLab));
+const LessonGuide = lazyScreen(() => teach().then((m) => m.LessonGuide));
+const Coverage = lazyScreen(() => teach().then((m) => m.Coverage));
 const HomeScreen = lazyScreen(() => foundations().then((m) => m.HomeScreen));
 const LearnScreen = lazyScreen(() => foundations().then((m) => m.LearnScreen));
 const LessonScreen = lazyScreen(() => foundations().then((m) => m.LessonScreen));
@@ -36,6 +43,11 @@ function Screen({ route }: { route: Route }) {
     case 'school': return <SchoolScreen />;
     case 'demo': return <DemoSchoolScreen />;
     case 'curriculum': return <CurriculumScreen />;
+    case 'about': return <AboutScreen section={route.section} />;
+    case 'teach': return route.id ? <LessonPlayer key={route.id + (route.mode ?? '')} id={route.id} mode={route.mode} /> : <LearnIndex />;
+    case 'lab': return <MathLab key={route.tool ?? 'all'} tool={route.tool} />;
+    case 'guide': return <LessonGuide key={route.id} id={route.id} />;
+    case 'coverage': return <Coverage />;
     default:
     case 'home':
       return <PrimaryHome />;
@@ -56,8 +68,8 @@ function Screen({ route }: { route: Route }) {
   }
 }
 
-const SCHOOL_ROUTES = ['account', 'school', 'demo', 'curriculum', 'school-start', 'register'];
-const loadingLabel = (route: Route) => (route.name === 'activity' ? 'Opening your activity…' : SCHOOL_ROUTES.includes(route.name) ? 'Opening…' : 'Opening the guided lessons…');
+const SCHOOL_ROUTES = ['account', 'school', 'demo', 'curriculum', 'school-start', 'register', 'about', 'coverage', 'guide', 'lab'];
+const loadingLabel = (route: Route) => (route.name === 'activity' ? 'Opening your activity…' : route.name === 'teach' ? 'Opening your lesson…' : SCHOOL_ROUTES.includes(route.name) ? 'Opening…' : 'Opening the guided lessons…');
 
 function AccountApp() {
   const route = useRoute();
@@ -65,7 +77,7 @@ function AccountApp() {
   if(loading)return <main className="school-page loading-page" aria-busy="true"><p className="school-eyebrow">School account</p><h1>Opening your account…</h1></main>;
   if(connection==='unreachable')return <main className="school-page loading-page"><p className="school-eyebrow">School account</p><h1>We can’t reach your school account right now.</h1><p role="status">{error}</p><p>Answers already waiting on this device are kept and will be saved the next time you sign in.</p><div className="loading-actions"><button className="btn" onClick={retry}>Try again</button><button className="btn btn-soft" onClick={continueAsGuest}>Play as a guest instead</button></div></main>;
   const screen=user?.mustChange?{name:'account' as const}:route;
-  const focus=['lesson','practice-topic','mixed','activity'].includes(screen.name);
+  const focus=['lesson','practice-topic','mixed','activity'].includes(screen.name)||(screen.name==='teach'&&!!screen.id);
   const routeKey=JSON.stringify(screen);
   return <ProgressProvider key={user?.id+(user?.mustChange?'change':'ready')}><SessionProvider><div className="app">
     {!focus&&<SchoolNav/>}<RouteBoundary resetKey={routeKey}><Suspense fallback={<RouteLoading label={loadingLabel(screen)}/>}><Screen route={screen}/></Suspense></RouteBoundary>

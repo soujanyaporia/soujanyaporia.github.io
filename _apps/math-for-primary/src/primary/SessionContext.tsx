@@ -2,11 +2,11 @@ import { createContext,useCallback,useContext,useEffect,useMemo,useRef,useState,
 import { ApiError,useAccount } from '../school/AccountContext';
 import { useProgress } from '../state/ProgressContext';
 import { combineSessions,mergeSameSession,validateSession,type PrimarySession } from './session';
-import { browserStorage,readSessions,storageKey,writeSessions,type SessionEntries } from './sessionStore';
+import { browserStorage,clearSessions,readSessions,storageKey,writeSessions,type SessionEntries } from './sessionStore';
 import { combineAll,sessionsFromHistory,unfinishedSessions } from './resume';
 /** `unsupported`: the account API predates the sessions endpoint, so drafts stay on this device. */
 export type RemoteState='local'|'checking'|'ready'|'unsupported'|'offline';
-interface SessionsApi {scope:string;all:Record<string,PrimarySession>;unfinished:PrimarySession[];get:(activityId:string)=>PrimarySession|undefined;save:(s:PrimarySession,draft?:boolean)=>PrimarySession;remote:RemoteState;isUploaded:(activityId:string)=>boolean}
+interface SessionsApi {scope:string;all:Record<string,PrimarySession>;unfinished:PrimarySession[];get:(activityId:string)=>PrimarySession|undefined;save:(s:PrimarySession,draft?:boolean)=>PrimarySession;remote:RemoteState;isUploaded:(activityId:string)=>boolean;restore:(sessions:PrimarySession[])=>void;clear:()=>void}
 const Context=createContext<SessionsApi|null>(null);
 const same=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
 /** Continue lists real work: a recorded answer, working on the current question, or an open repair. Merely opening an activity is not enough. */
@@ -61,9 +61,12 @@ export function SessionProvider({children}:{children:ReactNode}){
   commit({...current,[session.activityId]:{session:merged,rev:prev?.rev??0,dirty:upload}});if(upload)schedule(session.activityId,draft?1200:150);
   return merged;
  },[latest,commit,schedule,student]);
+ /** Replace this scope's sessions (learning passport) or remove them (clearing guest data). */
+ const restore=useCallback((sessions:PrimarySession[])=>{const next:SessionEntries={};for(const s of sessions)next[s.activityId]={session:combineSessions(next[s.activityId]?.session,s)!,rev:0,dirty:false};commit(next);},[commit]);
+ const clear=useCallback(()=>{clearSessions(kv,scope);setEntries({});},[kv,scope]);
  const history=progress.primary?.history;
  const all=useMemo(()=>combineAll(Object.values(entries).map(e=>e.session),sessionsFromHistory(history)),[entries,history]);
- const value=useMemo<SessionsApi>(()=>({scope,all,unfinished:unfinishedSessions(all).filter(hasWork),get:id=>all[id],save,remote,isUploaded:id=>!!entries[id]&&!entries[id].dirty&&entries[id].rev>0}),[scope,all,save,remote,entries]);
+ const value=useMemo<SessionsApi>(()=>({scope,all,unfinished:unfinishedSessions(all).filter(hasWork),get:id=>all[id],save,remote,isUploaded:id=>!!entries[id]&&!entries[id].dirty&&entries[id].rev>0,restore,clear}),[scope,all,save,remote,entries,restore,clear]);
  return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 export function useSessions(){const c=useContext(Context);if(!c)throw new Error('SessionProvider missing');return c;}

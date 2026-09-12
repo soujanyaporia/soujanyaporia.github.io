@@ -22,7 +22,11 @@ Status, 11 September 2026: items 1–5 below are implemented and published with 
 
 Acceptance: return/reload restores the exact unfinished question; completed answers and stars are counted once; guest/account sessions stay separate; a second authenticated device restores saved progress; 390-pixel and iPad layouts work; existing lessons and all generator tests still pass. This release must be a functioning vertical slice, not placeholder cards.
 
-## Release 2 — Teach the concept, not just the answer
+## Release 2 — Teach the concept, not just the answer (exemplar units implemented, 12 September 2026)
+
+Status: the teaching engine and the six exemplar units below are implemented as **Learn** (`#/teach`), with 13 micro-lessons, 13 interactive manipulatives, a Math Lab, per-lesson teacher guides and a curriculum coverage map. Each lesson runs readiness → discover → concrete → pictorial → abstract → worked examples → guided → independent → apply → reason → mastery → review, with staged hints, “Teach me”, “Show me another way”, “I still don’t get it”, misconception-specific feedback and mastery across seven facets. Evidence is in QA.md.
+
+Remaining for this release: Foundation lessons for P5/P6 (none yet), the other objectives in each year (25 of 243 objectives currently have a lesson), teacher assignment of lessons (needs the account API), child testing of the instructions, and a qualified teacher's review of the lesson content.
 
 Build six exemplar units before replicating patterns across the catalog:
 
@@ -126,4 +130,4 @@ Deliver one working slice at a time. Preserve the original guided lessons and al
 
 Publish compatible API changes before frontend changes. Use the existing backend Sites project and personal GitHub Pages repository. Never commit `.private/`, credentials, local databases, scratch workspaces or recovery archives. Keep package lockfiles tracked despite the parent repository's ignore rule. Verify the exact GitHub deployment run and public page after pushing.
 
-Release 1 is implemented. The immediate handoff is deploying API v3 to the existing Sites project, then Release 2. Later releases are ordered work packages, not claims that all features will fit into one Claude session.
+Release 1 is implemented, and Release 2's exemplar units are implemented as Learn. The immediate handoff is deploying API v3 to the existing Sites project, then extending Learn across the remaining objectives (Foundation first) and adding teacher-assignable lessons. Later releases are ordered work packages, not claims that all features will fit into one Claude session.

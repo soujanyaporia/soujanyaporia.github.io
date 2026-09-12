@@ -1,22 +1,26 @@
 # Claude Code continuation handoff
 
-Updated 11 September 2026 (evening), Singapore time. App: **Maths for SG Primary Schools**.
+Updated 12 September 2026, Singapore time. App: **Maths for SG Primary Schools**.
 
 ## Where things stand
 
-Release 1, “Returning feels purposeful”, is implemented in this folder and published with the frontend. README.md summarises the features, SCHOOL-PLATFORM.md the boundaries and data handling, QA.md the evidence and NEXT-PHASE-PLAN.md the roadmap.
+Release 1 (“Returning feels purposeful”) and the first teaching release are implemented in this folder. README.md summarises the features, SCHOOL-PLATFORM.md the boundaries and data handling, QA.md the evidence and NEXT-PHASE-PLAN.md the roadmap.
 
 - Every activity is a resumable session (schema 1): session ID, activity ID, generator version, seed, per-question fingerprints, question on screen, scored results and an unscored draft. Reload restores the exact question and working; changed generators get an honest restart. Guests keep sessions per browser; staff and pupils have separate local scopes.
 - Answers and completions use event IDs derived from session and position, and the shared reducer ignores repeats, so retries, refreshes, tabs and devices cannot add answers, completions or stars twice.
 - Pupils' answers carry their session and position in the question key, so another signed-in device continues from the first unanswered question with the deployed API v2.
-- The home leads with Continue only for real unfinished work, then P1–P6 (P5/P6 Standard/Foundation path cards), the next objective and recent activities; mistake repair explains the original error and asks a near-transfer question; route bundles are split with loading, offline and error screens.
+- The home leads with Continue only for real unfinished work, then P1–P6 (P5/P6 Standard/Foundation path cards), a Learn card, the next objective and recent activities; mistake repair explains the original error and asks a near-transfer question; route bundles are split with loading, offline and error screens.
+- **`src/teach/` is the teaching engine.** Lessons are data (`model.ts`, `lessons/p1.ts`…`p6.ts`), rendered by one generic player (`LessonPlayer.tsx`) with 13 interactive manipulatives (`tools/`). 13 lessons, 169 stages, about 150 minutes, covering the six exemplar topics. Lesson answers are recorded as ordinary `primary_answer` events against the lesson's practice activity, and completion as a `session` event with `lessonId = learn.<id>`, so mastery, spaced review and derived rewards work on the deployed v2 API with no new event kinds. Mastery spans seven facets; reviews fall due after 1, 4, 10 and 30 days; XP, Gems, level and streak are derived from recorded learning (`rewards.ts`), not stored separately.
+- **AI statement and privacy.** `src/school/AboutScreen.tsx` (`#/about`) carries the AI-generated-content statement and the PDPA-oriented privacy statement, and hosts the guest **learning passport** (`src/primary/passport.ts`): progress, unfinished sessions and lesson attempts packed into a `MFP1-` code (deflate-raw + base64url) that the guest keeps. Nothing is uploaded; the same page removes all guest data from the browser.
 
 **API v3 is built and tested but not deployed.** `school-api` commit `6333b79` adds `GET /api/sessions`, `POST /api/sessions/:activityId` (compare-and-swap revisions), migration `0001_primary_sessions`, validation of `sessionId`/`position` and `/health` version 3. The Sites connector that deployed v2 (`mcp__codex_apps__sites`: `sites.save_site_version`, `sites.deploy_site_version`, `sites.get_deployment_status`) exists only in Codex and was not available to Claude Code. No other backend was created. The published frontend was verified against the v2 build; it treats a 404 from `/api/sessions` as “keep drafts on this device” and uses v3 automatically once deployed.
 
 ## Next task
 
 1. Deploy API v3 to the existing Sites project (project ID in `school-api/.openai/hosting.json`): in `school-api`, run `node sync-shared.mjs && npm run build && npm test`, confirm a clean tree at `6333b79` or a later commit, save a Sites version from that SHA, deploy it (both migrations are copied to `dist/.openai/drizzle`), then check `/health` reports version 3 with `primary-sessions-1`. Verify with a synthetic pupil that a typed draft appears on a second signed-in device, then deactivate that pupil.
-2. Continue with Release 2 in NEXT-PHASE-PLAN.md. Keep the Release 1 invariants: stable activity IDs, deterministic event IDs, per-scope storage and the generator version map in `src/primary/sessionQuestions.ts` (bump a kind's version whenever its questions change for an existing seed).
+2. Extend Learn across the curriculum. 25 of 243 mapped objectives have a lesson; P5/P6 Foundation have none and should come first, because those pupils need the teaching most. Add lessons by writing data in `src/teach/lessons/`, not new components: `lessons.test.ts` enforces real objective IDs, resolvable prerequisites, an existing activity, the required stage sequence, at least five distinct mastery facets, deterministic and solvable generated items, arithmetically consistent tool states, and no keyword rules. Reuse the existing manipulatives; add a new one to `tools/` with geometry helpers and tests only when a topic genuinely needs it.
+3. Teacher-assignable lessons need the account API (a new endpoint plus a capability flag). Do not fake it in the UI: the teacher guide is a preview, and the app must not display assignments that cannot be stored.
+4. Keep the Release 1 invariants: stable activity IDs, deterministic event IDs, per-scope storage and the generator version map in `src/primary/sessionQuestions.ts` (bump a kind's version whenever its questions change for an existing seed).
 
 ## Current source and deployment locations
 
@@ -28,11 +32,13 @@ Release 1, “Returning feels purposeful”, is implemented in this folder and p
 
 ## Validation and source handling
 
-Frontend: `npm test` (351 tests in 14 files, including 200 generated samples per activity) and `npm run build`. Backend: in `school-api/`, `node sync-shared.mjs`, `npm run build`, `npm test` (7 integration tests; Node 22+ for `node:sqlite`). Always resynchronise `school-api/shared` before a backend build; the worker imports the shared reducer and session validation.
+Frontend: `npm test` (362 tests in 17 files, including 200 generated samples per activity and the lesson validation suite) and `npm run build`. Backend: in `school-api/`, `node sync-shared.mjs`, `npm run build`, `npm test` (7 integration tests; Node 22+ for `node:sqlite`). Always resynchronise `school-api/shared` before a backend build; the worker imports the shared reducer and session validation.
 
-Browser checks can use guest mode freely. Do not type real credentials; for signed-in checks use a synthetic school/pupil created for the test and deactivate it afterwards. Chromium's synthetic Enter key from the browser tool does not submit forms; a typed newline does.
+Browser checks can use guest mode freely. Do not type real credentials; for signed-in checks use a synthetic school/pupil created for the test and deactivate it afterwards.
 
-Sync source to the publishing worktree with explicit exclusions: `node_modules/`, `dist/`, `.private/`, `.recovery/`, `.git/` (including `school-api/.git`), `.claude/`, `.env*`, `*.sqlite*`, logs and archives. Both app and backend `package-lock.json` files are tracked even though the personal repo has a broad ignore rule. Jekyll excludes `_apps`.
+Two browser-tool traps cost time in this session, both tool artefacts rather than app faults. Chromium's synthetic Enter key (a keydown without a keypress) does not submit forms; type a newline instead. And clicks are delivered in CSS pixels at the position current **when the click runs**: a `ref` resolved before the page scrolled, or a stale screenshot, silently lands somewhere else, and with the mobile/touch viewport emulation active no click reached the page at all. Clear the emulation (`resize_window` preset `desktop`), read each button's live centre with `getBoundingClientRect()`, then click, and confirm the effect through the DOM rather than assuming the click landed.
+
+Sync source to the publishing worktree with explicit exclusions: `node_modules/`, `dist/`, `.private/`, `.recovery/`, `.git/` (including `school-api/.git`), `.claude/`, `.env*`, `*.sqlite*`, `.wrangler/`, logs and archives. Run `rsync -an --delete --itemize-changes` first and read the list before syncing for real. Both app and backend `package-lock.json` files are tracked even though the personal repo has a broad ignore rule. Jekyll excludes `_apps`.
 
 `.private/` contains local provisioning/test credentials. Do not print it, put it in a prompt, or copy it into the source mirror. Do not email teachers or pupils. Preserve the personal site's footer side-project link and its shared typography and visual contract.
 
