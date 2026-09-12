@@ -49,7 +49,7 @@ describe('Catalogue teaching quality safeguards',()=>{
   for(let seed=0;seed<80;seed++){
    const e=proportionSpec(p).example(new Rng(seed),0),t=modelFor(p,e);expect(t.kind).toBe('table');if(t.kind!=='table')continue;
    const [percent,part]=t.rows[0].map(Number);expect(Number(e.answer)).toBeCloseTo(part/percent*100,8);
-   expect(t.headers).toEqual(['Known share (%)','Amount in that share']);expect(t.rows[0]).toHaveLength(2);expect(visualQuestion(p,e,t).prompt.replace('100%','')).not.toMatch(/\d/); 
+   expect(t.headers).toEqual(['Known share (%)','Amount in that share']);expect(t.rows[0]).toHaveLength(2);expect(visualQuestion(p,e,t).prompt.replace('100%','')).not.toMatch(/\d/);
   }
  });
  it('matches both money comparison amounts, rather than displaying an unrelated single amount',()=>{
