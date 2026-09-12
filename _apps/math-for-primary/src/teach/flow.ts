@@ -20,11 +20,12 @@ export function stageFlow(stage:Stage,index:number,lesson:Lesson):StageFlow{
 }
 
 export function withLessonFlow(lesson:Lesson):Lesson{
- return {...lesson,revision:'connected-flow-2026-09-12',stages:lesson.stages.map((s,i)=>({...s,flow:stageFlow(s,i,lesson)}))};
+ return {...lesson,revision:lesson.revision?.startsWith('depth-')?lesson.revision:'connected-flow-2026-09-12',stages:lesson.stages.map((s,i)=>({...s,flow:stageFlow(s,i,lesson)}))};
 }
 
 export function nextStageLabel(stage?:Stage):string{
  if(!stage)return 'Finish lesson';
+ if(stage.actionLabel)return `${stage.actionLabel} →`;
  const labels:Record<Stage['kind'],string>={hook:'Meet the example',explain:'See how it works',worked:'Work it out together',notice:'Explain the idea',explore:'Try the model',connect:'Connect the ideas',readiness:'Try a question',practice:stage.kind==='practice'&&stage.mode==='independent'?'Try on your own':'Practise with help',apply:'Try a story',reason:'Explain and check',mastery:'Check what I know',discovery:'See what I learned'};
  return `${labels[stage.kind]} →`;
 }

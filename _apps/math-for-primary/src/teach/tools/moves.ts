@@ -11,6 +11,9 @@ import type { Tool } from '../model';
 const clamp=(n:number,lo:number,hi:number)=>Math.max(lo,Math.min(hi,n));
 export function movesFor(t:Tool):Tool[]{
  switch(t.kind){
+  case 'take-away':return Array.from({length:t.start},(_,i)=>({...t,removed:t.removed.includes(i)?t.removed.filter(n=>n!==i):[...t.removed,i].sort((a,b)=>a-b)}));
+  case 'triangle-pair':return [{...t,joined:!t.joined}];
+  case 'fraction-pieces':return [];
   case 'geometry':return geometryMoves(t);
   case 'net-model':case 'diagram':case 'focus':case 'scene':case 'foundation-visual':case 'table':return [];
   // Every cell is clickable, and a stepper covers the rest, so any count is one press away.

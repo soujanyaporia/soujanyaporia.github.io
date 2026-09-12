@@ -10,13 +10,13 @@ import {Rng} from '../engine/random';
 describe('Connected teaching sequence',()=>{
  it('introduces the actual visual example instead of an unrelated calculation',()=>{
   const l=lessonById('p1s-as-07')!;
-  const [hook,explain,worked]=l.stages;
+  const hook=l.stages.find(s=>s.kind==='hook')!,explain=l.stages.find(s=>s.kind==='explain')!,worked=l.stages.find(s=>s.kind==='worked')!;
   expect(hook.kind).toBe('hook');expect(explain.kind).toBe('explain');expect(worked.kind).toBe('worked');
   if(hook.kind!=='hook'||explain.kind!=='explain'||worked.kind!=='worked')return;
-  expect(hook.text).toContain('13');expect(hook.text).toContain('take away 5');
+  expect(hook.text).toContain('13');expect(hook.text.toLowerCase()).toContain('take away 5');
   expect(explain.example).toBe(hook.text);
   expect(explain.frames![0].text).toContain('13');
-  expect(worked.problem).toBe('Calculate 17 − 3.');
+  expect(worked.problem).toContain('17 counters. Take away 3');
   expect(worked.flow!.transition).toContain('changing the example');
   expect(worked.steps[0].text).toContain('17');
   expect(worked.steps.some(s=>s.ask?.answer==='14')).toBe(true);
@@ -41,7 +41,7 @@ describe('Connected teaching sequence',()=>{
 
  it('provides a purpose and a descriptive next action throughout every Learn lesson',()=>{
   for(const l of LESSONS){
-   expect(l.revision,l.id).toBe('connected-flow-2026-09-12');
+   expect(l.revision,l.id).toMatch(/^(connected-flow-2026-09-12|depth-2026-09-12-v1)$/);
    for(const [i,s] of l.stages.entries()){
     expect(s.flow?.transition.length,`${l.id}:${i}`).toBeGreaterThan(25);
     expect(s.flow?.label.length,`${l.id}:${i}`).toBeGreaterThan(5);

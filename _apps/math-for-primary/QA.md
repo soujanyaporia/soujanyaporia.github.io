@@ -1,3 +1,17 @@
+# Teaching depth reference lessons — 12 September 2026
+
+Re-authored P1 `p1s-as-07`, P2 `p2s-frac-01` and P5 `p5s-area-02` as twelve connected stages: prerequisite, anchor question, prediction, purposeful interaction, explanation, worked example with a pupil contribution, guided and independent practice, story, reasoning, mixed check and recap. Other lessons keep their existing content. See `TEACHING-QUALITY.md` for the review standard and remaining work.
+
+Shared fixes: required question pictures do not count as extra help; smaller-question recovery replaces the original answer form until return and keeps the helped flag; fraction inputs support a slash on the P1/P2 keypad; question navigation has accessible names. New counter states preserve object positions; fraction reading pictures omit printed answers and match the blue named in the text. Garden diagrams and explanations use metres consistently.
+
+Automated verification: 389 tests across 21 files and the production build pass. New checks independently recompute generated answers, validate interaction reachability and counter conservation, check distinct visual tasks, reject invalid distractors, and verify bounded smaller-question recovery data. A passing generated-content check is not a teaching-quality judgement.
+
+Browser-observed locally: completed all twelve stages and all five mixed-check questions in each of the three lessons. P1 checked a wrong prerequisite, arbitrary counter selection, undo, keyboard selection, incomplete target feedback, a wrong subtraction answer, exclusive smaller-question recovery and return, inverse-reasoning feedback, and completion. P2 checked keyboard shading, fraction entry with the slash keypad, swapped-number feedback, denominator and unfamiliar-circle questions, unequal-half feedback, and completion. P5 checked joining/removing/rejoining via keyboard and pointer, both worked-example answers, missing-halving feedback, required diagram questions, garden units, reverse reasoning, and completion.
+
+Inspected desktop (1280) and phone (390 and 320 CSS pixels) layouts across the new models and relevant lesson screens; observed no document overflow in the measured views. These are browser viewport checks, not physical iPhone Safari testing, exhaustive device coverage, classroom evaluation or teacher endorsement.
+
+---
+
 # Counter clarity and phone layouts — 12 September 2026
 
 Fixed the screenshot-reported counter overlap at its source: the activity picture and Foundations counter renderer shared a global `.counter-group` selector. Their layouts now have separate names. Teaching tools also have separate selectors for ten frames, bars, number lines, arrays and plates so navigation between modules cannot mix those styles.

@@ -1,4 +1,5 @@
 import {annotateSteps} from './teachingNotes';
+import {deepenLesson} from '../depth/lessons';
 import {visualGuide} from './guides';
 import type { Lesson } from '../model';
 import {numberLesson,arithmeticLesson} from './families/numbers';
@@ -23,7 +24,7 @@ export const buildLesson=(p:PlanEntry):Lesson=>{
   lesson.stages=lesson.stages.map(s=>s.kind==='explain'?{...s,title:guide.title,text:guide.frames[0].text,example:guide.setup,method:guide.method,frames:annotateSteps(guide.frames)}:s);
   lesson.revision='coached-2026-09-12';
  }
- return lesson;
+ return deepenLesson(lesson);
 };
 /** Every generated lesson, in syllabus order. */
 export const BUILT_LESSONS:Lesson[]=PLAN.map(buildLesson);

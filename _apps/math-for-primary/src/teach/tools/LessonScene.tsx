@@ -1,6 +1,6 @@
 import type {VisualSpec} from '../../engine/types';
 import {Visual} from '../../visuals/Visual';
-export type SceneTool={kind:'scene';scene:'shape-join'|'copy-grid'|'angle-name'|'place'|'fraction'|'fraction-product'|'area'|'triangle'|'circle'|'average'|'scale'|'timeline'|'angles'|'ratio'|'money'|'regroup'|'crossing'|'house'|'triangle-angles'|'circle-area';values:number[];phase:number;labels?:string[]};
+export type SceneTool={kind:'scene';scene:'shape-join'|'copy-grid'|'angle-name'|'place'|'fraction'|'fraction-product'|'area'|'triangle'|'circle'|'average'|'scale'|'timeline'|'angles'|'ratio'|'money'|'regroup'|'crossing'|'house'|'triangle-angles'|'circle-area';values:number[];phase:number;labels?:string[];lengthUnit?:string};
 export type FoundationTool={kind:'foundation-visual';visual:VisualSpec};
 const BLUE='#536ce7',GOLD='#efac59',GREEN='#71ad86',INK='#29384f';
 /** Each drawing depicts the quantities named in the adjacent teaching sentence. */
@@ -40,7 +40,7 @@ export function LessonScene({t}:{t:SceneTool}){
   art=<>{Array.from({length:b*d},(_,i)=>{const row=Math.floor(i/d),col=i%d,both=row<a&&col<c;return rect(105+col*300/d,25+row*200/b,300/d,200/b,p===0?(col<c?GOLD:'#eef0f4'):p===1?(both?BLUE:col<c?'#f8d6a4':'#eef0f4'):(both?GREEN:'#eef0f4'),i);})}{text(260,252,p===0?`${c} of ${d} columns`:p===1?`Take ${a} of the ${b} rows`:`${a*c} of ${b*d} equal pieces`,'label')}</>;
  }else if(t.scene==='area'||t.scene==='triangle'){
   const x=90,y=30,w=340,h=180;
-  art=<><rect x={x} y={y} width={w} height={h} fill="#edf0ff" stroke={BLUE} strokeWidth="2"/>{t.scene==='area'?Array.from({length:a*b},(_,i)=>rect(x+(i%a)*w/a,y+Math.floor(i/a)*h/b,w/a,h/b,p===0?(i<a?GOLD:'#edf0ff'):i<a?GOLD:BLUE,i)):<><path d={`M${x} ${y+h}L${x+w} ${y+h}L${x} ${y}Z`} fill={BLUE}/>{p>=1&&<path d={`M${x} ${y}L${x+w} ${y}L${x+w} ${y+h}Z`} fill={GOLD}/>}<path d={`M${x+18} ${y+h}v-18h-18`} fill="none" stroke="white" strokeWidth="3"/></>}{text(260,240,`${a} units`,'base')}{text(55,128,`${b}`,'height')}{t.scene==='triangle'&&text(270,275,p<1?'':p<2?'Two matching triangles fit exactly':`${a} × ${b} ÷ 2 = ${a*b/2}`,'result')}</>;
+  art=<><rect x={x} y={y} width={w} height={h} fill="#edf0ff" stroke={BLUE} strokeWidth="2"/>{t.scene==='area'?Array.from({length:a*b},(_,i)=>rect(x+(i%a)*w/a,y+Math.floor(i/a)*h/b,w/a,h/b,p===0?(i<a?GOLD:'#edf0ff'):i<a?GOLD:BLUE,i)):<><path d={`M${x} ${y+h}L${x+w} ${y+h}L${x} ${y}Z`} fill={BLUE}/>{p>=1&&<path d={`M${x} ${y}L${x+w} ${y}L${x+w} ${y+h}Z`} fill={GOLD}/>}<path d={`M${x+18} ${y+h}v-18h-18`} fill="none" stroke="white" strokeWidth="3"/></>}{text(260,240,`${a} ${t.lengthUnit??'units'}`,'base')}{text(55,128,`${b}`,'height')}{t.scene==='triangle'&&text(270,275,p<1?'':p<2?'Two matching triangles fit exactly':`${a} × ${b} ÷ 2 = ${a*b/2}`,'result')}</>;
  }else if(t.scene==='circle'){
   const x=260,y=135,r=98;art=<><circle cx={x} cy={y} r={r} fill="#edf0ff" stroke={BLUE} strokeWidth="3"/>{p===0?<><path d={`M${x} ${y}h${r}`} stroke={GOLD} strokeWidth="5"/>{text(x+45,y-12,`r = ${a}`,'r')}</>:p===1?<><path d={`M${x-r} ${y}h${r*2}`} stroke={GOLD} strokeWidth="5"/>{text(x,y-14,`${a} + ${a} = ${2*a}`,'d')}</>:<><circle cx={x} cy={y} r={r} fill="none" stroke={GOLD} strokeWidth="7" strokeDasharray="8 3"/>{text(x,y,p===2?'around the edge':'cover the inside','c')}</>}</>;
  }else if(t.scene==='average'){

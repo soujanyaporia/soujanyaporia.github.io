@@ -15,6 +15,9 @@ export type Facet='direct'|'visual'|'reverse'|'missing'|'word'|'unfamiliar'|'rea
 export const FACET_LABEL:Record<Facet,string>={direct:'calculate directly',visual:'read a picture or model',reverse:'work backwards',missing:'find a missing quantity',word:'solve a story',unfamiliar:'use a new representation',reasoning:'explain or find a mistake'};
 /** Manipulative states. Every tool can be shown read-only, or changed by the pupil through `onChange`. */
 export type Tool=
+ |{kind:'take-away';start:number;removed:number[]}
+ |{kind:'triangle-pair';base:number;height:number;joined:boolean;lengthUnit?:'m'}
+ |{kind:'fraction-pieces';widths:number[];selected:number[];shape?:'strip'|'circle'}
  |{kind:'focus';source:Tool;rotate:number;caption:string}
  |SceneTool|FoundationTool
  |GeometryTool
@@ -29,7 +32,7 @@ export type Tool=
  |{kind:'groups';groups:number;size:number;limit?:number}
  |{kind:'array';rows:number;cols:number}
  |{kind:'share';total:number;people:number;given:number[];mode:'share'|'group';size?:number}
- |{kind:'fractions';denominators:number[];shaded:number[]}
+ |{kind:'fractions';denominators:number[];shaded:number[];hideValue?:boolean}
  |{kind:'place';digits:number[];wholes?:number}
  |{kind:'hundred';shaded:number}
  |{kind:'percent';whole:number;percent:number;unit?:string;step?:number}
@@ -44,7 +47,7 @@ export interface Item {
  choices?:string[];
  /** Set when only this exact written form is accepted (for example a fraction in simplest form). */
  exact?:boolean;
- facet?:Facet;rep?:Rep;tool?:Tool;
+ facet?:Facet;rep?:Rep;tool?:Tool;requiresModel?:boolean;
  /** Staged clues: the relationship, a representation, the operation, then one step. */
  hints:string[];
  /** “Teach me”: a mini-lesson for this item. The pupil completes the final step. */
@@ -61,10 +64,10 @@ export type Gen=(seed:number,index:number)=>Item;
 export interface Why {question:string;answer:string;tool?:Tool}
 export interface RevealStep {caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[]}}
 export interface StageFlow {phase:'watch'|'together'|'try'|'check';label:string;transition:string;carry?:string}
-export type Stage=({flow?:StageFlow}&(
+export type Stage=({flow?:StageFlow;actionLabel?:string}&(
 
  |{kind:'readiness';title:string;text?:string;items:Item[];booster:{text:string;math?:string;tool?:Tool}[]}
- |{kind:'hook';title:string;text:string;tool?:Tool;caption?:string}
+ |{kind:'hook';title:string;text:string;tool?:Tool;caption?:string;next?:string}
  |{kind:'explore';title:string;text:string;tool:Tool;goal:(t:Tool)=>boolean;goalHint:string;success:string}
  |{kind:'notice';title:string;text:string;tool?:Tool;options:{text:string;correct:boolean;reply:string}[]}
  |{kind:'connect';title:string;text?:string;rows:{text:string;math?:string;tool?:Tool}[]}

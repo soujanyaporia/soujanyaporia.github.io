@@ -14,6 +14,9 @@ const SEEDS=[1,7,23,101,999,4242];
 /** Every manipulative state a lesson shows must be arithmetically consistent with what it claims. */
 function checkTool(t:Tool,where:string){
  switch(t.kind){
+  case 'take-away':expect(t.start).toBeGreaterThan(0);expect(new Set(t.removed).size).toBe(t.removed.length);expect(t.removed.every(n=>Number.isInteger(n)&&n>=0&&n<t.start)).toBe(true);break;
+  case 'triangle-pair':expect(t.base).toBeGreaterThan(0);expect(t.height).toBeGreaterThan(0);break;
+  case 'fraction-pieces':expect(t.widths.every(n=>n>0)).toBe(true);expect(new Set(t.selected).size).toBe(t.selected.length);expect(t.selected.every(n=>Number.isInteger(n)&&n>=0&&n<t.widths.length)).toBe(true);break;
   case 'focus':checkTool(t.source,where+' focused model');break;
   case 'scene':expect(t.values.every(Number.isFinite),where).toBe(true);expect(t.phase,where).toBeGreaterThanOrEqual(0);break;
   case 'bond':expect(t.parts[0]+t.parts[1],`${where}: bond parts must make the whole`).toBe(t.whole);expect(t.parts.every(p=>p>=0)).toBe(true);break;
