@@ -6,7 +6,7 @@ import './teach.css';
 interface LabTool {id:string;name:string;about:string;group:string;tool:Tool}
 const TOOLS:LabTool[]=[
  {id:'angle-builder',name:'Angle builder',about:'Change the opening while keeping the vertex and first ray fixed.',group:'Measurement and geometry',tool:{kind:'geometry',mode:'angle',a:60,b:0}},
- {id:'clock-builder',name:'Clock explorer',about:'Move through the day and connect clock hands with minutes after midnight.',group:'Measurement and geometry',tool:{kind:'geometry',mode:'clock',a:450,b:0}},
+ {id:'clock-builder',name:'Clock explorer',about:'Choose the hour, minute and am or pm. Watch how the clock hands move.',group:'Measurement and geometry',tool:{kind:'geometry',mode:'clock',a:450,b:0}},
  {id:'rectangle-builder',name:'Rectangle builder',about:'Change the width and height; count square units and trace the boundary.',group:'Measurement and geometry',tool:{kind:'geometry',mode:'rectangle',a:5,b:3}},
  {id:'mirror-builder',name:'Mirror points',about:'Match perpendicular distances on opposite sides of a mirror line.',group:'Measurement and geometry',tool:{kind:'geometry',mode:'mirror',a:3,b:2}},
  {id:'nets',name:'Fold a net',about:'Study how two triangular faces and three rectangles close a triangular prism.',group:'Measurement and geometry',tool:{kind:'net-model',shape:'triangular prism'}},

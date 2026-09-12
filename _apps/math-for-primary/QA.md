@@ -22,12 +22,13 @@ There are also 13 broader exemplar units, giving 265 lessons. This counts app-ma
 
 ## Verification
 
-- Final local release check: all 367 tests in 18 files passed, and the TypeScript/Vite production build passed. Tests cover every lesson’s metadata, valid answer formats, deterministic question generation, choices, stage structure, visible explanation models and reachable exploration goals.
+- Final local release check: all 369 tests in 18 files passed, and the TypeScript/Vite production build passed. Tests cover every lesson’s metadata, valid answer formats, deterministic question generation, choices, stage structure, visible explanation models and reachable exploration goals.
 - The new content audit samples 120 seeds per applicable objective and independently recomputes numeric operations from their operands. P1 number limits and 12-hour time contexts have explicit checks. All six P1 shape variants are reachable across seeds.
 - Browser reference inspected: Foundations → Adding within 5 → introduction cards → worked example → Show me how. The reference uses changing counters, short narration and alternative methods.
 - Browser inspection: triangle area progresses from one triangle to two matching triangles filling a rectangle, with readable labels and changing narration. The P1 introduction renders the original counter models. Masthead, menu and grade selection checked at 1440 × 1000 and 390 × 844; triangle presentation also checked at the normal narrow viewport.
 - Automated checks establish mathematical and structural consistency for sampled cases. They do not establish that a child understands the explanations; no classroom trial or qualified-teacher review has been conducted.
-- Production payload: entry 329 kB (102 kB gzip); teaching screens 352 kB (105 kB gzip), loaded on demand. Shared Foundations visuals and styles are reused.
+- Production payload: entry 329 kB (102 kB gzip); teaching screens 356 kB (107 kB gzip), loaded on demand. Shared Foundations visuals and styles are reused.
+- A final grade review removed a fraction-strip prerequisite from P1 money, corrected the P1 picture-graph introduction to one object per symbol, and kept protractors out of the P3 right-angle introduction. Regression tests guard these boundaries. Clock exploration uses hour/minute and am/pm controls.
 - Existing API v3 remains a separate pending deployment; this frontend release does not imply it has been deployed. Current production draft fallback remains in place.
 
 ## Earlier release evidence (historical)

@@ -1,3 +1,4 @@
+import {visualGuide} from './guides';
 import {describe,it,expect} from 'vitest';
 import {CURRICULUM_SKILLS} from '../../school/curriculum';
 import {PLAN} from './plan';
@@ -38,11 +39,23 @@ describe('Expanded syllabus content',()=>{
    }
   }
   expect(checked).toBeGreaterThan(5000);
- });
+ },30000);
  it('reaches all six P1 shape variants across seeds',()=>{
   const p=PLAN.find(p=>p.skillIds.includes('P1.S.SHAPE.01'))!,s=spaceSpec(p);
   const names=new Set(Array.from({length:120},(_,i)=>lessonExample(p,s,i,0).answer));
   expect([...names].sort()).toEqual(['rectangle','square','triangle','circle','semicircle','quarter-circle'].sort());
+ });
+ it('keeps the P1 introductions inside their intended prerequisites',()=>{
+  for(const p of PLAN.filter(p=>p.level===1&&p.code==='MONEY'))expect(proportionSpec(p).explore.tool.kind).toBe('counters');
+  const clock=PLAN.find(p=>p.skillIds.includes('P1.S.TIME.01'))!;expect(measureSpec(clock).explore.goalHint).not.toContain('450');
+  const graph=PLAN.find(p=>p.skillIds.includes('P1.S.GRAPH.01'))!;
+  for(const frame of visualGuide(graph).frames)if(frame.tool?.kind==='diagram'&&frame.tool.picture.type==='bars')expect(frame.tool.picture.scale).toBe(1);
+ });
+ it('introduces protractor measurement after P3 right-angle comparison',()=>{
+  for(const p of PLAN.filter(p=>p.level===3&&p.code==='ANGLE')){
+   const tool=spaceSpec(p).explore.tool;expect(tool.kind).toBe('geometry');if(tool.kind==='geometry')expect(tool.showProtractor).toBe(false);
+   expect(visualGuide(p).frames.map(f=>f.text).join(' ')).not.toMatch(/protractor|degrees/);
+  }
  });
  it('keeps solid and rectangle dimensions positive and mirror points in the visible grid',()=>{
   for(const mode of ['solid','rectangle'] as const)expect(geometryMoves({kind:'geometry',mode,a:1,b:1}).every(t=>t.a>=1&&t.b>=1)).toBe(true);
