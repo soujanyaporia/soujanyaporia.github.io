@@ -1,3 +1,7 @@
+import {LessonScene,FoundationPicture} from './LessonScene';
+import {NetModel} from './NetModel';
+import {GeometryWorkbench} from './GeometryWorkbench';
+import {Picture} from '../../primary/Picture';
 import { useRef,useState,type PointerEvent as ReactPointerEvent } from 'react';
 import type { Tool } from '../model';
 import { barWidths,beamAngle,equalRows,expandedForm,isBalanced,linePosition,percentOf,pileLeft,placeValue,ratioTotal,sideText,stripParts } from './geometry';
@@ -84,7 +88,11 @@ function Balance({t,onChange}:Props<'balance'>){
 }
 /** One entry point for every manipulative. */
 export function ToolView({tool,onChange}:{tool:Tool;onChange?:(t:Tool)=>void}){
- switch(tool.kind){
+ switch(tool.kind){case 'focus':return <figure className='tool-focus'><div style={{transform:`rotate(${tool.rotate}deg)`}}><ToolView tool={tool.source}/></div><figcaption>{tool.caption}</figcaption></figure>;case 'scene':return <LessonScene t={tool}/>;case 'foundation-visual':return <FoundationPicture t={tool}/>;
+  case 'net-model':return <NetModel shape={tool.shape}/>;
+  case 'geometry':return <GeometryWorkbench tool={tool} onChange={onChange}/>;
+  case 'diagram':return <figure className="tool"><Picture model={tool.picture}/><figcaption>{tool.caption}</figcaption></figure>;
+  case 'table':return <div className="tool table-scroll"><table className="school-table"><caption>{tool.caption}</caption><thead><tr>{tool.headers.map(h=><th key={h}>{h}</th>)}</tr></thead><tbody>{tool.rows.map((r,i)=><tr key={i}>{r.map((v,j)=><td key={j}>{v}</td>)}</tr>)}</tbody></table></div>;
   case 'counters':return <Counters t={tool} onChange={onChange}/>;
   case 'bond':return <Bond t={tool} onChange={onChange}/>;
   case 'bar':return <Bar t={tool}/>;

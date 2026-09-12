@@ -1,3 +1,37 @@
+# Visual teaching and syllabus expansion — 12 September 2026
+
+This release replaces dense conceptual paragraphs with picture sequences modelled on the existing Foundations lessons. The reusable presentation shows one illustrated step, one short explanation, read-aloud and previous/next controls. Alternative methods from the original explanation engine remain available for early arithmetic. Worked examples show the current step instead of accumulating text. Assisted exploration now displays the actual target model when the pupil asks “Show me how”; a final worked question must be answered or explicitly revealed before the stage completes.
+
+The site name is a dedicated masthead, with navigation in a separate row. Existing activity IDs, course selection, school-account interfaces and the public URL are preserved. Updated lessons restart an incompatible unfinished local draft while retaining recorded achievements.
+
+## Coverage
+
+| Course | Mapped objectives with dedicated lessons |
+|---|---:|
+| P1 | 27 |
+| P2 | 30 |
+| P3 | 29 |
+| P4 | 39 |
+| P5 Standard | 33 |
+| P6 Standard | 23 |
+| P5 Foundation | 49 |
+| P6 Foundation | 22 |
+| Total | 252 |
+
+There are also 13 broader exemplar units, giving 265 lessons. This counts app-mapped objectives, not independent teacher certification of full syllabus coverage. The source is the MOE Primary Mathematics syllabus updated October 2025. Nine previously omitted map entries were added without renumbering existing IDs; incorrect page references in P4 solids and Foundation topics were corrected. Construction tasks include pencil-and-paper instructions; the app does not claim to grade physical drawings.
+
+## Verification
+
+- Final local release check: all 367 tests in 18 files passed, and the TypeScript/Vite production build passed. Tests cover every lesson’s metadata, valid answer formats, deterministic question generation, choices, stage structure, visible explanation models and reachable exploration goals.
+- The new content audit samples 120 seeds per applicable objective and independently recomputes numeric operations from their operands. P1 number limits and 12-hour time contexts have explicit checks. All six P1 shape variants are reachable across seeds.
+- Browser reference inspected: Foundations → Adding within 5 → introduction cards → worked example → Show me how. The reference uses changing counters, short narration and alternative methods.
+- Browser inspection: triangle area progresses from one triangle to two matching triangles filling a rectangle, with readable labels and changing narration. The P1 introduction renders the original counter models. Masthead, menu and grade selection checked at 1440 × 1000 and 390 × 844; triangle presentation also checked at the normal narrow viewport.
+- Automated checks establish mathematical and structural consistency for sampled cases. They do not establish that a child understands the explanations; no classroom trial or qualified-teacher review has been conducted.
+- Production payload: entry 329 kB (102 kB gzip); teaching screens 352 kB (105 kB gzip), loaded on demand. Shared Foundations visuals and styles are reused.
+- Existing API v3 remains a separate pending deployment; this frontend release does not imply it has been deployed. Current production draft fallback remains in place.
+
+## Earlier release evidence (historical)
+
 # Continuation and verification — 12 September 2026
 
 ## Teaching release, AI statement and guest passport — 12 September 2026

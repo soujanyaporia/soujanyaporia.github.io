@@ -42,7 +42,7 @@ function decimalPercentMistake(id:string,salt:string):Gen{return (seed,i)=>{
  return {key:`${salt}-${i}`,prompt:`Ravi says 0.${tenths} is the same as ${tenths}%. What would you tell Ravi?`,answer,choices:choicesOf(r,answer,['Ravi is right','A decimal cannot be written as a percentage',`0.${tenths} is ${tenths}/100`]),facet:'reasoning',rep:'hundred-grid',tool:grid(tenths*10),
   hints:['How many hundredths is 0.'+tenths+'?'],steps:[`0.${tenths} = ${tenths}/10 = ${tenths*10}/100.`,`So it is ${tenths*10}%, not ${tenths}%.`]};
 };}
-const BAR=(whole:number,percent:number,unit='$'):{kind:'percent';whole:number;percent:number;unit:string;step:number}=>({kind:'percent',whole,percent,unit,step:10});
+const BAR=(whole:number,percent:number,unit='$'):{kind:'percent';whole:number;percent:number;unit:string;step:number}=>({kind:'percent',whole,percent,unit,step:5});
 function percentOfQuantity(id:string,salt:string,friendly=false):Gen{return (seed,i)=>{
  const r=rngFor(id,seed,i,salt),whole=r.int(2,20)*(friendly?10:5),pct=r.pick(friendly?[10,20,50]:[5,15,25,30,40,60,75]),answer=whole*pct/100;
  return {key:`${salt}-${i}`,prompt:`Find ${pct}% of ${whole}.`,answer:fmt(answer),facet:'direct',rep:'percent-bar',tool:BAR(whole,pct,''),

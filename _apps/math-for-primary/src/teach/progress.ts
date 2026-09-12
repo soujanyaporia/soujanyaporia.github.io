@@ -11,7 +11,7 @@ import type { Facet,Lesson,Stage } from './model';
  */
 export interface ItemRecord {answer:string;correct:boolean;firstTry:boolean;hints:number;tries:number;at:number}
 export type LessonMode='learn'|'challenge'|'review';
-export interface LessonAttempt {v:1;lessonId:string;attemptId:string;seed:number;mode:LessonMode;stage:number;items:Record<string,ItemRecord>;done:Record<string,boolean>;readinessMissed:boolean;confidence:number|null;startedAt:number;updatedAt:number;completedAt:number|null;stars:number|null}
+export interface LessonAttempt {revision?:string;v:1;lessonId:string;attemptId:string;seed:number;mode:LessonMode;stage:number;items:Record<string,ItemRecord>;done:Record<string,boolean>;readinessMissed:boolean;confidence:number|null;startedAt:number;updatedAt:number;completedAt:number|null;stars:number|null}
 const PREFIX='math-for-primary.lessons.v1:';
 export const nodeId=(lesson:Pick<Lesson,'id'>)=>`learn.${lesson.id}`;
 export const reviewNodeId=(lesson:Pick<Lesson,'id'>)=>`learn.${lesson.id}.review`;

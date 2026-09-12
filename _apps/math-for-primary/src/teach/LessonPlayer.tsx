@@ -1,3 +1,4 @@
+import {goalState} from './tools/moves';
 import { useEffect,useMemo,useRef,useState,type ReactNode } from 'react';
 import { useProgress } from '../state/ProgressContext';
 import { SpeakButton } from '../ui/SpeakButton';
@@ -23,7 +24,7 @@ export function stageItems(stage:Stage,seed:number,index:number):Item[]{
   default:return [];
  }
 }
-function newAttempt(lesson:Lesson,mode:LessonMode):LessonAttempt{const now=Date.now();return {v:1,lessonId:lesson.id,attemptId:newSessionId(),seed:freshSeed(),mode,stage:0,items:{},done:{},readinessMissed:false,confidence:null,startedAt:now,updatedAt:now,completedAt:null,stars:null};}
+function newAttempt(lesson:Lesson,mode:LessonMode):LessonAttempt{const now=Date.now();return {v:1,revision:lesson.revision,lessonId:lesson.id,attemptId:newSessionId(),seed:freshSeed(),mode,stage:0,items:{},done:{},readinessMissed:false,confidence:null,startedAt:now,updatedAt:now,completedAt:null,stars:null};}
 export function LessonPlayer({id,mode='learn'}:{id:string;mode?:LessonMode}){
  const lesson=lessonById(id);
  if(!lesson)return <main className="school-page"><p className="school-eyebrow">Learn</p><h1>We could not find that lesson.</h1><a href="#/teach">See all lessons →</a></main>;
@@ -32,7 +33,7 @@ export function LessonPlayer({id,mode='learn'}:{id:string;mode?:LessonMode}){
 function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
  const {progress,emit,scope,syncStatus}=useProgress();
  const stages=useMemo<Stage[]>(()=>mode==='review'?reviewStages(lesson):mode==='challenge'?lesson.stages.filter(s=>s.kind==='mastery'):lesson.stages,[lesson,mode]);
- const [attempt,setAttempt]=useState<LessonAttempt>(()=>{const saved=readAttempts(kv,scope)[lesson.id];return saved&&saved.completedAt===null&&saved.mode===mode&&saved.stage<stages.length?saved:newAttempt(lesson,mode);});
+ const [attempt,setAttempt]=useState<LessonAttempt>(()=>{const saved=readAttempts(kv,scope)[lesson.id];return saved&&saved.revision===lesson.revision&&saved.completedAt===null&&saved.mode===mode&&saved.stage<stages.length?saved:newAttempt(lesson,mode);});
  const ref=useRef(attempt),before=useRef(learningRewards(progress));
  const [banner,setBanner]=useState(()=>attempt.stage>0||Object.keys(attempt.items).length>0),[toast,setToast]=useState<string|null>(null),[leaving,setLeaving]=useState(false);
  useEffect(()=>{if(!toast)return;const t=window.setTimeout(()=>setToast(null),2800);return()=>clearTimeout(t);},[toast]);
@@ -52,7 +53,7 @@ function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
  }
  const index=attempt.stage,stage=stages[index],items=useMemo(()=>stage?stageItems(stage,attempt.seed,index):[],[stage,attempt.seed,index]);
  if(attempt.completedAt!==null||!stage)return <Completion lesson={lesson} mode={mode} attempt={attempt} stages={stages} gained={before.current} syncStatus={syncStatus} onAgain={()=>{before.current=learningRewards(progress);patch(()=>newAttempt(lesson,mode));setBanner(false);}}/>;
- const complete_=ITEM_STAGES.includes(stage.kind)?items.every(it=>attempt.items[`${index}:${it.key}`]):['explore','notice','worked','connect'].includes(stage.kind)?!!attempt.done[index]:true;
+ const complete_=ITEM_STAGES.includes(stage.kind)?items.every(it=>attempt.items[`${index}:${it.key}`]):(['explore','notice','worked','connect'].includes(stage.kind)||stage.kind==='explain'&&!!stage.frames)?!!attempt.done[index]:true;
  const go=(to:number)=>{setBanner(false);if(to>=stages.length){complete();return;}patch(a=>({...a,stage:Math.max(0,to)}));window.scrollTo({top:0});};
  const assessed=stage.kind==='mastery';
  return <main className={`teach grade-${lesson.level}`}>
@@ -60,7 +61,7 @@ function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
   <div className="stage-track" role="progressbar" aria-label="Lesson progress" aria-valuemin={0} aria-valuemax={stages.length} aria-valuenow={index}>{stages.map((s,i)=><span key={i} title={s.title} className={i<index?'done':i===index?'now':''}/>)}</div>
   {banner&&<div className="resume-banner" role="status"><span><strong>Welcome back.</strong> You are on step {index+1} of {stages.length}: {stage.title}.</span><span className="resume-actions"><button onClick={()=>setBanner(false)}>Keep going</button><button onClick={()=>{patch(()=>newAttempt(lesson,mode));setBanner(false);}}>Start again</button></span></div>}
   <StageView key={`${attempt.attemptId}:${index}`} lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onRecord={(item,r)=>record(index,stage.kind,item,r)} onDone={()=>patch(a=>({...a,done:{...a.done,[index]:true}}))} onConfidence={c=>patch(a=>({...a,confidence:c}))} reward={setToast}/>
-  <nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need" aria-live="polite">{complete_?'':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':'Choose an answer to continue.'}</span><button className="teach-btn" disabled={!complete_} onClick={()=>go(index+1)}>{index===stages.length-1?'Finish':'Next →'}</button></nav>
+  <nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need" aria-live="polite">{complete_?'':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':stage.kind==='explain'?'Follow the picture steps to continue.':'Choose an answer to continue.'}</span><button className="teach-btn" disabled={!complete_} onClick={()=>go(index+1)}>{index===stages.length-1?'Finish':'Next →'}</button></nav>
   <p className="teach-foot">Made with the help of AI: check anything that looks wrong with a teacher or parent. <span role="status">{syncStatus}</span></p>
   {toast&&<div className="reward-toast" role="status">{toast}</div>}
   {leaving&&<div className="stop-backdrop" onClick={()=>setLeaving(false)}><div className="stop-panel" role="dialog" aria-modal="true" aria-label="Leave the lesson?" onClick={e=>e.stopPropagation()}><strong>Leave the lesson?</strong><p>Your place is saved on this device. You will come back to step {index+1}.</p><button autoFocus onClick={()=>setLeaving(false)}>Keep learning</button><a href="#/teach">Back to Learn</a></div></div>}
@@ -71,7 +72,7 @@ function StageView({lesson,stage,index,items,attempt,onRecord,onDone,onConfidenc
  const done=!!attempt.done[index];
  switch(stage.kind){
   case 'hook':return <Card title={stage.title} text={stage.text}>{stage.tool&&<ToolView tool={stage.tool}/>}</Card>;
-  case 'explain':return <Explain stage={stage}/>;
+  case 'explain':return <Explain stage={stage} done={done} onDone={onDone}/>;
   case 'discovery':return <Card title={stage.title} text={stage.text}><div className="discovery-moment" aria-hidden="true">✦</div>{stage.math&&<p className="stage-math">{stage.math}</p>}{stage.tool&&<ToolView tool={stage.tool}/>}</Card>;
   case 'explore':return <Explore stage={stage} done={done} onDone={onDone} reward={reward}/>;
   case 'notice':return <Notice stage={stage} done={done} onDone={onDone} reward={reward}/>;
@@ -80,12 +81,28 @@ function StageView({lesson,stage,index,items,attempt,onRecord,onDone,onConfidenc
   default:return <ItemsStage lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onRecord={onRecord} onConfidence={onConfidence}/>;
  }
 }
-function Explain({stage}:{stage:Extract<Stage,{kind:'explain'}>}){const [why,setWhy]=useState(false);return <Card title={stage.title} text={stage.text}>{stage.math&&<p className="stage-math">{stage.math}</p>}{stage.tool&&<ToolView tool={stage.tool}/>}{stage.why&&<div className="why-box"><button className="teach-btn soft" aria-expanded={why} onClick={()=>setWhy(w=>!w)}>{why?'Hide':'Why does this work?'}</button>{why&&<div className="why-answer"><h3>{stage.why.question}</h3><p>{stage.why.answer}</p>{stage.why.tool&&<ToolView tool={stage.why.tool}/>}</div>}</div>}</Card>;}
+function Explain({stage,done,onDone}:{stage:Extract<Stage,{kind:'explain'}>;done:boolean;onDone:()=>void}){
+ const [why,setWhy]=useState(false);
+ if(stage.frames)return <VisualExplanation stage={stage} done={done} onDone={onDone}/>;
+ return <Card title={stage.title} text={stage.text}>{stage.math&&<p className="stage-math">{stage.math}</p>}{stage.tool&&<ToolView tool={stage.tool}/>}{stage.why&&<div className="why-box"><button className="teach-btn soft" aria-expanded={why} onClick={()=>setWhy(w=>!w)}>{why?'Hide':'Why does this work?'}</button>{why&&<div className="why-answer"><h3>{stage.why.question}</h3><p>{stage.why.answer}</p>{stage.why.tool&&<ToolView tool={stage.why.tool}/>}</div>}</div>}</Card>;
+}
+function VisualExplanation({stage,done,onDone}:{stage:Extract<Stage,{kind:'explain'}>;done:boolean;onDone:()=>void}){
+ const ways=[{label:'See the idea',frames:stage.frames!},...(stage.alternatives??[])];
+ const [way,setWay]=useState(0),[at,setAt]=useState(0),[started,setStarted]=useState(done);
+ const frames=ways[way].frames,f=frames[at],last=at===frames.length-1;
+ return <section className="visual-tutor stage-card"><p className="visual-tutor-label">LET’S SEE WHY</p><h2>{stage.title}</h2>
+ {ways.length>1&&<div className="visual-way-tabs" role="tablist" aria-label="Ways to understand">{ways.map((w,i)=><button key={w.label} role="tab" aria-selected={way===i} onClick={()=>{setWay(i);setAt(0);setStarted(true);}}>{w.label}</button>)}</div>}
+ <div className="visual-tutor-picture" key={`${way}-${at}`}>{f.tool&&<ToolView tool={f.tool}/>}</div>
+ <div className="visual-tutor-say" aria-live="polite"><p>{f.text}</p><SpeakButton text={f.text}/></div>
+ {started&&f.math&&<p className="visual-tutor-math">{f.math}</p>}
+ <nav className="visual-tutor-nav" aria-label="Picture steps"><button className="teach-btn soft" disabled={!at} aria-label="Previous picture" onClick={()=>setAt(n=>n-1)}>←</button><span aria-label={`Picture ${at+1} of ${frames.length}`}>{frames.map((_,i)=><i key={i} className={i===at?'on':''}/>)}</span><button className="teach-btn" disabled={last&&done} onClick={()=>{setStarted(true);if(last){onDone();}else{setAt(n=>n+1);if(at+1===frames.length-1)onDone();}}}>{last?'All steps seen ✓':started?'Next step →':'Show me how →'}</button></nav>
+ </section>;
+}
 function Explore({stage,done,onDone,reward}:{stage:Extract<Stage,{kind:'explore'}>;done:boolean;onDone:()=>void;reward:(t:string)=>void}){
  const [tool,setTool]=useState<Tool>(stage.tool),[message,setMessage]=useState<string|null>(done?stage.success:null),[tries,setTries]=useState(0);
  const check=()=>{if(stage.goal(tool)){setMessage(stage.success);if(!done){onDone();reward('+5 XP · You built it');}}else{setTries(n=>n+1);setMessage(`Not yet. ${stage.goalHint}`);}};
  const restart=()=>{setTool(stage.tool);setMessage(null);};
- return <Card title={stage.title} text={stage.text}><ToolView tool={tool} onChange={t=>{setTool(t);if(!done)setMessage(null);}}/><div className="stage-actions"><button className="teach-btn" onClick={check}>Check</button><button className="teach-btn soft" onClick={restart}>Start again</button>{!done&&tries>=2&&<button className="teach-btn soft" onClick={()=>{setMessage(stage.success);onDone();}}>Show me how</button>}</div>{message&&<p className={`stage-feedback${stage.goal(tool)||done?' good':''}`} role="status">{message}</p>}</Card>;
+ return <Card title={stage.title} text={stage.text}><ToolView tool={tool} onChange={t=>{setTool(t);if(!done)setMessage(null);}}/><div className="stage-actions"><button className="teach-btn" onClick={check}>Check</button><button className="teach-btn soft" onClick={restart}>Start again</button>{!done&&tries>=2&&<button className="teach-btn soft" onClick={()=>{const target=goalState(stage.tool,stage.goal);if(target){setTool(target);setMessage(stage.success);onDone();}}}>Show me how</button>}</div>{message&&<p className={`stage-feedback${stage.goal(tool)||done?' good':''}`} role="status">{message}</p>}</Card>;
 }
 function Notice({stage,done,onDone,reward}:{stage:Extract<Stage,{kind:'notice'}>;done:boolean;onDone:()=>void;reward:(t:string)=>void}){
  const [picked,setPicked]=useState<number|null>(done?stage.options.findIndex(o=>o.correct):null);
@@ -98,8 +115,9 @@ function Connect({stage,done,onDone}:{stage:Extract<Stage,{kind:'connect'}>;done
 function Worked({stage,done,onDone}:{stage:Extract<Stage,{kind:'worked'}>;done:boolean;onDone:()=>void}){
  const [shown,setShown]=useState(done?stage.steps.length:1),[answers,setAnswers]=useState<Record<number,string>>({}),[solved,setSolved]=useState<Record<number,boolean>>(()=>done?Object.fromEntries(stage.steps.map((_,i)=>[i,true])):{});
  const step=stage.steps[shown-1],waiting=!!step?.ask&&!solved[shown-1];
- const advance=()=>{const n=shown+1;setShown(n);if(n===stage.steps.length)onDone();};
- return <Card title={stage.title}><p className="worked-problem">{stage.problem}</p>{stage.tool&&<ToolView tool={stage.tool}/>}<ol className="worked-steps">{stage.steps.slice(0,shown).map((s,i)=><li key={i}><p>{s.text}</p>{s.math&&(!s.ask||solved[i])&&<p className="stage-math">{s.math}</p>}{s.tool&&<ToolView tool={s.tool}/>}{s.ask&&(solved[i]?<p className="stage-feedback good">✓ {s.ask.answer}</p>:<div className="worked-ask"><p><strong>{s.ask.prompt}</strong></p>{s.ask.choices?<div className="notice-options">{s.ask.choices.map(c=><button key={c} className={answers[i]===c?(c===s.ask!.answer?'right':'wrong'):''} onClick={()=>{setAnswers(a=>({...a,[i]:c}));if(c===s.ask!.answer)setSolved(v=>({...v,[i]:true}));}}>{c}</button>)}</div>:<form className="inline-answer" onSubmit={e=>{e.preventDefault();if(isCorrect({answer:s.ask!.answer},answers[i]??''))setSolved(v=>({...v,[i]:true}));else setAnswers(a=>({...a,[i]:''}));}}><input aria-label={s.ask.prompt} inputMode="decimal" value={answers[i]??''} onChange={e=>setAnswers(a=>({...a,[i]:e.target.value}))}/><button className="teach-btn">Check</button></form>}<button className="link-btn" onClick={()=>setSolved(v=>({...v,[i]:true}))}>Show me</button></div>)}</li>)}</ol>{shown<stage.steps.length&&<button className="teach-btn" disabled={waiting} onClick={advance}>Next step ↓</button>}</Card>;
+ useEffect(()=>{if(shown===stage.steps.length&&!waiting&&!done)onDone();},[shown,stage.steps.length,waiting,done,onDone]);
+ const advance=()=>setShown(n=>n+1);
+ return <Card title={stage.title}><p className="worked-problem">{stage.problem}</p>{(step.tool??stage.tool)&&<ToolView tool={(step.tool??stage.tool)!}/>}<ol className="worked-steps one-at-a-time">{stage.steps.map((s,i)=>i===shown-1&&<li key={i}><p>{s.text}</p>{s.math&&(!s.ask||solved[i])&&<p className="stage-math">{s.math}</p>}{s.ask&&(solved[i]?<p className="stage-feedback good">✓ {s.ask.answer}</p>:<div className="worked-ask"><p><strong>{s.ask.prompt}</strong></p>{s.ask.choices?<div className="notice-options">{s.ask.choices.map(c=><button key={c} className={answers[i]===c?(c===s.ask!.answer?'right':'wrong'):''} onClick={()=>{setAnswers(a=>({...a,[i]:c}));if(c===s.ask!.answer)setSolved(v=>({...v,[i]:true}));}}>{c}</button>)}</div>:<form className="inline-answer" onSubmit={e=>{e.preventDefault();if(isCorrect({answer:s.ask!.answer},answers[i]??''))setSolved(v=>({...v,[i]:true}));else setAnswers(a=>({...a,[i]:''}));}}><input aria-label={s.ask.prompt} inputMode="decimal" value={answers[i]??''} onChange={e=>setAnswers(a=>({...a,[i]:e.target.value}))}/><button className="teach-btn">Check</button></form>}<button className="link-btn" onClick={()=>setSolved(v=>({...v,[i]:true}))}>Show me</button></div>)}</li>)}</ol><div className="visual-tutor-nav"><button className="teach-btn soft" disabled={shown===1} onClick={()=>setShown(n=>n-1)}>← Previous step</button><span>{shown} / {stage.steps.length}</span>{shown<stage.steps.length&&<button className="teach-btn" disabled={waiting} onClick={advance}>Next step →</button>}</div></Card>;
 }
 function ItemsStage({lesson,stage,index,items,attempt,onRecord,onConfidence}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onConfidence:(c:number)=>void}){
  const open=items.findIndex(it=>!attempt.items[`${index}:${it.key}`]),[view,setView]=useState(open<0?items.length-1:open);

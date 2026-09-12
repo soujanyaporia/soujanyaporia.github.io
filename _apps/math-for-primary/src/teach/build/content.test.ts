@@ -1,0 +1,51 @@
+import {describe,it,expect} from 'vitest';
+import {CURRICULUM_SKILLS} from '../../school/curriculum';
+import {PLAN} from './plan';
+import {LESSONS} from '../catalog';
+import {lessonExample,type TopicSpec} from './sequence';
+import {numberSpec,arithmeticSpec} from './families/numbers';
+import {fractionSpec} from './families/fractions';
+import {proportionSpec} from './families/proportion';
+import {measureSpec} from './families/measure';
+import {spaceSpec} from './families/space';
+import {dataSpec} from './families/data';
+import {numberValue} from '../../primary/generate';
+import {geometryMoves} from '../tools/GeometryWorkbench';
+function spec(p:typeof PLAN[number]):TopicSpec|null{
+ if(p.code==='AVG')return null;
+ if(p.code==='WN')return /order of operations|brackets|multiply and divide by/.test(p.objective.toLowerCase())?arithmeticSpec(p):numberSpec(p);
+ if(['AS','MD','FACT'].includes(p.code))return arithmeticSpec(p);
+ if(p.code==='FRAC')return fractionSpec(p);
+ if(['LENGTH','MEASURE','TIME','AREA','VOL'].includes(p.code)||p.code==='DEC'&&/measurement/.test(p.objective))return measureSpec(p);
+ if(['ANGLE','LINES','SYM','SHAPE','SOLID','CIRCLE'].includes(p.code))return spaceSpec(p);
+ if(p.code==='GRAPH')return dataSpec(p);
+ return proportionSpec(p);
+}
+describe('Expanded syllabus content',()=>{
+ it('offers a dedicated lesson for every mapped objective in the correct class and course',()=>{
+  expect(PLAN).toHaveLength(CURRICULUM_SKILLS.length);
+  for(const skill of CURRICULUM_SKILLS){const l=LESSONS.find(l=>l.skillIds.length===1&&l.skillIds[0]===skill.id);expect(l,skill.id).toBeDefined();expect(l!.level).toBe(skill.level);expect(l!.track).toBe(skill.level<5?'both':skill.track);}
+ });
+ it('independently recomputes sampled numeric operations and rejects malformed question content',()=>{
+  let checked=0;
+  for(const p of PLAN){const s=spec(p);if(!s)continue;
+   for(let seed=0;seed<120;seed++){const e=lessonExample(p,s,seed,seed%12),where=`${p.id} seed ${seed}: ${e.prompt}`;
+    expect(JSON.stringify(e),where).not.toMatch(/undefined|NaN|Infinity/);
+    expect(e.check.length,where).toBeGreaterThan(5);
+    if(e.evidence){const {a,b,op}=e.evidence,expected=op==='+'?a+b:op==='-'?a-b:op==='*'?a*b:op==='/'?a/b:Math.round(a/b)*b;expect(numberValue(e.answer),where).toBeCloseTo(expected,5);checked++;}
+    if(p.level===1&&p.code==='AS'){const values=e.prompt.match(/\d+/g)?.map(Number)??[];expect(values.every(n=>n<=100),where).toBe(true);expect(Number(e.answer),where).toBeLessThanOrEqual(100);if(/facts within 20/.test(p.objective))expect(Number(e.answer),where).toBeLessThanOrEqual(20);}
+    if(p.level===1&&p.code==='TIME'&&/duration/.test(p.objective)){expect(e.prompt,where).toMatch(/am|pm/);expect(e.answer,where).toMatch(/am|pm/);}
+   }
+  }
+  expect(checked).toBeGreaterThan(5000);
+ });
+ it('reaches all six P1 shape variants across seeds',()=>{
+  const p=PLAN.find(p=>p.skillIds.includes('P1.S.SHAPE.01'))!,s=spaceSpec(p);
+  const names=new Set(Array.from({length:120},(_,i)=>lessonExample(p,s,i,0).answer));
+  expect([...names].sort()).toEqual(['rectangle','square','triangle','circle','semicircle','quarter-circle'].sort());
+ });
+ it('keeps solid and rectangle dimensions positive and mirror points in the visible grid',()=>{
+  for(const mode of ['solid','rectangle'] as const)expect(geometryMoves({kind:'geometry',mode,a:1,b:1}).every(t=>t.a>=1&&t.b>=1)).toBe(true);
+  expect(geometryMoves({kind:'geometry',mode:'mirror',a:6,b:6}).every(t=>t.a<=6&&t.b<=6)).toBe(true);
+ });
+});

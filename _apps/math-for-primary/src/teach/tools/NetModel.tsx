@@ -1,0 +1,6 @@
+export function NetModel({shape}:{shape:string}){
+ const edge={fill:'#e1ecd5',stroke:'#56816a',strokeWidth:2};
+ return <figure className="tool"><svg viewBox="0 0 360 290" role="img" aria-label={`Unfolded net of a ${shape}`}>
+ {shape==='cube'?[[1,0],[0,1],[1,1],[2,1],[1,2],[1,3]].map(([x,y],i)=><rect key={i} x={60+x*52} y={20+y*52} width="52" height="52" {...edge}/>):shape==='cuboid'?<><rect x="110" y="30" width="100" height="45" {...edge}/><rect x="110" y="75" width="100" height="60" {...edge}/><rect x="65" y="75" width="45" height="60" {...edge}/><rect x="210" y="75" width="45" height="60" {...edge}/><rect x="110" y="135" width="100" height="45" {...edge}/><rect x="110" y="180" width="100" height="60" {...edge}/></>:shape==='triangular prism'?<><rect x="45" y="105" width="85" height="100" {...edge}/><rect x="130" y="105" width="85" height="100" {...edge}/><rect x="215" y="105" width="85" height="100" {...edge}/><path d="M130 105L172.5 31.39L215 105Z M130 205L172.5 278.61L215 205Z" {...edge}/></>:<><rect x="125" y="100" width="90" height="90" {...edge}/><path d="M125 100L170 22L215 100Z M125 190L170 268L215 190Z M125 100L47 145L125 190Z M215 100L293 145L215 190Z" {...edge}/></>}
+ </svg><figcaption>Fold along shared edges. Faces close the solid without overlaps or gaps.</figcaption></figure>;
+}

@@ -1,22 +1,27 @@
 import {describe,it,expect} from 'vitest';
 import {activityById} from '../primary/catalog';
 import {CURRICULUM_SKILLS} from '../school/curriculum';
+import {FAMILIES} from './build';
+import {FAMILY_CODES} from './build/plan';
 import {LESSONS,lessonById} from './catalog';
 import {LESSON_INDEX} from './index';
 import {isCorrect} from './gen';
 import {WORLDS,type Item,type Lesson,type Stage,type Tool} from './model';
 import {masteryStars} from './progress';
 import {barWidths,equalRows,expandedForm,linePosition,percentOf,pileLeft,placeValue,sideWeight,stripParts} from './tools/geometry';
+import {goalReachable,movesFor} from './tools/moves';
 const SEEDS=[1,7,23,101,999,4242];
 /** Every manipulative state a lesson shows must be arithmetically consistent with what it claims. */
 function checkTool(t:Tool,where:string){
  switch(t.kind){
+  case 'focus':checkTool(t.source,where+' focused model');break;
+  case 'scene':expect(t.values.every(Number.isFinite),where).toBe(true);expect(t.phase,where).toBeGreaterThanOrEqual(0);break;
   case 'bond':expect(t.parts[0]+t.parts[1],`${where}: bond parts must make the whole`).toBe(t.whole);expect(t.parts.every(p=>p>=0)).toBe(true);break;
   case 'bar':{const known=t.parts.reduce<number>((s,p)=>s+(p??0),0);if(t.whole!==null&&!t.parts.includes(null))expect(known,`${where}: bar parts must make the whole`).toBe(t.whole);if(t.whole!==null)expect(known,`${where}: bar parts cannot exceed the whole`).toBeLessThanOrEqual(t.whole);break;}
   case 'line':{let at=t.start;for(const j of t.jumps)at+=j;expect(t.start,`${where}: line start inside range`).toBeGreaterThanOrEqual(t.min);expect(at,`${where}: jumps stay inside the line`).toBeGreaterThanOrEqual(t.min);expect(at,`${where}: jumps stay inside the line`).toBeLessThanOrEqual(t.max);if(t.mark!=null){expect(t.mark).toBeGreaterThanOrEqual(t.min);expect(t.mark).toBeLessThanOrEqual(t.max);}expect(t.max).toBeGreaterThan(t.min);break;}
   case 'groups':expect(t.groups,`${where}: groups`).toBeGreaterThanOrEqual(0);expect(t.size,`${where}: group size`).toBeGreaterThanOrEqual(0);expect(t.groups*t.size).toBeLessThanOrEqual(120);break;
   case 'array':expect(t.rows*t.cols,`${where}: array size`).toBeLessThanOrEqual(120);expect(t.rows).toBeGreaterThan(0);expect(t.cols).toBeGreaterThan(0);break;
-  case 'share':expect(pileLeft(t),`${where}: shared counters cannot exceed the total`).toBeGreaterThanOrEqual(0);expect(t.given.length).toBeGreaterThan(0);if(t.mode==='group'&&t.size)expect(t.given.every(g=>g===0||g===t.size),`${where}: groups are equal`).toBe(true);break;
+  case 'share':expect(pileLeft(t),`${where}: shared counters cannot exceed the total`).toBeGreaterThanOrEqual(0);if(t.mode==='share')expect(t.given.length).toBeGreaterThan(0);if(t.mode==='group'&&t.size)expect(t.given.every(g=>g===0||g===t.size),`${where}: groups are equal`).toBe(true);break;
   case 'fractions':expect(t.shaded.length,`${where}: one shaded count per row`).toBe(t.denominators.length);t.denominators.forEach((d,i)=>{expect(d).toBeGreaterThan(0);expect(t.shaded[i]).toBeGreaterThanOrEqual(0);expect(t.shaded[i],`${where}: cannot shade more parts than exist`).toBeLessThanOrEqual(d);});break;
   case 'place':expect(t.digits.every(d=>d>=0&&d<=9),`${where}: digits are 0-9`).toBe(true);expect(t.digits.length).toBeLessThanOrEqual(3);break;
   case 'hundred':expect(t.shaded).toBeGreaterThanOrEqual(0);expect(t.shaded).toBeLessThanOrEqual(100);break;
@@ -76,6 +81,10 @@ describe('Learn lessons',()=>{
   expect(LESSON_INDEX.map(l=>l.id).sort()).toEqual(LESSONS.map(l=>l.id).sort());
   for(const meta of LESSON_INDEX){const l=lessonById(meta.id)!;expect([meta.title,meta.level,meta.track,meta.world,meta.minutes,meta.activityId,meta.skillIds]).toEqual([l.title,l.level,l.track,l.world,l.minutes,l.activityId,l.skillIds]);expect(l.objectives).toContain(meta.objective);}
  });
+ it('builds a lesson for every topic code the plan advertises',()=>{
+  expect(Object.keys(FAMILIES).sort()).toEqual([...FAMILY_CODES].sort());
+  for(const code of FAMILY_CODES)expect(typeof FAMILIES[code],`no builder registered for ${code}`).toBe('function');
+ });
  it('generates valid, solvable, deterministic questions for every stage and seed',()=>{
   for(const lesson of LESSONS)for(const seed of SEEDS)lesson.stages.forEach((stage,index)=>{
    const items=stageItemsFor(stage,seed,index);
@@ -87,11 +96,17 @@ describe('Learn lessons',()=>{
  it('teaches before it asks: explore goals start unmet and every step is answerable',()=>{
   for(const lesson of LESSONS)lesson.stages.forEach((stage,index)=>{
    const where=`${lesson.id} stage ${index}`;
-   if(stage.kind==='explore'){expect(stage.goal(stage.tool),`${where}: the explore goal is already met, so there is nothing to do`).toBe(false);checkTool(stage.tool,where);}
+   if(stage.kind==='explore'){
+    expect(stage.goal(stage.tool),`${where}: the explore goal is already met, so there is nothing to do`).toBe(false);
+    checkTool(stage.tool,where);
+    expect(movesFor(stage.tool).length,`${where}: “${stage.title}” uses a display-only model, so the pupil has nothing to press`).toBeGreaterThan(0);
+    expect(goalReachable(stage.tool,stage.goal),`${where}: “${stage.title}” cannot be reached with the controls this model offers`).toBe(true);
+   }
    if(stage.kind==='notice')expect(stage.options.filter(o=>o.correct).length,`${where}: exactly one true option`).toBe(1);
    if(stage.kind==='worked'){expect(stage.steps.length).toBeGreaterThan(2);for(const s of stage.steps){if(s.tool)checkTool(s.tool,where);if(s.ask){expect(s.ask.answer.trim().length).toBeGreaterThan(0);if(s.ask.choices)expect(s.ask.choices).toContain(s.ask.answer);}}}
    if(stage.kind==='connect'){expect(stage.rows.length).toBeGreaterThan(1);for(const r of stage.rows)if(r.tool)checkTool(r.tool,where);}
    if(stage.kind==='explain'&&stage.tool)checkTool(stage.tool,where);
+   if(stage.kind==='explain'&&stage.frames){expect(stage.frames.length,where).toBeGreaterThanOrEqual(3);for(const frame of [...stage.frames,...(stage.alternatives??[]).flatMap(a=>a.frames)]){expect(frame.text.length,where).toBeGreaterThan(5);expect(frame.tool,where+' needs a visible model').toBeDefined();if(frame.tool)checkTool(frame.tool,where+' visual step');}}
    if(stage.kind==='explain'&&stage.why?.tool)checkTool(stage.why.tool,where);
    if(stage.kind==='hook'&&stage.tool)checkTool(stage.tool,where);
    if(stage.kind==='discovery'&&stage.tool)checkTool(stage.tool,where);

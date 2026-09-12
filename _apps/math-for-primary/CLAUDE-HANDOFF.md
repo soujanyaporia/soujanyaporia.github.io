@@ -1,3 +1,15 @@
+# Current handoff — 12 September 2026 visual revision
+
+The source in this folder now includes the syllabus expansion and the user-requested Foundations-style teaching rework. Do not resume the old paragraph-and-table expansion plan. Read the current README and the first section of QA.md before editing.
+
+- 252 mapped objectives each have a dedicated sequence, plus 13 retained exemplar lessons.
+- Core teaching authoring: `src/teach/build/guides.ts`, `focusedGuides.ts`, and family question builders. Keep demonstrations short, concrete and mathematically faithful. Do not use a coverage count as proof of teaching quality.
+- `src/teach/tools/LessonScene.tsx` draws the new visual demonstrations. `VisualExplanation` in LessonPlayer displays one picture and one short explanation at a time. Early arithmetic reuses the Foundations explanation engine.
+- The site title is now a masthead above the menu.
+- Source folder remains authoritative. Publishing worktree and source mirror are described below. API v3 is still pending separately.
+
+---
+
 # Claude Code continuation handoff
 
 Updated 12 September 2026, Singapore time. App: **Maths for SG Primary Schools**.
