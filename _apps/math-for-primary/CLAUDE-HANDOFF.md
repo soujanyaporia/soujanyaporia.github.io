@@ -1,3 +1,9 @@
+# Current handoff — 19 September 2026 hands-on activities
+
+Every lesson has an explore stage. `sequence.ts` uses `investigation(p,guide) ?? topicExplore(p,spec.explore) ?? lessonActivity(p)`; `src/teach/depth/catalogue/activities.ts` holds the 139 objective-specific tasks, keyed by lesson id. Tool controls are modelled in `tools/moves.ts` and `geometryMoves` (number inputs and sliders set any value; the clock's hour, minute and am/pm controls). Line goals must need six presses or fewer, because the reachability search stops at 40,000 states. Lesson revision: `catalogue-depth-2026-09-19-v3` (add any new revision to the whitelist in `flow.test.ts`). The heavy whole-catalogue tests time out when the machine is overloaded; run a file on its own before assuming a real failure.
+
+---
+
 # Current handoff — 18 September 2026 question-support rebuild
 
 Help for generated questions is built in `src/teach/depth/catalogue/`: `facts.ts` classifies a question from its family template, `mistakes.ts` and `strategies.ts` supply situation-specific misconceptions and methods, and `assess.ts` builds every facet (including easier recovery questions, error analysis, work-backwards and bar-model items). `sequence.ts` calls `itemFactory`; the old `supportFor` is gone. When a family's question wording changes, update the matching rule in `facts.ts` or its questions lose their targeted feedback (they fall back safely, but silently). Bump `result.revision` in `sequence.ts` whenever generated item content changes, and add the new value to the whitelist in `flow.test.ts`. Round two (same day) added model-dependent visual prompts (`modelReading` in `questions.ts`), story contexts in the families, more misconceptions, varied fraction numerators, objective-matched activities (`topicExplore` in `investigations.ts`) and gentle Foundation practice (`itemFactory(...).gen(mode, gentle)`). Evidence and limits are in the first two sections of QA.md.

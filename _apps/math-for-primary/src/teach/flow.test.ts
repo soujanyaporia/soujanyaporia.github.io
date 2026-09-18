@@ -41,7 +41,7 @@ describe('Connected teaching sequence',()=>{
 
  it('provides a purpose and a descriptive next action throughout every Learn lesson',()=>{
   for(const l of LESSONS){
-   expect(l.revision,l.id).toMatch(/^(connected-flow-2026-09-12|depth-2026-09-12-v1|catalogue-depth-2026-09-12-v1|catalogue-depth-2026-09-18-v2)$/);
+   expect(l.revision,l.id).toMatch(/^(connected-flow-2026-09-12|depth-2026-09-12-v1|catalogue-depth-2026-09-12-v1|catalogue-depth-2026-09-18-v2|catalogue-depth-2026-09-19-v3)$/);
    for(const [i,s] of l.stages.entries()){
     expect(s.flow?.transition.length,`${l.id}:${i}`).toBeGreaterThan(25);
     expect(s.flow?.label.length,`${l.id}:${i}`).toBeGreaterThan(5);

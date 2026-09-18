@@ -1,5 +1,6 @@
 import {questionModel} from '../tools/questionModel';
 import {investigation,topicExplore} from '../depth/catalogue/investigations';
+import {lessonActivity} from '../depth/catalogue/activities';
 import {prerequisite} from '../depth/catalogue/prerequisites';
 import {teachingFocus} from '../depth/catalogue/focus';
 import {modelFor} from '../depth/catalogue/questions';
@@ -33,7 +34,7 @@ export interface TopicSpec {
 export function lessonExample(p:PlanEntry,spec:TopicSpec,seed:number,index:number):Example{const r=rngFor(p.id,seed,index,'syllabus-v1');return spec.example(r,index+r.int(0,119));}
 export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  const rawSample=spec.anchor??lessonExample(p,spec,217,0),sample={...rawSample,tool:modelFor(p,rawSample)},guide=visualGuide(p),focus=teachingFocus(p);
- const activeModel=investigation(p,guide)??topicExplore(p,spec.explore);
+ const activeModel=investigation(p,guide)??topicExplore(p,spec.explore)??lessonActivity(p);
  const pictureExample=spec.anchor?.prompt??guide.setup!,takeaway=guide.frames.at(-1)!.text;
  const fact=sample.evidence;
  const linkedWorked=spec.worked??(p.code==='AS'&&fact&&(fact.op==='+'||fact.op==='-')&&Math.max(fact.a,fact.b,Number(sample.answer))<=100?arithmeticWorked({a:fact.a,b:fact.b,c:Number(sample.answer),op:fact.op},sample.prompt):undefined);
@@ -61,7 +62,7 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  });
 
  result.mission={goal:spec.learningGoal??p.objective,question:sample.prompt,pictureExample,connection:spec.connection??focus.look};
- result.revision='catalogue-depth-2026-09-18-v2';
+ result.revision='catalogue-depth-2026-09-19-v3';
  return result;
 }
 export const table=(headers:string[],rows:(string|number)[][],caption:string):Tool=>({kind:'table',headers,rows:rows.map(r=>r.map(String)),caption});

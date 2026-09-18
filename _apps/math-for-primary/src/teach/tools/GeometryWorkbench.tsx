@@ -1,9 +1,18 @@
 import type {Tool} from '../model';
 import {Picture} from '../../primary/Picture';
 export type GeometryTool={kind:'geometry';mode:'angle'|'rectangle'|'clock'|'ruler'|'solid'|'mirror'|'lines';a:number;b:number;c?:number;shape?:string;editable?:boolean;showProtractor?:boolean};
+/**
+ * One press of each control: the number inputs and sliders set any value in their range, and the
+ * clock's hour and minute inputs and am/pm buttons each change one part of the time.
+ */
 export function geometryMoves(t:GeometryTool):GeometryTool[]{
- const limits=t.mode==='angle'?[180,0]:t.mode==='clock'?[1439,0]:t.mode==='mirror'?[6,6]:t.mode==='ruler'?[12,0]:[12,12],out:GeometryTool[]=[];
- for(const field of ['a','b'] as const){const max=limits[field==='a'?0:1];if(!max)continue;for(const d of [-1,1]){const n=t[field]+d;if(n>=(t.mode==='rectangle'||t.mode==='solid'?1:0)&&n<=max)out.push({...t,[field]:n});}}
+ const limits=t.mode==='angle'?[180,0]:t.mode==='clock'?[1439,0]:t.mode==='mirror'?[6,6]:t.mode==='ruler'?[12,0]:[12,12],out:GeometryTool[]=[],min=t.mode==='rectangle'||t.mode==='solid'?1:0;
+ if(t.mode==='clock'){const pm=t.a>=720,minute=t.a%60,hour=Math.floor(t.a/60)%12;
+  for(let h=1;h<=12;h++){const a=(h%12+(pm?12:0))*60+minute;if(a!==t.a)out.push({...t,a});}
+  for(let m=0;m<60;m++){const a=Math.floor(t.a/60)*60+m;if(a!==t.a)out.push({...t,a});}
+  out.push({...t,a:hour*60+minute+(pm?0:720)});
+  return out;}
+ for(const field of ['a','b'] as const){const max=limits[field==='a'?0:1];if(!max)continue;for(let n=min;n<=max;n++)if(n!==t[field])out.push({...t,[field]:n});}
  return out;
 }
 export function GeometryWorkbench({tool:t,onChange}:{tool:GeometryTool;onChange?:(t:Tool)=>void}){

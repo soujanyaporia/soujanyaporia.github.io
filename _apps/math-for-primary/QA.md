@@ -1,3 +1,24 @@
+# A hands-on activity in every lesson — 19 September 2026
+
+All 265 lessons now include a hands-on activity (122 before). The 139 new activities are in `src/teach/depth/catalogue/activities.ts`. Each one practises its own lesson's objective with fixed, friendly numbers, and is used only where the picture sequence and the topic's own model did not already provide an activity.
+
+- **Whole numbers**: number names, comparing and patterns on number lines (reach “seven hundred and thirty-one” from 700; continue 3410, 3420, 3430 with two +10 jumps). Odd and even: share 13 between 2 friends and see the one left over.
+- **Addition and subtraction**: take 4 of 12 away, split 8 into 5 and 3 on a number bond, make 10 ≠ 8 equal on a balance, and mental jumps including compensation (2436 + 27 as +30 − 3; 83 − 29 as −30 + 1).
+- **Multiplication, factors and multiples**: 6 rows of 10 for 60 ÷ 10, 8 × 6 before the addition in 5 + 8 × 6, a 12 by 12 area model for two-digit multiplication, and groups of 6 until the total is also a multiple of 8.
+- **Fractions**: equivalent strips (1/3 = 2/6, 1/2 = □/8, 2/3 = □/12), a fraction of a set by sharing, 3 × 2/5 and 2 × 1 3/4 on strips, and 2/3 of 3/4.
+- **Decimals**: comparing and rounding on the hundred grid (0.47 and 0.5; 0.36 to one place; 2 ÷ 3 to two places), exchanges on the place-value chart (0.38 + 0.05; 0.52 − 0.07), digit shifts (4.2 ÷ 100) and conversions (3 m 45 cm; 1 kg 250 g).
+- **Measurement and time**: comparing lengths, masses and volumes; 350 ml on a litre grid; compound units on number lines; one hour and half an hour later; 90 and 75 minutes; finish times across the hour; 24-hour times through am and pm.
+- **Geometry**: angle facts on the protractor (straight line, around a point, vertically opposite, triangle sum, isosceles, parallelogram and trapezium), squares, joined rectangles, matching triangles for base, height and area, cuboids for volume, tank water, missing heights and cube roots, and radius and diameter.
+- **Data, percentage, rate and algebra**: picture-graph and bar-graph scales, table differences and missing values, line-graph changes, pie-chart shares, 25% blocks that rebuild a whole, a 25% discount, sharing a total to find a rate, groups for a total cost, and balances for x + 3 = 8, 3x + 2 = 14, 2x + 3x = 15 and x = 4 in 2x + 1.
+
+Also fixed: the ten-frame warm-up said “One full row is a ten” beside a picture whose note says each row holds five; it now says a full ten frame holds one ten. The odd-and-even lesson now warms up with pairs (two equal rows) rather than place-value tens.
+
+Verification: a new test requires an activity in each of the 265 lessons and checks that every written activity appears in its lesson rather than being replaced by another. The existing lesson tests prove that each goal starts unmet, uses valid model states and can be reached with the on-screen controls. Before the final two text edits, 416 tests in 25 files passed and the production build succeeded. After those edits the tests were re-run while the machine was overloaded (load average 20 to 108): every failure was a timeout with no failing assertion, and the slowest test passed on its own in under 10 seconds. The user asked for the release to be pushed without waiting for another run. In the browser, nine activity types were completed end to end at step 5 of 12 with no console errors: sharing 13 between 2, 2436 + 27 on the line, 2:30 am to 14:30, 5x = 15 on the balance, 2 × 1 3/4 on strips, 0.38 + 0.05 with an exchange, a bar with a scale of 5, a cuboid's missing height, and taking 4 from 12.
+
+Limits: the activities are fixed examples rather than generated per attempt, and no teacher has reviewed them. Some models are stand-ins: a strip for a pie chart, ratio blocks (labelled “units”) for a bar graph, and counters for differences. The triangle model is drawn at a fixed size, not to scale. The lesson revision is now `catalogue-depth-2026-09-19-v3`, so unfinished drafts restart once. The on-demand `screens` chunk is now 656 kB (201 kB gzip). The whole-catalogue tests in `support.test.ts` now allow 30 seconds, like the other whole-catalogue tests.
+
+---
+
 # Grade-by-grade content pass — 18 September 2026 (round two)
 
 A per-grade audit of the generated lessons found four weaknesses shared by every year, and one generator bug. All are addressed here.

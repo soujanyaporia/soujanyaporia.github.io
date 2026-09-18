@@ -56,7 +56,7 @@ export function topicExplore(p:PlanEntry,explore:Extract<Stage,{kind:'explore'}>
   c==='ANGLE'&&geometry&&/protractor|draw angles|measure angles|right angle/.test(o)||
   c==='LINES'&&geometry||
   c==='SOLID'&&geometry&&/represent|draw/.test(o)||
-  c==='SHAPE'&&geometry&&/rectangle|square/.test(o)&&!/triangle|composite|angle/.test(o)||
+  c==='SHAPE'&&geometry&&/rectangle|square/.test(o)&&!/triangle|composite|\bangles?\b/.test(o)||
   c==='FACT'&&kind==='array'&&/factor/.test(o)||
   c==='MD'&&kind==='array'&&/tables|facts|equal groups/.test(o)||
   c==='AS'&&kind==='counters'&&p.level===1&&/combining/.test(o)||

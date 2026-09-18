@@ -2,13 +2,14 @@ import {describe,it,expect} from 'vitest';
 import {Rng} from '../../../engine/random';
 import {PLAN} from '../../build/plan';
 import {arithmeticSpec} from '../../build/families/numbers';
-import {lessonById} from '../../catalog';
+import {LESSONS,lessonById} from '../../catalog';
 import type {Example} from '../../build/sequence';
 import type {Item,Stage} from '../../model';
 import {plausible} from './assess';
 import {factsOf} from './facts';
 import {mistakesFor} from './mistakes';
 import {strategiesFor} from './strategies';
+import {ACTIVITY_LESSONS,lessonActivity} from './activities';
 
 const plan=(code:string,level:number,match?:RegExp)=>PLAN.find(p=>p.code===code&&p.level===level&&(!match||match.test(p.objective.toLowerCase())))!;
 const ex=(prompt:string,answer:string,extra:Partial<Example>={}):Example=>({prompt,answer,steps:['First step.','Second step.'],hint:'First step.',tool:{kind:'table',headers:['Given'],rows:[['?']],caption:'Given information'},context:prompt,why:'Because of the relationship.',error:'A tempting mistake.',check:'Check it backwards.',...extra});
@@ -43,7 +44,7 @@ describe('Targeted feedback for real misconceptions',()=>{
    const l=lessonById(p.id)!;
    l.stages.forEach((s,i)=>{for(const item of itemsOf(s,seed,i))for(const w of Object.keys(item.wrong??{}))expect(w,`${p.id}: ${item.prompt}`).not.toMatch(/NaN|Infinity|undefined/);});
   }
- });
+ },30000);
 });
 
 describe('Help that fits the question',()=>{
@@ -55,7 +56,7 @@ describe('Help that fits the question',()=>{
    for(const way of item.another??[]){expect(way.title,p.id).not.toBe('Start from what the picture means');expect(way.steps.length,p.id).toBeGreaterThan(0);}
    const titles=(item.another??[]).map(w=>w.title);expect(new Set(titles).size,`${p.id}: repeated method`).toBe(titles.length);
   }
- });
+ },30000);
  it('makes “I still don’t get it” an easier question of the same kind wherever one exists',()=>{
   let same=0,total=0;
   for(const {p,item} of sample()){
@@ -65,7 +66,7 @@ describe('Help that fits the question',()=>{
    expect(`${item.simpler.prompt}|${item.simpler.answer}|${JSON.stringify(item.simpler.tool)}`,p.id).not.toBe(`${item.prompt}|${item.answer}|${JSON.stringify(item.tool)}`);
   }
   expect(same/total).toBeGreaterThan(0.6);
- });
+ },30000);
  it('asks reasoning questions as error analysis, with at least three options, and no stock stems',()=>{
   let three=0,total=0;
   for(const {p,item} of sample()){
@@ -73,7 +74,7 @@ describe('Help that fits the question',()=>{
    if(item.facet!=='reasoning'||!item.choices)continue;total++;if(item.choices.length>=3)three++;
   }
   expect(three/total).toBeGreaterThan(0.8);
- });
+ },30000);
  it('writes missing-number questions whose answers satisfy the equation',()=>{
   const value=(s:string)=>Number(s.replace(/,/g,''));
   let checked=0;
@@ -85,7 +86,7 @@ describe('Help that fits the question',()=>{
    expect(got,`${p.id}: ${item.prompt} → ${item.answer}`).toBeCloseTo(value(m[2]),6);checked++;
   }
   expect(checked).toBeGreaterThan(100);
- });
+ },30000);
 });
 
 describe('Worked methods',()=>{
@@ -122,14 +123,20 @@ describe('Grade-wide content round two',()=>{
    expect(item.tool,p.id).toBeDefined();expect(item.requiresModel,p.id).toBe(true);
   }
   expect(checked).toBeGreaterThan(150);
- });
+ },30000);
  it('tells word problems as situations, not calculations with a label',()=>{
   for(const {p,item} of all())if(item.facet==='word')expect(item.prompt,`${p.id}: ${item.prompt}`).not.toMatch(/science notebook records this measurement\. (Round|Calculate|Compare|Write|What is the value)|Complete the comparison|A fraction strip has \d+ of \d+ equal parts coloured\. |Compare their fractions|A journey lasts [\d a-z]+\. (Write|How many minutes are)/);
- });
+ },30000);
  it('adds hands-on explores in every grade where the model matches the objective',()=>{
   const grades=new Map<number,number>();for(const p of generated)if(lessonById(p.id)!.stages.some(s=>s.kind==='explore'))grades.set(p.level,(grades.get(p.level)??0)+1);
   for(const level of [1,2,3,4,5,6])expect(grades.get(level)??0,`P${level} explores`).toBeGreaterThanOrEqual(6);
- });
+ },30000);
+ it('gives every lesson a hands-on activity that practises its own objective',()=>{
+  for(const lesson of LESSONS)expect(lesson.stages.some(s=>s.kind==='explore'),`${lesson.id}: no hands-on activity`).toBe(true);
+  for(const id of ACTIVITY_LESSONS)expect(PLAN.some(p=>p.id===id),`${id}: an activity for a lesson that does not exist`).toBe(true);
+  // A task is written for its lesson's numbers; it must appear there, not be shadowed by another explore.
+  for(const id of ACTIVITY_LESSONS){const p=PLAN.find(p=>p.id===id)!,task=lessonActivity(p)!,shownTask=lessonById(id)!.stages.find(s=>s.kind==='explore');expect(shownTask&&shownTask.title,id).toBe(task.kind==='explore'?task.title:'');}
+ },30000);
  it('names the next group of classic mistakes by value',()=>{
   const time24=plan('TIME',3,/24-hour/);
   expect(answers(time24,ex('Write 1:41 pm in 24-hour time.','13:41',{exact:true}))).toContain('01:41');
