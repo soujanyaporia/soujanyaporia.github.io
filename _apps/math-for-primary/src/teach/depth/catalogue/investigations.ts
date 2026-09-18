@@ -39,3 +39,31 @@ export function investigation(p:PlanEntry,guide:VisualGuide):Stage|undefined{
  const line=last('line');if(line&&['AS','WN'].includes(p.code)&&line.jumps.length&&line.max-line.min<=100){const end=line.start+line.jumps.reduce((a,b)=>a+b,0);if(end!==line.start&&Math.abs(end-line.start)<=20)return make('Make the journey on the line',`Start at ${line.start}, as in the example. Use jumps to reach ${end}. You can undo a jump and try a different route.`,{...line,jumps:[]},t=>t.kind==='line'&&t.start+t.jumps.reduce((a,b)=>a+b,0)===end,`Move ${Math.abs(end-line.start)} units ${end>line.start?'forward':'backward'}.`,`The net change is ${end-line.start}. Different jump sizes can connect the same start and finish.`);}
  return undefined;
 }
+
+/**
+ * A family's hands-on task, used only where it practises this objective's own relationship: reading a
+ * clock for clock objectives, building a rectangle for area and perimeter, an array for tables and
+ * factors. Tasks that merely share a topic are not added; the picture sequence stands alone there.
+ */
+export function topicExplore(p:PlanEntry,explore:Extract<Stage,{kind:'explore'}>):Stage|undefined{
+ const o=p.objective.toLowerCase(),c=p.code,kind=explore.tool.kind,geometry=kind==='geometry';
+ if(c==='RATIO')return {kind:'explore',title:'Build the ratio with equal units',text:'Every box is one equal unit. Set red to 2 units and blue to 3 units, then read the ratio under the bars.',tool:{kind:'ratio',names:['Red','Blue'],units:[1,1],unitValue:null},goal:t=>t.kind==='ratio'&&t.units[0]===2&&t.units[1]===3,goalHint:'Use the steppers: red needs 2 units and blue needs 3.',success:'Red : blue = 2 : 3. The ratio counts equal units, whatever each unit is worth.'};
+ const fits=
+  c==='TIME'&&geometry&&/read clocks/.test(o)||
+  c==='LENGTH'&&geometry||
+  c==='AREA'&&geometry&&/area|perimeter/.test(o)&&!/triangle|composite|missing/.test(o)||
+  c==='VOL'&&geometry&&/unit cubes|volumes of cubes and cuboids/.test(o)&&!/isometric|liquid|convert|unknown|base area|root/.test(o)||
+  c==='ANGLE'&&geometry&&/protractor|draw angles|measure angles|right angle/.test(o)||
+  c==='LINES'&&geometry||
+  c==='SOLID'&&geometry&&/represent|draw/.test(o)||
+  c==='SHAPE'&&geometry&&/rectangle|square/.test(o)&&!/triangle|composite|angle/.test(o)||
+  c==='FACT'&&kind==='array'&&/factor/.test(o)||
+  c==='MD'&&kind==='array'&&/tables|facts|equal groups/.test(o)||
+  c==='AS'&&kind==='counters'&&p.level===1&&/combining/.test(o)||
+  c==='WN'&&kind==='hundred'&&p.level===1&&/count and represent|tens and ones|number names/.test(o)||
+  c==='MONEY'&&kind==='counters'&&p.level===1||
+  c==='GRAPH'&&kind==='counters'&&/one object per symbol/.test(o)||
+  c==='DEC'&&kind==='place'&&/place value/.test(o)||
+  c==='ALG'&&kind==='balance'&&/solve|equation/.test(o);
+ return fits?explore:undefined;
+}

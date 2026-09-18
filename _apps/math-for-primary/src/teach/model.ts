@@ -59,6 +59,8 @@ export interface Item {
  wrong?:Record<string,string>;
  /** How to check the answer: part of the reasoning, not just the interface. */
  check?:string;
+ /** The question type behind a generated item, such as `pct-of` or `sub`. Used for content audits and misconception reports; never shown to pupils. */
+ kind?:string;
 }
 export type Gen=(seed:number,index:number)=>Item;
 export interface Why {question:string;answer:string;tool?:Tool}

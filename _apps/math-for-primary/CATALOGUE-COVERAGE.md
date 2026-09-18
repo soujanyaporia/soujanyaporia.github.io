@@ -1,6 +1,6 @@
 # Catalogue teaching coverage
 
-12 September 2026. All 265 listed lessons receive the shared flow and support improvements. The three `depth-` reference lessons retain their bespoke sequence; `catalogue-depth-` lessons receive objective-specific attention prompts, clearer transitions and question support while retaining their topic demonstrations. 82 lessons include an interactive activity connected to their explanation.
+Updated 18 September 2026: the stage counts and activities below are regenerated from the catalogue, and 122 of the 265 lessons now include a hands-on activity matched to their objective. Since 12 September 2026, all 265 listed lessons receive the shared flow and support improvements. The three `depth-` reference lessons retain their bespoke sequence; `catalogue-depth-` lessons receive objective-specific attention prompts, clearer transitions and question support while retaining their topic demonstrations. 82 lessons include an interactive activity connected to their explanation.
 
 All routes were opened at 390 CSS pixels. Automated checks render every demonstration and sample generated questions; these are not individual teacher reviews or proof of learning. See QA.md for browser walkthrough scope.
 
@@ -8,13 +8,13 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 |---|---|---|---:|---|
 | p1-missing-parts | P1 both | Find the missing part | 13 | Yes |
 | p1-missing-take-away | P1 both | Missing numbers in take-away | 13 | Yes |
-| p1s-wn-01 | P1 both | Count and represent numbers to 100 | 11 | Picture sequence and questions |
-| p1s-wn-02 | P1 both | Use tens and ones | 11 | Picture sequence and questions |
-| p1s-wn-03 | P1 both | Read and write number names to 100 | 11 | Picture sequence and questions |
+| p1s-wn-01 | P1 both | Count and represent numbers to 100 | 12 | Yes |
+| p1s-wn-02 | P1 both | Use tens and ones | 12 | Yes |
+| p1s-wn-03 | P1 both | Read and write number names to 100 | 12 | Yes |
 | p1s-wn-04 | P1 both | Compare and order numbers to 100 | 11 | Picture sequence and questions |
 | p1s-wn-05 | P1 both | Continue number patterns | 12 | Yes |
 | p1s-wn-06 | P1 both | Use ordinal numbers from first to tenth | 11 | Picture sequence and questions |
-| p1s-as-01 | P1 both | Add by combining two sets | 11 | Picture sequence and questions |
+| p1s-as-01 | P1 both | Add by combining two sets | 12 | Yes |
 | p1s-as-02 | P1 both | Subtract by taking away | 11 | Picture sequence and questions |
 | p1s-as-03 | P1 both | Connect addition and subtraction with number bonds | 11 | Picture sequence and questions |
 | p1s-as-04 | P1 both | Use +, − and = correctly | 11 | Picture sequence and questions |
@@ -24,17 +24,17 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p1s-as-08 | P1 both | Add or subtract ones and tens mentally without regrouping | 11 | Picture sequence and questions |
 | p1s-md-01 | P1 both | Recognise equal groups and multiplication within 40 | 12 | Yes |
 | p1s-md-02 | P1 both | Share or group equally within 20 | 12 | Yes |
-| p1s-money-01 | P1 both | Count cents up to one dollar | 11 | Picture sequence and questions |
-| p1s-money-02 | P1 both | Count dollars up to 100 dollars | 11 | Picture sequence and questions |
-| p1s-length-01 | P1 both | Measure and compare lengths in centimetres | 11 | Picture sequence and questions |
-| p1s-length-02 | P1 both | Draw a line to the nearest centimetre | 12 | Picture sequence and questions |
-| p1s-time-01 | P1 both | Read clocks to five minutes using am and pm | 11 | Picture sequence and questions |
+| p1s-money-01 | P1 both | Count cents up to one dollar | 12 | Yes |
+| p1s-money-02 | P1 both | Count dollars up to 100 dollars | 12 | Yes |
+| p1s-length-01 | P1 both | Measure and compare lengths in centimetres | 12 | Yes |
+| p1s-length-02 | P1 both | Draw a line to the nearest centimetre | 13 | Yes |
+| p1s-time-01 | P1 both | Read clocks to five minutes using am and pm | 12 | Yes |
 | p1s-time-02 | P1 both | Relate hours and minutes | 11 | Picture sequence and questions |
 | p1s-time-03 | P1 both | Find durations of one hour or half an hour | 11 | Picture sequence and questions |
 | p1s-shape-01 | P1 both | Recognise rectangles squares triangles circles half-circles and quarter-circles | 11 | Picture sequence and questions |
 | p1s-shape-02 | P1 both | Compose and decompose shapes | 11 | Picture sequence and questions |
-| p1s-shape-03 | P1 both | Copy figures on dot or square grids | 12 | Picture sequence and questions |
-| p1s-graph-01 | P1 both | Read and interpret picture graphs with one object per symbol | 11 | Picture sequence and questions |
+| p1s-shape-03 | P1 both | Copy figures on dot or square grids | 13 | Yes |
+| p1s-graph-01 | P1 both | Read and interpret picture graphs with one object per symbol | 12 | Yes |
 | p2-equal-groups | P2 both | Equal groups become multiplication | 13 | Yes |
 | p2-sharing-and-grouping | P2 both | Two kinds of division | 13 | Yes |
 | p2s-wn-01 | P2 both | Count and represent numbers to 1000 | 11 | Picture sequence and questions |
@@ -62,7 +62,7 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p2s-measure-02 | P2 both | Measure and compare mass in grams and kilograms | 11 | Picture sequence and questions |
 | p2s-measure-03 | P2 both | Measure and compare liquid volume in litres | 11 | Picture sequence and questions |
 | p2s-measure-04 | P2 both | Choose suitable measurement units | 11 | Picture sequence and questions |
-| p2s-time-01 | P2 both | Read clocks to the minute | 11 | Picture sequence and questions |
+| p2s-time-01 | P2 both | Read clocks to the minute | 12 | Yes |
 | p2s-time-02 | P2 both | Convert between hours and minutes | 11 | Picture sequence and questions |
 | p2s-shape-01 | P2 both | Continue patterns using size shape colour and orientation | 11 | Picture sequence and questions |
 | p2s-shape-02 | P2 both | Recognise cubes cuboids cones cylinders and spheres | 11 | Picture sequence and questions |
@@ -90,13 +90,13 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p3s-time-01 | P3 both | Use seconds as a unit of time | 11 | Picture sequence and questions |
 | p3s-time-02 | P3 both | Find start times finish times and durations | 11 | Picture sequence and questions |
 | p3s-time-03 | P3 both | Read and use the 24-hour clock | 11 | Picture sequence and questions |
-| p3s-area-01 | P3 both | Measure area in square units cm² and m² | 11 | Picture sequence and questions |
-| p3s-area-02 | P3 both | Find perimeters of rectilinear figures | 11 | Picture sequence and questions |
-| p3s-area-03 | P3 both | Find areas of rectangles and squares | 11 | Picture sequence and questions |
-| p3s-angle-01 | P3 both | Identify right angles | 11 | Picture sequence and questions |
-| p3s-angle-02 | P3 both | Compare angles with a right angle | 11 | Picture sequence and questions |
-| p3s-lines-01 | P3 both | Recognise perpendicular and parallel lines | 11 | Picture sequence and questions |
-| p3s-lines-02 | P3 both | Draw perpendicular and parallel lines | 12 | Picture sequence and questions |
+| p3s-area-01 | P3 both | Measure area in square units cm² and m² | 12 | Yes |
+| p3s-area-02 | P3 both | Find perimeters of rectilinear figures | 12 | Yes |
+| p3s-area-03 | P3 both | Find areas of rectangles and squares | 12 | Yes |
+| p3s-angle-01 | P3 both | Identify right angles | 12 | Yes |
+| p3s-angle-02 | P3 both | Compare angles with a right angle | 12 | Yes |
+| p3s-lines-01 | P3 both | Recognise perpendicular and parallel lines | 12 | Yes |
+| p3s-lines-02 | P3 both | Draw perpendicular and parallel lines | 13 | Yes |
 | p3s-graph-01 | P3 both | Read and interpret bar graphs with different scales | 11 | Picture sequence and questions |
 | p4-decimal-place-value | P4 both | Tenths, hundredths and thousandths | 13 | Yes |
 | p4-decimal-add-subtract | P4 both | Adding and subtracting decimals | 13 | Yes |
@@ -105,8 +105,8 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p4s-wn-03 | P4 both | Estimate and check calculations | 12 | Yes |
 | p4s-wn-04 | P4 both | Read and write number names to 100000 | 11 | Picture sequence and questions |
 | p4s-wn-05 | P4 both | Continue number patterns to 100000 | 12 | Yes |
-| p4s-fact-01 | P4 both | Find factors of numbers up to 100 | 11 | Picture sequence and questions |
-| p4s-fact-02 | P4 both | Find common factors of two numbers | 11 | Picture sequence and questions |
+| p4s-fact-01 | P4 both | Find factors of numbers up to 100 | 12 | Yes |
+| p4s-fact-02 | P4 both | Find common factors of two numbers | 12 | Yes |
 | p4s-fact-03 | P4 both | Find multiples and common multiples of one-digit numbers | 11 | Picture sequence and questions |
 | p4s-md-01 | P4 both | Multiply up to four digits by one digit | 11 | Picture sequence and questions |
 | p4s-md-02 | P4 both | Multiply up to three digits by two digits | 11 | Picture sequence and questions |
@@ -126,14 +126,14 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p4s-area-01 | P4 both | Find missing rectangle or square dimensions from area or perimeter | 11 | Picture sequence and questions |
 | p4s-area-02 | P4 both | Find areas and perimeters of composite rectilinear figures | 11 | Picture sequence and questions |
 | p4s-angle-01 | P4 both | Use angle notation | 11 | Picture sequence and questions |
-| p4s-angle-02 | P4 both | Measure angles with a protractor | 11 | Picture sequence and questions |
-| p4s-angle-03 | P4 both | Draw angles | 12 | Picture sequence and questions |
+| p4s-angle-02 | P4 both | Measure angles with a protractor | 12 | Yes |
+| p4s-angle-03 | P4 both | Draw angles | 13 | Yes |
 | p4s-shape-01 | P4 both | Use rectangle and square properties excluding diagonals | 11 | Picture sequence and questions |
 | p4s-shape-02 | P4 both | Draw rectangles and squares | 12 | Picture sequence and questions |
 | p4s-sym-01 | P4 both | Identify lines of symmetry | 12 | Yes |
 | p4s-sym-02 | P4 both | Complete symmetric figures on a grid | 13 | Yes |
-| p4s-solid-01 | P4 both | Represent cubes cuboids cones cylinders prisms and pyramids | 11 | Picture sequence and questions |
-| p4s-solid-02 | P4 both | Draw cubes cuboids prisms and pyramids | 12 | Picture sequence and questions |
+| p4s-solid-01 | P4 both | Represent cubes cuboids cones cylinders prisms and pyramids | 12 | Yes |
+| p4s-solid-02 | P4 both | Draw cubes cuboids prisms and pyramids | 13 | Yes |
 | p4s-solid-03 | P4 both | Recognise nets of cubes cuboids prisms and pyramids | 12 | Picture sequence and questions |
 | p4s-graph-01 | P4 both | Read and interpret tables | 11 | Picture sequence and questions |
 | p4s-graph-02 | P4 both | Read and interpret line graphs | 11 | Picture sequence and questions |
@@ -162,9 +162,9 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p5s-area-01 | P5 standard | Identify a triangle base and perpendicular height | 11 | Picture sequence and questions |
 | p5s-area-02 | P5 standard | Find the area of a triangle | 12 | Yes |
 | p5s-area-03 | P5 standard | Find areas of composite rectangles squares and triangles | 11 | Picture sequence and questions |
-| p5s-vol-01 | P5 standard | Measure volume with unit cubes and cm³ or m³ | 11 | Picture sequence and questions |
+| p5s-vol-01 | P5 standard | Measure volume with unit cubes and cm³ or m³ | 12 | Yes |
 | p5s-vol-02 | P5 standard | Draw cubes and cuboids on isometric grids | 12 | Picture sequence and questions |
-| p5s-vol-03 | P5 standard | Find volumes of cubes and cuboids | 11 | Picture sequence and questions |
+| p5s-vol-03 | P5 standard | Find volumes of cubes and cuboids | 12 | Yes |
 | p5s-vol-04 | P5 standard | Find liquid volume in rectangular tanks | 11 | Picture sequence and questions |
 | p5s-vol-05 | P5 standard | Convert between litres millilitres and cm³ | 11 | Picture sequence and questions |
 | p5s-angle-01 | P5 standard | Use angles on a straight line | 11 | Picture sequence and questions |
@@ -183,7 +183,7 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p5f-md-02 | P5 foundation | Multiply and divide by 10 100 and 1000 and their multiples without a calculator | 11 | Picture sequence and questions |
 | p5f-md-03 | P5 foundation | Use the order of operations and brackets | 12 | Yes |
 | p5f-md-04 | P5 foundation | Recall multiplication and division facts | 12 | Yes |
-| p5f-fact-01 | P5 foundation | Find factors and common factors of numbers up to 100 | 11 | Picture sequence and questions |
+| p5f-fact-01 | P5 foundation | Find factors and common factors of numbers up to 100 | 12 | Yes |
 | p5f-fact-02 | P5 foundation | Find multiples and common multiples of one-digit numbers | 11 | Picture sequence and questions |
 | p5f-frac-01 | P5 foundation | Represent fractions of a whole or set | 11 | Picture sequence and questions |
 | p5f-frac-02 | P5 foundation | Generate equivalent fractions and simplify | 12 | Yes |
@@ -207,14 +207,14 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p5f-time-01 | P5 foundation | Use hours and minutes | 11 | Picture sequence and questions |
 | p5f-time-02 | P5 foundation | Find start times finish times and durations | 11 | Picture sequence and questions |
 | p5f-time-03 | P5 foundation | Use the 24-hour clock | 11 | Picture sequence and questions |
-| p5f-area-01 | P5 foundation | Find rectangle and square areas and perimeters | 11 | Picture sequence and questions |
+| p5f-area-01 | P5 foundation | Find rectangle and square areas and perimeters | 12 | Yes |
 | p5f-area-02 | P5 foundation | Find missing dimensions | 11 | Picture sequence and questions |
 | p5f-area-03 | P5 foundation | Find areas and perimeters of composite rectilinear figures | 11 | Picture sequence and questions |
-| p5f-vol-01 | P5 foundation | Measure volume using unit cubes cm³ and m³ | 11 | Picture sequence and questions |
+| p5f-vol-01 | P5 foundation | Measure volume using unit cubes cm³ and m³ | 12 | Yes |
 | p5f-vol-02 | P5 foundation | Represent cubes and cuboids on isometric grids | 12 | Picture sequence and questions |
-| p5f-lines-01 | P5 foundation | Identify and draw perpendicular and parallel lines | 12 | Picture sequence and questions |
-| p5f-angle-01 | P5 foundation | Use angle notation and a protractor | 11 | Picture sequence and questions |
-| p5f-angle-02 | P5 foundation | Draw angles | 12 | Picture sequence and questions |
+| p5f-lines-01 | P5 foundation | Identify and draw perpendicular and parallel lines | 13 | Yes |
+| p5f-angle-01 | P5 foundation | Use angle notation and a protractor | 12 | Yes |
+| p5f-angle-02 | P5 foundation | Draw angles | 13 | Yes |
 | p5f-angle-03 | P5 foundation | Use straight-line around-a-point and vertically opposite angle facts | 11 | Picture sequence and questions |
 | p5f-angle-04 | P5 foundation | Find unknown angles | 11 | Picture sequence and questions |
 | p5f-shape-01 | P5 foundation | Use rectangle and square properties excluding diagonals | 11 | Picture sequence and questions |
@@ -230,16 +230,16 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p6s-frac-02 | P6 standard | Divide a whole number or proper fraction by a proper fraction without a calculator | 12 | Yes |
 | p6s-pct-01 | P6 standard | Find an original quantity from a percentage | 11 | Picture sequence and questions |
 | p6s-pct-02 | P6 standard | Find percentage increase and decrease | 11 | Picture sequence and questions |
-| p6s-ratio-01 | P6 standard | Interpret ratios of two or three quantities using whole numbers | 11 | Picture sequence and questions |
-| p6s-ratio-02 | P6 standard | Find equivalent ratios and simplify ratios | 11 | Picture sequence and questions |
-| p6s-ratio-03 | P6 standard | Divide a quantity in a given ratio | 11 | Picture sequence and questions |
-| p6s-ratio-04 | P6 standard | Find a missing term in a ratio | 11 | Picture sequence and questions |
-| p6s-ratio-05 | P6 standard | Connect ratios and fractions | 11 | Picture sequence and questions |
+| p6s-ratio-01 | P6 standard | Interpret ratios of two or three quantities using whole numbers | 12 | Yes |
+| p6s-ratio-02 | P6 standard | Find equivalent ratios and simplify ratios | 12 | Yes |
+| p6s-ratio-03 | P6 standard | Divide a quantity in a given ratio | 12 | Yes |
+| p6s-ratio-04 | P6 standard | Find a missing term in a ratio | 12 | Yes |
+| p6s-ratio-05 | P6 standard | Connect ratios and fractions | 12 | Yes |
 | p6s-alg-01 | P6 standard | Use a letter for an unknown number | 11 | Picture sequence and questions |
 | p6s-alg-02 | P6 standard | Form simple expressions involving an unknown | 11 | Picture sequence and questions |
 | p6s-alg-03 | P6 standard | Simplify linear expressions without brackets | 11 | Picture sequence and questions |
 | p6s-alg-04 | P6 standard | Substitute values into expressions | 11 | Picture sequence and questions |
-| p6s-alg-05 | P6 standard | Solve linear equations with whole-number coefficients | 11 | Picture sequence and questions |
+| p6s-alg-05 | P6 standard | Solve linear equations with whole-number coefficients | 12 | Yes |
 | p6s-circle-01 | P6 standard | Find circumference and area of a circle | 11 | Picture sequence and questions |
 | p6s-circle-02 | P6 standard | Find areas and perimeters of semicircles and quarter-circles | 11 | Picture sequence and questions |
 | p6s-circle-03 | P6 standard | Solve composite-circle area and perimeter problems | 11 | Picture sequence and questions |
@@ -263,7 +263,7 @@ All routes were opened at 390 CSS pixels. Automated checks render every demonstr
 | p6f-area-01 | P6 foundation | Identify a triangle base and perpendicular height | 11 | Picture sequence and questions |
 | p6f-area-02 | P6 foundation | Find the area of a triangle | 11 | Picture sequence and questions |
 | p6f-area-03 | P6 foundation | Find areas and perimeters of composite figures with rectangles squares and triangles | 11 | Picture sequence and questions |
-| p6f-vol-01 | P6 foundation | Find volumes of cubes and cuboids | 11 | Picture sequence and questions |
+| p6f-vol-01 | P6 foundation | Find volumes of cubes and cuboids | 12 | Yes |
 | p6f-vol-02 | P6 foundation | Find liquid volume in rectangular tanks | 11 | Picture sequence and questions |
 | p6f-vol-03 | P6 foundation | Convert between litres millilitres and cm³ | 11 | Picture sequence and questions |
 | p6f-shape-01 | P6 foundation | Use rectangle square and triangle properties | 11 | Picture sequence and questions |

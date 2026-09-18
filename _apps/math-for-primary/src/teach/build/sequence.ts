@@ -1,14 +1,15 @@
 import {questionModel} from '../tools/questionModel';
-import {investigation} from '../depth/catalogue/investigations';
+import {investigation,topicExplore} from '../depth/catalogue/investigations';
 import {prerequisite} from '../depth/catalogue/prerequisites';
 import {teachingFocus} from '../depth/catalogue/focus';
-import {modelFor,visualQuestion,supportFor} from '../depth/catalogue/questions';
+import {modelFor} from '../depth/catalogue/questions';
+import {itemFactory} from '../depth/catalogue/assess';
 import {arithmeticWorked} from './arithmeticSteps';
 import {annotateSteps,friendly} from './teachingNotes';
 import {visualGuide} from './guides';
 import type {Rng} from '../../engine/random';
-import {choicesOf,rngFor} from '../gen';
-import type {Gen,Item,Lesson,Tool,Stage,Rep,RevealStep} from '../model';
+import {rngFor} from '../gen';
+import type {Lesson,Tool,Stage,Rep,RevealStep} from '../model';
 import {makeLesson} from './kit';
 import type {PlanEntry} from './plan';
 export type Evidence={op:'+'|'-'|'*'|'/'|'round';a:number;b:number};
@@ -32,18 +33,12 @@ export interface TopicSpec {
 export function lessonExample(p:PlanEntry,spec:TopicSpec,seed:number,index:number):Example{const r=rngFor(p.id,seed,index,'syllabus-v1');return spec.example(r,index+r.int(0,119));}
 export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  const rawSample=spec.anchor??lessonExample(p,spec,217,0),sample={...rawSample,tool:modelFor(p,rawSample)},guide=visualGuide(p),focus=teachingFocus(p);
- const activeModel=investigation(p,guide);
+ const activeModel=investigation(p,guide)??topicExplore(p,spec.explore);
  const pictureExample=spec.anchor?.prompt??guide.setup!,takeaway=guide.frames.at(-1)!.text;
  const fact=sample.evidence;
  const linkedWorked=spec.worked??(p.code==='AS'&&fact&&(fact.op==='+'||fact.op==='-')&&Math.max(fact.a,fact.b,Number(sample.answer))<=100?arithmeticWorked({a:fact.a,b:fact.b,c:Number(sample.answer),op:fact.op},sample.prompt):undefined);
- const itemFor=(mode:'direct'|'visual'|'word'|'reverse'|'reasoning'):Gen=>(seed,index)=>{
-  const r=rngFor(p.id,seed,index,mode),raw=spec.example(r,index+r.int(0,119)),e={...raw,tool:modelFor(p,raw)},key=`${mode}-${index}`,reading=visualQuestion(p,e,e.tool);
-  const base:Item={key,prompt:mode==='word'?e.context:mode==='visual'?reading.prompt:e.prompt,display:e.display,answer:e.answer,unit:e.unit,choices:e.choices,exact:e.exact,facet:mode,rep:mode==='word'?'story':e.tool.kind==='fractions'?'fraction-wall':e.tool.kind==='bar'?'bar-model':'symbols',tool:mode==='visual'?reading.tool:e.tool,requiresModel:mode==='visual'||['GRAPH','LINES','SOLID','SHAPE','ANGLE','LENGTH','SYM'].includes(p.code)&&!/[0-9]/.test(e.prompt),hints:[e.hint,...e.steps.slice(0,-1)],steps:e.steps,check:e.check};
-  if(mode==='reverse')return supportFor(p,e,{...base,unit:undefined,display:undefined,prompt:`Check this result: ${e.prompt} Answer: ${e.answer}${e.unit?' '+e.unit:''}. How can we check this answer?`,answer:e.check,choices:choicesOf(r,e.check,[friendly(e.error)]),exact:true,steps:[e.why,e.check],hints:['Work back to the given quantities. Check the units as well as the number.']},focus);
-  if(mode==='reasoning')return supportFor(p,e,{...base,unit:undefined,display:undefined,prompt:`A learner is solving this: ${e.prompt} Which explanation helps us solve it?`,answer:friendly(e.why),choices:choicesOf(r,friendly(e.why),[friendly(e.error)]),exact:true,steps:[e.why,...e.steps],hints:[e.hint]},focus);
-  return supportFor(p,e,base,focus);
- };
- const guided=itemFor('direct'),visual=itemFor('visual'),word=itemFor('word'),reverse=itemFor('reverse'),why=itemFor('reasoning');
+ const items=itemFactory(p,spec,focus),guided=items.gen('direct',p.track==='foundation'),visual=items.gen('visual'),word=items.gen('word'),reverse=items.gen('reverse'),why=items.gen('reasoning');
+ const noticeOptions=[{text:focus.error,correct:false,reply:focus.why},{text:focus.answer,correct:true,reply:focus.why}];if(rngFor(p.id,0,0,'notice').chance(.5))noticeOptions.reverse();
  const reps:Rep[]=['symbols','story'];if(sample.tool.kind==='fractions')reps.push('fraction-wall');else if(sample.tool.kind==='bar')reps.push('bar-model');else if(sample.tool.kind==='table')reps.push('table');else reps.push('diagram');
  const result=makeLesson(p,{
   canDo:[p.objective,focus.goal,'check the answer against the original quantities and units'],
@@ -51,7 +46,7 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
   stages:[
    prerequisite(p),
    {kind:'hook',title:'Meet our picture example',text:pictureExample,tool:spec.anchor?.tool??guide.frames[0].tool,caption:guide.frames[0].caption??guide.frames[0].text,next:'Before following the explanation, think about the relationship we will look for in this picture.',flow:{phase:'watch',label:'First, meet the example',transition:'We will follow this picture step by step before trying a question with help.'}},
-   {kind:'notice',actionLabel:'Think about the picture',title:'What should we look for?',text:focus.question,tool:guide.frames[0].tool,options:[{text:focus.error,correct:false,reply:focus.why},{text:focus.answer,correct:true,reply:focus.why}],flow:{phase:'watch',label:'Give the picture a purpose',transition:focus.look}},
+   {kind:'notice',actionLabel:'Think about the picture',title:'What should we look for?',text:focus.question,tool:guide.frames[0].tool,options:noticeOptions,flow:{phase:'watch',label:'Give the picture a purpose',transition:focus.look}},
    {kind:'explain',title:guide.title,text:guide.frames[0].text,example:pictureExample,method:guide.method,flow:{phase:'watch',label:'Watch the same example',transition:guide.method?.intro??focus.look},frames:annotateSteps(guide.frames.map((f,i)=>i===0?{...f,because:f.because??focus.why}:f)),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)})),why:{question:'What did the picture help us see?',answer:guide.frames.at(-1)!.text}},
    ...(activeModel?[activeModel]:[]),
    {kind:'worked',title:spec.anchor?'Let’s solve our question together':'A new example, together',flow:{phase:'together',label:spec.anchor?'Back to our question':'Use the idea with a new example',transition:spec.anchor?'Keep the same counters. This time, you will finish the answer.':'The picture example is complete. We are changing the example now; read the new question below before starting.',carry:takeaway},problem:sample.prompt+(sample.display?' '+sample.display:''),tool:sample.tool,steps:annotateSteps(linkedWorked??[{text:focus.look,tool:questionModel(sample.tool),because:friendly(sample.why)},{text:sample.hint,tool:questionModel(sample.tool),ask:{prompt:sample.prompt,answer:sample.answer,choices:sample.choices}},...sample.steps.map(text=>({text:friendly(text),tool:sample.tool})),{text:'Check the result against the question we started with.',tool:sample.tool,math:sample.check,because:`We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`}])},
@@ -60,13 +55,13 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
    {kind:'practice',mode:'independent',title:'Try another example',gen:visual,count:3},
    {kind:'apply',title:'Use the idea',gen:word,count:2},
    {kind:'reason',title:'Explain and check',items:[why(371,0),reverse(571,1)]},
-   {kind:'mastery',title:'Check what I know',gens:[{facet:'direct',gen:guided},{facet:'visual',gen:visual},{facet:'reverse',gen:reverse},{facet:'word',gen:word},{facet:'reasoning',gen:why}]},
+   {kind:'mastery',title:'Check what I know',gens:items.facets.map(facet=>({facet,gen:items.gen(facet)}))},
    {kind:'discovery',title:'What we learned',text:`${sample.prompt} We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`,math:sample.check,tool:linkedWorked?.at(-1)?.tool??sample.tool,caption:linkedWorked?.at(-1)?.caption}
   ]
  });
 
  result.mission={goal:spec.learningGoal??p.objective,question:sample.prompt,pictureExample,connection:spec.connection??focus.look};
- result.revision='catalogue-depth-2026-09-12-v1';
+ result.revision='catalogue-depth-2026-09-18-v2';
  return result;
 }
 export const table=(headers:string[],rows:(string|number)[][],caption:string):Tool=>({kind:'table',headers,rows:rows.map(r=>r.map(String)),caption});

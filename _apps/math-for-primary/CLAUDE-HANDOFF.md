@@ -1,3 +1,9 @@
+# Current handoff — 18 September 2026 question-support rebuild
+
+Help for generated questions is built in `src/teach/depth/catalogue/`: `facts.ts` classifies a question from its family template, `mistakes.ts` and `strategies.ts` supply situation-specific misconceptions and methods, and `assess.ts` builds every facet (including easier recovery questions, error analysis, work-backwards and bar-model items). `sequence.ts` calls `itemFactory`; the old `supportFor` is gone. When a family's question wording changes, update the matching rule in `facts.ts` or its questions lose their targeted feedback (they fall back safely, but silently). Bump `result.revision` in `sequence.ts` whenever generated item content changes, and add the new value to the whitelist in `flow.test.ts`. Round two (same day) added model-dependent visual prompts (`modelReading` in `questions.ts`), story contexts in the families, more misconceptions, varied fraction numerators, objective-matched activities (`topicExplore` in `investigations.ts`) and gentle Foundation practice (`itemFactory(...).gen(mode, gentle)`). Evidence and limits are in the first two sections of QA.md.
+
+---
+
 # Current handoff — 12 September 2026 visual revision
 
 The source in this folder now includes the syllabus expansion and the user-requested Foundations-style teaching rework. Do not resume the old paragraph-and-table expansion plan. Read the current README and the first section of QA.md before editing.

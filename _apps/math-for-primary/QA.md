@@ -1,3 +1,67 @@
+# Grade-by-grade content pass — 18 September 2026 (round two)
+
+A per-grade audit of the generated lessons found four weaknesses shared by every year, and one generator bug. All are addressed here.
+
+- **“Read a picture or model” questions now need the picture.** For about 45 question types the prompt had stated every number, so the picture was optional (91% of these questions in P6 Standard, 20–49% elsewhere). The numbers now live in the model and the prompt does not repeat them: “Round the middle number to the nearest thousand” beside 16000 | 16813 | 17000, a clock face for 24-hour time, fraction strips for equivalent fractions, a hundred grid with its sum hidden, a level balance for x, ratio bars for shares, tables for conversions, factors and prices. Models never print the answer.
+- **Word problems are situations.** Templates such as “A science notebook records this measurement. Calculate 56 ÷ 4, rounded …” became juice shared among jugs, a stopwatch and scoreboard, pizza slices in simplest form, two children colouring equal strips, a baker's slices as a mixed number, a fish tank in cubic centimetres, a cycling path or a bag of rice to convert, and a survey with one missing count.
+- **More misconceptions for the weakest question types**: the 100-minute hour on clocks (10:55 + 20 minutes written as 10:75; 12:05 − 65 minutes as 11:40), am kept past noon, 24-hour writing (forgetting to add 12, adding 12 to a morning hour, one-digit hours), pie slices (reading everyone else, assuming equal slices), fractions (dropping the denominator, subtracting the smaller numerator instead of exchanging a whole, multiplying only the whole number of a mixed number), decimals with equal decimal places (dropped exchange, smaller digit from larger), money with notes and coins, and ratio, volume and root errors.
+- **Fraction generator bug fixed.** Addition and subtraction always used numerator 1, so P2 “add and subtract like fractions” only asked 1/d + 1/d or 1/d − 1/d = 0, and P3–P5 only added unit fractions. Numerators now vary (5/12 + 7/12, 11/12 − 8/12), sums stay within one whole where the syllabus says so, differences are never zero, and P2 prompts keep their like denominators.
+- **Hands-on activities matched to objectives**: 122 of 265 lessons (82 before). The clock, ruler, rectangle builder, cube solid, protractor, line tool, array, balance, place-value chart and counters are used only where they practise the objective's own relationship, and a ratio-bar activity was added for P6 ratio. Every goal is proved reachable with the controls on screen.
+- **Foundation scaffolding.** P5 and P6 Foundation guided practice now starts with a smaller-number version of each question, keeping an even easier one for “I still don't get it”; independent practice returns to full size.
+
+| Path | Activities | Targeted feedback | Easier retry of the same kind | Visual that needs no picture | Bare-calculation word problems |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| P1 | 4 → 15 | 88% → 90% | 74% | 20% → 9% | 4% → 0% |
+| P2 | 10 → 11 | 88% → 92% | 79% | 26% → 12% | 22% → 3% |
+| P3 | 6 → 13 | 88% → 91% | 73% | 46% → 6% | 25% → 3% |
+| P4 | 14 → 20 | 87% → 91% | 74% | 37% → 3% | 26% → 0% |
+| P5 Standard | 9 → 11 | 88% → 91% | 81% | 46% → 6% | 6% → 3% |
+| P5 Foundation | 11 → 17 | 84% → 88% | 75% | 46% → 3% | 22% → 2% |
+| P6 Standard | 4 → 10 | 82% → 83% | 69% | 91% → 5% | 22% → 4% |
+| P6 Foundation | 11 → 12 | 83% → 83% | 68% | 49% → 5% | 14% → 0% |
+
+Activity counts are for the 252 syllabus lessons; the 13 broader lessons already had activities. CATALOGUE-COVERAGE.md is regenerated from the catalogue.
+
+Verification: 415 tests in 25 files pass and the production build succeeds. New checks require picture-dependent prompts for the listed question types, reject the old bare-calculation story templates, require at least six lessons with activities in every year, and pin the new misconceptions by value (01:41 for 1:41 pm, 10:75, 11:40, 2 2/4 for 3 1/4 − 1 3/4, 2.32 for 2.18 + 0.24, 94 for $4 and 90 cents). In the browser, the P4 rounding check answered question 1 and showed the picture-only question 2 described above.
+
+Limits: the lesson revision remains `catalogue-depth-2026-09-18-v2` (first published with this release), so unfinished drafts from the previous release restart once. The on-demand `screens` chunk is now 607 kB (186 kB gzip). Every earlier limit still applies: no teacher review, no classroom evidence, and misconceptions drawn from general knowledge rather than Singapore classroom data.
+
+---
+
+# Question support rebuilt around real misconceptions — 18 September 2026
+
+The generated lessons' help content was rebuilt. Previously one function attached the same kind of help to every question: wrong answers came from four arithmetic rules (so “50% of 120” listed 120.5), “I still don't get it” asked a definition question, “Show me another way” was the same generic method on 1,616 of 1,780 occasions, and reasoning items were two-option questions with fixed stems.
+
+New modules in `src/teach/depth/catalogue/`:
+
+- `facts.ts` recognises what each generated question asks (about ninety question types, from place value and rounding to percentage change, ratio shares, durations, triangle area and graph reading) by matching the families' sentence templates.
+- `mistakes.ts` computes the wrong answers children actually give for that situation, each with a specific explanation: 52 − 27 = 35 (smaller digit from larger), 47 + 38 = 75 (dropped exchange), 5.4 + 3.47 = 8.51 (tenths read as hundredths), 570 × 3 = 1570 (only the 500 multiplied), 9:45 to 10:15 = 70 minutes (hour treated as 100 minutes), 21 in 1 : 2 : 4 shared as 7 (equal shares instead of units), a ruler read from 1, the other protractor scale. A plausibility filter rejects answers no child would give (non-integers from whole-number questions, negatives, absurd magnitudes).
+- `strategies.ts` supplies genuinely different methods worked with the question's own numbers (count up for subtraction, round and adjust, 10% blocks or a fraction for percentages, the percentage you pay for discounts, a common denominator or decimals for fractions, unit value or a fraction of the total for ratio).
+- `assess.ts` builds every generated question. “I still don't get it” is now the same question with no number larger and a smaller total, found by searching the same generator. Reasoning items are error analysis (“Ravi works out 499 × 9 and gets 3699. What went wrong?”) whose options are the diagnoses of different mistakes. Work-backwards and missing-number questions (□ + 2.55 = 12.41) appear where the mathematics supports them, and bar-model questions with a hidden unknown provide the unfamiliar representation, so mastery covers up to seven facets.
+
+Other content fixes: multiplication and division steps split by place value without empty parts (570 × 3 was “570 + 0”); P1–P2 questions read “What is 5 + 4?” rather than “Calculate”; ordinal multiples read “2nd”, “3rd”; “in simplest form” is now enforced for percentage and decimal conversions; the P1 “Count and represent numbers to 100” focus now matches its tens-and-ones questions; the notice options are no longer always in the same order; and the recovery panel says “an easier one like it” when that is what it shows. The lesson revision is now `catalogue-depth-2026-09-18-v2`, so unfinished drafts of changed lessons restart cleanly while recorded achievements are kept.
+
+Measured on the same 4,519-item audit used for the previous review:
+
+| | Before | After |
+| --- | ---: | ---: |
+| Items with targeted wrong-answer feedback | 63% | 83.4% |
+| Generic “Start from what the picture means” methods | 1,616 | 0 |
+| Distinct alternative methods | 21 | 188 |
+| Recovery questions that are an easier question of the same kind | ≈0% | 73% |
+| Two-option choice items | 996 | 222 |
+| Reasoning items with three or more options | 0% | 84% |
+| Fixed stems (“A learner is solving this…”) | 984 | 0 |
+| Lessons assessing six or seven facets | 16 | 55 |
+
+Automated verification: 411 tests in 25 files pass, and the production build succeeds. The new `support.test.ts` pins specific misconceptions by value, rejects implausible distractors, checks that every generated question offers distinct non-generic methods, that recovery questions keep the same facet and differ from the original, that at least 80% of reasoning items offer three or more options, that every missing-number answer satisfies its equation, and that no worked step splits a number into an empty part.
+
+Browser observation (local, guest): the P3 multiplication challenge showed “Question 1 of 7”. Typing 2513 for 513 × 5 gave “Only the 500 was multiplied. Every part of 513 — 500 and 10 and 3 — is multiplied by 5.” Typing 518 gave “That adds. 513 × 5 means 5 groups of 513…”. “Show me another way” split 513 into 500 + 10 + 3 with the partial products, and “I still don't get it” offered 315 × 3 with the message “Let's try an easier one like it first.” At 375 CSS pixels the page did not overflow.
+
+Limits. The misconception library is written from general knowledge of common errors; it has not been checked against Singapore classroom data or reviewed by a teacher. “Easier” is a numerical rule (no larger number, smaller total), not a model of cognitive difficulty. 210 lessons still assess five facets, because work-backwards and bar-model questions are offered only where the question type supports them; 16% of reasoning items and 27% of recovery questions still fall back to two options or the idea check. The on-demand `screens` chunk is 590 kB (181 kB gzip) and triggers Vite's chunk-size warning; splitting the catalogue by year would remove it. This change has not been published.
+
+---
+
 # Catalogue teaching expansion — 12 September 2026
 
 Expanded flow and question support to all 265 lessons (252 syllabus lessons plus 13 broader lessons), covering P1–P6 and both Foundation paths. The three previous reference sequences remain intact. The generated sequences now begin with an earlier building block, ask what to attend to in the example, preserve a complete first explanation, announce a new worked example, and provide a conceptual support question with a return to the original item. Existing broad lessons keep their authored activities and gain explicit transitions and recovery. See CATALOGUE-COVERAGE.md for every lesson.
