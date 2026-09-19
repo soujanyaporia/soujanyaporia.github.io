@@ -98,6 +98,15 @@ const references:Record<string,Reference>={
   reflect:{text:'Explain why solving 2x + 3 = 11 needs changes on both sides.',tool:balance(2,3,11,4),prompts:['What does the equals sign tell us?','Why subtract three before dividing by two?','How do we check x = 4 in the original equation?'],explanation:['The equals sign says both sides have the same value. The two bags are identical.','Subtracting three from both sides leaves two bags equal to eight. Dividing both sides by two gives one bag equal to four.','Substituting four into 2x + 3 gives 2 × 4 + 3 = 11. The original equality is true.'],transfer:'Someone removes three only from the left. Use the scale to explain why that is not an equivalent equation.'}
  }
 };
+/** Readiness checks use a relevant earlier idea at this grade, not a universal counting task. */
+const readinessItems:Record<string,Item>={
+ 'p2s-md-02':q('ready-equal-groups','Two plates each hold three buns. How many buns altogether?','6',groups(2,3),['Both plates have the same number.','Join three and three.'],'3 + 3 = 6.',{'5':'Two counts plates, not buns. Add three buns from each plate.'}),
+ 'p3s-frac-01':q('ready-thirds','What fraction of this whole strip is coloured?','2/3',wall([3],[2]),['Count all equal parts for the bottom number.','Count coloured parts for the top number.'],'Two coloured parts and one white part make all three.',{'2/1':'The bottom counts all the equal parts, not only the white part.','3/2':'The top counts the chosen parts; the bottom counts all parts.'}),
+ 'p4s-dec-01':q('ready-tenths','This whole is split into ten equal parts. What fraction is coloured?','3/10',wall([10],[3]),['Keep all ten parts in the whole.','Three of those parts are coloured.'],'Three chosen parts out of ten equal parts is three tenths.',{'3/7':'Seven counts only the white parts. The whole contains ten parts.'}),
+ 'p4s-dec-05':q('ready-exchange','One full row is one tenth of this whole square. How many hundredths are in that row?','10',grid(10),['The full square contains one hundred equal little squares.','Count the little squares in the coloured row.'],'Ten hundredths and one tenth cover the same amount.',{'1':'There is one tenth, but the question asks how many smaller hundredths fill it.'}),
+ 'p5s-pct-03':q('ready-ten-shares','Thirty pencils are shared equally among ten children. How many does each child receive?','3',{kind:'table',headers:['Pencils altogether','Equal shares'],rows:[['30','10']],caption:'The whole is thirty pencils, shared into ten equal groups.'},['We know the total and the number of equal shares.','Divide thirty into ten equal groups.'],'Ten groups of three rebuild thirty.',{'10':'Ten counts the children. Find the pencils in one share.','30':'Thirty is the whole amount, not one share.'}),
+ 'p6s-alg-05':q('ready-equal-bags','Two identical bags contain twelve counters altogether. How many counters are in one bag?','6',balance(2,0,12,6),['The bags hold equal numbers.','Share twelve equally between the two bags.'],'Two bags of six contain twelve counters.',{'12':'Twelve belongs to both bags together. Find the value of just one bag.','10':'We are sharing into two equal groups, not taking away two counters.'})
+};
 const practiceMistakes:Record<string,Record<string,string>>={
  'bonds-same':{'6':'Six is the part taken away. Name the other part that stays.','15':'Nine already includes the six. We are separating its parts, not adding six more.'},
  'bonds-switch':{'3':'Three is taken away this time. The other part stays.'},
@@ -125,7 +134,8 @@ export const REFERENCE_IDS=['p1s-as-07','p2s-frac-01','p5s-area-02',...Object.ke
 /** Deliberate variation: the first practice reuses the worked situation; then one feature changes. */
 export function referenceLesson(lesson:Lesson):Lesson{
  const r=references[lesson.id];if(!r)return lesson;
- const readiness=lesson.stages.find(s=>s.kind==='readiness')!;
+ const ready=readinessItems[lesson.id];
+ const readiness:Stage=ready?{kind:'readiness',title:'A building block we will use',text:'Try this earlier idea. It will help us explain the new step. A picture and clues are available if you need them.',flow:{phase:'watch',label:'Check a useful earlier idea',transition:'Try this earlier idea. It will help us explain the new step. A picture and clues are available if you need them.'},items:[ready],booster:ready.hints.map(text=>({text,tool:ready.tool}))}:lesson.stages.find(s=>s.kind==='readiness')!;
  const lastAsk=r.worked.steps.map(s=>!!s.ask).lastIndexOf(true);
  const later=lesson.stages.filter(s=>s.kind==='practice'&&s.mode==='independent'||['apply','reason','mastery'].includes(s.kind));
  return {...lesson,mission:{goal:r.goal,question:r.worked.problem,pictureExample:r.setup,connection:'Predict, build a model, explain what changed, then use the relationship in a new situation.'},canDo:[r.goal,...lesson.canDo.slice(1)],stages:[

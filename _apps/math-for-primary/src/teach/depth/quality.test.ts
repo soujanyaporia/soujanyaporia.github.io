@@ -29,6 +29,12 @@ describe('Learning quality and honest evidence',()=>{
    expect(explore.goal(explore.tool),id).toBe(false);expect(goalReachable(explore.tool,explore.goal),id).toBe(true);
   }
  });
+ it('checks an actual earlier skill in the upper-primary reference lessons',()=>{
+  const p6=lessonById('p6s-alg-05')!.stages[0],p5=lessonById('p5s-pct-03')!.stages[0];
+  if(p6.kind!=='readiness'||p5.kind!=='readiness')throw Error('Missing readiness');
+  expect(p6.items[0].tool?.kind).toBe('balance');expect(p6.items[0].answer).toBe('6');
+  expect(p5.items[0].answer).toBe('3');expect(p5.items[0].prompt).toContain('ten children');
+ });
  it('varies one feature at a time across the new guided question sets',()=>{
   const expected:Record<string,string[]>={
    'p1s-as-03':['3','6','7'],'p2s-md-02':['12','3','5'],'p3s-frac-01':['4','6','6'],
