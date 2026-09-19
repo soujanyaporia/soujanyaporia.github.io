@@ -1,3 +1,4 @@
+import {toggleFractionPiece} from './geometry';
 import {geometryMoves} from './GeometryWorkbench';
 import type { Tool } from '../model';
 /**
@@ -13,7 +14,7 @@ export function movesFor(t:Tool):Tool[]{
  switch(t.kind){
   case 'take-away':return Array.from({length:t.start},(_,i)=>({...t,removed:t.removed.includes(i)?t.removed.filter(n=>n!==i):[...t.removed,i].sort((a,b)=>a-b)}));
   case 'triangle-pair':return [{...t,joined:!t.joined}];
-  case 'fraction-pieces':return [];
+  case 'fraction-pieces':return t.widths.map((_,i)=>toggleFractionPiece(t,i));
   case 'geometry':return geometryMoves(t);
   case 'net-model':case 'diagram':case 'focus':case 'scene':case 'foundation-visual':case 'table':return [];
   // Every cell is clickable, and a stepper covers the rest, so any count is one press away.

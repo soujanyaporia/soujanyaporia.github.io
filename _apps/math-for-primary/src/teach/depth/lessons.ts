@@ -31,7 +31,7 @@ export function deepenLesson(lesson:Lesson):Lesson{
   ];
   worked={kind:'worked',title:'A new example, with your turn',problem:question,tool:removal(17,0),steps:[
    {text:'Start with 17 counters. This time we will take away only three.',tool:removal(17,0)},
-   {text:'Three are crossed out. You count the counters that stay before we show the total.',tool:removal(17,3),ask:{prompt:question,answer:'14'}},
+   {text:'Three are crossed out. You count the counters that stay before we show the total.',tool:removal(17,3),ask:{prompt:question,answer:'14',hint:'Count only blue counters without a cross. The crossed counters have left.',wrong:{'3':'That counts what we took away. Count the blue counters that stay.','17':'That was the starting group. Three counters have now left.','20':'That adds three. Here we take three away.'}}},
    {text:'Fourteen counters stay. The subtraction sentence records the change you counted.',tool:removal(17,3),math:'17 − 3 = 14'},
    {text:'Put the three back. The two parts rebuild our starting seventeen.',tool:{kind:'foundation-visual',visual:{type:'counters',groups:[{count:14,color:'blue'},{count:3,color:'orange'}]}},math:'14 + 3 = 17',caption:'Blue counters stayed. Orange counters are the three put back.'}
   ]};
@@ -46,16 +46,16 @@ export function deepenLesson(lesson:Lesson):Lesson{
    ['Only the blue pieces are equal.',false,'Every piece of the whole must be the same size, including the white ones.'],
    ['Four pieces can be any size.',false,'Then one child could get much more. Equal shares need equal-sized pieces.']
   ],bridge('Check the meaning of equal parts','Counting pieces is not enough. Think about their sizes before choosing a share.'),fraction(0,4));
-  explore={kind:'explore',title:'Choose Mei’s three pieces',text:'The whole sandwich has four equal pieces. Tap the third piece to shade three. Notice that the fourth piece still belongs to the whole.',tool:fraction(0,4),goal:t=>t.kind==='fractions'&&t.denominators[0]===4&&t.shaded[0]===3,goalHint:'Shade 3 of the 4 equal pieces. Tap the third piece from the left.',success:'Three pieces are chosen. All four pieces, including the white one, make the whole.',flow:bridge('Build the share from our story','Use the same sandwich and choose the three pieces Mei takes.')};
+  explore={kind:'explore',title:'Choose Mei’s three pieces',text:'The whole sandwich has four equal pieces. Tap any three pieces to choose them. You can leave the white piece anywhere; it still belongs to the whole.',tool:{kind:'fraction-pieces',widths:[1,1,1,1],selected:[]},goal:t=>t.kind==='fraction-pieces'&&t.widths.length===4&&t.selected.length===3,goalHint:'Tap three separate pieces. Tap a blue piece again to put it back.',success:'Three pieces are chosen: three quarters. All four pieces, including the white one, make the whole. Choosing different pieces keeps the same share.',flow:bridge('Build the share from our story','Use the same sandwich and choose the three pieces Mei takes.')};
   frames=[
-   {text:'Replay the sharing from the start. This strip is one whole sandwich, with four equal pieces.',tool:fraction(0,4),caption:'One strip is the whole. Each of its four pieces has the same size.'},
+   {text:'We will draw Mei’s chosen pieces together to make them easy to count. Replay the sharing from the start. This strip is one whole sandwich, with four equal pieces.',tool:fraction(0,4),caption:'One strip is the whole. Each of its four pieces has the same size.'},
    {text:'One chosen piece is one of four equal parts. We call it one quarter.',tool:fraction(1,4),math:'1/4',because:'The bottom number counts all four equal parts. The top counts the one chosen part.'},
    {text:'Mei chooses three of those pieces. We call her share three quarters.',tool:fraction(3,4),math:'3/4',because:'Only the chosen count changed. The whole still has four equal parts.'},
    {text:'Read the two numbers together: three chosen parts out of four equal parts in the whole.',tool:fraction(3,4),math:'3 chosen / 4 in the whole',because:'The white piece counts in the bottom number too. The bottom does not count only what is left.'}
   ];
   worked={kind:'worked',title:'Name a new share together',problem:question,tool:fraction(2,5),steps:annotateSteps([
-   {text:'This is a new whole, cut into five equal parts. We use the same idea: all parts at the bottom, chosen parts at the top.',tool:fraction(2,5),ask:{prompt:'How many equal parts make this whole?',answer:'5'}},
-   {text:'Two parts are blue. Keep the bottom number five and write the chosen count above it.',tool:fraction(2,5),ask:{prompt:question,answer:'2/5'}},
+   {text:'This is a new whole, cut into five equal parts. We use the same idea: all parts at the bottom, chosen parts at the top.',tool:fraction(2,5),ask:{prompt:'How many equal parts make this whole?',answer:'5',hint:'Count blue and white parts together. All of them belong to the whole.',wrong:{'2':'You counted the blue parts. The whole includes white parts too.','3':'You counted the white parts. Include the blue parts too.','4':'Count the pieces, not the cuts between them.'}}},
+   {text:'Two parts are blue. Keep the bottom number five and write the chosen count above it.',tool:fraction(2,5),ask:{prompt:question,answer:'2/5',hint:'The top counts blue parts. The bottom counts every equal part of the whole.',wrong:{'5/2':'The counts are swapped. Blue parts go on top; all equal parts go at the bottom.','2/3':'Three counts only white parts. The bottom must include blue parts too.','3/5':'That names the white share. We need the blue share.'}}},
    {text:'Two blue parts and three white parts make all five. The blue share is two fifths.',tool:fraction(2,5),math:'2/5',caption:'The whole includes the three white parts as well as the two blue parts.'}
   ])};
   make=fractionItem;facets=['visual','missing','word','unfamiliar','reasoning'];reason=fractionItem(51,0,'reasoning');
@@ -86,7 +86,7 @@ export function deepenLesson(lesson:Lesson):Lesson{
  const generator=(facet:Facet):Gen=>(seed,i)=>make(seed,i,facet);
  const guided:Gen=(seed,i)=>make(seed,i,fractions?i%2?'missing':'visual':'direct');
  const independent:Gen=(seed,i)=>make(seed,i,fractions?i%2?'unfamiliar':'visual':i%2?'direct':'visual');
- return {...lesson,revision:'depth-2026-09-12-v1',canDo,mission:{goal:lesson.mission?.goal??lesson.title,pictureExample:setup,question,connection:'Check a building block, predict, try the model, then explain and use the idea.'},stages:[
+ return {...lesson,revision:'depth-2026-09-19-v4',canDo,mission:{goal:lesson.mission?.goal??lesson.title,pictureExample:setup,question,connection:'Check a building block, predict, try the model, then explain and use the idea.'},stages:[
   prerequisite,
   {kind:'hook',title:'Our question to explore',text:setup,tool:frames[0].tool,caption:frames[0].caption??frames[0].text,next:'First predict what will happen. Then test it with the model.'},
   predict,explore,explain,worked,

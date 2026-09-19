@@ -64,7 +64,7 @@ export interface Item {
 }
 export type Gen=(seed:number,index:number)=>Item;
 export interface Why {question:string;answer:string;tool?:Tool}
-export interface RevealStep {caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[]}}
+export interface RevealStep {caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[];exact?:boolean;unit?:string;hint?:string;wrong?:Record<string,string>}}
 export interface StageFlow {phase:'watch'|'together'|'try'|'check';label:string;transition:string;carry?:string}
 export type Stage=({flow?:StageFlow;actionLabel?:string}&(
 

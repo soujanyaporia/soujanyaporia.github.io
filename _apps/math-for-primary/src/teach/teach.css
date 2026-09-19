@@ -81,3 +81,50 @@
 /* Purposeful actions preserve objects and work with touch or a keyboard. */
 .removal-grid{display:grid;grid-template-columns:repeat(5,44px);gap:8px;width:max-content;max-width:100%;margin:20px auto}.removal-counter{display:grid;place-items:center;width:44px;height:44px;border:2px solid #d4dcfb;border-radius:50%;background:#536ce7;color:white;font-size:34px;line-height:1;font-weight:900;box-shadow:0 3px 0 #344fc9}.removal-counter.removed{background:#e2e7ee;color:#314d4c;box-shadow:none;border-color:#ccd4df}.removal-counter:focus-visible{outline:3px solid #d69c37;outline-offset:3px}.fraction-pieces-strip{display:flex;max-width:500px;min-height:90px;margin:24px auto;border:2px solid #8996bd;border-radius:8px;overflow:hidden}.fraction-pieces-strip>span+span{border-left:3px solid white}.fraction-pieces-circle{display:block;width:min(100%,260px);margin:18px auto}.teaching-counters>p{font-size:16px;text-align:center}@media(max-width:360px){.removal-grid{gap:4px}}
 .fraction-reading .fw-part.on{fill:#536ce7}.fraction-reading .fw-part{stroke:#8996bd}.removal-counter{cursor:pointer}.removal-counter:not(button){cursor:default}
+
+/* A quieter lesson browser: one clear start action, a concrete example, and useful filters. */
+.learn-index .learn-head{max-width:740px}.learn-index .learn-head .stage-text{font-size:17px}
+.lesson-browser{margin-top:28px;border-bottom:1px solid #dde4d7;padding-bottom:8px}
+.lesson-browser-head{display:flex;justify-content:space-between;gap:24px;align-items:end}
+.lesson-browser h2{font-size:24px;margin:0 0 6px}.lesson-browser-head p{font-size:14px;line-height:1.6;color:#5e7068;margin:0}
+.lesson-search{display:grid;gap:6px;min-width:260px;font-size:13px;font-weight:800;color:var(--deep)}
+.lesson-search input{font:inherit;font-weight:500;padding:13px 15px;border:1.5px solid #bbcbbf;border-radius:12px;background:white;color:var(--ink);width:100%;min-width:0}
+.lesson-search input:focus{outline:3px solid var(--pale);border-color:var(--accent)}
+.topic-filters{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 10px}
+.topic-filters button{font:inherit;font-size:13px;font-weight:700;min-height:42px;border-radius:99px;padding:8px 13px;border:1px solid #d4dfd1;background:white;color:var(--deep);cursor:pointer}
+.topic-filters button[aria-pressed=true]{background:var(--deep);border-color:var(--deep);color:white}.topic-filters span{opacity:.75;margin-left:5px;font-weight:500}
+.lesson-results{font-size:13px;color:#5e7068;margin:10px 0}.lesson-empty{padding:30px 0;line-height:1.6}
+.learn-resume{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 22px;border:1px solid #c8d8c7;background:var(--pale);border-radius:18px;margin:22px 0}
+.learn-resume h2{font-size:19px;margin:4px 0}.learn-resume p:last-child{font-size:14px;margin:8px 0 0}.learn-resume .teach-btn{flex-shrink:0}
+.lesson-card{display:flex;flex-direction:column;padding:20px}.lesson-card h3{line-height:1.4;margin:12px 0}
+.lesson-card .lesson-preview{border-top:1px solid #edf0e8;padding-top:12px;color:#53645a;font-size:14px;line-height:1.65}
+.lesson-preview>span{display:block;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:900;color:var(--accent);margin-bottom:3px}
+.lesson-card .lesson-actions{margin-top:auto;padding-top:18px;align-items:center;gap:14px}.lesson-secondary{font-size:13px;font-weight:800;color:var(--deep);text-underline-offset:4px;min-height:44px;display:inline-flex;align-items:center}
+.world-head .teach-eyebrow{font-size:10px;color:var(--accent);margin:0 0 4px}.world-head>p:last-child{font-size:14px;line-height:1.6;color:#5e7068}
+/* Orientation stays compact; the task and its picture carry the page. */
+.teach-count{white-space:nowrap;font-size:14px;align-self:start;padding-top:4px}.teach-count small{display:block;font-size:9px;letter-spacing:1px;margin-bottom:3px}
+.teach-head>div{min-width:0}.teach-head h1{font-size:clamp(19px,2.8vw,28px);line-height:1.4}
+.teach .stage-track{margin-bottom:8px}.lesson-journey{display:flex;list-style:none;padding:0;margin:0 0 14px;gap:4px}
+.lesson-journey li{flex:1;padding:6px 3px;text-align:center;font-size:11px;line-height:1.4;color:#687b70;border-radius:6px}
+.lesson-journey [aria-current=step]{background:var(--pale);color:var(--deep);font-weight:900}
+.teach .lesson-purpose{padding:10px 14px;margin:12px 0;border-left-width:3px}.lesson-purpose summary{font-size:13px}
+.teach .lesson-bridge{margin:16px 0;padding:4px 0 4px 13px}.lesson-bridge>p:last-of-type{font-size:14px;line-height:1.65;margin-bottom:0}
+.flow-recap{margin-top:8px;font-size:13px;line-height:1.6}.flow-recap summary{cursor:pointer;color:var(--deep);font-weight:700}.flow-recap p{margin:6px 0 0}
+.worked-current{background:#f7f9f3;border:1px solid #e5eadf;border-radius:14px;padding:14px 16px;line-height:1.65}.worked-current>p{margin:0 0 8px}
+.worked-problem{font-size:clamp(21px,3vw,30px);line-height:1.45;text-align:left}.worked-ask>p{margin:2px 0 10px;line-height:1.5}
+.worked-clue{background:#edf3e7;border-radius:10px;padding:10px 12px;line-height:1.6}.answer-format{font-size:12px;color:#586e62;line-height:1.5;max-width:440px;margin:8px 0}
+.inline-answer{flex-wrap:wrap}.inline-answer input{width:140px;max-width:100%;min-width:0}.worked-ask .help-row{gap:18px}.worked-ask input[aria-invalid=true]{border-color:#b77725}
+.item-dots button{width:44px;height:44px;flex-shrink:0;border-radius:12px;border:7px solid white;box-shadow:0 0 0 1px #dde4d7;font:inherit;font-size:12px;font-weight:800;color:var(--deep)}.item-dots .clean{color:white}.item-dots{gap:8px;flex-wrap:wrap}
+.fraction-pieces-strip>button{min-width:0;border:0;border-radius:0;padding:0;cursor:pointer}.fraction-pieces-strip>*+*{border-left:3px solid white}
+.fraction-pieces-strip>button:focus-visible{outline:3px solid #b47b20;outline-offset:-5px}.fraction-pieces-circle [role=button]{cursor:pointer}.fraction-pieces-circle [role=button]:focus-visible{outline:none;stroke:#b47b20;stroke-width:5}
+.piece-tick{color:white;font-size:22px;font-weight:900;pointer-events:none}.piece-count{text-align:center;color:var(--deep);font-weight:800;font-size:15px;margin:8px 0}
+@media(max-width:600px){
+ .lesson-browser-head{display:grid;gap:16px}.lesson-search{min-width:0}.learn-resume{display:grid;gap:14px;padding:18px}.learn-resume .teach-btn{justify-self:start}
+ .topic-filters{gap:6px}.topic-filters button{font-size:12px;padding:8px 11px}.lesson-card{padding:18px}.lesson-grid{grid-template-columns:minmax(0,1fr)}
+ .teach-head{gap:10px}.teach-head h1{font-size:18px}.teach-eyebrow{font-size:9px;line-height:1.5;letter-spacing:1px}.teach-count{font-size:12px}
+ .teach .lesson-bridge>p:last-of-type{font-size:13px}.teach .stage-title h2{font-size:20px}.worked-current{padding:12px}.worked-ask{padding:10px}
+ .lesson-journey li{font-size:10px}.worked-problem{font-size:21px}.teach .visual-tutor-nav{flex-wrap:wrap;gap:10px}
+}
+@media(prefers-reduced-motion:reduce){.teach *, .teach *::before,.teach *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.learning-rewards{margin-top:24px;border-top:1px solid #dde4d7;padding-top:14px}.learning-rewards summary{font-size:14px;font-weight:800;color:var(--deep);cursor:pointer}

@@ -9,6 +9,10 @@ export function investigation(p:PlanEntry,guide:VisualGuide):Stage|undefined{
  if(p.code==='FRAC'){
   const target=last('fractions');
   if(target&&target.denominators.length<=2&&target.denominators.every(d=>d<=24)&&target.shaded.some(n=>n>0)){
+   if(target.denominators.length===1&&target.denominators[0]<=12){
+    const d=target.denominators[0],n=target.shaded[0];
+    return make('Choose the pieces yourself',`The same whole has ${d} equal parts. Choose any ${n} parts. They do not have to be next to each other.`,{kind:'fraction-pieces',widths:Array(d).fill(1),selected:[]},t=>t.kind==='fraction-pieces'&&t.selected.length===n,`Tap ${n} separate pieces. Tap a blue piece again to put it back.`,`${n} chosen out of ${d} equal parts is ${n}/${d}. Moving the colour to different pieces does not change the fraction: the whole and the amount chosen stay the same.`);
+   }
    const start={...target,hideValue:true,shaded:target.shaded.map((n,i)=>i===target.shaded.length-1?0:n)},row=target.shaded.length-1;
    const words=`Shade ${target.shaded[row]} of the ${target.denominators[row]} equal parts in the ${row?'bottom':'only'} strip.`;
    return make('Rebuild the chosen share',words+(row?' Keep the top strip unchanged and compare the two chosen lengths.':' The unchosen parts still belong to the whole.'),start,t=>t.kind==='fractions'&&t.shaded.every((n,i)=>n===target.shaded[i]),words,row?'The two whole strips have equal size. Compare the chosen lengths as well as the numbers of pieces.':'You chose parts without changing the whole. The denominator includes every equal part.');

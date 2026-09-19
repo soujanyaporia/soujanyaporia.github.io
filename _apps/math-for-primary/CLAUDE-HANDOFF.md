@@ -69,3 +69,12 @@ Sync source to the publishing worktree with explicit exclusions: `node_modules/`
 ## Publication evidence
 
 See the end of QA.md for the publishing commit, GitHub Actions run and public-site checks of this release. Inspect current remote status before the next push; do not treat a SHA recorded here as the required current revision.
+# Latest continuation — 19 September 2026 UI and teaching support
+
+Preserve the 18–19 September content/activity expansion. This pass adds searchable grade/topic lesson browsing (`LearnIndex.tsx`, `learningUi.ts`), compact lesson orientation and numbered question navigation. Worked pauses retain wrong input, use targeted misconception feedback and hints, distinguish revealed answers from solved answers, and keep hidden equations out of read-aloud. `RevealStep.ask` now accepts `hint`, `wrong`, `exact`, and `unit`; generated worked examples receive support through `coachWorked` in `build/sequence.ts` only when the prompt/answer match the original example.
+
+`fraction-pieces` now supports individual toggles (shared pure transition in `tools/geometry.ts` and `moves.ts`). Single-row fraction investigations use it; comparison walls still use contiguous strips. The P2 exemplar accepts any three of four pieces; unfamiliar fraction exercises vary arrangements. Revisions: `catalogue-depth-2026-09-19-v4` and `depth-2026-09-19-v4`. Older incompatible unfinished attempts restart; earned progress remains.
+
+See the first section of QA.md for the 423-test validation and actual browser checks. Full-catalogue tests timed out under heavy host load but passed in isolated reruns with unchanged time limits. Do not weaken those tests. Qualified-teacher review, deeper open investigations and lower initial Learn download size remain useful next work.
+
+---

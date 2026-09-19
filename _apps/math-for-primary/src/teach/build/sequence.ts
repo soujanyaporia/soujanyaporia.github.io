@@ -4,6 +4,8 @@ import {lessonActivity} from '../depth/catalogue/activities';
 import {prerequisite} from '../depth/catalogue/prerequisites';
 import {teachingFocus} from '../depth/catalogue/focus';
 import {modelFor} from '../depth/catalogue/questions';
+import {mistakesFor} from '../depth/catalogue/mistakes';
+import {plausible} from '../depth/catalogue/assess';
 import {itemFactory} from '../depth/catalogue/assess';
 import {arithmeticWorked} from './arithmeticSteps';
 import {annotateSteps,friendly} from './teachingNotes';
@@ -32,6 +34,15 @@ export interface TopicSpec {
  practical?:string[];
 }
 export function lessonExample(p:PlanEntry,spec:TopicSpec,seed:number,index:number):Example{const r=rngFor(p.id,seed,index,'syllabus-v1');return spec.example(r,index+r.int(0,119));}
+/** Carry question-specific support into the pauses inside a worked example. */
+export function coachWorked(p:PlanEntry,sample:Example,steps:RevealStep[]):RevealStep[]{
+ const wrong=Object.fromEntries(mistakesFor(p,sample).filter(m=>plausible(sample,m)).map(m=>[m.answer,m.why]));
+ return steps.map(step=>{
+  if(!step.ask)return step;
+  const same=step.ask.prompt===sample.prompt&&step.ask.answer===sample.answer;
+  return {...step,ask:{...(same?{wrong,unit:sample.unit,exact:sample.exact}:{}),...step.ask,hint:step.ask.hint??(same?sample.hint:step.caption??step.text)}};
+ });
+}
 export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  const rawSample=spec.anchor??lessonExample(p,spec,217,0),sample={...rawSample,tool:modelFor(p,rawSample)},guide=visualGuide(p),focus=teachingFocus(p);
  const activeModel=investigation(p,guide)??topicExplore(p,spec.explore)??lessonActivity(p);
@@ -50,7 +61,7 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
    {kind:'notice',actionLabel:'Think about the picture',title:'What should we look for?',text:focus.question,tool:guide.frames[0].tool,options:noticeOptions,flow:{phase:'watch',label:'Give the picture a purpose',transition:focus.look}},
    {kind:'explain',title:guide.title,text:guide.frames[0].text,example:pictureExample,method:guide.method,flow:{phase:'watch',label:'Watch the same example',transition:guide.method?.intro??focus.look},frames:annotateSteps(guide.frames.map((f,i)=>i===0?{...f,because:f.because??focus.why}:f)),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)})),why:{question:'What did the picture help us see?',answer:guide.frames.at(-1)!.text}},
    ...(activeModel?[activeModel]:[]),
-   {kind:'worked',title:spec.anchor?'Let’s solve our question together':'A new example, together',flow:{phase:'together',label:spec.anchor?'Back to our question':'Use the idea with a new example',transition:spec.anchor?'Keep the same counters. This time, you will finish the answer.':'The picture example is complete. We are changing the example now; read the new question below before starting.',carry:takeaway},problem:sample.prompt+(sample.display?' '+sample.display:''),tool:sample.tool,steps:annotateSteps(linkedWorked??[{text:focus.look,tool:questionModel(sample.tool),because:friendly(sample.why)},{text:sample.hint,tool:questionModel(sample.tool),ask:{prompt:sample.prompt,answer:sample.answer,choices:sample.choices}},...sample.steps.map(text=>({text:friendly(text),tool:sample.tool})),{text:'Check the result against the question we started with.',tool:sample.tool,math:sample.check,because:`We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`}])},
+   {kind:'worked',title:spec.anchor?'Let’s solve our question together':'A new example, together',flow:{phase:'together',label:spec.anchor?'Back to our question':'Use the idea with a new example',transition:spec.anchor?'Keep the same counters. This time, you will finish the answer.':'The picture example is complete. We are changing the example now; read the new question below before starting.',carry:takeaway},problem:sample.prompt+(sample.display?' '+sample.display:''),tool:sample.tool,steps:coachWorked(p,sample,annotateSteps(linkedWorked??[{text:focus.look,tool:questionModel(sample.tool),because:friendly(sample.why)},{text:sample.hint,tool:questionModel(sample.tool),ask:{prompt:sample.prompt,answer:sample.answer,choices:sample.choices}},...sample.steps.map(text=>({text:friendly(text),tool:sample.tool})),{text:'Check the result against the question we started with.',tool:sample.tool,math:sample.check,because:`We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`}]))},
    ...(spec.practical?[{kind:'connect' as const,title:'Try a construction',text:'Use the model, then make your own drawing on paper. Compare the features; a teacher or adult can check your drawing.',rows:spec.practical.map(text=>({text}))}]:[]),
    {kind:'practice',mode:'guided',title:'Build your confidence',text:p.track==='foundation'?'Use the model. Say what one part represents before calculating.':'Open a clue whenever it helps.',gen:guided,count:p.track==='foundation'?5:3},
    {kind:'practice',mode:'independent',title:'Try another example',gen:visual,count:3},
@@ -62,7 +73,7 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  });
 
  result.mission={goal:spec.learningGoal??p.objective,question:sample.prompt,pictureExample,connection:spec.connection??focus.look};
- result.revision='catalogue-depth-2026-09-19-v3';
+ result.revision='catalogue-depth-2026-09-19-v4';
  return result;
 }
 export const table=(headers:string[],rows:(string|number)[][],caption:string):Tool=>({kind:'table',headers,rows:rows.map(r=>r.map(String)),caption});

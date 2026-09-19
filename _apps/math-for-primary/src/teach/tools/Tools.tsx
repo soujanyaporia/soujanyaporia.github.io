@@ -91,7 +91,7 @@ function Balance({t,onChange}:Props<'balance'>){
 export function ToolView({tool,onChange}:{tool:Tool;onChange?:(t:Tool)=>void}){
  if(tool.kind==='take-away')return <TakeAway t={tool} onChange={onChange}/>;
  if(tool.kind==='triangle-pair')return <TrianglePair t={tool} onChange={onChange}/>;
- if(tool.kind==='fraction-pieces')return <FractionPieces t={tool}/>;
+ if(tool.kind==='fraction-pieces')return <FractionPieces t={tool} onChange={onChange}/>;
  switch(tool.kind){case 'focus':return <figure className='tool-focus'><div style={{transform:`rotate(${tool.rotate}deg)`}}><ToolView tool={tool.source}/></div><figcaption>{tool.caption}</figcaption></figure>;case 'scene':return <LessonScene t={tool}/>;case 'foundation-visual':return <FoundationPicture t={tool}/>;
   case 'net-model':return <NetModel shape={tool.shape}/>;
   case 'geometry':return <GeometryWorkbench tool={tool} onChange={onChange}/>;

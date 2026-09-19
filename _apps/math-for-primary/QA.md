@@ -1,3 +1,20 @@
+# Lesson browsing, worked feedback and fraction arrangements — 19 September 2026
+
+This pass preserves the expanded 265-lesson catalogue and its hands-on activities.
+
+- Learn now has grade-scoped search, topic filters with counts, concrete example previews, an empty-search recovery, and a continue card for a compatible saved attempt. Reviews follow the selected grade/path. Rewards are available in a collapsed section so lessons are easier to reach.
+- Lesson orientation uses four short phase labels. Goals and previous-example recaps can be opened when needed; duplicate introductory text is suppressed. Question navigation has numbered, wrapping touch targets. Reduced-motion preferences are respected.
+- Worked examples retain wrong answers and explain relevant mistakes. Generated examples reuse their existing misconception bank when the pause asks the same question. Intermediate/custom pauses can supply their own hints and mistakes. The pupil can request a clue or reveal an answer; revealing is not praised as solving. Read-aloud excludes an unrevealed equation, and equivalent numerical answers are acknowledged explicitly. Fraction/time/text answer fields use appropriate keyboards and format guidance.
+- Single-strip fraction investigations (up to 12 parts) and the P2 fraction exemplar let pupils toggle individual pieces, including separated pieces. Transfer questions vary the arrangement in strips and circles. Comparison/equivalence walls retain contiguous shading because they compare lengths. Completed explorations no longer show a stale success message beside a reset or altered model.
+
+Validation: production build and typecheck passed. The full 423-test run (26 files) had 419 passes and four timeouts while the host load average was 56.67; no assertion failed. All four timed-out checks then passed with unchanged time limits, in isolated runs: catalogue safeguards (9 tests) and lesson generation, activity generation and model rendering (14 tests). Thus all 423 checks passed across these runs. Seven new checks cover search, hidden-answer speech, worked misconceptions, answer formats, reversible individual selections, varied fraction arrangements and accessible/read-only model rendering.
+
+Browser QA: P2 search; empty-search reset; P5 Foundation and P6 Standard filtering; compatible lesson continuation; P2 fraction notation from warm-up through explanation and exploration into a worked example. Two separated pieces failed the target, three succeeded, and keyboard selection worked. In the worked example, `2/10` remained visible with a denominator-specific explanation; equivalent `1/6` was accepted for `2/12`. P6 algebra feedback correctly explained that `45` in `5x + 6 = 51` is the value of `5x`, requiring division by 5. Layouts inspected at 320, 390 and 1280 CSS pixels. These are representative browser journeys, not an end-to-end classroom audit of all lessons.
+
+Limits: content still needs qualified-teacher review. Existing fraction walls still shade contiguous lengths; only individual-piece investigations offer free arrangements. The Learn bundle remains above the build's 500 kB warning threshold (about 665 kB, 204 kB gzip).
+
+---
+
 # A hands-on activity in every lesson — 19 September 2026
 
 All 265 lessons now include a hands-on activity (122 before). The 139 new activities are in `src/teach/depth/catalogue/activities.ts`. Each one practises its own lesson's objective with fixed, friendly numbers, and is used only where the picture sequence and the topic's own model did not already provide an activity.

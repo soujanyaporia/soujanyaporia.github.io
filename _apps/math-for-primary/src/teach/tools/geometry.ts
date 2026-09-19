@@ -35,3 +35,8 @@ export const pileLeft=(t:Extract<Tool,{kind:'share'}>)=>t.total-t.given.reduce((
 export const sharedEqually=(t:Extract<Tool,{kind:'share'}>)=>pileLeft(t)===0&&t.given.every(g=>g===t.given[0]);
 /** Clock hands: minute-hand and hour-hand angles in degrees clockwise from 12. */
 export const clockAngles=(minutes:number)=>({minute:(minutes%60)*6,hour:((minutes/60)%12)*30});
+
+/** Choosing a different piece changes its membership, never the size of the whole. */
+export function toggleFractionPiece(t:Extract<Tool,{kind:'fraction-pieces'}>,i:number):Extract<Tool,{kind:'fraction-pieces'}>{
+ return {...t,selected:t.selected.includes(i)?t.selected.filter(n=>n!==i):[...t.selected,i].sort((a,b)=>a-b)};
+}
