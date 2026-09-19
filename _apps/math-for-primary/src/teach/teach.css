@@ -128,3 +128,23 @@
 @media(prefers-reduced-motion:reduce){.teach *, .teach *::before,.teach *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
 .learning-rewards{margin-top:24px;border-top:1px solid #dde4d7;padding-top:14px}.learning-rewards summary{font-size:14px;font-weight:800;color:var(--deep);cursor:pointer}
+
+/* Explaining is a quiet pause, with a comparison rather than an automatic score. */
+.reflection-prompts{padding-left:24px;line-height:1.75;font-size:17px}.reflection-prompts li+li{margin-top:10px}
+.reflection-invitation{color:#4d655b;line-height:1.65;font-size:15px}.reflection-draft{display:grid;gap:8px;font-size:14px;font-weight:800;color:var(--deep)}
+.reflection-draft textarea{box-sizing:border-box;width:100%;min-width:0;resize:vertical;border:1.5px solid #bccdbd;border-radius:12px;background:#fbfcf8;padding:14px;font:inherit;font-weight:500;line-height:1.6;color:var(--ink)}
+.reflection-draft textarea:focus{outline:3px solid #dce9da;outline-offset:2px}.evidence-note{font-size:13px;line-height:1.6;color:#566b60;margin:12px 0 20px}
+.reflection-compare{margin-top:24px;padding:20px;border:1px solid #cbdccc;background:#f2f7ee;border-radius:16px;line-height:1.7}.reflection-compare h3{margin-top:0;color:var(--deep)}.reflection-compare ol{padding-left:22px}.reflection-compare li+li{margin-top:10px}
+.reflection-options{display:flex;flex-wrap:wrap;gap:12px}.reflection-options button{white-space:normal;text-align:left;height:auto;line-height:1.4;padding-block:12px}.reflection-options [aria-pressed=true]{outline:3px solid #548268;outline-offset:2px}
+.check-summary{font-weight:800;font-size:18px;line-height:1.5;color:var(--deep)}.lesson-done .facet-results li{line-height:1.5}.adult-checklist{line-height:1.8;padding-left:24px}.adult-checklist li+li{margin-top:12px}
+@media(max-width:440px){.reflection-prompts{font-size:16px}.reflection-compare{padding:15px}.reflection-options .teach-btn{width:100%}.reflection-draft textarea{font-size:16px}}
+.bond-covered{background:repeating-linear-gradient(135deg,#f1f3f2,#f1f3f2 8px,#e6ebe8 8px,#e6ebe8 10px);border-style:dashed}.bond-covered .bond-dots{opacity:.25}.bond-covered strong{color:#6b7d73}.bond-covered small{color:#455d50;font-weight:900;letter-spacing:.6px}.bond-covered .dot{position:relative}.bond-covered .dot::after{content:'';position:absolute;left:0;right:0;top:45%;height:2px;background:#263f36;transform:rotate(-45deg)}
+/* Balance pans grow with their contents; fixed heights made counters overlap earlier models. */
+.balance-scene{height:auto;padding:36px 0 80px;margin:16px auto;box-sizing:border-box}
+.balance-scene .beam{position:relative;left:auto;right:auto;top:auto;width:90%;height:auto;margin:0 auto;background:none;border-bottom:8px solid #6b5a3a;border-radius:0;align-items:flex-end;gap:8px;transform-origin:center bottom}
+.balance-scene .pan{position:static;top:auto;box-sizing:border-box;flex:0 1 44%;min-width:0;margin-bottom:8px;align-items:flex-end;min-height:72px}
+.balance-scene .unit,.balance-scene .xbox{flex-shrink:0}.balance-scene .fulcrum{top:auto;bottom:10px}
+.guide-tools .guide-tool+.guide-tool{margin-top:28px}
+/* Every ratio row uses the same column width, even when one has many more units. */
+.ratio-row{display:grid;grid-template-columns:80px minmax(0,1fr);gap:8px 10px}.ratio-name{width:auto;min-width:0;overflow-wrap:anywhere}.ratio-units{display:grid;gap:3px;width:100%;min-width:0}.ratio-unit{width:auto;min-width:0;font-size:13px;height:40px}.ratio-amount{grid-column:2}.ratio-row>.stepper{grid-column:1/-1;justify-self:start;flex-wrap:wrap}
+@media(max-width:440px){.ratio-row{grid-template-columns:minmax(0,1fr)}.ratio-amount{grid-column:1}.ratio-unit{font-size:12px}.ratio-row+.ratio-row{margin-top:18px}}

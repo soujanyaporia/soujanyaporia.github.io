@@ -1,3 +1,4 @@
+import {improveTeachingQuality} from './depth/quality';
 import {deepenAuthored} from './depth/catalogue/authored';
 import {withLessonFlow} from './flow';
 import {CURRICULUM_SKILLS} from '../school/curriculum';
@@ -24,7 +25,7 @@ const VISUAL_HAND=HAND.map(lesson=>{
  // Keep authored activities and examples; replace the dense conceptual paragraph with pictures.
  return {...lesson,revision:'coached-2026-09-12',stages:lesson.stages.map(s=>s.kind==='explain'?{...s,example:guide.setup,method:guide.method,frames:annotateSteps(guide.frames),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)}))}:s)};
 });
-export const LESSONS:Lesson[]=[...VISUAL_HAND.map(deepenAuthored),...BUILT_LESSONS].map(withLessonFlow).sort((a,b)=>a.level-b.level);
+export const LESSONS:Lesson[]=[...VISUAL_HAND.map(deepenAuthored),...BUILT_LESSONS].map(improveTeachingQuality).map(withLessonFlow).sort((a,b)=>a.level-b.level);
 export const lessonById=(id:string)=>LESSONS.find(l=>l.id===id);
 export const lessonsFor=(level:number,track:Track)=>LESSONS.filter(l=>l.level===level&&(l.track==='both'||l.track===track));
 export function nextLessonAfter(lesson:Lesson){const same=LESSONS.filter(l=>l.level===lesson.level&&(l.track==='both'||lesson.track==='both'||l.track===lesson.track));return same[same.indexOf(lesson)+1]??null;}

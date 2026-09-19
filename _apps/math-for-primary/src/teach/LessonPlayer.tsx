@@ -14,7 +14,7 @@ import { ToolView } from './tools/Tools';
 import {questionModel} from './tools/questionModel';
 import { feedbackFor,isCorrect } from './gen';
 import { FACET_LABEL,WORLDS,type Facet,type Item,type Lesson,type Stage,type Tool } from './model';
-import { answerEventId,completeEventId,masteryStars,nodeId,questionKey,readAttempts,reviewDue,reviewNodeId,reviewStages,writeAttempt,type ItemRecord,type LessonAttempt,type LessonMode } from './progress';
+import { freshItemWork,mergeItemWork,type ItemWork,answerEventId,completeEventId,masteryStars,nodeId,questionKey,readAttempts,reviewDue,reviewNodeId,reviewStages,writeAttempt,type ItemRecord,type LessonAttempt,type LessonMode } from './progress';
 import { learningRewards } from './rewards';
 import './teach.css';
 const kv=browserStorage();
@@ -38,6 +38,7 @@ function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
  const {progress,emit,scope,syncStatus}=useProgress();
  const stages=useMemo<Stage[]>(()=>mode==='review'?reviewStages(lesson):mode==='challenge'?lesson.stages.filter(s=>s.kind==='mastery'):lesson.stages,[lesson,mode]);
  const [attempt,setAttempt]=useState<LessonAttempt>(()=>{const saved=readAttempts(kv,scope)[lesson.id];return saved&&saved.revision===lesson.revision&&saved.completedAt===null&&saved.mode===mode&&saved.stage<stages.length?saved:newAttempt(lesson,mode);});
+ const [updatedContent]=useState(()=>{const saved=readAttempts(kv,scope)[lesson.id];return !!saved&&saved.revision!==lesson.revision&&saved.completedAt===null;});
  const ref=useRef(attempt),before=useRef(learningRewards(progress));
  const [banner,setBanner]=useState(()=>attempt.stage>0||Object.keys(attempt.items).length>0),[toast,setToast]=useState<string|null>(null),[leaving,setLeaving]=useState(false);
  useEffect(()=>{if(!toast)return;const t=window.setTimeout(()=>setToast(null),2800);return()=>clearTimeout(t);},[toast]);
@@ -57,25 +58,26 @@ function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
  }
  const index=attempt.stage,stage=stages[index],items=useMemo(()=>stage?stageItems(stage,attempt.seed,index):[],[stage,attempt.seed,index]);
  if(attempt.completedAt!==null||!stage)return <Completion lesson={lesson} mode={mode} attempt={attempt} stages={stages} gained={before.current} syncStatus={syncStatus} onAgain={()=>{before.current=learningRewards(progress);patch(()=>newAttempt(lesson,mode));setBanner(false);}}/>;
- const complete_=ITEM_STAGES.includes(stage.kind)?items.every(it=>attempt.items[`${index}:${it.key}`]):(['explore','notice','worked','connect'].includes(stage.kind)||stage.kind==='explain'&&!!stage.frames)?!!attempt.done[index]:true;
+ const complete_=ITEM_STAGES.includes(stage.kind)?items.every(it=>attempt.items[`${index}:${it.key}`]):(['explore','notice','worked','connect','reflect'].includes(stage.kind)||stage.kind==='explain'&&!!stage.frames)?!!attempt.done[index]:true;
  const go=(to:number)=>{setBanner(false);if(to>=stages.length){complete();return;}patch(a=>({...a,stage:Math.max(0,to)}));window.scrollTo({top:0});};
  const assessed=stage.kind==='mastery',flow=stageFlow(stage,index,lesson);
  return <main className={`teach grade-${lesson.level}`}>
   <header className="teach-head"><button className="teach-close" onClick={()=>setLeaving(true)} aria-label="Leave lesson">×</button><div><p className="teach-eyebrow">{mode==='review'?'Review':mode==='challenge'?'Challenge':'Learn'} · P{lesson.level} · {WORLDS[lesson.world].title}</p><h1>{lesson.title}</h1></div><span className="teach-count"><small>STEP</small>{index+1} / {stages.length}</span></header>
   <div className="stage-track" role="progressbar" aria-label="Lesson progress" aria-valuemin={0} aria-valuemax={stages.length} aria-valuenow={index}>{stages.map((s,i)=><span key={i} title={s.title} className={i<index?'done':i===index?'now':''}/>)}</div>
   <ol className="lesson-journey" aria-label="Your learning journey">{(['Warm up','Understand','Try it','Check & remember'] as const).filter(label=>stages.some(s=>lessonPhase(s)===label)).map(label=><li key={label} aria-current={lessonPhase(stage)===label?'step':undefined}>{label}</li>)}</ol>
+  {updatedContent&&index===0&&<p className="resume-banner">This lesson has new teaching steps. Start with the updated sequence; your earlier completed checks and rewards are kept.</p>}
   {banner&&<div className="resume-banner" role="status"><span><strong>Welcome back.</strong> You are on step {index+1} of {stages.length}: {stage.title}.</span><span className="resume-actions"><button onClick={()=>setBanner(false)}>Keep going</button><button onClick={()=>{patch(()=>newAttempt(lesson,mode));setBanner(false);}}>Start again</button></span></div>}
   <details className="lesson-purpose" key={`goal-${index}`}><summary>What will I learn?</summary><p>{lesson.mission?.goal??lesson.objectives[0]}</p>{lesson.mission&&<p className="lesson-route">{lesson.mission.connection}</p>}</details>
   {stage.kind!=='explain'&&stage.kind!=='hook'&&(!('text' in stage)||stage.text!==flow.transition||!!flow.carry)&&<aside className="lesson-bridge" aria-label="How this step connects"><p className="flow-label">{flow.label}</p><p>{flow.transition}</p>{flow.carry&&<details className="flow-recap"><summary>Remember the last example</summary><p>{flow.carry}</p></details>}</aside>}
-  <StageView key={`${attempt.attemptId}:${index}`} lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onRecord={(item,r)=>record(index,stage.kind,item,r)} onDone={()=>patch(a=>({...a,done:{...a.done,[index]:true}}))} onConfidence={c=>patch(a=>({...a,confidence:c}))} reward={setToast}/>
-  <nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need" aria-live="polite">{complete_?'':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':stage.kind==='explain'?'Follow the picture steps to continue.':'Choose an answer to continue.'}</span><button className="teach-btn" disabled={!complete_} onClick={()=>go(index+1)}>{nextStageLabel(stages[index+1])}</button></nav>
+  <StageView key={`${attempt.attemptId}:${index}`} lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onWork={(item,w)=>patch(a=>({...a,work:{...a.work,[`${index}:${item.key}`]:mergeItemWork(a.work?.[`${index}:${item.key}`],w)}}))} onRecord={(item,r)=>record(index,stage.kind,item,r)} onDone={()=>patch(a=>({...a,done:{...a.done,[index]:true}}))} onConfidence={c=>patch(a=>({...a,confidence:c}))} reward={setToast}/>
+  <nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need" aria-live="polite">{complete_?'':stage.kind==='reflect'?'Try an explanation, then compare it.':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':stage.kind==='explain'?'Follow the picture steps to continue.':'Choose an answer to continue.'}</span><button className="teach-btn" disabled={!complete_} onClick={()=>go(index+1)}>{nextStageLabel(stages[index+1])}</button></nav>
   <p className="teach-foot">Made with the help of AI: check anything that looks wrong with a teacher or parent. <span role="status">{syncStatus}</span></p>
   {toast&&<div className="reward-toast" role="status">{toast}</div>}
   {leaving&&<div className="stop-backdrop" onClick={()=>setLeaving(false)}><div className="stop-panel" role="dialog" aria-modal="true" aria-label="Leave the lesson?" onClick={e=>e.stopPropagation()}><strong>Leave the lesson?</strong><p>Your place is saved on this device. You will come back to step {index+1}.</p><button autoFocus onClick={()=>setLeaving(false)}>Keep learning</button><a href="#/teach">Back to Learn</a></div></div>}
  </main>;
 }
 function Card({title,text,children,read=true}:{title:string;text?:string;children?:ReactNode;read?:boolean}){return <section className="stage-card"><div className="stage-title"><h2>{title}</h2>{read&&<SpeakButton text={`${title}. ${text??''}`}/>}</div>{text&&<p className="stage-text">{text}</p>}{children}</section>;}
-function StageView({lesson,stage,index,items,attempt,onRecord,onDone,onConfidence,reward}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onDone:()=>void;onConfidence:(c:number)=>void;reward:(t:string)=>void}){
+function StageView({lesson,stage,index,items,attempt,onRecord,onWork,onDone,onConfidence,reward}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onWork:(item:Item,w:ItemWork)=>void;onDone:()=>void;onConfidence:(c:number)=>void;reward:(t:string)=>void}){
  const done=!!attempt.done[index];
  switch(stage.kind){
   case 'hook':return <Card title={stage.title} text={stage.text}>{stage.tool&&<figure className="teaching-figure"><ToolView tool={stage.tool}/>{(stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool))&&<figcaption>{stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool)}</figcaption>}</figure>}<p className="teacher-reassure">{stage.next??'On the next screen, we will stay with this picture and see how the idea works. You do not need to answer yet.'}</p></Card>;
@@ -84,9 +86,28 @@ function StageView({lesson,stage,index,items,attempt,onRecord,onDone,onConfidenc
   case 'explore':return <Explore stage={stage} done={done} onDone={onDone} reward={reward}/>;
   case 'notice':return <Notice stage={stage} done={done} onDone={onDone} reward={reward}/>;
   case 'connect':return <Connect stage={stage} done={done} onDone={onDone}/>;
+  case 'reflect':return <Reflect stage={stage} done={done} onDone={onDone}/>;
   case 'worked':return <Worked stage={stage} done={done} onDone={onDone}/>;
-  default:return <ItemsStage lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onRecord={onRecord} onConfidence={onConfidence}/>;
+  default:return <ItemsStage lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onRecord={onRecord} onWork={onWork} onConfidence={onConfidence}/>;
  }
+}
+function Reflect({stage,done,onDone}:{stage:Extract<Stage,{kind:'reflect'}>;done:boolean;onDone:()=>void}){
+ const [compared,setCompared]=useState(done),[draft,setDraft]=useState(''),[choice,setChoice]=useState('');
+ return <Card title={stage.title} text={stage.text}>
+  {stage.tool&&<ToolView tool={questionModel(stage.tool)}/>}
+  <SpeakButton text={stage.prompts.join('. ')}/>
+  <ol className="reflection-prompts">{stage.prompts.map(p=><li key={p}>{p}</li>)}</ol>
+  <p className="reflection-invitation">Say it aloud, point to the picture, or draw on paper. You can also write below.</p>
+  <label className="reflection-draft">My explanation (optional)<textarea value={draft} onChange={e=>setDraft(e.target.value)} rows={3} maxLength={1200} placeholder="I think… because…"/></label>
+  <p className="evidence-note">Your words stay on this screen. This is a chance to explain, not an automatically marked answer.</p>
+  {!compared?<button className="teach-btn" onClick={()=>setCompared(true)}>I’ve tried explaining — compare ideas</button>:<div className="reflection-compare">
+   <div className="stage-title"><h3>One way to explain it</h3><SpeakButton text={[...stage.explanation,stage.transfer].join('. ')}/></div><ol>{stage.explanation.map((p,i)=><li key={i}>{p}</li>)}</ol>
+   <p><strong>Before you move on:</strong> {stage.transfer}</p>
+   <p>Did your explanation connect the picture, the calculation and the reason?</p>
+   <div className="reflection-options" role="group" aria-label="How did explaining feel?">{['I can explain the connection','I need to practise explaining'].map(c=><button className="teach-btn soft" aria-pressed={choice===c} key={c} onClick={()=>{setChoice(c);onDone();}}>{c}</button>)}</div>
+   {choice&&<p role="status" className="stage-feedback">{choice==='I can explain the connection'?'Now try a different example and see whether your explanation still works.':'That is useful to notice. Go back to the worked example, or use a clue in the next question. A teacher or parent can listen to your explanation.'}</p>}
+  </div>}
+ </Card>;
 }
 function Explain({stage,done,onDone}:{stage:Extract<Stage,{kind:'explain'}>;done:boolean;onDone:()=>void}){
  const [why,setWhy]=useState(false);
@@ -125,13 +146,13 @@ function VisualExplanation({stage,done,onDone}:{stage:Extract<Stage,{kind:'expla
 }
 function Explore({stage,done,onDone,reward}:{stage:Extract<Stage,{kind:'explore'}>;done:boolean;onDone:()=>void;reward:(t:string)=>void}){
  const [tool,setTool]=useState<Tool>(stage.tool),[message,setMessage]=useState<string|null>(null),[tries,setTries]=useState(0);
- const check=()=>{if(stage.goal(tool)){setMessage(stage.success);if(!done){onDone();reward('+5 XP · You built it');}}else{setTries(n=>n+1);setMessage(`Not yet. ${stage.goalHint}`);}};
+ const check=()=>{if(stage.goal(tool)){setMessage(stage.success);if(!done){onDone();reward('You built the target model');}}else{setTries(n=>n+1);setMessage(`Not yet. ${stage.goalHint}`);}};
  const restart=()=>{setTool(stage.tool);setMessage(null);};
  return <Card title={stage.title} text={stage.text}><ToolView tool={tool} onChange={t=>{setTool(t);setMessage(null);}}/>{done&&!message&&<p className="tool-tip">You completed this activity earlier. You can explore again or continue.</p>}<div className="stage-actions"><button className="teach-btn" onClick={check}>Check</button><button className="teach-btn soft" onClick={restart}>Start again</button>{!done&&tries>=2&&<button className="teach-btn soft" onClick={()=>{const target=goalState(stage.tool,stage.goal);if(target){setTool(target);setMessage(stage.success);onDone();}}}>Show me how</button>}</div>{message&&<p className={`stage-feedback${stage.goal(tool)?' good':''}`} role="status">{message}</p>}</Card>;
 }
 function Notice({stage,done,onDone,reward}:{stage:Extract<Stage,{kind:'notice'}>;done:boolean;onDone:()=>void;reward:(t:string)=>void}){
  const [picked,setPicked]=useState<number|null>(done?stage.options.findIndex(o=>o.correct):null);
- return <Card title={stage.title} text={stage.text}>{stage.tool&&<ToolView tool={stage.tool}/>}<div className="notice-options" role="group" aria-label="Choose one">{stage.options.map((o,i)=><button key={i} className={picked===i?(o.correct?'right':'wrong'):''} aria-pressed={picked===i} onClick={()=>{setPicked(i);if(o.correct&&!done){onDone();reward('+5 XP · Great noticing');}}}>{o.text}</button>)}</div>{picked!==null&&<p className={`stage-feedback${stage.options[picked].correct?' good':''}`} role="status">{stage.options[picked].reply}</p>}</Card>;
+ return <Card title={stage.title} text={stage.text}>{stage.tool&&<ToolView tool={stage.tool}/>}<div className="notice-options" role="group" aria-label="Choose one">{stage.options.map((o,i)=><button key={i} className={picked===i?(o.correct?'right':'wrong'):''} aria-pressed={picked===i} onClick={()=>{setPicked(i);if(o.correct&&!done){onDone();reward('That explanation fits the picture');}}}>{o.text}</button>)}</div>{picked!==null&&<p className={`stage-feedback${stage.options[picked].correct?' good':''}`} role="status">{stage.options[picked].reply}</p>}</Card>;
 }
 function Connect({stage,done,onDone}:{stage:Extract<Stage,{kind:'connect'}>;done:boolean;onDone:()=>void}){
  const [shown,setShown]=useState(done?stage.rows.length:1);
@@ -161,19 +182,28 @@ export function Worked({stage,done,onDone}:{stage:Extract<Stage,{kind:'worked'}>
   <div className="visual-tutor-nav"><button className="teach-btn soft" disabled={shown===1} onClick={()=>setShown(n=>n-1)}>← Previous step</button>{shown<stage.steps.length&&<button className="teach-btn" disabled={waiting} onClick={()=>setShown(n=>n+1)}>Next step →</button>}</div>
  </Card>;
 }
-function ItemsStage({lesson,stage,index,items,attempt,onRecord,onConfidence}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onConfidence:(c:number)=>void}){
+function ItemsStage({lesson,stage,index,items,attempt,onRecord,onWork,onConfidence}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onWork:(item:Item,w:ItemWork)=>void;onConfidence:(c:number)=>void}){
  const open=items.findIndex(it=>!attempt.items[`${index}:${it.key}`]),[view,setView]=useState(open<0?items.length-1:open);
+ const questionStart=useRevealScroll<HTMLDivElement>(view);
  const item=items[Math.min(view,items.length-1)],guided=stage.kind==='readiness'||stage.kind==='reason'||(stage.kind==='practice'&&stage.mode==='guided')||stage.kind==='apply';
  const title='title' in stage?stage.title:'',text='text' in stage?stage.text:undefined,all=open<0;
  if(stage.kind==='mastery'&&attempt.confidence===null&&!Object.keys(attempt.items).some(k=>k.startsWith(`${index}:`)))return <Card title={title} text={text}><p className="stage-text"><strong>Before you start: how sure do you feel about this idea?</strong></p><div className="notice-options confidence" role="group" aria-label="How sure do you feel?">{['Not sure yet','Getting there','Very sure'].map((c,i)=><button key={c} onClick={()=>onConfidence(i)}>{c}</button>)}</div></Card>;
- return <Card title={title} text={text}><div className="item-dots" role="group" aria-label="Questions in this step">{items.map((it,i)=>{const r=attempt.items[`${index}:${it.key}`];return <button key={it.key} aria-label={`Question ${i+1}${r?', answered':''}`} aria-current={i===view?'step':undefined} className={`${i===view?'now ':''}${r?(r.firstTry?'clean':r.correct?'ok':'shown'):''}`} onClick={()=>setView(i)}>{i+1}</button>;})}</div><p className="item-count">Question {Math.min(view,items.length-1)+1} of {items.length}{view>0?' · A new example':''}</p>{questionPurpose(item,stage)&&<p className="question-purpose">{questionPurpose(item,stage)}</p>}
-  <ItemCard key={`${index}:${item.key}`} item={item} guided={guided} level={lesson.level} record={attempt.items[`${index}:${item.key}`]} onDone={r=>onRecord(item,r)} onNext={view<items.length-1?()=>setView(v=>v+1):undefined}/>
+ return <Card title={title} text={text}><div className="item-dots" role="group" aria-label="Questions in this step">{items.map((it,i)=>{const r=attempt.items[`${index}:${it.key}`];return <button key={it.key} aria-label={`Question ${i+1}${r?', answered':''}`} aria-current={i===view?'step':undefined} className={`${i===view?'now ':''}${r?(r.firstTry?'clean':r.correct?'ok':'shown'):''}`} onClick={()=>setView(i)}>{i+1}</button>;})}</div><p className="item-count">Question {Math.min(view,items.length-1)+1} of {items.length}{view>0?' · Read what changes':''}</p>{questionPurpose(item,stage)&&<p className="question-purpose">{questionPurpose(item,stage)}</p>}
+  <div ref={questionStart}><ItemCard key={`${index}:${item.key}`} item={item} guided={guided} level={lesson.level} record={attempt.items[`${index}:${item.key}`]} savedWork={attempt.work?.[`${index}:${item.key}`]} onWork={w=>onWork(item,w)} onDone={r=>onRecord(item,r)} onNext={view<items.length-1?()=>setView(v=>v+1):undefined}/></div>
   {stage.kind==='readiness'&&all&&attempt.readinessMissed&&<div className="booster"><h3>Quick booster</h3>{stage.booster.map((b,i)=><div key={i} className="booster-card"><p>{b.text}</p>{b.math&&<p className="stage-math">{b.math}</p>}{b.tool&&<ToolView tool={b.tool}/>}</div>)}</div>}
   {stage.kind==='readiness'&&all&&!attempt.readinessMissed&&<p className="stage-feedback good">You’re ready for the next step.</p>}</Card>;
 }
 /** One question with scaffolds. Help is always available; using it simply means the answer is not counted as first try. */
-export function ItemCard({item,guided,level,record,onDone,onNext,practiceOnly=false,nextLabel='Next question →'}:{item:Item;guided:boolean;level:number;record?:ItemRecord;onDone:(r:ItemRecord)=>void;onNext?:()=>void;practiceOnly?:boolean;nextLabel?:string}){
- const [value,setValue]=useState(''),[tries,setTries]=useState(0),[hints,setHints]=useState(0),[teach,setTeach]=useState(0),[other,setOther]=useState<number|null>(null),[simple,setSimple]=useState(false),[usedRecovery,setUsedRecovery]=useState(false),[showTool,setShowTool]=useState(guided||item.facet==='visual'||!!item.requiresModel),[wrong,setWrong]=useState<string|null>(null),[finished,setFinished]=useState<ItemRecord|null>(record??null);
+export function ItemCard({item,guided,level,record,savedWork,onWork,onDone,onNext,practiceOnly=false,nextLabel='Next question →'}:{item:Item;guided:boolean;level:number;record?:ItemRecord;savedWork?:ItemWork;onWork?:(w:ItemWork)=>void;onDone:(r:ItemRecord)=>void;onNext?:()=>void;practiceOnly?:boolean;nextLabel?:string}){
+ const [work,setWork]=useState<ItemWork>(()=>savedWork??freshItemWork(guided||item.facet==='visual'||!!item.requiresModel));
+ const workRef=useRef(work),[simple,setSimple]=useState(false),[finished,setFinished]=useState<ItemRecord|null>(record??null);
+ const {value,tries,hints,teach,other,usedRecovery,showTool,wrong}=work;
+ // Persist synchronously with the action, before another question or page can unmount this card.
+ const update=<K extends keyof ItemWork,>(key:K,v:ItemWork[K]|((old:ItemWork[K])=>ItemWork[K]))=>{
+  const next=mergeItemWork(workRef.current,{...workRef.current,[key]:typeof v==='function'?v(workRef.current[key]):v});
+  workRef.current=next;setWork(next);onWork?.(next);
+ };
+ const setValue=(v:string|((n:string)=>string))=>update('value',v),setTries=(n:number)=>update('tries',n),setHints=(v:number|((n:number)=>number))=>update('hints',v),setTeach=(v:number|((n:number)=>number))=>update('teach',v),setOther=(v:number|null|((n:number|null)=>number|null))=>update('other',v),setUsedRecovery=(v:boolean)=>update('usedRecovery',v),setShowTool=(v:boolean)=>update('showTool',v),setWrong=(v:string|null)=>update('wrong',v);
  const format=answerFormat(item.answer);
  const input=useRef<HTMLInputElement>(null),nextRef=useRef<HTMLButtonElement>(null),helped=usedRecovery||hints>0||teach>0||other!==null||simple||(showTool&&!guided&&item.facet!=='visual'&&!item.requiresModel);
  useEffect(()=>{if(finished)nextRef.current?.focus();},[finished]);
@@ -204,11 +234,11 @@ function Completion({lesson,mode,attempt,stages,gained,syncStatus,onAgain}:{less
  const {progress}=useProgress(),after=learningRewards(progress),stars=attempt.stars??1,next=nextLessonAfter(lesson),activity=activityById(lesson.activityId),due=reviewDue(progress,lesson);
  const facets:{facet:Facet;correct:boolean;firstTry:boolean}[]=[];stages.forEach((s,si)=>{if(s.kind==='mastery')for(const it of stageItems(s,attempt.seed,si)){const r=attempt.items[`${si}:${it.key}`];facets.push({facet:it.facet??'direct',correct:!!r?.correct,firstTry:!!r?.firstTry});}});
  const mastered=stars===3&&mode!=='review';
- return <main className={`teach grade-${lesson.level} lesson-done`}><div className="done-stars" role="img" aria-label={`${stars} of 3 stars`}>{'★'.repeat(stars)}{'☆'.repeat(3-stars)}</div><p className="teach-eyebrow">{mode==='review'?'Review complete':mastered?'Strong finish':'Lesson complete'}</p><h1>{lesson.title}</h1>
-  {mastered?<section className="can-do"><h2>You showed that you can:</h2><ul>{lesson.canDo.map(c=><li key={c}>✓ {c}</li>)}</ul></section>:<p className="stage-text">{stars===2?'Nearly there. Look at the ideas below that need another go.':'Good effort. This idea needs more time; try the lesson again or practise with pictures.'}</p>}
-  {facets.length>0&&<ul className="facet-results" aria-label="Mastery check">{facets.map((f,i)=><li key={i} className={f.correct?(f.firstTry?'clean':'ok'):'again'}>{f.correct?'✓':'○'} {FACET_LABEL[f.facet]}{f.correct&&!f.firstTry?' (with help)':''}</li>)}</ul>}
+ return <main className={`teach grade-${lesson.level} lesson-done`}><div className="done-stars" role="img" aria-label={`${stars} of 3 stars`}>{'★'.repeat(stars)}{'☆'.repeat(3-stars)}</div><p className="teach-eyebrow">{mode==='review'?'Review complete':mode==='challenge'?'Check complete':mastered?'Strong finish':'Lesson complete'}</p><h1>{lesson.title}</h1>
+  {mastered?<section className="can-do"><h2>Ideas you practised:</h2><ul>{lesson.canDo.map(c=><li key={c}>✓ {c}</li>)}</ul></section>:<p className="stage-text">{stars===2?'You finished the check. Revisit the parts that needed help or another try.':'Good effort. This idea needs more time; try the lesson again or practise with pictures.'}</p>}
+  {facets.length>0&&<><p className="check-summary">{facets.filter(f=>f.correct&&f.firstTry).length} of {facets.length} solved on the first try without help.</p><ul className="facet-results" aria-label="Learning check">{facets.map((f,i)=><li key={i} className={f.correct?(f.firstTry?'clean':'ok'):'again'}>{f.correct?'✓':'○'} {FACET_LABEL[f.facet]}{f.correct?(f.firstTry?' · independently':' · after another try or help'):' · answer shown'}</li>)}</ul><p className="evidence-note">This is today’s check. Try a fresh question on another day to see what you remember.</p></>}
   <p className="rewards-gained" role="status">+{Math.max(0,after.xp-gained.xp)} XP · +{Math.max(0,after.gems-gained.gems)} Math Gems · Level {after.level.level} {after.level.title}</p>
   {due.at&&<p className="stage-text">A quick review will be ready {new Date(due.at).toLocaleDateString('en-SG',{weekday:'long',day:'numeric',month:'short'})}. Coming back to an idea helps you remember it.</p>}
-  <div className="done-actions">{next&&<a className="teach-btn" href={`#/teach/${next.id}`}>Next lesson: {next.title} →</a>}{activity&&<a className="teach-btn soft" href={`#/activity/${activity.id}`}>Practise: {activity.title}</a>}<button className="teach-btn soft" onClick={onAgain}>{mode==='review'?'Review again':'Learn it again'}</button><a className="teach-btn soft" href="#/teach">Back to Learn</a></div>
+  <div className="done-actions">{stars<3&&mode!=='learn'&&<a className="teach-btn" href={`#/teach/${lesson.id}`}>Learn this idea step by step</a>}{stars===3&&next&&<a className="teach-btn" href={`#/teach/${next.id}`}>Next lesson: {next.title} →</a>}{activity&&<a className="teach-btn soft" href={`#/activity/${activity.id}`}>Practise: {activity.title}</a>}<button className={`teach-btn${stars===3||mode!=='learn'?' soft':''}`} onClick={onAgain}>{mode==='review'?'Try a fresh review':mode==='challenge'?'Try a fresh check':stars===3?'Learn it again':'Revisit this idea'}</button><a className="teach-btn soft" href="#/teach">Back to Learn</a></div>
   <p className="teach-foot" role="status">{syncStatus}</p></main>;
 }

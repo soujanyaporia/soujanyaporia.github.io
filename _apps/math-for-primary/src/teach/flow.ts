@@ -6,6 +6,7 @@ export function stageFlow(stage:Stage,index:number,lesson:Lesson):StageFlow{
  switch(stage.kind){
  case 'hook':return {phase:'watch',label:'Meet the situation',transition:'Read the situation and look at the model. We will explore what it means next.'};
  case 'explain':return {phase:'watch',label:'Watch a picture example',transition:'Here is a picture example for this idea. Read its starting situation below, then follow the changes one step at a time.'};
+ case 'reflect':return {phase:'try',label:'Put the idea into your own words',transition:'You have tried the steps. Now explain why they work before trying a different example.'};
  case 'worked':return {phase:'together',label:'Work through an example',transition:'Now read this question carefully. We will work through its own numbers and picture together.'};
  case 'explore':return {phase:'together',label:'Make the idea yourself',transition:'Now you control the model. Read the target below, make the change, then check it.'};
  case 'notice':return {phase:'together',label:'Explain what happened',transition:'Look at the question and model below. Choose the explanation that fits them.'};
@@ -26,7 +27,7 @@ export function withLessonFlow(lesson:Lesson):Lesson{
 export function nextStageLabel(stage?:Stage):string{
  if(!stage)return 'Finish lesson';
  if(stage.actionLabel)return `${stage.actionLabel} →`;
- const labels:Record<Stage['kind'],string>={hook:'Meet the example',explain:'See how it works',worked:'Work it out together',notice:'Explain the idea',explore:'Try the model',connect:'Connect the ideas',readiness:'Try a question',practice:stage.kind==='practice'&&stage.mode==='independent'?'Try on your own':'Practise with help',apply:'Try a story',reason:'Explain and check',mastery:'Check what I know',discovery:'See what I learned'};
+ const labels:Record<Stage['kind'],string>={reflect:'Teach it back',hook:'Meet the example',explain:'See how it works',worked:'Work it out together',notice:'Explain the idea',explore:'Try the model',connect:'Connect the ideas',readiness:'Try a question',practice:stage.kind==='practice'&&stage.mode==='independent'?'Try on your own':'Practise with help',apply:'Try a story',reason:'Explain and check',mastery:'Check what I know',discovery:'See what I learned'};
  return `${labels[stage.kind]} →`;
 }
 

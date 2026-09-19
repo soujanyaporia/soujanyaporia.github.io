@@ -10,8 +10,14 @@ import type { Facet,Lesson,Stage } from './model';
  * refresh or second tab cannot record the same answer or completion twice.
  */
 export interface ItemRecord {answer:string;correct:boolean;firstTry:boolean;hints:number;tries:number;at:number}
+/** Unfinished work is evidence too. Moving between questions must not clear mistakes or help. */
+export interface ItemWork {value:string;tries:number;hints:number;teach:number;other:number|null;usedRecovery:boolean;showTool:boolean;wrong:string|null}
+export function freshItemWork(showTool:boolean):ItemWork{return {value:'',tries:0,hints:0,teach:0,other:null,usedRecovery:false,showTool,wrong:null};}
+export function mergeItemWork(previous:ItemWork|undefined,next:ItemWork):ItemWork{
+ return {...next,tries:Math.max(previous?.tries??0,next.tries),hints:Math.max(previous?.hints??0,next.hints),teach:Math.max(previous?.teach??0,next.teach),usedRecovery:!!previous?.usedRecovery||next.usedRecovery};
+}
 export type LessonMode='learn'|'challenge'|'review';
-export interface LessonAttempt {revision?:string;v:1;lessonId:string;attemptId:string;seed:number;mode:LessonMode;stage:number;items:Record<string,ItemRecord>;done:Record<string,boolean>;readinessMissed:boolean;confidence:number|null;startedAt:number;updatedAt:number;completedAt:number|null;stars:number|null}
+export interface LessonAttempt {revision?:string;v:1;lessonId:string;attemptId:string;seed:number;mode:LessonMode;stage:number;items:Record<string,ItemRecord>;work?:Record<string,ItemWork>;done:Record<string,boolean>;readinessMissed:boolean;confidence:number|null;startedAt:number;updatedAt:number;completedAt:number|null;stars:number|null}
 const PREFIX='math-for-primary.lessons.v1:';
 export const nodeId=(lesson:Pick<Lesson,'id'>)=>`learn.${lesson.id}`;
 export const reviewNodeId=(lesson:Pick<Lesson,'id'>)=>`learn.${lesson.id}.review`;
@@ -23,11 +29,11 @@ export function writeAttempt(kv:KV|null,scope:string,attempt:LessonAttempt){try{
 export function clearAttempts(kv:KV|null,scope:string){try{kv?.removeItem(PREFIX+scope);}catch{/* ignore */}}
 /**
  * Mastery needs success across representations and question types. Three stars: every facet correct
- * and at most one needed help. Two stars: all but at most two facets correct. One star otherwise.
+ * on the first attempt without help. Two stars: at least 60% correct. One star otherwise.
  */
 export function masteryStars(results:{facet:Facet;correct:boolean;firstTry:boolean}[]){
- if(!results.length)return 1;const correct=results.filter(r=>r.correct).length,clean=results.filter(r=>r.firstTry).length;
- return correct===results.length&&clean>=results.length-1?3:correct>=results.length-2?2:1;
+ if(!results.length)return 1;const correct=results.filter(r=>r.correct).length,clean=results.filter(r=>r.correct&&r.firstTry).length;
+ return clean===results.length?3:correct/results.length>=.6?2:1;
 }
 export type LessonState='new'|'started'|'learned'|'mastered';
 export function lessonState(progress:ProgressState,lesson:Pick<Lesson,'id'>,attempt?:LessonAttempt):LessonState{
@@ -38,7 +44,9 @@ export function lessonState(progress:ProgressState,lesson:Pick<Lesson,'id'>,atte
 const INTERVALS=[1,4,10,30],DAY=86400000;
 export function reviewDue(progress:ProgressState,lesson:Pick<Lesson,'id'>,now=Date.now()){
  const learned=progress.nodes?.[nodeId(lesson)],review=progress.nodes?.[reviewNodeId(lesson)];if(!learned?.completions)return {due:false,at:null as number|null};
- const done=review?.completions??0,last=Math.max(learned.lastAt||0,review?.lastAt||0),at=last+INTERVALS[Math.min(done,INTERVALS.length-1)]*DAY;
+ const done=review?.completions??0,last=Math.max(learned.lastAt||0,review?.lastAt||0);
+ const latest=review&&(review.lastAt||0)>=(learned.lastAt||0)?review:learned;
+ const days=latest.lastStars<3?1:INTERVALS[Math.min(done,INTERVALS.length-1)],at=last+days*DAY;
  return {due:now>=at,at};
 }
 /** A short mixed review drawn from the lesson's own mastery facets, in a new order and with new numbers. */

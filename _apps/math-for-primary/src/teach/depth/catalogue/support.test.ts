@@ -1,3 +1,4 @@
+import {REFERENCE_IDS} from '../referenceLessons';
 import {describe,it,expect} from 'vitest';
 import {Rng} from '../../../engine/random';
 import {PLAN} from '../../build/plan';
@@ -134,8 +135,8 @@ describe('Grade-wide content round two',()=>{
  it('gives every lesson a hands-on activity that practises its own objective',()=>{
   for(const lesson of LESSONS)expect(lesson.stages.some(s=>s.kind==='explore'),`${lesson.id}: no hands-on activity`).toBe(true);
   for(const id of ACTIVITY_LESSONS)expect(PLAN.some(p=>p.id===id),`${id}: an activity for a lesson that does not exist`).toBe(true);
-  // A task is written for its lesson's numbers; it must appear there, not be shadowed by another explore.
-  for(const id of ACTIVITY_LESSONS){const p=PLAN.find(p=>p.id===id)!,task=lessonActivity(p)!,shownTask=lessonById(id)!.stages.find(s=>s.kind==='explore');expect(shownTask&&shownTask.title,id).toBe(task.kind==='explore'?task.title:'');}
+  // Older tasks remain active unless a deliberately authored reference sequence replaces them.
+  for(const id of ACTIVITY_LESSONS.filter(id=>!REFERENCE_IDS.includes(id))){const p=PLAN.find(p=>p.id===id)!,task=lessonActivity(p)!,shownTask=lessonById(id)!.stages.find(s=>s.kind==='explore');expect(shownTask&&shownTask.title,id).toBe(task.kind==='explore'?task.title:'');}
  },30000);
  it('names the next group of classic mistakes by value',()=>{
   const time24=plan('TIME',3,/24-hour/);

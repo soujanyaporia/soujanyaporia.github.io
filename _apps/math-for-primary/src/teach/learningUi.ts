@@ -18,7 +18,7 @@ export function lessonPreview(lesson:Lesson){
 export function lessonPhase(stage:Stage):'Warm up'|'Understand'|'Try it'|'Check & remember'{
  if(stage.kind==='readiness')return 'Warm up';
  if(['mastery','reason','discovery'].includes(stage.kind))return 'Check & remember';
- if(['practice','apply','worked'].includes(stage.kind))return 'Try it';
+ if(['practice','apply','worked','reflect'].includes(stage.kind))return 'Try it';
  return 'Understand';
 }
 /** Read only what is visible. An unrevealed equation must not be spoken over a pupil's turn. */

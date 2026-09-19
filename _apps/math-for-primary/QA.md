@@ -1,3 +1,26 @@
+# Connected teaching, explanation and reliable learning evidence — 19 September 2026
+
+This release preserves the 265-lesson catalogue and strengthens ten reference lessons across P1–P6. Seven receive coherent prediction–model–explanation–worked–variation sequences; the previous three depth lessons gain targeted explanation and transfer prompts. Every lesson now has a “Teach it back” pause tied to its actual worked question, before the learning check. Spoken/drawn/optional written explanations are compared with an example and are explicitly unmarked. See TEACHING-QUALITY.md for the reference list, design basis and human validation still needed.
+
+Question work now persists synchronously: typed answers, wrong tries, clues, teaching steps, alternate methods and recovery use survive question navigation and reloads. Three stars require all check answers correct on the first try without optional help; two require at least 60% correct. Weak checks/reviews are due again the next day. Completion distinguishes independent answers from corrected/assisted answers and shows a path back to the lesson after a weak challenge. Historical rewards are preserved. Removed two exploration/prediction XP messages that did not correspond to recorded XP.
+
+New mobile fixes: bond pictures visually mark the part taken away; large buttons move counters; balance pans grow with their counters instead of overlapping earlier content; ratio bars fit a phone while using the same unit width in every row; changing questions scrolls an off-screen prompt into view. Adult guides are available to guests, use readable model names, describe the actual facets in the lesson, and offer an observation rubric.
+
+Validation: all 431 tests in 27 files pass in a full run with one worker and unchanged test timeouts. Eight new checks cover catalogue-wide reflection placement, ten reference sequences across six grades, reachable actions, deliberate variations, fraction/decimal relationships, saved unfinished evidence, stricter scoring and next-day weak reviews. Earlier parallel execution exposed two outdated content assertions (corrected to respect the new authored sequences) plus host-load timeouts; the complete serial run passes. Production build/typecheck pass. The Learn bundle remains large (approximately 708 kB, 217 kB gzip); this pass does not solve that download-size limitation.
+
+Observed browser QA, using local guest progress:
+- P1 number bonds: readiness → hook → prediction → hands-on → all explanation frames → worked turns → all three guided questions → explanation/comparison/self-reflection. Numbers and part colours remain linked. The taken-away part is visibly annotated.
+- Entered an incorrect answer, opened a clue, switched away/back, then reloaded. The answer and clue remained. Correcting it displayed “You got there,” not “Right first time.”
+- The explanation model answer stays hidden until the pupil reports an explanation attempt. Both self-reflection choices enable continuation without awarding a mark. Optional typed explanation stays on that screen only.
+- P6 algebra: completed all five challenge facets, deliberately corrected one wrong answer after navigating away/back. Completion showed 4/5 first-try without help, two stars, a next-day review and a working “Learn this idea step by step” destination.
+- At 320 CSS pixels, the algebra guide initially revealed overlapping counters. After the fix, measured pan bounds lie inside the scene and the screenshot shows clear separation from the previous model.
+- Raised a ratio bar to 9 units against 2. At 320 pixels every unit measured the same width (25.55 px), with no page overflow. Checked the desktop layout at 1280 pixels too.
+- Reflection checked at 320 and 390 pixels; completion at 390. No horizontal document overflow in those inspected states. These are representative browser journeys, not an exhaustive device or classroom evaluation.
+
+Revisions now end in `2026-09-19-v5`. Incompatible unfinished sequences start at the new first step with an explanatory message. Previous completed checks and earned rewards remain.
+
+---
+
 # Lesson browsing, worked feedback and fraction arrangements — 19 September 2026
 
 This pass preserves the expanded 265-lesson catalogue and its hands-on activities.

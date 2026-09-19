@@ -1,3 +1,25 @@
+# Current handoff — 19 September 2026 teaching quality and honest checks
+
+Latest authority is this folder, not a Claude scratch workspace. Preserve the expanded catalogue and the earlier UI/activity work. This release keeps 265 lessons. `src/teach/depth/referenceLessons.ts` replaces seven sequences, which together with the previous three depth lessons make ten reference lessons across P1–P6. `depth/quality.ts` adds one grounded `reflect` stage to every lesson, before independent practice (or before the check where needed). Reflection is self-assessed, never auto-scored; optional typed explanations are not persisted or sent.
+
+`progress.ts` now keeps optional per-question `work` on `LessonAttempt`. ItemCard writes draft/evidence state synchronously; mistakes/help must never disappear when moving away or reloading. Three stars require every assessed item correct first try without optional help; two stars require 60% eventually correct. Weak latest checks/reviews return the due date to one day. Historical earned stars remain. Completion lists independent vs corrected/assisted evidence, and a weak challenge links into teaching.
+
+`Tool.covered` on a number bond indicates the part taken away; visual labels/captions and large movement controls support it. Algebra pans now use content-driven height; ratio rows use a shared grid column size to preserve the unit comparison at narrow widths. Keep these mathematical and responsive invariants. Adult guides are public, use TOOL_LABEL names and include a listening/transfer/next-day rubric. Lesson revisions end in v5, so incompatible unfinished sequences restart with a message; progress events are retained.
+
+All 431 frontend checks in 27 files passed with one worker and unchanged timeouts. See the first QA.md section for actual browser journeys, including wrong-answer persistence through reloads, reflection at 320 px, a five-question algebra check yielding two stars after one correction, and the repaired balance/ratio models. Build passes; the Learn bundle still warns at roughly 708 kB. TEACHING-QUALITY.md separates implemented work from the teacher/child evidence still needed. Do not claim these tests prove pedagogical effectiveness or that all 265 lessons now have the depth of the ten reference sequences.
+
+---
+
+# Latest continuation — 19 September 2026 UI and teaching support
+
+Preserve the 18–19 September content/activity expansion. This pass adds searchable grade/topic lesson browsing (`LearnIndex.tsx`, `learningUi.ts`), compact lesson orientation and numbered question navigation. Worked pauses retain wrong input, use targeted misconception feedback and hints, distinguish revealed answers from solved answers, and keep hidden equations out of read-aloud. `RevealStep.ask` now accepts `hint`, `wrong`, `exact`, and `unit`; generated worked examples receive support through `coachWorked` in `build/sequence.ts` only when the prompt/answer match the original example.
+
+`fraction-pieces` now supports individual toggles (shared pure transition in `tools/geometry.ts` and `moves.ts`). Single-row fraction investigations use it; comparison walls still use contiguous strips. The P2 exemplar accepts any three of four pieces; unfamiliar fraction exercises vary arrangements. Revisions: `catalogue-depth-2026-09-19-v4` and `depth-2026-09-19-v4`. Older incompatible unfinished attempts restart; earned progress remains.
+
+See the first section of QA.md for the 423-test validation and actual browser checks. Full-catalogue tests timed out under heavy host load but passed in isolated reruns with unchanged time limits. Do not weaken those tests. Qualified-teacher review, deeper open investigations and lower initial Learn download size remain useful next work.
+
+---
+
 # Current handoff — 19 September 2026 hands-on activities
 
 Every lesson has an explore stage. `sequence.ts` uses `investigation(p,guide) ?? topicExplore(p,spec.explore) ?? lessonActivity(p)`; `src/teach/depth/catalogue/activities.ts` holds the 139 objective-specific tasks, keyed by lesson id. Tool controls are modelled in `tools/moves.ts` and `geometryMoves` (number inputs and sliders set any value; the clock's hour, minute and am/pm controls). Line goals must need six presses or fewer, because the reachability search stops at 40,000 states. Lesson revision: `catalogue-depth-2026-09-19-v3` (add any new revision to the whitelist in `flow.test.ts`). The heavy whole-catalogue tests time out when the machine is overloaded; run a file on its own before assuming a real failure.
@@ -69,12 +91,3 @@ Sync source to the publishing worktree with explicit exclusions: `node_modules/`
 ## Publication evidence
 
 See the end of QA.md for the publishing commit, GitHub Actions run and public-site checks of this release. Inspect current remote status before the next push; do not treat a SHA recorded here as the required current revision.
-# Latest continuation — 19 September 2026 UI and teaching support
-
-Preserve the 18–19 September content/activity expansion. This pass adds searchable grade/topic lesson browsing (`LearnIndex.tsx`, `learningUi.ts`), compact lesson orientation and numbered question navigation. Worked pauses retain wrong input, use targeted misconception feedback and hints, distinguish revealed answers from solved answers, and keep hidden equations out of read-aloud. `RevealStep.ask` now accepts `hint`, `wrong`, `exact`, and `unit`; generated worked examples receive support through `coachWorked` in `build/sequence.ts` only when the prompt/answer match the original example.
-
-`fraction-pieces` now supports individual toggles (shared pure transition in `tools/geometry.ts` and `moves.ts`). Single-row fraction investigations use it; comparison walls still use contiguous strips. The P2 exemplar accepts any three of four pieces; unfamiliar fraction exercises vary arrangements. Revisions: `catalogue-depth-2026-09-19-v4` and `depth-2026-09-19-v4`. Older incompatible unfinished attempts restart; earned progress remains.
-
-See the first section of QA.md for the 423-test validation and actual browser checks. Full-catalogue tests timed out under heavy host load but passed in isolated reruns with unchanged time limits. Do not weaken those tests. Qualified-teacher review, deeper open investigations and lower initial Learn download size remain useful next work.
-
----

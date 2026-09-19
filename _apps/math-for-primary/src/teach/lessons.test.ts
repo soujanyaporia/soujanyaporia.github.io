@@ -128,7 +128,7 @@ describe('mastery and manipulative arithmetic',()=>{
   const all=(correct:boolean,firstTry:boolean)=>facets.map(f=>({facet:f,correct,firstTry}));
   expect(masteryStars(all(true,true))).toBe(3);
   expect(masteryStars(all(true,true).map((r,i)=>i<2?{...r,firstTry:false}:r))).toBe(2);
-  expect(masteryStars(all(true,true).map((r,i)=>i<1?{...r,firstTry:false}:r))).toBe(3);
+  expect(masteryStars(all(true,true).map((r,i)=>i<1?{...r,firstTry:false}:r))).toBe(2);
   expect(masteryStars(all(true,true).map((r,i)=>i<2?{...r,correct:false,firstTry:false}:r))).toBe(2);
   expect(masteryStars(all(true,true).map((r,i)=>i<3?{...r,correct:false,firstTry:false}:r))).toBe(1);
   expect(masteryStars([])).toBe(1);

@@ -26,7 +26,7 @@ export type Tool=(
  |{kind:'table';headers:string[];rows:string[][];caption:string}
 
  |{kind:'counters';count:number;frame?:10|20}
- |{kind:'bond';whole:number;parts:[number,number];hide?:'whole'|'a'|'b';locked?:boolean}
+ |{kind:'bond';whole:number;parts:[number,number];hide?:'whole'|'a'|'b';locked?:boolean;covered?:'a'|'b'}
  |{kind:'bar';parts:(number|null)[];whole:number|null;labels?:string[];compare?:{top:number|null;bottom:number|null;names:[string,string]}}
  |{kind:'line';min:number;max:number;start:number;jumps:number[];step?:number;mark?:number|null}
  |{kind:'groups';groups:number;size:number;limit?:number}
@@ -39,6 +39,9 @@ export type Tool=(
  |{kind:'ratio';names:string[];units:number[];unitValue:number|null;total?:number|null;colours?:string[]}
  |{kind:'balance';left:{x:number;n:number};right:{x:number;n:number};xValue:number;letter?:string}) & {hideValue?:boolean};
 export type ToolKind=Tool['kind'];
+export const TOOL_LABEL:Record<ToolKind,string>={
+ 'take-away':'Taking-away counters','triangle-pair':'Matching triangles','fraction-pieces':'Equal pieces',focus:'A different view',scene:'Picture model','foundation-visual':'Objects and counters',geometry:'Geometry workbench','net-model':'Foldable net',diagram:'Diagram',table:'Table',counters:'Ten frames',bond:'Number bond',bar:'Bar model',line:'Number line',groups:'Equal groups',array:'Array',share:'Sharing board',fractions:'Fraction strips',place:'Place-value chart',hundred:'Hundred grid',percent:'Percentage bar',ratio:'Ratio bars',balance:'Algebra balance'
+};
 export interface Item {
  /** Stable identity within a lesson attempt, e.g. `guided-3`. */
  key:string;
@@ -75,6 +78,7 @@ export type Stage=({flow?:StageFlow;actionLabel?:string}&(
  |{kind:'connect';title:string;text?:string;rows:{text:string;math?:string;tool?:Tool}[]}
  |{kind:'explain';title:string;text:string;math?:string;tool?:Tool;why?:Why;frames?:RevealStep[];example?:string;method?:{label:string;intro:string};alternatives?:{label:string;intro?:string;frames:RevealStep[]}[]}
  |{kind:'worked';title:string;problem:string;tool?:Tool;steps:RevealStep[]}
+ |{kind:'reflect';title:string;text:string;tool?:Tool;prompts:string[];explanation:string[];transfer:string}
  |{kind:'practice';mode:'guided'|'independent';title:string;text?:string;gen:Gen;count:number}
  |{kind:'apply';title:string;text?:string;gen:Gen;count:number}
  |{kind:'reason';title:string;text?:string;items:Item[]}
