@@ -1,3 +1,29 @@
+# Independent-learning support and app review — 19 September 2026
+
+This release publishes the independent-learning work that was on disk but not yet documented, together with a review of the latest app against the five-area rubric.
+
+**What the release adds.** Every question now has a “Help me with this” menu with up to three routes: *Show me how to start* (one step at a time), *Try a smaller question* (a building block, then back), and *Revisit the worked example* (a clearly labelled replay of the earlier solution, one step at a time). The question and the pupil's answer so far stay visible, and “Back to my question” returns focus to the answer box. After two wrong tries, a short “Let’s make this smaller” suggestion offers the next useful step. Every model has a “Read this picture” key explaining its words and symbols (for example, that 2x means two equal bags, not 2 + x), with read-aloud. In “Teach it back”, a pupil who needs more practice can walk through the same picture again. The ten reference lessons gain a “Choose a first step, then try it” bridge: a reasoning choice, then the same idea in a changed situation (a bus instead of counters, a circle instead of a strip, notebooks and delivery instead of bags), with a note on what the picture's objects stand for. Those ten lessons move to revision `…-v6`, so their unfinished drafts restart once.
+
+**Verification.** Typecheck and production build passed. All 443 tests in 28 files passed in a full run with one worker, including 10 new independent-learning checks. In the browser, at 390 CSS pixels with no horizontal overflow: the P6 algebra reference lesson was followed from warm-up through prediction, the balance activity (a one-sided change is rejected with a specific message), the four-picture explanation, “Teach it back” and the new bridge. A wrong bridge answer got targeted feedback, the worked-example replay returned to the question with the earlier answer still in the box, and a correct answer after help showed “You got there”, not “Right first time”. A generated P3 lesson on start and finish times was followed from warm-up to guided practice. The home page, the Learn catalogue (search, topic filters, previews) and the lesson layout at 1280 pixels were also checked.
+
+## Rating against the rubric
+
+| Area | Previous | Now | Main evidence |
+|---|---:|---:|---|
+| UI and mobile usability | 8/10 | 8.5/10 | No horizontal overflow at 390 px on the pages checked; four clear lesson phases; help keeps the question in view and returns focus; desktop journey sidebar; catalogue search and filters. Held back by long phone pages when help, picture key and solution are all open, and a 736 kB (225 kB gzip) Learn bundle for first loads on slow phones. |
+| Strongest teaching lessons | 8/10 | 9/10 | The P6 algebra reference lesson links a matched warm-up, a prediction with reasons, a balance where a one-sided change fails, the same example explained in four pictures, “Teach it back” with a model explanation only after an attempt, and a bridge to a changed context. Not yet trialled with pupils or reviewed by a teacher. |
+| Teaching quality across the whole catalogue | 7/10 | 7.5/10 | All 265 lessons now have a hands-on activity and “Teach it back”, and every question has picture keys and the new help. But 186 of 204 P3–P6 lessons open with one of ten generic P1-style warm-ups (the P3 durations lesson starts with “8 counters, 3 crossed out”), and 128 of 265 worked examples show only a table rather than the lesson's picture model. |
+| Exercises and feedback | 8/10 | 8/10 | Clear help routes, saved work, honest scoring and targeted feedback in the reference lessons (“Twelve belongs to both bags together…”). In the generated time lesson, all four classic errors tried got generic feedback: 13:95 and 15:45 for 14:50 − 55 min, and 14:155 and 15:35 for 14:35 + 120 min. |
+| Learning unfamiliar topics independently | 6.5/10 | 7/10 | Picture keys, read-aloud, a smaller question, a worked-example replay without losing your place, and next-day reviews make self-study more realistic. The first-step-then-transfer bridge is in only 10 of 265 lessons, and the warm-ups do not diagnose missing prerequisites or send a pupil to an earlier lesson. |
+
+Average: 8.0/10, up from 7.5.
+
+**What would raise each score next.** (1) Replace the generic warm-ups in the 186 upper-primary lessons with one grade-appropriate prerequisite question each, and link a missed warm-up to the earlier lesson that teaches it. (2) Give the 128 table-only worked examples the lesson's own picture (timeline, bar model, place-value chart). (3) Add the time errors above, and measure feedback coverage by plausible wrong answers rather than by question. (4) Extend the first-step bridge beyond the ten reference lessons. (5) Split the Learn bundle by grade. (6) Have a qualified teacher review a sample, and run a small pupil trial before claiming learning gains.
+
+Limits: this is one reviewer's structured judgement from representative browser journeys and catalogue counts, not an exhaustive device test or classroom evidence.
+
+---
+
 # Connected teaching, explanation and reliable learning evidence — 19 September 2026
 
 This release preserves the 265-lesson catalogue and strengthens ten reference lessons across P1–P6. Seven receive coherent prediction–model–explanation–worked–variation sequences; the previous three depth lessons gain targeted explanation and transfer prompts. Every lesson now has a “Teach it back” pause tied to its actual worked question, before the learning check. Spoken/drawn/optional written explanations are compared with an example and are explicitly unmarked. See TEACHING-QUALITY.md for the reference list, design basis and human validation still needed.

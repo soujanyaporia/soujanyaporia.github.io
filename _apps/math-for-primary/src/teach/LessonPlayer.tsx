@@ -1,8 +1,9 @@
-import {answerFormat,lessonPhase,workedFeedback,workedSpeech} from './learningUi';
+import {PictureKey,ExampleReplay,reflectionReplay} from './LearningSupport';
+import {answerFormat,lessonPhase,workedFeedback,workedSpeech,supportRecommendation} from './learningUi';
 import {nextStageLabel,questionPurpose,stageFlow} from './flow';
 import {modelCaption} from './build/teachingNotes';
 import {goalState} from './tools/moves';
-import { useEffect,useMemo,useRef,useState,type ReactNode } from 'react';
+import { useEffect,useId,useMemo,useRef,useState,type ReactNode } from 'react';
 import { useProgress } from '../state/ProgressContext';
 import { SpeakButton } from '../ui/SpeakButton';
 import { freshSeed } from '../engine/random';
@@ -61,17 +62,17 @@ function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
  const complete_=ITEM_STAGES.includes(stage.kind)?items.every(it=>attempt.items[`${index}:${it.key}`]):(['explore','notice','worked','connect','reflect'].includes(stage.kind)||stage.kind==='explain'&&!!stage.frames)?!!attempt.done[index]:true;
  const go=(to:number)=>{setBanner(false);if(to>=stages.length){complete();return;}patch(a=>({...a,stage:Math.max(0,to)}));window.scrollTo({top:0});};
  const assessed=stage.kind==='mastery',flow=stageFlow(stage,index,lesson);
- return <main className={`teach grade-${lesson.level}`}>
+ return <main className={`teach lesson-player grade-${lesson.level}`}>
   <header className="teach-head"><button className="teach-close" onClick={()=>setLeaving(true)} aria-label="Leave lesson">×</button><div><p className="teach-eyebrow">{mode==='review'?'Review':mode==='challenge'?'Challenge':'Learn'} · P{lesson.level} · {WORLDS[lesson.world].title}</p><h1>{lesson.title}</h1></div><span className="teach-count"><small>STEP</small>{index+1} / {stages.length}</span></header>
   <div className="stage-track" role="progressbar" aria-label="Lesson progress" aria-valuemin={0} aria-valuemax={stages.length} aria-valuenow={index}>{stages.map((s,i)=><span key={i} title={s.title} className={i<index?'done':i===index?'now':''}/>)}</div>
-  <ol className="lesson-journey" aria-label="Your learning journey">{(['Warm up','Understand','Try it','Check & remember'] as const).filter(label=>stages.some(s=>lessonPhase(s)===label)).map(label=><li key={label} aria-current={lessonPhase(stage)===label?'step':undefined}>{label}</li>)}</ol>
+  <div className="lesson-layout"><aside className="lesson-sidebar"><p className="support-eyebrow">Your lesson</p><ol className="lesson-journey" aria-label="Your learning journey">{(['Warm up','Understand','Try it','Check & remember'] as const).filter(label=>stages.some(s=>lessonPhase(s)===label)).map(label=><li key={label} aria-current={lessonPhase(stage)===label?'step':undefined}>{label}</li>)}</ol><details className="lesson-purpose" open={index===0||undefined}><summary>Today’s idea</summary><p>{lesson.mission?.goal??lesson.objectives[0]}</p></details><p className="sidebar-reassure">Go at your pace. Pictures, clues and the worked example are here when you need them.</p></aside><div className="lesson-content">
   {updatedContent&&index===0&&<p className="resume-banner">This lesson has new teaching steps. Start with the updated sequence; your earlier completed checks and rewards are kept.</p>}
   {banner&&<div className="resume-banner" role="status"><span><strong>Welcome back.</strong> You are on step {index+1} of {stages.length}: {stage.title}.</span><span className="resume-actions"><button onClick={()=>setBanner(false)}>Keep going</button><button onClick={()=>{patch(()=>newAttempt(lesson,mode));setBanner(false);}}>Start again</button></span></div>}
-  <details className="lesson-purpose" key={`goal-${index}`}><summary>What will I learn?</summary><p>{lesson.mission?.goal??lesson.objectives[0]}</p>{lesson.mission&&<p className="lesson-route">{lesson.mission.connection}</p>}</details>
+  
   {stage.kind!=='explain'&&stage.kind!=='hook'&&(!('text' in stage)||stage.text!==flow.transition||!!flow.carry)&&<aside className="lesson-bridge" aria-label="How this step connects"><p className="flow-label">{flow.label}</p><p>{flow.transition}</p>{flow.carry&&<details className="flow-recap"><summary>Remember the last example</summary><p>{flow.carry}</p></details>}</aside>}
   <StageView key={`${attempt.attemptId}:${index}`} lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onWork={(item,w)=>patch(a=>({...a,work:{...a.work,[`${index}:${item.key}`]:mergeItemWork(a.work?.[`${index}:${item.key}`],w)}}))} onRecord={(item,r)=>record(index,stage.kind,item,r)} onDone={()=>patch(a=>({...a,done:{...a.done,[index]:true}}))} onConfidence={c=>patch(a=>({...a,confidence:c}))} reward={setToast}/>
   <nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need" aria-live="polite">{complete_?'':stage.kind==='reflect'?'Try an explanation, then compare it.':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':stage.kind==='explain'?'Follow the picture steps to continue.':'Choose an answer to continue.'}</span><button className="teach-btn" disabled={!complete_} onClick={()=>go(index+1)}>{nextStageLabel(stages[index+1])}</button></nav>
-  <p className="teach-foot">Made with the help of AI: check anything that looks wrong with a teacher or parent. <span role="status">{syncStatus}</span></p>
+  </div></div><p className="teach-foot">Made with the help of AI: check anything that looks wrong with a teacher or parent. <span role="status">{syncStatus}</span></p>
   {toast&&<div className="reward-toast" role="status">{toast}</div>}
   {leaving&&<div className="stop-backdrop" onClick={()=>setLeaving(false)}><div className="stop-panel" role="dialog" aria-modal="true" aria-label="Leave the lesson?" onClick={e=>e.stopPropagation()}><strong>Leave the lesson?</strong><p>Your place is saved on this device. You will come back to step {index+1}.</p><button autoFocus onClick={()=>setLeaving(false)}>Keep learning</button><a href="#/teach">Back to Learn</a></div></div>}
  </main>;
@@ -80,7 +81,7 @@ function Card({title,text,children,read=true}:{title:string;text?:string;childre
 function StageView({lesson,stage,index,items,attempt,onRecord,onWork,onDone,onConfidence,reward}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onWork:(item:Item,w:ItemWork)=>void;onDone:()=>void;onConfidence:(c:number)=>void;reward:(t:string)=>void}){
  const done=!!attempt.done[index];
  switch(stage.kind){
-  case 'hook':return <Card title={stage.title} text={stage.text}>{stage.tool&&<figure className="teaching-figure"><ToolView tool={stage.tool}/>{(stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool))&&<figcaption>{stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool)}</figcaption>}</figure>}<p className="teacher-reassure">{stage.next??'On the next screen, we will stay with this picture and see how the idea works. You do not need to answer yet.'}</p></Card>;
+  case 'hook':return <Card title={stage.title} text={stage.text}>{stage.tool&&<figure className="teaching-figure"><ToolView tool={stage.tool}/>{(stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool))&&<figcaption>{stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool)}</figcaption>}</figure>}{stage.tool&&<PictureKey tool={stage.tool} initiallyOpen/>}<p className="teacher-reassure">{stage.next??'On the next screen, we will stay with this picture and see how the idea works. You do not need to answer yet.'}</p></Card>;
   case 'explain':return <Explain stage={stage} done={done} onDone={onDone}/>;
   case 'discovery':return <Card title={stage.title} text={stage.text}><div className="discovery-moment" aria-hidden="true">✦</div>{stage.math&&<p className="stage-math">{stage.math}</p>}{stage.tool&&<figure className="teaching-figure"><ToolView tool={stage.tool}/>{(stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool))&&<figcaption>{stage.caption===stage.text?modelCaption(stage.tool):stage.caption??modelCaption(stage.tool)}</figcaption>}</figure>}</Card>;
   case 'explore':return <Explore stage={stage} done={done} onDone={onDone} reward={reward}/>;
@@ -92,7 +93,7 @@ function StageView({lesson,stage,index,items,attempt,onRecord,onWork,onDone,onCo
  }
 }
 function Reflect({stage,done,onDone}:{stage:Extract<Stage,{kind:'reflect'}>;done:boolean;onDone:()=>void}){
- const [compared,setCompared]=useState(done),[draft,setDraft]=useState(''),[choice,setChoice]=useState('');
+ const [compared,setCompared]=useState(done),[draft,setDraft]=useState(''),[choice,setChoice]=useState(''),[replay,setReplay]=useState(false);
  return <Card title={stage.title} text={stage.text}>
   {stage.tool&&<ToolView tool={questionModel(stage.tool)}/>}
   <SpeakButton text={stage.prompts.join('. ')}/>
@@ -105,7 +106,9 @@ function Reflect({stage,done,onDone}:{stage:Extract<Stage,{kind:'reflect'}>;done
    <p><strong>Before you move on:</strong> {stage.transfer}</p>
    <p>Did your explanation connect the picture, the calculation and the reason?</p>
    <div className="reflection-options" role="group" aria-label="How did explaining feel?">{['I can explain the connection','I need to practise explaining'].map(c=><button className="teach-btn soft" aria-pressed={choice===c} key={c} onClick={()=>{setChoice(c);onDone();}}>{c}</button>)}</div>
-   {choice&&<p role="status" className="stage-feedback">{choice==='I can explain the connection'?'Now try a different example and see whether your explanation still works.':'That is useful to notice. Go back to the worked example, or use a clue in the next question. A teacher or parent can listen to your explanation.'}</p>}
+   {choice&&<p role="status" className="stage-feedback">{choice==='I can explain the connection'?'Now try a different example and see whether your explanation still works.':'Let’s revisit the example, one step at a time. Then try saying what each step does and why.'}</p>}
+   {choice==='I need to practise explaining'&&!replay&&<button className="teach-btn soft" onClick={()=>setReplay(true)}>Walk me through the example again</button>}
+   {replay&&<ExampleReplay example={reflectionReplay(stage)} label="Explain this picture" note="Stay with the same picture and numbers. Explain one connection at a time." returnLabel="Back to my explanation" onReturn={()=>setReplay(false)}/>}
   </div>}
  </Card>;
 }
@@ -136,6 +139,7 @@ function VisualExplanation({stage,done,onDone}:{stage:Extract<Stage,{kind:'expla
  {ways.length>1&&<div className="method-context"><h3>{ways[way].label}</h3>{ways[way].intro&&<p>{ways[way].intro}</p>}{way>0&&<button className="link-btn" onClick={()=>setWay(0)}>← Return to the first method</button>}</div>}
  <p className="picture-count">Step {at+1} of {frames.length}{at===0?' · Start here':last?' · Put it together':' · Keep following the same example'}</p>
  <figure ref={picture} className="visual-tutor-picture teaching-figure" key={`${way}-${at}`}>{f.tool&&<ToolView tool={f.tool}/>}{(f.caption??modelCaption(f.tool))&&<figcaption>{f.caption??modelCaption(f.tool)}</figcaption>}</figure>
+ {f.tool&&<PictureKey tool={f.tool}/>}
  <div className="visual-tutor-say" aria-live="polite"><p>{f.text}</p><SpeakButton text={f.text}/></div>
  {f.math&&<p className="visual-tutor-math">{f.math}</p>}
  {f.because&&<aside className="teacher-note"><strong>Why this works</strong><p>{f.because}</p><SpeakButton text={f.because}/></aside>}
@@ -170,6 +174,7 @@ export function Worked({stage,done,onDone}:{stage:Extract<Stage,{kind:'worked'}>
   <div className="stage-title"><p className="worked-problem">{stage.problem}</p><SpeakButton text={workedSpeech(stage.problem,step,waiting)}/></div>
   <p className="picture-count">Together · Step {shown} of {stage.steps.length}{waiting?' · Your turn':''}</p>
   {(step.tool??stage.tool)&&<figure ref={picture} className="teaching-figure"><ToolView tool={(step.tool??stage.tool)!}/>{(step.caption??modelCaption(step.tool??stage.tool))&&<figcaption>{step.caption??modelCaption(step.tool??stage.tool)}</figcaption>}</figure>}
+  {(step.tool??stage.tool)&&<PictureKey tool={(step.tool??stage.tool)!}/>}
   <div className="worked-current"><p>{step.text}</p>{step.because&&<p className="worked-because">{step.because}</p>}{step.math&&!waiting&&<p className="stage-math">{step.math}</p>}
    {ask&&(solved[i]?<p className="stage-feedback good" role="status">{revealed[i]?'Let’s use this answer:':'✓ Yes:'} {!revealed[i]&&answers[i]?.trim()&&answers[i].trim()!==ask.answer?`${answers[i].trim()} is the same value as ${ask.answer}`:ask.answer}{ask.unit?' '+ask.unit:''}. {revealed[i]?'Follow the next step to see how it fits.':'Now follow how it fits into the solution.'}</p>:<div className="worked-ask">
     <p><strong>{ask.prompt}</strong></p>
@@ -185,48 +190,85 @@ export function Worked({stage,done,onDone}:{stage:Extract<Stage,{kind:'worked'}>
 function ItemsStage({lesson,stage,index,items,attempt,onRecord,onWork,onConfidence}:{lesson:Lesson;stage:Stage;index:number;items:Item[];attempt:LessonAttempt;onRecord:(item:Item,r:ItemRecord)=>void;onWork:(item:Item,w:ItemWork)=>void;onConfidence:(c:number)=>void}){
  const open=items.findIndex(it=>!attempt.items[`${index}:${it.key}`]),[view,setView]=useState(open<0?items.length-1:open);
  const questionStart=useRevealScroll<HTMLDivElement>(view);
+ const example=stage.kind==='readiness'?undefined:lesson.stages.find((s):s is Extract<Stage,{kind:'worked'}>=>s.kind==='worked');
  const item=items[Math.min(view,items.length-1)],guided=stage.kind==='readiness'||stage.kind==='reason'||(stage.kind==='practice'&&stage.mode==='guided')||stage.kind==='apply';
  const title='title' in stage?stage.title:'',text='text' in stage?stage.text:undefined,all=open<0;
  if(stage.kind==='mastery'&&attempt.confidence===null&&!Object.keys(attempt.items).some(k=>k.startsWith(`${index}:`)))return <Card title={title} text={text}><p className="stage-text"><strong>Before you start: how sure do you feel about this idea?</strong></p><div className="notice-options confidence" role="group" aria-label="How sure do you feel?">{['Not sure yet','Getting there','Very sure'].map((c,i)=><button key={c} onClick={()=>onConfidence(i)}>{c}</button>)}</div></Card>;
- return <Card title={title} text={text}><div className="item-dots" role="group" aria-label="Questions in this step">{items.map((it,i)=>{const r=attempt.items[`${index}:${it.key}`];return <button key={it.key} aria-label={`Question ${i+1}${r?', answered':''}`} aria-current={i===view?'step':undefined} className={`${i===view?'now ':''}${r?(r.firstTry?'clean':r.correct?'ok':'shown'):''}`} onClick={()=>setView(i)}>{i+1}</button>;})}</div><p className="item-count">Question {Math.min(view,items.length-1)+1} of {items.length}{view>0?' · Read what changes':''}</p>{questionPurpose(item,stage)&&<p className="question-purpose">{questionPurpose(item,stage)}</p>}
-  <div ref={questionStart}><ItemCard key={`${index}:${item.key}`} item={item} guided={guided} level={lesson.level} record={attempt.items[`${index}:${item.key}`]} savedWork={attempt.work?.[`${index}:${item.key}`]} onWork={w=>onWork(item,w)} onDone={r=>onRecord(item,r)} onNext={view<items.length-1?()=>setView(v=>v+1):undefined}/></div>
-  {stage.kind==='readiness'&&all&&attempt.readinessMissed&&<div className="booster"><h3>Quick booster</h3>{stage.booster.map((b,i)=><div key={i} className="booster-card"><p>{b.text}</p>{b.math&&<p className="stage-math">{b.math}</p>}{b.tool&&<ToolView tool={b.tool}/>}</div>)}</div>}
+ return <Card title={title} text={text}><div className={`item-dots${items.length===1?' single-question':''}`} role="group" aria-label="Questions in this step">{items.map((it,i)=>{const r=attempt.items[`${index}:${it.key}`];return <button key={it.key} aria-label={`Question ${i+1}${r?', answered':''}`} aria-current={i===view?'step':undefined} className={`${i===view?'now ':''}${r?(r.firstTry?'clean':r.correct?'ok':'shown'):''}`} onClick={()=>setView(i)}>{i+1}</button>;})}</div><p className="item-count">{items.length===1?'One quick question':`Question ${Math.min(view,items.length-1)+1} of ${items.length}`}{view>0?' · Read what changes':''}</p>{questionPurpose(item,stage)&&<p className="question-purpose">{questionPurpose(item,stage)}</p>}
+  <div ref={questionStart}><ItemCard key={`${index}:${item.key}`} item={item} guided={guided} level={lesson.level} example={example} record={attempt.items[`${index}:${item.key}`]} savedWork={attempt.work?.[`${index}:${item.key}`]} onWork={w=>onWork(item,w)} onDone={r=>onRecord(item,r)} onNext={view<items.length-1?()=>setView(v=>v+1):undefined}/></div>
+  {stage.kind==='readiness'&&all&&attempt.readinessMissed&&<details className="booster"><summary>Take one more look at the building block</summary>{stage.booster[0]?.tool&&<ToolView tool={stage.booster[0].tool}/>}<ol>{stage.booster.map((b,i)=><li key={i}><p>{b.text}</p>{b.math&&<p className="stage-math">{b.math}</p>}</li>)}</ol></details>}
   {stage.kind==='readiness'&&all&&!attempt.readinessMissed&&<p className="stage-feedback good">You’re ready for the next step.</p>}</Card>;
 }
-/** One question with scaffolds. Help is always available; using it simply means the answer is not counted as first try. */
-export function ItemCard({item,guided,level,record,savedWork,onWork,onDone,onNext,practiceOnly=false,nextLabel='Next question →'}:{item:Item;guided:boolean;level:number;record?:ItemRecord;savedWork?:ItemWork;onWork?:(w:ItemWork)=>void;onDone:(r:ItemRecord)=>void;onNext?:()=>void;practiceOnly?:boolean;nextLabel?:string}){
+/** One question, with a clear route back from every kind of support. */
+export function ItemCard({item,guided,level,record,savedWork,onWork,onDone,onNext,practiceOnly=false,nextLabel='Next question →',example,returnContext}:{item:Item;guided:boolean;level:number;record?:ItemRecord;savedWork?:ItemWork;onWork?:(w:ItemWork)=>void;onDone:(r:ItemRecord)=>void;onNext?:()=>void;practiceOnly?:boolean;nextLabel?:string;example?:Extract<Stage,{kind:'worked'}>;returnContext?:string}){
  const [work,setWork]=useState<ItemWork>(()=>savedWork??freshItemWork(guided||item.facet==='visual'||!!item.requiresModel));
- const workRef=useRef(work),[simple,setSimple]=useState(false),[finished,setFinished]=useState<ItemRecord|null>(record??null);
+ const workRef=useRef(work),[support,setSupport]=useState<'menu'|'steps'|'example'|'smaller'|null>(null),[finished,setFinished]=useState<ItemRecord|null>(record??null);
  const {value,tries,hints,teach,other,usedRecovery,showTool,wrong}=work;
- // Persist synchronously with the action, before another question or page can unmount this card.
+ const helpId=useId(),answerId=useId(),startRef=useRef<HTMLDivElement>(null),helpRef=useRef<HTMLDivElement>(null);
  const update=<K extends keyof ItemWork,>(key:K,v:ItemWork[K]|((old:ItemWork[K])=>ItemWork[K]))=>{
   const next=mergeItemWork(workRef.current,{...workRef.current,[key]:typeof v==='function'?v(workRef.current[key]):v});
   workRef.current=next;setWork(next);onWork?.(next);
  };
- const setValue=(v:string|((n:string)=>string))=>update('value',v),setTries=(n:number)=>update('tries',n),setHints=(v:number|((n:number)=>number))=>update('hints',v),setTeach=(v:number|((n:number)=>number))=>update('teach',v),setOther=(v:number|null|((n:number|null)=>number|null))=>update('other',v),setUsedRecovery=(v:boolean)=>update('usedRecovery',v),setShowTool=(v:boolean)=>update('showTool',v),setWrong=(v:string|null)=>update('wrong',v);
- const format=answerFormat(item.answer);
- const input=useRef<HTMLInputElement>(null),nextRef=useRef<HTMLButtonElement>(null),helped=usedRecovery||hints>0||teach>0||other!==null||simple||(showTool&&!guided&&item.facet!=='visual'&&!item.requiresModel);
+ const setValue=(v:string|((n:string)=>string))=>update('value',v),setHints=(v:number|((n:number)=>number))=>update('hints',v),setTeach=(v:number|((n:number)=>number))=>update('teach',v),setOther=(v:number|null|((n:number|null)=>number|null))=>update('other',v),setShowTool=(v:boolean)=>update('showTool',v),setWrong=(v:string|null)=>update('wrong',v);
+ const format=answerFormat(item.answer),input=useRef<HTMLInputElement>(null),nextRef=useRef<HTMLButtonElement>(null);
+ const helped=usedRecovery||hints>0||teach>0||other!==null||(showTool&&!guided&&item.facet!=='visual'&&!item.requiresModel);
  useEffect(()=>{if(finished)nextRef.current?.focus();},[finished]);
- const finish=(r:ItemRecord)=>{setFinished(r);setWrong(null);if(!practiceOnly)onDone(r);};
- function check(v=value){if(finished||!v.trim())return;const n=tries+1;setTries(n);if(isCorrect(item,v))finish({answer:v,correct:true,firstTry:n===1&&!helped,hints:helped?Math.max(1,hints):0,tries:n,at:Date.now()});else setWrong(feedbackFor(item,v)??(n>=2?'Not quite. Open a clue, or press “Teach me” to go step by step.':'Not quite. Have another go.'));}
+ useEffect(()=>{if(support){helpRef.current?.focus({preventScroll:true});helpRef.current?.scrollIntoView({block:'start',behavior:'instant'});}},[support]);
+ const finish=(r:ItemRecord)=>{setFinished(r);setWrong(null);setSupport(null);if(!practiceOnly)onDone(r);};
+ function check(v=value){
+  if(finished||!v.trim())return;const n=tries+1;update('tries',n);
+  if(isCorrect(item,v))finish({answer:v,correct:true,firstTry:n===1&&!helped,hints:helped?Math.max(1,hints):0,tries:n,at:Date.now()});
+  else setWrong(feedbackFor(item,v)??(n>=2?'Let’s find the part that is tricky. Use the help below, then return to this question.':'Not quite yet. Look at what the question asks you to find. You can change your answer or ask for help.'));
+ }
  const reveal=()=>finish({answer:value,correct:false,firstTry:false,hints:Math.max(1,hints),tries:Math.max(1,tries),at:Date.now()});
+ const openSupport=(kind:typeof support)=>{
+  if(kind==='steps'){setTeach(Math.max(1,teach));setShowTool(true);}
+  if(kind==='example'||kind==='smaller')update('usedRecovery',true);
+  setSupport(kind);
+ };
+ const returnToQuestion=()=>{setSupport(null);requestAnimationFrame(()=>{startRef.current?.scrollIntoView({block:'start',behavior:'instant'});(input.current??startRef.current)?.focus({preventScroll:true});});};
  const done=!!finished,choice=(c:string)=>{setValue(c);check(c);};
- if(simple&&item.simpler&&!done)return <div className="recovery-question"><p className="stage-feedback">{item.simpler.key.startsWith('support-')?'Let’s practise one part of the idea. Then we will return to your original question.':'Let’s try an easier one like it first. Then we will return to your original question.'}</p><ItemCard item={item.simpler} guided level={level} onDone={()=>{}} practiceOnly onNext={()=>setSimple(false)} nextLabel="Return to your question →"/><button className="link-btn" onClick={()=>setSimple(false)}>Back to your original question</button></div>;
- return <div className={`item-card${done?' done':''}`}>
-  <div className="item-top">{item.facet&&<span className="item-facet">{FACET_LABEL[item.facet]}</span>}<SpeakButton text={`${item.prompt} ${item.display??''}`}/></div>
+ const recommendation=supportRecommendation(item,work,!!example);
+ return <div className={`item-card${done?' done':''}`} ref={startRef} tabIndex={-1}>
+  <div className="item-top">{item.facet&&<span className="item-facet">{FACET_LABEL[item.facet]}</span>}<SpeakButton text={`${item.prompt} ${item.display??''} ${(showTool||done)?item.modelNote??'':''}`}/></div>
   <h3 className="item-prompt">{item.prompt}</h3>{item.display&&<div className="item-display">{item.display}</div>}
-  {item.tool&&(showTool||done)&&<figure className="teaching-figure"><ToolView tool={done?item.tool:questionModel(item.tool)}/>{modelCaption(item.tool)&&<figcaption>{modelCaption(item.tool)}</figcaption>}</figure>}
-  {item.tool&&!showTool&&!done&&<button className="link-btn" onClick={()=>setShowTool(true)}>Show me a picture</button>}
+  {item.tool&&(showTool||done)&&<><figure className="teaching-figure"><ToolView tool={done?item.tool:questionModel(item.tool)}/>{(item.modelNote??modelCaption(item.tool))&&<figcaption>{item.modelNote??modelCaption(item.tool)}</figcaption>}</figure><PictureKey tool={item.tool} onOpen={()=>{if(!done)update('usedRecovery',true);}}/></>}
+  {item.tool&&!showTool&&!done&&<button type="button" className="link-btn" onClick={()=>setShowTool(true)}>Show me a picture</button>}
   {item.choices?<div className="item-choices" role="group" aria-label="Answer choices">{item.choices.map(c=>{const mine=(finished?.answer??value)===c;return <button key={c} disabled={done} aria-pressed={mine} className={mine?(done&&finished?.correct?'right':wrong?'wrong':'picked'):''} onClick={()=>choice(c)}>{c}</button>;})}</div>:
-   <form className="item-answer" onSubmit={e=>{e.preventDefault();check();}}><label>Your answer<span><input ref={input} value={finished?finished.answer:value} disabled={done} maxLength={40} onChange={e=>{setValue(e.target.value);setWrong(null);}} inputMode={format.inputMode} autoComplete="off" placeholder={format.placeholder}/>{item.unit&&<b>{item.unit}</b>}</span></label>
+   <form className="item-answer" onSubmit={e=>{e.preventDefault();check();}}><label>Your answer<span><input ref={input} value={finished?finished.answer:value} disabled={done} maxLength={40} aria-invalid={!!wrong} aria-describedby={wrong?answerId:undefined} onChange={e=>{setValue(e.target.value);setWrong(null);}} inputMode={format.inputMode} autoComplete="off" placeholder={format.placeholder}/>{item.unit&&<b>{item.unit}</b>}</span></label>
     {!done&&format.hint&&<p className="answer-format">{format.hint}</p>}
-    {level<=2&&!done&&<div className="teach-keypad">{['1','2','3','4','5','6','7','8','9','⌫','0',...(item.answer.includes('/')?['/']:[])].map(k=><button type="button" key={k} aria-label={k==='⌫'?'Delete':k} onClick={()=>{setValue(v=>k==='⌫'?v.slice(0,-1):(v+k).slice(0,6));setWrong(null);}}>{k}</button>)}</div>}
+    {level<=2&&!done&&<details className="number-pad"><summary>Number buttons</summary><div className="teach-keypad">{['1','2','3','4','5','6','7','8','9','⌫','0',...(item.answer.includes('/')?['/']:[])].map(k=><button type="button" key={k} aria-label={k==='⌫'?'Delete':k} onClick={()=>{setValue(v=>k==='⌫'?v.slice(0,-1):(v+k).slice(0,6));setWrong(null);}}>{k}</button>)}</div></details>}
     {!done&&<button className="teach-btn" disabled={!value.trim()}>Check my answer</button>}</form>}
-  <div aria-live="polite">{wrong&&<p className="stage-feedback">{wrong}</p>}{done&&<div className="item-solution"><p className={finished!.correct?'item-right':'item-shown'}>{finished!.correct?`✓ ${finished!.firstTry?'Right first time!':'You got there.'}`:`The answer is ${item.answer}${item.unit?' '+item.unit:''}.`}</p>{item.check&&<p className="item-check"><strong>Check it:</strong> {item.check}</p>}{(!finished!.correct||teach>0)&&<ol className="teach-steps">{item.steps.map((s,i)=><li key={i}>{s}</li>)}</ol>}</div>}</div>
-  {!done&&hints>0&&<ol className="hint-list">{item.hints.slice(0,hints).map((h,i)=><li key={i}>{h}</li>)}</ol>}
-  {!done&&teach>0&&<div className="teach-me"><h4>Let’s work through it</h4><ol className="teach-steps">{item.steps.slice(0,teach).map((s,i)=><li key={i}>{s}</li>)}</ol>{teach<item.steps.length?<button className="link-btn" onClick={()=>setTeach(t=>t+1)}>Next step</button>:<p className="stage-feedback">Now you finish it: type your answer above.</p>}</div>}
-  {!done&&other!==null&&item.another?.[other]&&<div className="another-way"><h4>Another way: {item.another[other].title}</h4><ol className="teach-steps">{item.another[other].steps.map((s,i)=><li key={i}>{s}</li>)}</ol>{item.another[other].tool&&<ToolView tool={item.another[other].tool!}/>}</div>}
-  {!done&&<div className="help-row">{hints<item.hints.length&&<button className="help-btn" onClick={()=>setHints(h=>h+1)}>{hints?'Another clue':'Give me a clue'}</button>}{teach===0&&<button className="help-btn" onClick={()=>{setTeach(1);setShowTool(true);}}>Teach me</button>}{item.another?.length?<button className="help-btn" onClick={()=>setOther(o=>o===null?0:(o+1)%item.another!.length)}>Show me another way</button>:null}{(item.simpler||item.tool)&&<button className="help-btn" onClick={()=>{setUsedRecovery(true);if(item.simpler)setSimple(true);setShowTool(true);if(!item.simpler&&item.another?.length&&other===null)setOther(0);}}>I still don’t get it</button>}{(tries>=2||teach>=item.steps.length)&&<button className="help-btn" onClick={reveal}>Show the answer</button>}</div>}
+  <div aria-live="polite">{wrong&&<p id={answerId} className="stage-feedback">{wrong}</p>}{done&&<div className="item-solution"><p className={finished!.correct?'item-right':'item-shown'}>{finished!.correct?`✓ ${finished!.firstTry?'Right first time!':'You got there.'}`:`The answer is ${item.answer}${item.unit?' '+item.unit:''}.`}</p>{item.check&&<p className="item-check"><strong>Check it:</strong> {item.check}</p>}{(!finished!.correct||teach>0)&&<ol className="teach-steps">{item.steps.map((s,i)=><li key={i}>{s}</li>)}</ol>}</div>}</div>
+  {!done&&hints>0&&<div className="hint-panel"><p className="support-eyebrow">A clue for this question</p><ol className="hint-list">{item.hints.slice(0,hints).map((h,i)=><li key={i}>{h}</li>)}</ol><SpeakButton label="Read the clues aloud" text={item.hints.slice(0,hints).join('. ')}/></div>}
+  {!done&&tries>=2&&!support&&<div className="support-suggestion"><strong>Let’s make this smaller.</strong><p>{recommendation.text}</p><button type="button" className="teach-btn soft" onClick={()=>openSupport(recommendation.kind)}>{recommendation.label}</button></div>}
+  {!done&&<div className="help-entry"><button type="button" className="help-btn" aria-expanded={!!support} aria-controls={helpId} onClick={()=>support?setSupport(null):openSupport('menu')}>{support?'Close help':'Help me with this'}</button>{hints<item.hints.length&&<button type="button" className="link-btn" onClick={()=>setHints(h=>h+1)}>{hints?'Another clue':'Give me a clue'}</button>}</div>}
+  {!done&&support&&<div className="learning-support" role="region" aria-label="Lesson help" tabIndex={-1} id={helpId} ref={helpRef}>
+   <div className="support-return"><p className="support-eyebrow">Your question stays saved</p><button type="button" className="link-btn" onClick={returnToQuestion}>↑ Back to my question</button></div>
+   <blockquote className="saved-question">{item.prompt} {item.display}{value&&<small>Your answer so far: {value}</small>}</blockquote>
+   {support==='menu'&&<><h4>What would help?</h4><div className="support-options">
+    <button type="button" onClick={()=>openSupport('steps')}><strong>Show me how to start</strong><span>Work through this question one step at a time.</span></button>
+    {item.simpler&&<button type="button" onClick={()=>openSupport('smaller')}><strong>Try a smaller question</strong><span>Practise a building block, then come back.</span></button>}
+    {example&&<button type="button" onClick={()=>openSupport('example')}><strong>Revisit the worked example</strong><span>Watch the earlier solution without losing your place.</span></button>}
+   </div></>}
+   {support==='steps'&&<section className="coach-steps" aria-label="Work through this question"><div className="support-step-head"><h4>One step at a time</h4><SpeakButton label="Read this help step aloud" text={item.steps[Math.max(0,Math.min(teach,item.steps.length)-1)]??item.hints[0]??item.prompt}/></div>
+    <p className="picture-count">Step {Math.min(teach,item.steps.length)} of {item.steps.length}</p>
+    {item.tool&&<ToolView tool={questionModel(item.tool)}/>}
+    <p className="coach-current" aria-live="polite">{item.steps[Math.max(0,Math.min(teach,item.steps.length)-1)]}</p>
+    {teach>1&&<details className="earlier-clues"><summary>Earlier steps</summary><ol>{item.steps.slice(0,teach-1).map((s,i)=><li key={i}>{s}</li>)}</ol></details>}
+    {teach<item.steps.length?<button type="button" className="teach-btn soft" onClick={()=>setTeach(t=>t+1)}>Show the next step →</button>:<p className="support-note">Now go back and use these steps. Your answer is still there to change.</p>}
+    <button type="button" className="teach-btn" onClick={returnToQuestion}>Try my question again →</button>
+   </section>}
+   {support==='smaller'&&item.simpler&&<div className="recovery-question" role="region" aria-label="Smaller question"><p className="support-note">This practises one part of the idea. Then we will return to the question above.</p><ItemCard item={item.simpler} guided level={level} onDone={()=>{}} practiceOnly returnContext={item.hints[0]} onNext={returnToQuestion} nextLabel="Return to my question →"/></div>}
+   {support==='example'&&example&&<ExampleReplay example={example} onReturn={returnToQuestion}/>}
+   <details className="support-more"><summary>More ways to help</summary>
+    {support!=='menu'&&<button type="button" className="link-btn" onClick={()=>setSupport('menu')}>Choose a different kind of help</button>}
+    {item.another?.length?<button type="button" className="link-btn" onClick={()=>{update('usedRecovery',true);setOther(o=>o===null?0:(o+1)%item.another!.length);}}>See another method for this question</button>:null}
+    {other!==null&&item.another?.[other]&&<div className="another-way"><h4>{item.another[other].title}</h4><ol className="teach-steps">{item.another[other].steps.map((s,i)=><li key={i}>{s}</li>)}</ol>{item.another[other].tool&&<ToolView tool={item.another[other].tool!}/>}</div>}
+    {(tries>=2||teach>=item.steps.length)&&<button type="button" className="link-btn" onClick={reveal}>Show the answer and explanation</button>}
+   </details>
+  </div>}
+  {done&&returnContext&&<p className="recovery-connection"><strong>Back to your original question:</strong> {returnContext}</p>}
   {done&&onNext&&<button ref={nextRef} className="teach-btn" onClick={onNext}>{nextLabel}</button>}
  </div>;
 }

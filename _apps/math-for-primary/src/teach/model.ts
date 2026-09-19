@@ -51,6 +51,8 @@ export interface Item {
  /** Set when only this exact written form is accepted (for example a fraction in simplest form). */
  exact?:boolean;
  facet?:Facet;rep?:Rep;tool?:Tool;requiresModel?:boolean;
+ /** What the objects or units in this question's picture stand for. */
+ modelNote?:string;
  /** Staged clues: the relationship, a representation, the operation, then one step. */
  hints:string[];
  /** “Teach me”: a mini-lesson for this item. The pupil completes the final step. */

@@ -1,3 +1,9 @@
+# Current handoff — 19 September 2026 independent-learning support and review
+
+Question help lives in `LessonPlayer.tsx` (`ItemCard`) and `LearningSupport.tsx` (`PictureKey`, `ExampleReplay`, `reflectionReplay`). `learningUi.ts` `supportRecommendation` chooses the next help route. `modelReading.ts` explains each model's notation without revealing hidden values. `depth/independence.ts` adds the “Choose a first step, then try it” bridge to the ten reference lessons (revision `…-v6`; the whitelist is in `flow.test.ts`). The review in QA.md rates the app 8.0/10 on average. Its top gaps: 186 generic upper-primary warm-ups, 128 table-only worked examples, missing time misconceptions (13:95, 15:45, 14:155, 15:35), and the bridge in only 10 lessons. Run heavy tests with one worker when the host is loaded.
+
+---
+
 # Current handoff — 19 September 2026 teaching quality and honest checks
 
 Latest authority is this folder, not a Claude scratch workspace. Preserve the expanded catalogue and the earlier UI/activity work. This release keeps 265 lessons. `src/teach/depth/referenceLessons.ts` replaces seven sequences, which together with the previous three depth lessons make ten reference lessons across P1–P6. `depth/quality.ts` adds one grounded `reflect` stage to every lesson, before independent practice (or before the check where needed). Reflection is self-assessed, never auto-scored; optional typed explanations are not persisted or sent.

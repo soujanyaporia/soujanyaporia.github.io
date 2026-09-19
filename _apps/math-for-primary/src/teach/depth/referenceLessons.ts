@@ -135,7 +135,16 @@ export const REFERENCE_IDS=['p1s-as-07','p2s-frac-01','p5s-area-02',...Object.ke
 export function referenceLesson(lesson:Lesson):Lesson{
  const r=references[lesson.id];if(!r)return lesson;
  const ready=readinessItems[lesson.id];
- const readiness:Stage=ready?{kind:'readiness',title:'A building block we will use',text:'Try this earlier idea. It will help us explain the new step. A picture and clues are available if you need them.',flow:{phase:'watch',label:'Check a useful earlier idea',transition:'Try this earlier idea. It will help us explain the new step. A picture and clues are available if you need them.'},items:[ready],booster:ready.hints.map(text=>({text,tool:ready.tool}))}:lesson.stages.find(s=>s.kind==='readiness')!;
+ const readyLinks:Record<string,string>={
+  'p2s-md-02':'Counting equal groups will help us connect multiplication and division.',
+  'p3s-frac-01':'First name a fraction. Then we will give the same amount a new name.',
+  'p4s-dec-01':'Start with tenths. We will use these equal pieces to understand decimal places.',
+  'p4s-dec-05':'An exchange changes the pieces, but keeps the same amount. We will need this when subtracting.',
+  'p5s-pct-03':'Finding one equal share will help us build a percentage of a whole.',
+  'p6s-alg-05':'Equal sharing will help us find the number inside each bag.'
+ };
+ const readyLink=readyLinks[lesson.id]??'Try an earlier idea that we will use in this lesson.';
+ const readiness:Stage=ready?{kind:'readiness',title:'Start with something familiar',text:readyLink,flow:{phase:'watch',label:'Check a useful earlier idea',transition:readyLink},items:[ready],booster:ready.hints.map(text=>({text,tool:ready.tool}))}:lesson.stages.find(s=>s.kind==='readiness')!;
  const lastAsk=r.worked.steps.map(s=>!!s.ask).lastIndexOf(true);
  const later=lesson.stages.filter(s=>s.kind==='practice'&&s.mode==='independent'||['apply','reason','mastery'].includes(s.kind));
  return {...lesson,mission:{goal:r.goal,question:r.worked.problem,pictureExample:r.setup,connection:'Predict, build a model, explain what changed, then use the relationship in a new situation.'},canDo:[r.goal,...lesson.canDo.slice(1)],stages:[

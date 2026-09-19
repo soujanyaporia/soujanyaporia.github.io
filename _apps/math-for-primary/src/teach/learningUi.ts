@@ -1,5 +1,15 @@
 import {feedbackFor} from './gen';
 import {WORLDS,type Lesson,type RevealStep,type Stage} from './model';
+import type {Item} from './model';
+import type {ItemWork} from './progress';
+
+/** Offer the next smaller action rather than another unexplained incorrect-answer loop. */
+export function supportRecommendation(item:Item,work:ItemWork,hasExample:boolean):{kind:'steps'|'smaller'|'example';label:string;text:string}{
+ if(work.teach===0)return {kind:'steps',label:'Show me how to start',text:'We can work through the first step together. Your answer will stay saved.'};
+ if(item.simpler)return {kind:'smaller',label:'Try a smaller question',text:'Practise the building block first, then bring it back to this question.'};
+ if(hasExample)return {kind:'example',label:'Revisit the worked example',text:'Follow the earlier solution again, then choose the matching step for your question.'};
+ return {kind:'steps',label:'Return to the explanation',text:'Read each step with its picture, then try your answer again.'};
+}
 
 export const TOPIC_NAMES:Record<Lesson['world'],string>={
  'number-kingdom':'Whole numbers','operation-station':'Operations','fraction-forest':'Fractions',

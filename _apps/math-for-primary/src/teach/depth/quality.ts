@@ -1,6 +1,7 @@
 import type {Lesson,Stage} from '../model';
 import {referenceLesson} from './referenceLessons';
 import {fraction,removal,triangle} from './items';
+import {addIndependenceCheck} from './independence';
 
 type Reflection=Extract<Stage,{kind:'reflect'}>;
 const authored:Record<string,Omit<Reflection,'kind'|'title'>>={
@@ -30,5 +31,5 @@ export function improveTeachingQuality(original:Lesson):Lesson{
   }
  }
  // A changed sequence cannot resume by the old stage number. Earned progress events are untouched.
- return {...lesson,revision:`${lesson.revision?.startsWith('depth-')?'depth':'catalogue-depth'}-2026-09-19-v5`,stages};
+ return addIndependenceCheck({...lesson,revision:`${lesson.revision?.startsWith('depth-')?'depth':'catalogue-depth'}-2026-09-19-v5`,stages});
 }

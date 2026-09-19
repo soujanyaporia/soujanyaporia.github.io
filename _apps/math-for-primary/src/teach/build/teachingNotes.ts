@@ -13,7 +13,7 @@ export function modelCaption(t?:Tool):string|undefined{
  case 'groups':return `${t.groups===1?'There is 1 group':`There are ${t.groups} groups`}, with ${t.size} objects in each group. Count a group before counting them all.`;
  case 'array':return `${t.rows} rows run across the picture; each row contains ${t.cols} objects.`;
  case 'share':return t.mode==='share'?'Each plate is one share. Counters outside the plates have not been shared yet.':'Each bag is one group. Counters outside the bags are left over.';
- case 'line':return 'Read from left to right. The starting dot tells us where to begin; an arrow shows a change.';
+ case 'line':return 'Start at the marked number. A jump to the right adds; a jump to the left takes away. Read the size of each jump.';
  case 'bar':return t.compare?'Both bars use the same scale. Compare their lengths and read the names beside them.':'The complete bar is the whole. Each labelled section is one part of it.';
  case 'ratio':return 'All the small boxes represent equally sized units, even when they belong to different rows.';
  case 'percent':return `The full bar represents ${t.unit??''}${t.whole}, which is 100%. The shaded share is ${t.percent}%.`;
