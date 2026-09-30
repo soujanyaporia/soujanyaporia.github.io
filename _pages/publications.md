@@ -80,7 +80,7 @@ toc: false
       {% if pub.venue %}<span class="pub-venue">{{ pub.venue }}</span>{% endif %}
       <span class="pub-year-tag">{{ pub.year }}</span>
       {% if citation_count and citation_count >= 50 %}<span class="pub-citation-badge">{{ citation_count }} citations</span>{% endif %}
-      {% if pub.award %}<span class="pub-award">{{ pub.award }}</span>{% endif %}
+      {% if pub.award %}<span class="pub-award record-badge">{{ pub.award }}</span>{% endif %}
     </div>
     {% if pub.categories %}
     <div class="pub-cats" aria-label="Topics">

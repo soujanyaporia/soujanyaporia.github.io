@@ -24,6 +24,17 @@ title: ""
   <h2 class="home-section-heading">Recent updates</h2>
   <ol class="update-log">
     <li class="update-log__item">
+      <span class="update-log__kind record-badge">NeurIPS</span>
+      <div class="update-log__body">
+        <h3>2 papers accepted to NeurIPS 2026, including 1 Spotlight</h3>
+        <p class="news-paper-links">
+          <a href="https://arxiv.org/abs/2512.12602">EFLA (Spotlight)</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://arxiv.org/abs/2605.12357">δ-mem</a>
+        </p>
+      </div>
+    </li>
+    <li class="update-log__item">
       <span class="update-log__kind record-badge">ICML</span>
       <div class="update-log__body">
         <h3>2 papers accepted to ICML 2026</h3>

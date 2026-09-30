@@ -173,7 +173,7 @@
 
 - title: 'δ-mem: Efficient Online Memory for Large Language Models'
   authors: "J Lei, D Zhang, J Li, W Wang, K Fan, X Liu, Q Liu, X Ma, B Chen, S Poria"
-  venue: 'arXiv preprint arXiv:2605.12357'
+  venue: 'NeurIPS'
   year: 2026
   scholar_url: 'https://scholar.google.com/scholar?q=delta-mem%3A+Efficient+Online+Memory+for+Large+Language+Models'
   publication_url: 'https://arxiv.org/abs/2605.12357'
@@ -1157,8 +1157,9 @@
 
 - title: 'Exact Flow Linear Attention: Exact Solution from Continuous-Time Dynamics'
   authors: "J Lei, D Zhang, S Poria"
-  venue: 'arXiv preprint arXiv:2512.12602'
-  year: 2025
+  venue: 'NeurIPS'
+  year: 2026
+  award: 'Spotlight'
   scholar_url: 'https://scholar.google.com/scholar?q=Error-Free+Linear+Attention+is+a+Free+Lunch%3A+Exact+Solution+from+Continuous-Time+Dynamics'
   publication_url: 'https://arxiv.org/abs/2512.12602'
   pdf: 'https://arxiv.org/pdf/2512.12602'
