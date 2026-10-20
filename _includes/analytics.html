@@ -5,6 +5,8 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', {{ site.analytics.google.tracking_id | jsonify }});
+  // Keep local previews out of the production Analytics property.
+  var sendPageView = ['localhost', '127.0.0.1', '[::1]'].indexOf(window.location.hostname) === -1;
+  gtag('config', {{ site.analytics.google.tracking_id | jsonify }}, { send_page_view: sendPageView });
 </script>
 {% endif %}
