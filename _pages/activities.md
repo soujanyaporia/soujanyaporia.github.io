@@ -8,28 +8,27 @@ body_class: "activity-profile-page"
 ---
 
 ## Keynotes and Invited Talks
-{: data-section-label="01"}
 
 <div class="activity-list activity-list--two-column">
   <article class="activity-record">
     <span>2025 · Master class</span>
     <h3>Healthcare AI Symposium</h3>
-    <p>An invited master class in Singapore on current questions and methods in healthcare AI.</p>
+    <p>Singapore.</p>
   </article>
   <article class="activity-record">
     <span>2025 · Invited speaker</span>
     <h3><a href="https://indoml.in/speakers.php">IndoML</a></h3>
-    <p>Invited speaker at the Indian Symposium on Machine Learning.</p>
+    <p>Indian Symposium on Machine Learning.</p>
   </article>
   <article class="activity-record">
     <span>2024 · Keynote</span>
     <h3>MM4SG at The Web Conference</h3>
-    <p>A keynote in Singapore on multimodal and socially grounded AI.</p>
+    <p>Multimodal and socially grounded AI, Singapore.</p>
   </article>
   <article class="activity-record">
     <span>2024 · Invited talk</span>
     <h3><a href="https://www.sigweb.org/toc/www24a.html">Understanding, Leveraging, and Improving LLMs</a></h3>
-    <p>A talk at The Web Conference Companion on the capabilities and limitations of large language models.</p>
+    <p>The Web Conference Companion.</p>
   </article>
   <article class="activity-record">
     <span>2022 · Invited talk</span>
@@ -54,7 +53,6 @@ body_class: "activity-profile-page"
 </div>
 
 ## Editorial and Conference Service
-{: data-section-label="02"}
 
 <div class="activity-list activity-list--two-column">
   <article class="activity-record">
@@ -80,7 +78,6 @@ body_class: "activity-profile-page"
   <article class="activity-record">
     <span>2019 · AAAI and IJCAI</span>
     <h3>Senior Program Committee</h3>
-    <p>Senior program committee service across two major AI conferences.</p>
   </article>
   <article class="activity-record">
     <span>Professional societies</span>
@@ -90,7 +87,6 @@ body_class: "activity-profile-page"
 </div>
 
 ## Teaching
-{: data-section-label="03"}
 
 <div class="activity-list">
   <article class="activity-record activity-record--wide">
@@ -101,28 +97,27 @@ body_class: "activity-profile-page"
   <article class="activity-record activity-record--wide">
     <span>2019–24 · SUTD</span>
     <h3>Computational Data Science</h3>
-    <p>Instructor for the undergraduate computational data science course.</p>
+    <p>Undergraduate course.</p>
   </article>
   <article class="activity-record activity-record--wide">
     <span>Developed in 2021</span>
     <h3>Information Retrieval</h3>
-    <p>Designed the course from the ground up and revised it in 2023 to incorporate large language models and contemporary industry practice.</p>
+    <p>Developed the course in 2021; revised it in 2023 to include large language models.</p>
   </article>
   <article class="activity-record activity-record--wide">
     <span>2020, 2023, 2024</span>
     <h3>Capstone supervision</h3>
-    <p>Guided student teams through applied research and engineering projects.</p>
+    <p>Supervised student research and engineering projects.</p>
   </article>
 </div>
 
-## News and Public Engagement
-{: data-section-label="04"}
+## Media and research software
 
 <div class="activity-list activity-list--two-column">
   <article class="activity-record">
     <span>2026 · VentureBeat</span>
     <h3><a href="https://venturebeat.com/orchestration/a-0-12-parameter-add-on-gives-ai-agents-the-working-memory-rag-cant">Working memory for AI agents</a></h3>
-    <p>An interview and feature on δ-mem and memory beyond longer context windows or additional RAG.</p>
+    <p>Interview on δ-mem.</p>
   </article>
   <article class="activity-record">
     <span>2023 · Asian Scientist</span>
@@ -132,27 +127,26 @@ body_class: "activity-profile-page"
   <article class="activity-record">
     <span>The Straits Times</span>
     <h3><a href="https://www.straitstimes.com/singapore/universities-reskilling-courses-key-to-tripling-s-pore-s-ai-workforce-to-15000-experts">Singapore’s AI workforce</a></h3>
-    <p>Commentary on universities, reskilling, and the growth of Singapore’s AI workforce.</p>
+    <p>Commentary on university education and reskilling.</p>
   </article>
   <article class="activity-record">
     <span>KDnuggets</span>
     <h3><a href="https://www.kdnuggets.com/2018/06/detecting-sarcasm-deep-convolutional-neural-networks.html">Detecting sarcasm with deep neural networks</a></h3>
-    <p>Coverage of research on sarcastic tweets and deep convolutional neural networks.</p>
+    <p>Research on sarcasm detection in tweets.</p>
   </article>
   <article class="activity-record">
     <span>Datanami</span>
     <h3><a href="https://www.datanami.com/2017/09/21/deep-learning-reveals-new-insights-people/">Personality detection from text</a></h3>
-    <p>Coverage of deep learning approaches to document modeling and personality detection.</p>
+    <p>Research on document modeling and personality detection.</p>
   </article>
   <article class="activity-record">
     <span>Open research</span>
     <h3>Code, models, and demonstrations</h3>
-    <p>Research artifacts are released through <a href="https://github.com/declare-lab">GitHub</a> and <a href="https://huggingface.co/declare-lab">Hugging Face</a>, with demonstrations and independent explainers across the research community.</p>
+    <p>Code and models are available on <a href="https://github.com/declare-lab">GitHub</a> and <a href="https://huggingface.co/declare-lab">Hugging Face</a>.</p>
   </article>
 </div>
 
-## Academic Journey
-{: data-section-label="05"}
+## Appointments and education
 
 <div class="activity-list career-list">
   <article class="activity-record activity-record--wide">
@@ -187,4 +181,4 @@ body_class: "activity-profile-page"
   </article>
 </div>
 
-<p class="section-link">In 2024, I also co-founded <a href="https://walled.ai/">Walled AI</a>, working on practical AI governance.</p>
+<p class="section-link">In 2024, I co-founded <a href="https://walled.ai/">Walled AI</a>, working on AI governance.</p>

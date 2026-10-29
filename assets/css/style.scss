@@ -1,1109 +1,152 @@
 ---
 ---
 @charset "utf-8";
-/* Shared tokens, reset, typography, and interface primitives come from
- * declare-design-core. Only personal-site composition tokens live here. */
-:root {
-
-  --brand-red: var(--logo-red);
-  --report-meta-height: 22px;
-  --report-meta-padding: 0 8px;
-}
-
-/* ===== Header / Nav ===== */
-
-/* Height matches the DeCLaRe mark in the declare-lab.github.io masthead,
- * where the 138px-wide horizontal lockup renders the robot 61px tall. */
-
-/* ===== Main Content ===== */
-
-/* ===== Sidebar / Author Profile ===== */
-.author-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  --author-link-width: 100%;
-  --author-icon-width: 18px;
-  --author-affiliation-width: 110px;
-  --author-affiliation-half-width: 55px;
-  --author-name-align: center;
-  --author-content-justify: center;
-  --author-inline-margin: auto;
-  padding: 1.5em 1.4em 1.4em;
-  text-align: var(--author-name-align);
-  position: relative;
-  overflow: hidden;
-}
-
-.author-summary { min-width: 0; }
-
-.author-avatar {
-  width: 100%;
-  max-width: 200px;
-  aspect-ratio: 1 / 1;
-  height: auto;
-  border-radius: var(--radius);
-  object-fit: cover;
-  object-position: top;
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: 1.1em;
-  filter: saturate(1.05);
-}
-
-.author-profile-content { min-width: 0; }
-
-.author-affiliation-block {
-  width: 100%;
-  min-width: 0;
-}
-
-.author-name {
-  margin: 0 0 0.4em;
-}
-
-.author-bio {
-  max-width: 30ch;
-  margin: 0 auto 0.7em;
-  text-align: center;
-  text-align-last: center;
-}
-
-.author-bio-line {
-  white-space: normal;
-}
-
-.author-location {
-  width: max-content;
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: var(--author-content-justify);
-  gap: 0.4em;
-  margin: -0.25em var(--author-inline-margin) 0.9em;
-}
-
-.author-location svg {
-  width: 13px;
-  flex: 0 0 13px;
-  stroke: var(--accent);
-}
-
-.author-links {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0.25em;
-  border-top: 1px dashed var(--border);
-  padding-top: 0.85em;
-  margin-top: 0.4em;
-  /* Desktop: ensure icon+text are left-aligned */
-  text-align: left;
-}
-
-.author-links a {
-  width: 100%;
-  padding: 0.5em 0.7em;
-  border-radius: var(--radius);
-  display: grid;
-  grid-template-columns: var(--author-icon-width) auto;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.6em;
-  transition: all var(--transition);
-  text-decoration: none;
-  text-align: left;
-}
-
-.author-links a:hover {
-  color: var(--accent);
-  background: var(--accent-light);
-  text-decoration: none;
-  transform: translateX(2px);
-}
-
-.author-links a i {
-  width: var(--author-icon-width);
-  text-align: center;
-  color: var(--accent);
-}
-
-/* Affiliation in sidebar */
-.author-affiliations {
-  display: flex;
-  justify-content: var(--author-content-justify);
-  align-items: flex-end;
-  width: var(--author-affiliation-width);
-  gap: 0.9em;
-  margin: 0.5em auto 0.6em;
-  padding: 0.6em 0;
-  /* keep the sidebar visually light; remove extra dashed separators
-     The single dashed divider below the profile (author-links) is retained */
-  border-top: 0;
-  border-bottom: 0;
-  width: 100%;
-}
-
-.author-affiliations .affiliation-logo {
-  display: block;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.85;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  filter: saturate(0.9);
-}
-.author-affiliations .affiliation-logo:hover {
-  opacity: 1;
-  transform: translateY(-1px);
-  filter: saturate(1);
-}
-.author-affiliations .affiliation-ntu { height: 56px; }
-.author-affiliations .affiliation-dec { height: 59px; }
-
-@media (max-width: 720px) {
-  .author-card {
-    --author-affiliation-width: 86px;
-    --author-affiliation-half-width: 43px;
-  }
-  .author-affiliations { gap: 0.7em; margin: 0.5em 0 0.7em; }
-  .author-affiliations .affiliation-ntu { height: 46px; }
-  .author-affiliations .affiliation-dec { height: 49px; }
-}
-
-.hero-subtitle strong {
-  color: var(--text);
-  border-bottom: 2px solid var(--accent-3);
-  padding-bottom: 1px;
-}
-
-/* ===== Section anchor nav ===== */
-
-/* ===== Buttons ===== */
-
-/* ===== Layout panels ===== */
-
-.home-overview {
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
-  gap: 1.25em;
-  align-items: stretch;
-  margin-bottom: 2.6em;
-}
-
-/* ===== Updates panel ===== */
-.updates-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.4em 1.3em 1.1em;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-}
-
-.updates-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
-  margin-bottom: 1.1em;
-  padding-bottom: 0.9em;
-  border-bottom: 1px solid var(--border);
-}
-
-.updates-header h2 {
-  margin: 0;
-  white-space: nowrap;
-}
-
-/* ===== Lab panel, featured ===== */
-
-/* ===== Research grids (research page) ===== */
-
-.research-area-grid,
-.award-grid {
-  display: grid;
-  gap: 0.85em;
-  margin: 1em 0 1.6em;
-}
-
-.research-area-card,
-.award-grid > div {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1em 1.1em;
-  box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition), transform var(--transition);
-}
-
-.research-area-card:hover,
-.award-grid > div:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-1px);
-}
-
-.award-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.award-grid > div {
-  position: relative;
-  padding-left: 1.15em;
-}
-
-.award-grid strong {
-  display: block;
-  color: var(--text);
-}
-
-.award-grid span {
-  display: block;
-  color: var(--text-secondary);
-  margin-top: 0.3em;
-}
-
-/* ===== Selected work grid ===== */
-
-.updates-more {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 0.45rem;
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.updates-more:hover {
-  color: var(--accent-hover);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.updates-more-group {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.55rem 1rem;
-  margin-top: 0.9rem;
-}
-
-.news-paper-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem 0.45rem;
-}
-
-/* ===== TOC ===== */
-
-/* ===== Publications ===== */
-
-/* Full spec lives with the other publication controls further down; a topic
- * badge reads as a label, not as shouted text. */
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== Join Banner ===== */
-
-/* ===== Highlight Grid ===== */
-
-/* ===== Notice boxes ===== */
-
-/* ===== Footer ===== */
-
-/* Entrance animation */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(14px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.home-hero,
-.home-overview,
-.lab-panel {
-  animation: rise 0.6s cubic-bezier(.2,.7,.2,1) both;
-}
-.home-overview { animation-delay: 0.08s; }
-
-/* ===== Responsive ===== */
-@media (max-width: 960px) {
-  .author-card {
-    --author-name-align: left;
-    --author-content-justify: flex-start;
-    --author-inline-margin: 0;
-    text-align: left;
-    padding: 1.3em;
-  }
-  .author-summary {
-    display: grid;
-    grid-template-columns: 130px minmax(0, 1fr);
-    gap: 1.2em;
-    align-items: start;
-  }
-  .author-avatar { max-width: 130px; margin-bottom: 0; }
-  .author-profile-content { display: flex; flex-direction: column; }
-  .author-bio {
-    max-width: 48ch;
-    margin-inline: auto;
-  }
-  .author-affiliations {
-    justify-content: var(--author-content-justify);
-    width: auto;
-    margin: 0.6em var(--author-inline-margin);
-    padding: 0.5em 0;
-  }
-  .author-location {
-    justify-content: var(--author-content-justify);
-    margin: 0 var(--author-inline-margin) 0.5em;
-  }
-  .author-links {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.3em;
-    border-top: 1px dashed var(--border);
-    padding-top: 0.75em;
-    margin-top: 0.85em;
-  }
-  .author-links a {
-    width: 100%;
-    min-width: 0;
-    min-height: var(--control-height);
-    padding: 0.45em 0.65em;
-  }
-  .home-overview { grid-template-columns: 1fr; }
-  .research-area-grid,
-  .award-grid { grid-template-columns: 1fr; }
-
-  /* Prevent major content containers from forcing a wider layout */
-  .content-text,
-  .home-overview,
-  .intro-panel,
-  .lab-panel {
-    min-width: 0;
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  /* Make inline elements wrap earlier on narrower desktops/tablets */
-  .profile-eyebrow,
-  .updates-header h2 {
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-  }
-
-  /* Allow hero name and subtitle to use available width */
-  .hero-greeting-name { max-width: 100%; }
-  .hero-subtitle { max-width: 100%; }
-}
-
-@media (max-width: 720px) {
-  /* declare-lab.github.io steps its 68px-tall mobile masthead down to a 49.5px mark. */
-  .home-hero {
-    padding: 0.2em 0 1.6em;
-    margin-bottom: 1.15em;
-  }
-  .home-hero::before { display: none; }
-  .hero-greeting-name {
-    max-width: none;
-    margin-bottom: 0.55em;
-  }
-  .hero-subtitle { margin-bottom: 1.25em; }
-  .profile-eyebrow { margin-bottom: 0.85em; }
-
-  .hero-actions--personal {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.55em;
-  }
-  .hero-actions--personal a { width: 100%; padding-inline: 0.8em; }
-  .author-card {
-    padding: 0.9em;
-    border-radius: var(--radius);
-  }
-
-  .author-summary {
-    grid-template-columns: 84px minmax(0, 1fr);
-    gap: 0.85em;
-    align-items: start;
-  }
-
-  .author-avatar {
-    max-width: 84px;
-    border-radius: var(--radius);
-  }
-
-  .author-name {
-    margin-bottom: 0.25em;
-  }
-
-  .author-bio {
-    margin-bottom: 0.35em;
-  }
-
-  .author-affiliation-block {
-    width: max-content;
-    max-width: 100%;
-  }
-
-  .author-affiliations {
-    justify-content: var(--author-content-justify);
-    width: auto;
-    gap: 0.55em;
-    margin: 0.2em 0 0.15em;
-    padding: 0.15em 0;
-  }
-
-  .author-affiliations .affiliation-ntu { height: 34px; }
-  .author-affiliations .affiliation-dec { height: 39px; }
-
-  .author-location {
-    justify-content: var(--author-content-justify);
-    width: 100%;
-    margin: 0 var(--author-inline-margin);
-  }
-
-  /* Make profile tables and other table cells wrap on small screens */
-
-  .intro-panel > div,
-  .intro-aside,
-  .updates-panel,
-  .lab-panel,
-  .research-area-card,
-  .award-grid > div,
-  .service-list p,
-  .table-wrap {
-    border-radius: var(--radius);
-  }
-
-  .intro-panel > div,
-  .intro-aside,
-  .updates-panel,
-  .research-area-card { padding: 1.05em; }
-
-  .home-overview { gap: 0.85em; margin-bottom: 1.8em; }
-
-  /* Keep every profile action on the same icon-and-label axis. */
-  .author-links {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.35em;
-    width: 100%;
-    margin: 0.7em 0 0;
-    border-top: 1px dashed var(--border);
-    padding-top: 0.7em;
-    box-sizing: border-box;
-    justify-items: stretch;
-  }
-
-  .author-links a {
-    width: 100%;
-    display: grid;
-    grid-template-columns: var(--author-icon-width) 1fr;
-    align-items: center;
-    gap: 0.5em;
-    min-height: 40px;
-    padding: 0.45em 0.55em;
-    border-radius: var(--radius);
-    justify-content: flex-start;
-  }
-
-  /* remove extra dotted separators inside the header area on mobile */
-  .author-affiliations { border-top: 0; border-bottom: 0; }
-
-  /* Allow long inline content to wrap on small screens */
-  .profile-eyebrow,
-  .updates-header h2 {
-    white-space: normal;
-    word-break: break-word;
-    overflow-wrap: anywhere;
-  }
-
-  /* Ensure major layout containers don't force wider widths */
-
-  .home-overview,
-  .intro-panel,
-  .lab-panel {
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-}
-
-/* Final safety: keep long hero text inside the available column. */
-@media (max-width: 960px) {
-  .home-hero,
-  .hero-greeting-name,
-  .hero-subtitle {
-    white-space: normal;
-    max-width: 100%;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-}
-
-/* ===== Technical report theme, adapted from the supplied reference ===== */
-.author-card {
-  padding: var(--panel-padding-block) var(--panel-padding-inline);
-  border: var(--card-border);
-  border-top: 1px solid var(--rule);
-  border-radius: 0;
-  background: var(--card, var(--paper-card));
-  box-shadow: none;
-}
-
-.author-card::before { display: none; }
-
-.author-avatar {
-  border: 1px solid var(--rule);
-  border-radius: 0;
-  box-shadow: none;
-  filter: none;
-}
-
-.author-affiliations .affiliation-logo,
-.author-affiliations .affiliation-logo:hover {
-  opacity: 1;
-  filter: none;
-  transform: none;
-  transition: none;
-}
-
-.author-links {
-  border-top: 1px solid var(--rule);
-}
-
-.author-links a {
-  border-radius: 0;
-}
-
-.author-links a:hover {
-  color: var(--accent);
-  background: var(--accent-light);
-  transform: none;
-}
-
-.home-hero {
-  position: relative;
-  padding: 0;
-  margin-bottom: 2.4em;
-  border-bottom: 0;
-}
-
-.home-overview,
-.intro-panel { gap: var(--layout-gap); }
-
-.profile-eyebrow {
-  margin: 0 0 1.7em;
-  padding: 0 0 1.25em;
-  border-bottom: var(--rule-heavy);
-}
-
-.profile-eyebrow::before {
-  content: "▸ ";
-  color: var(--accent);
-}
-
-.home-hero .hero-greeting-name {
-  max-width: 18ch;
-  margin-bottom: 0.32em;
-  color: var(--ink);
-}
-
-.hero-greeting-intro,
-.hero-name-primary,
-.hero-native-name {
-  display: block;
-}
-
-.hero-greeting-intro {
-  margin-bottom: 0.42em;
-  color: var(--ink-soft);
-}
-
-.hero-greeting-intro [lang="bn"] {
-  color: var(--accent);
-}
-
-.hero-name-primary {
-  color: var(--ink);
-}
-
-.hero-native-name {
-  margin-top: 0.22em;
-  color: var(--ink-soft);
-}
-
-/* Fills the content column. The hero is now a full-width stacked section
- * rather than one half of a two-column row, so a 74ch cap left dead space to
- * the right of a three-line paragraph. */
-.hero-subtitle {
-  max-width: none;
-  margin-bottom: 1.6em;
-}
-
-.hero-subtitle strong {
-  color: var(--ink);
-  border-bottom: 0;
-}
-
-/*
- * Surface hierarchy:
- * - Frame identity, featured, utility, and reusable multi-field objects.
- * - Keep narrative sections and dense records open or separated by rules.
- */
-
-.intro-panel > div,
-.intro-aside,
-.updates-panel,
-.research-area-card,
-.table-wrap,
-.award-grid > div,
-.service-list p {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.intro-panel > div,
-.intro-aside,
-.updates-panel {
-  padding: 1rem 0 0;
-  border: 0;
-  border-top: var(--rule-heavy);
-  background: transparent;
-}
-
-.home-section-heading {
-  margin: 0 0 0.75em;
-  padding: 0;
-  border: 0;
-}
-
-.updates-header {
-  padding-bottom: 0.8em;
-  border-bottom: 1px solid var(--ink);
-}
-
-.award-grid { gap: var(--card-gap); }
-
-/* Representative papers form a thematic index, not a set of object cards. */
-
-/* Section heading. Matches declare-lab.github.io: the blue label chip is the
- * only section marker, so no rule above or below and no extra padding. */
-.content-text > h2 {
-  margin: var(--section-space) 0 0.75rem;
-  padding: 0;
-  border-top: 0;
-}
-
-.content-text > h3 {
-  margin: 1.8em 0 0.65em;
-}
-
-.content-text > h3::before {
-  content: "▸ ";
-  color: var(--accent);
-}
-
-.author-links a { text-decoration: none; }
-
-.research-area-card,
-.award-grid > div,
-.service-list p {
-  border-radius: 0;
-  box-shadow: none;
-}
-
-.award-grid > div {
-  padding: var(--card-padding-block) var(--card-padding-inline);
-  border: var(--card-border);
-  background: var(--surface-panel);
-}
-
-.award-grid {
-  gap: 0 1.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.award-grid > div {
-  padding: 0.9rem 0;
-  border: 0;
-  border-top: 1px solid var(--rule);
-  background: transparent;
-}
-
-.award-grid > div:hover {
-  border-color: var(--rule);
-  transform: none;
-}
-
-/* Matches declare-lab.github.io: controls a reader acts on are sans; mono is
- * reserved for the metadata chips (venue, year). Same sizes and padding. */
-
-/* A year heading is a section heading: same size, gap and chip, no rule. */
-
-/* A year heading needs no chip: "2026" already reads as a year. */
-
-/* Venue is a metadata chip: mono on a tinted ground, no border.
- * Topic badges are the same bordered sans object as the link controls. */
-
-@media (max-width: 720px) {
-
-}
-
-/* ===== Section separation (single source of truth) =====
- * Section boundaries use one hairline and one spacing rhythm. The 2px ink rule
- * stays reserved for page headers and the opening rules inside the overview.
- *
- * Sections on these pages are delimited two different ways, so there are two
- * selectors -- but each boundary is matched by only one of them, so they can
- * never draw two lines at the same place:
- *
- *   1. Heading-delimited (Research, Publications): a section is an h2 and
- *      everything until the next h2, with no wrapper to hang a rule on. The
- *      divider is drawn above each heading except the first. New sections get
- *      one automatically -- nothing to register.
- *   2. Wrapped (home page): the section is a real element, so it closes with a
- *      rule on its own bottom edge.
- */
-/* 1. Heading-delimited sections. */
-.content-text > h2:not(:first-of-type) {
-  border-top: 1px solid var(--rule);
-  margin-top: var(--section-boundary-before);
-  padding-top: var(--section-boundary-after);
-}
-
-/* 2. Wrapped homepage sections. */
-.content-text > .home-hero {
-  border-top: 0;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: var(--section-boundary-before);
-  margin-bottom: var(--section-nav-offset);
-}
-
-.content-text > .home-overview {
-  border-top: 0;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: var(--section-boundary-before);
-  margin-bottom: var(--section-boundary-after);
-}
-
-/* Navigation is a compact wayfinding control, not another page section. */
-
-/* The personal TOC keeps its dossier-oriented left rail, while sharing the
- * DeCLaRe navigation states, spacing, type, and docked surface treatment. */
-
-/* Inner grids no longer draw a boundary of their own; their section does. */
-.content-text .research-area-grid,
-.content-text .award-grid,
-.content-text .service-list,
-.content-text .table-wrap {
-  border-top: 0;
-  border-bottom: 0;
-}
-
-/* The columns inside the overview each open with an ink rule. This is the line
- * above "Research focus"; removing it as a stray 2px weight was wrong -- it is
- * the divider that opens the section, and the page reads worse without it. */
-
-/* The collaboration aside uses the same top axis as its neighboring panel. */
-
-/* The lab identity is a featured object, but it observes the same section gap. */
-
-/* The final homepage section owns one closing hairline. The generic inner-page
- * pseudo-rule below is excluded on home so this boundary is never duplicated. */
-.content-text > #selected-publications {
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: var(--section-boundary-before);
-  margin-bottom: 0;
-}
-
-/* Heading-delimited inner pages need an explicit final boundary. The homepage
- * already closes on #selected-publications and therefore does not match. */
-.page-wrapper:not(.is-home) .page-body .content-text::after {
-  display: block;
-  margin-top: var(--section-boundary-before);
-  border-bottom: 1px solid var(--rule);
-  content: "";
-}
-
-/* The personal homepage presents an authored research trajectory. The lab site
- * owns the theme portfolio; this remains an editorial index, not another card
- * taxonomy. */
-
-/* ===== Research profile =====
- * The personal research page is an authored agenda. It uses open records and
- * rules; the lab site remains the project-card archive. Typography is assigned
- * by the shared semantic contract imported below.
- */
-
-.section-link {
-  margin: 1.1rem 0 0;
-}
-
-.section-link a,
-.text-link {
-  color: var(--accent);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
-}
-
-.recognition-grid {
-  margin-bottom: 0;
-}
-
-/* ===== Academic activities =====
- * Activities are open records rather than cards. Typography comes entirely
- * from the shared semantic activity roles.
- */
-.activity-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0 1.5rem;
-  margin-top: 1.25rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.activity-list--two-column {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.activity-record {
-  min-width: 0;
-  padding: 1rem 0 1.15rem;
-  border-top: 1px solid var(--rule);
-}
-
-.activity-record > span {
-  display: block;
-  margin-bottom: 0.45rem;
-  color: var(--accent);
-}
-
-.activity-record h3,
-.activity-record p {
-  margin-top: 0;
-}
-
-.activity-record h3 {
-  margin-bottom: 0.4rem;
-}
-
-.activity-record p {
-  margin-bottom: 0;
-}
-
-.activity-record h3 a {
-  color: var(--text);
-  text-decoration: none;
-}
-
-.activity-record h3 a:hover,
-.activity-record h3 a:focus-visible {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-@media (max-width: 720px) {
-  .activity-list--two-column {
-    grid-template-columns: 1fr;
-  }
-}
-
 @import "core";
 
-/* Personal pages use the same density system with a slightly narrower authored
- * reading measure and a modestly tighter section cadence. */
+/* The personal site uses the shared components with a quieter reading scale. */
 @include declare-customize(
-  $layout-max-width: 1160px,
-  $sidebar-width: 270px,
-  $stacked-sidebar-width: 720px,
-  $shell-gap: 2rem,
-  $page-space-top: 1.9rem,
-  $page-space-bottom: 2.75rem,
-  $page-header-gap: 1.15rem,
-  $page-lead-gap: 1.35rem,
-  $page-lead-padding: 1.1rem,
-  $section-space: 2.1rem,
-  $section-rule-space: 1.6rem,
-  $section-boundary-before: 1.6rem,
-  $section-boundary-after: 1.6rem,
-  $content-measure: 66ch
+  $font-sans: '"Source Serif 4", Georgia, serif',
+  $font-mono: '"Instrument Sans", sans-serif',
+  $accent: MidnightBlue,
+  $accent-hover: Navy,
+  $accent-light: WhiteSmoke,
+  $text-secondary: var(--ink),
+  $max-width: 1100px,
+  $layout-max-width: 1100px,
+  $sidebar-width: 210px,
+  $stacked-sidebar-width: 100%,
+  $shell-gap: 3.5rem,
+  $page-title-size: clamp(2.25rem, 4vw, 3.2rem),
+  $section-title-size: 1.75rem,
+  $feature-title-size: 1.2rem,
+  $card-title-size: 1.125rem,
+  $body-size: 1.125rem,
+  $supporting-size: 1rem,
+  $small-size: 0.9375rem,
+  $meta-size: 0.8125rem,
+  $control-size: 0.875rem,
+  $content-leading: 1.7,
+  $page-space-top: 3.5rem,
+  $page-space-bottom: 4rem,
+  $page-header-gap: 2rem,
+  $section-space: 3rem,
+  $section-boundary-before: 2rem,
+  $section-boundary-after: 2rem,
+  $content-measure: 66ch,
+  $radius: 2px
 );
 
-/* ===== Focused personal homepage =====
- * The introduction and the activity record are stacked at full column width.
- * They were previously a two-column row, which gave each about half the width,
- * left the shorter column with a large void beneath it, and started the two
- * columns on different baselines. Deeper research material belongs on
- * /research/.
- */
-.hero-actions--personal {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 0.55rem;
-}
+/* Introduction */
+.home-hero { padding-bottom: 2.3rem; }
+.home-introduction h1 { margin: 0 0 0.35rem; }
+.home-introduction > p { margin: 0 0 1rem; }
+.home-introduction .home-native-name { margin-bottom: 1.5rem; }
+.home-introduction .home-appointment { display: none; }
 
-.hero-actions--personal > a {
-  min-width: 9rem;
-}
-
-.hero-actions--personal > a:only-child {
-  grid-column: 1 / -1;
-}
-
-/* No top rule: the hero above already closes with one, and a second rule here
- * doubled the boundary. Section separation is owned by the block at the end of
- * this file. */
-.home-updates {
-  margin: 0;
-  padding: 0;
-  border-top: 0;
-  border-bottom: 0;
-}
-
-/* ===== Update log =====
- * This used to be a dated timeline, but every entry falls in the same year, so
- * the date rail repeated "2026" down a 68px gutter while the headlines already
- * named the year ("ICML 2026"). The venue is what actually differs row to row,
- * so it takes the marker column and the date rail goes away.
- */
-.update-log {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--rule);
-}
-
-.update-log__item {
-  display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  gap: 0 1.25rem;
-  align-items: baseline;
-  margin: 0;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--rule);
-}
-
-.update-log__kind {
-  justify-self: start;
-}
-
-.update-log__body > h3 {
-  margin: 0;
-}
-
-.update-log__body > p {
-  margin: 0.35rem 0 0;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 640px) {
-  .update-log__item {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 0.45rem;
-  }
-}
-
-/* ===== Research themes and selected work =====
- * Each theme is an open two-column editorial record. Papers remain compact
- * ruled rows, avoiding a wall of cards while preserving scanability.
- */
-.research-profile-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-  margin-bottom: var(--section-boundary-after);
-  padding-bottom: var(--section-boundary-before);
-  border-bottom: 1px solid var(--rule);
-}
-
-/* This page carries no table-of-contents rail, so the content column is the
- * full width. A 68ch cap left roughly 230px of dead space to the right of every
- * line; these are two short paragraphs rather than sustained reading, so they
- * fill the column like the home-page introduction does. */
-.research-profile-intro > p {
-  max-width: none;
-  margin: 0;
-}
-
+.profile-resources,
 .research-profile-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 0.5rem;
-}
-
-/* The per-theme blocks (.research-theme-profile, .research-work*) and the
- * grant list (.research-support-list) were removed with the research page's
- * theme sections, which duplicated declare-lab.github.io. Their styles are
- * deleted rather than left behind as dead rules. */
-
-.research-foundation-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.8rem;
-  margin: 0.8rem 0 0;
-}
-
-.research-foundation-links > span {
-  color: var(--text-muted);
-}
-
-.research-foundation-links > a {
-  color: var(--accent);
-}
-
-@media (max-width: 1020px) {
-  .research-profile-intro {
-    grid-template-columns: minmax(0, 1fr);
-    align-items: start;
-  }
-
-  .research-profile-actions {
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 720px) {
-  .hero-actions--personal {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .hero-actions--personal > a {
-    min-width: 0;
-  }
-
-  .research-profile-actions {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .research-profile-actions > a {
-    width: 100%;
-  }
-
-}
-
-/* A discreet discovery link to the independently styled learning application. */
-.footer-side-project {
-  flex-basis: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  gap: 0.25rem 1.4rem;
   align-items: baseline;
-  gap: 0.35rem 0.8rem;
-  margin: 0;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--border);
+  margin-top: 1.25rem;
 }
+.profile-resources a,
+.research-profile-actions a {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+.profile-resources--mobile { display: none; }
+
+/* News is a reading list, with the venue in the margin. */
+.home-updates { padding-top: 2rem; border-top: 1px solid var(--border); }
+.home-section-heading { margin: 0 0 1.1rem; }
+.update-log { margin: 0; padding: 0; list-style: none; }
+.update-log__item {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: 1.5rem;
+  margin: 0;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.update-log__kind { color: var(--text-muted); }
+.update-log__body h3 { margin: 0; }
+.update-log__body p { margin: 0.3rem 0 0; }
+.news-paper-links { display: flex; flex-wrap: wrap; gap: 0.25rem 0.5rem; }
+.updates-more-group { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.4rem; }
+.updates-more { display: inline-flex; align-items: center; min-height: 36px; }
+
+/* The profile stays open, without a surrounding card. */
+.author-card { padding: 0; }
+.author-avatar {
+  display: block;
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  margin-bottom: 1.25rem;
+}
+.author-name { margin-bottom: 0.6rem; }
+.author-bio { margin-bottom: 0.75rem; }
+.author-affiliations { display: flex; align-items: center; gap: 1.1rem; margin: 1.1rem 0; }
+.author-affiliations .affiliation-logo { display: block; height: 42px; width: auto; }
+.author-location { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 1rem; }
+.author-location svg { width: 13px; height: 13px; }
+.author-links { display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+.author-links a { display: inline-flex; align-items: center; min-height: 32px; }
+
+/* Research and academic records */
+.research-profile-intro { margin-bottom: 2.5rem; }
+.research-profile-intro > p { margin: 0 0 1.15rem; }
+.research-foundation-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; }
+.research-foundation-links > span { flex-basis: 100%; color: var(--text-muted); }
+.section-link { margin: 1.15rem 0 0; }
+.section-link a { text-underline-offset: 0.22em; }
+.content-text > h2 { margin: 2.5rem 0 1rem; }
+.content-text > h2:first-child { margin-top: 0; }
+.award-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.75rem; margin: 0 0 2rem; }
+.award-grid > div { padding: 1rem 0; border-top: 1px solid var(--border); }
+.award-grid strong,
+.award-grid span { display: block; }
+.award-grid span { margin-top: 0.4rem; }
+.activity-list { display: grid; grid-template-columns: 1fr; gap: 0 1.75rem; }
+.activity-list--two-column { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.activity-record { min-width: 0; padding: 1.2rem 0; border-top: 1px solid var(--border); }
+.activity-record > span { display: block; margin-bottom: 0.45rem; }
+.activity-record h3 { margin: 0 0 0.4rem; }
+.activity-record p { margin: 0; }
+.career-list .activity-record { display: grid; grid-template-columns: 7rem 1fr; gap: 0 1rem; }
+.career-list .activity-record > span { grid-row: 1 / 3; padding-top: 0.25rem; }
+.career-list .activity-record p { grid-column: 2; }
+
+.footer-side-project { margin: 0.75rem 0 0; }
+.footer-side-project > span { margin-inline: 0.35rem; }
 .footer-side-project > a { color: var(--accent); }
-.footer-side-project > span { color: var(--text-secondary); }
-.footer-side-project { justify-content: center; }
+
+@media (max-width: 960px) {
+  .author-card { border-top: 1px solid var(--border); padding-top: 1.75rem; }
+  .author-summary { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 1.5rem; }
+  .author-avatar { width: 110px; }
+  .author-links { flex-direction: row; flex-wrap: wrap; gap: 0.2rem 1.2rem; margin-top: 1rem; }
+  .profile-resources--mobile { display: flex; }
+  .home-introduction .home-appointment { display: block; }
+}
+
+@media (max-width: 640px) {
+  .home-hero { padding-bottom: 2rem; }
+  .profile-resources { gap: 0.25rem 1.2rem; }
+  .update-log__item { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.1rem 0; }
+  .award-grid,
+  .activity-list--two-column { grid-template-columns: 1fr; }
+  .career-list .activity-record { display: block; }
+  .career-list .activity-record > span { padding-top: 0; }
+  .footer-side-project > span { display: block; margin-top: 0.3rem; }
+}

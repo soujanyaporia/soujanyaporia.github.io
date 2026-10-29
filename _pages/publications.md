@@ -10,12 +10,12 @@ toc: false
 {% assign grouped = sorted_pubs | group_by: "year" %}
 
 <div class="publication-archive" data-publication-archive>
-  <section class="pub-toolbar pub-toolbar--sticky" aria-label="Publication filters">
-    <input type="search" class="pub-search" data-pub-search placeholder="Search by title, author, venue, topic, or abstract" aria-label="Search publications">
+  <section class="pub-toolbar" aria-label="Publication filters">
+    <input type="search" class="pub-search" data-pub-search placeholder="Search publications" aria-label="Search publications">
     <div class="pub-toolbar__row">
       <div class="pub-filter-row" aria-label="Publication subsets">
         <button class="pub-filter active" type="button" data-pub-filter="all" aria-pressed="true">All</button>
-        <button class="pub-filter" type="button" data-pub-filter="hot" aria-pressed="false">Highly cited ★</button>
+        <button class="pub-filter" type="button" data-pub-filter="hot" aria-pressed="false">Highly cited</button>
         <button class="pub-filter" type="button" data-pub-filter="pdf" aria-pressed="false">Has PDF</button>
       </div>
       <label class="pub-year-jump">
@@ -25,7 +25,7 @@ toc: false
           {% for group in grouped %}<option value="pub-year-{{ group.name }}">{{ group.name }}</option>{% endfor %}
         </select>
       </label>
-      <span class="pub-count-display" data-pub-count>{{ sorted_pubs | size }} papers</span>
+      <span class="pub-count-display" data-pub-count role="status" aria-live="polite">{{ sorted_pubs | size }} papers</span>
     </div>
     <div class="pub-cat-scroller" data-pub-category-scroller aria-label="Publication topics">
       <button class="pub-cat-scroll" type="button" data-pub-scroll="previous" aria-label="Previous publication topics" title="Previous topics" hidden><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>

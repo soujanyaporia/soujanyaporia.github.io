@@ -12,19 +12,6 @@ main:
   - title: "Activities"
     url: /activities/
     icon: "fa-solid fa-microphone-lines"
-  # - title: "Resources"
-  #   url: /resources/
   - title: "DeCLaRe Lab"
     url: https://declare-lab.github.io/
     icon: "fa-solid fa-flask"
-  - title: "Walled AI"
-    url: https://walled.ai/
-    icon: "fa-solid fa-shield-halved"
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
-  # - title: "Sample Posts"
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
-  # - title: "Sitemap"
-  #   url: /sitemap/

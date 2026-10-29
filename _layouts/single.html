@@ -4,18 +4,9 @@ layout: default
 
 <div class="page-wrapper site-shell {% if page.url == '/' %}is-home{% endif %} {% if page.toc %}has-toc{% endif %} {% if page.author_profile %}has-sidebar{% endif %}">
 
-  {% if page.author_profile %}
-  <aside class="sidebar site-shell__sidebar">
-    {% include author-profile.html %}
-  </aside>
-  {% endif %}
-
   <article class="page-content site-shell__content">
     {% if page.title and page.title != "" %}
     <header class="page-header">
-      <div class="page-meta-strip" aria-label="Institutional affiliation">
-        <span>Nanyang Technological University, Singapore</span>
-      </div>
       <h1>{{ page.title }}</h1>
     </header>
     {% endif %}
@@ -53,5 +44,11 @@ layout: default
       </div>
     </div>
   </article>
+
+  {% if page.author_profile %}
+  <aside class="sidebar site-shell__sidebar">
+    {% include author-profile.html %}
+  </aside>
+  {% endif %}
 
 </div>

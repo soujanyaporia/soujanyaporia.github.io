@@ -1,12 +1,12 @@
 <div class="author-card">
   <div class="author-summary">
     {% if site.author.avatar %}
-    <img class="author-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}">
+    <img class="author-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" width="200" height="200">
     {% endif %}
     <div class="author-profile-content">
       <div class="author-name" data-type-role="subsection-title">{{ site.author.name }}</div>
       {% if site.author.affiliation_lines %}
-      <div class="author-bio" data-prose-align="center" data-prose-align-mobile="left" aria-label="{{ site.author.bio }}">
+      <div class="author-bio" data-prose-align="left" aria-label="{{ site.author.bio }}">
         {% for line in site.author.affiliation_lines %}<span class="author-bio-line" data-type-role="small">{{ line }}</span>{% unless forloop.last %}<br>{% endunless %}{% endfor %}
       </div>
       {% elsif site.author.bio %}
@@ -30,7 +30,7 @@
   <div class="author-links">
     {% for link in site.author.links %}
     <a href="{{ link.url }}" target="_blank" rel="noopener" title="{{ link.label }}">
-      <i class="{{ link.icon }}"></i> {{ link.label }}
+      {{ link.label }}
     </a>
     {% endfor %}
   </div>
