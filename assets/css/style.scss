@@ -16,7 +16,7 @@
   $sidebar-width: 210px,
   $stacked-sidebar-width: 100%,
   $shell-gap: 3.5rem,
-  $page-title-size: clamp(2.25rem, 4vw, 3.2rem),
+  $page-title-size: 3.2rem,
   $section-title-size: 1.75rem,
   $feature-title-size: 1.2rem,
   $card-title-size: 1.125rem,
@@ -132,6 +132,7 @@
 .footer-side-project > a { color: var(--accent); }
 
 @media (max-width: 960px) {
+  @include declare-customize($page-title-size: 2.6rem);
   .author-card { border-top: 1px solid var(--border); padding-top: 1.75rem; }
   .author-summary { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 1.5rem; }
   .author-avatar { width: 110px; }
@@ -141,6 +142,7 @@
 }
 
 @media (max-width: 640px) {
+  @include declare-customize($page-title-size: 2.25rem);
   .home-hero { padding-bottom: 2rem; }
   .profile-resources { gap: 0.25rem 1.2rem; }
   .update-log__item { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.1rem 0; }
