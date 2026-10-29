@@ -1,3 +1,8 @@
 # www.robotstxt.org/
 
 # Allow crawling of all content
+User-agent: *
+Disallow:
+
+Sitemap: https://soujanyaporia.github.io/sitemap.xml
+Sitemap: https://soujanyaporia.github.io/sitemap-pages.txt

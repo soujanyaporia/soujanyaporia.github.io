@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -129,6 +129,11 @@ jobs:
           mkdir -p ../../_site/math-for-primary
           cp -R dist/. ../../_site/math-for-primary/
           test -f ../../_site/math-for-primary/index.html
+      - name: Build and verify public-page sitemap
+        run: |
+          python -m unittest discover -s _tools -p 'test_indexing_sitemap.py'
+          python _tools/build_indexing_sitemap.py --site _site --url https://soujanyaporia.github.io
+          python _tools/build_indexing_sitemap.py --site _site --url https://soujanyaporia.github.io --check
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
