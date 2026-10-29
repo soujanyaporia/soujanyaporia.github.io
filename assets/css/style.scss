@@ -5,7 +5,7 @@
 
 /* The personal site uses the shared components with a quieter reading scale. */
 @include declare-customize(
-  $font-sans: '"Source Serif 4", Georgia, serif',
+  $font-sans: '"Source Serif 4", "Noto Serif Bengali", Georgia, serif',
   $font-mono: '"Instrument Sans", sans-serif',
   $accent: MidnightBlue,
   $accent-hover: Navy,
