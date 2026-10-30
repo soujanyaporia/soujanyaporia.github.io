@@ -152,7 +152,7 @@ body_class: "activity-profile-page"
   <article class="activity-record activity-record--wide">
     <span>2025–present</span>
     <h3>Nanyang Technological University</h3>
-    <p>Associate Professor in the School of Electrical and Electronic Engineering.</p>
+    <p>Associate Professor in the School of Electrical and Electronic Engineering, with a joint appointment in the College of Computing and Data Science (CCDS).</p>
   </article>
   <article class="activity-record activity-record--wide">
     <span>2019–25</span>

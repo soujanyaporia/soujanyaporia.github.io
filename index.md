@@ -9,7 +9,7 @@ title: ""
   <div class="home-introduction">
     <h1 id="home-title">Soujanya Poria</h1>
     <p class="home-native-name" lang="bn">সৌজন্য পড়িয়া</p>
-    <p class="home-appointment">Associate Professor, NTU Singapore</p>
+    <p class="home-appointment">Associate Professor, NTU Singapore, with a joint appointment in the College of Computing and Data Science (CCDS).</p>
     <p>I lead the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> (Deep Cognition and Language Research). My current research focuses on memory for AI agents, efficient and reliable multi-agent systems, and reasoning.</p>
     <p>Our lab also works on AI safety and trustworthiness, multimodality, AI for science, efficiency, and embodied AI.</p>
     <div class="profile-resources profile-resources--mobile" aria-label="Contact and research resources">
