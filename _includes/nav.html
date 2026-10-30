@@ -9,7 +9,20 @@
     </button>
     <nav class="nav-links" id="primary-navigation" aria-label="Primary navigation">
       {%- for link in site.data.navigation.main -%}
-        {%- if link.url contains '://' -%}
+        {%- if link.children -%}
+          <details class="research-menu">
+            <summary {% if page.research_section %}aria-current="true"{% endif %}>
+              <i class="nav-icon {{ link.icon }}" aria-hidden="true"></i>
+              <span>{{ link.title }}</span>
+              <svg class="research-menu-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg>
+            </summary>
+            <div class="research-menu-items">
+              {% for child in link.children %}
+              <a href="{{ child.url | relative_url }}" {% if page.url == child.url %}class="active" aria-current="page"{% endif %}>{{ child.title }}</a>
+              {% endfor %}
+            </div>
+          </details>
+        {%- elsif link.url contains '://' -%}
           <a href="{{ link.url }}" target="_blank" rel="noopener">
             <i class="nav-icon {{ link.icon }}" aria-hidden="true"></i>
             <span>{{ link.title }}</span>

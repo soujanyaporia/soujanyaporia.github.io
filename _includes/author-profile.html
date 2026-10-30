@@ -26,12 +26,13 @@
     </div>
   </div>
   {% if site.author.links %}
-  <div class="author-links">
+  <nav class="author-links" aria-label="Contact and academic profiles">
     {% for link in site.author.links %}
-    <a href="{{ link.url }}" target="_blank" rel="noopener" title="{{ link.label }}">
-      {{ link.label }}
+    <a href="{% if link.url contains ':' %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}" {% unless link.url contains 'mailto:' %}target="_blank" rel="noopener"{% endunless %} title="{{ link.label }}" aria-label="{{ link.label }}">
+      {% assign icon_path = link.icon | prepend: 'icons/' | append: '.svg' %}
+      {% include {{ icon_path }} %}
     </a>
     {% endfor %}
-  </div>
+  </nav>
   {% endif %}
 </div>

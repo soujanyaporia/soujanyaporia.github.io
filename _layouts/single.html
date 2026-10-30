@@ -11,6 +11,8 @@ layout: default
     </header>
     {% endif %}
 
+    {% if page.research_section %}{% include research-navigation.html %}{% endif %}
+
     {% if page.author_profile and page.url != '/' %}
     <div class="mobile-author-profile">
       {% include author-profile.html logo_uid="mobile-profilemark" %}

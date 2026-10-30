@@ -6,12 +6,13 @@ main:
   - title: "Research"
     url: /research/
     icon: "fa-solid fa-compass"
-  - title: "Publications"
-    url: /publications/
-    icon: "fa-solid fa-book-open"
-  - title: "Activities"
-    url: /activities/
-    icon: "fa-solid fa-microphone-lines"
+    children:
+      - title: "Overview"
+        url: /research/
+      - title: "Publications"
+        url: /publications/
+      - title: "Activities"
+        url: /activities/
   - title: "DeCLaRe Lab"
     url: https://declare-lab.github.io/
     icon: "fa-solid fa-flask"

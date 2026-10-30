@@ -3,6 +3,7 @@ layout: single
 title: "Academic Activities"
 permalink: /activities/
 author_profile: true
+research_section: true
 toc: false
 body_class: "activity-profile-page"
 ---
@@ -10,6 +11,16 @@ body_class: "activity-profile-page"
 ## Keynotes and Invited Talks
 
 <div class="activity-list activity-list--two-column">
+  <article class="activity-record">
+    <span>August 2026 · Keynote</span>
+    <h3>Endowing Large Language Models with Efficient and Online Memory</h3>
+    <p>International Conference on Future of AM, Singapore.</p>
+  </article>
+  <article class="activity-record">
+    <span>January 2026 · Keynote</span>
+    <h3>Where We Hit the Limits: Blue-Sky Directions for Large Language and Multimodal Models</h3>
+    <p>BEEU Workshop at AAAI, Singapore.</p>
+  </article>
   <article class="activity-record">
     <span>2025 · Master class</span>
     <h3>Healthcare AI Symposium</h3>
@@ -56,6 +67,16 @@ body_class: "activity-profile-page"
 
 <div class="activity-list activity-list--two-column">
   <article class="activity-record">
+    <span>2027 · EMNLP</span>
+    <h3>Program Co-Chair</h3>
+    <p>Conference on Empirical Methods in Natural Language Processing.</p>
+  </article>
+  <article class="activity-record">
+    <span>2027 · ACL</span>
+    <h3>Demonstration Track Co-Chair</h3>
+    <p>Annual Meeting of the Association for Computational Linguistics.</p>
+  </article>
+  <article class="activity-record">
     <span>Editorial service</span>
     <h3>Associate editor</h3>
     <p>Information Fusion, Neurocomputing, IEEE Transactions on Big Data, and Cognitive Computation.</p>
@@ -91,8 +112,18 @@ body_class: "activity-profile-page"
 <div class="activity-list">
   <article class="activity-record activity-record--wide">
     <span>NTU Singapore</span>
-    <h3>IE4422 Database Systems</h3>
-    <p>Undergraduate course on relational data modeling, SQL, normalization, transactions, indexing, and database design.</p>
+    <h3>IE4422 Multimodal Large Language Models</h3>
+    <p>Theory and applications of multimodal large language models.</p>
+  </article>
+  <article class="activity-record activity-record--wide">
+    <span>NTU Singapore</span>
+    <h3>IE4791 Database Systems</h3>
+    <p>Undergraduate course.</p>
+  </article>
+  <article class="activity-record activity-record--wide">
+    <span>NTU Singapore</span>
+    <h3>IE2108 Data Structures and Algorithms in Python</h3>
+    <p>Tutorials.</p>
   </article>
   <article class="activity-record activity-record--wide">
     <span>2019–24 · SUTD</span>
@@ -143,41 +174,6 @@ body_class: "activity-profile-page"
     <span>Open research</span>
     <h3>Code, models, and demonstrations</h3>
     <p>Code and models are available on <a href="https://github.com/declare-lab">GitHub</a> and <a href="https://huggingface.co/declare-lab">Hugging Face</a>.</p>
-  </article>
-</div>
-
-## Appointments and education
-
-<div class="activity-list career-list">
-  <article class="activity-record activity-record--wide">
-    <span>2025–present</span>
-    <h3>Nanyang Technological University</h3>
-    <p>Associate Professor in the School of Electrical and Electronic Engineering, with a joint appointment in the College of Computing and Data Science (CCDS).</p>
-  </article>
-  <article class="activity-record activity-record--wide">
-    <span>2019–25</span>
-    <h3>Singapore University of Technology and Design</h3>
-    <p>Faculty member, Provost’s Chair Assistant Professor, and Deputy Director of the AI Mega Centre; DeCLaRe Lab was established at SUTD in 2019.</p>
-  </article>
-  <article class="activity-record activity-record--wide">
-    <span>2019–22</span>
-    <h3>A*STAR Institute of High Performance Computing</h3>
-    <p>Joint appointment with SUTD.</p>
-  </article>
-  <article class="activity-record activity-record--wide">
-    <span>2018–19</span>
-    <h3>NTU Presidential Postdoctoral Fellow</h3>
-    <p>Research on multimodal and personalized affective dialogue systems.</p>
-  </article>
-  <article class="activity-record activity-record--wide">
-    <span>2014–17</span>
-    <h3>PhD, University of Stirling</h3>
-    <p>Computer Science and Mathematics; research on symbolic and machine-learning approaches to text-based and multimodal sentiment analysis.</p>
-  </article>
-  <article class="activity-record activity-record--wide">
-    <span>2009–13</span>
-    <h3>Bachelor of Engineering, Jadavpur University</h3>
-    <p>Computer Science and Engineering.</p>
   </article>
 </div>
 

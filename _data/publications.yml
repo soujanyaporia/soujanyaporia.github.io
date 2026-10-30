@@ -2,6 +2,48 @@
 # Fields: title, authors, venue, year
 # Optional: publication_url, scholar_url, pdf, abstract, code, project, categories
 
+- title: 'BaRe-Mem: Bayesian Reliability Memory for Robust and Adaptive Agent Consultation'
+  authors: 'P Feng, Z Huang, S Poria'
+  venue: 'arXiv preprint arXiv:2609.35551'
+  year: 2026
+  publication_url: 'https://arxiv.org/abs/2609.35551'
+  pdf: 'https://arxiv.org/pdf/2609.35551'
+  categories:
+    - 'AI Agents'
+    - 'Memory'
+  abstract: |
+    BaRe-Mem maintains a Bayesian estimate of an advisor's context-dependent reliability from
+    verified interactions. This memory guides how strongly an agent uses advice and whether
+    to consult an advisor, with an extension to allocating work among multiple agents.
+
+- title: 'MemBodied: Recurrent Associative Memory for Vision-Language-Action Models'
+  authors: 'TD Pala, N Majumder, B Goh, R Yee, J Yang, L Chen, S Poria'
+  venue: 'arXiv preprint arXiv:2609.28256'
+  year: 2026
+  publication_url: 'https://arxiv.org/abs/2609.28256'
+  pdf: 'https://arxiv.org/pdf/2609.28256'
+  categories:
+    - 'Embodied AI'
+    - 'Memory'
+  abstract: |
+    MemBodied combines a recurrent associative state with an anchor for the initial scene.
+    These fixed-size memory components help a vision-language-action policy act on information
+    seen earlier in an episode without retaining the full observation history in context.
+
+- title: 'RoboQuest: Generalist Physical Agents that Search, Inspect and Test'
+  authors: 'L Renhang, N Majumder, TD Pala, S Poria'
+  venue: 'arXiv preprint arXiv:2610.10388'
+  year: 2026
+  publication_url: 'https://arxiv.org/abs/2610.10388'
+  pdf: 'https://arxiv.org/pdf/2610.10388'
+  categories:
+    - 'Embodied AI'
+    - 'AI Agents'
+  abstract: |
+    RoboQuest evaluates physical agents on tasks that require discovering evidence through
+    exploration. Its ten mobile-manipulation tasks cover search, manipulation-based inspection,
+    and interactive testing, with success depending on evidence gathered before completion.
+
 - title: 'Not All Tokens Are Equal: Intrinsic Loss Reweighting for Verifiable Reinforcement Learning'
   authors: 'TD Pala, V Toh, S Poria'
   venue: '3rd AI for Math Workshop @ ICML 2026'

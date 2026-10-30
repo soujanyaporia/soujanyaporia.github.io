@@ -1,0 +1,6 @@
+<nav class="research-section-nav" aria-label="Research section">
+  <a href="{{ '/research/' | relative_url }}" {% if page.url == '/research/' %}aria-current="page"{% endif %}>Overview</a>
+  <a href="{{ '/publications/' | relative_url }}" {% if page.url == '/publications/' %}aria-current="page"{% endif %}>Publications</a>
+  <a href="{{ '/activities/' | relative_url }}" {% if page.url == '/activities/' %}aria-current="page"{% endif %}>Activities</a>
+  <a class="research-cv-link" href="{{ '/assets/files/Soujanya_Poria_CV_2026-10-30.pdf' | relative_url }}" target="_blank" rel="noopener">{% include icons/file-pdf.svg %} CV</a>
+</nav>
