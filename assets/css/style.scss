@@ -118,8 +118,9 @@
 .research-section-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1.3rem; margin: -0.8rem 0 2rem; padding-bottom: 0.65rem; border-bottom: 1px solid var(--border); }
 .research-section-nav a { display: inline-flex; align-items: center; min-height: 40px; color: var(--text-secondary); text-decoration: none; }
 .research-section-nav a[aria-current], .research-section-nav a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.35em; }
-.research-cv-link { gap: 0.4rem; margin-left: auto; }
-.research-cv-link svg { width: 16px; height: 16px; }
+.research-cv-link { justify-content: center; width: 40px; margin-left: auto; }
+.author-links .cv-icon,
+.research-cv-link .cv-icon { width: 24px; height: 20px; }
 .research-papers { padding-left: 1.15rem; }
 .research-papers li { margin-bottom: 0.75rem; padding-left: 0.15rem; }
 .research-papers li p { margin: 0; }
