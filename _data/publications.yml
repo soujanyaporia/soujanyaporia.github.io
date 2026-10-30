@@ -9,7 +9,7 @@
   publication_url: 'https://arxiv.org/abs/2609.35551'
   pdf: 'https://arxiv.org/pdf/2609.35551'
   categories:
-    - 'AI Agents'
+    - 'Agentic AI'
     - 'Memory'
   abstract: |
     BaRe-Mem maintains a Bayesian estimate of an advisor's context-dependent reliability from
@@ -38,7 +38,7 @@
   pdf: 'https://arxiv.org/pdf/2610.10388'
   categories:
     - 'Embodied AI'
-    - 'AI Agents'
+    - 'Agentic AI'
   abstract: |
     RoboQuest evaluates physical agents on tasks that require discovering evidence through
     exploration. Its ten mobile-manipulation tasks cover search, manipulation-based inspection,
@@ -222,6 +222,7 @@
   pdf: 'https://arxiv.org/pdf/2605.12357'
   code: 'https://github.com/declare-lab/delta-Mem'
   categories:
+    - 'Memory'
     - 'ML Efficiency'
     - 'Reasoning'
     - 'Long Context'
