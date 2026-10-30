@@ -14,11 +14,14 @@ author:
   name: "Soujanya Poria"
   avatar: "/assets/images/new-SJ-dp.png"
   bio: "Associate Professor, School of Electrical and Electronic Engineering, with a joint appointment in the College of Computing and Data Science (CCDS), Nanyang Technological University (NTU)"
-  affiliation_lines:
-    - "Associate Professor"
-    - "School of Electrical and Electronic Engineering"
-    - "College of Computing and Data Science (CCDS; joint appointment)"
-    - "Nanyang Technological University (NTU)"
+  position: "Associate Professor"
+  institution: "Nanyang Technological University (NTU)"
+  appointments:
+    - abbreviation: "EEE"
+      name: "School of Electrical and Electronic Engineering"
+    - abbreviation: "CCDS"
+      name: "College of Computing and Data Science"
+      joint: true
   location: "Singapore"
   links:
     - label: "Email"
