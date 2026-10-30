@@ -20,8 +20,8 @@ body_class: "research-profile-page"
 I am interested in memory that changes as an agent gains experience: what it should retain, how it should update, and how that state should affect its next action. Recent work develops compact, recurrent memories for language models and robot policies.
 
 <ul class="research-papers">
-  <li><a href="https://arxiv.org/abs/2605.12357"><strong>δ-mem: Efficient Online Memory for Large Language Models</strong></a> — NeurIPS 2026. An associative memory updates online and adapts a frozen language model through low-rank attention corrections.</li>
-  <li><a href="https://arxiv.org/abs/2609.28256"><strong>MemBodied</strong></a> — Preprint, 2026. A fixed-size episodic memory lets vision-language-action models use information from earlier observations during manipulation.</li>
+  <li><p><a href="https://arxiv.org/abs/2605.12357"><strong>δ-mem: Efficient Online Memory for Large Language Models</strong></a> — NeurIPS 2026. An associative memory updates online and adapts a frozen language model through low-rank attention corrections.</p></li>
+  <li><p><a href="https://arxiv.org/abs/2609.28256"><strong>MemBodied</strong></a> — Preprint, 2026. A fixed-size episodic memory lets vision-language-action models use information from earlier observations during manipulation.</p></li>
 </ul>
 
 ### Multi-agent systems and reliability
@@ -29,8 +29,8 @@ I am interested in memory that changes as an agent gains experience: what it sho
 Collaboration depends on knowing when another agent is helpful. I study how agents learn whom to trust, when to ask for advice, and how to avoid being persuaded by unreliable peers.
 
 <ul class="research-papers">
-  <li><a href="https://arxiv.org/abs/2609.35551"><strong>BaRe-Mem</strong></a> — Preprint, 2026. Bayesian reliability memory learns from verified interactions to guide advice use and consultation in multi-agent systems.</li>
-  <li><a href="https://arxiv.org/abs/2508.18321"><strong>Measuring and Mitigating Rapport Bias</strong></a> — ICLR 2026. We examine how prior social interactions influence an agent’s judgment of its peers and its willingness to follow their answers.</li>
+  <li><p><a href="https://arxiv.org/abs/2609.35551"><strong>BaRe-Mem</strong></a> — Preprint, 2026. Bayesian reliability memory learns from verified interactions to guide advice use and consultation in multi-agent systems.</p></li>
+  <li><p><a href="https://arxiv.org/abs/2508.18321"><strong>Measuring and Mitigating Rapport Bias</strong></a> — ICLR 2026. We examine how prior social interactions influence an agent’s judgment of its peers and its willingness to follow their answers.</p></li>
 </ul>
 
 ### Efficient learning and attention
@@ -38,8 +38,8 @@ Collaboration depends on knowing when another agent is helpful. I study how agen
 My work on efficiency asks how much computation a model needs to learn and retain useful information. This includes the dynamics of linear attention and the choice of training examples as learning progresses.
 
 <ul class="research-papers">
-  <li><a href="https://arxiv.org/abs/2512.12602"><strong>Exact Flow Linear Attention (EFLA)</strong></a> — NeurIPS 2026, Spotlight. An exact solution to continuous-time memory dynamics provides a stable, parallelizable update for linear attention.</li>
-  <li><a href="https://arxiv.org/abs/2603.07433"><strong>Data Agent: Learning to Select Data via End-to-End Dynamic Optimization</strong></a> — ICML 2026. A learned selection policy adapts the training data to the model’s changing needs.</li>
+  <li><p><a href="https://arxiv.org/abs/2512.12602"><strong>Exact Flow Linear Attention (EFLA)</strong></a> — NeurIPS 2026, Spotlight. An exact solution to continuous-time memory dynamics provides a stable, parallelizable update for linear attention.</p></li>
+  <li><p><a href="https://arxiv.org/abs/2603.07433"><strong>Data Agent: Learning to Select Data via End-to-End Dynamic Optimization</strong></a> — ICML 2026. A learned selection policy adapts the training data to the model’s changing needs.</p></li>
 </ul>
 
 ### Embodied agents and grounded reasoning
@@ -47,8 +47,8 @@ My work on efficiency asks how much computation a model needs to learn and retai
 For an agent acting in the world, a good answer often requires looking, moving, or testing something first. I study how visual reasoning connects to these actions and how to evaluate whether agents gather the evidence a task requires.
 
 <ul class="research-papers">
-  <li><a href="https://arxiv.org/abs/2610.10388"><strong>RoboQuest</strong></a> — Preprint, 2026. A benchmark for goal-directed embodied exploration, covering search, inspection through manipulation, and interactive testing.</li>
-  <li><a href="https://arxiv.org/abs/2604.14692"><strong>Chain-of-Glimpse</strong></a> — ICML 2026. Search-guided video reasoning connects intermediate reasoning steps to specific objects and visual evidence.</li>
+  <li><p><a href="https://arxiv.org/abs/2610.10388"><strong>RoboQuest</strong></a> — Preprint, 2026. A benchmark for goal-directed embodied exploration, covering search, inspection through manipulation, and interactive testing.</p></li>
+  <li><p><a href="https://arxiv.org/abs/2604.14692"><strong>Chain-of-Glimpse</strong></a> — ICML 2026. Search-guided video reasoning connects intermediate reasoning steps to specific objects and visual evidence.</p></li>
 </ul>
 
 ### Safety and evaluation
@@ -56,8 +56,8 @@ For an agent acting in the world, a good answer often requires looking, moving, 
 I also study whether agents stay within their intended role and how to evaluate safety alongside useful capability. These questions matter when moving from general demonstrations to systems with a defined purpose and operating constraints.
 
 <ul class="research-papers">
-  <li><a href="https://arxiv.org/abs/2509.26495"><strong>OffTopicEval: When Large Language Models Enter the Wrong Chat, Almost Always!</strong></a> — ICLR 2026. We evaluate whether an assistant respects the scope of its assigned role when a request falls outside it.</li>
-  <li><a href="https://aclanthology.org/2025.naacl-demo.23/"><strong>Libra-Leaderboard</strong></a> — NAACL 2025. A framework for evaluating language-model capabilities and safety together.</li>
+  <li><p><a href="https://arxiv.org/abs/2509.26495"><strong>OffTopicEval: When Large Language Models Enter the Wrong Chat, Almost Always!</strong></a> — ICLR 2026. We evaluate whether an assistant respects the scope of its assigned role when a request falls outside it.</p></li>
+  <li><p><a href="https://aclanthology.org/2025.naacl-demo.23/"><strong>Libra-Leaderboard</strong></a> — NAACL 2025. A framework for evaluating language-model capabilities and safety together.</p></li>
 </ul>
 
 ### Earlier work
