@@ -11,6 +11,12 @@ layout: default
     </header>
     {% endif %}
 
+    {% if page.author_profile and page.url != '/' %}
+    <div class="mobile-author-profile">
+      {% include author-profile.html logo_uid="mobile-profilemark" %}
+    </div>
+    {% endif %}
+
     {% if page.intro %}
     <section class="page-lead page-lead--split page-lead--wide">
       <p class="page-lead__copy">{{ page.intro }}</p>
@@ -46,7 +52,7 @@ layout: default
   </article>
 
   {% if page.author_profile %}
-  <aside class="sidebar site-shell__sidebar">
+  <aside class="sidebar site-shell__sidebar desktop-author-profile">
     {% include author-profile.html %}
   </aside>
   {% endif %}

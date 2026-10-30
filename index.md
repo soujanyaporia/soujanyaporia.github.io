@@ -7,18 +7,18 @@ title: ""
 
 <section class="home-hero" aria-labelledby="home-title">
   <div class="home-introduction">
-    <h1 id="home-title">Soujanya Poria</h1>
-    <p class="home-native-name" lang="bn">সৌজন্য পড়িয়া</p>
-    <div class="home-appointment">
-      {% include author-affiliations.html %}
+    <div class="home-heading">
+      <div class="home-heading-copy">
+        <h1 id="home-title">Soujanya Poria</h1>
+        <p class="home-native-name" lang="bn">সৌজন্য পড়িয়া</p>
+      </div>
+      <img class="home-portrait" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" width="200" height="200">
+    </div>
+    <div class="mobile-author-profile mobile-author-profile--home">
+      {% include author-profile.html home=true logo_uid="mobile-profilemark" %}
     </div>
     <p>I lead the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> (Deep Cognition and Language Research). My current research focuses on memory for AI agents, efficient and reliable multi-agent systems, and reasoning.</p>
     <p>Our lab also works on AI safety and trustworthiness, multimodality, AI for science, efficiency, and embodied AI.</p>
-    <div class="profile-resources profile-resources--mobile" aria-label="Contact and research resources">
-      <a href="mailto:soujanya.poria@ntu.edu.sg">Email</a>
-      <a href="https://scholar.google.co.in/citations?hl=en&amp;user=oS6gRc4AAAAJ&amp;view_op=list_works">Google Scholar</a>
-      <a href="https://github.com/soujanyaporia">GitHub</a>
-    </div>
   </div>
 </section>
 

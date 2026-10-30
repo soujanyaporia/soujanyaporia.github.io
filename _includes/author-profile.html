@@ -1,10 +1,10 @@
 <div class="author-card">
   <div class="author-summary">
-    {% if site.author.avatar %}
+    {% if site.author.avatar and include.home != true %}
     <img class="author-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" width="200" height="200">
     {% endif %}
     <div class="author-profile-content">
-      <div class="author-name" data-type-role="subsection-title">{{ site.author.name }}</div>
+      {% unless include.home %}<div class="author-name" data-type-role="subsection-title">{{ site.author.name }}</div>{% endunless %}
       {% if site.author.appointments %}
       {% include author-affiliations.html %}
       {% elsif site.author.bio %}
@@ -13,7 +13,8 @@
       <div class="author-affiliation-block">
         <div class="author-affiliations" aria-label="Affiliations">
           <img class="affiliation-logo affiliation-ntu" src="{{ '/assets/images/logos/NTU-transparent-new.png' | relative_url }}" alt="Nanyang Technological University">
-          {% include brand/logo-icon.html class="affiliation-logo affiliation-dec" uid="profilemark" %}
+          {% assign profile_logo_uid = include.logo_uid | default: 'profilemark' %}
+          {% include brand/logo-icon.html class="affiliation-logo affiliation-dec" uid=profile_logo_uid %}
         </div>
         {% if site.author.location %}
         <p class="author-location">
