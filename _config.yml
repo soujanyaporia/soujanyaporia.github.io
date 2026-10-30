@@ -16,11 +16,10 @@ author:
   bio: "Associate Professor, School of Electrical and Electronic Engineering, with a joint appointment in the College of Computing and Data Science (CCDS), Nanyang Technological University (NTU)"
   position: "Associate Professor"
   institution: "Nanyang Technological University (NTU)"
+  institution_url: "https://www.ntu.edu.sg"
   appointments:
-    - abbreviation: "EEE"
-      name: "School of Electrical and Electronic Engineering"
-    - abbreviation: "CCDS"
-      name: "College of Computing and Data Science"
+    - name: "School of Electrical and Electronic Engineering"
+    - name: "College of Computing and Data Science (CCDS)"
       joint: true
   location: "Singapore"
   links:
@@ -33,9 +32,6 @@ author:
     - label: "Google Scholar"
       icon: "fas fa-fw fa-graduation-cap"
       url: "https://scholar.google.co.in/citations?hl=en&user=oS6gRc4AAAAJ&view_op=list_works"
-    - label: "Research slides"
-      icon: "fas fa-fw fa-file-powerpoint"
-      url: "https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing"
     - label: "DBLP"
       icon: "fas fa-fw fa-database"
       url: "https://dblp.org/pid/116/4904"

@@ -14,7 +14,6 @@ body_class: "research-profile-page"
   <div class="research-profile-actions">
     <a class="text-link" href="https://declare-lab.github.io/research/">Research at DeCLaRe</a>
     <a class="text-link" href="/publications/">Publications</a>
-    <a class="text-link" href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
   </div>
 </div>
 

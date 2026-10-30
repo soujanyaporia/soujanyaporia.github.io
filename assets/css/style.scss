@@ -97,27 +97,12 @@
 .author-name { margin-bottom: 0.6rem; }
 .author-bio { margin-bottom: 0.75rem; }
 .profile-affiliations .profile-role { margin: 0 0 0.35rem; }
-.profile-affiliations .profile-university { margin: 0 0 1rem; }
-.profile-appointments { display: grid; gap: 0.75rem; }
-.profile-appointment {
-  --appointment-color: var(--accent);
-  padding: 0.55rem 0.65rem;
-  border-left: 3px solid var(--appointment-color);
-  background: color-mix(in srgb, var(--appointment-color) 4%, var(--bg));
-}
-.profile-appointment--joint { --appointment-color: color-mix(in srgb, Teal 85%, var(--text)); }
-[data-theme="dark"] .profile-appointment--joint { --appointment-color: PaleTurquoise; }
-.profile-appointment-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.15rem 0.55rem;
-  margin-bottom: 0.3rem;
-}
-.profile-affiliations .profile-appointment-code { margin: 0; }
-.profile-appointment-code strong { color: var(--appointment-color); }
-.profile-appointment-note { white-space: nowrap; }
+.profile-affiliations .profile-university { margin: 0 0 1.15rem; }
+.profile-university a { color: var(--accent); text-decoration: none; }
+.profile-university a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+.profile-appointments { display: grid; gap: 0.85rem; }
 .profile-affiliations .profile-appointment-name { margin: 0; }
+.profile-affiliations .profile-appointment-note { margin: 0.2rem 0 0; }
 .author-affiliations { display: flex; align-items: center; gap: 1.1rem; margin: 1.1rem 0; }
 .author-affiliations .affiliation-logo { display: block; height: 42px; width: auto; }
 .author-location { display: flex; align-items: center; gap: 0.4rem; margin: 0 0 1rem; }
@@ -161,7 +146,6 @@
   .author-links { flex-direction: row; flex-wrap: wrap; gap: 0.2rem 1.2rem; margin-top: 1rem; }
   .profile-resources--mobile { display: flex; }
   .home-introduction .home-appointment { display: block; }
-  .home-appointment .profile-appointments { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
@@ -177,7 +161,6 @@
 }
 
 @media (max-width: 480px) {
-  .home-appointment .profile-appointments { grid-template-columns: 1fr; }
   .author-summary { grid-template-columns: 80px minmax(0, 1fr); gap: 1rem; }
   .author-avatar { width: 80px; }
 }

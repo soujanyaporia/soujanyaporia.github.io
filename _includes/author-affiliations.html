@@ -1,14 +1,11 @@
 <div class="profile-affiliations" data-prose-align="left">
   <p class="profile-role"><strong>{{ site.author.position }}</strong></p>
-  <p class="profile-university author-bio">{{ site.author.institution }}</p>
+  <p class="profile-university author-bio"><a href="{{ site.author.institution_url }}">{{ site.author.institution }}</a></p>
   <div class="profile-appointments" role="list" aria-label="Academic appointments">
     {% for appointment in site.author.appointments %}
-    <div class="profile-appointment{% if appointment.joint %} profile-appointment--joint{% endif %}" role="listitem">
-      <div class="profile-appointment-heading">
-        <p class="profile-appointment-code author-bio"><strong>{{ appointment.abbreviation }}</strong></p>
-        {% if appointment.joint %}<span class="profile-appointment-note note-meta">Joint appointment</span>{% endif %}
-      </div>
+    <div class="profile-appointment" role="listitem">
       <p class="profile-appointment-name author-bio">{{ appointment.name }}</p>
+      {% if appointment.joint %}<p class="profile-appointment-note note-meta"><em>Joint appointment</em></p>{% endif %}
     </div>
     {% endfor %}
   </div>

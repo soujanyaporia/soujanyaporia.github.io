@@ -17,7 +17,6 @@ title: ""
     <div class="profile-resources profile-resources--mobile" aria-label="Contact and research resources">
       <a href="mailto:soujanya.poria@ntu.edu.sg">Email</a>
       <a href="https://scholar.google.co.in/citations?hl=en&amp;user=oS6gRc4AAAAJ&amp;view_op=list_works">Google Scholar</a>
-      <a href="https://drive.google.com/file/d/10lmu5YGDzr2Yw6kBFWwe7ifZ9Ec9WCl1/view?usp=sharing">Research slides</a>
       <a href="https://github.com/soujanyaporia">GitHub</a>
     </div>
   </div>
