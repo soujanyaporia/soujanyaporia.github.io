@@ -10,7 +10,7 @@ body_class: "research-profile-page"
 
 <div class="research-profile-intro">
   <p>I study how AI agents learn from experience, work with other agents, and act reliably. My recent work brings together persistent memory, efficient learning, and evaluation in settings where an agent must gather evidence before making a decision.</p>
-  <p>I lead the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> at Nanyang Technological University. Below is a personal overview of my research directions and selected papers. My <a href="/assets/files/Soujanya_Poria_CV_2026-10-30.pdf?v=ce3772ad5178">curriculum vitae (PDF, October 2026)</a> includes the full academic record.</p>
+  <p>I lead the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> at Nanyang Technological University. Below is a personal overview of my research directions and selected papers. My <a href="/assets/files/Soujanya_Poria_CV_2026-10-30.pdf?v=c88896be9fe4">curriculum vitae (PDF, October 2026)</a> includes the full academic record.</p>
 </div>
 
 ## Recent research
@@ -114,4 +114,4 @@ My earlier research on sentiment analysis, affective computing, and multimodal r
   <div><strong>Presidential Postdoctoral Fellowship</strong><span>NTU Singapore, 2018</span></div>
 </div>
 
-<p class="section-link">See <a href="/activities/">Academic Activities</a> for conference leadership, editorial service, teaching, and invited talks, or <a href="/assets/files/Soujanya_Poria_CV_2026-10-30.pdf?v=ce3772ad5178">download my full CV</a>.</p>
+<p class="section-link">See <a href="/activities/">Academic Activities</a> for conference leadership, editorial service, teaching, and invited talks, or <a href="/assets/files/Soujanya_Poria_CV_2026-10-30.pdf?v=c88896be9fe4">download my full CV</a>.</p>
