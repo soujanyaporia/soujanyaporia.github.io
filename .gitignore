@@ -29,4 +29,7 @@ _asset_bundler_cache
 _site
 /artifacts
 
+# CV documents are kept locally, outside the public repository.
+/assets/files/*CV*.pdf
+
 /.claude

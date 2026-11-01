@@ -44,9 +44,6 @@ author:
     - label: "Twitter"
       icon: "twitter"
       url: "https://twitter.com/soujanyaporia"
-    - label: "Curriculum vitae (PDF)"
-      icon: "cv"
-      url: "/assets/files/Soujanya_Poria_CV_2026-10-30.pdf?v=c88896be9fe4"
 
 # Analytics
 analytics:
@@ -72,6 +69,8 @@ include:
   - _pages
 exclude:
   - _apps
+  # Keep CV documents out of the published site, including local copies.
+  - "assets/files/*CV*.pdf"
   - Gemfile
   - Gemfile.lock
   - LICENSE
