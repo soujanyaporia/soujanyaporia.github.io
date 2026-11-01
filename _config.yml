@@ -69,7 +69,7 @@ include:
   - _pages
 exclude:
   - _apps
-  # Keep CV documents out of the published site, including local copies.
+  # Keep plaintext CV PDFs out of the published site, including local copies.
   - "assets/files/*CV*.pdf"
   - Gemfile
   - Gemfile.lock
