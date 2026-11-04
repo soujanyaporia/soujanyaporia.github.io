@@ -1,3 +1,4 @@
+import {activityById} from '../primary/catalog';
 import { clearMissionRuns,readMissionRuns,restoreMissionRuns } from '../playground/session';
 import { useEffect,useRef,useState,type ReactNode } from 'react';
 import { useAccount } from './AccountContext';
@@ -12,7 +13,7 @@ import { initialProgress } from '../state/progress';
 import './school.css';
 const API_HOST='math-for-primary-school-api.soujanya-poria.chatgpt.site';
 function Section({id,eyebrow,title,children}:{id?:string;eyebrow:string;title:string;children:ReactNode}){return <section className="school-panel about-section" id={id}><p className="school-eyebrow">{eyebrow}</p><h2>{title}</h2>{children}</section>;}
-const summary=(p:Passport)=>{const acts=Object.values(p.progress.primary?.activities||{});const lessons=Object.keys(p.progress.nodes||{}).filter(id=>id.startsWith('learn.')&&!id.endsWith('.review')).length;return `${acts.filter(a=>a.attempts).length} activities explored · ${lessons} lessons finished · ${p.progress.totals.attempted} answers · ${p.progress.totals.stars} stars · ${p.sessions.filter(isUnfinished).length} unfinished${p.at?` · saved ${new Date(p.at).toLocaleString('en-SG',{dateStyle:'medium',timeStyle:'short'})}`:''}`;};
+const summary=(p:Passport)=>{const acts=Object.entries(p.progress.primary?.activities||{}).filter(([id])=>activityById(id)).map(([,record])=>record);const lessons=Object.keys(p.progress.nodes||{}).filter(id=>id.startsWith('learn.')&&!id.endsWith('.review')).length;return `${acts.filter(a=>a.attempts).length} activities explored · ${lessons} lessons finished · ${p.progress.totals.attempted} answers · ${p.progress.totals.stars} stars · ${p.sessions.filter(isUnfinished).length} unfinished${p.at?` · saved ${new Date(p.at).toLocaleString('en-SG',{dateStyle:'medium',timeStyle:'short'})}`:''}`;};
 /** Guest progress travels as a code or file the guest keeps; nothing is uploaded. */
 function PassportTools(){
  const {progress,restoreLocal,scope}=useProgress(),{all,restore,clear}=useSessions();const kv=browserStorage();

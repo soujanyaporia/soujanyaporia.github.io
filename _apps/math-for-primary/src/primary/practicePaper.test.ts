@@ -31,11 +31,12 @@ describe('On-demand original practice papers',()=>{
   }
  });
 
- it('visits each of the six illustrated families first, then adds foundation variety',()=>{
+ it('starts with six distinct illustrated families, adds baseline variety, and covers the complete family pool',()=>{
   for(let level=1;level<=6;level++)for(const seed of [0,23,7919,0xffffffff]){
    const input={...request(level),count:18 as const,seed},paper=generatePracticePaper(input);
    const expected=ACTIVITIES.filter(a=>a.level===level&&a.track==='standard'&&a.kind==='paper'&&a.parameter!=='mixed').map(a=>a.id).sort();
-   expect(paper.items.slice(0,6).map(i=>i.activity.id).sort()).toEqual(expected);
+   expect(new Set(paper.items.slice(0,6).map(i=>i.activity.id)).size).toBe(6);
+   expect([...new Set(paper.items.filter(i=>i.activity.kind==='paper').map(i=>i.activity.id))].sort()).toEqual(expected);
    expect(paper.items.slice(0,6).every(i=>i.question.picture)).toBe(true);
    expect(paper.items.slice(6,12).every(i=>i.activity.kind!=='paper')).toBe(true);
    expect(new Set(paper.items.slice(6,12).map(i=>i.activity.strand)).size).toBeGreaterThanOrEqual(2);

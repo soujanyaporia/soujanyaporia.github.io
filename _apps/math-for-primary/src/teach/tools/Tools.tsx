@@ -1,3 +1,4 @@
+import {ColumnArithmetic} from './ColumnCalculation';
 import {jumpOffered} from './moves';
 import {JoinParts} from './JoinParts';
 import {gridNext} from './touch';
@@ -93,6 +94,7 @@ function Balance({t,onChange}:Props<'balance'>){
 }
 /** One entry point for every manipulative. */
 export function ToolView({tool,onChange,staticView=false}:{tool:Tool;onChange?:(t:Tool)=>void;staticView?:boolean}){
+ if(tool.kind==='column-algorithm')return <ColumnArithmetic t={tool} onChange={onChange}/>;
  if(tool.kind==='join-parts')return <JoinParts t={tool} onChange={onChange}/>;
  if(tool.kind==='take-away')return <TakeAway t={tool} onChange={onChange}/>;
  if(tool.kind==='triangle-pair')return <TrianglePair t={tool} onChange={onChange}/>;

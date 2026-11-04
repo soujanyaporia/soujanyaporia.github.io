@@ -3,6 +3,7 @@ import type {RevealStep,Tool} from '../model';
 export function modelCaption(t?:Tool):string|undefined{
  if(!t)return;
  switch(t.kind){
+ case 'column-algorithm':return 'Each column has one place value. Start with ones. Ten smaller units can be exchanged for one unit in the next column.';
  case 'join-parts':return 'Each counter is one object. Join every coloured group once. The groups still waiting must be added too.';
  case 'focus':return modelCaption(t.source);
  case 'diagram':return undefined; // The diagram component already shows its caption.

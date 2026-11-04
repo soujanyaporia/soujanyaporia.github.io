@@ -1,3 +1,47 @@
+# Current source checkpoint — 4 November 2026, audited content release
+
+This section supersedes older checkpoints below. Authoritative source: `/Users/poriasoujanya/Documents/Math for Primary`; do not resume the old Claude scratch copy. The source described here is the final integrated release candidate. Verify the latest frontend commit/workflow against `.generated/release-status.json` and GitHub deployment status when resuming; a source checkpoint alone is not proof of publication. The prior published frontend was `314a3d84f6068261ad634a1f123648393b3c227f`.
+
+The school API is deployed as **Sites version 6**, source `5f972b1d061d1cd297be6e8f2bb19962f8f6c4ce`, including the 248-activity catalogue and separate lesson-answer attribution. `/health` reports **API contract version 3**, which is distinct from Sites deployment numbering. New lesson answers accumulate under `learn.<lessonId>`; existing history, totals, XP and lesson completion remain. Historical mixed activity totals are not destructively reconstructed. All 96 fallback practice links are labelled “Related practice”; 174 match the lesson objectives.
+
+## Verified current-source inventory
+
+| Path | Activities | Guided lessons | Rich paper families |
+|---|---:|---:|---:|
+| P1 Standard | 31 | 32 | 7 |
+| P2 Standard | 31 | 34 | 7 |
+| P3 Standard | 32 | 31 | 7 |
+| P4 Standard | 35 | 41 | 7 |
+| P5 Standard | 32 | 35 | 7 |
+| P6 Standard | 32 | 26 | 7 |
+| P5 Foundation | 33 | 49 | 0 |
+| P6 Foundation | 22 | 22 | 0 |
+| Total | 248 | 270 | 42 |
+
+These counts were loaded from `ACTIVITIES`, `LESSONS` and `PAPER_PATTERNS`, not inferred from documentation. The 1,600 daily addresses and on-demand papers are separate from the activity count. Foundation daily/paper sets use their actual existing catalogue; zero in the final column means no Standard-rich family was relabelled as Foundation. The 42 families are authored templates and contexts, **not 42 distinct mathematical strategies** or exhaustive syllabus coverage.
+
+`npm run test:narration-assets` passes for all **270 walkthroughs, 674 approved Voice A (`af_heart`) clips, 76.5 MiB**. Preserve the user's selected voice, timed picture cues and captions. Dynamic questions without a reviewed recording remain caption-only. No robotic device-voice fallback or browser speech-model download.
+
+## New content and contracts to preserve
+
+- `corpusPaperCatalog.ts` adds six original source-informed families, one per Standard level, with exact source-page references. `corpusPaperQuestions.ts` implements internal number-pattern gaps, equal-whole unit-fraction comparison, litres-to-millilitres equal pours, uniform inside-path area, greatest common-factor gift bags and equilateral-triangle/straight-line angles. P5 gift bags explicitly review P4 factors; P6 angles explicitly review P5 geometry. `CorpusDiagram.tsx` renders faithful ribbon, rectangular-frame and equilateral-triangle geometry. Essential givens belong in visible context, not tiny captions or answer-bearing aria labels.
+- The retained bank audit at `audits/paper-bank-2026-11-04.json` records **50,000 generated samples, 17,581 distinct visible-question identities, 32,419 repeat draws and zero failures**, across all 42 families. Reproduce with `npm run test:paper-bank`; output is `.generated/50k-paper-audit.json`. It is not 50,000 unique/authored questions or teacher validation. New-family solver tests read visible givens; gift-bag maximality is independently checked by enumeration rather than trusting its literal proof field.
+- Paper format version, paper generator version and daily-plan version are **3**. Keep `practicePaper.ts`, `sessionQuestions.ts`, `dailyPlan.ts`, saved-answer fingerprints and the API's shared copies consistent. Six-question mixes select six distinct families from the seven available; 18-question mixed papers reach all seven. Small topic domains advertise only supported capacities. Never reattach old answers to changed generated content.
+- `teach/lessons/columnLessons.ts` and pure `columnLessonMeta.ts` add `p1-written-addition`, `p1-written-subtraction`, `p2-written-addition`, and `p2-written-subtraction`. `withColumnLessons` inserts the first pair after `p1s-as-05` and the second pair after `p2s-as-01`, in both full and lightweight catalogues. P1 subtraction links to the new actual within-100 activity `p1s-subtract-large-n16`.
+- The four lessons use `tools/columnArithmetic.ts` for deterministic place-value snapshots and `ColumnCalculation.tsx` (named export `ColumnArithmetic`) for the renderer. Preserve the distinct filename casing for macOS/TypeScript. Carrying, borrowing and exchanges across zero show real digit changes. Checkpoints hide only the active answer digit, retain earlier work, and omit answer-bearing narration/equations. Whole-number readiness boosters use counters, not the decimal `place` tool. Each lesson has hands-on controls, grounded reflection, five mastery facets with recovery, and three two-step challenges. The preserved revision is `catalogue-depth-written-columns-2026-11-04-v1`.
+
+The previous optional four-addend lesson remains immediately after `p1s-as-06`. Existing usability fixes remain: `Question.context` participates in narration/printing/fingerprints; P3 transfer shows before → give → after and names both compared children; fraction grids have complete equal cells; angle diagrams match their numerical givens; challenge evidence stays separate from mastery stars; session-cache callbacks and unsaved-draft fallback must remain stable.
+
+## Evidence, source archive and next release steps
+
+The latest full frontend run passed **697 tests in 59 files**, and the source build passed **289-page SEO/redirect checks** before the final reducer correction. The column/support/catalogue/quality checks passed 43 focused tests. Root owns the final validation and deployment entries in `QA.md`; rerun relevant checks after the reducer change and record the final released SHAs. Do not imply this pending frontend pass is already live.
+
+The external archive at `../Singapore Maths Paper Library` contains **2,406 downloaded PDFs, 57,336 extracted pages and 116,085 unverified candidate regions**. This is searchable OCR plus bounded named-page visual reviews, not a review of all papers. `.generated/corpus-pattern-review.json` records a broad machine screen and seven visually inspected supplementary pages; `.generated/corpus-independent-review.json` records a separate 12,000-sample check of the six new originals. Verify source diagrams before adapting more candidates; OCR has lost fractions and merged neighbouring questions. Never publish source scans or unreviewed OCR as app questions.
+
+Publish through the isolated `../GitHub/singapore-primary-maths-release` worktree and `_apps/math-for-primary` mirror, preserving `/singapore-primary-maths/`, the old-path redirects and the homepage **Fun project** link. Exclude `.generated`, `.tools`, private files, credentials, databases, dependencies and nested Git metadata. `README.md` and `PRACTICE-DESIGN.md` describe the source state; `SYLLABUS-AUDIT.md` and `QA.md` are maintained separately in this pass. Qualified-teacher review, child testing, full official-subpoint tracing and broader structured assessment remain open; do not turn catalogue or audit counts into learning-outcome claims.
+
+---
+
 # Current usability continuation — 4 November 2026, evening
 
 This section supersedes the earlier UI descriptions below. Home/nav expose Daily practice, Create a paper and Learn. Paper setup opens directly with Continue separate; question navigation is compact and comes before the drawing pad. Essential givens are Question.context and are included in fingerprints, speech, printed questions and solutions. The user-provided badge-transfer example now has an explicit comparison and before/give/after picture.

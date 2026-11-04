@@ -9,6 +9,8 @@ import {proofValue} from '../src/media/solution';
 import {visibleQuestionKey} from '../src/primary/practicePaper';
 import {solve as solveGeneral} from '../src/primary/paperQuestions.test';
 import {solve as solveP3} from '../src/primary/paperP3.test';
+import {solve as solveCorpus} from '../src/primary/corpusPaperQuestions.test';
+import {CORPUS_PATTERNS} from '../src/primary/corpusPaperCatalog';
 
 type Stats={parameter:string;level:number;sampleCount:number;unique:Set<string>;answerMin:number;answerMax:number;maxPromptWords:number;units:Set<string>;mcq:number;shortAnswer:number;failureCount:number};
 it('independently audits 50,000 generated rich-family samples',()=>{
@@ -20,18 +22,18 @@ it('independently audits 50,000 generated rich-family samples',()=>{
   const q=makePaperQuestion(activity,seed,index),answer=numberValue(q.answer),key=visibleQuestionKey(q);
   s.sampleCount++;s.unique.add(key);seen.add(key);s.answerMin=Math.min(s.answerMin,answer??Infinity);s.answerMax=Math.max(s.answerMax,answer??-Infinity);s.units.add(q.unit??'none');s.maxPromptWords=Math.max(s.maxPromptWords,q.prompt.trim().split(/\s+/).length);if(q.choices)s.mcq++;else s.shortAnswer++;
   try{
-   const expected=p.level===3?solveP3(q,p.parameter):solveGeneral(q,p.parameter);
+   const expected=CORPUS_PATTERNS.some(c=>c.parameter===p.parameter)?solveCorpus(q,p.parameter):p.level===3?solveP3(q,p.parameter):solveGeneral(q,p.parameter);
    expect(answer).not.toBeNull();expect(Number.isFinite(answer)).toBe(true);expect(answer!).toBeCloseTo(expected,7);expect(answer!).toBeCloseTo(proofValue(q.proof!),7);
    expect(correctAnswer(q,q.answer)).toBe(true);expect(correctAnswer(q,String(answer!+1))).toBe(false);
    expect(q.picture).toBeDefined();expect(q.workedSteps!.length).toBeGreaterThanOrEqual(3);expect(q.prompt.trim().split(/\s+/).length).toBeLessThanOrEqual(18);
    if(q.choices){expect(new Set(q.choices).size).toBe(q.choices.length);expect(q.choices.filter(c=>correctAnswer(q,c))).toHaveLength(1);}
    expect(JSON.stringify(makePaperQuestion(activity,seed,index))).toBe(JSON.stringify(q));
    if(q.picture?.type==='paper'&&q.picture.layout==='cards')for(const c of q.picture.cards)if(c.count!==undefined){expect(Number.isInteger(c.count)).toBe(true);expect(c.count).toBeGreaterThan(0);expect(c.count).toBeLessThanOrEqual(12);expect(c.removed??0).toBeLessThan(c.count);}
-   if(p.level===1)expect(answer!).toBeLessThanOrEqual(p.parameter==='p1-groups'?40:20);
+   if(p.level===1)expect(answer!).toBeLessThanOrEqual(p.parameter==='p1-pattern-gap'?100:p.parameter==='p1-groups'?40:20);
   }catch(error){s.failureCount++;if(failures.length<30)failures.push({draw,parameter:p.parameter,seed,index,message:String(error)});}
  }
- const report={schema:1,startedAt:started,finishedAt:new Date().toISOString(),samples:total,richFamilies:PAPER_PATTERNS.length,uniqueVisibleQuestions:seen.size,duplicateSamples:total-seen.size,failureCount:stats.reduce((sum,s)=>sum+s.failureCount,0),visibleIdentity:'Normalized prompt, essential context, display, original picture model, sorted order tiles, fraction builder and unit; excludes answers, distractor order, hints, solutions and generated keys.',sampling:'Round-robin all 36 families. Sample ordinal floor(draw/36), index=ordinal%6, seed=FNV1a(paper-50k-audit-v1:ordinal:parameter). Uses actual catalogue IDs.',scope:'Independent visible-givens solvers, separate proof evaluation, accepted/rejected answers, deterministic regeneration, choice uniqueness, required diagram and steps, prompt length and P1 bounds. Not 50,000 authored questions, teacher review, exhaustive syllabus coverage or UI testing.',families:stats.map(({unique,units,...s})=>({...s,uniqueVisibleQuestions:unique.size,duplicateSamples:s.sampleCount-unique.size,units:[...units].sort()})),failures};
+ const report={schema:1,startedAt:started,finishedAt:new Date().toISOString(),samples:total,richFamilies:PAPER_PATTERNS.length,uniqueVisibleQuestions:seen.size,duplicateSamples:total-seen.size,failureCount:stats.reduce((sum,s)=>sum+s.failureCount,0),visibleIdentity:'Normalized prompt, essential context, display, original picture model, sorted order tiles, fraction builder and unit; excludes answers, distractor order, hints, solutions and generated keys.',sampling:`Round-robin all ${PAPER_PATTERNS.length} families. Sample ordinal floor(draw/${PAPER_PATTERNS.length}), index=ordinal%6, seed=FNV1a(paper-50k-audit-v1:ordinal:parameter). Uses actual catalogue IDs.`,scope:'Independent visible-givens solvers, separate proof evaluation, accepted/rejected answers, deterministic regeneration, choice uniqueness, required diagram and steps, prompt length and P1 bounds. Not 50,000 authored questions, teacher review, exhaustive syllabus coverage or UI testing.',families:stats.map(({unique,units,...s})=>({...s,uniqueVisibleQuestions:unique.size,duplicateSamples:s.sampleCount-unique.size,units:[...units].sort()})),failures};
  mkdirSync('.generated',{recursive:true});
  writeFileSync('.generated/50k-paper-audit.json',JSON.stringify(report,null,2)+'\n');
- expect(report.samples).toBe(50000);expect(report.failureCount,JSON.stringify(failures)).toBe(0);expect(report.richFamilies).toBe(36);
+ expect(report.samples).toBe(50000);expect(report.failureCount,JSON.stringify(failures)).toBe(0);expect(report.richFamilies).toBe(42);
 },60000);

@@ -1,3 +1,4 @@
+import {lessonPractice} from './lessonPractice';
 import { TopicPreview } from '../primary/TopicPreview';
 import { useState } from 'react';
 import {lessonPreview,matchesLesson,TOPIC_NAMES} from './learningUi';
@@ -34,7 +35,7 @@ export function LearnIndex(){
    <div className="lesson-actions"><a className="teach-btn" href={`#/teach/${l.id}`}>{state==='started'?'Continue':state==='new'?'Let’s learn':'Learn again'}<span className="sr-only">: {l.title}</span></a>
     <details className="lesson-extra"><summary>More options<span className="sr-only"> for {l.title}</span></summary><div>
      <p>{lessonPreview(l)}</p>
-     {activity&&<a className="lesson-secondary" href={`#/activity/${activity.id}`}>Practise</a>}
+     {activity&&<a className="lesson-secondary" href={`#/activity/${activity.id}`}>{lessonPractice(l)?.label}</a>}
      <a className="lesson-secondary" href={`#/watch/${l.id}`}>Watch the example</a>
      <a className="lesson-secondary" href={`#/teach/${l.id}/challenge`}>{saved?.mode==='challenge'&&saved.completedAt===null&&Object.keys(saved.items).length?'Continue challenge':'Take the challenge'}</a>
      {r.due&&<a className="lesson-secondary" href={`#/teach/${l.id}/review`}>Review due</a>}

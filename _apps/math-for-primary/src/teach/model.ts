@@ -1,5 +1,6 @@
 import type {SceneTool,FoundationTool} from './tools/LessonScene';
 import type {GeometryTool} from './tools/GeometryWorkbench';
+import type {ColumnTool} from './tools/columnArithmetic';
 import type {Picture} from '../primary/generate';
 import type { Track } from '../school/curriculum';
 /**
@@ -21,7 +22,7 @@ export type Tool=(
  |{kind:'fraction-pieces';widths:number[];selected:number[];shape?:'strip'|'circle'}
  |{kind:'focus';source:Tool;rotate:number;caption:string}
  |SceneTool|FoundationTool
- |GeometryTool
+ |GeometryTool|ColumnTool
  |{kind:'net-model';shape:'cube'|'cuboid'|'triangular prism'|'square pyramid'}
  |{kind:'diagram';picture:Picture;caption:string}
  |{kind:'table';headers:string[];rows:string[][];caption:string}
@@ -41,6 +42,7 @@ export type Tool=(
  |{kind:'balance';left:{x:number;n:number};right:{x:number;n:number};xValue:number;letter?:string}) & {hideValue?:boolean};
 export type ToolKind=Tool['kind'];
 export const TOOL_LABEL:Record<ToolKind,string>={
+ 'column-algorithm':'Written calculation',
  'join-parts':'Joining groups','take-away':'Taking-away counters','triangle-pair':'Matching triangles','fraction-pieces':'Equal pieces',focus:'A different view',scene:'Picture model','foundation-visual':'Objects and counters',geometry:'Geometry workbench','net-model':'Foldable net',diagram:'Diagram',table:'Table',counters:'Ten frames',bond:'Number bond',bar:'Bar model',line:'Number line',groups:'Equal groups',array:'Array',share:'Sharing board',fractions:'Fraction strips',place:'Place-value chart',hundred:'Hundred grid',percent:'Percentage bar',ratio:'Ratio bars',balance:'Algebra balance'
 };
 export interface Item {

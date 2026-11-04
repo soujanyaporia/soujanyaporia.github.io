@@ -1,3 +1,17 @@
+# Final content and usability expansion — 4 November 2026
+
+The integrated source has 270 lessons, 248 activities and 42 original illustrated paper families (seven per Standard level). Curriculum rows now explicitly distinguish “Lesson available” from an extra “Practice activity”; these labels are not completion or full-MOE-coverage marks. Related lesson-to-practice links are labelled honestly, and new lesson answers are recorded separately from activity drills while preserving history, rewards and completion. Historical mixed aggregates are retained because bounded history cannot reconstruct them safely.
+
+Seven audited generator/explanation defects were corrected: number-name ranges and typed writing, brackets, improper-fraction products, four-digit division bounds, division-fact selection, percentage equalities and rounded averages. Four new written-column lessons cover P1/P2 addition/subtraction with exchanges across zero. Checkpoints retain earlier digits while hiding the active answer. The approved Voice A library covers all 270 walkthroughs: 674 clips, 76.5MiB.
+
+Final frontend verification: **706 tests in 61 files passed**, typecheck/production build passed, and 289 public-page/legacy-redirect checks passed. School API: 9 tests passed. Narration: 270-walkthrough asset check and 4 adapter tests passed. The 42-family audit checked 50,000 generated samples (17,581 distinct visible identities; 32,419 repeats; zero failures). Independent column tests checked 18,302 systematic/sample calculations. A separate scope-labelled audit independently solved 6,918 sampled lesson/activity items and checked 44,255 numeric worked equalities; unsupported content remains explicit in its report.
+
+Phone-browser checks at 375 CSS pixels confirmed number-name lesson availability, correct carried units, borrowing through zero, warm-up answer checking, rejection of an unfinished column model and successful progression after completing the exchange. Earlier paper-flow checks remain valid. Browser verification is representative, not exhaustive across all items/devices. Final release IDs and deployment outcomes are recorded in CLAUDE-HANDOFF.md and the local release-status checkpoint.
+
+The audit indexes 288 official numbered subpoints but does not claim full syllabus sign-off. All 2,406 papers/57,336 pages are searchable; OCR is a reference archive, not a fully reviewed/imported public question bank. See [the detailed audit](audits/content-syllabus-audit-2026-11-04.md).
+
+---
+
 # Usability repair and four-number addition — 4 November 2026
 
 The screenshot of the P3 badge-transfer question identified a missing comparison target and an essential giving action hidden in a small caption. The question now names both children and presents the givens above a before/give/after model. Essential facts in other rich questions are also explicit. Fraction grids now completely partition their whole; subtraction pictures mark removed objects; angle diagrams label their actual givens; square pyramids include all four base vertices. The meaningful bundle-purchase range avoids trivial one-muffin cases.

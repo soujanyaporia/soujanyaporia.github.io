@@ -50,6 +50,8 @@ const RULES:Rule[]=[
  [/^Find the greatest common factor of (\d+) and (\d+)\./,m=>F('gcf',{x:+m[1],y:+m[2]})],
  [/^Which number is a factor of (\d+)\?/,m=>F('factor-choice',{n:+m[1]})],
  // Operations
+ [/^Work out \((\d+) \+ (\d+)\) × (\d+)\./,m=>F('order-brackets',{a:+m[1],b:+m[2],c:+m[3]},{side:'left'})],
+ [/^Work out (\d+) × \((\d+) \+ (\d+)\)\./,m=>F('order-brackets',{a:+m[1],b:+m[2],c:+m[3]},{side:'right'})],
  [/^Work out (\d+) \+ (\d+) × (\d+)\./,m=>F('order-ops',{a:+m[1],b:+m[2],c:+m[3]})],
  [/^What is the remainder in (\d+) ÷ (\d+)\?/,m=>F('remainder',{total:+m[1],b:+m[2]})],
  [/^Add (\d+) \+ (\d+) \+ (\d+)\./,m=>F('add3',{a:+m[1],b:+m[2],c:+m[3]})],

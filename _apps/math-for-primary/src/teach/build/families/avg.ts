@@ -95,7 +95,7 @@ function reasoningGen(id:string){return gen(id,'reasoning',(r,key)=>{
   choices:choicesOf(r,answer,['Yes: the average is always one of the numbers','Yes: the average is always the middle number','No: the average is always the largest number']),
   facet:'reasoning',rep:'bar-model',
   hints:['Work the average out and compare it with the list.','Levelling the amounts can land between them.'],
-  steps:[`Total: ${values.join(' + ')} = ${sum(values)}.`,`${sum(values)} ÷ 3 = ${(sum(values)/3).toFixed(2).replace(/\.00$/,'')}.`,'The levelled amount can sit between the numbers, so it need not appear in the list.']});
+  steps:[`Total: ${values.join(' + ')} = ${sum(values)}.`,`${sum(values)} ÷ 3 ${sum(values)%3===0?'=':'≈'} ${(sum(values)/3).toFixed(2).replace(/\.00$/,'')}.`,'The levelled amount can sit between the numbers, so it need not appear in the list.']});
 });}
 const notInListItem=(key:string):Item=>item({key,prompt:'Two boxes hold 4 counters and 7 counters. What is the average number of counters?',answer:'5.5',facet:'reasoning',rep:'sharing',
  hints:['Total first, then share between 2.','11 ÷ 2 is not a whole number, and that is allowed.'],

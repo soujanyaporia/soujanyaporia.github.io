@@ -86,6 +86,7 @@ function modelReading(p:PlanEntry,e:Example,tool:Tool):{prompt:string;tool:Tool}
   case 'nth-multiple':return {tool:T(['Number','Which multiple'],[v.a,ORDINAL(v.count)],'Count in equal steps'),prompt:'Find the multiple described in the table.'};
   case 'factor-choice':return {tool:T(['Number'],[v.n],'A factor divides it exactly'),prompt:'Which choice is a factor of the number in the table?'};
   case 'remainder':return {tool:T(['Total','Size of each group'],[v.total,v.b],'Make as many full groups as possible'),prompt:'How many are left over after making full groups?'};
+  case 'order-brackets':return tool.kind==='table'?{tool,prompt:'Work out the expression in the table. Do the brackets first.'}:null;
   case 'order-ops':return tool.kind==='table'?{tool,prompt:'How many objects are there altogether?'}:null;
   case 'add3':return tool.kind==='join-parts'?{tool,prompt:'How many counters are there in all three coloured groups?'}:tool.kind==='table'?{tool,prompt:'What is the total of the three parts in the table?'}:null;
   case 'measure-diff':return tool.kind==='bar'&&tool.compare?{tool,prompt:'How much more does the longer bar show? Use the unit beside the bars.'}:tool.kind==='table'?{tool,prompt:'What is the difference between the two readings in the table?'}:null;

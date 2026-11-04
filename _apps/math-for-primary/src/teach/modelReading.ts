@@ -5,6 +5,7 @@ export interface ModelReading {parts:[string,string][];look:string}
 export function modelReading(tool:Tool):ModelReading|null{
  const t=tool.kind==='focus'?tool.source:tool;
  switch(t.kind){
+ case 'column-algorithm':return {parts:[['Column heading','The size of the units: ones, tens or hundreds.'],['Small carried digit','A unit exchanged from the column on the right.'],['Crossed-out digit','The old amount before an exchange; read the new amount above it.']],look:'Keep digits with the same place value in the same column. Start with ones. An exchange changes how we write the amount, not its value.'};
  case 'balance':{
   const x=t.letter??'x';
   return {parts:[[`${x} on a bag`,'The number inside one bag. Matching bags hold the same number.'],['A loose square','One counter, outside the bags.'],['=','Both sides have the same value.']],look:`A number just before ${x} counts bags: 2${x} means two equal bags, not 2 + ${x}. Find the bags and the loose counters separately.`};

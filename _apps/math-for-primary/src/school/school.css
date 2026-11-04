@@ -24,3 +24,5 @@
 .school-header{width:100%;box-sizing:border-box}
 
 .school-nav .guest-link{background:#eaf0df;border:1px solid #d1dfc2;border-radius:10px;padding:9px 13px;font-weight:800;max-width:100%;overflow-wrap:anywhere}.guest-page{max-width:800px}.guest-page .school-form{max-width:540px}.guest-page .school-form small{font-weight:400}
+
+.curriculum-availability{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px;font-weight:600}.curriculum-availability .status-pill{font-size:11px;padding:4px 7px}.objective-button .objective-dot{border:0;color:#527368}.objective-button>span:nth-child(2){min-width:0}.objective-detail .lesson-link{padding:10px 0;min-height:44px;box-sizing:border-box}

@@ -1,3 +1,4 @@
+import {lessonPractice} from '../teach/lessonPractice';
 import { renderToStaticMarkup } from 'react-dom/server';
 import type { ReactNode } from 'react';
 import { LESSONS, lessonsFor } from '../teach/catalog';
@@ -74,7 +75,7 @@ function LessonArticle({ lesson }: { lesson: Lesson }) {
   return <>
     <p className="resource-eyebrow">{gradeName(lesson.level, lesson.track)} maths · {TOPIC_NAMES[lesson.world]} · About {lesson.minutes} minutes</p>
     <h1>{lesson.title}</h1>{paragraph(lesson.mission?.connection ?? lesson.objectives[0])}
-    <p className="resource-actions"><a className="resource-button" href={`${PUBLIC_BASE}#/teach/${lesson.id}`}>Start the interactive lesson →</a><a href={`${PUBLIC_BASE}#/activity/${lesson.activityId}`}>Open practice activity</a></p>
+    <p className="resource-actions"><a className="resource-button" href={`${PUBLIC_BASE}#/teach/${lesson.id}`}>Start the interactive lesson →</a><a href={`${PUBLIC_BASE}#/activity/${lesson.activityId}`}>{lessonPractice(lesson)?.label}</a></p>
     <section className="resource-panel"><h2>What you will learn</h2>{list(lesson.objectives)}<p>Models used: {lesson.representations.map(r => REP_LABEL[r]).join(', ')}.</p>{prerequisites.length > 0 && <><h3>Before you start</h3><ul>{prerequisites}</ul></>}</section>
     {explain.map((s, i) => <section className="resource-panel" key={`explain${i}`}><h2>{s.title}</h2>{paragraph(s.example)}{s.frames?.length ? <Steps steps={s.frames}/> : <>{paragraph(s.text)}{s.math && <p className="resource-equation">{s.math}</p>}<Model tool={s.tool}/></>}{s.why && <details><summary>{s.why.question}</summary><p>{s.why.answer}</p><Model tool={s.why.tool}/></details>}</section>)}
     {worked.map((s, i) => <section className="resource-panel" key={`worked${i}`}><h2>Worked example{i ? ` ${i + 1}` : ''}{s.title.toLowerCase() !== 'worked example' ? `: ${s.title}` : ''}</h2><p>{s.problem}</p><Model tool={s.tool}/><Steps steps={s.steps}/></section>)}

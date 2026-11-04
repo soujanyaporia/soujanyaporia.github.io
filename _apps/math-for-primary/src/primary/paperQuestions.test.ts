@@ -1,12 +1,13 @@
 import {describe,it,expect} from 'vitest';
 import {PAPER_PATTERNS,type PaperPattern} from './paperCatalog';
+import {CORPUS_PATTERNS} from './corpusPaperCatalog';
 import {makePaperQuestion,paperParameter} from './paperQuestions';
 import type {Activity} from './catalog';
 import {correctAnswer,numberValue,type Proof,type Question} from './generate';
 import type {PaperPicture} from './paperPicture';
 import {CURRICULUM_SKILLS} from '../school/curriculum';
 
-const own=PAPER_PATTERNS.filter(p=>p.level!==3);
+const own=PAPER_PATTERNS.filter(p=>p.level!==3&&!CORPUS_PATTERNS.some(c=>c.parameter===p.parameter));
 const activity=(p:PaperPattern):Activity=>({...p,id:`check-${p.parameter}`,track:'standard',kind:'paper'});
 const numbers=(s:string)=>[...s.replaceAll(',','').matchAll(/\d+(?:\.\d+)?/g)].map(m=>Number(m[0]));
 const value=(s:string)=>numbers(s)[0];
@@ -91,11 +92,11 @@ describe('Original Singapore paper-informed practice',()=>{
   }
  });
 
- it('selects all six families per mixed set and gives stable out-of-order resume',()=>{
+ it('cycles through every family in mixed practice and gives stable out-of-order resume',()=>{
   for(let level=1;level<=6;level++)for(const seed of [0,1,77,7919,15841,0xffffffff]){
    const p=PAPER_PATTERNS.find(p=>p.level===level)!,a={...activity(p),id:`mixed-p${level}`,parameter:'mixed'};
    const expected=PAPER_PATTERNS.filter(p=>p.level===level).map(p=>p.parameter).sort();
-   expect(Array.from({length:6},(_,i)=>paperParameter(a,seed,i)).sort()).toEqual(expected);
+   expect(Array.from({length:expected.length},(_,i)=>paperParameter(a,seed,i)).sort()).toEqual(expected);
    const questions=Array.from({length:6},(_,i)=>makePaperQuestion(a,seed,i));
    for(const i of [5,2,4,0,3,1])expect(makePaperQuestion(a,seed,i)).toEqual(questions[i]);
    expect(new Set(questions.map(q=>q.key)).size).toBe(6);
@@ -103,10 +104,10 @@ describe('Original Singapore paper-informed practice',()=>{
   }
  });
 
- it('uses real curriculum references and six unique patterns for each standard grade',()=>{
+ it('uses real curriculum references and seven unique patterns for each standard grade',()=>{
   const ids=new Set(CURRICULUM_SKILLS.map(s=>s.id));
-  expect(new Set(PAPER_PATTERNS.map(p=>p.parameter)).size).toBe(36);
-  for(let level=1;level<=6;level++)expect(PAPER_PATTERNS.filter(p=>p.level===level)).toHaveLength(6);
+  expect(new Set(PAPER_PATTERNS.map(p=>p.parameter)).size).toBe(42);
+  for(let level=1;level<=6;level++)expect(PAPER_PATTERNS.filter(p=>p.level===level)).toHaveLength(7);
   for(const p of PAPER_PATTERNS)for(const id of p.skillIds)expect(ids.has(id),`${p.parameter}: ${id}`).toBe(true);
  });
 

@@ -1,4 +1,5 @@
 import type {Strand} from '../school/curriculum';
+import {CORPUS_PATTERNS} from './corpusPaperCatalog';
 
 /** Original question families, informed by representative Singapore school papers.
  * Skill references include explicit prerequisite review, rather than inventing current-year coverage. */
@@ -43,6 +44,6 @@ const rows:Row[]=[
  [6,'charge','Time-block tickets','Apply a charge for each started time block.',N,['P5.S.RATE.02','P3.S.TIME.02']],
  [6,'redistribute','Repack the collection','Keep a total fixed while the number of equal groups changes.',N,['P4.S.MD.03']],
 ];
-export const PAPER_PATTERNS:PaperPattern[]=rows.map(([level,slug,title,objective,strand,skillIds])=>({
+export const PAPER_PATTERNS:PaperPattern[]=[...rows.map(([level,slug,title,objective,strand,skillIds])=>({
  parameter:`p${level}-${slug}`,level,title,objective,strand,skillIds,icon:strand===G?'◇':strand===S?'▥':'✦',
-}));
+})),...CORPUS_PATTERNS];

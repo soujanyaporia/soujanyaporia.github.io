@@ -4,7 +4,7 @@ Source: [MOE Primary Mathematics Syllabus, updated October 2025](https://www.moe
 
 ## What is established
 
-The app's curated map contains 252 objectives. All resolve to lesson content, within a catalogue of 266 lessons including broader exemplar units. Every lesson has a picture explanation, a worked example with a pupil question, and guided practice. All 199 practice activities now link to teaching for at least one of their exact mapped skills; 35 existing activities previously lacked a direct lesson link. These are content and navigation checks, not evidence that every official subpoint is adequately taught or that pupils understand it.
+The app's curated map contains 252 objectives. All resolve to lesson content, within a catalogue of 270 lessons including broader exemplar units. Every lesson has a picture explanation, a worked example with a pupil question, and guided practice. There are 248 activity configurations. Separately, 96 lesson-to-practice links use a related activity without an exact objective match; these are labelled related practice. These are content and navigation checks, not evidence that every official subpoint is adequately taught or that pupils understand it.
 
 The coverage screen now derives its component indicators from actual lesson stages. It no longer infers the existence of guided practice, application or a mastery check solely from a lesson being listed.
 
@@ -17,9 +17,13 @@ The dedicated Three-group picnic activity uses three addends, coloured groups an
 ## Outstanding curriculum and teaching validation
 
 - **More than two addends:** the three-number lesson now links to an original four-number extension, with totals within 20, picture movement, subtotal checkpoints and transfer questions. This addresses the identified four-addend gap; numerical range, strategy variation and classroom comprehension still need review before declaring the whole official subpoint fully covered.
-- **Written algorithms:** MOE P1 p. 31, 2.6 explicitly names addition and subtraction algorithms. The curated map folds these into broader addition/subtraction objectives. Verify written column procedures, exchanges and error feedback separately; a general addition animation is insufficient evidence.
+- **Written algorithms:** MOE P1 p. 31, 2.6 explicitly names addition and subtraction algorithms. The curated map folds these into broader addition/subtraction objectives. Four new P1/P2 lessons now demonstrate written columns, carrying, borrowing and exchanges across zero, with checkpoint digits and independent arithmetic checks. Upper-grade written multiplication/division and other required ranges remain incomplete.
 - **Range and variation:** a lesson entry is not evidence of all official numerical ranges, units, representations and problem types. Trace every official numbered subpoint to the actual teaching and generated questions, including mental calculation requirements on P1 p. 31, 2.7.
 - **Physical work:** real-object measuring, drawing and construction require pupil actions outside a diagram. Paper tasks in the app need adult checking; the app does not automatically assess their accuracy.
 - **Pedagogical review:** the simpler P1 counting and three-addend sequences have automated consistency checks and representative browser verification. The whole catalogue has not received a qualified primary teacher's lesson-by-lesson review or classroom evaluation.
 
 This review establishes the above inventory and specific issues. It is not a complete line-by-line MOE alignment audit, MOE endorsement, a learning-outcome study or a readiness claim for a million-user service.
+
+## Detailed independent audit
+
+The [content audit](audits/content-syllabus-audit-2026-11-04.md) and [288-subpoint matrix](audits/syllabus-coverage-matrix-2026-11-04.json) record actual lesson/model evidence, candidate mappings and unreviewed requirements. The nine confirmed gap groups include fraction ordering, assessed constructions and full symmetry completion. All 2,406 source papers are downloaded and searchable; every paper/question has not been reviewed or implemented.

@@ -4,6 +4,8 @@ import type {Picture,Proof,Question} from './generate';
 import type {PaperPicture} from './paperPicture';
 import {PAPER_PATTERNS} from './paperCatalog';
 import {makeP3PaperQuestion} from './paperP3';
+import {CORPUS_PATTERNS} from './corpusPaperCatalog';
+import {makeCorpusPaperQuestion} from './corpusPaperQuestions';
 
 type Step=NonNullable<Question['workedSteps']>[number];
 const op=(symbol:'+'|'-'|'*'|'/',a:Proof,b:Proof):Proof=>({op:symbol,a,b});
@@ -23,6 +25,7 @@ export function paperParameter(activity:Activity,seed:number,index=0):string{
 /** Fresh illustrations and wording, based on mathematical structures observed in school papers. */
 export function makePaperQuestion(activity:Activity,seed:number,index=0):Question{
  const parameter=paperParameter(activity,seed,index);
+ if(CORPUS_PATTERNS.some(p=>p.parameter===parameter))return makeCorpusPaperQuestion({...activity,parameter},seed,index);
  if(parameter.startsWith('p3-'))return makeP3PaperQuestion({...activity,parameter},seed,index);
  const r=new Rng(hashString(`${activity.id}:${seed}:${index}:${parameter}:paper-v1`));
  const make=(prompt:string,answer:number|string,picture:Picture,hint:string,steps:Step[],proof:Proof,extra:Partial<Question>={}):Question=>({
@@ -284,7 +287,7 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    return make(`What is the percentage ${increase?'increase':'decrease'}?`,pct,picture,'Compare the change with the original price, not the new price.',[
     {text:'Find the amount of the change.',equation:`${dollars(Math.max(old,now))} − ${dollars(Math.min(old,now))} = ${dollars(Math.abs(now-old))}`,picture},
     {text:'Divide that change by the original amount.',equation:`${fmt(Math.abs(now-old))} ÷ ${old} = ${fmt(pct/100)}`,picture},
-    {text:'Express the fraction of the original as a percentage.',equation:`${fmt(pct/100)} × 100 = ${pct}%`,picture},
+    {text:'Express the fraction of the original as a percentage.',equation:`${fmt(pct/100)} = ${pct}/100 = ${pct}%`,picture},
    ],op('*',op('/',op('-',Math.max(old,now),Math.min(old,now)),old),100),{unit:'%'});
   }
   case 'p6-algebra':{

@@ -3,10 +3,12 @@ import {JoinParts} from '../teach/tools/JoinParts';
 import {PaperDiagram} from './PaperDiagram';
 import {fractionColumns} from './pictureLayout';
 import {AngleDiagram} from './AngleDiagram';
+import {CorpusDiagram} from './CorpusDiagram';
 import type {Tool} from '../teach/model';
 import type { Picture as Model } from './generate';
 const colours=['#538cd2','#e9ab48','#72a572','#b188c1'];
 export function Picture({model:m}:{model:Model}){
+ if(m.type==='corpus')return <CorpusDiagram model={m}/>;
  if(m.type==='angleProblem')return <AngleDiagram model={m}/>;
  if(m.type==='paper')return <PaperDiagram model={m}/>;
  if(m.type==='parts')return <PartsPicture key={m.parts.join(',')} model={m}/>;

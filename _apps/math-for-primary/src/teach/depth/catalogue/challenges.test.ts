@@ -45,7 +45,7 @@ function solve(it:Item):number|string|null{
 
 describe('Challenge problems',()=>{
  it('ends every lesson with one set of three challenge problems',()=>{
-  expect(LESSONS).toHaveLength(266);
+  expect(LESSONS).toHaveLength(270);
   for(const l of LESSONS){
    const stages=l.stages.filter(s=>s.kind==='practice'&&s.challenge);
    expect(stages,l.id).toHaveLength(1);

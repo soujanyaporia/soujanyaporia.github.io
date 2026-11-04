@@ -5,7 +5,7 @@ import {ACTIVITIES,type Activity} from './catalog';
 import {makeQuestion,type Question} from './generate';
 
 /** Bump when the source schedule, seeded draws or question semantics change. */
-export const PRACTICE_PAPER_VERSION=2;
+export const PRACTICE_PAPER_VERSION=3;
 export const PRACTICE_PAPER_COUNTS=[6,12,18] as const;
 export type PracticePaperCount=typeof PRACTICE_PAPER_COUNTS[number];
 export interface PaperRequest {level:number;track:Track;count:PracticePaperCount;topic:string;seed:number}
@@ -100,8 +100,8 @@ function balanced(pool:Activity[],r:Rng):Activity[]{
 function sourceSchedule(pool:Activity[],request:PaperRequest):Activity[]{
  const r=new Rng(hashString(`${codeFor(request)}:sources`)),paper=r.shuffle(pool.filter(a=>a.kind==='paper'));
  const baseline=balanced(pool.filter(a=>a.kind!=='paper'),r),schedule:Activity[]=[];
- // In a mixed standard set the first six slots visit all six rich families. Longer sets alternate
- // a foundation block and another rich block. A topic set follows the same rule with its own pool.
+ // Six-question blocks alternate illustrated families and baseline skills. Longer papers continue
+ // through the family pool, so an eighteen-question mixed set includes every current family.
  if(!paper.length)return Array.from({length:request.count},(_,i)=>baseline[i%baseline.length]);
  if(!baseline.length)return Array.from({length:request.count},(_,i)=>paper[i%paper.length]);
  let pi=0,bi=0;

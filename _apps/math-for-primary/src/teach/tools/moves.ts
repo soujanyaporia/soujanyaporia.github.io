@@ -1,5 +1,6 @@
 import {toggleFractionPiece} from './geometry';
 import {geometryMoves} from './GeometryWorkbench';
+import {columnSteps} from './columnArithmetic';
 import type { Tool } from '../model';
 /**
  * The states one press of each on-screen control can reach, per manipulative. This mirrors the
@@ -14,6 +15,7 @@ const clamp=(n:number,lo:number,hi:number)=>Math.max(lo,Math.min(hi,n));
 export const jumpOffered=(j:number,min:number,max:number)=>Math.abs(j)===1||Math.abs(j)<max-min;
 export function movesFor(t:Tool):Tool[]{
  switch(t.kind){
+  case 'column-algorithm':return [t.step-1,t.step+1].filter(step=>step>=0&&step<columnSteps(t.a,t.b,t.operation).length).map(step=>({...t,step}));
   case 'join-parts':return t.parts.flatMap((_,i)=>t.joined.includes(i)?[]:[{...t,joined:[...t.joined,i]}]);
   case 'take-away':return Array.from({length:t.start},(_,i)=>({...t,removed:t.removed.includes(i)?t.removed.filter(n=>n!==i):[...t.removed,i].sort((a,b)=>a-b)}));
   case 'triangle-pair':return [{...t,joined:!t.joined}];
