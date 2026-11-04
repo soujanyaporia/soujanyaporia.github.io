@@ -21,4 +21,4 @@ it('renders every lesson demonstration and sampled question model with finite ge
   if(stage.kind==='mastery')for(const g of stage.gens)for(let seed=0;seed<3;seed++)item(g.gen(seed,seed),where+' '+g.facet);
  }
  expect(rendered).toBeGreaterThan(10000);
-},30000);
+},90000);

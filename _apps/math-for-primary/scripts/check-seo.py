@@ -6,7 +6,7 @@ from urllib.parse import urljoin, urlsplit, unquote
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1] / 'dist'
-BASE = 'https://soujanyaporia.github.io/math-for-primary/'
+BASE = 'https://soujanyaporia.github.io/singapore-primary-maths/'
 BASE_PATH = urlsplit(BASE).path
 
 

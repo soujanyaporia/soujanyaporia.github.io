@@ -16,8 +16,12 @@ export function reduceEvent(state: ProgressState, e: ProgressEvent): ProgressSta
     const next={...state,totals,streak:e.kind==='primary_answer'?touchStreak(state.streak,e.at).streak:state.streak,primary:applyPrimary(state.primary??initialPrimary(),e)};
     return e.kind==='primary_complete'?{...next,badges:[...next.badges,...newBadges(next).map(b=>b.id)]}:next;
   }
-  if (e.kind === 'attempt') return applyAttempt(state, e.outcome);
+  // Lesson/mission completions and legacy answers are retried by offline sync too.
+  if (e.kind !== 'settings' && state.primary?.applied?.includes(e.id)) return state;
+  const remember = (next:ProgressState):ProgressState => ({...next,primary:{...(next.primary??initialPrimary()),applied:[...(next.primary?.applied??[]),e.id].slice(-400)}});
+  if (e.kind === 'attempt') return remember(applyAttempt(state, e.outcome));
   if (e.kind === 'settings') return { ...state, settings: { ...state.settings, ...e.patch } };
-  const next = applySessionComplete(state, e.stars, e.lessonId, e.at);
+  const completed = applySessionComplete(state, e.stars, e.lessonId, e.at);
+  const next = remember(e.lessonId?.startsWith('mission.')?{...completed,streak:touchStreak(completed.streak,e.at).streak}:completed);
   return { ...next, badges: [...next.badges, ...newBadges(next).map(b=>b.id)] };
 }

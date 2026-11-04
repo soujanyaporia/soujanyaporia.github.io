@@ -9,7 +9,7 @@ import { CURRICULUM, CURRICULUM_SKILLS, type Track } from '../school/curriculum'
 import { PUBLIC_BASE, SITE_URL, gradePath, guidePath } from './paths';
 import { lessonSearchTopic } from './metadata';
 
-const NAME = 'Maths for SG Primary Schools';
+const NAME = 'Singapore Primary Maths';
 const paths: { level: number; track: Track; intro: string }[] = [
   { level: 1, track: 'standard', intro: 'Start with counting to 100, tens and ones, number bonds, addition and subtraction. Use pictures to explore equal groups, money, clocks, shapes and picture graphs.' },
   { level: 2, track: 'standard', intro: 'Build numbers to 1000, connect multiplication with division, and represent fractions as equal parts. Practise money, measurement, clocks and picture graphs with scales.' },
@@ -58,7 +58,7 @@ function LessonLinks({ lessons }: { lessons: Lesson[] }) {
   return <ul className="resource-lesson-list">{lessons.map(l => <li key={l.id}><a href={guidePath(l.id)}>{l.title}</a><span>{l.objectives[0]} · About {l.minutes} minutes</span></li>)}</ul>;
 }
 function Model({ tool }: { tool?: Tool }) {
-  return tool ? <div className="resource-model"><ToolView tool={tool}/></div> : null;
+  return tool ? <div className="resource-model"><ToolView tool={tool} staticView/></div> : null;
 }
 function Steps({ steps }: { steps: RevealStep[] }) {
   return <ol className="resource-steps">{steps.map((step, i) => <li key={i}>{paragraph(step.caption)}<p>{step.text}</p>{step.math && <p className="resource-equation">{step.math}</p>}{paragraph(step.because)}<Model tool={step.tool}/>{step.ask && <details><summary>{step.ask.prompt}</summary><p>{step.ask.answer}{step.ask.unit ? ` ${step.ask.unit}` : ''}</p></details>}{step.wonder && <details><summary>{step.wonder.question}</summary><p>{step.wonder.answer}</p></details>}</li>)}</ol>;
@@ -93,7 +93,7 @@ function page(path: string, title: string, description: string, body: ReactNode,
     isPartOf: { '@type': 'WebSite', name: NAME, url: SITE_URL },
     ...(resource ? { learningResourceType: 'Lesson', educationalLevel: gradeName(resource.level, resource.track), teaches: resource.objectives, about: TOPIC_NAMES[resource.world] } : {}),
   }];
-  const html = renderToStaticMarkup(<><a className="resource-skip" href="#content">Skip to content</a><header className="resource-header"><a href={PUBLIC_BASE}>{NAME}</a><nav aria-label="Main navigation"><a href={`${PUBLIC_BASE}lessons/`}>Lesson guides</a><a href={`${PUBLIC_BASE}#/`}>Interactive learning →</a></nav></header><main id="content" className="resource-main"><nav aria-label="Breadcrumb"><ol className="resource-breadcrumbs">{crumbs.map((c, i) => <li key={c.path}>{i === crumbs.length - 1 ? <span aria-current="page">{c.name}</span> : <a href={c.path}>{c.name}</a>}</li>)}</ol></nav>{body}</main><footer className="resource-footer"><a href={PUBLIC_BASE}>Maths for SG Primary Schools</a><a href={`${PUBLIC_BASE}#/about`}>About, privacy &amp; AI</a></footer></>);
+  const html = renderToStaticMarkup(<><a className="resource-skip" href="#content">Skip to content</a><header className="resource-header"><a href={PUBLIC_BASE}>{NAME}</a><nav aria-label="Main navigation"><a href={`${PUBLIC_BASE}lessons/`}>Lesson guides</a><a href={`${PUBLIC_BASE}#/`}>Interactive learning →</a></nav></header><main id="content" className="resource-main"><nav aria-label="Breadcrumb"><ol className="resource-breadcrumbs">{crumbs.map((c, i) => <li key={c.path}>{i === crumbs.length - 1 ? <span aria-current="page">{c.name}</span> : <a href={c.path}>{c.name}</a>}</li>)}</ol></nav>{body}</main><footer className="resource-footer"><a href={PUBLIC_BASE}>Singapore Primary Maths</a><a href={`${PUBLIC_BASE}#/about`}>About, privacy &amp; AI</a></footer></>);
   return { path, title, description, html, schema };
 }
 export function publicPages(): PublicPage[] {
@@ -114,7 +114,7 @@ export function publicPages(): PublicPage[] {
   }
   for (const l of LESSONS) {
     const path = guidePath(l.id), name = gradeName(l.level, l.track), topic = lessonSearchTopic(l);
-    pages.push(page(path, `${topic} | ${name} Maths`, `Singapore ${name} maths: ${topic}. Free lesson with visual models, worked examples and practice.`, <LessonArticle lesson={l}/>, [home, directory, { name: `${name} maths`, path: gradePath(l.level, l.track) }, { name: l.title, path }], l));
+    pages.push(page(path, `${topic} | Singapore ${name} Maths`, `Singapore ${name} maths: ${topic}. Free lesson with visual models, worked examples and practice.`, <LessonArticle lesson={l}/>, [home, directory, { name: `${name} maths`, path: gradePath(l.level, l.track) }, { name: l.title, path }], l));
   }
   return pages;
 }

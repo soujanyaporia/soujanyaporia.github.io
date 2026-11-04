@@ -1,16 +1,48 @@
-# Maths for SG Primary Schools
+# Singapore Primary Maths
 
-Play at **https://soujanyaporia.github.io/math-for-primary/**.
+New app path: **`/singapore-primary-maths/`**. The release includes `dist-legacy/` redirects for `/math-for-primary/`, preserving saved hash routes and search parameters. Deploy `dist/` at the new path and `dist-legacy/` at the old path together.
 
 A Singapore Primary 1–6 maths learning application. Choose a primary year to load its own activities; P5 and P6 also have separate Foundation paths. Guest play needs no sign-in. The **Create guest account** menu entry saves an optional nickname and chosen level on this browser, preserving existing progress. School accounts save completed answers and learning progress across devices.
 
-**Made with the help of AI.** The questions, explanations, hints, diagrams and code were produced with AI assistance, and AI can be confidently wrong. Automated tests check the mathematics, but a teacher has not reviewed every item. Use this as a learning resource alongside a teacher or parent, and check anything that looks wrong. See [About, privacy and AI](https://soujanyaporia.github.io/math-for-primary/#/about) in the app.
+**Made with the help of AI.** The questions, explanations, hints, diagrams and code were produced with AI assistance, and AI can be confidently wrong. Automated tests check the mathematics, but a teacher has not reviewed every item. Use this as a learning resource alongside a teacher or parent, and check anything that looks wrong. See [About, privacy and AI](https://soujanyaporia.github.io/singapore-primary-maths/#/about) in the app.
+
+## Redesigned learning experience — November 2026
+
+The home, lessons, practice player, missions, Math Lab and progress views share a responsive adventure design, illustrated scenes, optional sound effects, animation controls and reduced-motion support. Touch interactions have keyboard/button alternatives; the scratchpad supports fingers, pens and a mouse.
+
+- **48 new missions:** six for each P1–P6 Standard level, plus six for P5 Foundation and six for P6 Foundation. Each mission has four generated rounds, hints, resumable working and completion rewards.
+- **23 Math Lab tools**, including subtraction counters, fraction pieces, triangle transformations, solids, rulers and interactive nets.
+- **Watch & learn** offers animated explanations linked to the existing 265 lessons. The current question's worked solution is available after answering/revealing in practice. The picture-first player has continuous narration, pause, replay, speed controls and captions, with small discovery questions after supported models. Captions remain available when audio cannot play.
+- Progress combines lessons, activities and missions. Mission drafts travel in guest passports, and pupil drafts are cleared on school sign-out. Mission drafts remain device-local for school accounts; recorded completions sync through the event service.
+
+**Child-focused teaching pass:** P1 counting now groups the same 32 counters into tens over five pictures. Adding three numbers joins two coloured groups first, keeps the third visibly waiting, then asks the child for the total. A dedicated Three-group picnic activity follows the same method. Every activity recommends an exact-skill guided lesson. See [the syllabus review](SYLLABUS-AUDIT.md) for what the 252-objective inventory establishes and what still needs verification.
+
+### Narration status
+
+The user selected **Voice A (`af_heart`)** after reviewing the samples. All 265 lesson walkthroughs now have continuous Voice A narration with word-timed picture cues. Shared examples, counting solutions and individual coaching excerpts bring the served library to 645 clips (73.0 MiB). Only the requested clip is loaded on play. There is **no automatic device-voice fallback**, no browser model download and no pupil data sent for synthesis. This is synthetic narration, not a human recording.
+
+Run `npm run test:narration-assets` to verify every lesson has a matching approved recording and valid picture cues. The local generator, `scripts/generate-natural-narration.py`, uses Kokoro through MLX Audio in the local `.tools/natural-voice` environment. Run `node scripts/export-narration.mjs` before regenerating; both the environment and working audio are excluded from publication. Public reviewed MP3s and their manifest are included.
+
+An optional ElevenLabs pipeline keeps credentials outside the browser, renders one continuous recording per picture sequence, and uses character timestamps for picture changes. Its default is a single staged sample. The current export has 159 distinct continuous scripts (shared sequences serve multiple lessons). Run the plan command for current character counts.
+
+```sh
+npm run narration:plan
+npm run test:narration
+# Configure ELEVENLABS_API_KEY and ELEVENLABS_VOICE_ID privately in .env.voice.local.
+# Never prefix secrets with VITE_. The file is ignored and excluded from publication.
+node --env-file=.env.voice.local scripts/generate-premium-narration.mjs
+# Only after the sample voice is accepted:
+node --env-file=.env.voice.local scripts/generate-premium-narration.mjs --all
+node scripts/generate-premium-narration.mjs --all --publish-reviewed
+```
+
+Samples are written under `.generated/premium-narration/`. No pupil data enters the public narration scripts. The API adapter has mocked contract tests; a real paid-provider request has not been run. Dynamic questions without a reviewed recording currently retain captions only.
 
 ## Available now
 
 | Path | Playable activities |
 | --- | ---: |
-| P1 Standard | 21 |
+| P1 Standard | 22 |
 | P2 Standard | 23 |
 | P3 Standard | 24 |
 | P4 Standard | 27 |
@@ -18,7 +50,7 @@ A Singapore Primary 1–6 maths learning application. Choose a primary year to l
 | P6 Standard | 24 |
 | P5 Foundation | 33 |
 | P6 Foundation | 22 |
-| Total | 198 |
+| Total | 199 |
 
 Activities include counting, place value, operations, fractions, decimals, money, measurement, time, geometry, graphs, percentages, rate, ratio and algebra. Questions are generated deterministically, with numerical/choice answers, fraction shading, ordering and visual diagrams. The original 16 addition/subtraction lessons remain under **Original guided lessons**, including worked examples, progressive hints and story-to-equation practice.
 
@@ -74,7 +106,7 @@ npm ci
 npm run dev -- --port 5174
 ```
 
-Visit `http://localhost:5174/math-for-primary/`. Port 5173 belongs to an outdated Claude scratch copy; the authoritative project is this folder.
+Visit `http://localhost:5174/singapore-primary-maths/`. Port 5173 belongs to an outdated Claude scratch copy; the authoritative project is this folder.
 
 ```sh
 npm test
@@ -100,6 +132,6 @@ See [QA.md](QA.md) for verification evidence and [CLAUDE-HANDOFF.md](CLAUDE-HAND
 
 The production build creates readable HTML at `/lessons/`, eight primary-year paths, nine topic paths and one page per lesson. Lesson pages reuse the live catalogue and read-only diagrams, with real links into the existing interactive hash routes. The homepage includes the same public directory for people and crawlers. No accounts or pupil records enter these pages.
 
-`src/seo/metadata.ts` provides concise search labels for long curriculum titles without changing the lesson content. `src/seo/pages.tsx` owns the reading views; `scripts/build-seo.mjs` creates the HTML and `/math-for-primary/sitemap.xml`. `scripts/check-seo.py` checks the built link graph, canonical URLs, unique titles, structured data, required metadata, assets and sitemap coverage. `npm run build` runs both scripts and requires Python 3 in addition to Node. The host's root `robots.txt` advertises the maths sitemap, and the existing site-wide sitemap builder discovers all public reading pages.
+`src/seo/metadata.ts` provides concise search labels for long curriculum titles without changing the lesson content. `src/seo/pages.tsx` owns the reading views; `scripts/build-seo.mjs` creates the HTML and `/singapore-primary-maths/sitemap.xml`. `scripts/check-seo.py` checks the built link graph, canonical URLs, unique titles, structured data, required metadata, assets and sitemap coverage. `npm run build` runs both scripts and requires Python 3 in addition to Node. The host's root `robots.txt` advertises the maths sitemap, and the existing site-wide sitemap builder discovers all public reading pages.
 
 These changes make the content available for crawling; Google decides whether and where to show it. Do not claim that generating a sitemap, passing checks or requesting indexing guarantees search ranking.

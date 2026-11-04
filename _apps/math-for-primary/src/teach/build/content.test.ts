@@ -76,7 +76,11 @@ describe('Expanded syllabus content',()=>{
    expect(explain.kind==='explain'&&explain.frames?.[0].tool,l.id).toEqual(hook.kind==='hook'&&hook.tool);
    expect(worked.flow?.carry,l.id).toBe(explain.kind==='explain'&&explain.frames?.at(-1)?.text);
    expect(worked.kind==='worked'&&worked.problem,l.id).toContain(l.mission!.question);
-   expect(worked.kind==='worked'&&worked.steps.some(s=>s.ask?.prompt===l.mission!.question),l.id).toBe(true);
+   if(worked.kind==='worked'&&worked.tool?.kind==='join-parts'){
+    // A child-friendly question may paraphrase the equation; it must still ask for its whole.
+    const whole=worked.tool.parts.reduce((sum,n)=>sum+n,0);
+    expect(worked.steps.filter(s=>s.ask).at(-1)?.ask?.answer,l.id).toBe(String(whole));
+   }else expect(worked.kind==='worked'&&worked.steps.some(s=>s.ask?.prompt===l.mission!.question),l.id).toBe(true);
    expect(end.kind==='discovery'&&end.text,l.id).toContain(l.mission!.question);
    expect(l.stages.some(s=>s.kind==='notice'),l.id).toBe(true);
   }

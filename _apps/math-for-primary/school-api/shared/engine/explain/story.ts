@@ -82,7 +82,7 @@ function modelSay(structure: StoryStructure, q: Q): string {
     case 'join.change':
       return `We start with ${val(q, 'start')} and end with ${val(q, 'result')}. The missing part is how many joined.`;
     case 'join.start':
-      return `We don't know how many there were at first. ${val(q, 'change')} more came, and now there are ${val(q, 'result')}.`;
+      return `We don’t know how many there were at first. ${val(q, 'change')} more came, and now there are ${val(q, 'result')}.`;
     case 'separate.result':
       return `We start with ${val(q, 'start')}. ${val(q, 'change')} go away. We want the part that is left.`;
     case 'separate.change':

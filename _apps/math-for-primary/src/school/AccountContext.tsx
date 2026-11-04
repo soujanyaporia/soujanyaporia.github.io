@@ -1,3 +1,5 @@
+import {clearMissionRuns} from '../playground/session';
+import {clearAttempts} from '../teach/progress';
 import { createContext,useCallback,useContext,useEffect,useMemo,useState,type ReactNode } from 'react';
 import { ApiError,apiRequest } from './api';
 import { browserStorage,clearSessions } from '../primary/sessionStore';
@@ -34,7 +36,7 @@ export function AccountProvider({children}:{children:ReactNode}){
  const register=useCallback(async(schoolName:string,name:string,email:string,password:string)=>{const r=await apiRequest('/register-school',null,'POST',{schoolName,name,email,password});saveToken(r.token);setToken(r.token);accept(r.user,[]);},[accept]);
  const logout=useCallback(async()=>{if(token)try{await api('/logout','POST',{})}catch(e){if(!(e instanceof ApiError&&e.status===401))throw e;}
   // A shared school device should not keep a pupil's cached progress or unfinished activities.
-  if(user?.role==='student'){const kv=browserStorage();clearCloudCache(kv,user.id);clearSessions(kv,'student:'+user.id);}
+  if(user?.role==='student'){const kv=browserStorage();clearCloudCache(kv,user.id);clearSessions(kv,'student:'+user.id);clearMissionRuns(kv,'student:'+user.id);clearAttempts(kv,'student:'+user.id);}
   forget();setError('');},[api,token,user,forget]);
  const value=useMemo(()=>({register,classes,user,token,loading,error,connection,api,login,logout,refresh,retry,continueAsGuest:forget}),[register,classes,user,token,loading,error,connection,api,login,logout,refresh,retry,forget]);
  return <Context.Provider value={value}>{children}</Context.Provider>;

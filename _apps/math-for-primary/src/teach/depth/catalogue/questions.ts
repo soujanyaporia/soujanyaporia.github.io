@@ -11,6 +11,7 @@ const numbers=(s:string)=>s.match(/\d+(?:\.\d+)?/g)?.map(Number)??[];
 /** Fix model/question mismatches before any teaching or assessment uses the example. */
 export function modelFor(p:PlanEntry,e:Example):Tool{
  const q=e.prompt,ns=numbers(q),f=e.evidence;
+ if(p.level===1&&p.code==='AS'&&/^Add \d+ \+ \d+ \+ \d+\./.test(q))return {kind:'join-parts',parts:ns.slice(0,3),joined:[],hideValue:true};
  if(e.tool.kind==='bond')return e.tool;
  if(p.code==='WN'&&e.tool.kind==='table'&&e.tool.headers.includes('Place')){const n=Number(q.match(/of ([\d,]+)/)?.[1]?.replaceAll(',',''));if(Number.isFinite(n))return {kind:'scene',scene:'place',values:[n,0,0],phase:0,labels:[`Place-value groups for ${n}. The value of each column is shown above its counters.`]};}
 
@@ -85,7 +86,7 @@ function modelReading(p:PlanEntry,e:Example,tool:Tool):{prompt:string;tool:Tool}
   case 'factor-choice':return {tool:T(['Number'],[v.n],'A factor divides it exactly'),prompt:'Which choice is a factor of the number in the table?'};
   case 'remainder':return {tool:T(['Total','Size of each group'],[v.total,v.b],'Make as many full groups as possible'),prompt:'How many are left over after making full groups?'};
   case 'order-ops':return tool.kind==='table'?{tool,prompt:'How many objects are there altogether?'}:null;
-  case 'add3':return tool.kind==='table'?{tool,prompt:'What is the total of the three parts in the table?'}:null;
+  case 'add3':return tool.kind==='join-parts'?{tool,prompt:'How many counters are there in all three coloured groups?'}:tool.kind==='table'?{tool,prompt:'What is the total of the three parts in the table?'}:null;
   case 'measure-diff':return tool.kind==='table'?{tool,prompt:'What is the difference between the two readings in the table?'}:null;
   case 'conv':return {tool:T(['Amount','Change it into'],[k.s.text,k.s.to],'The amount stays the same; only the unit changes'),prompt:'Change the amount in the table into the unit shown.'};
   case 'vol-conv':return {tool:T(['Litres'],[fmt(v.litres)],'1 litre = 1000 millilitres'),prompt:'How many cubic centimetres is the amount in the table?'};

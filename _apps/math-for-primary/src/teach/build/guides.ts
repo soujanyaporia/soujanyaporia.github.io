@@ -31,6 +31,17 @@ function authoredGuide(p:PlanEntry):VisualGuide{
   if(addition)return {setup:minus?`We have ${a} counters and take away ${b}. How many are left? (${a} − ${b})`:`We have ${a} counters and add ${b} more. How many are there altogether? (${a} + ${b})`,method:{label:explanation.strategy,intro:methodIntroduction(explanation.strategy)},title:minus?'Take away, and see what remains':/combining/.test(o)?'Put two groups together':'Make a ten, then keep going',frames:toFrames(explanation.steps),alternatives:explanation.alternatives?.slice(0,2).map(s=>({label:s.label,intro:methodIntroduction(s.label),frames:toFrames(s.steps)}))};
   return divide?{title:'Give everyone an equal share',frames:[frame('Share 12 counters between 4 children. Nobody has any yet.',{kind:'share',total:12,people:4,given:[0,0,0,0],mode:'share'}),frame('Give each child one counter. Everyone must receive the same amount.',{kind:'share',total:12,people:4,given:[1,1,1,1],mode:'share'}),frame('Keep going around. After three rounds, the counters are all shared.',{kind:'share',total:12,people:4,given:[3,3,3,3],mode:'share'}),frame('Each child receives 3. Four equal shares of 3 make our original 12.',{kind:'groups',groups:4,size:3},'12 ÷ 4 = 3')]}:{title:'Count equal groups',frames:[frame('Here is one plate with 4 biscuits.',{kind:'groups',groups:1,size:4}),frame('A second plate has another 4. Both groups are the same size.',{kind:'groups',groups:2,size:4}),frame('With three plates, we have three groups of four.',{kind:'groups',groups:3,size:4},'4 + 4 + 4 = 12'),frame('We can turn the arrangement into rows. Every biscuit is still here.',{kind:'array',rows:3,cols:4},'3 × 4 = 12')]};
  }
+ if(code==='WN'&&g===1&&/count and represent/.test(o)){
+  const picture=(phase:number):Tool=>scene('bundle-ten',[32],phase,'The same 32 counters are gathered into groups of ten.');
+  const lines=[
+   'Here are some counters. Let’s put them into groups so they are easier to count.',
+   'Watch these ten counters move together. Ten ones make one ten. The other counters are still waiting.',
+   'Here come ten more. Now we have two tens. Ten, twenty.',
+   'We can make one more ten. Ten, twenty, thirty. There are two counters left over.',
+   'Three tens make thirty. Add the two ones: thirty-one, thirty-two. We have thirty-two counters altogether.'
+  ];
+  return {title:'Let’s make groups of ten',setup:lines[0],frames:lines.map((text,i)=>({text,narration:text,tool:picture(i),...(i===4?{math:'30 + 2 = 32'}:{})}))};
+ }
  if(code==='WN'){
   if(/ordinal/.test(o))return {title:'Where are you in the queue?',frames:[frame('These children are waiting in a line. Start at the front, on the left.',pic({type:'pattern',items:['A','B','C','D','E']},'The front of the queue is on the left.')),frame('A is first. B is second. C is third. The order tells us where each child is.',pic({type:'pattern',items:['1st: A','2nd: B','3rd: C']},'Count positions from the stated end.')),frame('Third means one particular child. Three children means a group of three.',{kind:'counters',count:3,frame:10})]};
   if(/odd/.test(o))return {title:'Can everybody find a partner?',frames:[frame('Six counters can make three complete pairs.',{kind:'groups',groups:3,size:2}),frame('Give the group one more counter. That counter has no partner.',{kind:'share',total:7,people:3,given:[2,2,2],mode:'group',size:2}),frame('Six is even. Seven is odd because one is left without a partner.',{kind:'share',total:7,people:3,given:[2,2,2],mode:'group',size:2},'7 = 2 + 2 + 2 + 1')]};

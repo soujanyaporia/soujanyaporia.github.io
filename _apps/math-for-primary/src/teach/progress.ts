@@ -24,7 +24,16 @@ export const reviewNodeId=(lesson:Pick<Lesson,'id'>)=>`learn.${lesson.id}.review
 export const answerEventId=(attemptId:string,stage:number,key:string)=>stableId(`learn-answer|${attemptId}|${stage}|${key}`);
 export const completeEventId=(attemptId:string)=>stableId(`learn-complete|${attemptId}`);
 export const questionKey=(lesson:Pick<Lesson,'id'>,stage:number,key:string)=>`learn:${lesson.id}:${stage}:${key}`;
-export function readAttempts(kv:KV|null,scope:string):Record<string,LessonAttempt>{try{const data=JSON.parse(kv?.getItem(PREFIX+scope)||'null');return data&&typeof data==='object'&&data.v===1?data.attempts:{};}catch{return {};}}
+const plain=(x:unknown):x is Record<string,any>=>!!x&&typeof x==='object'&&!Array.isArray(x);
+const bounded=(x:unknown,max=1e15)=>typeof x==='number'&&Number.isFinite(x)&&x>=0&&x<=max;
+function validAttempt(a:unknown,id:string):a is LessonAttempt{
+ if(!plain(a)||a.v!==1||a.lessonId!==id||!/^[-a-z0-9]{1,80}$/.test(id)||typeof a.attemptId!=='string'||!/^[a-zA-Z0-9-]{1,80}$/.test(a.attemptId)||!bounded(a.seed,0xffffffff)||!Number.isInteger(a.seed)||!['learn','challenge','review'].includes(a.mode)||!bounded(a.stage,1000)||!Number.isInteger(a.stage)||!plain(a.items)||!plain(a.done)||Object.keys(a.items).length>500||Object.keys(a.done).length>1000)return false;
+ if(!bounded(a.startedAt)||!bounded(a.updatedAt)||(a.completedAt!==null&&!bounded(a.completedAt))||(a.stars!==null&&!bounded(a.stars,3))||(a.confidence!==null&&!bounded(a.confidence,5))||typeof a.readinessMissed!=='boolean'||(a.revision!==undefined&&typeof a.revision!=='string'))return false;
+ if(!Object.values(a.done).every(x=>typeof x==='boolean')||!Object.values(a.items).every(x=>plain(x)&&typeof x.answer==='string'&&x.answer.length<=1000&&typeof x.correct==='boolean'&&typeof x.firstTry==='boolean'&&bounded(x.hints,10000)&&bounded(x.tries,10000)&&bounded(x.at)))return false;
+ if(a.work!==undefined&&(!plain(a.work)||Object.keys(a.work).length>500||!Object.values(a.work).every(x=>plain(x)&&typeof x.value==='string'&&x.value.length<=1000&&bounded(x.tries,10000)&&bounded(x.hints,10000)&&bounded(x.teach,10000)&&(x.other===null||bounded(x.other,100))&&typeof x.usedRecovery==='boolean'&&typeof x.showTool==='boolean'&&(x.wrong===null||typeof x.wrong==='string'))))return false;
+ return true;
+}
+export function readAttempts(kv:KV|null,scope:string):Record<string,LessonAttempt>{try{const raw=kv?.getItem(PREFIX+scope);if(!raw||raw.length>3_000_000)return {};const data=JSON.parse(raw);return plain(data)&&data.v===1&&plain(data.attempts)?Object.fromEntries(Object.entries(data.attempts).filter(([id,a])=>validAttempt(a,id)).slice(0,40)):{};}catch{return {};}}
 export function writeAttempt(kv:KV|null,scope:string,attempt:LessonAttempt){try{if(!kv)return;const attempts={...readAttempts(kv,scope),[attempt.lessonId]:attempt};const keep=Object.fromEntries(Object.entries(attempts).sort((a,b)=>b[1].updatedAt-a[1].updatedAt).slice(0,40));kv.setItem(PREFIX+scope,JSON.stringify({v:1,attempts:keep}));}catch{/* storage unavailable: the lesson still works */}}
 export function clearAttempts(kv:KV|null,scope:string){try{kv?.removeItem(PREFIX+scope);}catch{/* ignore */}}
 /**

@@ -53,3 +53,16 @@ test('self-service registration creates a separate tenant without backend approv
  const data=await call('/api/school','GET',null,r.body.token);assert.equal(data.status,200);assert.equal(data.body.users.length,1);assert.equal(data.body.classes.length,0);assert.equal(data.body.years.length,1);
  assert.equal((await call('/api/register-school','POST',{schoolName:'Fail',name:'Bad',email:'invalid',password:'Registration-password-2026'})).status,400);
 });
+test('100-event sync batches use bounded reads, reject malformed batches, and retry exactly once',async()=>{
+ await bootstrap('BATCH');const admin=(await login('BATCH','admin')).body.token,year=(await call('/api/school','GET',null,admin)).body.years[0].id;
+ const classroom=(await call('/api/classes','POST',{yearId:year,level:1,name:'Batch',track:'standard'},admin)).body.id;
+ await call('/api/users','POST',{username:'batch',name:'Batch pupil',password:'12345678',classId:classroom},admin);
+ const token=(await login('BATCH','batch','12345678')).body.token;await call('/api/password','POST',{current:'12345678',password:'87654321'},token);
+ const events=Array.from({length:100},()=>({id:crypto.randomUUID(),at:Date.now(),kind:'primary_answer',activityId:'p1s-count-n0',correct:true,firstTry:true,tries:1,hints:0}));
+ let reads=0;const instrumented={...env,DB:{prepare(sql){if(sql.startsWith('SELECT id FROM events'))reads++;return DB.prepare(sql);},batch(statements){return DB.batch(statements);}}};
+ const post=async(version,payload)=>{const response=await worker.fetch(new Request('https://test/api/progress',{method:'POST',headers:{Origin:'https://soujanyaporia.github.io','Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({version,events:payload})}),instrumented);return {status:response.status,body:await response.json()};};
+ let r=await post(0,events);assert.equal(r.status,200,JSON.stringify(r.body));assert.equal(r.body.progress.totals.attempted,100);assert.equal(reads,2);
+ reads=0;r=await post(1,events);assert.equal(r.status,200);assert.equal(r.body.progress.totals.attempted,100);assert.equal(reads,2);
+ for(const invalid of [[null],[events[0],events[0]],[{...events[0],id:crypto.randomUUID(),kind:'settings',patch:[]}]])assert.equal((await post(2,invalid)).status,400);
+ assert.equal((await call('/api/progress','GET',null,token)).body.version,2);
+});

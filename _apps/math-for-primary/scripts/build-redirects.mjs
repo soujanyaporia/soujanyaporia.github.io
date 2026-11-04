@@ -1,0 +1,6 @@
+import {mkdir,readdir,writeFile,rm} from 'node:fs/promises';
+import {resolve,join,dirname} from 'node:path';
+const root=resolve(import.meta.dirname,'..'),out=join(root,'dist-legacy'),base='/singapore-primary-maths/';
+await rm(out,{recursive:true,force:true});
+async function walk(path,relative=''){for(const entry of await readdir(path,{withFileTypes:true})){if(entry.isDirectory())await walk(join(path,entry.name),join(relative,entry.name));else if(entry.name==='index.html'){const target=base+(relative?relative.replaceAll('\\','/')+'/':'');const html=`<!doctype html><html lang="en-SG"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Singapore Primary Maths — new address</title><link rel="canonical" href="https://soujanyaporia.github.io${target}"><meta http-equiv="refresh" content="0;url=${target}"><script>location.replace(${JSON.stringify(target)}+location.search+location.hash)</script></head><body><h1>Singapore Primary Maths</h1><p>Our new address is ready. <a href="${target}">Continue learning</a>.</p></body></html>`;const file=join(out,relative,'index.html');await mkdir(dirname(file),{recursive:true});await writeFile(file,html);}}}
+await walk(join(root,'dist'));console.log('URL migration: built redirects for the old app and every public lesson page; search and saved hash routes are preserved.');

@@ -120,14 +120,16 @@ jobs:
           npm ci
           npm run build
           npm test
-      - name: Build and test Maths for SG Primary Schools
+      - name: Build and test Singapore Primary Maths
         working-directory: _apps/math-for-primary
         run: |
           npm ci
           npm test
           npm run build
-          mkdir -p ../../_site/math-for-primary
-          cp -R dist/. ../../_site/math-for-primary/
+          mkdir -p ../../_site/singapore-primary-maths ../../_site/math-for-primary
+          cp -R dist/. ../../_site/singapore-primary-maths/
+          cp -R dist-legacy/. ../../_site/math-for-primary/
+          test -f ../../_site/singapore-primary-maths/index.html
           test -f ../../_site/math-for-primary/index.html
       - name: Build and verify public-page sitemap
         run: |

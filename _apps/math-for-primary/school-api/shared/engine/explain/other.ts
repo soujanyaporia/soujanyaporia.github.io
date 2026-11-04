@@ -67,7 +67,7 @@ export function explainTrueFalse(p: TrueFalseProblem): Explanation {
   const fx = explainFact(
     f,
     { item: p.item },
-    (s) => s.add(`The = sign says both sides are worth the same. Is that true here? Let's work out ${exprText(expr)}.`, null),
+    (s) => s.add(`The = sign says both sides are worth the same. Is that true here? Let’s work out ${exprText(expr)}.`, null),
     false,
   );
   const steps = [

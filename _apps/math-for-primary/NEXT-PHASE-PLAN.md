@@ -8,7 +8,7 @@ The current release has 198 activities across eight year/track catalogs, a grade
 
 The next improvement should be depth and continuity: a pupil returns to a meaningful next action, learns with a model, understands a mistake and sees a reason to return. A teacher should be able to assign that same learning and inspect the evidence. Adding more tiles without those connections would not solve the remaining product problems.
 
-Keep the public name **Maths for SG Primary Schools** and the stable URL `/math-for-primary/`. Keep school administration behind the school navigation. Keep guest play immediate. Keep the personal website link small and in the footer.
+The November 2026 redesign uses **Singapore Primary Maths** and `/singapore-primary-maths/`. Preserve `/math-for-primary/` through the generated redirects, and retain the existing browser storage keys so saved progress survives. Keep school administration behind the school navigation. Keep guest play immediate. Keep the personal website link small and in the footer.
 
 ## Release 1 — Returning feels purposeful (implemented September 2026; API v3 deployment pending)
 

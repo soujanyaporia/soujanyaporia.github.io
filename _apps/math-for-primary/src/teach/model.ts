@@ -15,6 +15,7 @@ export type Facet='direct'|'visual'|'reverse'|'missing'|'word'|'unfamiliar'|'rea
 export const FACET_LABEL:Record<Facet,string>={direct:'calculate directly',visual:'read a picture or model',reverse:'work backwards',missing:'find a missing quantity',word:'solve a story',unfamiliar:'use a new representation',reasoning:'explain or find a mistake'};
 /** Manipulative states. Every tool can be shown read-only, or changed by the pupil through `onChange`. */
 export type Tool=(
+ |{kind:'join-parts';parts:number[];joined:number[]}
  |{kind:'take-away';start:number;removed:number[]}
  |{kind:'triangle-pair';base:number;height:number;joined:boolean;lengthUnit?:'m'}
  |{kind:'fraction-pieces';widths:number[];selected:number[];shape?:'strip'|'circle'}
@@ -40,7 +41,7 @@ export type Tool=(
  |{kind:'balance';left:{x:number;n:number};right:{x:number;n:number};xValue:number;letter?:string}) & {hideValue?:boolean};
 export type ToolKind=Tool['kind'];
 export const TOOL_LABEL:Record<ToolKind,string>={
- 'take-away':'Taking-away counters','triangle-pair':'Matching triangles','fraction-pieces':'Equal pieces',focus:'A different view',scene:'Picture model','foundation-visual':'Objects and counters',geometry:'Geometry workbench','net-model':'Foldable net',diagram:'Diagram',table:'Table',counters:'Ten frames',bond:'Number bond',bar:'Bar model',line:'Number line',groups:'Equal groups',array:'Array',share:'Sharing board',fractions:'Fraction strips',place:'Place-value chart',hundred:'Hundred grid',percent:'Percentage bar',ratio:'Ratio bars',balance:'Algebra balance'
+ 'join-parts':'Joining groups','take-away':'Taking-away counters','triangle-pair':'Matching triangles','fraction-pieces':'Equal pieces',focus:'A different view',scene:'Picture model','foundation-visual':'Objects and counters',geometry:'Geometry workbench','net-model':'Foldable net',diagram:'Diagram',table:'Table',counters:'Ten frames',bond:'Number bond',bar:'Bar model',line:'Number line',groups:'Equal groups',array:'Array',share:'Sharing board',fractions:'Fraction strips',place:'Place-value chart',hundred:'Hundred grid',percent:'Percentage bar',ratio:'Ratio bars',balance:'Algebra balance'
 };
 export interface Item {
  /** Stable identity within a lesson attempt, e.g. `guided-3`. */
@@ -69,7 +70,7 @@ export interface Item {
 }
 export type Gen=(seed:number,index:number)=>Item;
 export interface Why {question:string;answer:string;tool?:Tool}
-export interface RevealStep {caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[];exact?:boolean;unit?:string;hint?:string;wrong?:Record<string,string>}}
+export interface RevealStep {narration?:string;caption?:string;because?:string;wonder?:{question:string;answer:string};text:string;math?:string;tool?:Tool;ask?:{prompt:string;answer:string;choices?:string[];exact?:boolean;unit?:string;hint?:string;wrong?:Record<string,string>}}
 export interface StageFlow {phase:'watch'|'together'|'try'|'check';label:string;transition:string;carry?:string}
 export type Stage=({flow?:StageFlow;actionLabel?:string}&(
 

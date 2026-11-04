@@ -1,3 +1,5 @@
+import {MISSIONS} from '../playground/catalog';
+import {freshRun} from '../playground/session';
 import {describe,it,expect} from 'vitest';
 import {activityById} from './catalog';
 import {createSession} from './sessionQuestions';
@@ -19,10 +21,10 @@ describe('guest learning passport',()=>{
  });
  it('refuses codes that are not passports, damaged or incomplete',async()=>{
   const code=await makePassport(progress,[unfinished],{now});
-  await expect(readPassport('hello')).rejects.toThrow(/not a Maths/);
+  await expect(readPassport('hello')).rejects.toThrow(/not a Singapore/);
   await expect(readPassport(code.slice(0,code.length-12))).rejects.toThrow(/damaged|incomplete/);
   await expect(readPassport('MFP1-***')).rejects.toThrow(/incomplete/);
-  await expect(readPassport('MFP0-'+b64url(JSON.stringify({kind:'other'})))).rejects.toThrow(/not a Maths/);
+  await expect(readPassport('MFP0-'+b64url(JSON.stringify({kind:'other'})))).rejects.toThrow(/not a Singapore/);
   await expect(readPassport('MFP0-'+b64url(JSON.stringify({kind:'maths-for-sg-primary-passport',v:2})))).rejects.toThrow(/newer version/);
  });
  it('drops invalid sessions rather than trusting them',async()=>{
@@ -30,3 +32,5 @@ describe('guest learning passport',()=>{
   expect((await readPassport(code)).sessions).toEqual([unfinished]);
  });
 });
+
+it('preserves valid mission working and ignores unknown missions',async()=>{const m=MISSIONS[0],run=freshRun(m);const code=await makePassport(initialProgress(),[],{missions:{[m.id]:run,unknown:run}});const p=await readPassport(code);expect(Object.keys(p.missions)).toEqual([m.id]);expect(p.missions[m.id]).toEqual(run);expect((await readPassport(await makePassport(initialProgress(),[]))).missions).toEqual({});});

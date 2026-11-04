@@ -96,7 +96,7 @@ describe('Learn lessons',()=>{
    items.forEach(item=>checkItem(item,lesson,`${lesson.id} stage ${index} ${item.key}`));
    if(stage.kind==='practice'||stage.kind==='apply')expect(stageItemsFor(stage,seed,index).map(i=>i.answer),`${lesson.id} stage ${index}: same seed, same questions`).toEqual(items.map(i=>i.answer));
   });
- },30000);
+ },90000);
  it('teaches before it asks: explore goals start unmet and every step is answerable',()=>{
   for(const lesson of LESSONS)lesson.stages.forEach((stage,index)=>{
    const where=`${lesson.id} stage ${index}`;

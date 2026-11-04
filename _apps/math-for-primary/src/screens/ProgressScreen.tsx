@@ -1,3 +1,7 @@
+import { useSessions } from '../primary/SessionContext';
+import { browserStorage } from '../primary/sessionStore';
+import { clearAttempts } from '../teach/progress';
+import { clearMissionRuns } from '../playground/session';
 import { useAccount } from '../school/AccountContext';
 import { useState } from 'react';
 import { href, navigate } from '../app/router';
@@ -58,7 +62,8 @@ function SkillChips({ ids, empty }: { ids: SkillId[]; empty: string }) {
 }
 
 export function ProgressScreen() {
-  const { progress, updateSettings, reset } = useProgress();
+  const { progress, updateSettings, reset, scope } = useProgress();
+  const { clear } = useSessions();
   const {user}=useAccount();
   const [confirmReset, setConfirmReset] = useState(false);
   const { totals, skills } = progress;
@@ -68,7 +73,7 @@ export function ProgressScreen() {
 
   return (
     <main className="screen">
-      <TopBar title="My progress" subtitle="Every question helps you grow" onBack={() => navigate({ name: 'home' })} backIcon="home" backLabel="Home" />
+      <TopBar title="Original skills & settings" subtitle="Your original guided arithmetic practice" onBack={() => navigate({ name: 'home' })} backIcon="home" backLabel="Home" />
 
       <div className="progress-stats">
         <Stat icon="star" tone="yellow" value={totals.stars} label="stars" />
@@ -144,11 +149,11 @@ export function ProgressScreen() {
       {confirmReset && (
         <ConfirmDialog
           title="Reset all progress?"
-          message="Stars, badges, lessons and skill levels will be cleared on this device."
+          message="Stars, badges, lessons, missions and unfinished work will be cleared on this device."
           confirmLabel="Reset"
           cancelLabel="Cancel"
           onConfirm={() => {
-            reset();
+            reset(); clear(); clearAttempts(browserStorage(),scope); clearMissionRuns(browserStorage(),scope);
             setConfirmReset(false);
           }}
           onCancel={() => setConfirmReset(false)}

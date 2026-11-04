@@ -3,6 +3,7 @@ import type {RevealStep,Tool} from '../model';
 export function modelCaption(t?:Tool):string|undefined{
  if(!t)return;
  switch(t.kind){
+ case 'join-parts':return 'Each counter is one object. Join every coloured group once. The groups still waiting must be added too.';
  case 'focus':return modelCaption(t.source);
  case 'diagram':return undefined; // The diagram component already shows its caption.
  case 'table':return `${t.caption.replace(/[.]+$/,'')}. Read each value with the heading above its column.`;
@@ -43,6 +44,7 @@ export function modelCaption(t?:Tool):string|undefined{
  'regroup':'Blue and orange show the two starting amounts. A long block is ten ones joined together.',
  'average':'The three trays belong to three children. Moving counters between trays keeps the total the same.',
  'timeline':'The dots are times of day. Each curved arrow is a number of minutes passing.',
+ 'bundle-ten':'Each small counter is one. Each outlined group holds ten of those same counters. Moving them does not change how many we have.',
  'place':'The number at the top of each column is the value of one counter in that column.',
  'angles':'The straight line is the whole half-turn. The coloured arcs show its two parts.',
  'crossing':'Angles directly across the crossing are opposite angles. Angles side by side complete a straight turn.',
@@ -71,6 +73,7 @@ function modelReason(t?:Tool):string|undefined{
  'average':p<2?'We are redistributing the same total. Giving one counter away means another tray must receive that counter.':'The average describes the fair share of the original total. It need not be an amount anyone had at the start.',
  'circle-area':'Area counts all the surface inside the circle. Moving its pieces without gaps or overlaps keeps that surface unchanged.',
  'timeline':'Split a long wait into easier jumps. Add the durations of the jumps, not the clock readings at their ends.',
+ 'bundle-ten':'Each small counter is one. Each outlined group holds ten of those same counters. Moving them does not change how many we have.',
  'place':'A digit tells us how many units there are. Its position tells us what size those units are; that is why a zero can matter.',
  'angles':'The unknown angle must fill exactly the part of the straight turn that the known angle does not use.',
  'ratio':'Keep the number of units separate from the value of one unit. Multiplying them gives the amount in that row.'} as Record<string,string>)[t.scene];

@@ -1,0 +1,6 @@
+import { it,expect } from 'vitest';
+import { readAttempts,writeAttempt,type LessonAttempt } from './progress';
+const memory=()=>{const m=new Map<string,string>();return {getItem:(k:string)=>m.get(k)??null,setItem:(k:string,v:string)=>{m.set(k,v);},removeItem:(k:string)=>{m.delete(k);}};};
+const valid:LessonAttempt={v:1,lessonId:'p1s-wn-01',attemptId:'abc12345',seed:123,stage:1,mode:'learn',items:{q:{answer:'3',correct:true,firstTry:true,hints:0,tries:1,at:20}},done:{'0':true},readinessMissed:false,confidence:null,startedAt:10,updatedAt:20,completedAt:null,stars:null};
+it('keeps valid saved lessons and isolates scopes',()=>{const kv=memory();writeAttempt(kv,'guest',valid);expect(readAttempts(kv,'guest')[valid.lessonId]).toEqual(valid);expect(readAttempts(kv,'another')).toEqual({});});
+it('damaged local lesson data cannot crash the library or lesson player',()=>{const kv=memory(),key='math-for-primary.lessons.v1:guest';for(const attempts of [null,[],undefined,{bad:{}},{[valid.lessonId]:{...valid,items:null}},{[valid.lessonId]:{...valid,stage:'no'}},{[valid.lessonId]:{...valid,work:{q:null}}}]){kv.setItem(key,JSON.stringify({v:1,attempts}));expect(readAttempts(kv,'guest')).toEqual({});}kv.setItem(key,'{broken');expect(readAttempts(kv,'guest')).toEqual({});});

@@ -45,11 +45,12 @@ export function coachWorked(p:PlanEntry,sample:Example,steps:RevealStep[]):Revea
  });
 }
 export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
- const rawSample=spec.anchor??lessonExample(p,spec,217,0),sample={...rawSample,tool:modelFor(p,rawSample)},guide=visualGuide(p),focus=teachingFocus(p);
- const activeModel=investigation(p,guide)??topicExplore(p,spec.explore)??lessonActivity(p);
+ const rawSample=spec.anchor??lessonExample(p,spec,217,0),sample={...rawSample,tool:modelFor(p,rawSample)},guide=visualGuide(p),focus=teachingFocus(p,guide.frames[0].tool);
+ const addThree=p.level===1&&p.code==='AS'&&/three one-digit/.test(p.objective);
+ const activeModel:Stage|undefined=addThree?lessonActivity(p):investigation(p,guide)??topicExplore(p,spec.explore)??lessonActivity(p);
  const pictureExample=spec.anchor?.prompt??guide.setup!,takeaway=guide.frames.at(-1)!.text;
  const fact=sample.evidence;
- const linkedWorked=spec.worked??(p.code==='AS'&&fact&&(fact.op==='+'||fact.op==='-')&&Math.max(fact.a,fact.b,Number(sample.answer))<=100?arithmeticWorked({a:fact.a,b:fact.b,c:Number(sample.answer),op:fact.op},sample.prompt):undefined);
+ const linkedWorked=spec.worked??(sample.tool.kind==='join-parts'?joiningWorked(sample.tool.parts):p.code==='AS'&&fact&&(fact.op==='+'||fact.op==='-')&&Math.max(fact.a,fact.b,Number(sample.answer))<=100?arithmeticWorked({a:fact.a,b:fact.b,c:Number(sample.answer),op:fact.op},sample.prompt):undefined);
  const items=itemFactory(p,spec,focus),guided=items.gen('direct',p.track==='foundation'),visual=items.gen('visual'),word=items.gen('word'),reverse=items.gen('reverse'),why=items.gen('reasoning');
  const noticeOptions=[{text:focus.error,correct:false,reply:focus.why},{text:focus.answer,correct:true,reply:focus.why}];if(rngFor(p.id,0,0,'notice').chance(.5))noticeOptions.reverse();
  const reps:Rep[]=['symbols','story'];if(sample.tool.kind==='fractions')reps.push('fraction-wall');else if(sample.tool.kind==='bar')reps.push('bar-model');else if(sample.tool.kind==='table')reps.push('table');else reps.push('diagram');
@@ -58,9 +59,9 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
   representations:reps,misconceptions:[pitfall(p)??{name:'A tempting shortcut',fix:spec.misconception}],
   stages:[
    prerequisite(p),
-   {kind:'hook',title:'Meet our picture example',text:pictureExample,tool:spec.anchor?.tool??guide.frames[0].tool,caption:guide.frames[0].caption??guide.frames[0].text,next:'Before following the explanation, think about the relationship we will look for in this picture.',flow:{phase:'watch',label:'First, meet the example',transition:'We will follow this picture step by step before trying a question with help.'}},
+   {kind:'hook',title:'Meet our picture example',text:pictureExample,tool:spec.anchor?.tool??guide.frames[0].tool,caption:guide.frames[0].caption??guide.frames[0].text,next:p.level<=2?'Look closely at the picture. What do you notice?':'Before following the explanation, think about the relationship we will look for in this picture.',flow:{phase:'watch',label:'First, meet the example',transition:'We will follow this picture step by step before trying a question with help.'}},
    {kind:'notice',actionLabel:'Think about the picture',title:'What should we look for?',text:focus.question,tool:guide.frames[0].tool,options:noticeOptions,flow:{phase:'watch',label:'Give the picture a purpose',transition:focus.look}},
-   {kind:'explain',title:guide.title,text:guide.frames[0].text,example:pictureExample,method:guide.method,flow:{phase:'watch',label:'Watch the same example',transition:guide.method?.intro??focus.look},frames:annotateSteps(guide.frames.map((f,i)=>i===0?{...f,because:f.because??focus.why}:f)),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)})),why:{question:'What did the picture help us see?',answer:guide.frames.at(-1)!.text}},
+   {kind:'explain',title:guide.title,text:guide.frames[0].text,example:pictureExample,method:guide.method,flow:{phase:'watch',label:'Watch the same example',transition:guide.method?.intro??focus.look},frames:annotateSteps(guide.frames),alternatives:guide.alternatives?.map(a=>({...a,frames:annotateSteps(a.frames)})),why:{question:'What did the picture help us see?',answer:guide.frames.at(-1)!.text}},
    ...(activeModel?[activeModel]:[]),
    {kind:'worked',title:spec.anchor?'Let’s solve our question together':'A new example, together',flow:{phase:'together',label:spec.anchor?'Back to our question':'Use the idea with a new example',transition:spec.anchor?'Keep the same counters. This time, you will finish the answer.':'The picture example is complete. We are changing the example now; read the new question below before starting.',carry:takeaway},problem:sample.prompt+(sample.display?' '+sample.display:''),tool:sample.tool,steps:coachWorked(p,sample,annotateSteps(linkedWorked??[{text:focus.look,tool:questionModel(sample.tool),because:friendly(sample.why)},{text:sample.hint,tool:questionModel(sample.tool),ask:{prompt:sample.prompt,answer:sample.answer,choices:sample.choices}},...sample.steps.map(text=>({text:friendly(text),tool:sample.tool})),{text:'Check the result against the question we started with.',tool:sample.tool,math:sample.check,because:`We found ${sample.answer}${sample.unit?' '+sample.unit:''}. ${friendly(sample.why)}`}]))},
    ...(spec.practical?[{kind:'connect' as const,title:'Try a construction',text:'Use the model, then make your own drawing on paper. Compare the features; a teacher or adult can check your drawing.',rows:spec.practical.map(text=>({text}))}]:[]),
@@ -76,6 +77,16 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  result.mission={goal:spec.learningGoal??p.objective,question:sample.prompt,pictureExample,connection:spec.connection??focus.look};
  result.revision='catalogue-depth-2026-09-19-v4';
  return result;
+}
+function joiningWorked(parts:number[]):RevealStep[]{
+ const objects=(n:number,colour:string)=>`${n} ${colour} counter${n===1?'':'s'}`;
+ const [a,b,c]=parts,total=a+b+c,picture=(joined:number[],hideValue=true):Tool=>({kind:'join-parts',parts,joined,hideValue});
+ return [
+  {text:`We have ${objects(a,'blue')}, ${objects(b,'green')} and ${objects(c,'orange')}. We will use every group once.`,tool:picture([])},
+  {text:`Join ${objects(a,'blue')} and ${objects(b,'green')}. Leave the orange group where it is for now.`,tool:picture([0,1]),ask:{prompt:'How many counters have we joined so far?',answer:String(a+b),hint:`Count the blue and green counters together. The ${c} orange counters are still waiting.`,wrong:{[String(total)]:`That includes the orange group. For this step, count only the ${a} blue and ${b} green counters.`}}},
+  {text:`We have ${a+b} so far. Now add ${objects(c,'orange')}.`,tool:picture([0,1,2]),ask:{prompt:'How many counters are there altogether?',answer:String(total),hint:`Start at ${a+b}, then count on ${c} more.`,wrong:{[String(a+b)]:`That was our first two groups. We still need to add ${objects(c,'orange')}.`}}},
+  {text:`There are ${total} counters. We joined the first two groups, then added the third. Nothing was left out.`,narration:`There are ${total} counters. We joined the first two groups, then added the third. Nothing was left out.`,tool:picture([0,1,2],false),math:`${a} + ${b} + ${c} = ${total}`}
+ ];
 }
 export const table=(headers:string[],rows:(string|number)[][],caption:string):Tool=>({kind:'table',headers,rows:rows.map(r=>r.map(String)),caption});
 export const diagram=(picture:Extract<Tool,{kind:'diagram'}>['picture'],caption:string):Tool=>({kind:'diagram',picture,caption});

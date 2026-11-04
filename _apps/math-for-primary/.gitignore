@@ -10,3 +10,8 @@ school-api/node_modules/
 school-api/dist/
 school-api/*.sqlite*
 school-api/.git/
+
+.tools/
+.generated/
+public/audio/*.part
+dist-legacy/

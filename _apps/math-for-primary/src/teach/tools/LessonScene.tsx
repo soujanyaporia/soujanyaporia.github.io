@@ -1,10 +1,12 @@
+import {BundleTenScene} from './BundleTenScene';
 import type {VisualSpec} from '../../engine/types';
 import {Visual} from '../../visuals/Visual';
-export type SceneTool={kind:'scene';scene:'shape-join'|'copy-grid'|'angle-name'|'place'|'fraction'|'fraction-product'|'area'|'triangle'|'circle'|'average'|'scale'|'timeline'|'angles'|'ratio'|'money'|'regroup'|'crossing'|'house'|'triangle-angles'|'circle-area';values:number[];phase:number;labels?:string[];lengthUnit?:string};
+export type SceneTool={kind:'scene';scene:'bundle-ten'|'shape-join'|'copy-grid'|'angle-name'|'place'|'fraction'|'fraction-product'|'area'|'triangle'|'circle'|'average'|'scale'|'timeline'|'angles'|'ratio'|'money'|'regroup'|'crossing'|'house'|'triangle-angles'|'circle-area';values:number[];phase:number;labels?:string[];lengthUnit?:string};
 export type FoundationTool={kind:'foundation-visual';visual:VisualSpec};
 const BLUE='#536ce7',GOLD='#efac59',GREEN='#71ad86',INK='#29384f';
 /** Each drawing depicts the quantities named in the adjacent teaching sentence. */
-export function LessonScene({t}:{t:SceneTool}){
+export function LessonScene({t,interactive=true}:{t:SceneTool;interactive?:boolean}){
+ if(t.scene==='bundle-ten')return <BundleTenScene phase={t.phase} interactive={interactive}/>;
  const [a=3,b=4,c=2,d=3]=t.values,p=t.phase;
  const rect=(x:number,y:number,w:number,h:number,fill:string,key:string|number)=><rect key={key} x={x} y={y} width={w} height={h} rx="3" fill={fill} stroke="white" strokeWidth="2"/>;
  const text=(x:number,y:number,s:string,key:string|number,fill=INK)=><text key={key} x={x} y={y} textAnchor="middle" fill={fill} fontSize="18" fontWeight="800">{s}</text>;

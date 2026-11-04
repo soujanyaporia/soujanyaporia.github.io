@@ -6,7 +6,7 @@ const N:Strand='Number & Algebra',G:Strand='Measurement & Geometry',S:Strand='St
 type Entry=[GameKind,string,string,string?];
 const sets:Record<string,{strand:Strand;entries:Entry[]}[]>={
  '1S':[
- {strand:N,entries:[['count','Firefly forest','WN.01'],['place','Tens & ones workshop','WN.02'],['compare','Number crocodile','WN.04'],['order','Number train','WN.04'],['pattern','Stepping stones','WN.05'],['ordinal','Race-day positions','WN.06'],['add','Fruit basket','AS.01'],['subtract','Take-away picnic','AS.02'],['bond','Number-bond nests','AS.03'],['missing','Mystery boxes','AS.04'],['add','Number bridge to 100','AS.05','large'],['groups','Equal-group garden','MD.01'],['share','Sharing picnic','MD.02'],['money','Coin collector','MONEY.01'],['story','Story detectives','AS.01']]},
+ {strand:N,entries:[['count','Firefly forest','WN.01'],['place','Tens & ones workshop','WN.02'],['compare','Number crocodile','WN.04'],['order','Number train','WN.04'],['pattern','Stepping stones','WN.05'],['ordinal','Race-day positions','WN.06'],['add','Fruit basket','AS.01'],['subtract','Take-away picnic','AS.02'],['bond','Number-bond nests','AS.03'],['missing','Mystery boxes','AS.04'],['add','Number bridge to 100','AS.05','large'],['groups','Equal-group garden','MD.01'],['share','Sharing picnic','MD.02'],['money','Coin collector','MONEY.01'],['story','Story detectives','AS.01'],['add','Three-group picnic','AS.06','three']]},
  {strand:G,entries:[['length','Ruler ranger','LENGTH.01'],['clock','Clock explorers','TIME.01'],['duration','Time travellers','TIME.03'],['shape','Shape safari','SHAPE.01'],['shapePattern','Picture-copy parade','SHAPE.03']]},
  {strand:S,entries:[['pictureGraph','Favourite-fruit fair','GRAPH.01']]}],
  '2S':[

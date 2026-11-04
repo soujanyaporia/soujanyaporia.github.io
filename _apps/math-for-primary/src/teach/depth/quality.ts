@@ -31,5 +31,6 @@ export function improveTeachingQuality(original:Lesson):Lesson{
   }
  }
  // A changed sequence cannot resume by the old stage number. Earned progress events are untouched.
- return addIndependenceCheck({...lesson,revision:`${lesson.revision?.startsWith('depth-')?'depth':'catalogue-depth'}-2026-09-19-v5`,stages});
+ const revised=addIndependenceCheck({...lesson,revision:`${lesson.revision?.startsWith('depth-')?'depth':'catalogue-depth'}-2026-09-19-v5`,stages});
+ return ['p1s-wn-01','p1s-as-06'].includes(lesson.id)?{...revised,revision:'catalogue-depth-2026-11-04-child-sequence-v1'}:revised;
 }

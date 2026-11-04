@@ -152,7 +152,7 @@ function checkMissing(eq: Equation, answer: number, value: number): CheckResult 
       return {
         correct: false,
         misconception: 'wrong_operation',
-        message: `We aren't adding ${known} to ${target}.`,
+        message: `We aren’t adding ${known} to ${target}.`,
         detail: `We need the number that makes ${target} after adding ${known}. Can we undo + ${known}?`,
       };
     }
@@ -160,7 +160,7 @@ function checkMissing(eq: Equation, answer: number, value: number): CheckResult 
       return {
         correct: false,
         misconception: 'wrong_operation',
-        message: `We aren't taking ${known} from ${target}.`,
+        message: `We aren’t taking ${known} from ${target}.`,
         detail: `${target} is what is left after taking away ${known}. What did we start with?`,
       };
     }
@@ -168,7 +168,7 @@ function checkMissing(eq: Equation, answer: number, value: number): CheckResult 
       return {
         correct: false,
         misconception: 'wrong_operation',
-        message: `We don't add ${target} and ${known} here.`,
+        message: `We don’t add ${target} and ${known} here.`,
         detail: `How many do we take away from ${known} to leave ${target}?`,
       };
     }
@@ -176,7 +176,7 @@ function checkMissing(eq: Equation, answer: number, value: number): CheckResult 
       return {
         correct: false,
         misconception: 'wrong_operation',
-        message: `We aren't multiplying ${target} by ${known}.`,
+        message: `We aren’t multiplying ${target} by ${known}.`,
         detail: `Which number of groups of ${known} makes ${target}? Try ${target} ${OP_SYMBOL['/']} ${known}.`,
       };
     }
@@ -198,7 +198,7 @@ function checkMissing(eq: Equation, answer: number, value: number): CheckResult 
     correct: false,
     misconception: close ? 'off_by_one' : needBigger ? 'too_small' : 'too_big',
     message: close ? 'So close!' : 'Not quite.',
-    detail: `Let's check: ${tried} = ${shown}, ${needed}. Try a ${needBigger ? 'bigger' : 'smaller'} number.`,
+    detail: `Let’s check: ${tried} = ${shown}, ${needed}. Try a ${needBigger ? 'bigger' : 'smaller'} number.`,
   };
 }
 
@@ -285,7 +285,7 @@ export function checkStoryNumber(story: Story, answer: number, value: number): C
     correct: false,
     misconception: value > answer ? 'too_big' : 'too_small',
     message: 'Not quite.',
-    detail: "Let's look at the story again.",
+    detail: "Let’s look at the story again.",
   };
 }
 

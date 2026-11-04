@@ -22,7 +22,7 @@ try {
 <html lang="en-SG"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escape(page.title)}</title><meta name="description" content="${escape(page.description)}">
 <link rel="canonical" href="${canonical}"><meta name="robots" content="index,follow,max-image-preview:large">
-<meta property="og:type" content="website"><meta property="og:site_name" content="Maths for SG Primary Schools"><meta property="og:locale" content="en_SG">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Singapore Primary Maths"><meta property="og:locale" content="en_SG">
 <meta property="og:title" content="${escape(page.title)}"><meta property="og:description" content="${escape(page.description)}"><meta property="og:url" content="${canonical}">
 <meta name="twitter:card" content="summary"><meta name="twitter:title" content="${escape(page.title)}"><meta name="twitter:description" content="${escape(page.description)}">
 <meta name="theme-color" content="#fff8ef"><link rel="icon" type="image/svg+xml" href="${PUBLIC_BASE}favicon.svg">

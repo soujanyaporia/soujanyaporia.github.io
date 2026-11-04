@@ -91,7 +91,7 @@ export default { async fetch(request:Request,env:Env) {
    const p=await first('SELECT * FROM progress WHERE user_id=?',u.id);if(p.version!==b.version)return response({error:'Progress updated on another device.',version:p.version,progress:JSON.parse(p.data)},409);
    let state=JSON.parse(p.data);const inserts=[];const ids=new Set();
    for(const e of b.events){
-    if(!/^[a-f0-9-]{36}$/.test(e.id)||ids.has(e.id))fail(400,'Invalid event ID.');ids.add(e.id);integer(e.at,0,now()+300000);
+    if(!e||typeof e!=='object'||Array.isArray(e)||!/^[a-f0-9-]{36}$/.test(e.id)||ids.has(e.id))fail(400,'Invalid event ID.');ids.add(e.id);integer(e.at,0,now()+300000);
     if(e.kind==='attempt'){
      const o=e.outcome;if(!o||!Object.hasOwn(SKILLS,o.skill))fail(400,'Unknown skill.');integer(o.level,1,5);integer(o.tries,1,10000);integer(o.hints,0,1000);integer(o.at,0,now()+300000);
      for(const key of ['correct','firstTry','revealed'])if(typeof o[key]!=='boolean')fail(400,'Invalid attempt.');
@@ -100,9 +100,16 @@ export default { async fetch(request:Request,env:Env) {
     }else if(e.kind==='primary_selection'){integer(e.level,1,6);if(!['standard','foundation'].includes(e.track)||(e.level<5&&e.track!=='standard'))fail(400,'Invalid curriculum path.');}
     else if(e.kind==='primary_answer'||e.kind==='primary_complete'){if(!activityById(e.activityId))fail(400,'Unknown primary activity.');if(e.sessionId!==undefined&&!/^[a-f0-9]{16}$/.test(e.sessionId))fail(400,'Invalid activity session.');if(e.position!==undefined)integer(e.position,0,19);if(e.kind==='primary_complete')integer(e.stars,0,3);else {integer(e.tries,1,10000);integer(e.hints,0,1000);if(e.questionKey!==undefined)str(e.questionKey,200);if(e.answer!==undefined&&(typeof e.answer!=='string'||e.answer.length>200))fail(400,'Invalid answer text.');if(typeof e.correct!=='boolean'||typeof e.firstTry!=='boolean'||(e.firstTry&&(!e.correct||e.tries!==1||e.hints!==0)))fail(400,'Invalid primary answer.');}}
     else if(e.kind==='session'){integer(e.stars,0,3);if(e.lessonId!==undefined&&!/^[-a-z0-9.]{1,80}$/.test(e.lessonId))fail(400,'Invalid lesson.');}
-    else if(e.kind==='settings'){if(!e.patch||Object.entries(e.patch).some(([k,v])=>!['sound','readAloud','unlockAll'].includes(k)||typeof v!=='boolean'))fail(400,'Invalid settings.');}
+    else if(e.kind==='settings'){if(!e.patch||Array.isArray(e.patch)||typeof e.patch!=='object'||Object.entries(e.patch).some(([k,v])=>!['sound','readAloud','unlockAll'].includes(k)||typeof v!=='boolean'))fail(400,'Invalid settings.');}
     else fail(400,'Unknown event.');
-    if(!await first('SELECT id FROM events WHERE user_id=? AND id=?',u.id,e.id)){
+   }
+   // Check the whole batch in at most two reads, staying below D1's parameter limit.
+   // Validate every event above before issuing any event writes.
+   const eventIds=[...ids],chunks=[];
+   for(let i=0;i<eventIds.length;i+=80)chunks.push(eventIds.slice(i,i+80));
+   const known=new Set((await Promise.all(chunks.map(chunk=>rows(`SELECT id FROM events WHERE user_id=? AND id IN (${chunk.map(()=>'?').join(',')})`,u.id,...chunk)))).flat().map((r:any)=>r.id));
+   for(const e of b.events){
+    if(!known.has(e.id)){
      state=reduceEvent(state,e);inserts.push(q('INSERT INTO events(user_id,id,data,at) SELECT ?,?,?,? WHERE (SELECT version FROM progress WHERE user_id=?)=? ON CONFLICT(user_id,id) DO NOTHING',u.id,e.id,JSON.stringify(e),e.at,u.id,p.version));
     }
    }

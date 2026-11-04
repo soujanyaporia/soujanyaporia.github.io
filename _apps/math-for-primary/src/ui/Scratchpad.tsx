@@ -1,0 +1,13 @@
+import { useRef,useState,type PointerEvent } from 'react';
+import { Icon } from './Icon';
+type Point=[number,number];
+type Stroke={points:Point[];colour:string};
+/** A local, optional working area. Pointer capture supports fingers, pens and mice alike. */
+export function Scratchpad({storageKey}:{storageKey:string}){
+ const [strokes,setStrokes]=useState<Stroke[]>([]),[colour,setColour]=useState('#4356a3'),[open,setOpen]=useState(false),active=useRef<number|null>(null),key=useRef(storageKey);
+ if(key.current!==storageKey){key.current=storageKey;if(strokes.length)setStrokes([]);}
+ function point(e:PointerEvent<SVGSVGElement>):Point{const box=e.currentTarget.getBoundingClientRect();return [Math.max(0,Math.min(800,(e.clientX-box.left)*800/box.width)),Math.max(0,Math.min(300,(e.clientY-box.top)*300/box.height))];}
+ function down(e:PointerEvent<SVGSVGElement>){if(e.button!==0||active.current!==null)return;e.preventDefault();e.currentTarget.setPointerCapture(e.pointerId);active.current=e.pointerId;const p=point(e);setStrokes(s=>[...s.slice(-79),{colour,points:[p,p]}]);}
+ function move(e:PointerEvent<SVGSVGElement>){if(active.current!==e.pointerId)return;const p=point(e);setStrokes(s=>{const last=s.at(-1);return !last||last.points.length>=1500?s:[...s.slice(0,-1),{...last,points:[...last.points,p]}];});}
+ return <section className="scratchpad"><button className="scratchpad-toggle" aria-expanded={open} onClick={()=>setOpen(!open)}><Icon name="pencil"/><span>Draw your thinking</span><small>Optional working space</small><span aria-hidden="true">{open?'−':'+'}</span></button>{open&&<div className="scratchpad-body"><div className="scratchpad-toolbar"><div role="group" aria-label="Pen colour">{[['Blue','#4356a3'],['Green','#137c62'],['Orange','#c85e2c']].map(([name,c])=><button key={c} aria-label={`${name} pen`} aria-pressed={colour===c} onClick={()=>setColour(c)} style={{color:c}}>●</button>)}</div><button disabled={!strokes.length} onClick={()=>setStrokes(s=>s.slice(0,-1))}>Undo</button><button disabled={!strokes.length} onClick={()=>setStrokes([])}>Clear drawing</button></div><svg viewBox="0 0 800 300" preserveAspectRatio="none" role="img" aria-label="Drawing space. Use a finger, pen or mouse to draw your working. Your drawing is not scored or saved." onPointerDown={down} onPointerMove={move} onPointerUp={()=>{active.current=null;}} onPointerCancel={()=>{active.current=null;}}>{strokes.map((s,i)=><polyline key={i} points={s.points.map(p=>p.join(',')).join(' ')} stroke={s.colour} fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/> )}</svg><p>Use your finger, pen or mouse. Drawings stay on this question while it is open and are not marked.</p></div>}</section>;
+}

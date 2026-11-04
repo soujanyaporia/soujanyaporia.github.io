@@ -87,3 +87,17 @@ describe('Learning quality and honest evidence',()=>{
   expect(reviewDue(progress,{id:'example'},now).at).toBe(now+30*day);
  });
 });
+it('keeps introductory picture explanations tied to the pictured example',()=>{
+ const lesson=LESSONS.find(l=>l.id==='p1s-wn-01')!;
+ const stage=lesson.stages.find(s=>s.kind==='explain');
+ if(stage?.kind!=='explain')throw Error('Missing explanation');
+ const first=stage.frames![0];
+ // The guide shows 3 tens and 2 ones; neither its explanation nor prediction may use 47.
+ expect(first.because).not.toContain('47');
+ expect(first.because).not.toContain('4 groups');
+ expect(first.tool).toBeDefined();
+ const notice=lesson.stages.find(s=>s.kind==='notice');
+ if(notice?.kind!=='notice')throw Error('Missing prediction');
+ expect(notice.text).toContain('group of ten');expect(notice.text).not.toContain('47');
+ expect(notice.options.find(o=>o.correct)?.text).toBe('Ten counters.');
+});

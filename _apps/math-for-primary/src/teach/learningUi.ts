@@ -1,3 +1,4 @@
+import type {LessonMeta} from './handIndex';
 import {feedbackFor} from './gen';
 import {WORLDS,type Lesson,type RevealStep,type Stage} from './model';
 import type {Item} from './model';
@@ -16,13 +17,13 @@ export const TOPIC_NAMES:Record<Lesson['world'],string>={
  'decimal-depths':'Decimals','measurement-metro':'Measurement & time','geometry-galaxy':'Geometry',
  'data-city':'Data & graphs','ratio-realm':'Ratio, rate & percentage','algebra-academy':'Algebra',
 };
-export function matchesLesson(lesson:Lesson,query:string){
+export function matchesLesson(lesson:Lesson|LessonMeta,query:string){
  const words=query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
- const text=[lesson.title,...lesson.objectives,lesson.mission?.pictureExample,TOPIC_NAMES[lesson.world],WORLDS[lesson.world].blurb].join(' ').toLocaleLowerCase();
+ const text=[lesson.title,...('objectives' in lesson?lesson.objectives:[lesson.objective]),'mission' in lesson?lesson.mission?.pictureExample:'',TOPIC_NAMES[lesson.world as Lesson['world']],WORLDS[lesson.world as Lesson['world']].blurb].join(' ').toLocaleLowerCase();
  return words.every(word=>text.includes(word));
 }
-export function lessonPreview(lesson:Lesson){
- return lesson.mission?.pictureExample??lesson.canDo.find(s=>s.toLowerCase()!==lesson.title.toLowerCase())??WORLDS[lesson.world].blurb;
+export function lessonPreview(lesson:Lesson|LessonMeta){
+ return 'objective' in lesson?lesson.objective:lesson.mission?.pictureExample??lesson.canDo.find(s=>s.toLowerCase()!==lesson.title.toLowerCase())??WORLDS[lesson.world].blurb;
 }
 /** Phase labels describe the present task, without suggesting that an earlier example is still active. */
 export function lessonPhase(stage:Stage):'Warm up'|'Understand'|'Try it'|'Check & remember'{

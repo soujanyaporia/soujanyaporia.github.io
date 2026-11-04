@@ -14,6 +14,9 @@ export type Route =
   | { name: 'teach'; id?: string; mode?: 'learn' | 'challenge' | 'review' }
   | { name: 'guide'; id: string }
   | { name: 'lab'; tool?: string }
+  | { name: 'missions'; id?: string }
+  | { name: 'watch'; id?: string }
+  | { name: 'legacy-progress' }
   | { name: 'lesson'; id: string }
   | { name: 'activity'; id: string }
   | { name: 'words' }
@@ -46,6 +49,9 @@ export function parseRoute(hash: string): Route {
     case 'coverage': return {name:'coverage'};
     case 'teach': return parts[1]?(parts[2]==='challenge'||parts[2]==='review'?{name:'teach',id:parts[1],mode:parts[2]}:{name:'teach',id:parts[1]}):{name:'teach'};
     case 'guide': return parts[1]?{name:'guide',id:parts[1]}:{name:'teach'};
+    case 'legacy-progress': return {name:'legacy-progress'};
+    case 'watch': return parts[1]?{name:'watch',id:parts[1]}:{name:'watch'};
+    case 'missions': return parts[1]?{name:'missions',id:parts[1]}:{name:'missions'};
     case 'lab': return parts[1]?{name:'lab',tool:parts[1]}:{name:'lab'};
     case 'learn':
       return { name: 'learn' };
@@ -81,6 +87,8 @@ export function href(route: Route): string {
     case 'about': return route.section ? `#/about/${encodeURIComponent(route.section)}` : '#/about';
     case 'teach': return route.id ? `#/teach/${encodeURIComponent(route.id)}${route.mode && route.mode !== 'learn' ? '/' + route.mode : ''}` : '#/teach';
     case 'guide': return `#/guide/${encodeURIComponent(route.id)}`;
+    case 'watch': return route.id ? `#/watch/${encodeURIComponent(route.id)}` : '#/watch';
+    case 'missions': return route.id ? `#/missions/${encodeURIComponent(route.id)}` : '#/missions';
     case 'lab': return route.tool ? `#/lab/${encodeURIComponent(route.tool)}` : '#/lab';
     case 'lesson':
       return `#/lesson/${encodeURIComponent(route.id)}`;
