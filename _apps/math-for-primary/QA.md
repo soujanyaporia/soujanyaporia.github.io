@@ -1,3 +1,17 @@
+## SEO verification — 4 November 2026
+
+A live HTTP audit checked all 284 maths sitemap URLs: every page returned 200
+without a redirect, had a matching canonical URL, a unique title and description,
+one H1, readable HTML and no indexing block. Two nonexistent paths returned 404.
+Shortened lengthy search titles and descriptions while retaining the complete
+curriculum titles and lesson content. The production audit additionally verifies
+mobile viewport metadata, page language, structured-data fields, sitemap parity,
+local assets/links and reachability of every public guide from the homepage.
+
+Google's live inspection successfully fetched the sitemap, but its Sitemaps
+report still said “Couldn't fetch” on 4 November. That report and indexing/ranking
+remain unconfirmed; passing these checks does not establish Google acceptance.
+
 # Search visibility — 4 November 2026
 
 The build now renders the existing teaching catalogue as 265 public lesson guides, eight year/track pages, nine topic directories and one lesson index. The homepage has a readable public directory. All 284 canonical maths URLs enter the XML sitemap; root robots.txt advertises it, and the host's existing public-page sitemap includes the same pages. Each reading page has its own title, description, canonical URL, Open Graph metadata, LearningResource/CollectionPage data and breadcrumbs. Lesson explanations and diagrams come from the same source as the interactive app; no accounts or pupil data are rendered.

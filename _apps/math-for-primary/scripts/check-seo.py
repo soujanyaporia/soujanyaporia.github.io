@@ -22,7 +22,9 @@ class Page(HTMLParser):
         self.ids = set()
         self.links = []
         self.assets = []
-        self.robots = ''
+        self.robots = []
+        self.language = ''
+        self.viewport = ''
         self.ld = False
         self.ld_text = ''
         self.schemas = []
@@ -30,6 +32,7 @@ class Page(HTMLParser):
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
+        if tag == 'html': self.language = a.get('lang', '')
         if tag == 'head': self.head = True
         if tag == 'title' and self.head: self.title = True
         if tag == 'h1': self.h1 += 1
@@ -40,7 +43,9 @@ class Page(HTMLParser):
         if tag == 'link' and a.get('rel') in ('stylesheet', 'icon'): self.assets.append(a['href'])
         if tag == 'script' and a.get('src'): self.assets.append(a['src'])
         if tag == 'meta' and a.get('name') == 'description': self.description.append(a.get('content', ''))
-        if tag == 'meta' and a.get('name') == 'robots': self.robots = a.get('content', '')
+        if tag == 'meta' and a.get('name', '').lower() in ('robots', 'googlebot'):
+            self.robots.append(a.get('content', '').lower())
+        if tag == 'meta' and a.get('name') == 'viewport': self.viewport = a.get('content', '')
         if tag == 'script' and a.get('type') == 'application/ld+json':
             self.ld, self.ld_text = True, ''
 
@@ -67,7 +72,9 @@ def check():
         assert p.title_text.strip(), (rel, 'missing title')
         assert len(p.description) == 1 and p.description[0], (rel, 'description')
         assert p.h1 == 1, (rel, 'expected one H1', p.h1)
-        assert 'noindex' not in p.robots, (rel, 'noindex')
+        assert not any({'noindex', 'none', 'nofollow'} & set(value.replace(',', ' ').split()) for value in p.robots), (rel, 'blocked robots directive')
+        assert p.language == 'en-SG', (rel, 'page language')
+        assert 'width=device-width' in p.viewport, (rel, 'missing mobile viewport')
         assert p.schemas, (rel, 'missing structured data')
         assert not p.inert_buttons, (rel, 'nonfunctional static buttons')
         pages[url] = p
@@ -91,11 +98,21 @@ def check():
                 if target.fragment and not target.fragment.startswith('/'):
                     assert unquote(target.fragment) in pages[destination].ids, (url, 'missing anchor', href)
         for schema in p.schemas:
+            assert schema.get('@context') == 'https://schema.org', (url, 'schema context')
             if schema.get('@type') == 'BreadcrumbList':
-                for item in schema['itemListElement']:
+                items = schema['itemListElement']
+                assert len(items) >= 2, (url, 'incomplete breadcrumb')
+                assert items[-1]['item'] == url, (url, 'breadcrumb current page')
+                for position, item in enumerate(items, 1):
+                    assert item.get('@type') == 'ListItem' and item.get('position') == position and item.get('name'), (url, 'breadcrumb fields', item)
                     assert item['item'] in pages, (url, 'broken breadcrumb', item)
             elif schema.get('url'):
                 assert schema['url'] == url, (url, 'schema URL')
+                assert schema.get('name') and schema.get('description'), (url, 'schema text')
+                assert schema.get('inLanguage') == p.language, (url, 'schema language')
+            if schema.get('@type') == 'LearningResource':
+                assert schema.get('teaches') and schema.get('educationalLevel'), (url, 'missing lesson objectives/level')
+                assert schema.get('isAccessibleForFree') is True, (url, 'lesson access metadata')
     visited, pending = set(), [BASE]
     while pending:
         url = pending.pop()

@@ -7,6 +7,7 @@ import { ToolView } from '../teach/tools/Tools';
 import { ACTIVITIES, activitiesFor } from '../primary/catalog';
 import { CURRICULUM, CURRICULUM_SKILLS, type Track } from '../school/curriculum';
 import { PUBLIC_BASE, SITE_URL, gradePath, guidePath } from './paths';
+import { lessonSearchTopic } from './metadata';
 
 const NAME = 'Maths for SG Primary Schools';
 const paths: { level: number; track: Track; intro: string }[] = [
@@ -102,7 +103,7 @@ export function publicPages(): PublicPage[] {
   for (const p of paths) {
     const lessons = lessonsFor(p.level, p.track), name = gradeName(p.level, p.track), path = gradePath(p.level, p.track);
     const worlds = [...new Set(lessons.map(l => l.world))];
-    pages.push(page(path, `${name} Maths: Free Lessons & Practice | Singapore`, `${name} maths for Singapore: ${lessons.length} free lessons with visual models, worked examples and practice. ${p.intro.split('. ')[0]}.`, <><p className="resource-eyebrow">Singapore · {p.track === 'foundation' ? 'Foundation Mathematics' : 'Standard Mathematics'}</p><h1>{name} maths lessons</h1><p>{p.intro}</p><p>{lessons.length} lessons and {activitiesFor(p.level, p.track).length} interactive activities. No sign-in is needed to read or practise.</p>{p.level >= 5 && <p>Looking for the other path? <a href={gradePath(p.level, p.track === 'standard' ? 'foundation' : 'standard')}>{gradeName(p.level, p.track === 'standard' ? 'foundation' : 'standard')} maths</a>.</p>}<nav aria-label="Topics in this year"><ul className="resource-topic-links">{worlds.map(world => <li key={world}><a href={`#${topicSlugs[world]}`}>{TOPIC_NAMES[world]}</a></li>)}</ul></nav>{worlds.map(world => <section key={world} id={topicSlugs[world]} className="resource-panel"><h2>{name} {TOPIC_NAMES[world].toLowerCase()}</h2><LessonLinks lessons={lessons.filter(l => l.world === world)}/><p><a href={topicPath(world)}>Explore {TOPIC_NAMES[world].toLowerCase()} across primary years →</a></p></section>)}<ContentNote/></>, [home, directory, { name: `${name} maths`, path }]));
+    pages.push(page(path, `${name} Maths: Free Lessons & Practice | Singapore`, `${name} maths for Singapore: ${lessons.length} free lessons with visual models, worked examples and interactive practice. No sign-in needed.`, <><p className="resource-eyebrow">Singapore · {p.track === 'foundation' ? 'Foundation Mathematics' : 'Standard Mathematics'}</p><h1>{name} maths lessons</h1><p>{p.intro}</p><p>{lessons.length} lessons and {activitiesFor(p.level, p.track).length} interactive activities. No sign-in is needed to read or practise.</p>{p.level >= 5 && <p>Looking for the other path? <a href={gradePath(p.level, p.track === 'standard' ? 'foundation' : 'standard')}>{gradeName(p.level, p.track === 'standard' ? 'foundation' : 'standard')} maths</a>.</p>}<nav aria-label="Topics in this year"><ul className="resource-topic-links">{worlds.map(world => <li key={world}><a href={`#${topicSlugs[world]}`}>{TOPIC_NAMES[world]}</a></li>)}</ul></nav>{worlds.map(world => <section key={world} id={topicSlugs[world]} className="resource-panel"><h2>{name} {TOPIC_NAMES[world].toLowerCase()}</h2><LessonLinks lessons={lessons.filter(l => l.world === world)}/><p><a href={topicPath(world)}>Explore {TOPIC_NAMES[world].toLowerCase()} across primary years →</a></p></section>)}<ContentNote/></>, [home, directory, { name: `${name} maths`, path }]));
   }
   for (const world of Object.keys(topicSlugs) as WorldId[]) {
     const path = topicPath(world), name = TOPIC_NAMES[world];
@@ -112,8 +113,8 @@ export function publicPages(): PublicPage[] {
     })}<ContentNote/></>, [home, directory, { name, path }]));
   }
   for (const l of LESSONS) {
-    const path = guidePath(l.id), name = gradeName(l.level, l.track);
-    pages.push(page(path, `${l.title} | ${name} Maths`, `${l.title}: a free ${name} maths lesson with visual models, worked examples and interactive practice for Singapore primary pupils.`, <LessonArticle lesson={l}/>, [home, directory, { name: `${name} maths`, path: gradePath(l.level, l.track) }, { name: l.title, path }], l));
+    const path = guidePath(l.id), name = gradeName(l.level, l.track), topic = lessonSearchTopic(l);
+    pages.push(page(path, `${topic} | ${name} Maths`, `Singapore ${name} maths: ${topic}. Free lesson with visual models, worked examples and practice.`, <LessonArticle lesson={l}/>, [home, directory, { name: `${name} maths`, path: gradePath(l.level, l.track) }, { name: l.title, path }], l));
   }
   return pages;
 }
