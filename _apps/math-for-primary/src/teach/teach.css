@@ -228,3 +228,243 @@
 .lesson-sidebar .lesson-purpose p{font-weight:600}
 .booster summary{font-size:14px;font-weight:800;color:var(--deep);line-height:1.5;cursor:pointer;min-height:40px}.booster>ol{font-size:15px;line-height:1.65;padding-left:22px}
 .recovery-connection{padding:14px;background:#e6efdf;border-radius:12px;font-size:15px;line-height:1.7}.recovery-connection strong{display:block;margin-bottom:5px;color:var(--deep)}
+
+/* ===================================================================
+   Modern layer — 4 November 2026
+   Quiet white planes on warm paper, hairline separation, type-led
+   hierarchy and a single accent. Declared last so it settles the
+   earlier releases' competing treatments for the same surfaces.
+   =================================================================== */
+
+.learn-index,
+.lesson-player {
+  --accent: #387b63;
+  --accent-deep: #255440;
+}
+.learn-index.grade-2,
+.lesson-player.grade-2 { --accent: #367ea2; --accent-deep: #235874; }
+.learn-index.grade-3,
+.lesson-player.grade-3 { --accent: #8b7040; --accent-deep: #665124; }
+.learn-index.grade-4,
+.lesson-player.grade-4 { --accent: #80679e; --accent-deep: #604979; }
+.learn-index.grade-5,
+.lesson-player.grade-5 { --accent: #417b88; --accent-deep: #2b5962; }
+.learn-index.grade-6,
+.lesson-player.grade-6 { --accent: #a5674c; --accent-deep: #77452e; }
+
+/* -------------------------------------------------------- headings */
+
+.learn-index .teach-eyebrow,
+.learn-index .world-head .teach-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--ink-3);
+}
+.learn-index .learn-head h1 {
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.learn-index .learn-head .stage-text {
+  font-size: clamp(0.98rem, 1.3vw, 1.1rem);
+  font-weight: 500;
+  color: var(--ink-2);
+  max-width: 62ch;
+}
+.learn-index .world-head h2 {
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* --------------------------------------------------- lesson browsing */
+
+.lesson-search input {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.lesson-search input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  outline: none;
+}
+.topic-filters button {
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-weight: 600;
+  box-shadow: none;
+  transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+}
+.topic-filters button:hover {
+  border-color: var(--line-2);
+  color: var(--ink);
+}
+.topic-filters button[aria-pressed='true'] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+.lesson-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.22s var(--ease-out), transform 0.22s var(--ease-out);
+}
+.lesson-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-2);
+  box-shadow: var(--shadow);
+}
+.lesson-card h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.lesson-card p,
+.lesson-card .lesson-preview {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  line-height: 1.45;
+}
+.lesson-state {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--ink-3);
+}
+.state-mastered .lesson-state {
+  color: var(--green-ink);
+}
+.learn-resume {
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ------------------------------------------------------------ buttons */
+
+.teach-btn {
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 700;
+  border: 0;
+  box-shadow: none;
+  transition: background-color 0.2s, transform 0.2s var(--ease-out);
+}
+.teach-btn:hover:not(:disabled) {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+}
+.teach-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+.teach-btn.soft {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+}
+.teach-btn.soft:hover:not(:disabled) {
+  background: var(--surface-2);
+  border-color: var(--ink-3);
+}
+.help-btn,
+.help-entry .help-btn {
+  border-radius: var(--radius);
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  font-weight: 700;
+  box-shadow: none;
+}
+.link-btn {
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+/* ------------------------------------------------------ lesson surfaces */
+
+.lesson-content .stage-card,
+.learning-support {
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.lesson-content .stage-title h2 {
+  font-size: clamp(1.2rem, 2.1vw, 1.5rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+.lesson-content .item-prompt {
+  font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+  font-weight: 650;
+  line-height: 1.45;
+}
+.lesson-sidebar .lesson-journey li {
+  font-weight: 600;
+  color: var(--ink-3);
+}
+.lesson-sidebar .lesson-journey [aria-current='step'] {
+  color: var(--ink);
+  font-weight: 800;
+}
+.item-choices button {
+  border-radius: var(--radius);
+  border: 1px solid var(--line-2);
+  background: var(--surface);
+  font-weight: 650;
+  box-shadow: none;
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s var(--ease-out);
+}
+.item-choices button:hover:not(:disabled) {
+  border-color: var(--ink-3);
+  transform: translateY(-1px);
+}
+.item-answer input {
+  border-radius: var(--radius);
+  border: 1px solid var(--line-2);
+  box-shadow: none;
+}
+.item-answer input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
+  outline: none;
+}
+.teaching-figure {
+  border-radius: var(--radius-lg);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+}
+.picture-key {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+}
