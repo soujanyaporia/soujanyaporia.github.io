@@ -1,7 +1,8 @@
+import {useState} from 'react';
 import type {PaperIcon,PaperPicture} from './paperPicture';
 import './paper.css';
 
-/** The illustration is decoration; adjacent labels carry all the mathematical givens. */
+/** An individual illustration; its parent supplies the accessible meaning. */
 export function PaperObject({kind='number'}:{kind?:PaperIcon}){
  const outline={stroke:'currentColor',strokeWidth:2.4,strokeLinecap:'round' as const,strokeLinejoin:'round' as const};
  return <svg viewBox="0 0 80 70" aria-hidden="true" className={`paper-object object-${kind}`}><ellipse cx="40" cy="61" rx="28" ry="4" fill="currentColor" opacity=".09"/>
@@ -21,11 +22,26 @@ export function PaperObject({kind='number'}:{kind?:PaperIcon}){
  </svg>;
 }
 
+export function toggleCountMark(marked:number[],index:number){return marked.includes(index)?marked.filter(n=>n!==index):[...marked,index];}
+const objectNames:Record<PaperIcon,[string,string]>={fruit:['apple','apples'],muffin:['muffin','muffins'],book:['book','books'],bag:['bag','bags'],coin:['coin','coins'],ticket:['ticket','tickets'],clock:['clock','clocks'],box:['box','boxes'],number:['object','objects'],pencil:['pencil','pencils'],child:['child','children'],ribbon:['ribbon','ribbons'],water:['jug','jugs']};
+function CountedObjects({count,removed=0,icon='number',label}:{count:number;removed?:number;icon?:PaperIcon;label:string}){
+ const [marked,setMarked]=useState<number[]>([]),[singular,plural]=objectNames[icon];
+ return <div className="paper-counting" role="group" aria-label={`${label}: count the ${plural}${removed?' left':''}`}>
+  <div className="paper-count-objects">{Array.from({length:count},(_,i)=>{
+   if(i<removed)return <span key={i} className="paper-count-object paper-object-removed" role="img" aria-label={`Crossed-out ${singular}; do not count`}><PaperObject kind={icon}/><b aria-hidden="true">×</b></span>;
+   const order=marked.indexOf(i)+1;
+   return <button type="button" key={i} className={`paper-count-object${order?' is-counted':''}`} aria-pressed={!!order} aria-label={order?`${singular}, counted ${order}. Unmark this ${singular}`:`Count this ${singular}`} onClick={()=>setMarked(items=>toggleCountMark(items,i))}><PaperObject kind={icon}/>{order>0&&<b className="paper-count-badge" aria-hidden="true">{order}</b>}</button>;
+  })}</div>
+  <button type="button" className="paper-count-reset" disabled={!marked.length} onClick={()=>setMarked([])} aria-label={`Start counting ${label.toLowerCase()} again`}>Count again ↻</button>
+ </div>;
+}
+
 export function PaperDiagram({model:m}:{model:PaperPicture}){
  const largest=m.layout==='bars'?Math.max(...m.rows.map(r=>r.parts.reduce((n,p)=>n+p.size,0)),1):1;
+ const modelKey=m.layout==='cards'?JSON.stringify(m):'';
  return <figure className={`paper-diagram paper-${m.layout}`}>
   {m.heading&&<div className="paper-diagram-heading">{m.heading}</div>}
-  {m.layout==='cards'&&<div className="paper-givens">{m.cards.map((c,i)=><div className={`paper-given${c.count!==undefined?' paper-count-card':''}`} key={i}>{c.count===undefined?<PaperObject kind={c.icon}/>:<div className="paper-count-objects" role="img" aria-label={`${c.count} ${c.icon??'object'}${c.count===1?'':'s'}${c.removed?`, ${c.removed} crossed out`:''}`}>{Array.from({length:c.count},(_,j)=><span key={j} className={j<(c.removed??0)?'paper-object-removed':''}><PaperObject kind={c.icon}/>{j<(c.removed??0)&&<b aria-hidden="true">×</b>}</span>)}</div>}<span>{c.label}</span><strong>{c.value}</strong></div>)}</div>}
+  {m.layout==='cards'&&<div className={`paper-givens${m.cards.some(c=>c.count!==undefined)?' paper-count-givens':''}`}>{m.cards.map((c,i)=><div className={`paper-given${c.count!==undefined?' paper-count-card':''}`} key={i}>{c.count===undefined?<PaperObject kind={c.icon}/>:<CountedObjects key={`${modelKey}:${i}`} count={c.count} removed={c.removed} icon={c.icon} label={c.label}/>}<span>{c.label}</span><strong>{c.value}</strong></div>)}</div>}
   {m.layout==='bars'&&<div className="paper-bar-model">{m.totalLabel&&<p className="paper-whole">{m.totalLabel}</p>}{m.rows.map((r,i)=><div className="paper-bar-row" key={i}><strong className="paper-row-label">{r.label}</strong><div className="paper-bar-track"><div className="paper-bar-segments" style={{width:`${r.parts.reduce((n,p)=>n+p.size,0)/largest*100}%`}}>{r.parts.map((p,j)=><span key={j} className={`paper-bar-part tone-${p.tone??(i%2?'green':'blue')}`} style={{flex:p.size}}>{p.label}</span>)}</div></div></div>)}{m.unit&&<p className="paper-unit">{m.unit}</p>}</div>}
   {m.layout==='timeline'&&<ol className="paper-time-line">{m.points.map((p,i)=><li key={i}><div className="paper-time-point"><PaperObject kind={p.icon??'clock'}/><strong>{p.label}</strong></div>{i<m.points.length-1&&<div className="paper-time-gap"><span>{m.gaps[i]}</span><i aria-hidden="true">→</i></div>}</li>)}</ol>}
   {m.caption&&<figcaption>{m.caption}</figcaption>}

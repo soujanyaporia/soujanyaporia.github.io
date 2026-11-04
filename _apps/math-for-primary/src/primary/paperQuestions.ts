@@ -54,7 +54,7 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    const picture:PaperPicture={type:'paper',layout:'bars',heading:'Apples for the picnic',totalLabel:`${total} apples altogether`,rows:[
     {label:'Two parts',parts:[{size:1,label:`On the plate: ${visible}`,tone:'blue'},{size:1,label:'In the bag: ?',tone:'orange'}]},
    ],caption:'Diagram not to scale.'};
-   const revealed=cards('The whole and its parts',[{label:'On the plate',value:String(visible),icon:'fruit',count:visible},{label:'In the bag',value:String(hidden),icon:'bag',count:hidden}]);
+   const revealed=cards('The whole and its parts',[{label:'On the plate',value:String(visible),icon:'fruit',count:visible},{label:'Inside the bag',value:String(hidden),icon:'fruit',count:hidden}]);
    return make('How many apples are in the bag?',hidden,picture,'The plate and bag together make the whole. Take away the part we know.',[
     {text:'The whole is all the apples on the plate and in the bag.',equation:`${visible} + ? = ${total}`,picture},
     {text:'Take away the apples already on the plate.',equation:`${total} − ${visible} = ${hidden}`,picture:revealed},
