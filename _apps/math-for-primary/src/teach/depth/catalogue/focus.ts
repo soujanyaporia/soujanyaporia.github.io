@@ -1,9 +1,11 @@
 import type {PlanEntry} from '../../build/plan';
 import type {Tool} from '../../model';
+import {youngFocus} from './youngFocus';
 export interface TeachingFocus {question:string;answer:string;error:string;why:string;look:string;goal:string}
 const focus=(question:string,answer:string,error:string,why:string,look:string,goal:string):TeachingFocus=>({question,answer,error,why,look,goal});
 /** Mathematical attention, matched to the objective before matching its broad topic. */
 export function teachingFocus(p:PlanEntry,picture?:Tool):TeachingFocus{
+ const young=youngFocus(p,picture);if(young)return young;
  const o=p.objective.toLowerCase(),c=p.code;
  if(c==='WN'&&!/operations|brackets|multiply|divide/.test(o)){
   if(p.level===1&&/count/.test(o)&&!/place|tens/.test(o)){

@@ -10,6 +10,8 @@ import type { Tool } from '../model';
  * Keep this in step with `Tools.tsx`: a control added or removed there belongs here too.
  */
 const clamp=(n:number,lo:number,hi:number)=>Math.max(lo,Math.min(hi,n));
+/** Jumps of ten appear only on lines long enough for them to be a real choice (not on a 0–10 line). */
+export const jumpOffered=(j:number,min:number,max:number)=>Math.abs(j)===1||Math.abs(j)<max-min;
 export function movesFor(t:Tool):Tool[]{
  switch(t.kind){
   case 'join-parts':return t.parts.flatMap((_,i)=>t.joined.includes(i)?[]:[{...t,joined:[...t.joined,i]}]);
@@ -27,7 +29,7 @@ export function movesFor(t:Tool):Tool[]{
   case 'bar':return [];
   // Jump buttons and undo. The pupil cannot move the start or the mark.
   case 'line':{const at=t.start+t.jumps.reduce((s,j)=>s+j,0),out:Tool[]=[];
-   for(const j of [-10,-1,1,10])if(Math.abs(j)<=t.max-t.min&&at+j>=t.min&&at+j<=t.max)out.push({...t,jumps:[...t.jumps,j]});
+   for(const j of [-10,-1,1,10])if(jumpOffered(j,t.min,t.max)&&at+j>=t.min&&at+j<=t.max)out.push({...t,jumps:[...t.jumps,j]});
    if(t.jumps.length)out.push({...t,jumps:t.jumps.slice(0,-1)});return out;}
   case 'groups':{const limit=t.limit??10,out:Tool[]=[];
    for(const g of [t.groups-1,t.groups+1])if(g>=0&&g<=limit)out.push({...t,groups:g});

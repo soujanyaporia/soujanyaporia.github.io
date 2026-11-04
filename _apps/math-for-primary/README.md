@@ -6,6 +6,14 @@ A Singapore Primary 1–6 maths learning application. Choose a primary year to l
 
 **Made with the help of AI.** The questions, explanations, hints, diagrams and code were produced with AI assistance, and AI can be confidently wrong. Automated tests check the mathematics, but a teacher has not reviewed every item. Use this as a learning resource alongside a teacher or parent, and check anything that looks wrong. See [About, privacy and AI](https://soujanyaporia.github.io/singapore-primary-maths/#/about) in the app.
 
+## Daily practice and fresh papers — November 2026
+
+The main path is now **Daily practice** (`#/daily`): 200 days for each of the six Standard levels and the two Foundation paths, with six questions per day. Four topical days are followed by a cumulative review. Topics introduce activities gradually, then include related paper-style applications.
+
+**Make a practice paper** (`#/papers`) generates 6-, 12- or 18-question sets by level and topic. Every set has a reusable code, no repeated visible questions, saved answers on this device, end-of-paper marking, worked steps, and printing with optional illustrated solutions. Small question domains offer only sizes they can fill. Practice papers do not yet sync to school accounts or travel in guest passports.
+
+The catalogue adds **36 original illustrated question families**, six per Standard level, plus six mixed picture activities. The reference collection is stored outside the app; source PDFs and unreviewed OCR are not public question-bank content. See [practice design and evidence](PRACTICE-DESIGN.md).
+
 ## Redesigned learning experience — November 2026
 
 The home, lessons, practice player, missions, Math Lab and progress views share a responsive adventure design, illustrated scenes, optional sound effects, animation controls and reduced-motion support. Touch interactions have keyboard/button alternatives; the scratchpad supports fingers, pens and a mouse.
@@ -42,15 +50,17 @@ Samples are written under `.generated/premium-narration/`. No pupil data enters 
 
 | Path | Playable activities |
 | --- | ---: |
-| P1 Standard | 22 |
-| P2 Standard | 23 |
-| P3 Standard | 24 |
-| P4 Standard | 27 |
-| P5 Standard | 24 |
-| P6 Standard | 24 |
+| P1 Standard | 29 |
+| P2 Standard | 30 |
+| P3 Standard | 31 |
+| P4 Standard | 34 |
+| P5 Standard | 31 |
+| P6 Standard | 31 |
 | P5 Foundation | 33 |
 | P6 Foundation | 22 |
-| Total | 199 |
+| Total | 241 |
+
+The 1,600 daily addresses and generated practice papers are separate from this catalogue count.
 
 Activities include counting, place value, operations, fractions, decimals, money, measurement, time, geometry, graphs, percentages, rate, ratio and algebra. Questions are generated deterministically, with numerical/choice answers, fraction shading, ordering and visual diagrams. The original 16 addition/subtraction lessons remain under **Original guided lessons**, including worked examples, progressive hints and story-to-equation practice.
 

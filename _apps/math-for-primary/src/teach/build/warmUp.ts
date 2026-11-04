@@ -78,6 +78,8 @@ export function withPrerequisiteWarmUp(lesson:Lesson,p:PlanEntry):Lesson{
  // Syllabus order is not difficulty order: a mental-method objective follows the written one it
  // simplifies. Keep the general starting point rather than opening with the harder question.
  if(SIZED.has(code)&&code===p.code&&size>lessonSize(lesson)*2)return lesson;
+ // A data table is the wrong picture for P1 and P2; their general opener uses counters and pictures.
+ if(p.level<=2&&item.tool?.kind==='table')return lesson;
  return {...lesson,stages:lesson.stages.map((s):Stage=>s.kind!=='readiness'?s:({
   ...s,title:'The idea this lesson builds on',text:link,items:[item],
   booster:[{text:item.hints[0],tool:item.tool},...(item.check?[{text:item.check}]:[])],

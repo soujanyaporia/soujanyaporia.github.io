@@ -7,7 +7,7 @@ export function TakeAway({t,onChange}:{t:Extract<Tool,{kind:'take-away'}>;onChan
  return <div className="tool teaching-counters"><div className="removal-grid" role={onChange?'group':'img'} aria-label={`${t.start} counters at the start; ${t.removed.length} crossed out`}>{Array.from({length:t.start},(_,i)=>{
   const removed=t.removed.includes(i),cls=`removal-counter${removed?' removed':''}`;
   return onChange?<button key={i} type="button" className={cls} aria-label={`${removed?'Put back':'Take away'} counter ${i+1}`} aria-pressed={removed} onClick={()=>toggle(i)}><span aria-hidden="true">{removed?'×':''}</span></button>:<span key={i} className={cls} aria-hidden="true">{removed?'×':''}</span>;
- })}</div>{onChange&&<p role="status">{t.removed.length} taken away. Count the blue counters that remain.</p>}<p className="tool-tip">Blue counters stay. Crossed counters have been taken away.</p></div>;
+ })}</div>{onChange&&<p role="status">{t.removed.length} taken away. Count the blue counters that remain.</p>}{(t.removed.length>0||onChange)&&<p className="tool-tip">Blue counters stay. Crossed counters have been taken away.</p>}</div>;
 }
 
 export function TrianglePair({t,onChange}:{t:Extract<Tool,{kind:'triangle-pair'}>;onChange?:(t:Tool)=>void}){

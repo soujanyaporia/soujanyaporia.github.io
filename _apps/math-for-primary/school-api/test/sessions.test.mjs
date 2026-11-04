@@ -50,3 +50,25 @@ test('the same scored answer and completion from two devices count once',async()
  const again=await call('/api/progress','POST',{version:2,events:[{...answer,id:'6f1c2a9e-4b7d-4e2a-9c3f-000000000003'}]},a.token);assert.equal(again.body.progress.totals.attempted,1);
  assert.equal((await call('/api/progress','POST',{version:3,events:[{...answer,id:'6f1c2a9e-4b7d-4e2a-9c3f-000000000004',sessionId:'nope'}]},a.token)).status,400);
 });
+test('lazy daily and original picture activities restore six-question sessions and retain separate day progress',async()=>{
+ const s=await school('SESS-DAILY'),a=await s.pupil('pupil-a');
+ const ids=['p3s-daily-055','p6f-daily-200','p3s-paper-p3-gaps','p1s-paper-mixed'];
+ for(const [i,activityId] of ids.entries()){
+  const saved=session({activityId,id:(i+1).toString(16).padStart(16,'0'),generator:'1.1',count:6,fingerprints:Array(6).fill('')});
+  const r=await call('/api/sessions/'+activityId,'POST',{session:saved,baseRev:0},a.token);assert.equal(r.status,200,JSON.stringify(r.body));
+ }
+ const restored=(await call('/api/sessions','GET',null,a.token)).body.sessions;
+ assert.deepEqual(restored.map(s=>s.activityId).sort(),[...ids].sort());assert.ok(restored.every(s=>s.count===6&&s.draft.position===1));
+ assert.equal((await call('/api/progress','GET',null,a.token)).body.progress.totals.attempted,0);
+ const events=ids.slice(0,2).flatMap((activityId,i)=>{
+  const sessionId=(i+1).toString(16).padStart(16,'0');
+  return [...Array.from({length:6},(_,position)=>({id:crypto.randomUUID(),at:now,kind:'primary_answer',activityId,sessionId,position,questionKey:`${activityId}:123:${position}|s=${sessionId}|p=${position}|n=6|g=1.1|f=-|m=p`,answer:String(position),correct:true,firstTry:true,tries:1,hints:0})),{id:crypto.randomUUID(),at:now,kind:'primary_complete',activityId,sessionId,stars:3}];
+ });
+ const scored=await call('/api/progress','POST',{version:0,events},a.token);assert.equal(scored.status,200,JSON.stringify(scored.body));assert.equal(scored.body.progress.totals.attempted,12);
+ for(const id of ids.slice(0,2)){assert.equal(scored.body.progress.primary.activities[id].sessions,1);assert.equal(scored.body.progress.primary.activities[id].attempts,6);}
+ assert.equal(scored.body.progress.primary.activities['p3s-daily-054'],undefined);
+ for(const activityId of ['p3f-daily-001','p6f-daily-201','p1s-daily-000','p3s-paper-missing']){
+  assert.equal((await call('/api/sessions/'+activityId,'POST',{session:session({activityId}),baseRev:0},a.token)).status,400);
+  assert.equal((await call('/api/progress','POST',{version:1,events:[{...events[0],id:crypto.randomUUID(),activityId}]},a.token)).status,400);
+ }
+});

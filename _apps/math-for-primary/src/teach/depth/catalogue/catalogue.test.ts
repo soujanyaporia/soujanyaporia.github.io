@@ -12,6 +12,7 @@ import {goalReachable} from '../../tools/moves';
 
 const plan=(id:string)=>PLAN.find(p=>p.id===id)!;
 describe('Catalogue teaching quality safeguards',()=>{
+ // Exhaustive recovery audit across 265 lessons and three seeds; allow slower CI CPUs.
  it('gives every catalogue lesson a depth revision and recovery for every assessment question',()=>{
   expect(LESSONS).toHaveLength(265);
   for(const lesson of LESSONS){
@@ -22,7 +23,7 @@ describe('Catalogue teaching quality safeguards',()=>{
     if(g.facet==='visual'||g.facet==='unfamiliar'){expect(q.tool,lesson.id).toBeDefined();expect(q.requiresModel,lesson.id).toBe(true);}
    }
   }
- });
+ },30_000);
  it('teaches a building block before new content in every focused sequence',()=>{
   for(const p of PLAN.filter(p=>p.code!=='AVG')){
    const l=lessonById(p.id)!;expect(l.stages[0].kind,p.id).toBe('readiness');

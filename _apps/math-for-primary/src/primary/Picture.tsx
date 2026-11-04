@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import {JoinParts} from '../teach/tools/JoinParts';
+import {PaperDiagram} from './PaperDiagram';
 import type {Tool} from '../teach/model';
 import type { Picture as Model } from './generate';
 const colours=['#538cd2','#e9ab48','#72a572','#b188c1'];
 export function Picture({model:m}:{model:Model}){
+ if(m.type==='paper')return <PaperDiagram model={m}/>;
  if(m.type==='parts')return <PartsPicture key={m.parts.join(',')} model={m}/>;
  if(m.type==='counters')return <div className="play-counters" role="img" aria-label={`${m.count} objects${m.group?', in groups of '+m.group:''}`}>{m.group?Array.from({length:Math.ceil(m.count/m.group)},(_,g)=><span className="play-counter-group" key={g}>{Array.from({length:Math.min(m.group!,m.count-g*m.group!)},(_,i)=><i key={i}>✦</i>)}</span>):Array.from({length:m.count},(_,i)=><i key={i}>✦</i>)}</div>;
  if(m.type==='pattern')return <div className="pattern-tiles" role="img" aria-label={m.items.join(', ')}>{m.items.map((x,i)=><span key={i}>{x}</span>)}</div>;

@@ -10,6 +10,7 @@ function calculationFrames(p:Proof):SolutionFrame[]{
  return [...inner,{label:inner.length?'Build on that result':'Do the calculation',text:p.op==='+'?'Combine the parts to find the whole.':p.op==='-'?'Subtract to find the difference or the part left.':p.op==='*'?'Multiply the two quantities.':'Divide to find one equal share or the number of groups.',equation:`${show(a)} ${symbol[p.op]} ${show(b)} = ${show(answer)}`}];
 }
 export function solutionFrames(q:Question):SolutionFrame[]{
+ if(q.workedSteps?.length)return q.workedSteps.map((step,i)=>({label:i===0?'Find the idea':i===q.workedSteps!.length-1?'Check it':'One step at a time',text:step.text,equation:step.equation,model:step.picture??q.picture}));
  if(q.picture?.type==='parts'){
   const parts=q.picture.parts,[a,b,c]=parts,total=a+b+c;
   const frame=(label:string,text:string,joined:number[],equation?:string):SolutionFrame=>({label,text,narration:text,model:{type:'parts',parts,joined,reveal:true},equation});

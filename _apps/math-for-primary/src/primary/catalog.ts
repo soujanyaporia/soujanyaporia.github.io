@@ -1,5 +1,7 @@
+import {PAPER_PATTERNS} from './paperCatalog';
+import {dailyActivity} from './dailyPlan';
 import type { Track, Strand } from '../school/curriculum';
-export type GameKind = 'count'|'place'|'compare'|'order'|'pattern'|'ordinal'|'add'|'subtract'|'bond'|'missing'|'groups'|'share'|'money'|'moneyChange'|'length'|'clock'|'duration'|'shape'|'shapePattern'|'pictureGraph'|'oddEven'|'multiply'|'divide'|'fractionShade'|'fractionCompare'|'fractionAdd'|'unitConvert'|'solid'|'remainder'|'fractionEquivalent'|'fractionSimplify'|'fractionSubtract'|'perimeter'|'area'|'angleType'|'parallel'|'barGraph'|'round'|'factor'|'multiple'|'mixedFraction'|'fractionSet'|'decimalPlace'|'decimalCompare'|'decimalRound'|'decimalAdd'|'decimalMultiply'|'symmetry'|'net'|'lineGraph'|'pieChart'|'operations'|'fractionMultiply'|'fractionDecimal'|'percent'|'discount'|'rate'|'triangleArea'|'volume'|'angleFacts'|'triangleAngle'|'quadrilateral'|'fractionDivide'|'reversePercent'|'percentChange'|'ratio'|'ratioShare'|'algebra'|'equation'|'circle'|'volumeMissing'|'average'|'story'|'decimalDivide';
+export type GameKind = 'count'|'place'|'compare'|'order'|'pattern'|'ordinal'|'add'|'subtract'|'bond'|'missing'|'groups'|'share'|'money'|'moneyChange'|'length'|'clock'|'duration'|'shape'|'shapePattern'|'pictureGraph'|'oddEven'|'multiply'|'divide'|'fractionShade'|'fractionCompare'|'fractionAdd'|'unitConvert'|'solid'|'remainder'|'fractionEquivalent'|'fractionSimplify'|'fractionSubtract'|'perimeter'|'area'|'angleType'|'parallel'|'barGraph'|'round'|'factor'|'multiple'|'mixedFraction'|'fractionSet'|'decimalPlace'|'decimalCompare'|'decimalRound'|'decimalAdd'|'decimalMultiply'|'symmetry'|'net'|'lineGraph'|'pieChart'|'operations'|'fractionMultiply'|'fractionDecimal'|'percent'|'discount'|'rate'|'triangleArea'|'volume'|'angleFacts'|'triangleAngle'|'quadrilateral'|'fractionDivide'|'reversePercent'|'percentChange'|'ratio'|'ratioShare'|'algebra'|'equation'|'circle'|'volumeMissing'|'average'|'story'|'decimalDivide'|'paper'|'daily';
 export interface Activity { id:string; level:number; track:Track; strand:Strand; kind:GameKind; title:string; objective:string; skillIds:string[]; parameter?:string; icon:string }
 const N:Strand='Number & Algebra',G:Strand='Measurement & Geometry',S:Strand='Statistics';
 // Every row is a distinct, playable activity. References link to the versioned MOE map.
@@ -44,5 +46,8 @@ export const ACTIVITIES:Activity[]=Object.entries(sets).flatMap(([key,sections])
  const prefix=parameter==='review'?(level===5?'P4.S':'P5.S'):`P${level}.${key[1]}`;
  return {id:`p${level}${key[1].toLowerCase()}-${kind}${parameter?'-'+parameter:''}-${strand===N?'n':strand===G?'g':'s'}${i}`,level,track,strand,kind,title,objective:ref,skillIds:[`${prefix}.${ref}`],parameter,icon:strand===N?'✦':strand===G?'◇':'▥'};
 })));
+// Original, picture-led practice. Keep these metadata-only so the account service can share the catalogue.
+for(const p of PAPER_PATTERNS)ACTIVITIES.push({...p,id:`p${p.level}s-paper-${p.parameter}`,track:'standard',kind:'paper'});
+for(let level=1;level<=6;level++){const patterns=PAPER_PATTERNS.filter(p=>p.level===level);ACTIVITIES.push({id:`p${level}s-paper-mixed`,level,track:'standard',strand:'Number & Algebra',kind:'paper',parameter:'mixed',title:'Picture practice',objective:'Six original picture problems with worked steps.',skillIds:[...new Set(patterns.flatMap(p=>p.skillIds))],icon:'✦'});}
 export function activitiesFor(level:number,track:Track){return ACTIVITIES.filter(a=>a.level===level&&a.track===(level<5?'standard':track));}
-export function activityById(id:string){return ACTIVITIES.find(a=>a.id===id);}
+export function activityById(id:string){return ACTIVITIES.find(a=>a.id===id)??dailyActivity(id,ACTIVITIES);}

@@ -4,6 +4,7 @@ import { useRoute } from '../app/router';
 import { Icon, type IconName } from '../ui/Icon';
 import { AdventureBuddy, MotionToggle, SoundToggle } from '../ui/Adventure';
 import './school.css';
+import './navigation.css';
 import { PUBLIC_BASE } from '../seo/paths';
 
 export function SchoolNav() {
@@ -11,6 +12,7 @@ export function SchoolNav() {
   const staff = !!user && user.role !== 'student';
   const links: { label: string; to: string; icon: IconName; active: boolean }[] = [
     { label: 'My adventures', to: '#/', icon: 'map', active: route.name === 'home' },
+    { label: 'Daily practice', to: '#/daily', icon: 'target', active: route.name === 'daily' },
     { label: 'Learn', to: '#/teach', icon: 'book', active: route.name === 'teach' },
     { label: 'Watch', to: '#/watch', icon: 'play', active: route.name === 'watch' },
     { label: 'Missions', to: '#/missions', icon: 'puzzle', active: route.name === 'missions' },

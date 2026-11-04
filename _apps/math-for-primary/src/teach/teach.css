@@ -468,3 +468,239 @@
   border: 1px solid var(--line);
   background: var(--surface-2);
 }
+
+/* Challenge problems: the invitation after a lesson, and the result after a challenge. */
+.challenge-invite {
+  margin: 22px 0 6px;
+  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent, var(--green));
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.challenge-invite h2 {
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.challenge-invite .stage-text {
+  margin: 0;
+}
+.challenge-summary {
+  font-weight: 700;
+}
+
+/* ===================================================================
+   Focus layout — one screen, one job (4 November 2026)
+   A lesson screen holds a slim top bar, one card and one bottom bar.
+   Everything optional lives behind a single "Need help?" button.
+   =================================================================== */
+
+.lesson-player .focus-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  max-width: none;
+  margin: 0 0 22px;
+  padding: 10px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+.lesson-player .focus-title {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+.lesson-player .focus-title h1 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lesson-player .focus-mode {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+.lesson-player .stage-track {
+  display: block;
+  height: 6px;
+  margin: 0;
+  border-radius: 99px;
+  background: var(--line);
+  overflow: hidden;
+}
+.lesson-player .stage-track .stage-fill {
+  display: block;
+  height: 100%;
+  border-radius: 99px;
+  background: var(--accent, var(--green));
+  transition: width 0.35s var(--ease-out);
+}
+.lesson-player .teach-count {
+  display: none;
+}
+
+/* One centred column; no sidebar. */
+.lesson-player .lesson-layout.focus {
+  display: block;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.lesson-player .lesson-layout.focus .lesson-content {
+  display: block;
+  max-width: none;
+}
+.lesson-player .focus-phase {
+  margin: 0 0 10px 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.lesson-player .lesson-content .stage-card {
+  padding: clamp(20px, 3vw, 30px);
+}
+.lesson-player .lesson-content .stage-title h2 {
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+}
+.lesson-player .lesson-content .stage-text {
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  line-height: 1.55;
+  max-width: 60ch;
+}
+
+/* The next step is always in the same place, at the bottom. */
+.lesson-player .stage-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px -16px 0;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(12px);
+}
+.lesson-player .stage-nav > .teach-btn:last-child {
+  margin-left: auto;
+  min-width: 170px;
+}
+
+/* One quiet help entry under the answer. */
+.lesson-player .help-entry {
+  display: flex;
+  margin-top: 14px;
+}
+.lesson-player .help-entry .help-btn {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+}
+.lesson-player .item-top {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 0;
+  margin-bottom: -6px;
+}
+.lesson-player .learning-support .picture-key {
+  margin-top: 14px;
+}
+
+.lesson-player .teach-foot {
+  max-width: 740px;
+  margin: 26px auto 0;
+  padding: 0 16px 24px;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--ink-3);
+}
+
+/* Walkthrough: play and replay are enough; picture count already shows progress. */
+.lesson-player .narration-speed,
+.lesson-player .narration-voice,
+.lesson-player .narration-timeline {
+  display: none;
+}
+.lesson-player .visual-tutor-nav .teach-btn:not(.soft) {
+  background: var(--accent, var(--green));
+}
+.lesson-player .visual-tutor .picture-count {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink-3);
+}
+.lesson-player .narration-play {
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line-2);
+  box-shadow: none;
+}
+.lesson-player .narration-play:hover {
+  border-color: var(--ink-3);
+}
+
+/* The play button explains itself; no helper sentence beneath it. */
+.lesson-player .narration-caption {
+  display: none;
+}
+
+/* One row at the bottom on every screen: a compact Back and a wide next step. */
+.lesson-player .stage-nav {
+  flex-wrap: nowrap;
+}
+.lesson-player .stage-nav > .teach-btn.soft:first-child {
+  flex: none;
+  min-width: 0;
+  padding: 0 16px;
+}
+@media (max-width: 560px) {
+  .lesson-player .stage-nav > .teach-btn:last-child {
+    flex: 1;
+    min-width: 0;
+  }
+  .lesson-player .focus-bar {
+    gap: 10px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+  }
+  .lesson-player .lesson-layout.focus {
+    padding: 0 12px;
+  }
+  .lesson-player .stage-nav {
+    margin: 20px -12px 0;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  }
+}
+/* Reflection is a conversation, one prompt at a time. */
+.reflection-focus,.reflection-compare{display:grid;gap:12px}.reflection-question{font-size:clamp(18px,2.4vw,23px);font-weight:800;line-height:1.5;margin:0}.reflection-writing summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:#687886;font-size:14px}.reflection-navigation{display:flex;justify-content:space-between;gap:10px}.reflection-navigation:has(>button:only-child){justify-content:flex-end}.challenge-summary{max-width:650px;text-align:left;margin:20px auto;background:#f1f5eb;border:1px solid #d6e2d3;border-radius:18px;padding:18px 22px}.challenge-summary h2{margin-top:0;font-size:20px}.challenge-summary p{line-height:1.6;margin-bottom:0}

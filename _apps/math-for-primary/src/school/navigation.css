@@ -1,0 +1,3 @@
+/* Keep the growing navigation usable with a thumb, rather than shrinking its tap targets. */
+@media(max-width:1000px){.adventure-sidebar .adventure-nav{min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:thin;overscroll-behavior-x:contain}.adventure-sidebar .adventure-nav a{flex-shrink:0;min-width:44px;min-height:44px}}
+@media(max-width:700px){.adventure-sidebar .adventure-nav{justify-content:flex-start;gap:5px}.adventure-sidebar .adventure-nav a{flex:1 0 56px;min-width:56px;min-height:58px}.adventure-sidebar .adventure-nav a span{white-space:normal}}

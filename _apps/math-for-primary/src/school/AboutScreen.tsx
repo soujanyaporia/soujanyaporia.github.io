@@ -6,6 +6,7 @@ import { useSessions } from '../primary/SessionContext';
 import { isUnfinished } from '../primary/session';
 import { makePassport,readPassport,type Passport } from '../primary/passport';
 import { browserStorage } from '../primary/sessionStore';
+import { clearPaperAttempt } from '../primary/paperAttemptStore';
 import { readAttempts,writeAttempt,clearAttempts,type LessonAttempt } from '../teach/progress';
 import { initialProgress } from '../state/progress';
 import './school.css';
@@ -21,7 +22,7 @@ function PassportTools(){
  function download(){const url=URL.createObjectURL(new Blob([code],{type:'text/plain'})),a=document.createElement('a');a.href=url;a.download=`maths-passport-${new Date().toISOString().slice(0,10)}.txt`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
  async function open(text=paste){setBusy(true);setMessage('');setPreview(null);try{setPreview(await readPassport(text));}catch(e){setMessage((e as Error).message);}finally{setBusy(false);}}
  function use(){if(!preview)return;restoreLocal(preview.progress);restore(preview.sessions);restoreMissionRuns(kv,scope,preview.missions);clearAttempts(kv,scope);for(const a of Object.values(preview.lessons))writeAttempt(kv,scope,a as LessonAttempt);setPreview(null);setPaste('');setMessage('Your passport is open. Your progress and unfinished activities are now on this browser.');}
- function wipe(){restoreLocal(initialProgress());clear();clearAttempts(kv,scope);clearMissionRuns(kv,scope);try{localStorage.removeItem('math-for-primary.intro-dismissed.v1');}catch{/* ignore */}setConfirmClear(false);setCode('');setMessage('Guest progress and unfinished activities were removed from this browser.');}
+ function wipe(){restoreLocal(initialProgress());clear();clearAttempts(kv,scope);clearMissionRuns(kv,scope);clearPaperAttempt(kv,scope);try{localStorage.removeItem('math-for-primary.intro-dismissed.v1');}catch{/* ignore */}setConfirmClear(false);setCode('');setMessage('Guest progress, unfinished activities and your saved practice paper were removed from this browser.');}
  return <div className="passport-tools">
   <div className="passport-step"><h3>1. Save your passport</h3><p>Create a code that holds your progress and unfinished activities. Keep it, then open it on another device to carry on.</p><button className="btn" disabled={busy} onClick={()=>void create()}>Create my passport</button>
    {code&&<><label className="passport-code">Your passport code ({code.length.toLocaleString('en-SG')} characters)<textarea readOnly value={code} rows={4} onFocus={e=>e.currentTarget.select()}/></label><div className="loading-actions"><button className="btn btn-soft" onClick={()=>void copy()}>Copy code</button><button className="btn btn-soft" onClick={download}>Download as a file</button></div></>}</div>

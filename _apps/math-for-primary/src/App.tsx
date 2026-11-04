@@ -15,6 +15,8 @@ const game = () => import('./primary/PrimaryGame');
 const school = () => import('./school/SchoolScreens');
 const foundations = () => import('./screens/foundations');
 const PrimaryGame = lazyScreen(() => game().then((m) => m.PrimaryGame));
+const PracticePapers = lazyScreen(() => import('./primary/PracticePapers').then(m => m.PracticePapers));
+const DailyPractice = lazyScreen(() => import('./primary/DailyPractice').then(m => m.DailyPractice));
 const GuestScreen = lazyScreen(() => import('./school/GuestScreen').then(m => m.GuestScreen));
 const AccountScreen = lazyScreen(() => school().then((m) => m.AccountScreen));
 const CurriculumScreen = lazyScreen(() => school().then((m) => m.CurriculumScreen));
@@ -47,6 +49,8 @@ function Screen({ route }: { route: Route }) {
     case 'register': return <RegisterSchoolScreen />;
     case 'foundations': return <HomeScreen />;
     case 'activity': return <PrimaryGame key={route.id} id={route.id} />;
+    case 'daily': return <DailyPractice />;
+    case 'papers': return <PracticePapers />;
     case 'guest': return <GuestScreen />;
     case 'account': return <AccountScreen />;
     case 'school': return <SchoolScreen />;
@@ -85,7 +89,7 @@ function Screen({ route }: { route: Route }) {
 }
 
 const SCHOOL_ROUTES = ['account', 'school', 'demo', 'curriculum', 'school-start', 'register', 'about', 'coverage', 'guide', 'lab'];
-const loadingLabel = (route: Route) => (route.name === 'activity' ? 'Opening your activity…' : route.name === 'missions' ? 'Opening your mission…' : route.name === 'progress' ? 'Opening your progress…' : route.name === 'teach' ? 'Opening your lesson…' : SCHOOL_ROUTES.includes(route.name) ? 'Opening…' : 'Opening the guided lessons…');
+const loadingLabel = (route: Route) => (route.name === 'activity' ? 'Opening your activity…' : route.name === 'papers' ? 'Preparing your practice paper…' : route.name === 'daily' ? 'Opening daily practice…' : route.name === 'missions' ? 'Opening your mission…' : route.name === 'progress' ? 'Opening your progress…' : route.name === 'teach' ? 'Opening your lesson…' : SCHOOL_ROUTES.includes(route.name) ? 'Opening…' : 'Opening the guided lessons…');
 
 function AccountApp() {
   const route = useRoute();

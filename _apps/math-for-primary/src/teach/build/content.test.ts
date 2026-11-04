@@ -69,7 +69,7 @@ describe('Expanded syllabus content',()=>{
 
  it('introduces the picture example and announces the separate worked question',()=>{
   for(const l of LESSONS.filter(l=>l.mission)){
-   const hook=l.stages.find(s=>s.kind==='hook')!,worked=l.stages.find(s=>s.kind==='worked')!,end=l.stages.at(-1)!;
+   const hook=l.stages.find(s=>s.kind==='hook')!,worked=l.stages.find(s=>s.kind==='worked')!,end=l.stages.filter(s=>!(s.kind==='practice'&&s.challenge)).at(-1)!; // challenge problems follow the lesson's ending
    expect(hook.kind==='hook'&&hook.text,l.id).toBe(l.mission!.pictureExample);
    const explain=l.stages.find(s=>s.kind==='explain')!;
    expect(explain.kind==='explain'&&explain.example,l.id).toBe(l.mission!.pictureExample);

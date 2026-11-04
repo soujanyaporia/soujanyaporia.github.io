@@ -1,3 +1,4 @@
+import {DAILY_QUESTIONS,DAILY_PLAN_VERSION} from './dailyPlan';
 import { freshSeed,hashString } from '../engine/random';
 import type { Activity,GameKind } from './catalog';
 import { gameSession,makeQuestion,numberValue,type Proof,type Question } from './generate';
@@ -8,7 +9,7 @@ import { newSessionId,type PrimarySession,type RepairItem,type SessionMode } fro
  * Fingerprints also catch a changed generator whose version was not bumped. Hints and explanations
  * are not fingerprinted, so wording fixes do not invalidate saved sessions.
  */
-const KIND_VERSIONS:Partial<Record<GameKind,number>>={};
+const KIND_VERSIONS:Partial<Record<GameKind,number>>={paper:1,daily:DAILY_PLAN_VERSION};
 export const GENERATOR_VERSION=1;
 export const generatorVersion=(a:Activity)=>KIND_VERSIONS[a.kind]?`${GENERATOR_VERSION}.${KIND_VERSIONS[a.kind]}`:String(GENERATOR_VERSION);
 export const fingerprint=(q:Question)=>hashString(JSON.stringify([q.prompt,q.display??'',q.answer,q.choices??[],q.order??[],q.fractionBuilder??0,q.picture??null,q.unit??''])).toString(16).padStart(8,'0');
@@ -21,12 +22,13 @@ export const strategyOf=(q:Question)=>q.hint.replace(/\d+(\.\d+)?/g,'#');
  * offers one, and never the identical question. Replaying the original is only a memory check.
  */
 export function nearTransfer(activity:Activity,original:Question,seed:number,slot:number,avoid:Set<string>):Question{
- let fallback:Question|null=null;
- for(let j=0;j<400;j++){const q=makeQuestion(activity,seed,slot*1000+j),key=sameContent(q);if(key===sameContent(original)||avoid.has(key))continue;if(strategyOf(q)===strategyOf(original))return q;fallback??=q;}
- return fallback??makeQuestion(activity,seed,slot*1000);
+ let fallback:Question|null=null,sameSource:Question|null=null;
+ for(let j=0;j<400;j++){const q=makeQuestion(activity,seed,slot*1000+j);if(original.sourceActivityId&&q.sourceActivityId!==original.sourceActivityId)continue;
+  sameSource??=q;const key=sameContent(q);if(key===sameContent(original)||avoid.has(key))continue;if(strategyOf(q)===strategyOf(original))return q;fallback??=q;}
+ return fallback??sameSource??makeQuestion(activity,seed,slot*1000);
 }
 export function sessionQuestions(activity:Activity,s:Pick<PrimarySession,'mode'|'seed'|'repair'>):Question[]{
- if(s.mode==='practice')return gameSession(activity,s.seed);
+ if(s.mode==='practice')return gameSession(activity,s.seed,activity.kind==='daily'||activity.kind==='paper'?DAILY_QUESTIONS:8);
  const avoid=new Set<string>();
  return s.repair.map((item,i)=>{const original=questionFromKey(activity,item.key),q=original?nearTransfer(activity,original,s.seed,i,avoid):makeQuestion(activity,s.seed,i*1000);avoid.add(sameContent(q));return q;});
 }

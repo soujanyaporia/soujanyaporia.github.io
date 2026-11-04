@@ -1,3 +1,25 @@
+# Current continuation — daily practice and illustrated papers, 4 November 2026
+
+This section supersedes historical deployment notes below. The previous GitHub release is `cff3448`; the new frontend release is being verified. The school API **is deployed**, Sites version 4, source `6880262d016fa6a603d6731d619d96cee684ef7f`, including the new daily/paper catalogue. Preserve its existing public access and D1 data.
+
+The user wants Daily Dose-style practice on a computer and authentic Singapore school question types, with less text and more useful illustration. `PRACTICE-DESIGN.md` describes the original bank, official-source comparison and limits. Do not confuse 2,406 source papers with 2,406 questions, OCR candidates with verified content, or 50,000 generated samples with 50,000 independently authored questions. The local reference archive and OCR jobs are outside this source tree at `../Singapore Maths Paper Library`; never copy them into the deployed site.
+
+`src/primary/dailyPlan.ts` owns 200-day pacing for eight paths, six questions/day, with a review every fifth day. Daily activities are lazy catalogue addresses, not 1,600 browse cards. Source activity IDs drive relevant lesson help and mistake repair. `paperCatalog.ts` is pure metadata used by the API. `paperQuestions.ts`/`paperP3.ts` generate 36 original diagram-led families. `practicePaper.ts` produces fresh mixed/topic sets, capacity-safe sizes, versioned codes, no repeats and worked steps. `paperAttempt.ts` validates device-local saved answers; the tiny store module allows account/guest cleanup without eagerly loading question generation. `PracticePapers.tsx` provides attempting, final marking, reviewing and printing. Daily sessions retain the existing account sync; generated papers are local only.
+
+The home now leads with daily practice. Learn and Missions show a manageable selection before expanding. Watch uses one picture card, compact playback and optional help; Voice A recordings remain. P1/P2 worked tables were reduced from 21 to 6 in the measured seed, and adult focus prompts replaced. Reflection asks one thing at a time. Challenge completion explicitly distinguishes independent success from help/revealed answers. Distinct-question wrapping now applies after actual review/challenge stage selection. The shared lesson question revision is `+q-2026-11-04-visual2` so earlier saved answers cannot attach to changed questions.
+
+Publication still uses the isolated `../GitHub/singapore-primary-maths-release` worktree and `_apps/math-for-primary` mirror, excluding `.generated`, `.tools`, private files, secrets, dependencies, runtime stores and nested Git metadata. Preserve the homepage **Fun project** link and `/singapore-primary-maths/` base. No new backend, no full-book copying, no robotic voice fallback.
+
+---
+
+# Current handoff — 4 November 2026 focus layout, challenge problems, no repeats
+
+Lesson screens follow "one screen, one job": `LessonPlayer.tsx` renders a slim `.focus-bar`, a `.focus-phase` tag, one stage card and one sticky `.stage-nav`; the sidebar and `lesson-bridge` are gone. Explain and worked stages hide the lesson's Next until complete, so their in-card navigation is the only way forward. `ItemCard` has a single "Need help?" entry; the clue and `PictureKey` live inside its menu. Keep new controls behind that entry rather than beside the question.
+
+`depth/catalogue/challenges.ts` holds 77 multi-step problem kinds; `catalog.ts` appends one challenge stage (practice with `challenge:true`) to every lesson, always last. `LessonPlayer.stagesFor` drops it in learn and review modes and plays mastery then challenge in challenge mode. `distinct.ts` re-draws repeated questions per attempt, keyed on text, picture and answer; it relies on the player's `seed + k × 1009` stage seeding and on the challenge stage being last. Revisions carry `+q-2026-11-04`. Publishing must exclude `.tools/` (1.9 GB of TTS models), `.generated/` and `dist-legacy/`.
+
+---
+
 # Current handoff — 4 November 2026 duplication and consistency pass
 
 `build/warmUp.ts` generates each lesson's readiness question from `p.skill.prerequisites[0]`, using that objective's own family spec (the specs are exported from `build/families/*`); it is applied in `build/index.ts`, so the ten hand-matched reference lessons in `depth/referenceLessons.ts` still override it. `depth/catalogue/pitfalls.ts` holds the per-objective misconception, matched by topic code then objective regex, with the family text as fallback in `sequence.ts`. `gen.ts` `numeral()` is the house rule for numbers in prose: four digits plain, commas from five.

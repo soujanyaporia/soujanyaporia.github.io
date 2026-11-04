@@ -30,6 +30,7 @@ export function modelFor(p:PlanEntry,e:Example):Tool{
  if(p.code==='MD'&&f){
   if(f.op==='*'&&f.a*f.b<=100&&f.a<=12&&f.b<=12)return {kind:'array',rows:f.a,cols:f.b};
   if(f.op==='*')return table(['Equal groups','Amount in each'],[[f.a,f.b]],'Each group contains the same amount. The total is not shown.');
+  if(f.op==='/'&&p.level<=2&&f.a<=100&&f.b<=10&&f.a/f.b<=10)return {kind:'share',total:f.a,people:f.b,given:Array(f.b).fill(f.a/f.b),mode:'share',hideValue:true};
   if(f.op==='/')return table(['Total to share','Number of equal shares'],[[f.a,f.b]],'The unknown is the amount in one share.');
  }
  if(p.code==='RATE'){
@@ -87,7 +88,7 @@ function modelReading(p:PlanEntry,e:Example,tool:Tool):{prompt:string;tool:Tool}
   case 'remainder':return {tool:T(['Total','Size of each group'],[v.total,v.b],'Make as many full groups as possible'),prompt:'How many are left over after making full groups?'};
   case 'order-ops':return tool.kind==='table'?{tool,prompt:'How many objects are there altogether?'}:null;
   case 'add3':return tool.kind==='join-parts'?{tool,prompt:'How many counters are there in all three coloured groups?'}:tool.kind==='table'?{tool,prompt:'What is the total of the three parts in the table?'}:null;
-  case 'measure-diff':return tool.kind==='table'?{tool,prompt:'What is the difference between the two readings in the table?'}:null;
+  case 'measure-diff':return tool.kind==='bar'&&tool.compare?{tool,prompt:'How much more does the longer bar show? Use the unit beside the bars.'}:tool.kind==='table'?{tool,prompt:'What is the difference between the two readings in the table?'}:null;
   case 'conv':return {tool:T(['Amount','Change it into'],[k.s.text,k.s.to],'The amount stays the same; only the unit changes'),prompt:'Change the amount in the table into the unit shown.'};
   case 'vol-conv':return {tool:T(['Litres'],[fmt(v.litres)],'1 litre = 1000 millilitres'),prompt:'How many cubic centimetres is the amount in the table?'};
   case 'time-sec':return {tool:T(['Minutes','Seconds'],[v.m,v.s],'Change the minutes into seconds, then add'),prompt:'How many seconds is the time in the table altogether?'};
@@ -139,7 +140,7 @@ export function visualQuestion(p:PlanEntry,e:Example,tool:Tool):{prompt:string;t
  if(p.code==='MD'&&f)return {tool,prompt:f.op==='*'?'How many objects do these equal groups contain altogether?':'Use the total and the number of equal shares shown. How much belongs in one share?'};
  if(p.code==='WN'){
   if(/Choose the correct relation/.test(q))return {tool,prompt:'Compare the first number with the second number shown. Use <, > or =.'};
-  if(/Continue the sequence/.test(q))return {tool,prompt:'Read the table in position order. What value follows the last entry if the same change continues?'};
+  if(/Continue the sequence/.test(q))return {tool,prompt:tool.kind==='table'?'Read the table in position order. What value follows the last entry if the same change continues?':'Read the number cards from left to right. Which number comes next?'};
   if(/in words/.test(q))return {tool,prompt:'Read the place-value groups in the model. Which number name describes their complete value?'};
   if(/in numerals/.test(q))return {tool,prompt:'Read the place-value groups in the model. Write the complete number in numerals.'};
  }

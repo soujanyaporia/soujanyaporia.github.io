@@ -18,7 +18,7 @@ describe('Support for learning a new idea independently',()=>{
    expect(lesson.stages[at-1].kind,id).toBe('reflect');
    expect(lesson.stages[at+1],id).toMatchObject({kind:'practice',mode:'independent'});
    expect(items[0].facet).toBe('reasoning');expect(items[1].facet).toBe('word');
-   expect(lesson.revision).toMatch(/-v6$/);
+   expect(lesson.revision).toMatch(/-v6(\+q-2026-11-04-visual2)?$/);
    const bridge=lesson.stages[at];if(bridge.kind!=='practice')throw Error('Missing bridge');
    expect(bridge.gen(5,1).modelNote?.length,id).toBeGreaterThan(40);
    for(const item of items){
@@ -61,10 +61,10 @@ describe('Support for learning a new idea independently',()=>{
  it('does not lose the help evidence when a child returns from an example',()=>{
   expect(mergeItemWork({...freshItemWork(false),usedRecovery:true},freshItemWork(false)).usedRecovery).toBe(true);
  });
- it('initially shows two clear help entries without flooding the question with methods',()=>{
+ it('initially shows one help entry, with clues and methods kept behind it',()=>{
   const html=renderToStaticMarkup(createElement(ItemCard,{item:INDEPENDENCE_CHECKS['p6s-alg-05'][1],guided:false,level:6,onDone:()=>{}}));
-  expect(html).toContain('Help me with this');expect(html).toContain('Give me a clue');
-  expect(html).not.toContain('What would help?');expect(html).not.toContain('The answer is 6.');
+  expect(html.match(/class="help-btn"/g)).toHaveLength(1);expect(html).toContain('Need help?');
+  for(const hidden of ['Give me a clue','What would help?','Read this picture','calculate directly','The answer is 6.'])expect(html).not.toContain(hidden);
  });
  it('labels the replay as an earlier example and keeps its later steps unrevealed',()=>{
   const example={kind:'worked' as const,title:'Example',problem:'A saved example',steps:[{text:'Look at the groups.'},{text:'Finish the solution.',math:'3 × 17 = 51'}]};

@@ -80,6 +80,7 @@ describe('small, connected steps for a primary-one child',()=>{
  });
  it('invalidates old stage positions only for the two rewritten lessons',()=>{
   for(const id of ['p1s-wn-01','p1s-as-06'])expect(lessonById(id)?.revision).toContain('2026-11-04-child-sequence');
-  expect(lessonById('p6s-alg-05')?.revision).toBe('catalogue-depth-2026-09-19-v6');
+  // Every lesson carries the shared question-set marker; the sequence revision is what changed here.
+  expect(lessonById('p6s-alg-05')?.revision?.replace(/\+q-[a-z0-9-]+$/,'')).toBe('catalogue-depth-2026-09-19-v6');
  });
 });

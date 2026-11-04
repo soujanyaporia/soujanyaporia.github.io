@@ -50,7 +50,8 @@ describe('Targeted feedback for real misconceptions',()=>{
 
 describe('Help that fits the question',()=>{
  const generated=PLAN.filter(p=>p.code!=='AVG'&&!['p1s-as-07','p2s-frac-01','p5s-area-02'].includes(p.id));
- const sample=()=>generated.flatMap(p=>{const l=lessonById(p.id)!;return l.stages.flatMap((s,i)=>[3,11].flatMap(seed=>itemsOf(s,seed,i).map(item=>({p,item}))));});
+ // Challenge problems teach through a named strategy and staged clues; their own suite checks them.
+const sample=()=>generated.flatMap(p=>{const l=lessonById(p.id)!;return l.stages.filter(s=>!(s.kind==='practice'&&s.challenge)).flatMap((s,i)=>[3,11].flatMap(seed=>itemsOf(s,seed,i).map(item=>({p,item}))));});
  it('offers another method that actually differs, never a generic placeholder',()=>{
   for(const {p,item} of sample()){
    expect(item.another?.length,`${p.id}: ${item.prompt}`).toBeGreaterThan(0);

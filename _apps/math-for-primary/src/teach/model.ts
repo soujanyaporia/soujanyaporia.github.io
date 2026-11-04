@@ -82,7 +82,8 @@ export type Stage=({flow?:StageFlow;actionLabel?:string}&(
  |{kind:'explain';title:string;text:string;math?:string;tool?:Tool;why?:Why;frames?:RevealStep[];example?:string;method?:{label:string;intro:string};alternatives?:{label:string;intro?:string;frames:RevealStep[]}[]}
  |{kind:'worked';title:string;problem:string;tool?:Tool;steps:RevealStep[]}
  |{kind:'reflect';title:string;text:string;tool?:Tool;prompts:string[];explanation:string[];transfer:string}
- |{kind:'practice';mode:'guided'|'independent';title:string;text?:string;gen:Gen;count:number}
+ /** `challenge` marks the multi-step stretch problems, offered after the lesson rather than inside it. */
+ |{kind:'practice';mode:'guided'|'independent';title:string;text?:string;gen:Gen;count:number;challenge?:boolean}
  |{kind:'apply';title:string;text?:string;gen:Gen;count:number}
  |{kind:'reason';title:string;text?:string;items:Item[]}
  |{kind:'mastery';title:string;text?:string;gens:{facet:Facet;gen:Gen}[]}
