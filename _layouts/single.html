@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% assign is_home = false %}{% if page.url == '/' %}{% assign is_home = true %}{% endif %}
 
 <div class="page-wrapper site-shell {% if page.url == '/' %}is-home{% endif %} {% if page.toc %}has-toc{% endif %} {% if page.author_profile %}has-sidebar{% endif %}">
 
@@ -12,12 +13,6 @@ layout: default
     {% endif %}
 
     {% if page.research_section %}{% include research-navigation.html %}{% endif %}
-
-    {% if page.author_profile and page.url != '/' %}
-    <div class="mobile-author-profile">
-      {% include author-profile.html logo_uid="mobile-profilemark" %}
-    </div>
-    {% endif %}
 
     {% if page.intro %}
     <section class="page-lead page-lead--split page-lead--wide">
@@ -51,11 +46,18 @@ layout: default
         {{ content }}
       </div>
     </div>
+
+    {% comment %} On narrow screens inner pages lead with their own content; the profile follows it. {% endcomment %}
+    {% if page.author_profile and page.url != '/' %}
+    <div class="mobile-author-profile mobile-author-profile--after">
+      {% include author-profile.html logo_uid="mobile-profilemark" %}
+    </div>
+    {% endif %}
   </article>
 
   {% if page.author_profile %}
   <aside class="sidebar site-shell__sidebar desktop-author-profile">
-    {% include author-profile.html %}
+    {% include author-profile.html hide_name=is_home %}
   </aside>
   {% endif %}
 

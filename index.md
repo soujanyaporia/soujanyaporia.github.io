@@ -96,6 +96,7 @@ title: ""
   </ol>
   <nav class="updates-more-group" aria-label="More research and academic activities">
     <a class="updates-more" href="/research/">Research</a>
+    <a class="updates-more" href="/publications/">Publications</a>
     <a class="updates-more" href="/activities/">Academic activities</a>
   </nav>
 </section>

@@ -157,6 +157,7 @@
   @include declare-customize($page-title-size: 2.6rem);
   .desktop-author-profile { display: none; }
   .mobile-author-profile { display: block; margin-bottom: 2rem; }
+  .mobile-author-profile--after { margin: 3rem 0 0; padding-top: 2rem; border-top: 1px solid var(--border); }
   .home-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; margin-bottom: 1.25rem; }
   .home-heading-copy { min-width: 0; }
   .home-introduction .home-native-name { margin-bottom: 0; }

@@ -4,7 +4,7 @@
     <img class="author-avatar" src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" width="200" height="200">
     {% endif %}
     <div class="author-profile-content">
-      {% unless include.home %}<div class="author-name" data-type-role="subsection-title">{{ site.author.name }}</div>{% endunless %}
+      {% unless include.home or include.hide_name %}<div class="author-name" data-type-role="subsection-title">{{ site.author.name }}</div>{% endunless %}
       {% if site.author.appointments %}
       {% include author-affiliations.html %}
       {% elsif site.author.bio %}
