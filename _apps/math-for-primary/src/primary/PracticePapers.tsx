@@ -70,7 +70,7 @@ function PaperWorkspace({scope}:{scope:string}){
 
 /** The marked review retains the same visible options as the question controls. */
 export function PaperMarkedAnswer({question:q,value,correct}:{question:Question;value:string;correct:boolean}){
- return <><StructuredResponseGivens spec={q.structuredResponse}/><div className={`paper-answer-result ${correct?'right':'revisit'}`}><span>Your answer: <strong>{value.trim()?shownAnswer(q,value):'Not answered'}</strong> {value.trim()?q.unit:''}</span><span>{q.numberSentence||q.grouping||q.structuredResponse?'One correct answer: ':'Correct answer: '}<strong>{shownAnswer(q,q.answer)}</strong> {q.unit}</span></div></>;
+ return <><StructuredResponseGivens spec={q.structuredResponse} choices={q.choices}/><div className={`paper-answer-result ${correct?'right':'revisit'}`}><span>Your answer: <strong>{value.trim()?shownAnswer(q,value):'Not answered'}</strong> {value.trim()?q.unit:''}</span><span>{q.numberSentence||q.grouping||q.structuredResponse?'One correct answer: ':'Correct answer: '}<strong>{shownAnswer(q,q.answer)}</strong> {q.unit}</span></div></>;
 }
 
 export function PaperAnswer({question:q,value,onChange,level}:{question:Question;value:string;onChange:(value:string)=>void;level:number}){

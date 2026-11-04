@@ -18,6 +18,13 @@ function visibleOptions(html:string,options:string[]){
  expect(givens).not.toMatch(/<button|<input|aria-pressed|selected/);
 }
 
+function visibleChoices(html:string,choices:string[]){
+ const givens=html.match(/<div class="question-choice-givens">([\s\S]*?)<\/div>/)?.[1];
+ expect(givens,'Review must retain every original multiple-choice option').toBeDefined();
+ expect([...givens!.matchAll(/<li>(.*?)<\/li>/g)].map(match=>match[1])).toEqual(choices);
+ expect(givens).not.toMatch(/<button|<input|aria-pressed|selected|right|wrong/);
+}
+
 describe('Structured response givens in completed and repair views',()=>{
  it('retains all four real P4 Q9 fractions in the original repair question and activity answer review',()=>{
   const activity=activityById('p4s-paper-b6m-9')!;expect(activity).toBeDefined();
@@ -48,6 +55,23 @@ describe('Structured response givens in completed and repair views',()=>{
   if(spec.kind!=='named-pair')throw Error('Missing source item-name response');
   const html=renderToStaticMarkup(createElement(PaperMarkedAnswer,{question:q,value:'',correct:false}));
   visibleOptions(html,spec.options);expect(html).toContain('Items:');
+ });
+ it.each(['p1s-paper-b4e-three-addend-choice','p1s-paper-hp25-02'])('retains every original choice for %s in repair, activity review and marked answers',id=>{
+  const activity=activityById(id)!;expect(activity).toBeDefined();
+  const q=makeQuestion(activity,17,0),choices=q.choices!;
+  expect(q.prompt).toMatch(/^Which (addition|choice)/);expect(choices).toHaveLength(4);
+  const wrong=choices.find(choice=>choice!==q.answer)!;
+  const item={key:q.key,fingerprint:fingerprint(q),wrong:[wrong],revealed:false};
+  const repair=renderToStaticMarkup(createElement(RepairExplain,{activity,item,onTry:()=>{}}));
+  expect(repair).toContain(q.prompt);visibleChoices(repair,choices);
+  for(const [answer,correct] of [[q.answer,true],[wrong,false],['',false]] as const){
+   const result:ScoredResult={answer,correct,firstTry:false,hints:1,tries:1,wrong:[wrong],at:1000};
+   const review=renderToStaticMarkup(createElement(AnswerReview,{questions:[q],results:[result]}));
+   expect(review).toContain(q.prompt);visibleChoices(review,choices);
+   const marked=renderToStaticMarkup(createElement(PaperMarkedAnswer,{question:q,value:answer,correct}));
+   visibleChoices(marked,choices);
+   if(!answer){expect(marked).toContain('Not answered');expect(review).toContain('Not answered');}
+  }
  });
  it('adds no passive options to other response forms or ordinary questions',()=>{
   for(const spec of [undefined,{kind:'number-pair',firstLabel:'First',secondLabel:'Second'},{kind:'factor-pairs',total:24,rows:3},{kind:'interval',labels:['8:00','8:30']}] as const){

@@ -11,8 +11,12 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 NUM=r'(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?'
 EXPR=r'[\d.,+\-−×xX*÷/()\s]+'
-PREFIX=re.compile(r'^\s*(?:(?:\d{1,3}[.)]\s*|\d{1,3}\s*\n))?(?:calculate|find\s+the\s+value\s+of|evaluate|what\s+is)\s+('+EXPR+r')\s*([.?])?\s*(?:ans(?:wer)?\s*[:.]?\s*[_\s]*)?$',re.I)
+QUESTION_PREFIX=r'(?:(?:\d{1,3}[.)]\s*|\d{1,3}\s+))?'
+ANSWER_TAIL=r'(?:ans(?:wer)?\s*[:.]?\s*(?:\([a-z]\))?\s*[._\s]*)?'
+PREFIX=re.compile(r'^\s*'+QUESTION_PREFIX+r'(?:calculate|find\s+the\s+value\s+of|evaluate|what\s+is)\s+('+EXPR+r')\s*([.?])?\s*'+ANSWER_TAIL+r'$',re.I)
+PRODUCT=re.compile(r'^\s*'+QUESTION_PREFIX+r'find\s+the\s+product\s+of\s+('+NUM+r')\s+and\s+('+NUM+r')\s*[.?]?\s*'+ANSWER_TAIL+r'$',re.I)
 EQUATION=re.compile(r'^\s*(?:(?:\d{1,3}[.)]\s*|\d{1,3}\s*\n))?('+EXPR+r')=\s*(?:\?|_{2,}|\.{3,})\s*$',re.I)
+SUBPART=re.compile(r'^[ \t]*(?:\d{1,3}[.)]?[ \t]+)?\(([a-z])\)[ \t]*(?:\n[ \t]*)?',re.I|re.M)
 TOKEN=re.compile(rf'{NUM}|[+\-−×xX*÷/()]')
 KEY=re.compile(r'\b(?:answer\s*key|suggested\s+answers?|worked\s+solutions?|marking\s+scheme|answers?\s+to\s+questions)\b',re.I)
 KEY_LINE=re.compile(r'\bQ\s*\d+[a-z]?\s*[).:]?\s*[^\n]{0,60}=\s*\d',re.I)
@@ -28,6 +32,7 @@ def parse_expr(raw):
  clean=[];operands=[]
  for token in toks:
   if re.fullmatch(NUM,token):
+   if clean and re.fullmatch(NUM,clean[-1]):raise Rejected('ambiguous-separated-numerals')
    clean.append(token.replace(',',''));operands.append(token)
   else:clean.append({'−':'-','×':'*','x':'*','X':'*','÷':'/'}.get(token,token))
  if len(operands)<2 or len(operands)>5:raise Rejected('operand-count')
@@ -72,9 +77,12 @@ def classify(raw,level):
  if not isinstance(level,int) or level not in range(1,7):return None,'invalid-level'
  if KEY.search(raw) or KEY_LINE.search(raw):return None,'answer-key-cue'
  if re.search(r'\b(?:missing|box|blank|circle|draw|figure|diagram|pattern|fraction|round|simplest|nearest|correct\s+to|decimal\s+places?)\b',raw,re.I):return None,'additional-or-missing-condition'
+ product=PRODUCT.fullmatch(raw)
  match=PREFIX.fullmatch(raw) or EQUATION.fullmatch(raw)
- if not match:return None,'not-one-bounded-literal-task'
- try:tree,value,literals,expr=parse_expr(match.group(1))
+ if product:expression=f'{product.group(1)} × {product.group(2)}'
+ elif match:expression=match.group(1)
+ else:return None,'not-one-bounded-literal-task'
+ try:tree,value,literals,expr=parse_expr(expression)
  except Rejected as exc:return None,str(exc)
  if tree['kind']!='operation':return None,'not-an-operation'
  # A text-level operation must fit the stated primary level and avoid negative
@@ -129,6 +137,35 @@ def classify(raw,level):
  answer=str(value.numerator) if value.denominator==1 else f'{value.numerator}/{value.denominator}'
  return {'expressionText':expr,'operationTree':tree,'evaluatedExactly':answer,'operandDomain':props,'responseFormat':'free-response numeric (OCR inferred; confirm visually)','generatorCandidates':mappings},None
 
+def extract_tasks(raw,level):
+ """Return proposal slices without discarding unsupported parent content.
+
+ Offsets are Python Unicode code-point indices in the exact original OCR string.
+ Only explicit consecutive (a), (b), ... tasks are separated. A story/shared
+ instruction before the first marker prevents splitting; an answer label is
+ never a task marker. Rejected siblings remain attached as residue, not coverage.
+ """
+ lead,why=classify(raw,level)
+ if lead:
+  return [{**lead,'extractionMethod':'whole-region','sourceSlice':{'start':0,'end':len(raw),'rawText':raw},'leftoverRegions':[]}],None
+ if KEY.search(raw) or KEY_LINE.search(raw):return [],why
+ marks=list(SUBPART.finditer(raw))
+ if len(marks)<2 or len(marks)>6:return [],why
+ if [m.group(1).lower() for m in marks]!=list('abcdef'[:len(marks)]):return [],why
+ prefix=raw[:marks[0].start()]
+ if not re.fullmatch(r'\s*(?:\d{1,3}[.)]?)?\s*',prefix):return [],why
+ tasks=[];residue=[]
+ if prefix:residue.append({'start':0,'end':marks[0].start(),'rawText':prefix,'reason':'parent-question-label'})
+ for i,mark in enumerate(marks):
+  end=marks[i+1].start() if i+1<len(marks) else len(raw)
+  content=raw[mark.end():end]
+  child,reason=classify(content,level)
+  span={'start':mark.start(),'end':end,'rawText':raw[mark.start():end]}
+  if child:tasks.append({**child,'sourcePart':mark.group(1).lower(),'extractionMethod':'explicit-subpart','sourceSlice':span,'contentStart':mark.end()})
+  else:residue.append({**span,'reason':reason,'sourcePart':mark.group(1).lower()})
+ for task in tasks:task['leftoverRegions']=residue
+ return tasks,None if tasks else why
+
 def read_only(path):
  c=sqlite3.connect(f'file:{Path(path).resolve()}?mode=ro',uri=True);c.row_factory=sqlite3.Row;return c
 
@@ -149,8 +186,8 @@ def run(staging,ledger,output):
  query='select r.*,p.level,p.title,p.source_pdf from regions r join papers p using(paper_id) order by r.bank_line'
  with Path(output).open('x',encoding='utf8') as f:
   for r in db.execute(query):
-   scanned+=1;text=r['raw_text'];lead,why=classify(text,r['level'])
-   if not lead:counts['excluded:'+why]+=1;continue
+   scanned+=1;text=r['raw_text'];tasks,why=extract_tasks(text,r['level'])
+   if not tasks:counts['excluded:'+why]+=1;continue
    pages=json.loads(r['page_numbers_json'])
    if len(pages)!=1:counts['excluded:multiple-or-missing-pages']+=1;continue
    paper=cov.execute('select inventory_reviewed from papers where paper_id=?',(r['paper_id'],)).fetchone()
@@ -159,24 +196,28 @@ def run(staging,ledger,output):
    page=db.execute('select text,coordinate_system,page_bounds_json from pages where paper_id=? and page_number=?',(r['paper_id'],pages[0])).fetchone()
    if not page:counts['excluded:no-page-context']+=1;continue
    if KEY.search(page['text']) or len(KEY_LINE.findall(page['text']))>=2:counts['excluded:answer-key-page-cue']+=1;continue
-   matches=lead['generatorCandidates']
-   for candidate in matches:
-    pid=candidate['patternId']
-    if pid:
-     if pid not in statuses:statuses[pid]=receipt_status(cov,pid)
-     candidate['receiptStatus']=statuses[pid]
-    else:candidate['receiptStatus']='generic-generator-unverified-for-this-source'
    blocks=[dict(x) for x in db.execute('select block_index,page_number,text,bbox_json,confidence,method,recognition_level,matched_page_block_indices_json from region_blocks where bank_line=? order by block_index',(r['bank_line'],))]
    refs=[dict(x) for x in db.execute('select page_number,source_link,has_page_record from region_pages where bank_line=? order by ordinal',(r['bank_line'],))]
    deps=[dict(x) for x in db.execute('select page_number,source_link,dependency,cues_json,status from diagram_dependencies where bank_line=? order by page_number',(r['bank_line'],))]
-   result={'bankLine':r['bank_line'],'candidateId':r['candidate_id'],'paperId':r['paper_id'],'level':r['level'],'title':r['title'],'sourceSha256':r['source_sha256'],'sourcePdf':r['source_pdf'],'rawText':text,'rawTextSha256':r['raw_text_sha256'],'rawLineSha256':r['raw_line_sha256'],'questionNumber':r['question_number'],'sourcePages':refs,'regionBlocks':blocks,'pageCoordinateSystem':page['coordinate_system'],'pageBounds':json.loads(page['page_bounds_json']) if page['page_bounds_json'] else None,'fullPageOcrText':page['text'],'diagramDependencies':deps,**lead,'status':'unreviewed-proposal','sourceBoundary':'heuristic-unverified','visuallyReviewed':False,'sourceCovered':False,'reviewRequirements':['Inspect the source PDF and confirm every digit and operator; OCR may substitute arithmetic signs.','Confirm a single question boundary, answer format, grade domain, and absence of missing diagram or givens.','Independently solve the visual source and check all material operation/operand constraints against a current generator receipt.']}
-   f.write(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n');counts['candidateRegions']+=1
-   if any(x['patternId'] for x in matches):counts['candidateRegionsWithPriorPilotStructure']+=1
-   if any(x['patternId'] is None for x in matches):counts['candidateRegionsWithGenericConfigurationLead']+=1
-   if not matches:counts['candidateRegionsWithNoMatchingConfiguration']+=1
-   if any(x.get('receiptStatus')=='verified-current-ledger-receipt' for x in matches):counts['candidateRegionsWithCurrentVerifiedReceipt']+=1
-   counts['operation:'+lead['operandDomain']['operation']]+=1
- return {'parserVersion':'literal-arithmetic-v1','stagingDatabase':str(Path(staging).resolve()),'coverageLedger':str(Path(ledger).resolve()),'stagingMeta':dict(db.execute('select key,value from meta')),'scannedRegions':scanned,'counts':dict(counts),'targetReceiptStatuses':statuses,'reviewedMappings':0,'coverageGranted':0,'output':str(Path(output).resolve()),'outputSha256':hashlib.sha256(Path(output).read_bytes()).hexdigest(),'limitations':'Candidate counts are not unique questions; OCR boundaries, signs, source content, grade constraints, generator fit and local receipt freshness require human source-page review.'}
+   counts['candidateRegions']+=1;region_flags=set()
+   for lead in tasks:
+    matches=lead['generatorCandidates']
+    for candidate in matches:
+     pid=candidate['patternId']
+     if pid:
+      if pid not in statuses:statuses[pid]=receipt_status(cov,pid)
+      candidate['receiptStatus']=statuses[pid]
+     else:candidate['receiptStatus']='generic-generator-unverified-for-this-source'
+    result={'bankLine':r['bank_line'],'candidateId':r['candidate_id'],'proposalId':f"{r['candidate_id']}:literal:{lead['sourceSlice']['start']}:{lead['sourceSlice']['end']}",'paperId':r['paper_id'],'level':r['level'],'title':r['title'],'sourceSha256':r['source_sha256'],'sourcePdf':r['source_pdf'],'rawText':text,'rawTextSha256':r['raw_text_sha256'],'rawLineSha256':r['raw_line_sha256'],'questionNumber':r['question_number'],'offsetUnit':'unicode-code-point','parentRegionPreserved':True,'sourcePages':refs,'regionBlocks':blocks,'pageCoordinateSystem':page['coordinate_system'],'pageBounds':json.loads(page['page_bounds_json']) if page['page_bounds_json'] else None,'fullPageOcrText':page['text'],'diagramDependencies':deps,**lead,'status':'unreviewed-proposal','sourceBoundary':'heuristic-unverified','visuallyReviewed':False,'sourceCovered':False,'reviewRequirements':['Inspect the source PDF and confirm every digit and operator; OCR may substitute arithmetic signs.','Confirm a single question boundary, answer format, grade domain, and absence of missing diagram or givens.','Independently solve the visual source and check all material operation/operand constraints against a current generator receipt.']}
+    f.write(json.dumps(result,ensure_ascii=False,separators=(',',':'))+'\n');counts['candidateTasks']+=1
+    counts['extraction:'+lead['extractionMethod']]+=1
+    if any(x['patternId'] for x in matches):region_flags.add('candidateRegionsWithPriorPilotStructure')
+    if any(x['patternId'] is None for x in matches):region_flags.add('candidateRegionsWithGenericConfigurationLead')
+    if not matches:region_flags.add('candidateRegionsWithNoMatchingConfiguration')
+    if any(x.get('receiptStatus')=='verified-current-ledger-receipt' for x in matches):region_flags.add('candidateRegionsWithCurrentVerifiedReceipt')
+    counts['operation:'+lead['operandDomain']['operation']]+=1
+   for flag in region_flags:counts[flag]+=1
+ return {'parserVersion':'literal-arithmetic-v2','stagingDatabase':str(Path(staging).resolve()),'coverageLedger':str(Path(ledger).resolve()),'stagingMeta':dict(db.execute('select key,value from meta')),'scannedRegions':scanned,'counts':dict(counts),'targetReceiptStatuses':statuses,'reviewedMappings':0,'coverageGranted':0,'output':str(Path(output).resolve()),'outputSha256':hashlib.sha256(Path(output).read_bytes()).hexdigest(),'limitations':'Candidate counts are not unique questions; OCR boundaries, signs, source content, grade constraints, generator fit and local receipt freshness require human source-page review.'}
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--staging',required=True);p.add_argument('--ledger',required=True);p.add_argument('--output',required=True);a=p.parse_args();print(json.dumps(run(a.staging,a.ledger,a.output),indent=2))

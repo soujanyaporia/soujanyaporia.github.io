@@ -1,10 +1,12 @@
 # Batch6 complete-paper and structured-answer release — 5 November 2026
 
-923 app tests in87files passed, including four regressions retaining every fraction/name option in repair, activity and marked-paper review. Production build and289SEO/redirect checks passed. The 311-configuration bank audit independently checked50,000 samples (29,334 distinct visible questions,20,666 repeats), zero failures. Integration checked31,100 canonical readiness/answer cases,1,600daily plans/9,600questions,288complete draft and marked-paper save/restores; zero failures. Nine API tests passed; Sites version11 is deployed with paper/session version8 shared code.
+925 app tests in 87 files passed, including six review regressions retaining every fraction/name option in repair, activity and marked-paper review. Production build and289SEO/redirect checks passed. The 311-configuration bank audit independently checked50,000 samples (29,334 distinct visible questions,20,666 repeats), zero failures. Integration checked31,100 canonical readiness/answer cases,1,600daily plans/9,600questions,288complete draft and marked-paper save/restores; zero failures. Nine API tests passed; Sites version11 is deployed with paper/session version8 shared code.
 
-Browser verification on the built app: alternate valid factor-pair triples accepted; all six fraction-pair questions solved; the review keeps all four original fraction options. A reviewer found those options missing in completed views before this release; the fix now covers all three review states. Six-point line graphs were checked at360px. P1 singular wording corrected. API health returned contract3 successfully.
+Browser verification on the built app: alternate valid factor-pair triples accepted; all six fraction-pair questions solved; the review keeps all four original fraction options. A reviewer found those options missing in completed views before this release; the fix now covers all three review states. Six-point line graphs were checked at360px. P1 singular wording corrected. API health returned contract 3 successfully. The follow-up fixes an older loss of multiple-choice alternatives in review; the active questions and grading were unaffected.
 
 Source ledger:12complete inventories,10strictly covered papers,294verified source responses,3preserved ambiguities,232current implementation receipts,zero stale hashes/integrity issues. 2,394paper sets still await full conversion. These are finite programmatic and agent checks, not a claim of full corpus, MOE or classroom sign-off. Actual frontend deployment IDs are recorded separately in `.generated/release-status.json`.
+
+The read-only arithmetic lead extractor passes nine fixtures. A full 116,085-region scan preserves exact parents and subpart spans in all 165 proposed slices; source coverage remains unchanged. The 11-response reuse queue from four papers is only a next-review queue.
 
 ---
 
