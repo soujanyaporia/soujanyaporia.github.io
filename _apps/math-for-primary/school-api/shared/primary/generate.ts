@@ -1,3 +1,9 @@
+import type {P6CatholicPicture} from './paperImports/p6CatholicPicture';
+import type {P5MahaBodhiPicture} from './paperImports/p5MahaBodhiPicture';
+import type {P4NanyangPicture} from './paperImports/p4NanyangPicture';
+import {validGrouping,type GroupingSpec} from './groupingAnswer';
+import type {MissingDigitColumnModel} from './paperImports/missingDigitModel';
+import type {P3RafflesPicture} from './paperImports/p3RafflesPicture';
 import { Rng,hashString } from '../engine/random';
 import {ACTIVITIES,type Activity} from './catalog';
 import {makePaperQuestion} from './paperQuestions';
@@ -5,8 +11,9 @@ import {sourceForDailyQuestion} from './dailyPlan';
 import type {PaperPicture} from './paperPicture';
 import type {AngleDiagramModel} from './AngleDiagram';
 import type {CorpusPicture} from './corpusPaperQuestions';
-export type Picture = CorpusPicture | AngleDiagramModel | PaperPicture | {type:'parts';parts:number[];joined?:number[];reveal?:boolean}|{type:'counters';count:number;group?:number;parts?:number[];removed?:number}|{type:'fraction';parts:number;filled:number}|{type:'clock';minutes:number}|{type:'shape';shape:string;labels?:string[]}|{type:'bars';labels:string[];values:number[];scale:number;line?:boolean;pictures?:boolean}|{type:'pie';labels:string[];values:number[]}|{type:'angle';degrees:number;label?:string}|{type:'ruler';length:number}|{type:'net';cells:[number,number][]}|{type:'pattern';items:string[]}|{type:'solid';shape:string;a?:number;b?:number;c?:number}|{type:'area';a:number;b:number;cut?:number};
-export interface Question {key:string;prompt:string;context?:string[];display?:string;answer:string;choices?:string[];unit?:string;hint:string;explanation:string;picture?:Picture;order?:string[];fractionBuilder?:number;proof?:Proof;requireSimplified?:boolean;requireImproper?:boolean;sourceActivityId?:string;workedSteps?:{text:string;equation?:string;picture?:Picture}[]}
+import {normaliseNumberWords,piCoefficient,validNumberSentence,type NumberSentenceSpec} from './answerFormat';
+export type Picture = P5MahaBodhiPicture | P6CatholicPicture | P4NanyangPicture | MissingDigitColumnModel | P3RafflesPicture | CorpusPicture | AngleDiagramModel | PaperPicture | {type:'parts';parts:number[];joined?:number[];reveal?:boolean}|{type:'counters';count:number;group?:number;parts?:number[];removed?:number}|{type:'fraction';parts:number;filled:number}|{type:'clock';minutes:number}|{type:'shape';shape:string;labels?:string[]}|{type:'bars';labels:string[];values:number[];scale:number;line?:boolean;pictures?:boolean}|{type:'pie';labels:string[];values:number[]}|{type:'angle';degrees:number;label?:string}|{type:'ruler';length:number}|{type:'net';cells:[number,number][]}|{type:'pattern';items:string[]}|{type:'solid';shape:string;a?:number;b?:number;c?:number}|{type:'area';a:number;b:number;cut?:number};
+export interface Question {key:string;prompt:string;context?:string[];display?:string;answer:string;answerFormat?:'number-words'|'pi';numberSentence?:NumberSentenceSpec;grouping?:GroupingSpec;choices?:string[];unit?:string;hint:string;explanation:string;picture?:Picture;order?:string[];fractionBuilder?:number;proof?:Proof;requireSimplified?:boolean;requireImproper?:boolean;requireMixed?:boolean;sourceActivityId?:string;workedSteps?:{text:string;equation?:string;picture?:Picture}[]}
 export type Proof=number|{op:'+'|'-'|'*'|'/'|'round'|'floor';a:Proof;b:Proof};
 const calc=(op:'+'|'-'|'*'|'/',a:Proof,b:Proof):Proof=>({op,a,b});
 const fmt=(n:number)=>Number(n.toFixed(6)).toString();
@@ -14,7 +21,23 @@ const money=(n:number)=>'$'+n.toFixed(2);
 const gcd=(a:number,b:number):number=>b?gcd(b,a%b):a;
 export function fraction(n:number,d:number){const g=gcd(n,d);return d/g===1?String(n/g):`${n/g}/${d/g}`;}
 export function numberValue(s:string):number|null{const t=s.trim().replaceAll(',','').replace(/\s+/g,' ');if(/^-?\d+(\.\d+)?$/.test(t))return Number(t);if(/^-?\d+\/\d+$/.test(t)){const [n,d]=t.split('/').map(Number);return d?n/d:null;}if(/^\d+ \d+\/\d+$/.test(t)){const [whole,part]=t.split(' ');return Number(whole)+(numberValue(part)??NaN);}return null;}
-export function correctAnswer(q:Question,input:string){if(q.order)return input===q.answer;if(q.requireSimplified&&input.includes('/')){const parts=input.split('/').map(Number);if(parts.length!==2||gcd(parts[0],parts[1])!==1)return false;}if(q.requireImproper&&input.trim().includes(' '))return false;const a=numberValue(q.answer),b=numberValue(input);return a!==null&&b!==null?Math.abs(a-b)<1e-7:input.trim().toLowerCase()===q.answer.trim().toLowerCase();}
+export function correctAnswer(q:Question,input:string){
+ if(q.grouping)return validGrouping(q.grouping,input);
+ if(q.numberSentence)return validNumberSentence(q.numberSentence,input);
+ if(q.answerFormat==='pi'){const a=piCoefficient(q.answer),b=piCoefficient(input);return a!==null&&b!==null&&Math.abs(a-b)<1e-7;}
+ if(q.answerFormat==='number-words')return normaliseNumberWords(input)===normaliseNumberWords(q.answer);
+ if(q.order)return input===q.answer;
+ const text=input.trim().replace(/\s+/g,' ');
+ if(q.requireMixed){const m=/^([1-9]\d*) (\d+)\/(\d+)$/.exec(text);if(!m||Number(m[2])<=0||Number(m[2])>=Number(m[3]))return false;}
+ if(q.requireSimplified&&!/^-?\d+$/.test(text)){
+  const m=/^(-?\d+)(?: (\d+))?\/(\d+)$/.exec(text);if(!m)return false;
+  const n=Number(m[2]??m[1]),d=Number(m[3]);
+  if(!Number.isSafeInteger(n)||!Number.isSafeInteger(d)||d<=0||gcd(Math.abs(n),d)!==1||(m[2]&&(n<=0||n>=d)))return false;
+ }
+ if(q.requireImproper){const m=/^(\d+)\/([1-9]\d*)$/.exec(text);if(!m||Number(m[1])<Number(m[2]))return false;}
+ const a=numberValue(q.answer),b=numberValue(text);
+ return a!==null&&b!==null?Math.abs(a-b)<1e-7:text.toLowerCase()===q.answer.trim().toLowerCase();
+}
 const time=(minutes:number,clock24=false)=>{const h=Math.floor(minutes/60)%24,m=minutes%60;return clock24?`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`:`${h%12||12}:${String(m).padStart(2,'0')}`;};
 export function makeQuestion(activity:Activity,seed:number,index=0):Question{
  const r=new Rng(hashString(`${activity.id}:${seed}:${index}`)),g=activity.level,f=activity.track==='foundation',p=activity.parameter;

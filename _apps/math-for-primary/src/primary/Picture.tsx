@@ -1,3 +1,8 @@
+import {P6CatholicDiagram} from './paperImports/P6CatholicDiagram';
+import {P5MahaBodhiDiagram} from './paperImports/P5MahaBodhiDiagram';
+import {P4NanyangDiagram} from './paperImports/P4NanyangDiagram';
+import {MissingDigitColumn} from './paperImports/MissingDigitColumn';
+import {P3RafflesDiagram} from './paperImports/P3RafflesDiagram';
 import {useState} from 'react';
 import {JoinParts} from '../teach/tools/JoinParts';
 import {PaperDiagram} from './PaperDiagram';
@@ -8,6 +13,11 @@ import type {Tool} from '../teach/model';
 import type { Picture as Model } from './generate';
 const colours=['#538cd2','#e9ab48','#72a572','#b188c1'];
 export function Picture({model:m}:{model:Model}){
+ if(m.type==='nanyang-p4')return <P4NanyangDiagram model={m}/>;
+ if(m.type==='catholic-p6')return <P6CatholicDiagram model={m}/>;
+ if(m.type==='maha-bodhi-p5')return <P5MahaBodhiDiagram model={m}/>;
+ if(m.type==='missing-column')return <MissingDigitColumn model={m}/>;
+ if(m.type==='raffles-p3')return <P3RafflesDiagram model={m}/>;
  if(m.type==='corpus')return <CorpusDiagram model={m}/>;
  if(m.type==='angleProblem')return <AngleDiagram model={m}/>;
  if(m.type==='paper')return <PaperDiagram model={m}/>;

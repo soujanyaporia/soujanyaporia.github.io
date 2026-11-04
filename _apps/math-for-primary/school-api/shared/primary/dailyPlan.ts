@@ -4,7 +4,7 @@ import type {ActivityProgress} from './progress';
 
 export const DAILY_DAYS=200;
 export const DAILY_QUESTIONS=6;
-export const DAILY_PLAN_VERSION=3;
+export const DAILY_PLAN_VERSION=4;
 const TOPIC_NAMES:Record<string,string>={WN:'Whole numbers',AS:'Adding and subtracting',MD:'Multiplying and dividing',FACT:'Factors and multiples',FRAC:'Fractions',MONEY:'Money',DEC:'Decimals',PCT:'Percentages',RATE:'Rate',RATIO:'Ratio',ALG:'Algebra',LENGTH:'Length',MEASURE:'Measurement',TIME:'Time',AREA:'Area and perimeter',VOL:'Volume',ANGLE:'Angles',LINES:'Lines',SYM:'Symmetry',SHAPE:'Shapes',SOLID:'Solid shapes',CIRCLE:'Circles',GRAPH:'Graphs',AVG:'Averages'};
 export type DailyAddress={level:number;track:Track;day:number};
 export interface DailyTopic {code:string;title:string;activities:Activity[];paper:Activity[]}
@@ -41,32 +41,46 @@ export function dailyPlanDay(level:number,track:Track,day:number,activities:Acti
  const introduced=Math.max(1,Math.ceil(through/teachingDays*topic.activities.length));
  return {...address,id:dailyId(level,track,day),week,term:Math.floor((day-1)/50)+1,dayOfWeek,review:dayOfWeek===5,topic,topicIndex,topics,available:topic.activities.slice(0,introduced)};
 }
-/** Six source activities, paced within each topic. Every fifth day revisits introduced topics. */
+/** Cache by catalogue identity; each path is deterministic and independent of opening order. */
+const sourcePlans=new WeakMap<Activity[],Map<string,Activity[][]>>();
+function buildSourcePlan(level:number,track:Track,activities:Activity[]):Activity[][]{
+ const used=new Map<string,number>(),days:Activity[][]=[];
+ for(let day=1;day<=DAILY_DAYS;day++){
+  const plan=dailyPlanDay(level,track,day,activities);if(!plan)return [];
+  const {topic,available,week,topicIndex,topics}=plan;
+  const introducedSkills=new Set([...topics.slice(0,topicIndex).flatMap(t=>t.activities),...available].flatMap(a=>a.skillIds));
+  const readyPaper=(t:DailyTopic)=>t.paper.filter(a=>a.skillIds.every(id=>{
+   if(introducedSkills.has(id)||Number(id.match(/^P(\d+)/)?.[1])<level)return true;
+   const prerequisite=topics.findIndex(part=>part.code===id.split('.')[2]);
+   return prerequisite>=0&&(prerequisite<topicIndex||prerequisite===topicIndex&&available.length===topic.activities.length);
+  }));
+  // Least-used ready tasks avoid starving larger paper pools or skills whose prerequisites
+  // become available in a later topic. No task can appear before its prerequisites.
+  const eligible=plan.review?topics.slice(0,topicIndex+1).flatMap(readyPaper):readyPaper(topic);
+  const picked=new Set<string>(),pickedPatterns=new Set<string>();
+  const nextPaper=()=>{
+   const remaining=eligible.filter(a=>!picked.has(a.id)),distinct=remaining.filter(a=>!pickedPatterns.has(a.canonicalPatternId??a.id));
+   const pool=distinct.length?distinct:remaining;if(!pool.length)return undefined;
+   const a=pool.reduce((best,a)=>(used.get(a.id)??0)<(used.get(best.id)??0)?a:best);
+   used.set(a.id,(used.get(a.id)??0)+1);picked.add(a.id);pickedPatterns.add(a.canonicalPatternId??a.id);return a;
+  };
+  const sources=Array.from({length:DAILY_QUESTIONS},(_,i)=>{
+   if(i>=4){const paper=nextPaper();if(paper)return paper;}
+   if(plan.review){const prior=topics.slice(0,topicIndex+1),t=prior[(week-1+i)%prior.length],pool=t===topic?available:t.activities;return pool[(week+i)%pool.length];}
+   const earlier=available.slice(0,-1);if(i<2&&earlier.length)return earlier[(day+i)%earlier.length];
+   return i===5&&available.length>1?available[(day+i)%available.length]:available.at(-1)!;
+  });
+  days.push(sources);
+ }
+ return days;
+}
+/** Six sources a day; every fifth day revisits introduced topics and less-practised paper tasks. */
 export function dailySources(activity:Activity,activities:Activity[]):Activity[]{
  const address=parseDailyId(activity.id);if(!address)return [];
- const plan=dailyPlanDay(address.level,address.track,address.day,activities);if(!plan)return [];
- const {topic,available,day,week,topicIndex,topics}=plan;
- const introducedSkills=new Set([...topics.slice(0,topicIndex).flatMap(t=>t.activities),...available].flatMap(a=>a.skillIds));
- const readyPaper=(t:DailyTopic)=>t.paper.filter(a=>a.skillIds.every(id=>{
-  if(introducedSkills.has(id)||Number(id.match(/^P(\d+)/)?.[1])<plan.level)return true;
-  // Related paper questions may cover a finer objective than the existing baseline activity.
-  // Introduce those after the baseline for that topic, not before its prerequisites.
-  const prerequisite=topics.findIndex(part=>part.code===id.split('.')[2]);
-  return prerequisite>=0&&(prerequisite<topicIndex||prerequisite===topicIndex&&available.length===topic.activities.length);
- }));
- if(plan.review){
-  const prior=topics.slice(0,topicIndex+1);
-  return Array.from({length:DAILY_QUESTIONS},(_,i)=>{
-   const t=prior[(week-1+i)%prior.length],pool=t===topic?available:t.activities;
-   const paper=readyPaper(t);return i>=4&&paper.length?paper[(week+i)%paper.length]:pool[(week+i)%pool.length];
-  });
- }
- const focus=available.at(-1)!,earlier=available.slice(0,-1),paper=readyPaper(topic);
- return Array.from({length:DAILY_QUESTIONS},(_,i)=>{
-  if(i>=4&&paper.length)return paper[(day+i)%paper.length];
-  if(i<2&&earlier.length)return earlier[(day+i)%earlier.length];
-  return i===5&&available.length>1?available[(day+i)%available.length]:focus;
- });
+ let paths=sourcePlans.get(activities);if(!paths){paths=new Map();sourcePlans.set(activities,paths);}
+ const key=`${address.level}:${address.track}`;
+ if(!paths.has(key))paths.set(key,buildSourcePlan(address.level,address.track,activities));
+ return [...(paths.get(key)![address.day-1]??[])];
 }
 export function sourceForDailyQuestion(activity:Activity,index:number,activities:Activity[]):Activity{
  const sources=dailySources(activity,activities);if(!sources.length)throw new Error(`Invalid daily practice: ${activity.id}`);

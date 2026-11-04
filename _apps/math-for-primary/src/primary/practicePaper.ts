@@ -5,7 +5,7 @@ import {ACTIVITIES,type Activity} from './catalog';
 import {makeQuestion,type Question} from './generate';
 
 /** Bump when the source schedule, seeded draws or question semantics change. */
-export const PRACTICE_PAPER_VERSION=3;
+export const PRACTICE_PAPER_VERSION=4;
 export const PRACTICE_PAPER_COUNTS=[6,12,18] as const;
 export type PracticePaperCount=typeof PRACTICE_PAPER_COUNTS[number];
 export interface PaperRequest {level:number;track:Track;count:PracticePaperCount;topic:string;seed:number}
@@ -85,6 +85,10 @@ export function parsePracticePaperCode(code:string,activities:Activity[]=ACTIVIT
 export function visibleQuestionKey(q:Question):string{
  const visible:unknown[]=[norm(q.prompt),norm(q.display??''),q.picture??null,q.order?[...q.order].sort():null,q.fractionBuilder??null,norm(q.unit??'')];
  if(q.context?.length)visible.push(q.context.map(norm));
+ if(q.numberSentence)visible.push({...q.numberSentence,numbers:[...q.numberSentence.numbers].sort((a,b)=>a-b)});
+ if(q.answerFormat)visible.push(q.answerFormat);
+ if(q.grouping)visible.push(q.grouping);
+ if(q.requireMixed)visible.push('mixed-number');
  return JSON.stringify(visible);
 }
 const resumeFingerprint=(q:Question)=>hashString(JSON.stringify([visibleQuestionKey(q),q.answer,q.choices?[...q.choices].sort():null,q.order??null,q.requireSimplified??false,q.requireImproper??false])).toString(16).padStart(8,'0');
@@ -97,11 +101,19 @@ function balanced(pool:Activity[],r:Rng):Activity[]{
  for(let i=0;out.length<pool.length;i++)for(const group of groups)if(group[i])out.push(group[i]);
  return out;
 }
+/** Deal one task per known structure before returning to another response variant. */
+function variedPaperTasks(pool:Activity[],r:Rng):Activity[]{
+ const byPattern=new Map<string,Activity[]>();
+ for(const a of r.shuffle(pool)){const key=a.canonicalPatternId??a.id;byPattern.set(key,[...(byPattern.get(key)??[]),a]);}
+ const groups=r.shuffle([...byPattern.values()]),out:Activity[]=[];
+ for(let i=0;out.length<pool.length;i++)for(const group of groups)if(group[i])out.push(group[i]);
+ return out;
+}
 function sourceSchedule(pool:Activity[],request:PaperRequest):Activity[]{
- const r=new Rng(hashString(`${codeFor(request)}:sources`)),paper=r.shuffle(pool.filter(a=>a.kind==='paper'));
+ const r=new Rng(hashString(`${codeFor(request)}:sources`)),paper=variedPaperTasks(pool.filter(a=>a.kind==='paper'),r);
  const baseline=balanced(pool.filter(a=>a.kind!=='paper'),r),schedule:Activity[]=[];
  // Six-question blocks alternate illustrated families and baseline skills. Longer papers continue
- // through the family pool, so an eighteen-question mixed set includes every current family.
+ // through the family pool without repeating a task until the pool is exhausted.
  if(!paper.length)return Array.from({length:request.count},(_,i)=>baseline[i%baseline.length]);
  if(!baseline.length)return Array.from({length:request.count},(_,i)=>paper[i%paper.length]);
  let pi=0,bi=0;

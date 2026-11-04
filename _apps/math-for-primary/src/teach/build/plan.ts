@@ -29,7 +29,8 @@ export interface PlanEntry {
  */
 function activityFor(s:CurriculumSkill){
  const here=ACTIVITIES.filter(a=>a.level===s.level&&a.track===s.track);
- return (ACTIVITIES.find(a=>a.skillIds.includes(s.id))
+ return (here.find(a=>a.parameter!=='mixed'&&a.skillIds[0]===s.id)
+  ??here.find(a=>a.parameter!=='mixed'&&a.skillIds.includes(s.id))
   ??here.find(a=>a.skillIds.some(x=>x.split('.')[2]===s.subtopic))
   ??here.find(a=>a.strand===s.strand)
   ??here[0])?.id??'';

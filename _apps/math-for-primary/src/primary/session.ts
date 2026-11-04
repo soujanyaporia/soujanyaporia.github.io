@@ -52,7 +52,7 @@ const fp=(f:unknown)=>typeof f==='string'&&/^([a-f0-9]{8})?$/.test(f);
 function result(r:any,late:number):ScoredResult|null{return r&&typeof r==='object'&&isStr(r.answer,200)&&typeof r.correct==='boolean'&&typeof r.firstTry==='boolean'&&isInt(r.hints,0,1000)&&isInt(r.tries,1,10000)&&strList(r.wrong,3,60)&&isInt(r.at,0,late)&&(!r.firstTry||(r.correct&&r.tries===1&&r.hints===0))?{answer:r.answer,correct:r.correct,firstTry:r.firstTry,hints:r.hints,tries:r.tries,wrong:[...r.wrong],at:r.at}:null;}
 function draft(d:any,position:number,late:number):SessionDraft|null|undefined{
  if(d===null)return null;
- if(!d||typeof d!=='object'||d.position!==position||!isStr(d.value,100)||!strList(d.picks,12,40)||!Array.isArray(d.shaded)||d.shaded.length>24||!d.shaded.every((n:unknown)=>isInt(n,0,23))||!isInt(d.tries,0,1000)||!strList(d.wrong,3,60)||typeof d.hint!=='boolean'||!['answering','wrong'].includes(d.status)||!['explain','try'].includes(d.stage)||!isInt(d.at,0,late))return undefined;
+ if(!d||typeof d!=='object'||d.position!==position||!isStr(d.value,200)||!strList(d.picks,12,40)||!Array.isArray(d.shaded)||d.shaded.length>24||!d.shaded.every((n:unknown)=>isInt(n,0,23))||!isInt(d.tries,0,1000)||!strList(d.wrong,3,60)||typeof d.hint!=='boolean'||!['answering','wrong'].includes(d.status)||!['explain','try'].includes(d.stage)||!isInt(d.at,0,late))return undefined;
  return {position,value:d.value,picks:[...d.picks],shaded:[...d.shaded],tries:d.tries,wrong:[...d.wrong],hint:d.hint,status:d.status,stage:d.stage,at:d.at};
 }
 /** Strict validation shared by the browser store and the API. Returns a normalised copy or null. */

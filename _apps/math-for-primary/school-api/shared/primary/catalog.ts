@@ -2,7 +2,7 @@ import {PAPER_PATTERNS} from './paperCatalog';
 import {dailyActivity} from './dailyPlan';
 import type { Track, Strand } from '../school/curriculum';
 export type GameKind = 'count'|'place'|'compare'|'order'|'pattern'|'ordinal'|'add'|'subtract'|'bond'|'missing'|'groups'|'share'|'money'|'moneyChange'|'length'|'clock'|'duration'|'shape'|'shapePattern'|'pictureGraph'|'oddEven'|'multiply'|'divide'|'fractionShade'|'fractionCompare'|'fractionAdd'|'unitConvert'|'solid'|'remainder'|'fractionEquivalent'|'fractionSimplify'|'fractionSubtract'|'perimeter'|'area'|'angleType'|'parallel'|'barGraph'|'round'|'factor'|'multiple'|'mixedFraction'|'fractionSet'|'decimalPlace'|'decimalCompare'|'decimalRound'|'decimalAdd'|'decimalMultiply'|'symmetry'|'net'|'lineGraph'|'pieChart'|'operations'|'fractionMultiply'|'fractionDecimal'|'percent'|'discount'|'rate'|'triangleArea'|'volume'|'angleFacts'|'triangleAngle'|'quadrilateral'|'fractionDivide'|'reversePercent'|'percentChange'|'ratio'|'ratioShare'|'algebra'|'equation'|'circle'|'volumeMissing'|'average'|'story'|'decimalDivide'|'paper'|'daily';
-export interface Activity { id:string; level:number; track:Track; strand:Strand; kind:GameKind; title:string; objective:string; skillIds:string[]; parameter?:string; icon:string }
+export interface Activity { id:string; level:number; track:Track; strand:Strand; kind:GameKind; title:string; objective:string; skillIds:string[]; parameter?:string; canonicalPatternId?:string; icon:string }
 const N:Strand='Number & Algebra',G:Strand='Measurement & Geometry',S:Strand='Statistics';
 // Every row is a distinct, playable activity. References link to the versioned MOE map.
 type Entry=[GameKind,string,string,string?];

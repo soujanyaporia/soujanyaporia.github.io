@@ -1,3 +1,5 @@
+import {adaptedPattern} from './paperImports/catalog';
+import {makeAdaptedPaperQuestion} from './paperImports/questions';
 import {Rng,hashString} from '../engine/random';
 import type {Activity} from './catalog';
 import type {Picture,Proof,Question} from './generate';
@@ -13,7 +15,7 @@ const fmt=(value:number)=>Number(value.toFixed(6)).toString();
 const dollars=(value:number)=>`$${value.toFixed(2)}`;
 const cards=(heading:string,items:Extract<PaperPicture,{layout:'cards'}>['cards'],caption?:string):PaperPicture=>({type:'paper',layout:'cards',heading,cards:items,caption});
 
-/** A mixed set visits all six families, independently of the order questions are opened. */
+/** A mixed set visits the available task configurations, independently of the order questions are opened. */
 export function paperParameter(activity:Activity,seed:number,index=0):string{
  if(activity.parameter&&activity.parameter!=='mixed')return activity.parameter;
  const patterns=PAPER_PATTERNS.filter(p=>p.level===activity.level);
@@ -25,6 +27,7 @@ export function paperParameter(activity:Activity,seed:number,index=0):string{
 /** Fresh illustrations and wording, based on mathematical structures observed in school papers. */
 export function makePaperQuestion(activity:Activity,seed:number,index=0):Question{
  const parameter=paperParameter(activity,seed,index);
+ if(adaptedPattern(parameter))return makeAdaptedPaperQuestion({...activity,parameter},seed,index);
  if(CORPUS_PATTERNS.some(p=>p.parameter===parameter))return makeCorpusPaperQuestion({...activity,parameter},seed,index);
  if(parameter.startsWith('p3-'))return makeP3PaperQuestion({...activity,parameter},seed,index);
  const r=new Rng(hashString(`${activity.id}:${seed}:${index}:${parameter}:paper-v1`));

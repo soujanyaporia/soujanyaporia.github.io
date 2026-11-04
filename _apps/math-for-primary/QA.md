@@ -1,3 +1,11 @@
+# Six-paper response integration — 4 November 2026
+
+833 frontend tests in 70 files passed; production build and 289 SEO/redirect checks passed. All 9 API tests passed after syncing shared catalogue and answer contracts. The six imported paper modules independently solved 52,400 finite variants; separate 50,000-sample bank audit had zero failures (172 configurations, 22,439 distinct visible identities). Integration audit passed 17,200 generated responses, 1,600 daily plans, 288 complete save/resumes, 206 grouping print/feedback checks. Source coverage is 127 complete units and three explicitly uncredited source ambiguities across six inventories; only four papers strictly complete. This is not complete MOE coverage or classroom validation.
+
+Live finish-button hotfix: `1b4bd2f`, GitHub run `41858541812` succeeded. On a six-question P6 paper, the final screen showed one Check my answers control; clicking it produced 6/6 correct and worked solutions. Proof `.generated/live-paper-check-fixed-2026-11-04.png`. Earlier local browser tests covered incomplete confirmation/Keep working, alternate equations, typed number names, touch grouping save/reload and mobile P3/P4 pictures.
+
+---
+
 # Final content and usability expansion — 4 November 2026
 
 The integrated source has 270 lessons, 248 activities and 42 original illustrated paper families (seven per Standard level). Curriculum rows now explicitly distinguish “Lesson available” from an extra “Practice activity”; these labels are not completion or full-MOE-coverage marks. Related lesson-to-practice links are labelled honestly, and new lesson answers are recorded separately from activity drills while preserving history, rewards and completion. Historical mixed aggregates are retained because bounded history cannot reconstruct them safely.

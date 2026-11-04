@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-11-04T15:37:11.511Z",
+  "scope": "Finite integration/response/resume checks; these are not independent mathematical solvers or a browser touch review.",
+  "counts": {
+    "paperTasks": 172,
+    "generatedResponseChecks": 17200,
+    "dailyDays": 1600,
+    "dailyQuestions": 9600,
+    "paperResumes": 288,
+    "groupingPrintAndFeedbackChecks": 206
+  },
+  "failures": [],
+  "notes": [
+    "All complete paper response controls were exercised via their public core; no browser click/touch claim is made.",
+    "A separate regression corrected session fingerprint omission of requireSimplified/requireImproper.",
+    "106 task configurations at initial integration are not 106 unique mathematical strategies; new P2/P4 integrations can change this denominator."
+  ]
+}

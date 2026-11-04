@@ -1,11 +1,29 @@
 import {describe,it,expect} from 'vitest';
 import {ACTIVITIES,activityById} from './catalog';
-import {makeQuestion,type Question} from './generate';
+import {makeQuestion,correctAnswer,type Question} from './generate';
+import {hashString} from '../engine/random';
 import {answerEventId,combineSessions,completeEventId,encodeQuestionKey,mergeSameSession,parseQuestionKey,stableId,validateSession,type PrimarySession,type ScoredResult} from './session';
-import {checkSession,createSession,diagnose,nearTransfer,questionFromKey,sessionQuestions,strategyOf} from './sessionQuestions';
+import {checkSession,createSession,diagnose,fingerprint,nearTransfer,questionFromKey,sessionQuestions,strategyOf} from './sessionQuestions';
 const same=(q:Question)=>JSON.stringify([q.prompt,q.display,q.picture,q.answer]);
 const scored=(answer:string,at:number,firstTry=true):ScoredResult=>({answer,correct:true,firstTry,hints:firstTry?0:1,tries:firstTry?1:2,wrong:firstTry?[]:['1'],at});
 describe('resumable session identity',()=>{
+ it('invalidates fraction notation rules that change grading without changing unaffected hashes',()=>{
+  const q:Question={key:'fraction-test',prompt:'Write the fraction.',answer:'3/2',hint:'Use equal parts.',explanation:'Three halves.'};
+  expect(correctAnswer(q,'6/4')).toBe(true);
+  expect(correctAnswer({...q,requireSimplified:true},'6/4')).toBe(false);
+  expect(correctAnswer(q,'1 1/2')).toBe(true);
+  expect(correctAnswer({...q,requireImproper:true},'1 1/2')).toBe(false);
+  expect(fingerprint({...q,requireSimplified:true})).not.toBe(fingerprint(q));
+  expect(fingerprint({...q,requireImproper:true})).not.toBe(fingerprint(q));
+  expect(fingerprint({...q,requireSimplified:false,requireImproper:false})).toBe(fingerprint(q));
+  const previous=hashString(JSON.stringify([q.prompt,'',q.answer,[],[],0,null,''])).toString(16).padStart(8,'0');
+  expect(fingerprint(q)).toBe(previous);
+  // A saved pre-fix session must not silently apply a stricter rule to the same typed answer.
+  const activity=ACTIVITIES.find(a=>makeQuestion(a,23,0).requireSimplified)!;
+  const {session,questions}=createSession(activity,{seed:23,now:1});
+  const beforeRule={...session,fingerprints:questions.map(question=>fingerprint({...question,requireSimplified:false,requireImproper:false}))};
+  expect(checkSession(activity,beforeRule)).toEqual({ok:false,reason:'questions'});
+ });
  it('derives stable UUID-shaped event IDs that the account API accepts',()=>{
   const id=answerEventId('0123456789abcdef',3);expect(id).toMatch(/^[a-f0-9-]{36}$/);expect(id).toBe(answerEventId('0123456789abcdef',3));
   const ids=new Set([completeEventId('0123456789abcdef'),...Array.from({length:20},(_,p)=>answerEventId('0123456789abcdef',p)),answerEventId('fedcba9876543210',0)]);expect(ids.size).toBe(22);
@@ -29,7 +47,7 @@ describe('resumable session identity',()=>{
   const good={...session,results:[scored('9',1001)],cursor:1,draft,updatedAt:1002};
   expect(validateSession(good,2000)).toEqual(good);
   expect(validateSession({...good,extra:'ignored'},2000)).toEqual(good);
-  for(const bad of [{...good,activityId:'p9-unknown'},{...good,id:'short'},{...good,draft:{...draft,position:0}},{...good,cursor:2},{...good,results:[{...scored('9',1001),hints:1}]},{...good,completedAt:1003},{...good,fingerprints:good.fingerprints.slice(1)},{...good,seed:-1},{...good,draft:{...draft,value:'x'.repeat(101)}},{...good,updatedAt:10**12}])expect(validateSession(bad,2000)).toBeNull();
+  for(const bad of [{...good,activityId:'p9-unknown'},{...good,id:'short'},{...good,draft:{...draft,position:0}},{...good,cursor:2},{...good,results:[{...scored('9',1001),hints:1}]},{...good,completedAt:1003},{...good,fingerprints:good.fingerprints.slice(1)},{...good,seed:-1},{...good,draft:{...draft,value:'x'.repeat(201)}},{...good,updatedAt:10**12}])expect(validateSession(bad,2000)).toBeNull();
   expect(validateSession({...good,results:Array.from({length:good.count},(_,i)=>scored(String(i),1001)),draft:null,cursor:good.count,completedAt:1003,stars:3},2000)).not.toBeNull();
  });
 });

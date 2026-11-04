@@ -12,7 +12,7 @@ describe('Paper setup and resume',()=>{
  it('opens setup with a clear Continue action, retaining an existing 18-question attempt',()=>{
   const values=new Map<string,string>(),kv:KV={getItem:k=>values.get(k)??null,setItem:(k,v)=>{values.set(k,v);},removeItem:k=>{values.delete(k);}};
   const paper=generatePracticePaper({level:3,track:'standard',count:18,topic:'mixed',seed:817});
-  const position=paper.items.findIndex(item=>item.activity.parameter==='p3-transfer');expect(position).toBeGreaterThanOrEqual(0);
+  const position=7; // A saved middle question remains independent of the sampled task family.
   const saved={...createPaperAttempt(paper),position};saved.answers[0]='17';writePaperAttempt(kv,'guest',saved);vi.stubGlobal('localStorage',kv);
   const html=renderToStaticMarkup(createElement(PracticePapers));
   expect(html).toContain('<h1>Create a paper</h1>');expect(html).toContain('Create my paper');

@@ -1,4 +1,5 @@
 import type {Strand} from '../school/curriculum';
+import {ADAPTED_PAPER_PATTERNS} from './paperImports/catalog';
 import {CORPUS_PATTERNS} from './corpusPaperCatalog';
 
 /** Original question families, informed by representative Singapore school papers.
@@ -46,4 +47,4 @@ const rows:Row[]=[
 ];
 export const PAPER_PATTERNS:PaperPattern[]=[...rows.map(([level,slug,title,objective,strand,skillIds])=>({
  parameter:`p${level}-${slug}`,level,title,objective,strand,skillIds,icon:strand===G?'◇':strand===S?'▥':'✦',
-})),...CORPUS_PATTERNS];
+})),...CORPUS_PATTERNS,...ADAPTED_PAPER_PATTERNS];

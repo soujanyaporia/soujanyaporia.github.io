@@ -4,6 +4,7 @@ import { answerStatsKey } from './answerSource';
 export interface ActivityProgress {attempts:number;correct:number;firstTry:number;hints:number;tries:number;sessions:number;stars:number;lastAt:number;days:string[];recent:number[]}
 export interface HistoryEntry {activityId:string;at:number;questionKey?:string;answer?:string;correct:boolean;firstTry:boolean;hints:number}
 /** `applied` holds recent answer/completion event IDs so a retried or duplicated event is counted once. */
+/** Activity IDs track standalone practice; `learn.<lessonId>` entries retain separate lesson-answer evidence and XP. */
 export interface PrimaryProgress {selection:{level:number;track:Track}|null;activities:Record<string,ActivityProgress>;history?:HistoryEntry[];applied?:string[]}
 export const initialPrimary=():PrimaryProgress=>({selection:null,activities:{},history:[],applied:[]});
 export type PrimaryEvent = {id:string;at:number} & (

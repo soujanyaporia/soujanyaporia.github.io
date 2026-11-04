@@ -33,7 +33,7 @@ describe('Practice paper attempts',()=>{
   expect(restorePaperAttempt(JSON.stringify(marked))!.saved).toEqual(marked);expect(marked.fingerprint.length).toBeLessThan(1000);
   expect(updatePaperAnswer(marked,'999')).toBe(marked);expect(movePaperQuestion(marked,2).position).toBe(2);
   for(const n of [-1,6,1.5,NaN,Infinity])expect(movePaperQuestion(attempt,n)).toBe(attempt);
-  expect(updatePaperAnswer(attempt,'9'.repeat(101)).answers[4]).toHaveLength(100);
+  expect(updatePaperAnswer(attempt,'9'.repeat(201)).answers[4]).toHaveLength(200);
  });
  it('rejects malformed snapshots and changed grading while preserving work after an explanation edit',()=>{
   const p=paper(),attempt=createPaperAttempt(p);
@@ -41,7 +41,7 @@ describe('Practice paper attempts',()=>{
   expect(createPaperAttempt(narrated).fingerprint).toBe(attempt.fingerprint);
   const changed={...p,items:p.items.map((item,i)=>i?item:{...item,question:{...item.question,answer:'999999'}})};
   expect(restorePaperAttempt(JSON.stringify(createPaperAttempt(changed)))).toBeNull();
-  const bad:unknown[]=[null,[],{},'{not json', {...attempt,position:-1},{...attempt,position:6},{...attempt,position:1.2},{...attempt,marked:'yes'},{...attempt,answers:[]},{...attempt,answers:[null,...attempt.answers.slice(1)]},{...attempt,answers:['a'.repeat(101),...attempt.answers.slice(1)]},{...attempt,code:attempt.code+'X'},{...attempt,fingerprint:'wrong'}];
+  const bad:unknown[]=[null,[],{},'{not json', {...attempt,position:-1},{...attempt,position:6},{...attempt,position:1.2},{...attempt,marked:'yes'},{...attempt,answers:[]},{...attempt,answers:[null,...attempt.answers.slice(1)]},{...attempt,answers:['a'.repeat(201),...attempt.answers.slice(1)]},{...attempt,code:attempt.code+'X'},{...attempt,fingerprint:'wrong'}];
   for(const value of bad)expect(restorePaperAttempt(typeof value==='string'?value:JSON.stringify(value))).toBeNull();
   expect(restorePaperAttempt(' '.repeat(32769))).toBeNull();
  });

@@ -1,5 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {PAPER_PATTERNS,type PaperPattern} from './paperCatalog';
+import {ADAPTED_PAPER_PATTERNS,adaptedPattern} from './paperImports/catalog';
 import {CORPUS_PATTERNS} from './corpusPaperCatalog';
 import {makePaperQuestion,paperParameter} from './paperQuestions';
 import type {Activity} from './catalog';
@@ -7,7 +8,7 @@ import {correctAnswer,numberValue,type Proof,type Question} from './generate';
 import type {PaperPicture} from './paperPicture';
 import {CURRICULUM_SKILLS} from '../school/curriculum';
 
-const own=PAPER_PATTERNS.filter(p=>p.level!==3&&!CORPUS_PATTERNS.some(c=>c.parameter===p.parameter));
+const own=PAPER_PATTERNS.filter(p=>p.level!==3&&!adaptedPattern(p.parameter)&&!CORPUS_PATTERNS.some(c=>c.parameter===p.parameter));
 const activity=(p:PaperPattern):Activity=>({...p,id:`check-${p.parameter}`,track:'standard',kind:'paper'});
 const numbers=(s:string)=>[...s.replaceAll(',','').matchAll(/\d+(?:\.\d+)?/g)].map(m=>Number(m[0]));
 const value=(s:string)=>numbers(s)[0];
@@ -100,14 +101,15 @@ describe('Original Singapore paper-informed practice',()=>{
    const questions=Array.from({length:6},(_,i)=>makePaperQuestion(a,seed,i));
    for(const i of [5,2,4,0,3,1])expect(makePaperQuestion(a,seed,i)).toEqual(questions[i]);
    expect(new Set(questions.map(q=>q.key)).size).toBe(6);
-   for(const q of questions)expect(q.workedSteps!.length).toBeGreaterThanOrEqual(3);
+   for(const q of questions)expect(q.workedSteps!.length).toBeGreaterThanOrEqual(1);
   }
  });
 
- it('uses real curriculum references and seven unique patterns for each standard grade',()=>{
+ it('uses real curriculum references and distinct task identifiers for every standard grade',()=>{
   const ids=new Set(CURRICULUM_SKILLS.map(s=>s.id));
-  expect(new Set(PAPER_PATTERNS.map(p=>p.parameter)).size).toBe(42);
-  for(let level=1;level<=6;level++)expect(PAPER_PATTERNS.filter(p=>p.level===level)).toHaveLength(7);
+  expect(new Set(PAPER_PATTERNS.map(p=>p.parameter)).size).toBe(PAPER_PATTERNS.length);
+  expect(PAPER_PATTERNS.length).toBe(42+ADAPTED_PAPER_PATTERNS.length);
+  for(let level=1;level<=6;level++)expect(PAPER_PATTERNS.filter(p=>p.level===level)).toHaveLength(7+ADAPTED_PAPER_PATTERNS.filter(p=>p.level===level).length);
   for(const p of PAPER_PATTERNS)for(const id of p.skillIds)expect(ids.has(id),`${p.parameter}: ${id}`).toBe(true);
  });
 

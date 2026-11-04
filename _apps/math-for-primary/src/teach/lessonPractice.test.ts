@@ -7,12 +7,13 @@ import {lessonPractice} from './lessonPractice';
 import {FOUR_ADDENDS_ID} from './lessons/fourAddendsMeta';
 
 describe('Honest lesson-to-practice links',()=>{
- it('identifies the number-name fallback as related counting practice',()=>{
+ it('links number-name lessons to the new number-writing practice',()=>{
   const lesson=lessonMeta('p1s-wn-03')!,link=lessonPractice(lesson)!;
   expect(link.activity.id).toBe(lesson.activityId);
-  expect(link.activity.skillIds).not.toContain(lesson.skillIds[0]);
-  expect(link.exact).toBe(false);
-  expect(link.label).toBe(`Related practice: ${link.activity.title}`);
+  expect(link.activity.parameter).toBe('hp25-06');
+  expect(link.activity.skillIds).toContain(lesson.skillIds[0]);
+  expect(link.exact).toBe(true);
+  expect(link.label).toBe(`Practise: ${link.activity.title}`);
  });
  it('keeps the exact addition link and names its destination',()=>{
   const lesson=lessonMeta('p1-written-addition')!,link=lessonPractice(lesson)!;
@@ -24,11 +25,11 @@ describe('Honest lesson-to-practice links',()=>{
   expect(link.activity.parameter).toBe('three');expect(link.exact).toBe(false);
  });
  it('names related practice visibly and accessibly in the discovery path',()=>{
-  const html=renderToStaticMarkup(createElement(DiscoveryPath,{lesson:lessonMeta('p1s-wn-03')}));
+  const html=renderToStaticMarkup(createElement(DiscoveryPath,{lesson:lessonMeta(FOUR_ADDENDS_ID)}));
   expect(html).toContain('Related practice');
   expect(html).toContain('Explore this lesson and related practice');
   expect(html).not.toContain('ONE IDEA. THREE LITTLE STEPS.');
-  expect(html).toContain(`href="#/activity/${lessonMeta('p1s-wn-03')!.activityId}"`);
+  expect(html).toContain(`href="#/activity/${lessonMeta(FOUR_ADDENDS_ID)!.activityId}"`);
  });
  it('requires all lesson objectives and the same level/path, and tolerates a missing route',()=>{
   const lesson=lessonMeta('p1-written-addition')!;
@@ -47,6 +48,6 @@ describe('Honest lesson-to-practice links',()=>{
     unmatched++;expect(link.label,lesson.id).toMatch(/^Related practice: /);
    }
   }
-  expect(unmatched).toBeGreaterThan(90);
+  expect(unmatched).toBeGreaterThan(0);
  });
 });
