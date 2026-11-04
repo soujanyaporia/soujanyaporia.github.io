@@ -113,7 +113,7 @@ export function publicPages(): PublicPage[] {
   }
   for (const l of LESSONS) {
     const path = guidePath(l.id), name = gradeName(l.level, l.track);
-    pages.push(page(path, `${l.title} | ${name} Maths`, `${name} maths: ${l.objectives[0]}. Free visual explanation, worked examples and interactive practice for Singapore primary pupils.`, <LessonArticle lesson={l}/>, [home, directory, { name: `${name} maths`, path: gradePath(l.level, l.track) }, { name: l.title, path }], l));
+    pages.push(page(path, `${l.title} | ${name} Maths`, `${l.title}: a free ${name} maths lesson with visual models, worked examples and interactive practice for Singapore primary pupils.`, <LessonArticle lesson={l}/>, [home, directory, { name: `${name} maths`, path: gradePath(l.level, l.track) }, { name: l.title, path }], l));
   }
   return pages;
 }

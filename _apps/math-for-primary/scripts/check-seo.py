@@ -73,6 +73,7 @@ def check():
         pages[url] = p
     assert len(pages) > 1, 'No public lessons were generated'
     assert len({p.title_text for p in pages.values()}) == len(pages), 'Duplicate page titles'
+    assert len({p.description[0] for p in pages.values()}) == len(pages), 'Duplicate descriptions'
     sitemap = ET.parse(ROOT / 'sitemap.xml')
     urls = [element.text for element in sitemap.findall('.//{*}loc')]
     assert len(urls) == len(set(urls)), 'Duplicate sitemap URLs'
