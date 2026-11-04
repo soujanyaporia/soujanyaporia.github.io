@@ -5,7 +5,7 @@ import {ACTIVITIES,type Activity} from './catalog';
 import {makeQuestion,type Question} from './generate';
 
 /** Bump when the source schedule, seeded draws or question semantics change. */
-export const PRACTICE_PAPER_VERSION=1;
+export const PRACTICE_PAPER_VERSION=2;
 export const PRACTICE_PAPER_COUNTS=[6,12,18] as const;
 export type PracticePaperCount=typeof PRACTICE_PAPER_COUNTS[number];
 export interface PaperRequest {level:number;track:Track;count:PracticePaperCount;topic:string;seed:number}
@@ -83,7 +83,9 @@ export function parsePracticePaperCode(code:string,activities:Activity[]=ACTIVIT
 
 /** Ignore shuffled distractors and invisible answers: neither makes a repeated question fresh. */
 export function visibleQuestionKey(q:Question):string{
- return JSON.stringify([norm(q.prompt),norm(q.display??''),q.picture??null,q.order?[...q.order].sort():null,q.fractionBuilder??null,norm(q.unit??'')]);
+ const visible:unknown[]=[norm(q.prompt),norm(q.display??''),q.picture??null,q.order?[...q.order].sort():null,q.fractionBuilder??null,norm(q.unit??'')];
+ if(q.context?.length)visible.push(q.context.map(norm));
+ return JSON.stringify(visible);
 }
 const resumeFingerprint=(q:Question)=>hashString(JSON.stringify([visibleQuestionKey(q),q.answer,q.choices?[...q.choices].sort():null,q.order??null,q.requireSimplified??false,q.requireImproper??false])).toString(16).padStart(8,'0');
 

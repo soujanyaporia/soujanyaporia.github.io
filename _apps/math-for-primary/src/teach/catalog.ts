@@ -1,3 +1,5 @@
+import {FOUR_ADDENDS_LESSON} from './lessons/fourAddends';
+import {withFourAddends} from './lessons/fourAddendsMeta';
 import {improveTeachingQuality} from './depth/quality';
 import {deepenAuthored} from './depth/catalogue/authored';
 import {withLessonFlow} from './flow';
@@ -39,7 +41,7 @@ function withChallenge(lesson:Lesson):Lesson{
  const p=planFor(skill);
  return {...lesson,stages:[...lesson.stages,challengeStage(lesson.id,p.code,{level:p.level,foundation:p.track==='foundation',objective:p.objective})]};
 }
-export const LESSONS:Lesson[]=[...VISUAL_HAND.map(deepenAuthored),...BUILT_LESSONS].map(improveTeachingQuality).map(withLessonFlow).map(withChallenge).map(withDistinctQuestions).map(l=>({...l,revision:`${l.revision}${QUESTION_SET}`})).sort((a,b)=>a.level-b.level);
+export const LESSONS:Lesson[]=withFourAddends([...VISUAL_HAND.map(deepenAuthored),...BUILT_LESSONS].map(improveTeachingQuality).map(withLessonFlow).map(withChallenge).map(withDistinctQuestions).map(l=>({...l,revision:`${l.revision}${QUESTION_SET}`})).sort((a,b)=>a.level-b.level),FOUR_ADDENDS_LESSON);
 export const lessonById=(id:string)=>LESSONS.find(l=>l.id===id);
 export const lessonsFor=(level:number,track:Track)=>LESSONS.filter(l=>l.level===level&&(l.track==='both'||l.track===track));
 export function nextLessonAfter(lesson:Lesson){const same=LESSONS.filter(l=>l.level===lesson.level&&(l.track==='both'||lesson.track==='both'||l.track===lesson.track));return same[same.indexOf(lesson)+1]??null;}

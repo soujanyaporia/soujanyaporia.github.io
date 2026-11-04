@@ -32,7 +32,7 @@ export function solve(q:Question,param:string):number{
   case 'p1-groups':return cardList(q).reduce((total,c)=>total+c.count!,0);
   case 'p2-groups':{const c=cardList(q);return value(c[0].value)*c[1].count!;}
   case 'p2-share':{const c=cardList(q);return value(c[0].value)/c[1].count!;}
-  case 'p2-before':{const p=timeline(q);return value(p.points[1].label)*value(p.caption!)-value(p.gaps[0]);}
+  case 'p2-before':{const p=timeline(q);return value(p.points[1].label)*value(q.context![0])-value(p.gaps[0]);}
   case 'p2-fraction':return cardList(q).reduce((total,c)=>{const [a,b]=numbers(c.value);return total+a/b;},0);
   case 'p2-shade':return numbers(q.prompt)[0]-fractionPicture(q).filled;
   case 'p2-bottles':{const c=cardList(q);return value(c[0].value)/value(c[1].value);}
@@ -51,7 +51,7 @@ export function solve(q:Question,param:string):number{
   case 'p6-ratio':{const p=bars(q),total=value(p.totalLabel!),[a,b]=p.rows.map(row=>row.parts.length);return total*b/(a+b);}
   case 'p6-change':{const p=timeline(q),[before,after]=p.points.map(point=>value(point.label));return Math.abs(after/before-1)*100;}
   case 'p6-algebra':{const p=timeline(q),x=value(p.points[0].label);return x*value(p.gaps[0])+value(p.gaps[1]);}
-  case 'p6-average':{const p=diagram(q);if(p.layout!=='cards')throw Error('Expected reading cards');return value(p.caption!)*p.cards.length-p.cards.filter(c=>c.value!=='?').reduce((sum,c)=>sum+value(c.value),0);}
+  case 'p6-average':{const p=diagram(q);if(p.layout!=='cards')throw Error('Expected reading cards');return value(q.context![0])*p.cards.length-p.cards.filter(c=>c.value!=='?').reduce((sum,c)=>sum+value(c.value),0);}
   case 'p6-charge':{const c=cardList(q),first=value(c[0].value),rate=value(c[1].value),block=value(c[1].label),duration=value(c[2].value);let covered=value(c[0].label),charge=first;while(covered<duration){charge+=rate;covered+=block;}return charge;}
   case 'p6-redistribute':{const p=timeline(q),[boxes,each]=numbers(p.points[0].label),removed=value(p.points[1].label);const shares=Array(boxes-removed).fill(0);for(let bead=0;bead<boxes*each;bead++)shares[bead%shares.length]++;expect(new Set(shares).size).toBe(1);return shares[0]-each;}
   default:throw Error(`No independent solver for ${param}`);

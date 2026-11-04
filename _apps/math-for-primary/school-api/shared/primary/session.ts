@@ -43,6 +43,8 @@ export const isComplete=(s:PrimarySession)=>s.results.length>=s.count;
 export const isUnfinished=(s:PrimarySession)=>!isComplete(s)&&s.completedAt===null;
 /** Question number a pupil returns to: the scored answer being reviewed, or the next unanswered question. */
 export const resumePosition=(s:PrimarySession)=>Math.min(s.cursor,s.count-1);
+/** A repeated tap must not skip a question, and an unscored question cannot advance. */
+export function advanceSession(s:PrimarySession,from:number){return s.cursor===from&&from<s.results.length?{...s,cursor:from+1}:s;}
 const isInt=(n:unknown,min:number,max:number):n is number=>Number.isInteger(n)&&(n as number)>=min&&(n as number)<=max;
 const isStr=(s:unknown,max:number):s is string=>typeof s==='string'&&s.length<=max;
 const strList=(xs:unknown,items:number,len:number):xs is string[]=>Array.isArray(xs)&&xs.length<=items&&xs.every(x=>isStr(x,len));

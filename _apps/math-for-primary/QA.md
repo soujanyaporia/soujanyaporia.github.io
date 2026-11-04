@@ -1,3 +1,17 @@
+# Usability repair and four-number addition — 4 November 2026
+
+The screenshot of the P3 badge-transfer question identified a missing comparison target and an essential giving action hidden in a small caption. The question now names both children and presents the givens above a before/give/after model. Essential facts in other rich questions are also explicit. Fraction grids now completely partition their whole; subtraction pictures mark removed objects; angle diagrams label their actual givens; square pyramids include all four base vertices. The meaningful bundle-purchase range avoids trivial one-muffin cases.
+
+Home and mobile navigation expose Daily practice, Create a paper and Learn. Paper entry opens setup with a separate Continue action; its full question picker is collapsed, and Previous/Next/Finish appear before the optional working pad. Question help can reveal a worked answer immediately. Lesson progression returns to earlier unanswered questions and keeps navigation ahead of the drawing pad. P1/P2 warm-ups use short child-readable instructions.
+
+The student session cache callbacks no longer change on every answer, breaking a repeated pull/save effect loop. In-memory work survives unavailable storage. Resumed fraction/order drafts discard unreachable selections; zero-shaded answers are checkable; Next cannot advance twice from a stale question. Changed question semantics and papers have explicit version boundaries.
+
+The new optional P1 four-number lesson follows p1s-as-06. It retains the same coloured counters while joining the first pair, third group and fourth group, with subtotal checks and original practice/challenges. There are 266 guided lessons; all 266 walkthroughs match approved Voice A narration, with 650 clips (73.5 MiB). Source-pattern provenance is internal and does not claim the source paper taught four-addend addition.
+
+Browser checks at 375 CSS pixels verified the visible paper entry, no home overflow, P3 givens, answer persistence through Previous/Next, partial-paper confirmation, marking and worked solutions. The full frontend suite passed 658 tests in 53 files; the subsequent storage-fallback refinement passed eight focused flow tests. The API passed nine tests. Typecheck/build and 285-page SEO/redirect checks passed. The 50,000-sample paper audit passed with 16,537 distinct visible identities and 33,463 repeat draws. Production-browser verification confirmed the new Voice A narration reached picture four, a three-group attempt was rejected, and joining the fourth group unlocked the next step. Corpus extraction has finished for all 2,406 files and 57,336 pages; these remain unreviewed search drafts, not a fully imported question bank.
+
+---
+
 # Daily practice, fresh papers and continuation checks — 4 November 2026
 
 The main frontend default suite passes **631 tests in 48 files**; the subsequent touch-counting fix passes **66 focused checks**, with full CI rerun on publication; the school API passes **9 tests**. The exhaustive 265-lesson recovery audit has a 30-second timeout because it repeatedly exceeded five seconds under CPU load; its samples and assertions are unchanged. Typecheck and the production build pass. SEO and legacy-path audits verify 284 canonical/redirect pages. All 265 continuous Voice A walkthroughs and 645 reviewed audio assets still pass the narration audit; the four narration adapter tests pass. Generated solutions without recordings use captions and step animation, never a device-voice fallback.

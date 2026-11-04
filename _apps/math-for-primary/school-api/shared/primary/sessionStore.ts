@@ -1,4 +1,4 @@
-import { validateSession,type PrimarySession } from './session';
+import { combineSessions,validateSession,type PrimarySession } from './session';
 /**
  * Browser copies of resumable sessions, one store per scope: `guest`, `staff:<id>` or `student:<id>`.
  * Scopes never share a key, so guest play and each account stay separate on a shared device.
@@ -21,3 +21,25 @@ export function readSessions(kv:KV|null,scope:string):SessionEntries{
 }
 export function writeSessions(kv:KV|null,scope:string,entries:SessionEntries){try{if(!kv)return false;kv.setItem(storageKey(scope),JSON.stringify({scope,entries:prune(entries)}));return true;}catch{return false}}
 export function clearSessions(kv:KV|null,scope:string){try{kv?.removeItem(storageKey(scope))}catch{/* storage unavailable */}}
+/** Stable store methods let React update a draft without restarting the account-sync effect. */
+export function createSessionCache(kv:KV|null,scope:string){
+ let entries=readSessions(kv,scope),persistent=!!kv;
+ return {
+  read(){if(persistent)entries=readSessions(kv,scope);return entries;},
+  write(next:SessionEntries){persistent=writeSessions(kv,scope,next);entries=persistent?readSessions(kv,scope):prune(next);return entries;},
+  reload(){
+   const stored=readSessions(kv,scope);
+   if(persistent){entries=stored;return entries;}
+   // Another tab's storage event does not prove our failed write was saved.
+   // Merge new remote work while retaining newer drafts and pending uploads in memory.
+   const merged={...stored};
+   for(const [id,local] of Object.entries(entries)){
+    const other=stored[id];
+    merged[id]=other?{session:combineSessions(local.session,other.session)!,rev:Math.max(local.rev,other.rev),dirty:local.dirty||other.dirty}:local;
+   }
+   entries=prune(merged);return entries;
+  },
+  clear(){clearSessions(kv,scope);entries={};return entries;},
+  get persistent(){return persistent;},
+ };
+}

@@ -4,7 +4,7 @@ Source: [MOE Primary Mathematics Syllabus, updated October 2025](https://www.moe
 
 ## What is established
 
-The app's curated map contains 252 objectives. All resolve to lesson content, within a catalogue of 265 lessons including broader exemplar units. Every lesson has a picture explanation, a worked example with a pupil question, and guided practice. All 199 practice activities now link to teaching for at least one of their exact mapped skills; 35 existing activities previously lacked a direct lesson link. These are content and navigation checks, not evidence that every official subpoint is adequately taught or that pupils understand it.
+The app's curated map contains 252 objectives. All resolve to lesson content, within a catalogue of 266 lessons including broader exemplar units. Every lesson has a picture explanation, a worked example with a pupil question, and guided practice. All 199 practice activities now link to teaching for at least one of their exact mapped skills; 35 existing activities previously lacked a direct lesson link. These are content and navigation checks, not evidence that every official subpoint is adequately taught or that pupils understand it.
 
 The coverage screen now derives its component indicators from actual lesson stages. It no longer infers the existence of guided practice, application or a mastery check solely from a lesson being listed.
 
@@ -16,7 +16,7 @@ The dedicated Three-group picnic activity uses three addends, coloured groups an
 
 ## Outstanding curriculum and teaching validation
 
-- **Three versus more than two addends:** the current sequence teaches three. A four-or-more-addend extension and transfer questions are needed before treating this whole official subpoint as fully covered.
+- **More than two addends:** the three-number lesson now links to an original four-number extension, with totals within 20, picture movement, subtotal checkpoints and transfer questions. This addresses the identified four-addend gap; numerical range, strategy variation and classroom comprehension still need review before declaring the whole official subpoint fully covered.
 - **Written algorithms:** MOE P1 p. 31, 2.6 explicitly names addition and subtraction algorithms. The curated map folds these into broader addition/subtraction objectives. Verify written column procedures, exchanges and error feedback separately; a general addition animation is insufficient evidence.
 - **Range and variation:** a lesson entry is not evidence of all official numerical ranges, units, representations and problem types. Trace every official numbered subpoint to the actual teaching and generated questions, including mental calculation requirements on P1 p. 31, 2.7.
 - **Physical work:** real-object measuring, drawing and construction require pupil actions outside a diagram. Paper tasks in the app need adult checking; the app does not automatically assess their accuracy.

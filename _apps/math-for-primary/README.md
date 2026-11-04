@@ -8,9 +8,11 @@ A Singapore Primary 1–6 maths learning application. Choose a primary year to l
 
 ## Daily practice and fresh papers — November 2026
 
+The home screen and phone navigation put **Daily practice**, **Create a paper**, and **Learn** first. Paper setup opens directly, with a separate Continue button for saved work. Questions show essential givens above the diagram, and Previous/Next/Finish sit beside the answer flow before the optional drawing area. Lessons provide an immediate worked-answer route through Help and return to any unanswered question.
+
 The main path is now **Daily practice** (`#/daily`): 200 days for each of the six Standard levels and the two Foundation paths, with six questions per day. Four topical days are followed by a cumulative review. Topics introduce activities gradually, then include related paper-style applications.
 
-**Make a practice paper** (`#/papers`) generates 6-, 12- or 18-question sets by level and topic. Every set has a reusable code, no repeated visible questions, saved answers on this device, end-of-paper marking, worked steps, and printing with optional illustrated solutions. Small question domains offer only sizes they can fill. Practice papers do not yet sync to school accounts or travel in guest passports.
+**Create a paper** (`#/papers`) generates 6-, 12- or 18-question sets by level and topic. Every set has a reusable code, no repeated visible questions, saved answers on this device, end-of-paper marking, worked steps, and printing with optional illustrated solutions. Small question domains offer only sizes they can fill. Practice papers do not yet sync to school accounts or travel in guest passports.
 
 The catalogue adds **36 original illustrated question families**, six per Standard level, plus six mixed picture activities. The reference collection is stored outside the app; source PDFs and unreviewed OCR are not public question-bank content. See [practice design and evidence](PRACTICE-DESIGN.md).
 
@@ -20,18 +22,18 @@ The home, lessons, practice player, missions, Math Lab and progress views share 
 
 - **48 new missions:** six for each P1–P6 Standard level, plus six for P5 Foundation and six for P6 Foundation. Each mission has four generated rounds, hints, resumable working and completion rewards.
 - **23 Math Lab tools**, including subtraction counters, fraction pieces, triangle transformations, solids, rulers and interactive nets.
-- **Watch & learn** offers animated explanations linked to the existing 265 lessons. The current question's worked solution is available after answering/revealing in practice. The picture-first player has continuous narration, pause, replay, speed controls and captions, with small discovery questions after supported models. Captions remain available when audio cannot play.
+- **Watch & learn** offers animated explanations linked to the existing 266 lessons. The current question's worked solution is available after answering/revealing in practice. The picture-first player has continuous narration, pause, replay, speed controls and captions, with small discovery questions after supported models. Captions remain available when audio cannot play.
 - Progress combines lessons, activities and missions. Mission drafts travel in guest passports, and pupil drafts are cleared on school sign-out. Mission drafts remain device-local for school accounts; recorded completions sync through the event service.
 
-**Child-focused teaching pass:** P1 counting now groups the same 32 counters into tens over five pictures. Adding three numbers joins two coloured groups first, keeps the third visibly waiting, then asks the child for the total. A dedicated Three-group picnic activity follows the same method. Every activity recommends an exact-skill guided lesson. See [the syllabus review](SYLLABUS-AUDIT.md) for what the 252-objective inventory establishes and what still needs verification.
+**Child-focused teaching pass:** P1 counting now groups the same 32 counters into tens over five pictures. Adding three numbers joins two coloured groups first, keeps the third visibly waiting, then asks the child for the total. A dedicated Three-group picnic activity follows the same method. An optional fourth-group lesson follows it, with preserved counter colours, subtotal checkpoints, five assessment facets and three challenges. Every activity recommends an exact-skill guided lesson. See [the syllabus review](SYLLABUS-AUDIT.md) for what the 252-objective inventory establishes and what still needs verification.
 
 ### Narration status
 
-The user selected **Voice A (`af_heart`)** after reviewing the samples. All 265 lesson walkthroughs now have continuous Voice A narration with word-timed picture cues. Shared examples, counting solutions and individual coaching excerpts bring the served library to 645 clips (73.0 MiB). Only the requested clip is loaded on play. There is **no automatic device-voice fallback**, no browser model download and no pupil data sent for synthesis. This is synthetic narration, not a human recording.
+The user selected **Voice A (`af_heart`)** after reviewing the samples. All 266 lesson walkthroughs now have continuous Voice A narration with word-timed picture cues. Shared examples, counting solutions and individual coaching excerpts bring the served library to 650 clips (73.5 MiB). Only the requested clip is loaded on play. There is **no automatic device-voice fallback**, no browser model download and no pupil data sent for synthesis. This is synthetic narration, not a human recording.
 
 Run `npm run test:narration-assets` to verify every lesson has a matching approved recording and valid picture cues. The local generator, `scripts/generate-natural-narration.py`, uses Kokoro through MLX Audio in the local `.tools/natural-voice` environment. Run `node scripts/export-narration.mjs` before regenerating; both the environment and working audio are excluded from publication. Public reviewed MP3s and their manifest are included.
 
-An optional ElevenLabs pipeline keeps credentials outside the browser, renders one continuous recording per picture sequence, and uses character timestamps for picture changes. Its default is a single staged sample. The current export has 159 distinct continuous scripts (shared sequences serve multiple lessons). Run the plan command for current character counts.
+An optional ElevenLabs pipeline keeps credentials outside the browser, renders one continuous recording per picture sequence, and uses character timestamps for picture changes. Its default is a single staged sample. The current export has 160 distinct continuous scripts (shared sequences serve multiple lessons). Run the plan command for current character counts.
 
 ```sh
 npm run narration:plan

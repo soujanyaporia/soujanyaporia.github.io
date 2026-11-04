@@ -53,7 +53,7 @@ function DailyPath({level,track}:{level:number;track:Track}){
    <p className="daily-week-note">Four days to practise. A fifth to revisit what you know.</p>
   </section>
   <details className="daily-choose"><summary>Choose a topic or jump to a day <span aria-hidden="true">+</span></summary><div className="daily-choose-fields"><label>Go to a topic<select value={plan.topic.code} onChange={e=>choose(firstDayForTopic(level,track,e.target.value,ACTIVITIES))}>{topics.map(t=><option key={t.code} value={t.code}>{t.title}</option>)}</select></label><form onSubmit={jumpToDay}><label htmlFor="daily-jump">Go to a day (1–200)</label><div><input id="daily-jump" type="number" inputMode="numeric" required min="1" max={DAILY_DAYS} step="1" value={jump} onChange={e=>setJump(e.target.value)}/><button type="submit">Go →</button></div></form></div><p>Explore freely. Skipping ahead does not mark earlier practice complete.</p></details>
-  <aside className="daily-paper-link"><a href="#/papers"><span>Ready for a fresh challenge?</span><strong>Make a practice paper <span aria-hidden="true">→</span></strong></a></aside>
+  <aside className="daily-paper-link"><a href="#/papers"><span>Ready for a fresh challenge?</span><strong>Create a paper <span aria-hidden="true">→</span></strong></a></aside>
   <footer className="daily-progress"><span className="daily-progress-icon" aria-hidden="true">✦</span><div><strong>{completed} of {DAILY_DAYS} days completed</strong><p>Four terms of practice, with room to pause and return.</p></div><a href="#/progress">My progress →</a></footer>
  </>;
 }

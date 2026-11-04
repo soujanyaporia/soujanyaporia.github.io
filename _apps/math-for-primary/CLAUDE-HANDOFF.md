@@ -1,3 +1,15 @@
+# Current usability continuation — 4 November 2026, evening
+
+This section supersedes the earlier UI descriptions below. Home/nav expose Daily practice, Create a paper and Learn. Paper setup opens directly with Continue separate; question navigation is compact and comes before the drawing pad. Essential givens are Question.context and are included in fingerprints, speech, printed questions and solutions. The user-provided badge-transfer example now has an explicit comparison and before/give/after picture.
+
+SessionProvider uses stable cache callbacks to prevent a render/pull loop. See sessionStore.ts createSessionCache, sessionDraft.ts, playerFlow.test.ts and PracticePapers.test.ts. Changed paper semantics use version 2; incompatible saved work is not silently regraded. LessonPlayer help has a direct worked-answer route and nextUnansweredQuestion wraps to earlier work. Assisted answers remain separate evidence.
+
+266 lessons now include p1-add-four-small-numbers, inserted after p1s-as-06 in both full and lightweight catalogues. Its independent generator/renderer tests and original four-group teaching sequence live under teach/lessons/fourAddends*. Approved Voice A narration covers all 266 walkthroughs (650 clips); do not replace it. Source corpus is fully downloaded/extracted: 2,406 files, 57,336 pages, 116,085 unverified candidate regions. Use original pages before implementing any candidate.
+
+Publication and validation status for this pass is kept in .generated/release-status.json and QA.md; earlier commit IDs below describe earlier releases.
+
+---
+
 # Current continuation — daily practice and illustrated papers, 4 November 2026
 
 This section supersedes historical deployment notes below. The frontend release `990dbb72fe09e41a115da02009310e40965fa25c` is live. GitHub Actions run `41819944126` passed both build and deployment. The school API **is deployed**, Sites version 4, source `6880262d016fa6a603d6731d619d96cee684ef7f`, including the new daily/paper catalogue. Preserve its existing public access and D1 data.

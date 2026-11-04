@@ -9,7 +9,7 @@ import { CompletionParty, SoundToggle, useFeedbackSound } from '../ui/Adventure'
 import {PictureKey,ExampleReplay,reflectionReplay} from './LearningSupport';
 import {CHALLENGE_COUNT} from './depth/catalogue/challenges';
 import {answerFormat,lessonPhase,workedFeedback,supportRecommendation} from './learningUi';
-import {nextStageLabel} from './flow';
+import {nextStageLabel,nextUnansweredQuestion} from './flow';
 import {withDistinctQuestions} from './distinct';
 import {challengeEvidence} from './completionEvidence';
 import {modelCaption} from './build/teachingNotes';
@@ -92,7 +92,8 @@ function Player({lesson,mode}:{lesson:Lesson;mode:LessonMode}){
   
   <p className="focus-phase">{lessonPhase(stage)}</p>
   <StageView key={`${attempt.attemptId}:${index}`} lesson={lesson} stage={stage} index={index} items={items} attempt={attempt} onWork={(item,w)=>patch(a=>({...a,work:{...a.work,[`${index}:${item.key}`]:mergeItemWork(a.work?.[`${index}:${item.key}`],w)}}))} onRecord={(item,r)=>record(index,stage.kind,item,r)} onDone={()=>patch(a=>({...a,done:{...a.done,[index]:true}}))} onConfidence={c=>patch(a=>({...a,confidence:c}))} reward={setToast}/>
-  {lesson.level>=3&&ITEM_STAGES.includes(stage.kind)&&<Scratchpad storageKey={`${attempt.attemptId}:${index}`}/>}<nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need sr-only" aria-live="polite">{complete_?'':stage.kind==='reflect'?'Try an explanation, then compare it.':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':stage.kind==='explain'?'Follow the picture steps to continue.':'Choose an answer to continue.'}</span>{((stage.kind!=='explain'&&stage.kind!=='worked')||complete_)&&<button className="teach-btn" disabled={!complete_} onClick={()=>go(index+1)}>{nextStageLabel(stages[index+1])}</button>}</nav>
+  <nav className="stage-nav" aria-label="Lesson steps">{index>0&&!assessed&&<button className="teach-btn soft" onClick={()=>go(index-1)}>← Back</button>}<span className="stage-need" aria-live="polite">{complete_?'':stage.kind==='reflect'?'Try an explanation, then compare it.':stage.kind==='explore'?'Try the model, then press Check.':ITEM_STAGES.includes(stage.kind)?'Answer each question to continue.':stage.kind==='worked'?'Reveal every step to continue.':stage.kind==='connect'?'Show every step to continue.':stage.kind==='explain'?'Follow the picture steps to continue.':'Choose an answer to continue.'}</span>{complete_&&<button className="teach-btn" onClick={()=>go(index+1)}>{nextStageLabel(stages[index+1])}</button>}</nav>
+  {lesson.level>=3&&ITEM_STAGES.includes(stage.kind)&&<Scratchpad storageKey={`${attempt.attemptId}:${index}`}/>}
   </div></div><p className="teach-foot">Made with the help of AI: check anything that looks wrong with a teacher or parent. <span role="status">{syncStatus}</span></p>
   {toast&&<div className="reward-toast" role="status">{toast}</div>}
   {leaving&&<div className="stop-backdrop" onClick={()=>setLeaving(false)}><div ref={leaveRef} className="stop-panel" role="dialog" aria-modal="true" aria-label="Leave the lesson?" onClick={e=>e.stopPropagation()}><strong>Leave the lesson?</strong><p>Your place is saved on this device. You will come back to step {index+1}.</p><button autoFocus onClick={()=>setLeaving(false)}>Keep learning</button><a href="#/teach">Back to Learn</a></div></div>}
@@ -156,6 +157,7 @@ function VisualExplanation({stage,done,onDone}:{stage:Extract<Stage,{kind:'expla
  const [way,setWay]=useState(0),[positions,setPositions]=useState<Record<number,number>>({0:0});
  const at=positions[way]??0,frames=ways[way].frames,f=frames[at],last=at===frames.length-1;
  const picture=useRevealScroll(`${way}-${at}`),methodStart=useRevealScroll<HTMLDivElement>(way);
+ useEffect(()=>{if(way===0&&last&&!done)onDone();},[way,last,done,onDone]);
  const move=(n:number)=>{setPositions(v=>({...v,[way]:n}));if(way===0&&n===frames.length-1&&!done)onDone();};
  return <section className="visual-tutor narrated-stage stage-card">{way>0&&<p className="visual-tutor-label">Another way · optional</p>}<h2>{stage.title}</h2>
  {stage.example&&stage.example!==frames[0].text&&<div ref={methodStart} className="example-context"><strong>{way===0?'Our picture example':'Same question, different method'}</strong><p>{stage.example}</p></div>}
@@ -184,6 +186,7 @@ function Notice({stage,done,onDone,reward}:{stage:Extract<Stage,{kind:'notice'}>
 }
 function Connect({stage,done,onDone}:{stage:Extract<Stage,{kind:'connect'}>;done:boolean;onDone:()=>void}){
  const [shown,setShown]=useState(done?stage.rows.length:1);
+ useEffect(()=>{if(shown>=stage.rows.length&&!done)onDone();},[shown,stage.rows.length,done,onDone]);
  return <Card title={stage.title} text={stage.text}><ol className="connect-rows">{stage.rows.slice(0,shown).map((r,i)=><li key={i} className="connect-row"><p>{r.text}</p>{r.math&&<p className="stage-math">{r.math}</p>}{r.tool&&<ToolView tool={r.tool}/>}{i<shown-1&&<span className="connect-arrow" aria-hidden="true">↓</span>}</li>)}</ol>{shown<stage.rows.length?<button className="teach-btn" onClick={()=>{const n=shown+1;setShown(n);if(n===stage.rows.length)onDone();}}>Show the next step ↓</button>:null}</Card>;
 }
 export function Worked({stage,done,onDone}:{stage:Extract<Stage,{kind:'worked'}>;done:boolean;onDone:()=>void}){
@@ -205,7 +208,7 @@ export function Worked({stage,done,onDone}:{stage:Extract<Stage,{kind:'worked'}>
     {ask.choices?<div className="notice-options" role="group" aria-label="Your answer">{ask.choices.map(c=><button key={c} aria-pressed={answers[i]===c} className={answers[i]===c&&errors[i]?'wrong':''} onClick={()=>check(c)}>{c}</button>)}</div>:<form className="inline-answer" onSubmit={e=>{e.preventDefault();check();}}><input aria-label={ask.prompt} aria-invalid={!!errors[i]} aria-describedby={errors[i]?`worked-error-${i}`:undefined} inputMode={format.inputMode} autoComplete="off" maxLength={40} placeholder={format.placeholder} value={answers[i]??''} onChange={e=>{setAnswers(a=>({...a,[i]:e.target.value}));setErrors(v=>({...v,[i]:''}));}}/>{ask.unit&&<span>{ask.unit}</span>}<button className="teach-btn" disabled={!answers[i]?.trim()}>Check</button></form>}
     {!ask.choices&&format.hint&&<p className="answer-format">{format.hint}</p>}
     <div aria-live="polite">{errors[i]&&<p id={`worked-error-${i}`} className="stage-feedback">{errors[i]}</p>}{clues[i]&&<p className="worked-clue"><strong>A clue:</strong> {clue}</p>}</div>
-    <div className="help-row"><button className="link-btn" onClick={()=>setClues(v=>({...v,[i]:true}))}>Give me a clue</button>{(clues[i]||errors[i])&&<button className="link-btn" onClick={()=>{setRevealed(v=>({...v,[i]:true}));setSolved(v=>({...v,[i]:true}));}}>Show this step’s answer</button>}</div>
+    <div className="help-row"><button className="link-btn" onClick={()=>setClues(v=>({...v,[i]:true}))}>Give me a clue</button><button className="link-btn" onClick={()=>{setRevealed(v=>({...v,[i]:true}));setSolved(v=>({...v,[i]:true}));}}>Show this step’s answer</button></div>
    </div>)}
   </div>
   <div className="visual-tutor-nav"><button className="teach-btn soft" disabled={shown===1} onClick={()=>setShown(n=>n-1)}>← Previous step</button>{shown<stage.steps.length&&<button className="teach-btn" disabled={waiting} onClick={()=>setShown(n=>n+1)}>Next step →</button>}</div>
@@ -216,10 +219,13 @@ function ItemsStage({lesson,stage,index,items,attempt,onRecord,onWork,onConfiden
  const questionStart=useRevealScroll<HTMLDivElement>(view);
  const example=stage.kind==='readiness'?undefined:lesson.stages.find((s):s is Extract<Stage,{kind:'worked'}>=>s.kind==='worked');
  const item=items[Math.min(view,items.length-1)],guided=stage.kind==='readiness'||stage.kind==='reason'||(stage.kind==='practice'&&stage.mode==='guided')||stage.kind==='apply';
- const title='title' in stage?stage.title:'',text='text' in stage?stage.text:undefined,all=open<0;
+ const youngWarmup=lesson.level<=2&&stage.kind==='readiness';
+ const title=youngWarmup?'A quick warm-up':'title' in stage?stage.title:'',text=youngWarmup?'Try this first. You can ask for help.':'text' in stage?stage.text:undefined,all=open<0;
+ const nextOpen=nextUnansweredQuestion(items.map(it=>it.key),attempt.items,index,view);
  if(stage.kind==='mastery'&&attempt.confidence===null&&!Object.keys(attempt.items).some(k=>k.startsWith(`${index}:`)))return <Card title={title} text={text}><p className="stage-text"><strong>Before you start: how sure do you feel about this idea?</strong></p><div className="notice-options confidence" role="group" aria-label="How sure do you feel?">{['Not sure yet','Getting there','Very sure'].map((c,i)=><button key={c} onClick={()=>onConfidence(i)}>{c}</button>)}</div></Card>;
  return <Card title={title} text={text}>{items.length>1&&<div className="item-dots" role="group" aria-label="Questions in this step">{items.map((it,i)=>{const r=attempt.items[`${index}:${it.key}`];return <button key={it.key} aria-label={`Question ${i+1}${r?', answered':''}`} aria-current={i===view?'step':undefined} className={`${i===view?'now ':''}${r?(r.firstTry?'clean':r.correct?'ok':'shown'):''}`} onClick={()=>setView(i)}>{i+1}</button>;})}</div>}
-  <div ref={questionStart}><ItemCard key={`${index}:${item.key}`} item={item} guided={guided} level={lesson.level} example={example} record={attempt.items[`${index}:${item.key}`]} savedWork={attempt.work?.[`${index}:${item.key}`]} onWork={w=>onWork(item,w)} onDone={r=>onRecord(item,r)} onNext={view<items.length-1?()=>setView(v=>v+1):undefined}/></div>
+  <p className="item-count">Question {view+1} of {items.length}</p>
+  <div ref={questionStart}><ItemCard key={`${index}:${item.key}`} item={item} guided={guided} level={lesson.level} example={example} record={attempt.items[`${index}:${item.key}`]} savedWork={attempt.work?.[`${index}:${item.key}`]} onWork={w=>onWork(item,w)} onDone={r=>onRecord(item,r)} onNext={nextOpen!==null?()=>setView(nextOpen):undefined} nextLabel={nextOpen!==null&&nextOpen<view?`Go to question ${nextOpen+1} →`:'Next question →'}/></div>
   {stage.kind==='readiness'&&all&&attempt.readinessMissed&&<details className="booster"><summary>Take one more look at the building block</summary>{stage.booster[0]?.tool&&<ToolView tool={stage.booster[0].tool}/>}<ol>{stage.booster.map((b,i)=><li key={i}><p>{b.text}</p>{b.math&&<p className="stage-math">{b.math}</p>}</li>)}</ol></details>}
   {stage.kind==='readiness'&&all&&!attempt.readinessMissed&&<p className="stage-feedback good">You’re ready for the next step.</p>}</Card>;
 }
@@ -260,7 +266,7 @@ export function ItemCard({item,guided,level,record,savedWork,onWork,onDone,onNex
   {item.tool&&(showTool||done)&&<><figure className="teaching-figure"><ToolView tool={done?item.tool:questionModel(item.tool)}/>{item.modelNote&&<figcaption>{item.modelNote}</figcaption>}</figure></>}
   {item.tool&&!showTool&&!done&&<button type="button" className="link-btn" onClick={()=>setShowTool(true)}>Show me a picture</button>}
   {item.choices?<div className="item-choices" data-no-tap="true" role="group" aria-label="Answer choices">{item.choices.map(c=>{const mine=(finished?.answer??value)===c;return <button key={c} disabled={done} aria-pressed={mine} className={mine?(done&&finished?.correct?'right':wrong?'wrong':'picked'):''} onClick={()=>choice(c)}>{c}</button>;})}</div>:
-   <form className="item-answer" onSubmit={e=>{e.preventDefault();check();}}><label>Your answer<span><input ref={input} value={finished?finished.answer:value} disabled={done} maxLength={40} aria-invalid={!!wrong} aria-describedby={wrong?answerId:undefined} onChange={e=>{setValue(e.target.value);setWrong(null);}} inputMode={format.inputMode} autoComplete="off" placeholder={format.placeholder}/>{item.unit&&<b>{item.unit}</b>}</span></label>
+   <form className="item-answer" onSubmit={e=>{e.preventDefault();check();}}><label>{finished&&!finished.correct?'Worked answer':'Your answer'}<span><input ref={input} value={finished?(finished.correct?finished.answer:item.answer):value} disabled={done} maxLength={40} aria-invalid={!!wrong} aria-describedby={wrong?answerId:undefined} onChange={e=>{setValue(e.target.value);setWrong(null);}} inputMode={format.inputMode} autoComplete="off" placeholder={format.placeholder}/>{item.unit&&<b>{item.unit}</b>}</span></label>
     {!done&&format.hint&&<p className="answer-format">{format.hint}</p>}
     {level<=2&&!done&&<details className="number-pad"><summary>Number buttons</summary><div className="teach-keypad">{['1','2','3','4','5','6','7','8','9','⌫','0',...(item.answer.includes('/')?['/']:[])].map(k=><button type="button" key={k} aria-label={k==='⌫'?'Delete':k} onClick={()=>{setValue(v=>k==='⌫'?v.slice(0,-1):(v+k).slice(0,6));setWrong(null);}}>{k}</button>)}</div></details>}
     {!done&&<button className="teach-btn" data-no-tap="true" disabled={!value.trim()}>Check my answer</button>}</form>}
@@ -274,6 +280,7 @@ export function ItemCard({item,guided,level,record,savedWork,onWork,onDone,onNex
    {support==='menu'&&<><h4>What would help?</h4><div className="support-options">
     {hints<item.hints.length&&<button type="button" onClick={()=>{setHints(h=>h+1);setSupport(null);}}><strong>{hints?'Another clue':'Give me a clue'}</strong><span>A small hint. You still work out the answer.</span></button>}
     <button type="button" onClick={()=>openSupport('steps')}><strong>Show me how to start</strong><span>Work through this question one step at a time.</span></button>
+    <button type="button" onClick={reveal}><strong>Show the worked answer</strong><span>Read the steps and keep going. This question counts as answered with help.</span></button>
     {item.simpler&&<button type="button" onClick={()=>openSupport('smaller')}><strong>Try a smaller question</strong><span>Practise a building block, then come back.</span></button>}
     {example&&<button type="button" onClick={()=>openSupport('example')}><strong>Revisit the worked example</strong><span>Watch the earlier solution without losing your place.</span></button>}
    </div>{item.tool&&<PictureKey tool={item.tool} onOpen={()=>update('usedRecovery',true)}/>}</>}
@@ -291,7 +298,6 @@ export function ItemCard({item,guided,level,record,savedWork,onWork,onDone,onNex
     {support!=='menu'&&<button type="button" className="link-btn" onClick={()=>setSupport('menu')}>Choose a different kind of help</button>}
     {item.another?.length?<button type="button" className="link-btn" onClick={()=>{update('usedRecovery',true);setOther(o=>o===null?0:(o+1)%item.another!.length);}}>See another method for this question</button>:null}
     {other!==null&&item.another?.[other]&&<div className="another-way"><h4>{item.another[other].title}</h4><ol className="teach-steps">{item.another[other].steps.map((s,i)=><li key={i}>{s}</li>)}</ol>{item.another[other].tool&&<ToolView tool={item.another[other].tool!}/>}</div>}
-    {(tries>=2||teach>=item.steps.length)&&<button type="button" className="link-btn" onClick={reveal}>Show the answer and explanation</button>}
    </details>
   </div>}
   {done&&returnContext&&<p className="recovery-connection"><strong>Back to your original question:</strong> {returnContext}</p>}

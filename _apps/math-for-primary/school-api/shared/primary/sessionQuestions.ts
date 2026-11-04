@@ -9,11 +9,11 @@ import { newSessionId,type PrimarySession,type RepairItem,type SessionMode } fro
  * Fingerprints also catch a changed generator whose version was not bumped. Hints and explanations
  * are not fingerprinted, so wording fixes do not invalidate saved sessions.
  */
-const KIND_VERSIONS:Partial<Record<GameKind,number>>={paper:1,daily:DAILY_PLAN_VERSION};
+const KIND_VERSIONS:Partial<Record<GameKind,number>>={paper:2,daily:DAILY_PLAN_VERSION,add:2,subtract:2,angleFacts:2,triangleAngle:2,quadrilateral:2};
 export const GENERATOR_VERSION=1;
 export const generatorVersion=(a:Activity)=>KIND_VERSIONS[a.kind]?`${GENERATOR_VERSION}.${KIND_VERSIONS[a.kind]}`:String(GENERATOR_VERSION);
-export const fingerprint=(q:Question)=>hashString(JSON.stringify([q.prompt,q.display??'',q.answer,q.choices??[],q.order??[],q.fractionBuilder??0,q.picture??null,q.unit??''])).toString(16).padStart(8,'0');
-const sameContent=(q:Question)=>JSON.stringify([q.prompt,q.display,q.picture,q.answer]);
+export const fingerprint=(q:Question)=>hashString(JSON.stringify([q.prompt,q.display??'',q.answer,q.choices??[],q.order??[],q.fractionBuilder??0,q.picture??null,q.unit??'',...(q.context?.length?[q.context]:[])])).toString(16).padStart(8,'0');
+const sameContent=(q:Question)=>JSON.stringify([q.prompt,q.display,q.picture,q.answer,q.context??[]]);
 export function questionFromKey(activity:Activity,key:string):Question|null{const m=/^([A-Za-z0-9-]+):(\d+):(\d+)$/.exec(key);return m&&m[1]===activity.id?makeQuestion(activity,Number(m[2]),Number(m[3])):null;}
 /** Questions sharing a strategy have the same clue once numbers are ignored. */
 export const strategyOf=(q:Question)=>q.hint.replace(/\d+(\.\d+)?/g,'#');
@@ -37,13 +37,14 @@ export type Compatibility={ok:true;questions:Question[]}|{ok:false;reason:'activ
 export function checkSession(activity:Activity,s:PrimarySession):Compatibility{
  if(s.activityId!==activity.id)return {ok:false,reason:'activity'};
  if(s.generator!==generatorVersion(activity))return {ok:false,reason:'generator'};
- const questions=sessionQuestions(activity,s);
+ let questions:Question[];try{questions=sessionQuestions(activity,s);}catch{return {ok:false,reason:'questions'};}
  if(questions.length!==s.count||questions.some((q,i)=>s.fingerprints[i]&&s.fingerprints[i]!==fingerprint(q)))return {ok:false,reason:'questions'};
  if(s.repair.some(item=>{const o=questionFromKey(activity,item.key);return !o||(!!item.fingerprint&&item.fingerprint!==fingerprint(o));}))return {ok:false,reason:'questions'};
  return {ok:true,questions};
 }
 export function createSession(activity:Activity,{mode='practice',repair=[],repairOf=null,now=Date.now(),seed=freshSeed()}:{mode?:SessionMode;repair?:RepairItem[];repairOf?:string|null;now?:number;seed?:number}={}):{session:PrimarySession;questions:Question[]}{
  const questions=sessionQuestions(activity,{mode,seed,repair});
+ if(!questions.length||questions.length>20)throw new RangeError('A session needs between 1 and 20 playable questions.');
  return {questions,session:{schema:1,id:newSessionId(),activityId:activity.id,generator:generatorVersion(activity),seed,count:questions.length,fingerprints:questions.map(fingerprint),mode,repairOf,repair,cursor:0,results:[],draft:null,startedAt:now,updatedAt:now,completedAt:null,stars:null}};
 }
 function evaluate(p:Proof):number{if(typeof p==='number')return p;const a=evaluate(p.a),b=evaluate(p.b);switch(p.op){case '+':return a+b;case '-':return a-b;case '*':return a*b;case '/':return a/b;case 'round':return Math.round(a/b+1e-8)*b;case 'floor':return Math.floor(a/b)*b;}}

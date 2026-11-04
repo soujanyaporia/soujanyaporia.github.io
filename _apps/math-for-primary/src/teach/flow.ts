@@ -38,3 +38,12 @@ export function questionPurpose(item:{facet?:string},stage:Stage):string{
  if(item.facet==='missing')return 'Find what the missing value represents before calculating.';
  return '';
 }
+
+/** Keep a route to unfinished work even when a child jumps to the last question first. */
+export function nextUnansweredQuestion(keys:string[],records:Record<string,unknown>,stage:number,current:number):number|null{
+ for(let offset=1;offset<keys.length;offset++){
+  const index=(current+offset)%keys.length;
+  if(!records[`${stage}:${keys[index]}`])return index;
+ }
+ return null;
+}

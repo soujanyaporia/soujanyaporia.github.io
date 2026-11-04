@@ -1,6 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {LESSONS,lessonById} from './catalog';
-import {nextStageLabel} from './flow';
+import {nextStageLabel,nextUnansweredQuestion} from './flow';
 import {PLAN} from './build/plan';
 import {visualGuide} from './build/guides';
 import {arithmeticWorked} from './build/arithmeticSteps';
@@ -8,6 +8,14 @@ import {measureSpec} from './build/families/measure';
 import {Rng} from '../engine/random';
 
 describe('Connected teaching sequence',()=>{
+ it('routes back to unanswered questions after jumping ahead or revisiting an answer',()=>{
+  const keys=['first','second','third'];
+  expect(nextUnansweredQuestion(keys,{'4:third':{}},4,2)).toBe(0);
+  expect(nextUnansweredQuestion(keys,{'4:first':{},'4:second':{}},4,0)).toBe(2);
+  expect(nextUnansweredQuestion(keys,{'4:first':{},'4:third':{}},4,2)).toBe(1);
+  expect(nextUnansweredQuestion(keys,{'4:first':{},'4:second':{},'4:third':{}},4,2)).toBeNull();
+  expect(nextUnansweredQuestion(['only'],{},4,0)).toBeNull();
+ });
  it('introduces the actual visual example instead of an unrelated calculation',()=>{
   const l=lessonById('p1s-as-07')!;
   const hook=l.stages.find(s=>s.kind==='hook')!,explain=l.stages.find(s=>s.kind==='explain')!,worked=l.stages.find(s=>s.kind==='worked')!;

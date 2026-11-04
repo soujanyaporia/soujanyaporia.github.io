@@ -2,7 +2,7 @@ import { createContext,useCallback,useContext,useEffect,useMemo,useRef,useState,
 import { ApiError,useAccount } from '../school/AccountContext';
 import { useProgress } from '../state/ProgressContext';
 import { combineSessions,mergeSameSession,validateSession,type PrimarySession } from './session';
-import { browserStorage,clearSessions,readSessions,storageKey,writeSessions,type SessionEntries } from './sessionStore';
+import { browserStorage,createSessionCache,storageKey,type SessionEntries } from './sessionStore';
 import { combineAll,sessionsFromHistory,unfinishedSessions } from './resume';
 /** `unsupported`: the account API predates the sessions endpoint, so drafts stay on this device. */
 export type RemoteState='local'|'checking'|'ready'|'unsupported'|'offline';
@@ -20,13 +20,14 @@ export function SessionProvider({children}:{children:ReactNode}){
  const {user,api}=useAccount(),{progress,scope}=useProgress();
  const student=!!user&&user.role==='student'&&!user.mustChange&&scope===`student:${user.id}`;
  const kv=useMemo(browserStorage,[]);
- const [entries,setEntries]=useState<SessionEntries>(()=>readSessions(kv,scope));
+ const cache=useMemo(()=>createSessionCache(kv,scope),[kv,scope]);
+ const [entries,setEntries]=useState<SessionEntries>(()=>cache.read());
  const [remote,setRemoteState]=useState<RemoteState>(student?'checking':'local');
  const remoteRef=useRef(remote),apiRef=useRef(api),timers=useRef(new Map<string,number>()),uploading=useRef(new Set<string>());apiRef.current=api;
  const setRemote=useCallback((r:RemoteState)=>{remoteRef.current=r;setRemoteState(r);},[]);
- const commit=useCallback((next:SessionEntries)=>{writeSessions(kv,scope,next);setEntries(readSessions(kv,scope));},[kv,scope]);
- const latest=useCallback(()=>kv?readSessions(kv,scope):entries,[kv,scope,entries]);
- useEffect(()=>{const key=storageKey(scope);const onStorage=(e:StorageEvent)=>{if(e.key===key)setEntries(readSessions(kv,scope));};window.addEventListener('storage',onStorage);return()=>window.removeEventListener('storage',onStorage);},[kv,scope]);
+ const commit=useCallback((next:SessionEntries)=>setEntries(cache.write(next)),[cache]);
+ const latest=useCallback(()=>cache.read(),[cache]);
+ useEffect(()=>{const key=storageKey(scope);const onStorage=(e:StorageEvent)=>{if(e.key===key)setEntries(cache.reload());};window.addEventListener('storage',onStorage);return()=>window.removeEventListener('storage',onStorage);},[cache,scope]);
  const upload=useCallback(async(activityId:string)=>{
   if(!student||remoteRef.current==='unsupported'||uploading.current.has(activityId))return;uploading.current.add(activityId);
   try{for(let attempt=0;attempt<3;attempt++){const e=latest()[activityId];if(!e?.dirty)return;
@@ -63,7 +64,7 @@ export function SessionProvider({children}:{children:ReactNode}){
  },[latest,commit,schedule,student]);
  /** Replace this scope's sessions (learning passport) or remove them (clearing guest data). */
  const restore=useCallback((sessions:PrimarySession[])=>{const next:SessionEntries={};for(const s of sessions)next[s.activityId]={session:combineSessions(next[s.activityId]?.session,s)!,rev:0,dirty:false};commit(next);},[commit]);
- const clear=useCallback(()=>{clearSessions(kv,scope);setEntries({});},[kv,scope]);
+ const clear=useCallback(()=>setEntries(cache.clear()),[cache]);
  const history=progress.primary?.history;
  const all=useMemo(()=>combineAll(Object.values(entries).map(e=>e.session),sessionsFromHistory(history)),[entries,history]);
  const value=useMemo<SessionsApi>(()=>({scope,all,unfinished:unfinishedSessions(all).filter(hasWork),get:id=>all[id],save,remote,isUploaded:id=>!!entries[id]&&!entries[id].dirty&&entries[id].rev>0,restore,clear}),[scope,all,save,remote,entries,restore,clear]);

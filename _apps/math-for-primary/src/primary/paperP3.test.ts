@@ -21,14 +21,14 @@ export function solve(q:Question,param:string):number{
  if(pic.type!=='paper')throw Error('Expected paper diagram');
  if(param==='p3-transfer'){
   if(pic.layout!=='bars')throw Error('Expected comparison bars');
-  const original=numeric(pic.rows[0].parts[1].label),transfer=Number(pic.caption!.match(/gives Noor (\d+)/)![1]);
+  const original=numeric(pic.rows[0].parts[1].label),transfer=Number(q.context!.join(' ').match(/gives Noor (\d+)/)![1]);
   // Assign an arbitrary equal base to both bars, then independently perform the transfer.
   const noorBefore=137,linaBefore=noorBefore+original;
   return (linaBefore-transfer)-(noorBefore+transfer);
  }
  if(param==='p3-gaps'){
   if(pic.layout!=='timeline')throw Error('Expected marker line');
-  const known=pic.caption!.match(/Marker 1 to marker (\d+): (\d+) m/)!;
+  const known=q.context!.join(' ').match(/marker 1 to marker (\d+) is (\d+) m/)!;
   const requested=[...q.prompt.matchAll(/marker (\d+)/g)].map(m=>Number(m[1]));
   const oneGap=Number(known[2])/(Number(known[1])-1);
   return (requested[1]-requested[0])*oneGap;
@@ -77,16 +77,16 @@ describe('Original P3 diagram problems',()=>{
   }
   expect(remainders.has(0)).toBe(true);expect(remainders.size).toBeGreaterThan(3);
  });
- it('starts bundle practice with singles and later includes exact bundles and mixed purchases',()=>{
+ it('requires a meaningful bundle purchase and includes exact bundles and mixed purchases',()=>{
   const cases=new Set<string>();
   for(let seed=0;seed<100;seed++)for(let index=0;index<4;index++){
    const q=makeP3PaperQuestion(activity('p3-bundle'),seed,index),p=q.picture!;
    if(p.type!=='paper'||p.layout!=='cards')throw Error('Wrong diagram');
    const size=numeric(p.cards[1].label),wanted=numeric(p.cards[2].value);
-   if(index===0)expect(wanted).toBeLessThan(size);
+   expect(wanted).toBeGreaterThanOrEqual(size*2);
    cases.add(wanted<size?'singles':wanted%size?'mixed':'bundles');
   }
-  expect([...cases].sort()).toEqual(['bundles','mixed','singles']);
+  expect([...cases].sort()).toEqual(['bundles','mixed']);
  });
  it('includes scale reading, two-bar comparison and a two-bar total',()=>{
   const prompts=[];

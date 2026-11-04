@@ -13,42 +13,42 @@ const cards=(heading:string,items:Extract<PaperPicture,{layout:'cards'}>['cards'
 export function makeP3PaperQuestion(activity:Activity,seed:number,index=0):Question{
  const r=new Rng(hashString(`${activity.id}:${seed}:${index}:paper-p3-v1`));
  const base={key:`${activity.id}:${seed}:${index}`};
- const make=(prompt:string,answer:number,unit:string,picture:Picture,hint:string,steps:Step[],proof:Proof):Question=>({
+ const make=(prompt:string,answer:number,unit:string,picture:Picture,hint:string,steps:Step[],proof:Proof,extra:Partial<Question>={}):Question=>({
   ...base,prompt,answer:unit==='dollars'?answer.toFixed(2):String(answer),unit,picture,hint,
-  explanation:steps.map(s=>[s.text,s.equation].filter(Boolean).join(' ')).join(' '),workedSteps:steps,proof,
+  explanation:steps.map(s=>[s.text,s.equation].filter(Boolean).join(' ')).join(' '),workedSteps:steps,proof,...extra,
  });
  switch(activity.parameter){
   case 'p3-transfer':{
    const transfer=r.int(6,29),gap=2*transfer+r.int(12,55),answer=gap-2*transfer;
-   const picture:PaperPicture={type:'paper',layout:'bars',heading:'Badges before sharing',unit:'badges',rows:[
+   const picture:PaperPicture={type:'paper',layout:'bars',heading:'1. Before sharing',unit:'badges',rows:[
     {label:'Lina',parts:[{size:2,label:'same amount',tone:'blue'},{size:1,label:`${gap} more`,tone:'orange'}]},
     {label:'Noor',parts:[{size:2,label:'same amount',tone:'green'}]},
-   ],caption:`Lina gives Noor ${transfer} badges. Diagram not to scale.`};
+   ],caption:'Bar lengths are not to scale.',transfer:{from:'Lina',to:'Noor',amount:transfer,unit:'badges',after:'How many more badges does Lina have than Noor?'}};
    const after=cards('Both collections change',[
     {label:'Lina gives away',value:String(transfer),icon:'child'},
     {label:'Noor receives',value:String(transfer),icon:'child'},
    ]);
-   return make('How many more badges does Lina have now?',answer,'badges',picture,
+   return make('How many more badges does Lina have than Noor after sharing?',answer,'badges',picture,
     'Lina loses badges while Noor gains the same number. Both changes close the gap.',[
      {text:'Start with the difference between the two collections.',equation:`Difference = ${gap} badges`,picture},
      {text:'The same transfer changes both collections.',equation:`${transfer} + ${transfer} = ${2*transfer}`,picture:after},
      {text:'Take both changes away from the original gap.',equation:`${gap} − ${2*transfer} = ${answer}`,picture:after},
      {text:`Lina now has ${answer} more badges. Undo both changes to check.`,equation:`${answer} + ${transfer} + ${transfer} = ${gap}`,picture},
-    ],op('-',gap,op('*',2,transfer)));
+    ],op('-',gap,op('*',2,transfer)),{context:[`Lina has ${gap} more badges than Noor.`,`Lina gives Noor ${transfer} badges.`]});
   }
   case 'p3-gaps':{
    const shown=r.int(6,8),knownEnd=r.int(3,5),gap=r.int(3,12),knownDistance=(knownEnd-1)*gap;
    const from=r.int(2,3),to=shown,answer=(to-from)*gap;
    const picture:PaperPicture={type:'paper',layout:'timeline',heading:'Evenly spaced trail markers',
     points:Array.from({length:shown},(_,i)=>({label:String(i+1),icon:'number'})),
-    gaps:Array(shown-1).fill('equal'),caption:`Marker 1 to marker ${knownEnd}: ${knownDistance} m. All gaps are equal.`};
+    gaps:Array(shown-1).fill('equal')};
    return make(`How far is marker ${from} from marker ${to}?`,answer,'m',picture,
     'Count the spaces between the markers. Two markers have just one space between them.',[
      {text:'Count the gaps in the distance we know.',equation:`${knownEnd} − 1 = ${knownEnd-1} gaps`,picture},
      {text:'Share the known distance equally among those gaps.',equation:`${knownDistance} ÷ ${knownEnd-1} = ${gap} m`,picture},
      {text:'Count the gaps between the two requested markers.',equation:`${to} − ${from} = ${to-from} gaps`,picture},
      {text:'Every requested gap has the same length.',equation:`${to-from} × ${gap} = ${answer} m`,picture},
-    ],op('*',op('-',to,from),op('/',knownDistance,knownEnd-1)));
+    ],op('*',op('-',to,from),op('/',knownDistance,knownEnd-1)),{context:[`The distance from marker 1 to marker ${knownEnd} is ${knownDistance} m.`,`All gaps between neighbouring markers are equal.`]});
   }
   case 'p3-boxes':{
    const size=r.int(4,9),full=r.int(7,32),remainder=index%3===0?0:r.int(1,size-1),shortage=full*size+remainder;
@@ -57,7 +57,7 @@ export function makeP3PaperQuestion(activity:Activity,seed:number,index=0):Quest
     {label:'Pencils needed',value:String(target),icon:'pencil'},
     {label:'Already packed',value:String(stock),icon:'bag'},
     {label:'In each new box',value:String(size),icon:'box'},
-   ],'We can buy whole boxes only.');
+   ]);
    const grouping=cards('Fill the shortage',[
     {label:'Still needed',value:String(shortage),icon:'pencil'},
     {label:'Pencils per box',value:String(size),icon:'box'},
@@ -68,20 +68,20 @@ export function makeP3PaperQuestion(activity:Activity,seed:number,index=0):Quest
      {text:'Find how many complete groups fit.',equation:`${shortage} ÷ ${size} = ${full}${remainder?` remainder ${remainder}`:''}`,picture:grouping},
      {text:remainder?'The remaining pencils need one more whole box.':'There is no remainder, so no extra box is needed.',equation:remainder?`${full} + 1 = ${answer} boxes`:`${full} boxes`,picture:grouping},
      {text:'Check: this many boxes are enough; one fewer is not.',equation:`${stock} + ${answer} × ${size} = ${stock+answer*size} ≥ ${target}`,picture},
-    ],op('/',{op:'floor',a:shortage+size-1,b:size},size));
+    ],op('/',{op:'floor',a:shortage+size-1,b:size},size),{context:['We can buy whole boxes only. There must be enough pencils for everyone.']});
   }
   case 'p3-bundle':{
    const bundle=r.int(3,5),single=r.pick([150,200,250,300]),bundleCost=bundle*single-r.int(1,3)*50;
-   const wanted=index%4===0?r.int(1,bundle-1):bundle*r.int(1,3)+r.int(0,bundle-1);
+   const wanted=bundle*r.int(2,4)+(index%3===0?0:r.int(1,bundle-1));
    const bundles=Math.floor(wanted/bundle),loose=wanted%bundle,cents=bundles*bundleCost+loose*single;
    const picture=cards('Muffin stall',[
-    {label:'One muffin',value:dollars(single),icon:'fruit'},
+    {label:'One muffin',value:dollars(single),icon:'muffin'},
     {label:`Bundle of ${bundle}`,value:dollars(bundleCost),icon:'bag'},
     {label:'Buy exactly',value:`${wanted} muffins`,icon:'number'},
    ],'Choose singles, bundles, or both.');
    const selection=cards('Our basket',[
     {label:`Bundles of ${bundle}`,value:String(bundles),icon:'bag'},
-    {label:'Single muffins',value:String(loose),icon:'fruit'},
+    {label:'Single muffins',value:String(loose),icon:'muffin'},
    ]);
    return make('What is the lowest cost for exactly this many muffins?',cents/100,'dollars',picture,
     'Compare a bundle with the same number of singles. Then check how many muffins you need.',[

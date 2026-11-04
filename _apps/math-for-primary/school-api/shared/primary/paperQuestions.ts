@@ -54,7 +54,7 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    const picture:PaperPicture={type:'paper',layout:'bars',heading:'Apples for the picnic',totalLabel:`${total} apples altogether`,rows:[
     {label:'Two parts',parts:[{size:1,label:`On the plate: ${visible}`,tone:'blue'},{size:1,label:'In the bag: ?',tone:'orange'}]},
    ],caption:'Diagram not to scale.'};
-   const revealed=cards('The whole and its parts',[{label:'On the plate',value:String(visible),icon:'fruit',count:visible},{label:'In the bag',value:String(hidden),icon:'bag',count:hidden}]);
+   const revealed=cards('The whole and its parts',[{label:'On the plate',value:String(visible),icon:'fruit',count:visible},{label:'Inside the bag',value:String(hidden),icon:'fruit',count:hidden}]);
    return make('How many apples are in the bag?',hidden,picture,'The plate and bag together make the whole. Take away the part we know.',[
     {text:'The whole is all the apples on the plate and in the bag.',equation:`${visible} + ? = ${total}`,picture},
     {text:'Take away the apples already on the plate.',equation:`${total} − ${visible} = ${hidden}`,picture:revealed},
@@ -114,21 +114,21 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    const boxes=r.int(3,9),each=r.pick([3,4,5,10]),total=boxes*each,added=r.int(2,Math.min(12,total-3));
    const picture:PaperPicture={type:'paper',layout:'timeline',heading:'Packing pencils',points:[
     {label:'Started with ?',icon:'pencil'},{label:`${boxes} full boxes`,icon:'box'},
-   ],gaps:[`${added} pencils added`],caption:`Each box holds ${each} pencils. No pencils are left over.`};
+   ],gaps:[`${added} pencils added`]};
    return make('How many pencils were there at the start?',total-added,picture,'Find the packed total first. Undo the pencils that were added.',[
     {text:'Find how many pencils are in all the boxes.',equation:`${boxes} × ${each} = ${total}`,picture},
     {text:'Some pencils arrived later. Subtract those to find the starting amount.',equation:`${total} − ${added} = ${total-added}`,picture},
     {text:'Check by adding the delivery back.',equation:`${total-added} + ${added} = ${total}`,picture},
-   ],op('-',op('*',boxes,each),added),{unit:'pencils'});
+   ],op('-',op('*',boxes,each),added),{unit:'pencils',context:[`Each box holds ${each} pencils. All the boxes are full, with no pencils left over.`]});
   }
   case 'p2-fraction':{
    const d=r.pick([4,5,6,8,10,12]),a=r.int(1,d-2),b=r.int(1,d-a-1),answer=`${a+b}/${d}`;
-   const picture=cards('Parts of one ribbon',[{label:'Blue part',value:`${a}/${d}`,icon:'ribbon'},{label:'Orange part',value:`${b}/${d}`,icon:'ribbon'}],'The two parts do not overlap. Both fractions refer to the same whole ribbon.');
+   const picture=cards('Parts of one ribbon',[{label:'Blue part',value:`${a}/${d}`,icon:'ribbon'},{label:'Orange part',value:`${b}/${d}`,icon:'ribbon'}]);
    return make('What fraction of the ribbon is coloured altogether?',answer,picture,'The parts are the same size. Add their counts and keep the denominator.',[
     {text:'Both fractions count equal parts of the same whole.',equation:`Each part is 1/${d}`,picture},
     {text:'Add the number of coloured parts.',equation:`${a} + ${b} = ${a+b}`,picture},
     {text:'The whole still has the same number of equal parts.',equation:`${a}/${d} + ${b}/${d} = ${a+b}/${d}`,picture:{type:'fraction',parts:d,filled:a+b}},
-   ],op('+',op('/',a,d),op('/',b,d)));
+   ],op('+',op('/',a,d),op('/',b,d)),{context:['The blue and orange parts are on the same whole ribbon. They do not overlap.']});
   }
   case 'p2-shade':{
    const d=r.pick([4,5,6,8,10,12]),shaded=r.int(1,d-2),target=r.int(shaded+1,d-1),picture:Picture={type:'fraction',parts:d,filled:shaded};
@@ -140,12 +140,12 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
   }
   case 'p2-bottles':{
    const each=r.pick([2,3,4,5]),bottles=r.int(3,9),volume=each*bottles;
-   const picture=cards('Refill station',[{label:'Water in the tank',value:`${volume} litres`,icon:'water'},{label:'Each bottle holds',value:`${each} litres`,icon:'water'}],'Fill every bottle completely.');
+   const picture=cards('Refill station',[{label:'Water in the tank',value:`${volume} litres`,icon:'water'},{label:'Each bottle holds',value:`${each} litres`,icon:'water'}]);
    return make('How many bottles can be filled?',bottles,picture,'Count how many equal bottlefuls fit into the tank’s water.',[
     {text:'Each full bottle uses the same volume.',equation:`${each} litres per bottle`,picture},
     {text:'Divide the water by the volume of one bottle.',equation:`${volume} ÷ ${each} = ${bottles}`,picture},
     {text:'Check that all the filled bottles use exactly the water available.',equation:`${bottles} × ${each} = ${volume} litres`,picture},
-   ],op('/',volume,each),{unit:'bottles'});
+   ],op('/',volume,each),{unit:'bottles',context:['Fill every bottle completely, using only the water in the tank.']});
   }
   case 'p4-round':{
    const place=r.pick([10,100,1000]),n=r.int(12,89)*place+r.int(1,place-1),low=Math.floor(n/place)*place,answer=Math.round(n/place)*place;
@@ -177,12 +177,12 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
   case 'p4-factor':{
    const common=r.pick([2,3,4,5,6,7,8]),a=common*r.int(3,10),b=common*r.int(3,10);
    const wrong=r.shuffle(Array.from({length:19},(_,i)=>i+2).filter(n=>a%n!==0||b%n!==0)).slice(0,3);
-   const picture=cards('Equal packs with nothing left',[{label:'Blue stickers',value:String(a),icon:'ticket'},{label:'Green stickers',value:String(b),icon:'ticket'}],'Pack each colour separately. Every pack must have the same number of stickers.');
+   const picture=cards('Equal packs with nothing left',[{label:'Blue stickers',value:String(a),icon:'ticket'},{label:'Green stickers',value:String(b),icon:'ticket'}]);
    return make('Which number of stickers per pack works for both colours?',common,picture,'A common factor divides both totals without a remainder.',[
     {text:'Test whether the selected pack size divides the blue total exactly.',equation:`${a} ÷ ${common} = ${a/common}`,picture},
     {text:'Test the green total with the same pack size.',equation:`${b} ÷ ${common} = ${b/common}`,picture},
     {text:'Both divisions have no remainder, so this pack size works for both colours.',equation:`${common} is a common factor`,picture},
-   ],common,{choices:r.shuffle([common,...wrong]).map(String)});
+   ],common,{choices:r.shuffle([common,...wrong]).map(String),context:['Pack the two colours separately. Every pack must contain the same number of stickers, with none left over.']});
   }
   case 'p4-perimeter':{
    const a=r.int(10,24),b=r.int(5,9),cut=r.int(2,b-2),answer=2*(a+b),picture:Picture={type:'area',a,b,cut};
@@ -194,12 +194,12 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
   }
   case 'p4-freebie':{
    const paid=r.int(2,4),offers=r.int(3,12),price=r.int(2,8),total=(paid+1)*offers,cost=paid*offers*price;
-   const picture=cards('Book-fair offer',[{label:'Pay for',value:`${paid} books`,icon:'book'},{label:'Get free',value:'1 book',icon:'book'},{label:'Each paid book',value:dollars(price),icon:'coin'},{label:'Books taken home',value:String(total),icon:'bag'}],'The offer repeats for every complete paid group.');
+   const picture=cards('Book-fair offer',[{label:'Pay for',value:`${paid} books`,icon:'book'},{label:'Get free',value:'1 book',icon:'book'},{label:'Each paid book',value:dollars(price),icon:'coin'},{label:'Books taken home',value:String(total),icon:'bag'}]);
    return make('How much was paid for these books?',cost,picture,'One complete offer includes paid books and a free book. Count offers before calculating the cost.',[
     {text:'Include the free book when counting books per offer.',equation:`${paid} + 1 = ${paid+1} books`,picture},
     {text:'Count the complete offers.',equation:`${total} ÷ ${paid+1} = ${offers}`,picture},
     {text:'Only the paid books cost money.',equation:`${offers} × ${paid} × ${dollars(price)} = ${dollars(cost)}`,picture},
-   ],op('*',op('*',op('/',total,paid+1),paid),price),{unit:'dollars'});
+   ],op('*',op('*',op('/',total,paid+1),paid),price),{unit:'dollars',context:[`For every ${paid} books paid for, 1 extra book is free. The offer can be used more than once.`]});
   }
   case 'p5-convert':{
    const kg=r.int(2,8),grams=r.int(11,99)*10,answer=kg+grams/1000;
@@ -256,13 +256,13 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    const picture=cards('Two purchases at the same shop',[
     {label:`1 bag + ${first} pencils`,value:dollars(costA),icon:'bag'},
     {label:`1 bag + ${second} pencils`,value:dollars(costB),icon:'bag'},
-   ],'All bags have the same price. All pencils have the same price.');
+   ]);
    const difference=cards('Only the extra pencils differ',[{label:'Extra pencils',value:String(extra),icon:'pencil'},{label:'Extra cost',value:dollars(costB-costA),icon:'coin'}]);
    return make('What is the price of one pencil?',price,picture,'Both purchases include the same bag. The difference pays only for extra pencils.',[
     {text:'Compare the number of pencils in the two purchases.',equation:`${second} − ${first} = ${extra}`,picture},
     {text:'Subtract the costs. The equal bag cost cancels.',equation:`${dollars(costB)} − ${dollars(costA)} = ${dollars(costB-costA)}`,picture:difference},
     {text:'Share the extra cost equally among the extra pencils.',equation:`${dollars(costB-costA)} ÷ ${extra} = ${dollars(price)}`,picture:difference},
-   ],op('/',op('-',costB,costA),op('-',second,first)),{unit:'dollars'});
+   ],op('/',op('-',costB,costA),op('-',second,first)),{unit:'dollars',context:['Both purchases are at the same shop. Every bag has the same price, and every pencil has the same price.']});
   }
   case 'p6-ratio':{
    const a=r.int(2,5),b=r.int(3,7),unit=r.int(6,25),total=(a+b)*unit;
@@ -303,12 +303,12 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    const picture=cards('Pages read over four days',[
     {label:'Monday',value:String(a),icon:'book'},{label:'Tuesday',value:String(b),icon:'book'},
     {label:'Wednesday',value:String(c),icon:'book'},{label:'Thursday',value:'?',icon:'book'},
-   ],`Average: ${average} pages per day over all four days.`);
+   ]);
    return make('How many pages were read on Thursday?',answer,picture,'An average gives the equal share. Multiply by all four days to recover the total.',[
     {text:'Find the total number of pages for all four days.',equation:`${average} × 4 = ${average*4}`,picture},
     {text:'Add the three known daily counts.',equation:`${a} + ${b} + ${c} = ${a+b+c}`,picture},
     {text:'The missing day is the remainder of the total.',equation:`${average*4} − ${a+b+c} = ${answer}`,picture},
-   ],op('-',op('*',average,4),op('+',op('+',a,b),c)),{unit:'pages'});
+   ],op('-',op('*',average,4),op('+',op('+',a,b),c)),{unit:'pages',context:[`The average over all four days is ${average} pages per day.`]});
   }
   case 'p6-charge':{
    const block=r.pick([10,15,20,30]),whole=r.int(1,5),extra=whole*block+(index%3===0?0:r.int(1,block-1));
@@ -316,24 +316,24 @@ export function makePaperQuestion(activity:Activity,seed:number,index=0):Questio
    const picture=cards('Play-space ticket',[{label:'First 60 minutes',value:dollars(first),icon:'ticket'},
     {label:`Each extra ${block} minutes or part`,value:dollars(rate),icon:'coin'},
     {label:'Time spent',value:`${minutes} minutes`,icon:'clock'},
-   ],'After the first hour, every started block is charged in full.');
+   ]);
    return make('What is the total ticket charge?',answer,picture,'Remove the first hour. Any incomplete extra block still costs one full block.',[
     {text:'Find the time beyond the first hour.',equation:`${minutes} − 60 = ${extra} minutes`,picture},
     {text:extra%block?'There is a partial final block, so include one more block.':'The extra time is an exact number of blocks.',equation:extra%block?`${extra} ÷ ${block} = ${whole} remainder ${extra%block}; ${blocks} blocks charged`:`${extra} ÷ ${block} = ${blocks} blocks`,picture},
     {text:'Add the first-hour charge to the extra-block charges.',equation:`${dollars(first)} + ${blocks} × ${dollars(rate)} = ${dollars(answer)}`,picture},
-   ],op('+',first,op('*',op('/',{op:'floor',a:op('+',op('-',minutes,60),block-1),b:block},block),rate)),{unit:'dollars'});
+   ],op('+',first,op('*',op('/',{op:'floor',a:op('+',op('-',minutes,60),block-1),b:block},block),rate)),{unit:'dollars',context:['After the first hour, every started time block is charged in full, even if only part is used.']});
   }
   case 'p6-redistribute':{
    const before=r.int(6,12),removed=r.int(1,3),after=before-removed,unit=r.int(3,9),each=after*unit,total=before*each,newEach=before*unit,answer=newEach-each;
    const picture:PaperPicture={type:'paper',layout:'timeline',heading:'Repack the beads equally',points:[
     {label:`${before} boxes, ${each} beads each`,icon:'box'},{label:`${removed} boxes removed`,icon:'box'},{label:'Repack into the remaining boxes',icon:'box'},
-   ],gaps:['Keep every bead','Share equally'],caption:'Only empty boxes are removed. No beads are lost or added.'};
+   ],gaps:['Keep every bead','Share equally']};
    return make('How many extra beads does each remaining box hold?',answer,picture,'The total stays the same. Find the new equal share, then compare it with the old share.',[
     {text:'Recover the number of beads, which does not change.',equation:`${before} × ${each} = ${total}`,picture},
     {text:'Count the boxes still available.',equation:`${before} − ${removed} = ${after}`,picture},
     {text:'Share the unchanged total among those boxes.',equation:`${total} ÷ ${after} = ${newEach}`,picture},
     {text:'Compare the new amount in each box with the old amount.',equation:`${newEach} − ${each} = ${answer}`,picture},
-   ],op('-',op('/',op('*',before,each),op('-',before,removed)),each),{unit:'beads'});
+   ],op('-',op('/',op('*',before,each),op('-',before,removed)),each),{unit:'beads',context:['All the beads are kept. After removing some empty boxes, all the beads are shared equally among the remaining boxes.']});
   }
   default:throw new Error(`Unknown paper practice: ${parameter}`);
  }

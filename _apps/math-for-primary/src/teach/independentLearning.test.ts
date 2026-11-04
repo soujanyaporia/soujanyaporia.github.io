@@ -80,7 +80,7 @@ describe('Support for learning a new idea independently',()=>{
   expect(replay.steps.map(s=>s.text).join(' ')).not.toContain('fourteen');
  });
  it('keeps a worked example available for every lesson',()=>{
-  expect(LESSONS).toHaveLength(265);
+  expect(LESSONS).toHaveLength(266);
   for(const lesson of LESSONS)expect(lesson.stages.some(s=>s.kind==='worked'&&s.steps.length>=2),lesson.id).toBe(true);
  });
 });

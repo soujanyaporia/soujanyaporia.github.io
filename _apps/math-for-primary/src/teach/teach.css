@@ -704,3 +704,10 @@
 }
 /* Reflection is a conversation, one prompt at a time. */
 .reflection-focus,.reflection-compare{display:grid;gap:12px}.reflection-question{font-size:clamp(18px,2.4vw,23px);font-weight:800;line-height:1.5;margin:0}.reflection-writing summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:#687886;font-size:14px}.reflection-navigation{display:flex;justify-content:space-between;gap:10px}.reflection-navigation:has(>button:only-child){justify-content:flex-end}.challenge-summary{max-width:650px;text-align:left;margin:20px auto;background:#f1f5eb;border:1px solid #d6e2d3;border-radius:18px;padding:18px 22px}.challenge-summary h2{margin-top:0;font-size:20px}.challenge-summary p{line-height:1.6;margin-bottom:0}
+
+/* Keep the question and its next action together; never cover answers or the drawing area. */
+.lesson-player .stage-nav{position:static;backdrop-filter:none;flex-wrap:wrap}
+.lesson-player .stage-need:empty{display:none}
+.lesson-player .stage-need{flex:1;text-align:left;order:0;font-size:14px}
+.lesson-player .help-entry .help-btn{min-height:44px}
+.lesson-player .item-count{font-size:14px;font-weight:700}

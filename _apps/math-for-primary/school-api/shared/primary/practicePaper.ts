@@ -5,11 +5,11 @@ import {ACTIVITIES,type Activity} from './catalog';
 import {makeQuestion,type Question} from './generate';
 
 /** Bump when the source schedule, seeded draws or question semantics change. */
-export const PRACTICE_PAPER_VERSION=1;
+export const PRACTICE_PAPER_VERSION=2;
 export const PRACTICE_PAPER_COUNTS=[6,12,18] as const;
 export type PracticePaperCount=typeof PRACTICE_PAPER_COUNTS[number];
 export interface PaperRequest {level:number;track:Track;count:PracticePaperCount;topic:string;seed:number}
-export interface PracticePaperTopic {id:string;title:string;activityCount:number;paperFamilyCount:number}
+export interface PracticePaperTopic {id:string;title:string;activityCount:number;paperFamilyCount:number;maxCount:PracticePaperCount}
 export interface PracticePaperItem {number:number;activity:Activity;question:Question}
 export interface PracticePaper {version:number;code:string;request:PaperRequest;items:PracticePaperItem[]}
 export interface RestoredPracticePaper {paper:PracticePaper;answers:(string|null)[];cursor:number}
@@ -17,10 +17,29 @@ export interface RestoredPracticePaper {paper:PracticePaper;answers:(string|null
 const TOPIC_NAMES:Record<string,string>={WN:'Whole numbers',AS:'Adding and subtracting',MD:'Multiplying and dividing',FACT:'Factors and multiples',FRAC:'Fractions',MONEY:'Money',DEC:'Decimals',PCT:'Percentages',RATE:'Rate',RATIO:'Ratio',ALG:'Algebra',LENGTH:'Length',MEASURE:'Measurement',TIME:'Time',AREA:'Area and perimeter',VOL:'Volume',ANGLE:'Angles',LINES:'Lines',SYM:'Symmetry',SHAPE:'Shapes',SOLID:'Solid shapes',CIRCLE:'Circles',GRAPH:'Graphs',AVG:'Averages'};
 const norm=(s:string)=>s.trim().replace(/\s+/g,' ');
 const topicOf=(a:Activity)=>a.skillIds[0]?.split('.')[2]??a.objective.split('.')[0];
+type BankSample={activity:Activity;question:Question};
+type TopicBank={samples:BankSample[];maxCount:PracticePaperCount|0};
+const bankCache=new WeakMap<Activity[],Map<string,TopicBank>>();
 function validPath(level:number,track:Track){return Number.isInteger(level)&&level>=1&&level<=6&&(track==='standard'||track==='foundation'&&level>=5);}
 function sourcesFor(level:number,track:Track,activities:Activity[]){
  if(!validPath(level,track))return [];
  return activities.filter(a=>a.level===level&&a.track===track&&a.kind!=='daily'&&a.parameter!=='mixed');
+}
+
+/** Prove that a displayed size is constructible. Keep these deterministic samples as a fallback,
+ * so a later unlucky random draw cannot make an advertised paper impossible. The observed domain
+ * is capped at 18; this is not a claim that a topic has only 18 possible questions. */
+function topicBank(pool:Activity[],activities:Activity[]):TopicBank{
+ let cache=bankCache.get(activities);if(!cache){cache=new Map();bankCache.set(activities,cache);}
+ const signature=JSON.stringify(pool.map(a=>[a.id,a.level,a.track,a.kind,a.parameter]));
+ const known=cache.get(signature);if(known)return known;
+ const samples:BankSample[]=[],seen=new Set<string>();
+ for(let attempt=0;attempt<96&&samples.length<18;attempt++)for(const activity of pool){
+  const question=makeQuestion(activity,hashString(`paper-bank-v${PRACTICE_PAPER_VERSION}:${activity.id}:${attempt}`),attempt%6),key=visibleQuestionKey(question);
+  if(!seen.has(key)){seen.add(key);samples.push({activity,question});if(samples.length===18)break;}
+ }
+ const maxCount:PracticePaperCount|0=samples.length>=18?18:samples.length>=12?12:samples.length>=6?6:0;
+ const bank={samples,maxCount};cache.set(signature,bank);return bank;
 }
 
 /** Honest topics from the selected catalogue, including explicitly tagged prerequisite review. */
@@ -29,8 +48,11 @@ export function practicePaperTopics(level:number,track:Track,activities:Activity
  if(!all.length)return [];
  const groups=new Map<string,Activity[]>();
  for(const a of all){const code=topicOf(a);groups.set(code,[...(groups.get(code)??[]),a]);}
- const describe=(id:string,title:string,pool:Activity[])=>({id,title,activityCount:pool.length,paperFamilyCount:pool.filter(a=>a.kind==='paper').length});
- return [describe('mixed','Mixed practice',all),...[...groups].map(([id,pool])=>describe(id,TOPIC_NAMES[id]??id,pool))];
+ const describe=(id:string,title:string,pool:Activity[]):PracticePaperTopic[]=>{
+  const {maxCount}=topicBank(pool,activities);
+  return maxCount?[{id,title,activityCount:pool.length,paperFamilyCount:pool.filter(a=>a.kind==='paper').length,maxCount}]:[];
+ };
+ return [...describe('mixed','Mixed practice',all),...[...groups].flatMap(([id,pool])=>describe(id,TOPIC_NAMES[id]??id,pool))];
 }
 
 function checkedRequest(input:PaperRequest,activities:Activity[]):PaperRequest{
@@ -38,7 +60,9 @@ function checkedRequest(input:PaperRequest,activities:Activity[]):PaperRequest{
  if(!PRACTICE_PAPER_COUNTS.includes(input.count))throw new RangeError('Choose a paper with 6, 12 or 18 questions.');
  if(!Number.isInteger(input.seed)||input.seed<0||input.seed>0xffffffff)throw new RangeError('The paper seed must be a whole number from 0 to 4294967295.');
  const topic=typeof input.topic==='string'?(input.topic.toLowerCase()==='mixed'?'mixed':input.topic.toUpperCase()):'';
- if(!practicePaperTopics(input.level,input.track,activities).some(t=>t.id===topic))throw new RangeError('This topic is not available for the selected level and course.');
+ const selection=practicePaperTopics(input.level,input.track,activities).find(t=>t.id===topic);
+ if(!selection)throw new RangeError('This topic is not available for the selected level and course.');
+ if(input.count>selection.maxCount){const pool=sourcesFor(input.level,input.track,activities).filter(a=>topic==='mixed'||topicOf(a)===topic);throw new PracticePaperCapacityError(topicBank(pool,activities).samples.length);}
  return {level:input.level,track:input.track,count:input.count,topic,seed:input.seed};
 }
 function codeFor(request:PaperRequest){
@@ -59,7 +83,9 @@ export function parsePracticePaperCode(code:string,activities:Activity[]=ACTIVIT
 
 /** Ignore shuffled distractors and invisible answers: neither makes a repeated question fresh. */
 export function visibleQuestionKey(q:Question):string{
- return JSON.stringify([norm(q.prompt),norm(q.display??''),q.picture??null,q.order?[...q.order].sort():null,q.fractionBuilder??null,norm(q.unit??'')]);
+ const visible:unknown[]=[norm(q.prompt),norm(q.display??''),q.picture??null,q.order?[...q.order].sort():null,q.fractionBuilder??null,norm(q.unit??'')];
+ if(q.context?.length)visible.push(q.context.map(norm));
+ return JSON.stringify(visible);
 }
 const resumeFingerprint=(q:Question)=>hashString(JSON.stringify([visibleQuestionKey(q),q.answer,q.choices?[...q.choices].sort():null,q.order??null,q.requireSimplified??false,q.requireImproper??false])).toString(16).padStart(8,'0');
 
@@ -97,6 +123,11 @@ export function generatePracticePaper(input:PaperRequest,activities:Activity[]=A
  const pool=sourcesFor(request.level,request.track,activities).filter(a=>request.topic==='mixed'||topicOf(a)===request.topic);
  const schedule=sourceSchedule(pool,request),seen=new Set<string>(),items:PracticePaperItem[]=[];
  const fallback=new Rng(hashString(`${code}:fallback`)).shuffle(pool);
+ const guaranteed=new Rng(hashString(`${code}:bank-fallback`)).shuffle(topicBank(pool,activities).samples);
+ const item=(activity:Activity,q:Question,slot:number):PracticePaperItem=>{
+  const workedSteps=q.workedSteps??solutionFrames(q).map(f=>({text:f.text,equation:f.equation,picture:f.model??q.picture}));
+  return {number:slot+1,activity,question:{...q,key:`paper:${code}:${slot}`,sourceActivityId:activity.id,workedSteps}};
+ };
  for(let slot=0;slot<request.count;slot++){
   const preferred=schedule[slot],candidates=[preferred,...fallback.filter(a=>a.id!==preferred.id)];
   let selected:PracticePaperItem|undefined;
@@ -107,11 +138,14 @@ export function generatePracticePaper(input:PaperRequest,activities:Activity[]=A
     const drawSeed=hashString(`${code}:${slot}:${activity.id}:${attempt}`),q=makeQuestion(activity,drawSeed,slot),key=visibleQuestionKey(q);
     if(seen.has(key))continue;
     seen.add(key);
-    const workedSteps=q.workedSteps??solutionFrames(q).map(f=>({text:f.text,equation:f.equation,picture:f.model??q.picture}));
-    selected={number:slot+1,activity,question:{...q,key:`paper:${code}:${slot}`,sourceActivityId:activity.id,workedSteps}};
+    selected=item(activity,q,slot);
     break;
    }
    if(selected)break;
+  }
+  if(!selected){
+   const reserve=guaranteed.find(sample=>!seen.has(visibleQuestionKey(sample.question)));
+   if(reserve){seen.add(visibleQuestionKey(reserve.question));selected=item(reserve.activity,reserve.question,slot);}
   }
   if(!selected)throw new PracticePaperCapacityError(items.length);
   items.push(selected);

@@ -1,3 +1,42 @@
-/* Keep the growing navigation usable with a thumb, rather than shrinking its tap targets. */
-@media(max-width:1000px){.adventure-sidebar .adventure-nav{min-width:0;max-width:100%;overflow-x:auto;scrollbar-width:thin;overscroll-behavior-x:contain}.adventure-sidebar .adventure-nav a{flex-shrink:0;min-width:44px;min-height:44px}}
-@media(max-width:700px){.adventure-sidebar .adventure-nav{justify-content:flex-start;gap:5px}.adventure-sidebar .adventure-nav a{flex:1 0 56px;min-width:56px;min-height:58px}.adventure-sidebar .adventure-nav a span{white-space:normal}}
+/* Three everyday choices stay visible; the rest is one accessible disclosure away. */
+.adventure-sidebar .adventure-brand{min-height:44px;margin-bottom:28px}
+.adventure-sidebar .adventure-nav{gap:8px;overflow:visible}
+.adventure-sidebar .adventure-nav>a,.adventure-sidebar .nav-more>summary{display:flex;align-items:center;gap:12px;min-height:50px;padding:12px 14px;border-radius:13px;font-size:14px;font-weight:800;color:#526b5e;text-decoration:none;cursor:pointer;box-sizing:border-box}
+.adventure-sidebar .adventure-nav>a.active{background:#e3f2e8;color:#207358}
+.adventure-sidebar .nav-more>summary{list-style:none}
+.adventure-sidebar .nav-more>summary::-webkit-details-marker{display:none}
+.adventure-sidebar .nav-more>summary::after{content:'⌄';font-size:17px;margin-left:auto;line-height:1}
+.adventure-sidebar .nav-more[open]>summary::after{transform:rotate(180deg)}
+.adventure-sidebar .nav-more>summary:hover,.adventure-sidebar .nav-more[open]>summary{background:#f0f5ee}
+.adventure-sidebar a:focus-visible,.adventure-sidebar summary:focus-visible,.adventure-sidebar button:focus-visible{outline:3px solid #35785b;outline-offset:3px}
+.adventure-sidebar .nav-more-panel{padding:8px 0 0}
+.adventure-sidebar .nav-more-panel a{display:flex;flex-direction:row;justify-content:flex-start;gap:10px;min-height:44px;padding:10px 14px;font-size:13px;line-height:1.4;border-radius:10px;color:#526b5e;text-decoration:none;transform:none}
+.adventure-sidebar .nav-more-panel a span{max-width:none;text-align:left;white-space:normal}
+.adventure-sidebar .nav-information-links{border-top:1px solid #e3e9df;margin-top:8px;padding-top:8px}
+.adventure-sidebar .nav-information-links a{font-size:12px;font-weight:700}
+.adventure-sidebar .nav-preferences{display:grid;gap:4px;margin-top:8px;padding-top:10px;border-top:1px solid #e3e9df}
+.adventure-sidebar .nav-preferences button{min-height:44px;justify-content:flex-start;font-size:12px}
+.adventure-sidebar .sidebar-bottom{padding-top:24px}
+.adventure-sidebar .sidebar-account{min-height:44px}
+@media(max-width:1000px){
+ .adventure-sidebar.clear-navigation{position:sticky;top:0;z-index:30}
+ .adventure-sidebar .adventure-brand{margin:0}
+ .adventure-sidebar .adventure-nav{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) minmax(68px,.65fr);gap:6px;min-width:0;width:100%;margin-top:10px;padding-bottom:10px;overflow:visible}
+ .adventure-sidebar .adventure-nav>a,.adventure-sidebar .nav-more>summary{width:100%;height:100%;justify-content:center;font-size:13px;padding:10px;gap:8px;min-width:0;white-space:normal}
+ .adventure-sidebar .nav-more>summary::after{display:none}
+ .adventure-sidebar .nav-more-panel{position:absolute;top:calc(100% - 4px);right:0;z-index:40;width:min(360px,100%);padding:12px;background:#fffefb;border:1px solid #d6e2d6;border-radius:16px;box-shadow:0 12px 36px #234a3324;max-height:calc(100dvh - 165px);overflow-y:auto;overscroll-behavior:contain}
+ .adventure-sidebar .nav-explore-links{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+ .adventure-sidebar .nav-information-links{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+ .adventure-sidebar .nav-preferences{grid-template-columns:1fr 1fr}
+ .adventure-sidebar .sidebar-bottom{padding:0}
+}
+@media(max-width:700px){
+ .adventure-sidebar.clear-navigation{padding:8px 14px 0}
+ .adventure-sidebar .adventure-nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;margin-top:7px;padding-bottom:7px}
+ .adventure-sidebar .adventure-nav>a,.adventure-sidebar .nav-more>summary{flex-direction:column;gap:4px;font-size:11px;padding:7px 3px;min-height:64px;line-height:1.2;border-radius:11px}
+ .adventure-sidebar .adventure-nav>a>span{max-width:none;text-align:center}
+ .adventure-sidebar .adventure-nav>a>svg,.adventure-sidebar .nav-more>summary>svg{width:21px;height:21px;flex-shrink:0}
+ .adventure-sidebar .nav-more-panel a{padding:10px;font-size:13px}
+ .adventure-sidebar .nav-more-panel a>svg{width:20px;height:20px}
+ .adventure-sidebar .sidebar-bottom .sync-label{position:absolute;right:14px;top:50px;font-size:9px;max-width:45%}
+}
