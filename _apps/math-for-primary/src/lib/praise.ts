@@ -45,6 +45,6 @@ const OOPS: Partial<Record<Misconception, string[]>> = {
 };
 
 export function oopsFor(m: Misconception | undefined, seed: number): { line: string; mood: Mood } {
-  const lines = (m && OOPS[m]) ?? ["Let's look again together.", 'Have another think.'];
+  const lines = (m && OOPS[m]) ?? ["Let’s look again together.", 'Have another think.'];
   return { line: pick(lines, seed), mood: 'oops' };
 }

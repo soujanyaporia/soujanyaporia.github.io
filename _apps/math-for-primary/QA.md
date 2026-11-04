@@ -1,3 +1,25 @@
+# Less repetition, more objective-specific teaching — 4 November 2026
+
+A duplication and consistency audit of all 265 lessons, and the repairs it prompted. Counts below come from the same measurement script run before and after the work.
+
+**Warm-ups now test the lesson's own prerequisite.** Every lesson opened with one of ten fixed questions: 262 warm-ups drew on 30 distinct prompts (88.5% repeated), and "A full ten frame holds one ten" opened 49 lessons. Worse, the question rarely matched the grade: the P6 circle lesson began with "How many little squares cover this rectangle?" and the P3 durations lesson with "Eight counters are here. Three are crossed out." The syllabus map already records each objective's prerequisite, so `build/warmUp.ts` now generates the warm-up from that earlier objective's own topic, picking the lightest of six candidates so the warm-up stays gentler than the lesson. The P6 circle lesson now opens with a P5 composite-area question, and the P3 durations lesson with "Convert 1 min 11 s to seconds". Repetition fell to 17.3%, and every one of the 265 answers verifies. Where an objective has no earlier prerequisite — the first topic objectives in P1 — the previous general starting point still applies.
+
+**Each objective has its own expected misconception.** 284 misconceptions drew on 48 distinct texts (83.1% repeated), and they were attached by topic rather than objective, so a fraction-addition warning appeared on 37 lessons including ones not about adding fractions. All of them were labelled "A tempting shortcut". `depth/catalogue/pitfalls.ts` now names and corrects the error each objective actually provokes, with a worked instance: "Writing a time past sixty — Count on to the next hour, then add what is left. 9:45 plus 30 minutes is 10:15, never 9:75." Distinct texts rose from 48 to 162, repetition fell to 43.0%, and no lesson still shows the generic label. The residue is mostly legitimate: the same objective recurs across grades and across the Standard and Foundation tracks.
+
+**Sharper "What should we look for?" questions.** The notice question fell through to a topic-wide default for many lessons, so 14 multiplication and division lessons all asked "What makes multiplication and division a useful pair?", from P1 equal groups to P4 long division. 22 objective-specific questions were added across multiplication and division, volume, whole numbers, addition and subtraction, graphs, fractions and percentage, covering 69 lessons. Distinct questions rose from 87 to 107.
+
+**Consistency repairs.**
+- 27 objective titles were missing the commas in their lists, and they appear as lesson titles throughout the app: "Use hundreds tens and ones" is now "Use hundreds, tens and ones", and "Recall the 6 7 8 and 9 multiplication tables" now reads "Recall the 6, 7, 8 and 9 multiplication tables". Five builder rules matched the old comma-free wording, so they were widened; a before-and-after snapshot of all 265 lessons confirmed no teaching content changed branch.
+- Mixed-number questions gave improper-fraction answers: "Calculate 2 1/2 + 2 5/6" expected 16/3, against an objective called "Add and subtract mixed numbers". These now answer 5 1/3, and the improper form is still marked correct. 10 questions were affected; "Write 1 1/2 as an improper fraction" correctly still expects 3/2.
+- Four-digit numbers appeared both as "6,908" and as "8084" in the same grade. A single rule in `gen.ts` now writes four digits plain and uses commas from five, matching the dominant usage and MOE practice.
+- 13 visible strings used straight apostrophes where the app otherwise uses typographic ones (1157 of them), including "Let's practise" and "We aren't adding". One test asserted the old spelling and was updated.
+
+Verification: 443 tests in 28 files pass, typecheck and production build succeed. In the browser at phone width with no console errors and no horizontal overflow, the P6 circle and P3 durations lessons were opened and their new warm-ups answered and marked, and the new misconception was read in the adult guide.
+
+Limits: this is a repetition and consistency pass, not new teaching material, and no qualified teacher has reviewed the new text. A generated warm-up tests the mapped prerequisite, which is occasionally a multi-step problem rather than a quick recall; the mapped objective, not a teacher, chose it. Explanation picture frames (53.1% repeated) and lesson hooks (47.2%) were measured but not addressed, and 55 notice questions are still shared by more than one objective. The Learn bundle is now 772 kB (238 kB gzip), still above the build's 500 kB warning.
+
+---
+
 # Independent-learning support and app review — 19 September 2026
 
 This release publishes the independent-learning work that was on disk but not yet documented, together with a review of the latest app against the five-area rubric.

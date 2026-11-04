@@ -1,4 +1,4 @@
-import {fmt} from '../../gen';
+import {fmt,numeral} from '../../gen';
 import {words} from '../../build/families/wn';
 import type {Example} from '../../build/sequence';
 import type {PlanEntry} from '../../build/plan';
@@ -53,7 +53,7 @@ export function mistakesFor(p:PlanEntry,e:Example,f:Facts=factsOf(p,e)):Mistake[
   case 'numeral':{const s=String(v.n),bare=s.replace(/0/g,'');if(bare&&bare!==s)add(Number(bare),'Zeros hold empty columns open. Without them, the other digits slide into the wrong places.');
    if(v.n>=1000&&v.n%1000){const top=Math.floor(v.n/1000);add(Number(`${top*1000}${v.n%1000}`),`That writes “${words(top)} thousand” as ${top*1000} and puts ${v.n%1000} after it. The ${v.n%1000} fills the last columns of ${top*1000} instead.`);}break;}
   case 'words':{const n=v.n,near:[number,string][]=[[n+1,'one more'],[n-1,'one less'],[Math.max(1,n-10),'ten less']];
-   options(o=>{const hit=near.find(([k])=>words(k)===o);return hit?`Read that one back: it names ${hit[0].toLocaleString('en-SG')}, which is ${hit[1]} than ${n.toLocaleString('en-SG')}.`:null;});break;}
+   options(o=>{const hit=near.find(([k])=>words(k)===o);return hit?`Read that one back: it names ${numeral(hit[0])}, which is ${hit[1]} than ${n.toLocaleString('en-SG')}.`:null;});break;}
   case 'ordinal':{const NAMES=['first','second','third','fourth','fifth','sixth','seventh','eighth','ninth','tenth'];options(o=>{const k=NAMES.indexOf(o)+1;return k?`“${o}” names position ${k}. Count from the front to position ${v.pos}.`:null;});break;}
   case 'odd-even':{const d=v.n%10;options(()=>`Look at the ones digit, ${d}. Every ten pairs up exactly, so only the ones digit decides.`);break;}
   case 'round':{const lo=Math.floor(v.x/v.unit)*v.unit,hi=lo+v.unit;add(ans===lo?hi:lo,`That is the other neighbour. ${fmt(v.x)} is between ${lo} and ${hi}; compare it with the halfway point, ${lo+v.unit/2}.`);

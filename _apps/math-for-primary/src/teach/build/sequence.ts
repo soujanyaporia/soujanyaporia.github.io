@@ -3,6 +3,7 @@ import {investigation,topicExplore} from '../depth/catalogue/investigations';
 import {lessonActivity} from '../depth/catalogue/activities';
 import {prerequisite} from '../depth/catalogue/prerequisites';
 import {teachingFocus} from '../depth/catalogue/focus';
+import {pitfall} from '../depth/catalogue/pitfalls';
 import {modelFor} from '../depth/catalogue/questions';
 import {mistakesFor} from '../depth/catalogue/mistakes';
 import {plausible} from '../depth/catalogue/assess';
@@ -54,7 +55,7 @@ export function sequence(p:PlanEntry,spec:TopicSpec):Lesson{
  const reps:Rep[]=['symbols','story'];if(sample.tool.kind==='fractions')reps.push('fraction-wall');else if(sample.tool.kind==='bar')reps.push('bar-model');else if(sample.tool.kind==='table')reps.push('table');else reps.push('diagram');
  const result=makeLesson(p,{
   canDo:[p.objective,focus.goal,'check the answer against the original quantities and units'],
-  representations:reps,misconceptions:[{name:'A tempting shortcut',fix:spec.misconception}],
+  representations:reps,misconceptions:[pitfall(p)??{name:'A tempting shortcut',fix:spec.misconception}],
   stages:[
    prerequisite(p),
    {kind:'hook',title:'Meet our picture example',text:pictureExample,tool:spec.anchor?.tool??guide.frames[0].tool,caption:guide.frames[0].caption??guide.frames[0].text,next:'Before following the explanation, think about the relationship we will look for in this picture.',flow:{phase:'watch',label:'First, meet the example',transition:'We will follow this picture step by step before trying a question with help.'}},

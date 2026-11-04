@@ -94,7 +94,7 @@ export function alignedGuide(p:PlanEntry):VisualGuide|null{
   step('Each container receives 75 hundredths of a litre. Write this as 0.75 litre.',{kind:'place',wholes:0,digits:[7,5]},'3 ÷ 4 = 0.75'),
   step('If an answer to one decimal place is needed, round 0.75 to 0.8. Keep the exact quotient separate from its rounded value.',{kind:'line',min:.7,max:.8,start:.75,jumps:[.05],step:.01},'Exact: 0.75 · To 1 decimal place: 0.8')
  ]};
- if(c==='DEC'&&/multiply|divide/.test(o)&&!/powers|10 100|10,|measurement/.test(o))return {title:'Multiply and share decimal pieces',setup:'Three ribbons are each 0.4 metre long. What length do they make altogether?',frames:[
+ if(c==='DEC'&&/multiply|divide/.test(o)&&!/powers|10,? 100|10,|measurement/.test(o))return {title:'Multiply and share decimal pieces',setup:'Three ribbons are each 0.4 metre long. What length do they make altogether?',frames:[
   step('Each ribbon is four tenths of a metre. We have three equal amounts.',strips([10,10,10],[4,4,4]),'0.4 × 3','Each strip is a one-metre reference. The shaded four tenths show one ribbon.'),
   step('Three groups of four tenths give twelve tenths. Ten tenths make one whole metre.',{kind:'place',wholes:1,digits:[2]},'4 tenths × 3 = 12 tenths = 1.2'),
   step('The total length is 1.2 metres. The decimal point records the unit size; it is not an extra object.',bar(1.2,[.4,.4,.4],['0.4 m','0.4 m','0.4 m']),'0.4 × 3 = 1.2'),

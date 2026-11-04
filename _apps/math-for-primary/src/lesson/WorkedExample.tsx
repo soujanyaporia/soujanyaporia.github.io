@@ -61,7 +61,7 @@ export function WorkedExample({
           problem={problem}
           explanation={explanation}
           readAloud={readAloud}
-          doneLabel={isLast ? "Let's practise" : 'Next example'}
+          doneLabel={isLast ? "Let’s practise" : 'Next example'}
           onDone={onNext}
         />
       </div>

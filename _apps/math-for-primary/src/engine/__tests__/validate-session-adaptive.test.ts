@@ -25,7 +25,7 @@ describe('answer checking and misconceptions', () => {
     expect(checkAnswer(p, { kind: 'number', value: 3 })).toMatchObject({ correct: true, message: 'Correct! 3 + 4 = 7.' });
     const added = checkAnswer(p, { kind: 'number', value: 11 });
     expect(added.misconception).toBe('wrong_operation');
-    expect(added.message).toBe("We aren't adding 4 to 7.");
+    expect(added.message).toBe("We aren’t adding 4 to 7.");
     expect(checkAnswer(p, { kind: 'number', value: 2 }).misconception).toBe('off_by_one');
   });
 

@@ -1,4 +1,4 @@
-import {fmt} from '../../gen';
+import {fmt,numeral} from '../../gen';
 import type {Example} from '../../build/sequence';
 import type {PlanEntry} from '../../build/plan';
 import {factsOf,minutesOf,type Facts} from './facts';
@@ -13,7 +13,7 @@ export interface Way {title:string;steps:string[]}
 const W=(title:string,...steps:string[]):Way=>({title,steps:steps.filter(Boolean)});
 const gcd=(a:number,b:number):number=>b?gcd(b,a%b):Math.abs(a);
 const factors=(n:number)=>Array.from({length:n},(_,i)=>i+1).filter(d=>n%d===0);
-const sg=(n:number)=>n.toLocaleString('en-SG');
+const sg=(n:number)=>numeral(n);
 const decimals=(x:number)=>{const s=fmt(x);return s.includes('.')?s.split('.')[1].length:0;};
 const PLACE_NAME:Record<number,string>={1:'ones',10:'tens',100:'hundreds',1000:'thousands',10000:'ten thousands',100000:'hundred thousands',1000000:'millions',10000000:'ten millions'};
 const clock=(t:number)=>`${Math.floor(t/60)%12||12}:${String(t%60).padStart(2,'0')}${Math.floor(t/60)%24<12?' am':' pm'}`;

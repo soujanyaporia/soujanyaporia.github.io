@@ -5,6 +5,8 @@ import type { Item } from './model';
 export const rngFor=(lessonId:string,seed:number,index:number,salt='')=>new Rng(hashString(`${lessonId}:${salt}:${seed}:${index}`));
 export const fmt=(n:number)=>Number(n.toFixed(6)).toString();
 export const money=(n:number)=>'$'+n.toFixed(2);
+/** House style for a numeral in prose: four digits run together (8084), five or more take commas (45,230). */
+export const numeral=(n:number)=>Math.abs(n)>=10000?n.toLocaleString('en-SG'):fmt(n);
 const gcd=(a:number,b:number):number=>b?gcd(b,a%b):Math.abs(a);
 export const simplest=(n:number,d:number)=>{const g=gcd(n,d);return d/g===1?String(n/g):`${n/g}/${d/g}`;};
 export const plural=(n:number,one:string,many=one+'s')=>`${n} ${n===1?one:many}`;

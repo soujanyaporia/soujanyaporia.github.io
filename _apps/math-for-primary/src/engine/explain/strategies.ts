@@ -66,7 +66,7 @@ const makeTen: Strategy = {
     const need = 10 - a;
     const rest = b - need;
     const frame: CountersSpec = { ...joinCounters(a, b), layout: 'frame' };
-    s.add(`Let's make 10 first. ${a} needs ${need} more to make 10.`, frame);
+    s.add(`Let’s make 10 first. ${a} needs ${need} more to make 10.`, frame);
     s.add(`So we split ${b} into ${need} and ${rest}.`, bond(b, [need, rest]));
     s.add(`${a} + ${need} = 10. Then 10 + ${rest} = ${c}.`, frame, [show(mk('+', a, need)), show(mk('+', 10, rest))]);
   },

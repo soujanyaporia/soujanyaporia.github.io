@@ -87,7 +87,7 @@ export function ProgressScreen() {
         </section>
         <section className="card progress-panel">
           <h2 className="section-title">
-            <Icon name="target" /> Let's practise
+            <Icon name="target" /> Let’s practise
           </h2>
           <SkillChips ids={focusSkills(skills).filter(id => enabledSkills.has(id))} empty="Nothing tricky yet. Great job!" />
         </section>

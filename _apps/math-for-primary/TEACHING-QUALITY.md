@@ -4,6 +4,8 @@ The aim is for a child to connect a situation, a model and a calculation, then u
 
 ## Implemented
 
+Since 4 November 2026 each lesson's warm-up is generated from the prerequisite objective the syllabus map records for it, rather than from ten fixed questions shared across the catalogue, and each objective carries its own named misconception instead of a topic-wide one. Repetition among warm-up questions fell from 88.5% to 17.3%, and distinct misconception texts rose from 48 to 162. See QA.md for the measurements and the limits.
+
 All 265 Learn lessons now pause for an explanation grounded in their actual worked question. The child can speak, point, draw or type before revealing a comparison explanation. Reflection is explicitly unmarked; the app does not claim to understand the child's speech or writing. Optional written explanations are not stored or submitted.
 
 Ten reference lessons have specific explanation prompts and transfer questions. Seven of these also replace the earlier sequence with a coherent prediction, reachable model activity, annotated explanation, worked example with pupil turns, and three practice questions that introduce small changes. The other three retain their previously authored investigations and now add the explanation/transfer pause.

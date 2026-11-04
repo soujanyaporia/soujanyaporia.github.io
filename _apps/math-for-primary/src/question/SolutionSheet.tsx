@@ -22,7 +22,7 @@ export function SolutionSheet({
     <div className="sheet-backdrop">
       <div ref={dialogRef} className="sheet card" role="dialog" aria-modal="true" aria-label="Worked explanation">
         <div className="sheet-head">
-          <p className="eyebrow">Let's work it out together</p>
+          <p className="eyebrow">Let’s work it out together</p>
           <button type="button" className="icon-btn small" onClick={onClose} aria-label="Close">
             <Icon name="close" />
           </button>

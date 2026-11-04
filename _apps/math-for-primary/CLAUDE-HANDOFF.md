@@ -1,3 +1,11 @@
+# Current handoff — 4 November 2026 duplication and consistency pass
+
+`build/warmUp.ts` generates each lesson's readiness question from `p.skill.prerequisites[0]`, using that objective's own family spec (the specs are exported from `build/families/*`); it is applied in `build/index.ts`, so the ten hand-matched reference lessons in `depth/referenceLessons.ts` still override it. `depth/catalogue/pitfalls.ts` holds the per-objective misconception, matched by topic code then objective regex, with the family text as fallback in `sequence.ts`. `gen.ts` `numeral()` is the house rule for numbers in prose: four digits plain, commas from five.
+
+Careful: several builders branch on objective text (`/10,? 100/`, `/tens and ones/`). Changing a title in `school/curriculum.ts` can silently move a lesson to a different branch — snapshot every lesson's stages before and after, as the 4 November title edit did. Still repetitive and worth a pass: explanation frames (53.1%), hooks (47.2%), and 55 notice questions shared by more than one objective.
+
+---
+
 # Current handoff — 19 September 2026 independent-learning support and review
 
 Question help lives in `LessonPlayer.tsx` (`ItemCard`) and `LearningSupport.tsx` (`PictureKey`, `ExampleReplay`, `reflectionReplay`). `learningUi.ts` `supportRecommendation` chooses the next help route. `modelReading.ts` explains each model's notation without revealing hidden values. `depth/independence.ts` adds the “Choose a first step, then try it” bridge to the ten reference lessons (revision `…-v6`; the whitelist is in `flow.test.ts`). The review in QA.md rates the app 8.0/10 on average. Its top gaps: 186 generic upper-primary warm-ups, 128 table-only worked examples, missing time misconceptions (13:95, 15:45, 14:155, 15:35), and the bridge in only 10 lessons. Run heavy tests with one worker when the host is loaded.
