@@ -1,5 +1,7 @@
 import type {P6CatholicPicture} from './paperImports/p6CatholicPicture';
 import type {P5MahaBodhiPicture} from './paperImports/p5MahaBodhiPicture';
+import type {Batch2EarlyPicture} from './paperImports/batch2EarlyPicture';
+import type {Batch2UpperPicture} from './paperImports/batch2UpperPicture';
 import type {P4NanyangPicture} from './paperImports/p4NanyangPicture';
 import {validGrouping,type GroupingSpec} from './groupingAnswer';
 import type {MissingDigitColumnModel} from './paperImports/missingDigitModel';
@@ -12,7 +14,7 @@ import type {PaperPicture} from './paperPicture';
 import type {AngleDiagramModel} from './AngleDiagram';
 import type {CorpusPicture} from './corpusPaperQuestions';
 import {normaliseNumberWords,piCoefficient,validNumberSentence,type NumberSentenceSpec} from './answerFormat';
-export type Picture = P5MahaBodhiPicture | P6CatholicPicture | P4NanyangPicture | MissingDigitColumnModel | P3RafflesPicture | CorpusPicture | AngleDiagramModel | PaperPicture | {type:'parts';parts:number[];joined?:number[];reveal?:boolean}|{type:'counters';count:number;group?:number;parts?:number[];removed?:number}|{type:'fraction';parts:number;filled:number}|{type:'clock';minutes:number}|{type:'shape';shape:string;labels?:string[]}|{type:'bars';labels:string[];values:number[];scale:number;line?:boolean;pictures?:boolean}|{type:'pie';labels:string[];values:number[]}|{type:'angle';degrees:number;label?:string}|{type:'ruler';length:number}|{type:'net';cells:[number,number][]}|{type:'pattern';items:string[]}|{type:'solid';shape:string;a?:number;b?:number;c?:number}|{type:'area';a:number;b:number;cut?:number};
+export type Picture = Batch2EarlyPicture | Batch2UpperPicture | P5MahaBodhiPicture | P6CatholicPicture | P4NanyangPicture | MissingDigitColumnModel | P3RafflesPicture | CorpusPicture | AngleDiagramModel | PaperPicture | {type:'parts';parts:number[];joined?:number[];reveal?:boolean}|{type:'counters';count:number;group?:number;parts?:number[];removed?:number}|{type:'fraction';parts:number;filled:number}|{type:'clock';minutes:number}|{type:'shape';shape:string;labels?:string[]}|{type:'bars';labels:string[];values:number[];scale:number;line?:boolean;pictures?:boolean}|{type:'pie';labels:string[];values:number[]}|{type:'angle';degrees:number;label?:string}|{type:'ruler';length:number}|{type:'net';cells:[number,number][]}|{type:'pattern';items:string[]}|{type:'solid';shape:string;a?:number;b?:number;c?:number}|{type:'area';a:number;b:number;cut?:number};
 export interface Question {key:string;prompt:string;context?:string[];display?:string;answer:string;answerFormat?:'number-words'|'pi';numberSentence?:NumberSentenceSpec;grouping?:GroupingSpec;choices?:string[];unit?:string;hint:string;explanation:string;picture?:Picture;order?:string[];fractionBuilder?:number;proof?:Proof;requireSimplified?:boolean;requireImproper?:boolean;requireMixed?:boolean;sourceActivityId?:string;workedSteps?:{text:string;equation?:string;picture?:Picture}[]}
 export type Proof=number|{op:'+'|'-'|'*'|'/'|'round'|'floor';a:Proof;b:Proof};
 const calc=(op:'+'|'-'|'*'|'/',a:Proof,b:Proof):Proof=>({op,a,b});

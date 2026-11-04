@@ -1,5 +1,7 @@
 import {P6CatholicDiagram} from './paperImports/P6CatholicDiagram';
 import {P5MahaBodhiDiagram} from './paperImports/P5MahaBodhiDiagram';
+import {Batch2EarlyDiagram} from './paperImports/batch2EarlyDiagram';
+import {Batch2UpperDiagram} from './paperImports/batch2UpperDiagram';
 import {P4NanyangDiagram} from './paperImports/P4NanyangDiagram';
 import {MissingDigitColumn} from './paperImports/MissingDigitColumn';
 import {P3RafflesDiagram} from './paperImports/P3RafflesDiagram';
@@ -16,6 +18,8 @@ export function Picture({model:m}:{model:Model}){
  if(m.type==='nanyang-p4')return <P4NanyangDiagram model={m}/>;
  if(m.type==='catholic-p6')return <P6CatholicDiagram model={m}/>;
  if(m.type==='maha-bodhi-p5')return <P5MahaBodhiDiagram model={m}/>;
+ if(m.type==='batch2-early')return <Batch2EarlyDiagram model={m}/>;
+ if(m.type==='batch2-upper')return <Batch2UpperDiagram model={m}/>;
  if(m.type==='missing-column')return <MissingDigitColumn model={m}/>;
  if(m.type==='raffles-p3')return <P3RafflesDiagram model={m}/>;
  if(m.type==='corpus')return <CorpusDiagram model={m}/>;

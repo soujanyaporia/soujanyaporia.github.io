@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+"""Curate the explicitly reviewed batch3 source units for the partial importer."""
+import json,hashlib
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];L=R.parent/'Singapore Maths Paper Library';sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def spec(pid,code,test,tracked,gen,solver,count,scope,title):return {'patternId':pid,'codePath':code,'solverPath':test,'trackedFiles':tracked,'existing':False,'title':title,'description':title,'structuralSignature':title,'generatorId':gen,'illustrationId':'existing app renderer or concise text','parameterConstraints':scope,'sampleCount':count,'solverExport':solver,'testedParameterScope':scope}
+shared=['src/engine/random.ts','src/primary/generate.ts','src/primary/answerFormat.ts','src/primary/groupingAnswer.ts']
+tracked=['src/primary/paperImports/batch3UpperMeta.ts','src/primary/paperImports/p1HenryPark2025.ts','src/primary/paperImports/p1HenryPark2025Meta.ts','src/primary/paperImports/p6Catholic2025.ts','src/primary/paperImports/p6Catholic2025Meta.ts','src/primary/Picture.tsx',*shared]
+source={6:({'number':'9402517','place':'ten thousands'},'Identify the digit at ten thousands','multiple-choice',['0','2','5','4'],'not-required'),12:({'length':1050,'unit':'cm'},'Convert centimetres to metres','multiple-choice',['1.05 m','1.5 m','10.05 m','10.5 m'],'not-required'),16:({'sequence':[875,845,815,None,755]},'Find the missing fourth term in a decreasing five-term sequence','constructed',None,'not-required'),17:({'squareBaseSideCm':4,'heightCm':10},'Find the volume of the square-base cuboid','multiple-choice',['40 cm³','160 cm³','320 cm³','400 cm³'],'required'),36:({'initialCaps':150,'soldPercent':52},'Find the number of caps left','multiple-choice',['48','72','78','98'],'not-required')}
+m=json.loads((R/'.generated/paper-imports/batch3-upper-review.json').read_text());patterns=[];units=[]
+for x in m['entries']:
+ order=x['sourceReviewOrder'];givens,conditions,fmt,choices,dep=source[order];id=x['id'];pid='batch3:upper:'+id;page=x['page_numbers'][0];image=Path(x['evidenceImages'][0]);patterns.append(spec(pid,'src/primary/paperImports/batch3Upper.ts','src/primary/paperImports/batch3Upper.test.ts',tracked,'makeBatch3Upper','solveBatch3Upper',1000,{'id':id,'seeds':'0–499 × indexes 0–1','responseFormat':fmt},x['canonicalPatternId']))
+ units.append({'paperId':x['paper_id'],'sourceSha256':x['source_sha256'],'sourcePdf':x['source_pdf'],'sourcePage':page,'sourceQuestion':x['sourceQuestion'],'givens':givens,'conditions':conditions,'responseFormat':fmt,'sourceChoices':choices,'independentSolution':x['independentSourceSolution'],'patternId':pid,'structuralRationale':x['configuration'],'variantRequirements':{'structure':x['canonicalPatternId'],'responseFormat':fmt,'diagramDependency':dep},'verificationExplanation':'This configured original generator preserves the requested operation, response format and necessary representation; an independent visible-given solver checks finite generated variants.','evidenceImage':str(image),'evidenceImageSha256':sha(image),'diagramDependency':dep})
+# Append optional separately prepared early units after their final review and tests.
+early=R/'.generated/paper-imports/batch3-early-ledger-units.json'
+if early.exists():
+ e=json.loads(early.read_text());patterns.extend(e['patterns']);units.extend(e['units'])
+out={'schemaVersion':1,'scope':'Reviewed individual batch3 response units only; no inferred paper inventory or OCR supersession.','patterns':patterns,'units':units};target=R/'.generated/corpus-template-reuse/partial-batch3-manifest.json';target.write_text(json.dumps(out,indent=2)+'\n');print(json.dumps({'manifest':str(target),'units':len(units),'patterns':len(patterns)}))

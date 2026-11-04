@@ -1,3 +1,11 @@
+# Exam-style reuse release — 5 November 2026
+
+862 tests in76files passed; frontend build and289SEO/redirect checks passed. The former test requiring every question to have an illustration was replaced with a complete-visible-givens requirement, reflecting the user's explicit preference. PaperMaterials regression checks preserve every card label/value while omitting decorative SVGs; counting pictures, clocks and timeline givens remain. Bank audit:50,000 samples across192 configurations,24,724 distinct visible identities,zero failures. Integration audit:19,200 generated responses,1,600 daily plans,288 complete paper save/resumes,206 grouping print/feedback checks,zero failures. API shared code synced;9tests passed; Sites version8 deployed.
+
+Browser: P5 rate paper `SGM5-P5S-6-RATE-J-Z2SGBJ` shows plain facts without decorative pictures. P2 b3e-three-card-subtraction displays all3 cards;873−761=112 accepted as alternate correct response. Final live proof/release status is in `.generated/release-status.json`; source-only tests are not deployment proof. Source ledger remains159 complete verified units plus3 ambiguities;4strictly covered papers, not complete corpus or MOE coverage.
+
+---
+
 # Six-paper response integration — 4 November 2026
 
 833 frontend tests in 70 files passed; production build and 289 SEO/redirect checks passed. All 9 API tests passed after syncing shared catalogue and answer contracts. The six imported paper modules independently solved 52,400 finite variants; separate 50,000-sample bank audit had zero failures (172 configurations, 22,439 distinct visible identities). Integration audit passed 17,200 generated responses, 1,600 daily plans, 288 complete save/resumes, 206 grouping print/feedback checks. Source coverage is 127 complete units and three explicitly uncredited source ambiguities across six inventories; only four papers strictly complete. This is not complete MOE coverage or classroom validation.

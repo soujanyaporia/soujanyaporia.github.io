@@ -31,14 +31,14 @@ describe('On-demand original practice papers',()=>{
   }
  });
 
- it('starts with six distinct illustrated tasks, adds baseline variety, and continues through the task pool',()=>{
+ it('starts with six distinct complete tasks, adds baseline variety, and continues through the task pool',()=>{
   for(let level=1;level<=6;level++)for(const seed of [0,23,7919,0xffffffff]){
    const input={...request(level),count:18 as const,seed},paper=generatePracticePaper(input);
    const expected=ACTIVITIES.filter(a=>a.level===level&&a.track==='standard'&&a.kind==='paper'&&a.parameter!=='mixed').map(a=>a.id).sort();
    expect(new Set(paper.items.slice(0,6).map(i=>i.activity.id)).size).toBe(6);
    expect(new Set(paper.items.slice(0,6).map(i=>i.activity.canonicalPatternId??i.activity.id)).size).toBe(6);
    expect(new Set(paper.items.filter(i=>i.activity.kind==='paper').map(i=>i.activity.id)).size).toBe(Math.min(12,expected.length));
-   expect(paper.items.slice(0,6).every(i=>i.question.picture)).toBe(true);
+   expect(paper.items.slice(0,6).every(({question:q})=>!!q.picture||!!q.display||/\d/.test([q.prompt,...(q.context??[])].join(' ')))).toBe(true);
    expect(paper.items.slice(6,12).every(i=>i.activity.kind!=='paper')).toBe(true);
    expect(new Set(paper.items.slice(6,12).map(i=>i.activity.strand)).size).toBeGreaterThanOrEqual(2);
    expect(paper.items.slice(12).every(i=>i.activity.kind==='paper')).toBe(true);

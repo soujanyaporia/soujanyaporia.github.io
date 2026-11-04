@@ -3,3 +3,15 @@
 @media print{body{background:white!important}.app{display:block!important;padding:0!important}.app>nav,.adventure-sidebar,.school-nav,.paper-screen{display:none!important}.papers-page{max-width:none;padding:0!important;margin:0}.paper-print-sheet{display:block;color:#111;font-size:11pt}.paper-print-sheet>header{border-bottom:2px solid #222;padding-bottom:16px;margin-bottom:20px}.paper-print-sheet h1{font-size:21pt}.paper-print-sheet h2{font-size:13pt}.paper-print-question{break-inside:avoid;padding:16px 0;border-bottom:1px solid #ccc}.paper-print-question .paper-diagram{max-width:620px;margin:10px auto}.paper-print-question .paper-card{box-shadow:none}.paper-print-working{height:60px}.paper-print-solutions{break-before:page}.paper-print-solutions>section{break-inside:avoid;padding:12px 0}.paper-print-solutions li{margin:8px 0}.paper-print-solutions li p{margin:4px 0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 
 .paper-jump{margin:18px 0;border:1px solid #d5e2dc;border-radius:12px;background:#fff}.paper-jump>summary{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:10px 14px;box-sizing:border-box;font-size:13px;font-weight:850;cursor:pointer;list-style:none}.paper-jump>summary::-webkit-details-marker{display:none}.paper-jump>summary>span{font-size:11px;color:#627d70}.paper-jump>.paper-question-nav{padding:0 14px 12px;margin:5px 0}.paper-open .paper-next{margin:18px 0 10px}.paper-open .paper-submit{margin-top:0;padding-top:10px;border-top:0}.paper-working>.scratchpad{margin:0}.paper-mark-confirm h2:focus{outline:none}@media print{.paper-jump{display:none!important}}
+
+/* Paper questions use plain givens. Figures remain where they carry mathematics. */
+.paper-facts{margin:18px 0 24px;color:#273e48;font-size:16px;line-height:1.6}
+.paper-facts-heading{font-weight:800;margin:0 0 10px}
+.paper-facts dl{margin:0;display:grid;gap:8px}
+.paper-facts dl>div{display:grid;grid-template-columns:minmax(130px,1fr) minmax(0,1.4fr);gap:12px;padding:6px 0;border-bottom:1px solid #e4e9e7}
+.paper-facts dt{font-weight:600}.paper-facts dd{margin:0;font-weight:800;overflow-wrap:anywhere}
+.paper-facts-caption{font-size:14px}.paper-time-facts{padding-left:24px}.paper-time-facts li{padding:4px 0}.paper-time-facts li span{font-weight:500}
+.paper-maths-figure{margin:20px 0}.paper-maths-figure>figure{background:white;box-shadow:none;border-radius:0;padding:12px 0}
+.paper-maths-figure .paper-given:not(.paper-count-card)>.paper-object,.paper-maths-figure .paper-transfer-row .paper-object{display:none}
+@media(max-width:480px){.paper-facts{font-size:15px}.paper-facts dl>div{grid-template-columns:minmax(100px,1fr) minmax(0,1.2fr);gap:12px}.paper-maths-figure>figure{padding:8px 0}}
+@media print{.paper-facts{font-size:11pt;line-height:1.45;margin:8px 0}.paper-facts dl>div{padding:3px 0}.paper-maths-figure{margin:8px 0}.paper-facts,.paper-maths-figure{break-inside:avoid}}
