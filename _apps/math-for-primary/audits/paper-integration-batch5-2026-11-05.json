@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-11-04T16:45:52.477Z",
+  "scope": "Response readiness, deterministic daily generation and actual generated-paper draft/marked save and restore; mathematical independence and browser interaction are separate checks.",
+  "paperTasks": 260,
+  "generatedResponseChecks": 26000,
+  "dailyDays": 1600,
+  "dailyQuestions": 9600,
+  "paperResumes": 288,
+  "failures": 0,
+  "firstFailures": []
+}

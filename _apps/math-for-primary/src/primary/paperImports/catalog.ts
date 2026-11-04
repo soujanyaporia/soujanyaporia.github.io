@@ -8,6 +8,7 @@ import {P6_CATHOLIC_2025_PATTERNS} from './p6Catholic2025Meta';
 import {RAFFLES_2025_PARTS} from './p3Raffles2025Meta';
 import {BATCH2_PATTERNS} from './batch2Catalog';
 import {BATCH4_PATTERNS} from './batch4Catalog';
+import {BATCH5_PATTERNS} from './batch5Catalog';
 
 /** Tasks are response variants, not a count of distinct mathematical structures. */
 export interface AdaptedPaperPattern extends PaperPattern {canonicalPatternId:string;sourcePaper:string;sourceParts:string[];sourcePage:number}
@@ -21,5 +22,6 @@ export const ADAPTED_PAPER_PATTERNS:AdaptedPaperPattern[]=[
  ...P6_CATHOLIC_2025_PATTERNS.map(p=>({...p,sourcePaper:'0b3ae31bd258e3b8'})),
  ...BATCH2_PATTERNS,
  ...BATCH4_PATTERNS,
+ ...BATCH5_PATTERNS,
 ];
 export const adaptedPattern=(parameter:string|undefined)=>ADAPTED_PAPER_PATTERNS.find(p=>p.parameter===parameter);

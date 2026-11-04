@@ -15,9 +15,15 @@ import {makeBatch3Early,type Batch3EarlyPart} from './batch3Early';
 import {makeBatch4Early,type Batch4EarlyPart} from './batch4Early';
 import {makeBatch4Middle,type Batch4MiddlePart} from './batch4Middle';
 import {makeBatch4Upper,type Batch4UpperId} from './batch4Upper';
+import {makeBatch5Early,type Batch5EarlyPart} from './batch5Early';
+import {makeBatch5MiddleP3} from './batch5Middle';
+import {makeBatch5Upper,type Batch5UpperId} from './batch5Upper';
 
 export function makeAdaptedPaperQuestion(activity:Activity,seed:number,index:number):Question{
  const pattern=adaptedPattern(activity.parameter);if(!pattern)throw Error(`Unknown adapted pattern: ${activity.parameter}`);
+ if(pattern.parameter.startsWith('b5e-'))return {...makeBatch5Early(pattern.parameter.slice(4) as Batch5EarlyPart,seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b5m-'))return {...makeBatch5MiddleP3(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b5u-'))return {...makeBatch5Upper(pattern.parameter.slice(4) as Batch5UpperId,seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b4e-'))return {...makeBatch4Early(pattern.parameter.slice(4) as Batch4EarlyPart,seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b4m-'))return {...makeBatch4Middle(pattern.parameter.slice(4) as Batch4MiddlePart,seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b4u-'))return {...makeBatch4Upper(pattern.parameter.slice(4) as Batch4UpperId,seed,index),key:`${activity.id}:${seed}:${index}`};
