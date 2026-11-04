@@ -1,3 +1,4 @@
+import {shownAnswer} from '../primary/answerDisplay';
 import type {Picture,Proof,Question} from '../primary/generate';
 export interface SolutionFrame {label:string;text:string;narration?:string;equation?:string;model?:Picture;counting?:{total:number;lit:number};}
 export function proofValue(p:Proof):number{if(typeof p==='number')return p;const a=proofValue(p.a),b=proofValue(p.b);switch(p.op){case '+':return a+b;case '-':return a-b;case '*':return a*b;case '/':return a/b;case 'round':return Math.round(a/b+1e-8)*b;case 'floor':return Math.floor(a/b)*b;}}
@@ -21,7 +22,7 @@ export function solutionFrames(q:Question):SolutionFrame[]{
  const initial:SolutionFrame={label:'Read the question',text:q.prompt,equation:q.display,model:q.picture};
  const strategy:SolutionFrame={label:'Choose the idea',text:q.hint,model:q.picture??(q.fractionBuilder?{type:'fraction',parts:q.fractionBuilder,filled:0}:undefined)};
  const maths=q.proof!==undefined?calculationFrames(q.proof):[];
- const final:SolutionFrame={label:'Put it together',text:q.explanation,equation:`${q.order?q.answer.split(',').join(' → '):q.answer}${q.unit?' '+q.unit:''}`,model:q.picture??(q.fractionBuilder?{type:'fraction',parts:q.fractionBuilder,filled:Number(q.answer.split('/')[0])}:undefined)};
+ const final:SolutionFrame={label:'Put it together',text:q.explanation,equation:`${shownAnswer(q,q.answer)}${q.unit?' '+q.unit:''}`,model:q.picture??(q.fractionBuilder?{type:'fraction',parts:q.fractionBuilder,filled:Number(q.answer.split('/')[0])}:undefined)};
  return [initial,strategy,...maths,final];
 }
 

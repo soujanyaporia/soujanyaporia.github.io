@@ -38,7 +38,7 @@ describe('On-demand original practice papers',()=>{
    expect(new Set(paper.items.slice(0,6).map(i=>i.activity.id)).size).toBe(6);
    expect(new Set(paper.items.slice(0,6).map(i=>i.activity.canonicalPatternId??i.activity.id)).size).toBe(6);
    expect(new Set(paper.items.filter(i=>i.activity.kind==='paper').map(i=>i.activity.id)).size).toBe(Math.min(12,expected.length));
-   expect(paper.items.slice(0,6).every(({question:q})=>!!q.picture||!!q.display||!!q.order?.length||/\d/.test([q.prompt,...(q.context??[])].join(' ')))).toBe(true);
+   expect(paper.items.slice(0,6).every(({question:q})=>!!q.picture||!!q.display||!!q.order?.length||(q.structuredResponse?.kind==='fraction-pair'&&q.structuredResponse.options.length>=2)||/\d/.test([q.prompt,...(q.context??[])].join(' ')))).toBe(true);
    expect(paper.items.slice(6,12).every(i=>i.activity.kind!=='paper')).toBe(true);
    expect(new Set(paper.items.slice(6,12).map(i=>i.activity.strand)).size).toBeGreaterThanOrEqual(2);
    expect(paper.items.slice(12).every(i=>i.activity.kind==='paper')).toBe(true);

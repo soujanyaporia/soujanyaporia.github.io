@@ -33,7 +33,7 @@ export function makeBatch5Early(part:Batch5EarlyPart,seed:number,index=0):Batch5
   const whole=r.int(5,10),first=r.int(1,whole-1),second=whole-first,addition=part==='5',missingAdd=part==='7',missingRemove=part==='9',story=part==='12';
   const answer=addition?whole:missingAdd?second:missingRemove?first:second;
   const display=addition?`${first} + ${second} = ?`:missingAdd?`${first} + ? = ${whole}`:missingRemove?`${whole} − ? = ${second}`:`${whole} − ${first} = ?`;
-  return make(story?`Amir packs ${whole} buns. ${first} buns are eaten. How many buns are left?`:'What number belongs in the empty box?',answer,[],
+  return make(story?`Amir packs ${whole} buns. ${first} ${first===1?'bun is':'buns are'} eaten. How many buns are left?`:'What number belongs in the empty box?',answer,[],
    addition?'Join both groups.':missingAdd?'Find the part needed to make the whole.':'Use the whole and the known part to find the other part.',
    [[addition?'Join the parts.':'Find the missing part.',addition?`${first} + ${second} = ${whole}`:`${whole} − ${missingAdd?first:missingRemove?second:first} = ${answer}`],['Check that both parts make the whole.',`${first} + ${second} = ${whole}`]],
    {...(!story?{display}:{}),...(part==='5'?{picture:{type:'counters' as const,count:whole,parts:[first,second]}}:part==='8'||part==='9'?{picture:{type:'counters' as const,count:whole,removed:first}}:{}),...(story?{unit:'buns'}:{})});
@@ -68,7 +68,7 @@ export function makeBatch5Early(part:Batch5EarlyPart,seed:number,index=0):Batch5
    [['Find the step.',`${values[1]} − ${values[0]} = ${step}`],['Use the same step at the empty box.',`${values[gap-1]} + ${step} = ${values[gap]}`]],{picture:{type:'pattern',items:values.map((v,i)=>i===gap?'?':String(v))}});
  }
  const whole=r.int(5,10),a=r.int(1,whole-1),b=whole-a,missing=group==='16',equation=part.endsWith('equation'),operation=missing?'-':'+',answer=missing?b:whole;
- const context=group==='14'?[`Ravi has ${a} badges. A friend gives him ${b} more badges.`]:group==='15'?[`Hana has ${a} red beads and ${b} blue beads.`]:[`There are ${whole} toy blocks altogether. ${a} are blue. All the other blocks are yellow.`];
+ const context=group==='14'?[`Ravi has ${a} ${a===1?'badge':'badges'}. A friend gives him ${b} more ${b===1?'badge':'badges'}.`]:group==='15'?[`Hana has ${a} red ${a===1?'bead':'beads'} and ${b} blue ${b===1?'bead':'beads'}.`]:[`There are ${whole} toy blocks altogether. ${a} ${a===1?'is':'are'} blue. The rest are yellow.`];
  const question=group==='14'?'How many badges does Ravi have now?':group==='15'?'How many beads does Hana have altogether?':'How many yellow blocks are there?';
  const first=missing?whole:a,second=missing?a:b,sentence=`${first} ${operation} ${second} = ${answer}`;
  return make(equation?'Build a number sentence to answer the story.':question,equation?sentence:answer,equation?[...context,question]:context,

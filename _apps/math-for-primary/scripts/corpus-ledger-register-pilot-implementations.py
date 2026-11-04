@@ -18,7 +18,7 @@ required={'namespace','sourceManifest','module','solver','solverExport','files',
 for spec in sets:
  assert required <= set(spec),f'Missing reviewed implementation specification fields: {required-set(spec)}'
  assert isinstance(spec['samplesPerVariant'],int) and spec['samplesPerVariant']>0 and spec['sourceKey'] in ['parts','entries']
- spec['files']=list(dict.fromkeys([*spec['files'],'../generate.ts','../answerFormat.ts','../groupingAnswer.ts']))
+ spec['files']=list(dict.fromkeys([*spec['files'],'../generate.ts','../answerFormat.ts','../groupingAnswer.ts','batch6MiddleResponse.ts','../../engine/random.ts']))
 assert len({s['namespace'] for s in sets})==len(sets),'Duplicate source pattern namespace'
 selected=set(a.only.split(','));available={spec['namespace'].split(':')[1].split('-')[0] for spec in sets};assert selected <= available and selected,'Unknown or empty --only selection';sets=[spec for spec in sets if spec['namespace'].split(':')[1].split('-')[0] in selected];total_samples=0
 for spec in sets:

@@ -18,9 +18,15 @@ import {makeBatch4Upper,type Batch4UpperId} from './batch4Upper';
 import {makeBatch5Early,type Batch5EarlyPart} from './batch5Early';
 import {makeBatch5MiddleP3} from './batch5Middle';
 import {makeBatch5Upper,type Batch5UpperId} from './batch5Upper';
+import {makeBatch6Upper,type Batch6UpperPart} from './batch6Upper';
+import {makeBatch6Early,type Batch6EarlyPart} from './batch6Early';
+import {makeBatch6MiddleP4} from './batch6Middle';
 
 export function makeAdaptedPaperQuestion(activity:Activity,seed:number,index:number):Question{
  const pattern=adaptedPattern(activity.parameter);if(!pattern)throw Error(`Unknown adapted pattern: ${activity.parameter}`);
+ if(pattern.parameter.startsWith('b6m-'))return {...makeBatch6MiddleP4(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b6e-'))return {...makeBatch6Early(pattern.parameter.slice(4) as Batch6EarlyPart,seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b6u-'))return {...makeBatch6Upper(pattern.parameter.slice(4) as Batch6UpperPart,seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b5e-'))return {...makeBatch5Early(pattern.parameter.slice(4) as Batch5EarlyPart,seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b5m-'))return {...makeBatch5MiddleP3(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b5u-'))return {...makeBatch5Upper(pattern.parameter.slice(4) as Batch5UpperId,seed,index),key:`${activity.id}:${seed}:${index}`};

@@ -1,0 +1,4992 @@
+{
+  "schema": 1,
+  "startedAt": "2026-11-04T17:12:20.021Z",
+  "finishedAt": "2026-11-04T17:12:24.644Z",
+  "samples": 50000,
+  "taskConfigurations": 311,
+  "uniqueVisibleQuestions": 29334,
+  "duplicateSamples": 20666,
+  "failureCount": 0,
+  "visibleIdentity": "Normalized prompt, essential context, display, original picture model, sorted order tiles, fraction builder, number-sentence card pool, answer format and unit; excludes answers, distractor order, hints, solutions and generated keys.",
+  "sampling": "Round-robin all 311 task configurations. Sample ordinal floor(draw/311), index=ordinal%6, seed=FNV1a(paper-50k-audit-v1:ordinal:parameter). Uses actual catalogue IDs.",
+  "scope": "Independent visible-givens solvers, separate proof evaluation for numeric answers, accepted/rejected answers, deterministic regeneration, choice uniqueness, visible givens and steps, prompt length and P1 bounds. Not 50,000 authored questions, teacher review, exhaustive syllabus coverage or UI testing.",
+  "families": [
+    {
+      "parameter": "p1-count",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 12,
+      "maxPromptWords": 6,
+      "mcq": 81,
+      "shortAnswer": 80,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 10,
+      "duplicateSamples": 151,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p1-more",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 10,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 44,
+      "duplicateSamples": 117,
+      "units": [
+        "apples"
+      ]
+    },
+    {
+      "parameter": "p1-missing",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 54,
+      "duplicateSamples": 107,
+      "units": [
+        "apples"
+      ]
+    },
+    {
+      "parameter": "p1-join",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 18,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 75,
+      "duplicateSamples": 86,
+      "units": [
+        "treats"
+      ]
+    },
+    {
+      "parameter": "p1-left",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 11,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 48,
+      "duplicateSamples": 113,
+      "units": [
+        "apples"
+      ]
+    },
+    {
+      "parameter": "p1-groups",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 25,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 16,
+      "duplicateSamples": 145,
+      "units": [
+        "apples"
+      ]
+    },
+    {
+      "parameter": "p2-groups",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 6,
+      "answerMax": 90,
+      "maxPromptWords": 6,
+      "mcq": 81,
+      "shortAnswer": 80,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 35,
+      "duplicateSamples": 126,
+      "units": [
+        "books"
+      ]
+    },
+    {
+      "parameter": "p2-share",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "apples"
+      ]
+    },
+    {
+      "parameter": "p2-before",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 83,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 124,
+      "duplicateSamples": 37,
+      "units": [
+        "pencils"
+      ]
+    },
+    {
+      "parameter": "p2-fraction",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 0.2,
+      "answerMax": 0.9166666666666666,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 66,
+      "duplicateSamples": 95,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p2-shade",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 8,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 70,
+      "duplicateSamples": 91,
+      "units": [
+        "parts"
+      ]
+    },
+    {
+      "parameter": "p2-bottles",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 9,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 28,
+      "duplicateSamples": 133,
+      "units": [
+        "bottles"
+      ]
+    },
+    {
+      "parameter": "p3-transfer",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 55,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 151,
+      "duplicateSamples": 10,
+      "units": [
+        "badges"
+      ]
+    },
+    {
+      "parameter": "p3-gaps",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 9,
+      "answerMax": 72,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 101,
+      "duplicateSamples": 60,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "p3-boxes",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 7,
+      "answerMax": 33,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "boxes"
+      ]
+    },
+    {
+      "parameter": "p3-bundle",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 6,
+      "answerMax": 67,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 135,
+      "duplicateSamples": 26,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "p3-timeline",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 70,
+      "answerMax": 190,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 156,
+      "duplicateSamples": 5,
+      "units": [
+        "minutes"
+      ]
+    },
+    {
+      "parameter": "p3-chart",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 5,
+      "answerMax": 300,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 2,
+      "units": [
+        "items"
+      ]
+    },
+    {
+      "parameter": "p4-round",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 120,
+      "answerMax": 89000,
+      "maxPromptWords": 5,
+      "mcq": 81,
+      "shortAnswer": 80,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p4-decimal",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 1.05,
+      "answerMax": 8.88,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 125,
+      "duplicateSamples": 36,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "p4-share",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 22,
+      "answerMax": 126,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "stamps"
+      ]
+    },
+    {
+      "parameter": "p4-factor",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 8,
+      "maxPromptWords": 10,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 136,
+      "duplicateSamples": 25,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p4-perimeter",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 30,
+      "answerMax": 66,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 117,
+      "duplicateSamples": 44,
+      "units": [
+        "cm"
+      ]
+    },
+    {
+      "parameter": "p4-freebie",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 384,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 116,
+      "duplicateSamples": 45,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "p5-convert",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 2.18,
+      "answerMax": 8.99,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 143,
+      "duplicateSamples": 18,
+      "units": [
+        "kg"
+      ]
+    },
+    {
+      "parameter": "p5-percent",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 96,
+      "maxPromptWords": 7,
+      "mcq": 81,
+      "shortAnswer": 80,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 48,
+      "duplicateSamples": 113,
+      "units": [
+        "%"
+      ]
+    },
+    {
+      "parameter": "p5-equivalent",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 45,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 114,
+      "duplicateSamples": 47,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p5-triangle",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 196,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 90,
+      "duplicateSamples": 71,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "p5-water",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 2400,
+      "answerMax": 96000,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 136,
+      "duplicateSamples": 25,
+      "units": [
+        "ml"
+      ]
+    },
+    {
+      "parameter": "p5-bundles",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 8,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 156,
+      "duplicateSamples": 5,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "p6-ratio",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 18,
+      "answerMax": 175,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 128,
+      "duplicateSamples": 33,
+      "units": [
+        "beads"
+      ]
+    },
+    {
+      "parameter": "p6-change",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 5,
+      "answerMax": 50,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 116,
+      "duplicateSamples": 45,
+      "units": [
+        "%"
+      ]
+    },
+    {
+      "parameter": "p6-algebra",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 22,
+      "answerMax": 117,
+      "maxPromptWords": 8,
+      "mcq": 81,
+      "shortAnswer": 80,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 146,
+      "duplicateSamples": 15,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p6-average",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 14,
+      "answerMax": 48,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "pages"
+      ]
+    },
+    {
+      "parameter": "p6-charge",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 32,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "p6-redistribute",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 27,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 95,
+      "duplicateSamples": 66,
+      "units": [
+        "beads"
+      ]
+    },
+    {
+      "parameter": "p1-pattern-gap",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 96,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 142,
+      "duplicateSamples": 19,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p2-unit-ribbons",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 0.08333333333333333,
+      "answerMax": 0.5,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 156,
+      "duplicateSamples": 5,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "p3-juice-left",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1000,
+      "answerMax": 2950,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 66,
+      "duplicateSamples": 95,
+      "units": [
+        "ml"
+      ]
+    },
+    {
+      "parameter": "p4-path-area",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 64,
+      "answerMax": 348,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 149,
+      "duplicateSamples": 12,
+      "units": [
+        "m²"
+      ]
+    },
+    {
+      "parameter": "p5-giftbags",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 130,
+      "duplicateSamples": 31,
+      "units": [
+        "bags"
+      ]
+    },
+    {
+      "parameter": "p6-equilateral-line",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 50,
+      "answerMax": 100,
+      "maxPromptWords": 3,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 11,
+      "duplicateSamples": 150,
+      "units": [
+        "degrees"
+      ]
+    },
+    {
+      "parameter": "hp25-01",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 21,
+      "answerMax": 89,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 55,
+      "duplicateSamples": 106,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-02",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 10,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 57,
+      "duplicateSamples": 104,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-03",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 10,
+      "maxPromptWords": 9,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 35,
+      "duplicateSamples": 126,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-04",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 21,
+      "answerMax": 89,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 59,
+      "duplicateSamples": 102,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-05",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 30,
+      "answerMax": 96,
+      "maxPromptWords": 4,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 139,
+      "duplicateSamples": 22,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-06",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 65,
+      "duplicateSamples": 96,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-07",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-08-tens",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 8,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 55,
+      "duplicateSamples": 106,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-08-ones",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 57,
+      "duplicateSamples": 104,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-09",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 25,
+      "answerMax": 89,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 146,
+      "duplicateSamples": 15,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-10",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 11,
+      "answerMax": 92,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 141,
+      "duplicateSamples": 20,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-11",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 56,
+      "answerMax": 89,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 157,
+      "duplicateSamples": 4,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-12",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-13-a",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 34,
+      "answerMax": 59,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 117,
+      "duplicateSamples": 44,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-13-b",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 11,
+      "answerMax": 28,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 123,
+      "duplicateSamples": 38,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-14",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 45,
+      "answerMax": 87,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 119,
+      "duplicateSamples": 42,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-15",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 20,
+      "answerMax": 89,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 59,
+      "duplicateSamples": 102,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-16",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 10,
+      "answerMax": 79,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 125,
+      "duplicateSamples": 36,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-17",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 6,
+      "answerMax": 19,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 148,
+      "duplicateSamples": 13,
+      "units": [
+        "muffins"
+      ]
+    },
+    {
+      "parameter": "hp25-18-a",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 4,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 99,
+      "duplicateSamples": 62,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-18-b",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 8,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 106,
+      "duplicateSamples": 55,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-19-equation",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 43,
+      "duplicateSamples": 118,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-19-answer",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 16,
+      "answerMax": 28,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 43,
+      "duplicateSamples": 118,
+      "units": [
+        "items"
+      ]
+    },
+    {
+      "parameter": "hp25-20-equation",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 126,
+      "duplicateSamples": 35,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-20-answer",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 23,
+      "answerMax": 66,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 119,
+      "duplicateSamples": 42,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "hp25-21-equation",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 96,
+      "duplicateSamples": 65,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp25-21-answer",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 19,
+      "answerMax": 41,
+      "maxPromptWords": 12,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 97,
+      "duplicateSamples": 64,
+      "units": [
+        "cars"
+      ]
+    },
+    {
+      "parameter": "hp2q2-01",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 15,
+      "duplicateSamples": 146,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-02",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 10,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-03",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 90,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-04",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 5,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 4,
+      "duplicateSamples": 157,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-05",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 60,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 96,
+      "duplicateSamples": 65,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-06",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 23,
+      "duplicateSamples": 138,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-07",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 12,
+      "duplicateSamples": 149,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-08",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 90,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-09",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 90,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 93,
+      "duplicateSamples": 68,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-10",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 12,
+      "duplicateSamples": 149,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-11",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-12-multiply",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 15,
+      "duplicateSamples": 146,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-12-divide",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 15,
+      "duplicateSamples": 146,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-13-a-factor",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 6,
+      "duplicateSamples": 155,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-13-a-divisor",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 6,
+      "duplicateSamples": 155,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-13-b",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 6,
+      "duplicateSamples": 155,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-14",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 6,
+      "answerMax": 100,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 83,
+      "duplicateSamples": 78,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-15-total",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 40,
+      "duplicateSamples": 121,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-15-friends",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 81,
+      "duplicateSamples": 80,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-15-children",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 83,
+      "duplicateSamples": 78,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-16",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 44,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 116,
+      "duplicateSamples": 45,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-17-equation",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 40,
+      "duplicateSamples": 121,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-17-answer",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 10,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 40,
+      "duplicateSamples": 121,
+      "units": [
+        "children"
+      ]
+    },
+    {
+      "parameter": "hp2q2-18-equation",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-18-answer",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 90,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "hp2q2-19-a-equation",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-19-a-answer",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "sandwiches"
+      ]
+    },
+    {
+      "parameter": "hp2q2-19-b-equation",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 128,
+      "duplicateSamples": 33,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "hp2q2-19-b-answer",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 90,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 129,
+      "duplicateSamples": 32,
+      "units": [
+        "muffins"
+      ]
+    },
+    {
+      "parameter": "rg25-1",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 155,
+      "duplicateSamples": 6,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-2",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 0.3333333333333333,
+      "answerMax": 0.75,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-3",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 124,
+      "duplicateSamples": 37,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-4",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 180,
+      "answerMax": 720,
+      "maxPromptWords": 5,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 10,
+      "duplicateSamples": 151,
+      "units": [
+        "minutes"
+      ]
+    },
+    {
+      "parameter": "rg25-5",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 146,
+      "duplicateSamples": 15,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-6",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 2240,
+      "answerMax": 5320,
+      "maxPromptWords": 5,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 117,
+      "duplicateSamples": 44,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-7",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 6,
+      "answerMax": 12,
+      "maxPromptWords": 4,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 13,
+      "duplicateSamples": 148,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-8",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 6,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-9",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 400,
+      "answerMax": 950,
+      "maxPromptWords": 4,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 77,
+      "duplicateSamples": 84,
+      "units": [
+        "ml"
+      ]
+    },
+    {
+      "parameter": "rg25-10",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 78,
+      "duplicateSamples": 83,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-11",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 2,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-12",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 2509,
+      "answerMax": 4884,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-13",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 0.1,
+      "answerMax": 0.9,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 28,
+      "duplicateSamples": 133,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-14",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 0.25,
+      "answerMax": 0.9166666666666666,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 11,
+      "duplicateSamples": 150,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-15",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1310,
+      "answerMax": 2880,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 139,
+      "duplicateSamples": 22,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "rg25-16",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 24,
+      "duplicateSamples": 137,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-17",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1101,
+      "answerMax": 2995,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-18",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 8,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 155,
+      "duplicateSamples": 6,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-19a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 25,
+      "answerMax": 81,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "rg25-19b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 20,
+      "answerMax": 36,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "cm"
+      ]
+    },
+    {
+      "parameter": "rg25-19c",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 21,
+      "answerMax": 80,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "rg25-19d",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 20,
+      "answerMax": 36,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "cm"
+      ]
+    },
+    {
+      "parameter": "rg25-19e",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-19f",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-20",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 160,
+      "answerMax": 400,
+      "maxPromptWords": 12,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 61,
+      "duplicateSamples": 100,
+      "units": [
+        "ml"
+      ]
+    },
+    {
+      "parameter": "rg25-21a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 81,
+      "answerMax": 191,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 36,
+      "duplicateSamples": 125,
+      "units": [
+        "pages"
+      ]
+    },
+    {
+      "parameter": "rg25-21b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 117,
+      "answerMax": 237,
+      "maxPromptWords": 15,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 136,
+      "duplicateSamples": 25,
+      "units": [
+        "pages"
+      ]
+    },
+    {
+      "parameter": "rg25-22a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 25,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 21,
+      "duplicateSamples": 140,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "rg25-22b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 25,
+      "answerMax": 81,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 81,
+      "duplicateSamples": 80,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "rg25-23a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 75,
+      "answerMax": 125,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 61,
+      "duplicateSamples": 100,
+      "units": [
+        "minutes"
+      ]
+    },
+    {
+      "parameter": "rg25-23b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 64,
+      "duplicateSamples": 97,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-24a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 10,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "rg25-24b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 36,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "items"
+      ]
+    },
+    {
+      "parameter": "rg25-24c",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 24,
+      "answerMax": 96,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "items"
+      ]
+    },
+    {
+      "parameter": "rg25-24d",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 80,
+      "answerMax": 170,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "items"
+      ]
+    },
+    {
+      "parameter": "rg25-25a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 10,
+      "answerMax": 49,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 64,
+      "duplicateSamples": 97,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "rg25-25b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 16,
+      "answerMax": 39,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 71,
+      "duplicateSamples": 90,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "ny425-1",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "ny425-2",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 313,
+      "answerMax": 683,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "badges"
+      ]
+    },
+    {
+      "parameter": "ny425-3",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 115,
+      "answerMax": 245,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "ny425-4",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 30,
+      "maxPromptWords": 14,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 2,
+      "units": [
+        "bookmarks"
+      ]
+    },
+    {
+      "parameter": "ny425-5",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 129,
+      "answerMax": 826,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 141,
+      "duplicateSamples": 20,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "ny425-6a",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 12,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 2,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "ny425-6b",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 1.2,
+      "answerMax": 4.833333333333333,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "kg"
+      ]
+    },
+    {
+      "parameter": "ny425-7",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 1.2,
+      "answerMax": 1.6666666666666665,
+      "maxPromptWords": 13,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 6,
+      "duplicateSamples": 155,
+      "units": [
+        "litres"
+      ]
+    },
+    {
+      "parameter": "ny425-8a",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 0.041666666666666664,
+      "answerMax": 0.6111111111111112,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 60,
+      "duplicateSamples": 101,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "ny425-8b",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 0.125,
+      "answerMax": 0.875,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 125,
+      "duplicateSamples": 36,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "ny425-9a",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 105,
+      "answerMax": 420,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 95,
+      "duplicateSamples": 66,
+      "units": [
+        "paper fans"
+      ]
+    },
+    {
+      "parameter": "ny425-9b",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 280,
+      "answerMax": 1260,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 102,
+      "duplicateSamples": 59,
+      "units": [
+        "crafts"
+      ]
+    },
+    {
+      "parameter": "mb525-1",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 15,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 9,
+      "duplicateSamples": 152,
+      "units": [
+        "litres per minute"
+      ]
+    },
+    {
+      "parameter": "mb525-2a",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 15.28,
+      "answerMax": 57.01,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "mb525-2b",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 115,
+      "answerMax": 889.8,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "mb525-3",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 1.9,
+      "answerMax": 6.15,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "mb525-4",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 192,
+      "answerMax": 2904,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 13,
+      "duplicateSamples": 148,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "mb525-5",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 2500,
+      "answerMax": 11000,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 104,
+      "duplicateSamples": 57,
+      "units": [
+        "m²"
+      ]
+    },
+    {
+      "parameter": "mb525-6a",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 12960,
+      "answerMax": 156000,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 152,
+      "duplicateSamples": 9,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "mb525-6b",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 10656,
+      "answerMax": 148000,
+      "maxPromptWords": 17,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 158,
+      "duplicateSamples": 3,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "mb525-7",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 78,
+      "answerMax": 900,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 134,
+      "duplicateSamples": 27,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "mb525-8a",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 60,
+      "answerMax": 135,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "unit cubes"
+      ]
+    },
+    {
+      "parameter": "mb525-8b",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 50,
+      "answerMax": 621,
+      "maxPromptWords": 16,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "unit cubes"
+      ]
+    },
+    {
+      "parameter": "mb525-9",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 6.4,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 107,
+      "duplicateSamples": 54,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "mb525-10",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 108,
+      "answerMax": 507,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 21,
+      "duplicateSamples": 140,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "ch6a2-01",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 61,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 47,
+      "duplicateSamples": 114,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "ch6a2-02",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 10,
+      "duplicateSamples": 151,
+      "units": [
+        "cm"
+      ]
+    },
+    {
+      "parameter": "ch6a2-03",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 14,
+      "answerMax": 50,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 9,
+      "duplicateSamples": 152,
+      "units": [
+        "°"
+      ]
+    },
+    {
+      "parameter": "ch6a2-04",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 56,
+      "answerMax": 432,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 44,
+      "duplicateSamples": 117,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "ch6a2-05",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 16,
+      "answerMax": 30,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 10,
+      "duplicateSamples": 151,
+      "units": [
+        "°"
+      ]
+    },
+    {
+      "parameter": "ch6a2-06",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 154,
+      "answerMax": 7546,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 6,
+      "duplicateSamples": 155,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "ch6a2-07",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 28.56,
+      "answerMax": 257.04,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 7,
+      "duplicateSamples": 154,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "ch6a2-08",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 14,
+      "answerMax": 58,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 89,
+      "duplicateSamples": 72,
+      "units": [
+        "°"
+      ]
+    },
+    {
+      "parameter": "ch6a2-09",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 54.84,
+      "answerMax": 107.96,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 28,
+      "duplicateSamples": 133,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "ch6a2-10",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 300,
+      "answerMax": 2700,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 118,
+      "duplicateSamples": 43,
+      "units": [
+        "visitors"
+      ]
+    },
+    {
+      "parameter": "ch6a2-11-a",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 20,
+      "answerMax": 264,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 109,
+      "duplicateSamples": 52,
+      "units": [
+        "boys"
+      ]
+    },
+    {
+      "parameter": "ch6a2-11-b",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 14,
+      "answerMax": 320,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 104,
+      "duplicateSamples": 57,
+      "units": [
+        "girls"
+      ]
+    },
+    {
+      "parameter": "b2e-greatest-even-three",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 210,
+      "answerMax": 986,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 147,
+      "duplicateSamples": 14,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b2e-smallest-odd-four",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1023,
+      "answerMax": 7089,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 158,
+      "duplicateSamples": 3,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b2e-pair-to-thousand",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b2e-offset-ruler-difference",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 7,
+      "maxPromptWords": 12,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 152,
+      "duplicateSamples": 9,
+      "units": [
+        "cm"
+      ]
+    },
+    {
+      "parameter": "b2e-chart-sales",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 16,
+      "answerMax": 368,
+      "maxPromptWords": 12,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b3e-increasing-gap",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 131,
+      "answerMax": 896,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b3e-three-card-subtraction",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b3e-order-related-fractions",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 121,
+      "duplicateSamples": 40,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b3e-missing-dividend-remainder",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 34,
+      "answerMax": 574,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 151,
+      "duplicateSamples": 10,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b2u-three-square-area",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 152,
+      "answerMax": 378,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 17,
+      "duplicateSamples": 144,
+      "units": [
+        "cm²"
+      ]
+    },
+    {
+      "parameter": "b2u-linked-scores",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 60,
+      "answerMax": 239,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "points"
+      ]
+    },
+    {
+      "parameter": "b2u-mixed-purchase-more",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 7,
+      "answerMax": 16,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 150,
+      "duplicateSamples": 11,
+      "units": [
+        "brushes"
+      ]
+    },
+    {
+      "parameter": "b2u-nested-isosceles",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 24,
+      "answerMax": 50,
+      "maxPromptWords": 3,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 45,
+      "duplicateSamples": 116,
+      "units": [
+        "degrees"
+      ]
+    },
+    {
+      "parameter": "b3u-seven-digit-place-digit",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 0,
+      "answerMax": 9,
+      "maxPromptWords": 10,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b3u-centimetres-to-metres",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 1.2,
+      "answerMax": 9.5,
+      "maxPromptWords": 5,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 67,
+      "duplicateSamples": 94,
+      "units": [
+        "m"
+      ]
+    },
+    {
+      "parameter": "b3u-three-digit-backward-pattern",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 161,
+      "answerMax": 907,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 154,
+      "duplicateSamples": 7,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b3u-square-base-volume",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 12,
+      "answerMax": 180,
+      "maxPromptWords": 19,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 16,
+      "duplicateSamples": 145,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "b3u-percentage-unsold",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 15,
+      "answerMax": 300,
+      "maxPromptWords": 14,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 79,
+      "duplicateSamples": 82,
+      "units": [
+        "caps"
+      ]
+    },
+    {
+      "parameter": "b2r-round-tenth-p4",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 19.2,
+      "answerMax": 979.7,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b2r-round-tenth-p6",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 14.4,
+      "answerMax": 961,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b4e-three-addend-choice",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 9,
+      "duplicateSamples": 152,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b4e-equivalent-sum-choice",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 10,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 53,
+      "duplicateSamples": 108,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b4e-total-difference-smaller",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 8,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 18,
+      "duplicateSamples": 143,
+      "units": [
+        "counters"
+      ]
+    },
+    {
+      "parameter": "b4e-half-symbol-pair-total",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 14,
+      "answerMax": 46,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 143,
+      "duplicateSamples": 18,
+      "units": [
+        "toys"
+      ]
+    },
+    {
+      "parameter": "b4e-pictograph-difference",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 18,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 122,
+      "duplicateSamples": 39,
+      "units": [
+        "toys"
+      ]
+    },
+    {
+      "parameter": "b4e-finish-time",
+      "level": 2,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 16,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 129,
+      "duplicateSamples": 32,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b4m-age-sum-difference",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 10,
+      "answerMax": 36,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 107,
+      "duplicateSamples": 54,
+      "units": [
+        "years"
+      ]
+    },
+    {
+      "parameter": "b4m-three-offset-total",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 120,
+      "answerMax": 480,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 158,
+      "duplicateSamples": 3,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b4m-equal-remainders",
+      "level": 4,
+      "sampleCount": 161,
+      "answerMin": 60,
+      "answerMax": 592,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 157,
+      "duplicateSamples": 4,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "b4m-chart-transfer",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 4,
+      "answerMax": 16,
+      "maxPromptWords": 20,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 103,
+      "duplicateSamples": 58,
+      "units": [
+        "paper clips"
+      ]
+    },
+    {
+      "parameter": "b4m-fraction-left-two",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 0.08333333333333333,
+      "answerMax": 0.75,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 18,
+      "duplicateSamples": 143,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b4m-boxes-a",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 10,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "boxes"
+      ]
+    },
+    {
+      "parameter": "b4m-boxes-b",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 6,
+      "answerMax": 120,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 135,
+      "duplicateSamples": 26,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b4u-fraction-of-remainder-reverse",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 40,
+      "answerMax": 320,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 51,
+      "duplicateSamples": 110,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b4u-transfer-difference-ratio",
+      "level": 5,
+      "sampleCount": 161,
+      "answerMin": 14,
+      "answerMax": 43,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 145,
+      "duplicateSamples": 16,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b4u-overlap-three-groups",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 15,
+      "answerMax": 90,
+      "maxPromptWords": 7,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "books"
+      ]
+    },
+    {
+      "parameter": "b4u-savings-change-percent",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 136,
+      "answerMax": 508,
+      "maxPromptWords": 9,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 158,
+      "duplicateSamples": 3,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b4u-shortfall-leftover",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 5.8,
+      "answerMax": 82,
+      "maxPromptWords": 8,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b4u-repeating-cycle-sum",
+      "level": 6,
+      "sampleCount": 161,
+      "answerMin": 137,
+      "answerMax": 518,
+      "maxPromptWords": 9,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 161,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-1",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 10,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 9,
+      "duplicateSamples": 152,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-2",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 9,
+      "duplicateSamples": 152,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-3",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 48,
+      "duplicateSamples": 113,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-4a",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 46,
+      "duplicateSamples": 115,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-4b",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 48,
+      "duplicateSamples": 113,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-4c",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 2,
+      "answerMax": 8,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 49,
+      "duplicateSamples": 112,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-4d",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 9,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 48,
+      "duplicateSamples": 113,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-5",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 5,
+      "answerMax": 10,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-6",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 77,
+      "duplicateSamples": 84,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-7",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 37,
+      "duplicateSamples": 124,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-8",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 36,
+      "duplicateSamples": 125,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-9",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-10",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 35,
+      "duplicateSamples": 126,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-11",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 10,
+      "mcq": 161,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 24,
+      "duplicateSamples": 137,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-12",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 13,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 35,
+      "duplicateSamples": 126,
+      "units": [
+        "buns"
+      ]
+    },
+    {
+      "parameter": "b5e-13",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 3,
+      "answerMax": 8,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 8,
+      "duplicateSamples": 153,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-14-equation",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-14-answer",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 5,
+      "answerMax": 10,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "badges"
+      ]
+    },
+    {
+      "parameter": "b5e-15-equation",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-15-answer",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 5,
+      "answerMax": 10,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "beads"
+      ]
+    },
+    {
+      "parameter": "b5e-16-equation",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 122,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5e-16-answer",
+      "level": 1,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 38,
+      "duplicateSamples": 123,
+      "units": [
+        "blocks"
+      ]
+    },
+    {
+      "parameter": "b5m-1",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 137,
+      "duplicateSamples": 24,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5m-2",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 136,
+      "duplicateSamples": 25,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5m-3",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 952,
+      "answerMax": 999,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 90,
+      "duplicateSamples": 71,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5m-4",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 139,
+      "duplicateSamples": 22,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5m-5",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 10,
+      "answerMax": 90,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 1,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5m-6",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 70.8,
+      "answerMax": 261.9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 151,
+      "duplicateSamples": 10,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b5m-7",
+      "level": 3,
+      "sampleCount": 161,
+      "answerMin": 1,
+      "answerMax": 12,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 161,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 12,
+      "duplicateSamples": 149,
+      "units": [
+        "a.m."
+      ]
+    },
+    {
+      "parameter": "b5m-8",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": 70,
+      "answerMax": 350,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 25,
+      "duplicateSamples": 135,
+      "units": [
+        "minutes"
+      ]
+    },
+    {
+      "parameter": "b5m-9",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": 2,
+      "answerMax": 10,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 40,
+      "duplicateSamples": 120,
+      "units": [
+        "bags"
+      ]
+    },
+    {
+      "parameter": "b5m-10",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5m-11",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": 0.08,
+      "answerMax": 97.81,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b5m-12",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 150,
+      "duplicateSamples": 10,
+      "units": [
+        "h:min"
+      ]
+    },
+    {
+      "parameter": "b5m-13",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": 2242,
+      "answerMax": 4156,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 124,
+      "duplicateSamples": 36,
+      "units": [
+        "rolls"
+      ]
+    },
+    {
+      "parameter": "b5m-14",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": 13,
+      "answerMax": 175,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 155,
+      "duplicateSamples": 5,
+      "units": [
+        "cards"
+      ]
+    },
+    {
+      "parameter": "b5m-15",
+      "level": 3,
+      "sampleCount": 160,
+      "answerMin": 10,
+      "answerMax": 35,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 110,
+      "duplicateSamples": 50,
+      "units": [
+        "years"
+      ]
+    },
+    {
+      "parameter": "b5u-divide-hundreds",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 12.07,
+      "answerMax": 19.96,
+      "maxPromptWords": 4,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 155,
+      "duplicateSamples": 5,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b5u-reading-rate",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 300,
+      "answerMax": 960,
+      "maxPromptWords": 10,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 102,
+      "duplicateSamples": 58,
+      "units": [
+        "words"
+      ]
+    },
+    {
+      "parameter": "b5u-cuboid-volume",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 24,
+      "answerMax": 270,
+      "maxPromptWords": 7,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 89,
+      "duplicateSamples": 71,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "b5u-tank-to-fill",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 1000,
+      "answerMax": 14000,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 53,
+      "duplicateSamples": 107,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "b5u-book-mass",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 0.05,
+      "answerMax": 0.25,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 158,
+      "duplicateSamples": 2,
+      "units": [
+        "kg"
+      ]
+    },
+    {
+      "parameter": "b5u-packing-time",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 27,
+      "answerMax": 154,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 138,
+      "duplicateSamples": 22,
+      "units": [
+        "min"
+      ]
+    },
+    {
+      "parameter": "b5u-parking-charge",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 4,
+      "answerMax": 14.4,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b5u-pail-difference",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 0.1,
+      "answerMax": 3.8,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 123,
+      "duplicateSamples": 37,
+      "units": [
+        "l"
+      ]
+    },
+    {
+      "parameter": "b5u-pail-bottles",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 1,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 151,
+      "duplicateSamples": 9,
+      "units": [
+        "bottles"
+      ]
+    },
+    {
+      "parameter": "b5u-tank-poured",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 435,
+      "answerMax": 14800,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 109,
+      "duplicateSamples": 51,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "b5u-tank-shorter",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 475,
+      "answerMax": 11600,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 105,
+      "duplicateSamples": 55,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "b5u-tank-fraction",
+      "level": 5,
+      "sampleCount": 160,
+      "answerMin": 866.25,
+      "answerMax": 16881.25,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 110,
+      "duplicateSamples": 50,
+      "units": [
+        "cm³"
+      ]
+    },
+    {
+      "parameter": "b6e-1",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 6,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 148,
+      "duplicateSamples": 12,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-2",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 75,
+      "answerMax": 235,
+      "maxPromptWords": 8,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 15,
+      "duplicateSamples": 145,
+      "units": [
+        "minutes"
+      ]
+    },
+    {
+      "parameter": "b6e-3",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 2,
+      "answerMax": 5,
+      "maxPromptWords": 7,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 28,
+      "duplicateSamples": 132,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-4",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 9,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-5",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 65,
+      "answerMax": 115,
+      "maxPromptWords": 18,
+      "mcq": 160,
+      "shortAnswer": 0,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 114,
+      "duplicateSamples": 46,
+      "units": [
+        "minutes"
+      ]
+    },
+    {
+      "parameter": "b6e-6",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 16,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 134,
+      "duplicateSamples": 26,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-7",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 2,
+      "answerMax": 9,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 121,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-8",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 11.35,
+      "answerMax": 95.45,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 148,
+      "duplicateSamples": 12,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b6e-9",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 106,
+      "answerMax": 886,
+      "maxPromptWords": 18,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 157,
+      "duplicateSamples": 3,
+      "units": [
+        "cards"
+      ]
+    },
+    {
+      "parameter": "b6e-10",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 225,
+      "answerMax": 998,
+      "maxPromptWords": 20,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 1,
+      "units": [
+        "bookmarks"
+      ]
+    },
+    {
+      "parameter": "b6e-11",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 4,
+      "answerMax": 90,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 39,
+      "duplicateSamples": 121,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-12",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6e-13a",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 113,
+      "answerMax": 384,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 158,
+      "duplicateSamples": 2,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b6e-13b",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 424,
+      "answerMax": 899,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 157,
+      "duplicateSamples": 3,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b6e-14a",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 163,
+      "answerMax": 298,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 146,
+      "duplicateSamples": 14,
+      "units": [
+        "flowers"
+      ]
+    },
+    {
+      "parameter": "b6e-14b",
+      "level": 2,
+      "sampleCount": 160,
+      "answerMin": 16,
+      "answerMax": 79,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 140,
+      "duplicateSamples": 20,
+      "units": [
+        "flowers"
+      ]
+    },
+    {
+      "parameter": "b6m-1",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 1288,
+      "answerMax": 8906,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-2",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 1.1428571428571428,
+      "answerMax": 4.75,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 71,
+      "duplicateSamples": 89,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-3",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 10100,
+      "answerMax": 18900,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-4",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 141,
+      "duplicateSamples": 19,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-5",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 6,
+      "answerMax": 45,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 19,
+      "duplicateSamples": 141,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-6",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 1,
+      "answerMax": 8,
+      "maxPromptWords": 4,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 1,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-7",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 2114,
+      "answerMax": 87651,
+      "maxPromptWords": 3,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 1,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-8",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 0.08333333333333333,
+      "answerMax": 0.75,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 18,
+      "duplicateSamples": 142,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-9",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 1,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-10",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 123,
+      "answerMax": 819,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 131,
+      "duplicateSamples": 29,
+      "units": [
+        "oranges"
+      ]
+    },
+    {
+      "parameter": "b6m-11",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 13,
+      "answerMax": 55,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 109,
+      "duplicateSamples": 51,
+      "units": [
+        "girls"
+      ]
+    },
+    {
+      "parameter": "b6m-12a",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 313,
+      "answerMax": 683,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "bookmarks"
+      ]
+    },
+    {
+      "parameter": "b6m-12b",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 819,
+      "answerMax": 1824,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "crafts"
+      ]
+    },
+    {
+      "parameter": "b6m-13",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 9,
+      "duplicateSamples": 151,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-14",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 120,
+      "answerMax": 480,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 160,
+      "duplicateSamples": 0,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b6m-15",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 280,
+      "answerMax": 1260,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 95,
+      "duplicateSamples": 65,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b6m-16a",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 141,
+      "duplicateSamples": 19,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6m-16b",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 5,
+      "answerMax": 20,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 142,
+      "duplicateSamples": 18,
+      "units": [
+        "students"
+      ]
+    },
+    {
+      "parameter": "b6m-17",
+      "level": 4,
+      "sampleCount": 160,
+      "answerMin": 50,
+      "answerMax": 594,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 157,
+      "duplicateSamples": 3,
+      "units": [
+        "stickers"
+      ]
+    },
+    {
+      "parameter": "b6u-1a",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 20900,
+      "answerMax": 71800,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 153,
+      "duplicateSamples": 7,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6u-1b",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": null,
+      "answerMax": null,
+      "maxPromptWords": 13,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 5,
+      "duplicateSamples": 155,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6u-2",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 2.3666666666666667,
+      "answerMax": 7.607142857142857,
+      "maxPromptWords": 16,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 129,
+      "duplicateSamples": 31,
+      "units": [
+        "l"
+      ]
+    },
+    {
+      "parameter": "b6u-3",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 63,
+      "answerMax": 242,
+      "maxPromptWords": 10,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 132,
+      "duplicateSamples": 28,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6u-4",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 0.016666666666666666,
+      "answerMax": 0.14814814814814814,
+      "maxPromptWords": 11,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 81,
+      "duplicateSamples": 79,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6u-5",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 20,
+      "answerMax": 80,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 150,
+      "duplicateSamples": 10,
+      "units": [
+        "beads"
+      ]
+    },
+    {
+      "parameter": "b6u-6",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 4,
+      "answerMax": 7,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 55,
+      "duplicateSamples": 105,
+      "units": [
+        "chocolates"
+      ]
+    },
+    {
+      "parameter": "b6u-7a",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 5,
+      "answerMax": 39,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 136,
+      "duplicateSamples": 24,
+      "units": [
+        "bags"
+      ]
+    },
+    {
+      "parameter": "b6u-7b",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 0.03333333333333333,
+      "answerMax": 0.725,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 140,
+      "duplicateSamples": 20,
+      "units": [
+        "kg"
+      ]
+    },
+    {
+      "parameter": "b6u-8a",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 0.025,
+      "answerMax": 0.041666666666666664,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 154,
+      "duplicateSamples": 6,
+      "units": [
+        "none"
+      ]
+    },
+    {
+      "parameter": "b6u-8b",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 288,
+      "answerMax": 1200,
+      "maxPromptWords": 5,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 156,
+      "duplicateSamples": 4,
+      "units": [
+        "dollars"
+      ]
+    },
+    {
+      "parameter": "b6u-9",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 70,
+      "answerMax": 280,
+      "maxPromptWords": 6,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 148,
+      "duplicateSamples": 12,
+      "units": [
+        "balloons"
+      ]
+    },
+    {
+      "parameter": "b6u-10a",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 28,
+      "answerMax": 42,
+      "maxPromptWords": 7,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 123,
+      "duplicateSamples": 37,
+      "units": [
+        "notes"
+      ]
+    },
+    {
+      "parameter": "b6u-10b",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 5,
+      "answerMax": 33,
+      "maxPromptWords": 8,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 126,
+      "duplicateSamples": 34,
+      "units": [
+        "notes"
+      ]
+    },
+    {
+      "parameter": "b6u-11a",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 4,
+      "answerMax": 25,
+      "maxPromptWords": 9,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 119,
+      "duplicateSamples": 41,
+      "units": [
+        "boxes"
+      ]
+    },
+    {
+      "parameter": "b6u-11b",
+      "level": 6,
+      "sampleCount": 160,
+      "answerMin": 8,
+      "answerMax": 72,
+      "maxPromptWords": 13,
+      "mcq": 0,
+      "shortAnswer": 160,
+      "failureCount": 0,
+      "uniqueVisibleQuestions": 159,
+      "duplicateSamples": 1,
+      "units": [
+        "items"
+      ]
+    }
+  ],
+  "failures": []
+}

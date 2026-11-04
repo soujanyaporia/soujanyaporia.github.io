@@ -28,7 +28,7 @@ export const readPaperAttempt=(kv:KV|null,scope:string)=>readPaperAttemptState(k
 export function writePaperAttempt(kv:KV|null,scope:string,saved:PaperAttempt){try{if(!kv)return false;kv.setItem(paperAttemptKey(scope),JSON.stringify(saved));return true;}catch{return false;}}
 export function paperAnswerStatus(q:Question,value:string):PaperAnswerStatus{
  if(!value.trim())return 'blank';
- if(q.numberSentence||q.grouping)return responseReady(q,value)?'complete':'partial';
+ if(q.numberSentence||q.grouping||q.structuredResponse)return responseReady(q,value)?'complete':'partial';
  if(q.choices)return q.choices.includes(value)?'complete':'partial';
  if(q.order){const picks=value.split(',');return picks.length===q.order.length&&JSON.stringify([...picks].sort())===JSON.stringify([...q.order].sort())?'complete':'partial';}
  if(q.fractionBuilder){const m=/^(\d+)\/(\d+)$/.exec(value);return m&&Number(m[2])===q.fractionBuilder&&Number(m[1])<=q.fractionBuilder?'complete':'partial';}

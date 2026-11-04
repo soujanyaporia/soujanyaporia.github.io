@@ -85,4 +85,17 @@ describe('Question pictures preserve all visible mathematical facts',()=>{
    const html=render(q.picture);expect(html.length,`${activity.id} ${seed}`).toBeGreaterThan(40);expect(html,`${activity.id} ${seed}`).not.toMatch(/NaN|Infinity|undefined/);
   }
  });
+ it('retains every point and label of a six-point graph inside the axes',()=>{
+  const labels=['8 am','9 am','10 am','11 am','12 pm','1 pm'];
+  const html=render({type:'bars',line:true,labels,values:[20,40,30,60,20,50],scale:10});
+  const points=vertices(html);expect(points).toHaveLength(6);
+  expect((html.match(/<circle/g)??[]).length).toBe(6);
+  for(let i=0;i<points.length;i++){
+   expect(points[i][0]).toBeGreaterThan(45);expect(points[i][0]).toBeLessThan(395);
+   if(i)expect(points[i][0]-points[i-1][0]).toBeGreaterThan(50);
+   expect(html).toContain(`>${labels[i]}</text>`);
+  }
+  expect(html).not.toMatch(/undefined|NaN/);
+  expect(vertices(render({type:'bars',line:true,labels:labels.slice(0,4),values:[10,20,30,40],scale:10})).map(p=>p[0])).toEqual([85,173,261,349]);
+ });
 });

@@ -1,6 +1,8 @@
+import {formatStructuredResponse} from './paperImports/batch6MiddleResponse';
 import type {Question} from './generate';
 import {parseGrouping} from './groupingAnswer';
 export function shownAnswer(q:Question,value:string):string{
+ if(q.structuredResponse)return formatStructuredResponse(q.structuredResponse,value);
  if(q.grouping){const groups=parseGrouping(value);return groups?`${groups.length} groups: ${groups.map(g=>g.length).join(' + ')} objects`:'No groups made';}
  if(q.order)return value.split(',').join(' → ');
  if(q.numberSentence)return value.replace(/\*/g,'×').replace(/\//g,'÷').replace(/-/g,'−');
