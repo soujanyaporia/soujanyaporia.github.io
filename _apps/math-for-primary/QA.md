@@ -10,7 +10,7 @@ Browser checks: Daily Practice at desktop and 320 CSS pixels, term/topic/day nav
 
 Early-primary model changes reduced worked-example tables from 21 to 6 at seed 217, excluding challenge stages; question tables fell from 320/1,024 to 95/1,024. Remaining money/time tables are documented, not described as eliminated. Child-facing focus prompts cover all 57 P1/P2 objectives. Review/challenge distinct-question selection now runs on the actual chosen stage sequence. Challenge completion reports independent/supported/shown evidence separately from initial learning-check stars.
 
-The live account service is Sites version 4, source `6880262d016fa6a603d6731d619d96cee684ef7f`, deployed successfully with the daily/paper catalogue. The current frontend publication is recorded in the release log. Reference PDFs and OCR remain outside the deployed site; bulk OCR is a search aid with explicit unreviewed/answer-unverified flags. No physical tablet, classroom or million-user load test has been performed.
+The live account service is Sites version 4, source `6880262d016fa6a603d6731d619d96cee684ef7f`, deployed successfully with the daily/paper catalogue. Frontend commit `990dbb72fe09e41a115da02009310e40965fa25c` passed GitHub Actions run `41819944126` and deployed successfully. Reference PDFs and OCR remain outside the deployed site; bulk OCR is a search aid with explicit unreviewed/answer-unverified flags. No physical tablet, classroom or million-user load test has been performed.
 
 ---
 

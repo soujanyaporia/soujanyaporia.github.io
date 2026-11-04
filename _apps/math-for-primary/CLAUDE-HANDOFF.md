@@ -1,6 +1,6 @@
 # Current continuation — daily practice and illustrated papers, 4 November 2026
 
-This section supersedes historical deployment notes below. The previous GitHub release is `cff3448`; the new frontend release is being verified. The school API **is deployed**, Sites version 4, source `6880262d016fa6a603d6731d619d96cee684ef7f`, including the new daily/paper catalogue. Preserve its existing public access and D1 data.
+This section supersedes historical deployment notes below. The frontend release `990dbb72fe09e41a115da02009310e40965fa25c` is live. GitHub Actions run `41819944126` passed both build and deployment. The school API **is deployed**, Sites version 4, source `6880262d016fa6a603d6731d619d96cee684ef7f`, including the new daily/paper catalogue. Preserve its existing public access and D1 data.
 
 The user wants Daily Dose-style practice on a computer and authentic Singapore school question types, with less text and more useful illustration. `PRACTICE-DESIGN.md` describes the original bank, official-source comparison and limits. Do not confuse 2,406 source papers with 2,406 questions, OCR candidates with verified content, or 50,000 generated samples with 50,000 independently authored questions. The local reference archive and OCR jobs are outside this source tree at `../Singapore Maths Paper Library`; never copy them into the deployed site.
 
