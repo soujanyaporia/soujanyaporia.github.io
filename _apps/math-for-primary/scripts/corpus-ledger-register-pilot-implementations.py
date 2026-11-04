@@ -36,6 +36,9 @@ for spec in sets:
   add('independent-'+patternid+'-'+version,'pattern_independently_verified','pattern',patternid,{'codeSha256':hashfile(code),'implementationFingerprint':fingerprint,'method':'independent-visible-givens-solver','sampleCount':len(members)*spec['samplesPerVariant'],'solverPath':str(solver),'solverSha256':solverhash,'solverExport':spec['solverExport'],'testedParameterScope':scope,'testReportSha256':receipt['sha256']},evidence)
   for mapping in db.execute('SELECT m.*,c.file_sha,c.completeness,c.diagram_dependency FROM mappings m JOIN candidates c USING(candidate_key) WHERE m.pattern_id=?',(patternid,)):
    if mapping['relation']!='same-structure' or mapping['completeness']!='complete' or mapping['diagram_dependency']=='uncertain':continue
-   fields=json.loads(mapping['scope'])['sourceVariantRequirements'];variant=fields.get('originalParameter',fields.get('originalAdaptationId'));assert variant in variants,(variant,variants)
+   fields=json.loads(mapping['scope'])['sourceVariantRequirements'];variant=fields.get('originalParameter',fields.get('originalAdaptationId'))
+   # Partial-review mappings have their own scoped receipts and must not be credited by this full-pilot importer.
+   if variant is None:continue
+   assert variant in variants,(variant,variants)
    add('source-map-'+hashlib.sha256(mapping['candidate_key'].encode()).hexdigest()[:20]+'-'+version,'mapping_independently_verified','candidate',mapping['candidate_key'],{'patternId':patternid,'sourceSha256':mapping['file_sha'],'allSourceVariantRequirementsCovered':True,'scopeExplanation':{'sourceVariant':variant,'testedVariantIncluded':True,'sampling':spec['sampling'],'sourceReviewEvent':'Complete source givens/diagram relationship mapped explicitly in the review manifest; same-structure only.'},'implementationFingerprint':fingerprint},evidence)
 out=a.library/'coverage/imports/pilot-implementations.events.json';out.write_text(json.dumps(events,indent=2)+'\n');print(json.dumps({'events':len(events),'eventFile':str(out),'testCount':report['numPassedTests'],'independentGeneratedSamples':total_samples,'sourceUncertaintiesPreserved':['P1 Q21 equation and answer','P3 Q13']}))

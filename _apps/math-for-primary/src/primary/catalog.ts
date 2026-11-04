@@ -48,6 +48,6 @@ export const ACTIVITIES:Activity[]=Object.entries(sets).flatMap(([key,sections])
 })));
 // Original, picture-led practice. Keep these metadata-only so the account service can share the catalogue.
 for(const p of PAPER_PATTERNS)ACTIVITIES.push({...p,id:`p${p.level}s-paper-${p.parameter}`,track:'standard',kind:'paper'});
-for(let level=1;level<=6;level++){const patterns=PAPER_PATTERNS.filter(p=>p.level===level);ACTIVITIES.push({id:`p${level}s-paper-mixed`,level,track:'standard',strand:'Number & Algebra',kind:'paper',parameter:'mixed',title:'Picture practice',objective:'Six original picture problems with worked steps.',skillIds:[...new Set(patterns.flatMap(p=>p.skillIds))],icon:'✦'});}
+for(let level=1;level<=6;level++){const patterns=PAPER_PATTERNS.filter(p=>p.level===level);ACTIVITIES.push({id:`p${level}s-paper-mixed`,level,track:'standard',strand:'Number & Algebra',kind:'paper',parameter:'mixed',title:'Mixed practice',objective:'Six original questions with worked steps.',skillIds:[...new Set(patterns.flatMap(p=>p.skillIds))],icon:'✦'});}
 export function activitiesFor(level:number,track:Track){return ACTIVITIES.filter(a=>a.level===level&&a.track===(level<5?'standard':track));}
 export function activityById(id:string){return ACTIVITIES.find(a=>a.id===id)??dailyActivity(id,ACTIVITIES);}

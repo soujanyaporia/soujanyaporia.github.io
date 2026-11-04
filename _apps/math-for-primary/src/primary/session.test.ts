@@ -4,7 +4,8 @@ import {makeQuestion,correctAnswer,type Question} from './generate';
 import {hashString} from '../engine/random';
 import {answerEventId,combineSessions,completeEventId,encodeQuestionKey,mergeSameSession,parseQuestionKey,stableId,validateSession,type PrimarySession,type ScoredResult} from './session';
 import {checkSession,createSession,diagnose,fingerprint,nearTransfer,questionFromKey,sessionQuestions,strategyOf} from './sessionQuestions';
-const same=(q:Question)=>JSON.stringify([q.prompt,q.display,q.picture,q.answer]);
+// Story givens are visible question content even when the short final question is unchanged.
+const same=(q:Question)=>JSON.stringify([q.prompt,q.context??[],q.display,q.picture,q.answer]);
 const scored=(answer:string,at:number,firstTry=true):ScoredResult=>({answer,correct:true,firstTry,hints:firstTry?0:1,tries:firstTry?1:2,wrong:firstTry?[]:['1'],at});
 describe('resumable session identity',()=>{
  it('invalidates fraction notation rules that change grading without changing unaffected hashes',()=>{

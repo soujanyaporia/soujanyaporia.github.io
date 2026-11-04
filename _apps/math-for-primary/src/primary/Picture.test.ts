@@ -71,6 +71,14 @@ describe('Question pictures preserve all visible mathematical facts',()=>{
   const required=['p3-gaps','p3-boxes','p2-before','p2-fraction','p2-bottles','p4-factor','p4-freebie','p5-bundles','p6-average','p6-charge','p6-redistribute'];
   for(const parameter of required){const a=ACTIVITIES.find(a=>a.kind==='paper'&&a.parameter===parameter)!,q=makeQuestion(a,42);expect(q.context?.join(' ').length,parameter).toBeGreaterThan(20);if(q.picture?.type==='paper')expect(q.picture.caption,parameter).toBeUndefined();}
  });
+ it('keeps chart labels readable without crowding or losing minor grid intervals',()=>{
+  const html=render({type:'bars',labels:['Box A','Box B','Box C','Box D'],values:[8,56,40,24],scale:4});
+  const labels=[...html.matchAll(/<text data-axis-label="true" x="35" y="([^"]+)"[^>]*font-size="18"[^>]*>([^<]+)<\/text>/g)];
+  expect(labels.length).toBeGreaterThan(3);expect(labels.length).toBeLessThanOrEqual(8);
+  for(let i=1;i<labels.length;i++)expect(Number(labels[i-1][1])-Number(labels[i][1])).toBeGreaterThanOrEqual(20);
+  expect((html.match(/<line/g)??[]).length).toBe(15);
+  for(const label of ['Box A','Box B','Box C','Box D'])expect(html).toContain(`>${label}</text>`);
+ });
  it('renders representative data from every activity without blank pictures or invalid coordinates',()=>{
   for(const activity of ACTIVITIES)for(let seed=0;seed<8;seed++){
    const q=makeQuestion(activity,seed,seed%6);if(!q.picture)continue;
