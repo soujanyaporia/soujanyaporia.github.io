@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@fontsource-variable/nunito';
 import './styles/base.css';
+import './seo/home';
 import { App } from './App';
 
 createRoot(document.getElementById('root')!).render(

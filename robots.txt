@@ -6,3 +6,5 @@ Disallow:
 
 Sitemap: https://soujanyaporia.github.io/sitemap.xml
 Sitemap: https://soujanyaporia.github.io/sitemap-pages.txt
+
+Sitemap: https://soujanyaporia.github.io/math-for-primary/sitemap.xml

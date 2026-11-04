@@ -1,3 +1,13 @@
+# Search visibility — 4 November 2026
+
+The build now renders the existing teaching catalogue as 265 public lesson guides, eight year/track pages, nine topic directories and one lesson index. The homepage has a readable public directory. All 284 canonical maths URLs enter the XML sitemap; root robots.txt advertises it, and the host's existing public-page sitemap includes the same pages. Each reading page has its own title, description, canonical URL, Open Graph metadata, LearningResource/CollectionPage data and breadcrumbs. Lesson explanations and diagrams come from the same source as the interactive app; no accounts or pupil data are rendered.
+
+Validation: 443 existing tests in 28 files pass; typecheck and production build pass. The build audit verifies every local link and asset, metadata, JSON-LD parsing, one H1, unique titles, canonical URLs, sitemap coverage and reachability from the homepage. The existing host sitemap generator accepts all 284 maths URLs. Browser checks covered the equivalent-fractions reading page and its diagrams at a narrow viewport, the link into the working interactive lesson, and hiding the public directory during a lesson. Search indexing and ranking remain external outcomes, not established by these checks. The existing large Learn bundle warning remains; static reading pages do not load the app JavaScript.
+
+SEO publication uses a separate checkout at `/Users/poriasoujanya/Documents/GitHub/soujanya-math-seo` to preserve concurrent interface work. The authoritative working folder retains the same SEO additions.
+
+---
+
 # Less repetition, more objective-specific teaching — 4 November 2026
 
 A duplication and consistency audit of all 265 lessons, and the repairs it prompted. Counts below come from the same measurement script run before and after the work.

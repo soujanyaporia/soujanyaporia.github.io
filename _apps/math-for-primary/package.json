@@ -6,7 +6,7 @@
   "description": "Singapore Primary 1\u20136 maths activities with school accounts and Standard/Foundation paths.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "build": "tsc --noEmit -p tsconfig.json && vite build && node scripts/build-seo.mjs && python3 scripts/check-seo.py",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

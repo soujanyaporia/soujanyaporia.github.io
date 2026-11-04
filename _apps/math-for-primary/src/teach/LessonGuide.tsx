@@ -5,6 +5,7 @@ import { ToolView } from './tools/Tools';
 import { FACET_LABEL,REP_LABEL,TOOL_LABEL,WORLDS,type Lesson,type Stage,type Tool } from './model';
 import { stageItems } from './LessonPlayer';
 import './teach.css';
+import { guidePath } from '../seo/paths';
 const STAGE_LABEL:Record<Stage['kind'],string>={reflect:'Explain in your own words',readiness:'Readiness check',hook:'Story hook',explore:'Explore with a manipulative',notice:'What do you notice?',connect:'Concrete → pictorial → abstract',explain:'Explanation',worked:'Worked example',practice:'Practice',apply:'Apply in a story',reason:'Reasoning',mastery:'Mastery check',discovery:'Discovery moment'};
 /** Every manipulative a lesson shows, wherever it appears: stages, worked steps, items and clues. */
 function lessonTools(l:Lesson):Tool[]{
@@ -26,7 +27,7 @@ export function LessonGuide({id}:{id:string}){
  if(!lesson)return <main className="school-page"><h1>We could not find that lesson.</h1><a href="#/teach">See all lessons →</a></main>;
  const sample=(stage:Stage,index:number)=>stageItems(stage,7,index).slice(0,1)[0];
  return <main className="teach lesson-guide"><a className="back-link" href="#/teach">← Back to Learn</a><p className="teach-eyebrow">Adult guide · P{lesson.level} · {WORLDS[lesson.world].title}</p><h1>{lesson.title}</h1>
-  <div className="guide-actions"><a className="teach-btn" href={`#/teach/${lesson.id}`}>Preview as a student</a><a className="teach-btn soft" href={`#/teach/${lesson.id}/challenge`}>Open the learning check</a>{activityById(lesson.activityId)&&<a className="teach-btn soft" href={`#/activity/${lesson.activityId}`}>Practice activity</a>}</div>
+  <div className="guide-actions"><a className="teach-btn soft" href={guidePath(lesson.id)}>Read and share this lesson</a><a className="teach-btn" href={`#/teach/${lesson.id}`}>Preview as a student</a><a className="teach-btn soft" href={`#/teach/${lesson.id}/challenge`}>Open the learning check</a>{activityById(lesson.activityId)&&<a className="teach-btn soft" href={`#/activity/${lesson.activityId}`}>Practice activity</a>}</div>
   <section className="stage-card"><h2>Learning objectives</h2><ul className="guide-list">{lesson.objectives.map(o=><li key={o}>{o}</li>)}</ul>
    <h3>Syllabus objectives</h3><ul className="guide-list">{lesson.skillIds.map(sid=>{const s=CURRICULUM_SKILLS.find(c=>c.id===sid);return <li key={sid}><strong>{sid}</strong> — {s?.title}{s?` (MOE syllabus p. ${s.sourcePage})`:''}</li>;})}</ul>
    <p className="muted">Curriculum map {CURRICULUM.id}, {CURRICULUM.revision}. Objective wording is paraphrased; prerequisites below are this app's instructional choice, not MOE sequencing.</p>

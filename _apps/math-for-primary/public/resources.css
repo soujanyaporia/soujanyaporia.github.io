@@ -1,0 +1,60 @@
+/* Public reading pages share the app's palette and native mathematical models. */
+.resource-body { font-size: 18px; line-height: 1.65; }
+.resource-header,.resource-footer { max-width: 1120px; margin: auto; padding: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+.resource-header { border-bottom: 1px solid var(--line,#f0e4d3); }
+.resource-header>a { color: var(--ink,#1d2742); font-weight: 850; text-decoration: none; }
+.resource-header nav { display: flex; flex-wrap: wrap; gap: 24px; }
+.resource-main { max-width: 960px; margin: auto; padding: 28px 24px 64px; }
+.resource-main h1 { font-size: clamp(2rem,5vw,3.4rem); letter-spacing: -.035em; line-height: 1.15; margin: 20px 0; overflow-wrap: anywhere; }
+.resource-main h2,.resource-home h2 { font-size: clamp(1.45rem,3vw,2rem); line-height: 1.25; margin: 24px 0 14px; }
+.resource-main h3,.resource-home h3 { font-size: 1.15rem; margin: 24px 0 10px; }
+.resource-main p,.resource-home p { max-width: 78ch; margin: 14px 0; }
+.resource-main ul,.resource-main ol { padding-left: 1.5em; }
+.resource-main li { margin: 10px 0; }
+.resource-main a,.resource-home a,.resource-header a,.resource-footer a { color: #2447b8; text-underline-offset: .2em; }
+.resource-main a:hover,.resource-home a:hover { text-decoration-thickness: 2px; }
+.resource-main a:focus-visible,.resource-home a:focus-visible,.resource-main summary:focus-visible { outline: 3px solid #2447b8; outline-offset: 4px; }
+.resource-eyebrow { font-size: .82rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; color: #4f5a75; }
+.resource-breadcrumbs { display: flex; flex-wrap: wrap; gap: 8px 14px; list-style: none; padding: 0!important; font-size: .85rem; }
+.resource-breadcrumbs li:not(:last-child)::after { content: '/'; margin-left: 14px; color: #4f5a75; }
+.resource-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin: 20px 0; }
+.resource-card { display: flex; flex-direction: column; gap: 8px; padding: 24px; border: 1px solid #e3d3bd; border-radius: 16px; background: white; text-decoration: none; }
+.resource-card strong { font-size: 1.2rem; }
+.resource-card span { color: #4f5a75; font-size: .95rem; }
+.resource-topic-links { display: flex; flex-wrap: wrap; gap: 12px 24px; list-style: none; padding: 0!important; }
+.resource-lesson-list li { padding: 10px 0; }
+.resource-lesson-list a { font-weight: 800; }
+.resource-lesson-list span { display: block; color: #4f5a75; font-size: .92rem; margin-top: 5px; }
+.resource-panel { background: white; padding: clamp(18px,4vw,36px); margin: 28px 0; border: 1px solid #f0e4d3; border-radius: 22px; scroll-margin-top: 24px; }
+.resource-panel>h2:first-child { margin-top: 0; }
+.resource-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; }
+a.resource-button { display: inline-block; border-radius: 12px; padding: 12px 20px; background: #2447b8; color: white; font-weight: 800; text-decoration: none; }
+.resource-model { max-width: 680px; margin: 20px auto; min-width: 0; }
+.resource-model svg { max-width: 100%; height: auto; }
+.resource-model .tool { max-width: 100%; }
+.resource-model table { overflow-wrap: anywhere; }
+.resource-model .tool-array-grid { max-width: 100%; }
+.resource-equation { font-size: 1.2rem; font-weight: 850; overflow-wrap: anywhere; }
+.resource-steps>li { padding: 8px 0 20px 8px; border-bottom: 1px solid #f0e4d3; }
+.resource-main details { padding: 14px 18px; margin: 16px 0; background: #fff8ef; border: 1px solid #e3d3bd; border-radius: 12px; }
+.resource-main summary { cursor: pointer; font-weight: 750; }
+.resource-note { border-top: 1px solid #e3d3bd; margin-top: 44px; padding-top: 12px; color: #4f5a75; font-size: .92rem; }
+.resource-note h2 { font-size: 1.2rem; }
+.resource-home { max-width: 1080px; margin: 24px auto 64px; padding: 32px 24px; border-top: 1px solid #e3d3bd; }
+.resource-home[hidden] { display: none!important; }
+.resource-fallback { max-width: 1080px; margin: auto; padding: 32px 24px; }
+.resource-skip { position: absolute; left: 20px; top: -100px; background: white; padding: 12px; }
+.resource-skip:focus { top: 12px; z-index: 5; }
+@media (max-width: 600px) {
+  .resource-grid { grid-template-columns: 1fr; }
+  .resource-main { padding: 20px 16px 40px; }
+  .resource-header,.resource-footer { padding: 20px 16px; }
+  .resource-home { padding: 24px 16px; }
+  .resource-model .tool { padding: 12px; }
+  .resource-steps { padding-left: 1.25em!important; }
+}
+@media print {
+  .resource-header,.resource-footer,.resource-actions,.resource-button,.resource-skip { display: none!important; }
+  .resource-panel { break-inside: auto; }
+  .resource-body { background: white; }
+}

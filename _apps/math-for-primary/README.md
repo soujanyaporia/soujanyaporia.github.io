@@ -95,3 +95,11 @@ Backend in `school-api/`: `npm ci`, `npm run build`, `npm test`. Before deployin
 GitHub Pages builds the mirrored source in `_apps/math-for-primary/` in `soujanyaporia.github.io`. The API deploys separately. `.private/`, `.recovery/`, local databases, credentials and nested Git metadata are never published.
 
 See [QA.md](QA.md) for verification evidence and [CLAUDE-HANDOFF.md](CLAUDE-HANDOFF.md) for the continuation instructions.
+
+## Search visibility
+
+The production build creates readable HTML at `/lessons/`, eight primary-year paths, nine topic paths and one page per lesson. Lesson pages reuse the live catalogue and read-only diagrams, with real links into the existing interactive hash routes. The homepage includes the same public directory for people and crawlers. No accounts or pupil records enter these pages.
+
+`src/seo/pages.tsx` owns the reading views; `scripts/build-seo.mjs` creates the HTML and `/math-for-primary/sitemap.xml`. `scripts/check-seo.py` checks the built link graph, canonical URLs, unique titles, structured data, required metadata, assets and sitemap coverage. `npm run build` runs both scripts and requires Python 3 in addition to Node. The host's root `robots.txt` advertises the maths sitemap, and the existing site-wide sitemap builder discovers all public reading pages.
+
+These changes make the content available for crawling; Google decides whether and where to show it. Do not claim that generating a sitemap, passing checks or requesting indexing guarantees search ranking.
