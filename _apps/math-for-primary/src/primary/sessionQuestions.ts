@@ -9,11 +9,11 @@ import { newSessionId,type PrimarySession,type RepairItem,type SessionMode } fro
  * Fingerprints also catch a changed generator whose version was not bumped. Hints and explanations
  * are not fingerprinted, so wording fixes do not invalidate saved sessions.
  */
-const KIND_VERSIONS:Partial<Record<GameKind,number>>={paper:8,daily:DAILY_PLAN_VERSION,add:2,subtract:2,angleFacts:2,triangleAngle:2,quadrilateral:2};
+const KIND_VERSIONS:Partial<Record<GameKind,number>>={paper:9,daily:DAILY_PLAN_VERSION,add:2,subtract:2,angleFacts:2,triangleAngle:2,quadrilateral:2};
 export const GENERATOR_VERSION=1;
 export const generatorVersion=(a:Activity)=>KIND_VERSIONS[a.kind]?`${GENERATOR_VERSION}.${KIND_VERSIONS[a.kind]}`:String(GENERATOR_VERSION);
-export const fingerprint=(q:Question)=>hashString(JSON.stringify([q.prompt,q.display??'',q.answer,q.choices??[],q.order??[],q.fractionBuilder??0,q.picture??null,q.unit??'',...(q.context?.length?[q.context]:[]),...(q.numberSentence?[q.numberSentence]:[]),...(q.answerFormat?[q.answerFormat]:[]),...(q.grouping?[q.grouping]:[]),...(q.structuredResponse?[q.structuredResponse]:[]),...(q.requireMixed?['mixed']:[]),...(q.requireSimplified?['simplified']:[]),...(q.requireImproper?['improper']:[])])).toString(16).padStart(8,'0');
-const sameContent=(q:Question)=>JSON.stringify([q.prompt,q.display,q.picture,q.answer,q.context??[],...(q.structuredResponse?[q.structuredResponse]:[])]);
+export const fingerprint=(q:Question)=>hashString(JSON.stringify([q.prompt,q.display??'',q.answer,q.choices??[],q.order??[],q.fractionBuilder??0,q.picture??null,q.unit??'',...(q.context?.length?[q.context]:[]),...(q.numberSentence?[q.numberSentence]:[]),...(q.answerFormat?[q.answerFormat]:[]),...(q.grouping?[q.grouping]:[]),...(q.structuredResponse?[q.structuredResponse]:[]),...(q.angleConstruction?[q.angleConstruction]:[]),...(q.requireMixed?['mixed']:[]),...(q.requireSimplified?['simplified']:[]),...(q.requireImproper?['improper']:[])])).toString(16).padStart(8,'0');
+const sameContent=(q:Question)=>JSON.stringify([q.prompt,q.display,q.picture,q.answer,q.context??[],...(q.structuredResponse?[q.structuredResponse]:[]),...(q.angleConstruction?[q.angleConstruction]:[])]);
 export function questionFromKey(activity:Activity,key:string):Question|null{const m=/^([A-Za-z0-9-]+):(\d+):(\d+)$/.exec(key);return m&&m[1]===activity.id?makeQuestion(activity,Number(m[2]),Number(m[3])):null;}
 /** Questions sharing a strategy have the same clue once numbers are ignored. */
 export const strategyOf=(q:Question)=>q.hint.replace(/\d+(\.\d+)?/g,'#');

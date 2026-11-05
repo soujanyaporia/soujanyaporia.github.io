@@ -52,7 +52,7 @@ test('the same scored answer and completion from two devices count once',async()
 });
 test('lazy daily and original picture activities restore six-question sessions and retain separate day progress',async()=>{
  const s=await school('SESS-DAILY'),a=await s.pupil('pupil-a');
- const ids=['p3s-daily-055','p6f-daily-200','p3s-paper-p3-gaps','p1s-paper-mixed','p1s-paper-hp25-12','p3s-paper-rg25-11','p2s-paper-b4e-half-symbol-pair-total','p6s-paper-b4u-savings-change-percent','p1s-paper-b5e-14-equation','p3s-paper-b5m-12','p5s-paper-b5u-tank-fraction','p2s-paper-b6e-12','p4s-paper-b6m-13','p6s-paper-b6u-1b'];
+ const ids=['p3s-daily-055','p6f-daily-200','p3s-paper-p3-gaps','p1s-paper-mixed','p1s-paper-hp25-12','p3s-paper-rg25-11','p2s-paper-b4e-half-symbol-pair-total','p6s-paper-b4u-savings-change-percent','p1s-paper-b5e-14-equation','p3s-paper-b5m-12','p5s-paper-b5u-tank-fraction','p2s-paper-b6e-12','p4s-paper-b6m-13','p6s-paper-b6u-1b','p1s-paper-b7e-fewest-notes','p4s-paper-b7m-fruit-table','p6s-paper-b7u-recipe-capacity','p4s-paper-b8a-construct-ray'];
  for(const [i,activityId] of ids.entries()){
   const saved=session({activityId,id:(i+1).toString(16).padStart(16,'0'),generator:'1.1',count:6,fingerprints:Array(6).fill('')});
   const r=await call('/api/sessions/'+activityId,'POST',{session:saved,baseRev:0},a.token);assert.equal(r.status,200,JSON.stringify(r.body));

@@ -10,9 +10,11 @@ import {BATCH2_PATTERNS} from './batch2Catalog';
 import {BATCH4_PATTERNS} from './batch4Catalog';
 import {BATCH5_PATTERNS} from './batch5Catalog';
 import {BATCH6_PATTERNS} from './batch6Catalog';
+import {BATCH7_PATTERNS} from './batch7Catalog';
+import {BATCH8_ANGLES_PARTS} from './batch8AnglesMeta';
 
 /** Tasks are response variants, not a count of distinct mathematical structures. */
-export interface AdaptedPaperPattern extends PaperPattern {canonicalPatternId:string;sourcePaper:string;sourceParts:string[];sourcePage:number}
+export interface AdaptedPaperPattern extends PaperPattern {canonicalPatternId:string;sourcePaper:string;sourceParts:string[];sourcePage:number;sourceMappingStatus?:'unaudited'}
 const strandFor=(ids:string[]):Strand=>ids.some(id=>/\.(GRAPH|AVG)\./.test(id))?'Statistics':ids.some(id=>/\.(MEASURE|LENGTH|TIME|LINES|ANGLE|AREA|VOL|SHAPE)\./.test(id))?'Measurement & Geometry':'Number & Algebra';
 export const ADAPTED_PAPER_PATTERNS:AdaptedPaperPattern[]=[
  ...P1_HENRY_PARK_2025_PATTERNS.map(p=>({...p,sourcePaper:'0fa004d1786d5dd9'})),
@@ -25,5 +27,7 @@ export const ADAPTED_PAPER_PATTERNS:AdaptedPaperPattern[]=[
  ...BATCH4_PATTERNS,
  ...BATCH5_PATTERNS,
  ...BATCH6_PATTERNS,
+ ...BATCH7_PATTERNS,
+ ...BATCH8_ANGLES_PARTS.map(p=>({parameter:`b8a-${p.id}`,level:p.level,title:p.title,objective:p.objective,strand:strandFor(p.skillIds),skillIds:p.skillIds,icon:'✦',canonicalPatternId:p.canonicalPatternId,sourcePaper:p.sourceUnits[0].paperId,sourceParts:[p.sourceUnits[0].sourceQuestion],sourcePage:p.sourceUnits[0].sourcePage,sourceMappingStatus:'unaudited' as const})),
 ];
 export const adaptedPattern=(parameter:string|undefined)=>ADAPTED_PAPER_PATTERNS.find(p=>p.parameter===parameter);

@@ -1,3 +1,19 @@
+# Current checkpoint — paper variety across P1–P6, 5 November 2026
+
+This supersedes older checkpoints. The latest user correction is global: papers must contain different reasoning types, not many numeric variants of the same template. The user has explicitly deferred exhaustive source verification in favour of implementation. Preserve short, complete wording, necessary mathematical figures, touch controls, one final check action, and Voice A.
+
+Implemented: structure-first paper scheduling across all P1–P6 Standard and P5–P6 Foundation paths, numerical/answer-control aliases collapsed, topic balancing before strand balancing, honest short-topic repetition notices and size caps, deterministic version9 codes/resume. No repeated reasoning family is selected while an unused suitable family remains. Topic caps are soft; P1 can need four whole-number items to retain18 distinct families. Source-style composition uses twelve inventoried local paper references; it is not inferred from all2,406 papers.
+
+Content: 613 activities, 407 paper configurations, 270 guided lessons. This update adds36 contextual/structured configurations across P1–P6,53 arithmetic configurations built from165 OCR leads (89 number-domain variants), and7 angle configurations from visually inspected source pages. These counts are not globally unique patterns. Source associations in the new batch remain unaudited; no new whole-paper coverage is granted. Existing worked steps, figures, answer controls, and school-session flows are used. Angle construction now draws an actual ray from pointer input, preserves it in drafts/review, and shows the completed labelled figure in solutions.
+
+Validation:960/960 app tests; frontend build and289 SEO/redirect checks;9/9 school API tests. Representative seed37 papers at6/12/18 questions across P1–P6 had distinct inferred family keys for every slot and no future-grade skill tags. This is a bounded composition check, not a corpus-wide uniqueness or MOE-coverage result. Phone-width browser test drew115° directly, graded it correctly, then completed a six-type mixed P4 paper with one Check my answers action, resulting in6/6. The50,000-sample bank audit and code-bound source ledger were deliberately not refreshed for this release.
+
+API version13 is deployed: source307dfe47fd2373b8c65c3e56d83fc2ddf2fa2b80, deployment appgdep_6aebd17352e08191836653eb20ca8009. Frontend release status is in .generated/release-status.json. Release checkout: /Users/poriasoujanya/Documents/GitHub/singapore-primary-maths-release; only the43 owned paper/content files plus their generated API shared copies were copied. The main source workspace has concurrent E2EE sync/offline work from another chat; that work was preserved and excluded from this paper-variety release. Build and test the release checkout for publication, avoiding concurrent dist writes in the source workspace.
+
+Coverage remains incomplete: all2,406 PDFs are local/searchable; last full source snapshot at87cf0ef recorded12 complete inventories,10 strictly fully covered papers, and2,394 paper sets awaiting full conversion. Do not treat newly generated families, OCR extraction or references as fully reviewed/implemented papers. Global pattern uniqueness and complete MOE coverage are unknown. Continue adapting missing source patterns, with answers/steps and only essential figures, without claiming the entire corpus is done.
+
+---
+
 # Current checkpoint — complete P2, P4 and P6 adaptations, 5 November 2026
 
 This section supersedes every older checkpoint below. Source and API are validated; frontend content commit `b74218cf220adb26d867c07e0a5c105c4277cdea` is pushed (run `41877969715`), and a final choice-review/extractor follow-up is being published. `.generated/release-status.json` owns actual deployment status. The previous live frontend is `c163b658dcb26f7fc71527533d565cafd484b3e6`.

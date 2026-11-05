@@ -15,3 +15,5 @@
 .paper-maths-figure .paper-given:not(.paper-count-card)>.paper-object,.paper-maths-figure .paper-transfer-row .paper-object{display:none}
 @media(max-width:480px){.paper-facts{font-size:15px}.paper-facts dl>div{grid-template-columns:minmax(100px,1fr) minmax(0,1.2fr);gap:12px}.paper-maths-figure>figure{padding:8px 0}}
 @media print{.paper-facts{font-size:11pt;line-height:1.45;margin:8px 0}.paper-facts dl>div{padding:3px 0}.paper-maths-figure{margin:8px 0}.paper-facts,.paper-maths-figure{break-inside:avoid}}
+
+.paper-variety-note{font-size:14px;line-height:1.6;color:#526e64;margin:20px 0 0;max-width:680px}.paper-sizes label:has(input:disabled){opacity:.55;cursor:default}

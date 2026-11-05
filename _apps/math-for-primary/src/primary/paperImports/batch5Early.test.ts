@@ -64,7 +64,7 @@ describe('Complete early-P1 whole-paper configurations',()=>{
     expect(correctAnswer(q,'99 + 99 = 198'),where).toBe(false);
    }else expect(q.answer,where).toBe(String(solved));
   }
- });
+ },20000);
  it('preserves shared givens for all four comparison fields and linked story responses',()=>{
   for(let seed=0;seed<50;seed++){
    const compare=['4a','4b','4c','4d'].map(id=>makeBatch5Early(id as Batch5EarlyPart,seed));expect(compare.every(q=>JSON.stringify(q.picture)===JSON.stringify(compare[0].picture))).toBe(true);

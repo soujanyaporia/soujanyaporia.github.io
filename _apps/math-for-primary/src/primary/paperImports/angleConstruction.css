@@ -1,0 +1,10 @@
+.angle-construction{color:#244b42;width:100%;min-width:0}
+.angle-construction>p{font-size:14px;line-height:1.6}
+.angle-construction .game-figure{display:block;width:100%;max-width:540px;height:auto;margin:0 auto}
+.angle-construction>div{justify-content:center}
+.angle-construction button{font:inherit;font-size:14px;font-weight:800;border:1px solid #b8d3c6;border-radius:10px;background:#eff7f0;color:#285749;padding:10px 12px;touch-action:manipulation;cursor:pointer}
+.angle-construction button:disabled{opacity:.55;cursor:default}
+.angle-construction label{font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px}
+.angle-construction input{font:inherit;color:#214e41;border:2px solid #b8d3c6;border-radius:10px;padding:8px;background:white}
+.angle-construction button:focus-visible,.angle-construction input:focus-visible{outline:3px solid #1b806b;outline-offset:3px}
+.angle-construction [aria-live]{flex-basis:100%;text-align:center;font-size:12px;color:#60776c;margin-top:5px}

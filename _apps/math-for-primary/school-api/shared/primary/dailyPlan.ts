@@ -4,7 +4,7 @@ import type {ActivityProgress} from './progress';
 
 export const DAILY_DAYS=200;
 export const DAILY_QUESTIONS=6;
-export const DAILY_PLAN_VERSION=8;
+export const DAILY_PLAN_VERSION=9;
 const TOPIC_NAMES:Record<string,string>={WN:'Whole numbers',AS:'Adding and subtracting',MD:'Multiplying and dividing',FACT:'Factors and multiples',FRAC:'Fractions',MONEY:'Money',DEC:'Decimals',PCT:'Percentages',RATE:'Rate',RATIO:'Ratio',ALG:'Algebra',LENGTH:'Length',MEASURE:'Measurement',TIME:'Time',AREA:'Area and perimeter',VOL:'Volume',ANGLE:'Angles',LINES:'Lines',SYM:'Symmetry',SHAPE:'Shapes',SOLID:'Solid shapes',CIRCLE:'Circles',GRAPH:'Graphs',AVG:'Averages'};
 export type DailyAddress={level:number;track:Track;day:number};
 export interface DailyTopic {code:string;title:string;activities:Activity[];paper:Activity[]}
@@ -47,7 +47,7 @@ function buildSourcePlan(level:number,track:Track,activities:Activity[]):Activit
  const used=new Map<string,number>(),days:Activity[][]=[];
  for(let day=1;day<=DAILY_DAYS;day++){
   const plan=dailyPlanDay(level,track,day,activities);if(!plan)return [];
-  const {topic,available,week,topicIndex,topics}=plan;
+  const {topic,available,topicIndex,topics}=plan;
   const introducedSkills=new Set([...topics.slice(0,topicIndex).flatMap(t=>t.activities),...available].flatMap(a=>a.skillIds));
   const readyPaper=(t:DailyTopic)=>t.paper.filter(a=>a.skillIds.every(id=>{
    if(introducedSkills.has(id)||Number(id.match(/^P(\d+)/)?.[1])<level)return true;
@@ -64,11 +64,18 @@ function buildSourcePlan(level:number,track:Track,activities:Activity[]):Activit
    const a=pool.reduce((best,a)=>(used.get(a.id)??0)<(used.get(best.id)??0)?a:best);
    used.set(a.id,(used.get(a.id)??0)+1);picked.add(a.id);pickedPatterns.add(a.canonicalPatternId??a.id);return a;
   };
+  // Multiple activities may become available at once in a larger catalogue. Select
+  // the least-practised introduced activity so none are skipped by index jumps.
+  const pickedBaseline=new Set<string>();
+  const nextBaseline=(pool:Activity[])=>{
+   const distinct=pool.filter(a=>!pickedBaseline.has(a.id)),candidates=distinct.length?distinct:pool;
+   const a=candidates.reduce((best,item)=>(used.get(item.id)??0)<(used.get(best.id)??0)?item:best);
+   used.set(a.id,(used.get(a.id)??0)+1);pickedBaseline.add(a.id);return a;
+  };
   const sources=Array.from({length:DAILY_QUESTIONS},(_,i)=>{
    if(i>=4){const paper=nextPaper();if(paper)return paper;}
-   if(plan.review){const prior=topics.slice(0,topicIndex+1),t=prior[(week-1+i)%prior.length],pool=t===topic?available:t.activities;return pool[(week+i)%pool.length];}
-   const earlier=available.slice(0,-1);if(i<2&&earlier.length)return earlier[(day+i)%earlier.length];
-   return i===5&&available.length>1?available[(day+i)%available.length]:available.at(-1)!;
+   if(plan.review){const prior=topics.slice(0,topicIndex).flatMap(t=>t.activities);return nextBaseline([...prior,...available]);}
+   return nextBaseline(available);
   });
   days.push(sources);
  }

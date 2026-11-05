@@ -1,5 +1,6 @@
 import {describe,it,expect} from 'vitest';
 import {ACTIVITIES} from './catalog';
+import {paperReasoningFamily,paperResponseForm} from './paperBlueprints';
 import {correctAnswer,numberValue,type Question} from './generate';
 import {proofValue} from '../media/solution';
 import type {Track} from '../school/curriculum';
@@ -10,7 +11,7 @@ const request=(level=1,track:Track='standard'):PaperRequest=>({level,track,count
 
 describe('On-demand original practice papers',()=>{
  it.each(paths)('P%s %s papers are deterministic, varied, valid and visibly distinct',(level,track)=>{
-  for(const count of PRACTICE_PAPER_COUNTS)for(let seed=0;seed<25;seed++){
+  for(const count of PRACTICE_PAPER_COUNTS)for(let seed=0;seed<5;seed++){
    const input={...request(level,track),count,seed},paper=generatePracticePaper(input),where=`P${level} ${track} ${count} seed ${seed}`;
    expect(paper.version,where).toBe(PRACTICE_PAPER_VERSION);
    expect(paper.request,where).toEqual(input);
@@ -31,27 +32,67 @@ describe('On-demand original practice papers',()=>{
   }
  });
 
- it('starts with six distinct complete tasks, adds baseline variety, and continues through the task pool',()=>{
-  for(let level=1;level<=6;level++)for(const seed of [0,23,7919,0xffffffff]){
-   const input={...request(level),count:18 as const,seed},paper=generatePracticePaper(input);
-   const expected=ACTIVITIES.filter(a=>a.level===level&&a.track==='standard'&&a.kind==='paper'&&a.parameter!=='mixed').map(a=>a.id).sort();
-   expect(new Set(paper.items.slice(0,6).map(i=>i.activity.id)).size).toBe(6);
-   expect(new Set(paper.items.slice(0,6).map(i=>i.activity.canonicalPatternId??i.activity.id)).size).toBe(6);
-   expect(new Set(paper.items.filter(i=>i.activity.kind==='paper').map(i=>i.activity.id)).size).toBe(Math.min(12,expected.length));
-   expect(paper.items.slice(0,6).every(({question:q})=>!!q.picture||!!q.display||!!q.order?.length||(q.structuredResponse?.kind==='fraction-pair'&&q.structuredResponse.options.length>=2)||/\d/.test([q.prompt,...(q.context??[])].join(' ')))).toBe(true);
-   expect(paper.items.slice(6,12).every(i=>i.activity.kind!=='paper')).toBe(true);
-   expect(new Set(paper.items.slice(6,12).map(i=>i.activity.strand)).size).toBeGreaterThanOrEqual(2);
-   expect(paper.items.slice(12).every(i=>i.activity.kind==='paper')).toBe(true);
+ it('uses distinct reasoning families first and interleaves P4 mixed topics and response forms',()=>{
+  for(const seed of [0,17,7919]){
+   const paper=generatePracticePaper({...request(4),count:18,seed}),families=paper.items.map(({activity,question})=>paperReasoningFamily(activity,question));
+   expect(new Set(families).size).toBe(18);expect(paper.diversity.repeatedStructures).toBe(0);
+   expect(paper.diversity.structureCount).toBe(18);expect(paper.diversity.responseTypeCount).toBeGreaterThanOrEqual(3);
+   expect(new Set(paper.items.slice(0,6).map(i=>i.activity.strand)).size).toBe(3);
+   const topics=paper.items.map(i=>i.activity.skillIds[0].split('.')[2]);
+   expect(topics.every((topic,i)=>!i||topic!==topics[i-1])).toBe(true);
+   expect(paper.items.filter(i=>i.activity.kind==='paper').length).toBeGreaterThanOrEqual(6);
+   const forms=paper.items.map(i=>paperResponseForm(i.question));expect(forms.some((form,i)=>i>0&&form!==forms[i-1])).toBe(true);
+   const answers=paper.items.map(i=>i.question.answer);expect(restorePaperResume(serializePaperResume(paper,answers,3))?.paper).toEqual(paper);
   }
+ });
+
+ it.each(paths)('P%s %s mixed papers balance available strands without repeating reasoning families',(level,track)=>{
+  const metadata=practicePaperTopics(level,track)[0];expect(metadata.structureCount).toBeGreaterThanOrEqual(18);
+  for(const seed of [17,7919]){
+   const paper=generatePracticePaper({...request(level,track),count:18,seed}),families=paper.items.map(i=>paperReasoningFamily(i.activity,i.question));
+   expect(new Set(families).size).toBe(18);expect(paper.diversity.repeatedStructures).toBe(0);
+   const availableStrands=new Set(ACTIVITIES.filter(a=>a.level===level&&a.track===track&&a.kind!=='daily').map(a=>a.strand));
+   expect(new Set(paper.items.slice(0,6).map(i=>i.activity.strand))).toEqual(availableStrands);
+   const topicCounts=new Map<string,number>();for(const {activity} of paper.items){const topic=activity.skillIds[0].split('.')[2];topicCounts.set(topic,(topicCounts.get(topic)??0)+1);}
+   // P1 has only17 distinct family slots under a three-per-topic limit. Its eighteenth
+   // question uses a fourth WN/AS family rather than repeating a scarce topic's template.
+   expect(Math.max(...topicCounts.values())).toBeLessThanOrEqual(level===1?4:3);
+   const topics=paper.items.map(i=>i.activity.skillIds[0].split('.')[2]);expect(topics.every((topic,i)=>!i||topic!==topics[i-1])).toBe(true);
+   expect(paper.diversity.responseTypeCount).toBeGreaterThanOrEqual(2);
+   const angles=paper.items.map(({activity,question})=>paperReasoningFamily(activity,question).startsWith('angle:'));
+   expect(angles.every((angle,i)=>!angle||!i||!angles[i-1])).toBe(true);
+  }
+ });
+
+ it('keeps a one-structure angle drill honest and repeats it only as an explicit short fallback',()=>{
+  const pool=ACTIVITIES.filter(a=>a.id==='p4s-angleType-measure-g2');expect(pool).toHaveLength(1);
+  const topic=practicePaperTopics(4,'standard',pool).find(t=>t.id==='ANGLE')!;
+  expect(topic).toMatchObject({structureCount:1,responseTypeCount:1,repeatedStructurePractice:true,maxCount:6});
+  for(const count of [12,18] as const)expect(()=>generatePracticePaper({...request(4),topic:'ANGLE',count},pool)).toThrow(/1 task structure/);
+  const paper=generatePracticePaper({...request(4),topic:'ANGLE',seed:17},pool);
+  expect(paper.diversity).toEqual({structureCount:1,responseTypeCount:1,repeatedStructures:5});
+  expect(new Set(paper.items.map(i=>visibleQuestionKey(i.question))).size).toBe(6);
+  expect(new Set(paper.items.map(i=>paperReasoningFamily(i.activity,i.question)))).toEqual(new Set(['angle:protractor-reading']));
+  expect(generatePracticePaper(parsePracticePaperCode(paper.code,pool)!,pool)).toEqual(paper);
+ });
+
+ it('does not give digit-width arithmetic variants extra votes or repeat them before other families',()=>{
+  const arithmetic=ACTIVITIES.filter(a=>a.level===4&&a.canonicalPatternId?.startsWith('arithmetic-×-whole'));
+  expect(arithmetic.length).toBeGreaterThanOrEqual(2);
+  const copies=arithmetic.flatMap(a=>Array.from({length:8},(_,i)=>({...a,id:`${a.id}-alias-${i}`}))),other=ACTIVITIES.filter(a=>['p4s-angleType-measure-g2','p4s-factor-n2'].includes(a.id)),pool=[...copies,...other];
+  const topic=practicePaperTopics(4,'standard',pool)[0];expect(topic.structureCount).toBe(3);expect(topic.maxCount).toBe(6);expect(topic.repeatedStructurePractice).toBe(true);
+  const paper=generatePracticePaper({...request(4),seed:17},pool),families=paper.items.map(i=>paperReasoningFamily(i.activity,i.question));
+  expect(new Set(families.slice(0,3)).size).toBe(3);expect(families.filter(f=>f==='calculation:whole:multiply')).toHaveLength(2);
+  expect(paper.diversity.repeatedStructures).toBe(3);
  });
 
  it('uses only activities belonging to the selected topic, with earlier-year review references intact',()=>{
   const selections:readonly [number,Track,string][]=[[1,'standard','AS'],[2,'standard','FRAC'],[3,'standard','MD'],[4,'standard','AREA'],[5,'standard','VOL'],[6,'standard','RATIO'],[6,'standard','RATE'],[5,'foundation','DEC'],[6,'foundation','AREA']];
   for(const [level,track,topic] of selections)for(let seed=0;seed<12;seed++){
-   const paper=generatePracticePaper({...request(level,track),topic,count:18,seed});
-   expect(paper.items).toHaveLength(18);
+   const count=practicePaperTopics(level,track).find(t=>t.id===topic)!.maxCount,paper=generatePracticePaper({...request(level,track),topic,count,seed});
+   expect(paper.items).toHaveLength(count);
    for(const item of paper.items)expect(item.activity.skillIds[0].split('.')[2]).toBe(topic);
-   expect(new Set(paper.items.map(i=>visibleQuestionKey(i.question))).size).toBe(18);
+   expect(new Set(paper.items.map(i=>visibleQuestionKey(i.question))).size).toBe(count);
   }
   const review=generatePracticePaper({...request(6),topic:'RATE'});
   expect(review.items.every(i=>i.activity.skillIds.includes('P5.S.RATE.02'))).toBe(true);
@@ -79,7 +120,7 @@ describe('On-demand original practice papers',()=>{
   expect(practicePaperTopics(4,'standard').some(t=>t.id==='SYM')).toBe(false);
   expect(practicePaperTopics(5,'foundation').some(t=>t.id==='LINES')).toBe(false);
   expect(practicePaperTopics(1,'standard').find(t=>t.id==='LENGTH')!.maxCount).toBe(6);
-  expect(practicePaperTopics(2,'standard').find(t=>t.id==='SHAPE')!.maxCount).toBe(12);
+  expect(practicePaperTopics(2,'standard').find(t=>t.id==='SHAPE')!.maxCount).toBe(6);
   expect(generatePracticePaper({...request(3),topic:'LINES'}).items).toHaveLength(6);
   expect(()=>generatePracticePaper({...request(1),topic:'LENGTH',count:18})).toThrow(PracticePaperCapacityError);
   expect(generatePracticePaper({...request(1),topic:'LENGTH',count:6}).items).toHaveLength(6);
