@@ -1,3 +1,6 @@
+import {Batch10EarlyDiagram} from './paperImports/Batch10EarlyDiagram';
+import {Batch11UpperDiagram} from './paperImports/Batch11UpperDiagram';
+import {Batch10MiddleDiagram} from './paperImports/Batch10MiddleDiagram';
 import {GridDrawingFigure} from './GridDrawing';
 import {Batch9EarlyDiagram} from './paperImports/Batch9EarlyDiagram';
 import {Batch9MiddleDiagram} from './paperImports/Batch9MiddleDiagram';
@@ -20,6 +23,9 @@ import type {Tool} from '../teach/model';
 import type { Picture as Model } from './generate';
 const colours=['#538cd2','#e9ab48','#72a572','#b188c1'];
 export function Picture({model:m}:{model:Model}){
+ if(m.type==='batch10-early')return <Batch10EarlyDiagram model={m}/>;
+ if(m.type==='batch11-upper')return <Batch11UpperDiagram model={m}/>;
+ if(m.type==='batch10-middle')return <Batch10MiddleDiagram model={m}/>;
  if(m.type==='grid-drawing')return <GridDrawingFigure model={m}/>;
  if(m.type==='batch9-early')return <Batch9EarlyDiagram model={m}/>;
  if(m.type==='batch9-middle')return <Batch9MiddleDiagram model={m}/>;

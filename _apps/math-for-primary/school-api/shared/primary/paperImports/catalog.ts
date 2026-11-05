@@ -1,3 +1,4 @@
+import {BATCH10_PATTERNS} from './batch10Catalog';
 import type {PaperPattern} from '../paperCatalog';
 import type {Strand} from '../../school/curriculum';
 import {P1_HENRY_PARK_2025_PATTERNS} from './p1HenryPark2025Meta';
@@ -30,6 +31,7 @@ export const ADAPTED_PAPER_PATTERNS:AdaptedPaperPattern[]=[
  ...BATCH6_PATTERNS,
  ...BATCH7_PATTERNS,
  ...BATCH9_PATTERNS,
+ ...BATCH10_PATTERNS,
  ...BATCH8_ANGLES_PARTS.map(p=>({parameter:`b8a-${p.id}`,level:p.level,title:p.title,objective:p.objective,strand:strandFor(p.skillIds),skillIds:p.skillIds,icon:'✦',canonicalPatternId:p.canonicalPatternId,sourcePaper:p.sourceUnits[0].paperId,sourceParts:[p.sourceUnits[0].sourceQuestion],sourcePage:p.sourceUnits[0].sourcePage,sourceMappingStatus:'unaudited' as const})),
 ];
 export const adaptedPattern=(parameter:string|undefined)=>ADAPTED_PAPER_PATTERNS.find(p=>p.parameter===parameter);

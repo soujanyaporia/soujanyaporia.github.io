@@ -75,10 +75,11 @@ export function paperResponseForm(q:Question):string{
  return 'entry';
 }
 function mathematicalFigure(q:Question):boolean{
+ if(q.gridDrawing||q.angleConstruction)return true;
  const pic=q.picture as {type:string;layout?:string;cards?:{count?:number}[]}|undefined;
  if(!pic)return false;
  if(pic.type==='paper')return pic.layout==='bars'||pic.layout==='timeline'||!!pic.cards?.some(c=>c.count!==undefined);
- return ['batch9-middle','batch9-early','grid-drawing','parts','counters','fraction','clock','shape','bars','pie','angle','ruler','net','solid','area','angleProblem','batch8-angles','nanyang-p4','raffles-p3','catholic-p6','maha-bodhi-p5','batch2-early','batch2-upper','batch4-early','missing-column','corpus'].includes(pic.type);
+ return ['batch10-early','batch11-upper','batch10-middle','batch9-middle','batch9-early','grid-drawing','parts','counters','fraction','clock','shape','bars','pie','angle','ruler','net','solid','area','angleProblem','batch8-angles','nanyang-p4','raffles-p3','catholic-p6','maha-bodhi-p5','batch2-early','batch2-upper','batch4-early','missing-column','corpus'].includes(pic.type);
 }
 /** Broad source-style form; actual reasoning-family diversity remains primary. */
 export function paperCompositionGroup(a:Activity,q:Question):PaperCompositionGroup{

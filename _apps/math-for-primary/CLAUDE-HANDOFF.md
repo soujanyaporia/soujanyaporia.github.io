@@ -1,3 +1,17 @@
+# Current checkpoint — source tasks and construction controls, 5 November 2026
+
+Content release: 725 activities, 519 paper configurations, 270 guided lessons. The next 64 configurations add 16 each from batch10 Early, Middle and Upper plus16 from batch11 Upper. Source associations remain provisional, not full-paper coverage. Source/answer/step metadata stays concise, with figures only where needed. Paper, daily-plan and paper-session generators are version11.
+
+New response capabilities: draw a parallel or perpendicular line through a marked point; complete missing reflected edges while preserving given lines. Correct alternate endpoints, reversed segments and subdivided edges are accepted. Worked drawings and printed givens are retained. Browser checks accepted an alternative perpendicular answer and four missing reflection edges; at357px the440px grid scrolls internally with no page overflow. Grouped solids show only necessary geometry.
+
+Validation: 1,036 app tests in110files,9 API tests, production build,289SEO and289redirect checks pass. The64 new configurations have1,280 independently solved generated cases plus targeted regressions. No exhaustive corpus audit was run. API Sites version15 deployed successfully from4ad2f125a50f2e13f90fa7db96f6d2a62196395f; deploymentappgdep_6aebe1615c548191b58d5081d8d81f16.
+
+Counts: all2,406 PDFs/57,336pages extracted;116,085OCRregions are not questions. Current generators reference582distinct normalized source question/subpart labels from266papers, including arithmetic source associations. This is not verified conversion of266papers. Historical ledger:297reviewed units,294verified,3incomplete;12full inventories,10recorded complete papers. These receipts have not been renewed for changed shared code. Actual total source questions and unique reasoning patterns remain unknown;25,000is unverified. Private report:.generated/corpus-count-audit.json.
+
+LATEST USER STEERING: practice still feels boring across grades, especiallyP5decimals. Root is improving topic discovery and decimal linked-response controls; agentfast_p6_finish owns source-based P5decimal real-life/multipart batch12; agentfast_p5_finish audits/selects actual topic variety; agentfast_corpus_pipeline prepares concrete source-to-app examples and middle-primary decimal leads. Do not equate this release with finishing that ongoing work. Preserve Cloud Pass and other concurrent work.
+
+---
+
 # Current checkpoint — fresh papers and source-pattern batch9, 5 November 2026
 
 This supersedes the older checkpoints below. New papers favour reasoning families absent from the last four papers for the same level/path. Only family IDs are retained in bounded local history. Changed numbers and shuffled choices are not treated as new reasoning. Codes regenerate the exact selected paper independently of history. Focused topics can repeat when their bank is small; the UI says so. Paper, daily-plan and paper-session generators are version10.

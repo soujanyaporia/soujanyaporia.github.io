@@ -1,3 +1,7 @@
+import {makeBatch10Early} from './batch10Early';
+import {makeBatch11Upper} from './batch11Upper';
+import {makeBatch10Middle} from './batch10Middle';
+import {makeBatch10Upper} from './batch10Upper';
 import type {Activity} from '../catalog';
 import type {Question} from '../generate';
 import {adaptedPattern} from './catalog';
@@ -32,6 +36,10 @@ import {makeBatch9Upper} from './batch9Upper';
 
 export function makeAdaptedPaperQuestion(activity:Activity,seed:number,index:number):Question{
  const pattern=adaptedPattern(activity.parameter);if(!pattern)throw Error(`Unknown adapted pattern: ${activity.parameter}`);
+ if(pattern.parameter.startsWith('b10e-'))return {...makeBatch10Early(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b11u-'))return {...makeBatch11Upper(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b10m-'))return {...makeBatch10Middle(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b10u-'))return {...makeBatch10Upper(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b9e-'))return {...makeBatch9Early(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b9m-'))return {...makeBatch9Middle(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b9u-'))return {...makeBatch9Upper(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
