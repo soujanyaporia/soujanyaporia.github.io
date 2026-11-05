@@ -4,7 +4,7 @@ import type {ActivityProgress} from './progress';
 
 export const DAILY_DAYS=200;
 export const DAILY_QUESTIONS=6;
-export const DAILY_PLAN_VERSION=9;
+export const DAILY_PLAN_VERSION=10;
 const TOPIC_NAMES:Record<string,string>={WN:'Whole numbers',AS:'Adding and subtracting',MD:'Multiplying and dividing',FACT:'Factors and multiples',FRAC:'Fractions',MONEY:'Money',DEC:'Decimals',PCT:'Percentages',RATE:'Rate',RATIO:'Ratio',ALG:'Algebra',LENGTH:'Length',MEASURE:'Measurement',TIME:'Time',AREA:'Area and perimeter',VOL:'Volume',ANGLE:'Angles',LINES:'Lines',SYM:'Symmetry',SHAPE:'Shapes',SOLID:'Solid shapes',CIRCLE:'Circles',GRAPH:'Graphs',AVG:'Averages'};
 export type DailyAddress={level:number;track:Track;day:number};
 export interface DailyTopic {code:string;title:string;activities:Activity[];paper:Activity[]}

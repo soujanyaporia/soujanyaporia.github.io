@@ -2,6 +2,7 @@ import {describe,it,expect} from 'vitest';
 import {ACTIVITIES,activityById} from './catalog';
 import {makeQuestion,correctAnswer,type Question} from './generate';
 import {hashString} from '../engine/random';
+import {gridDrawingValue,parseGridDrawing,type GridSegment} from './gridDrawingModel';
 import {answerEventId,combineSessions,completeEventId,encodeQuestionKey,mergeSameSession,parseQuestionKey,stableId,validateSession,type PrimarySession,type ScoredResult} from './session';
 import {checkSession,createSession,diagnose,fingerprint,nearTransfer,questionFromKey,sessionQuestions,strategyOf} from './sessionQuestions';
 // Story givens are visible question content even when the short final question is unchanged.
@@ -57,6 +58,20 @@ describe('mistake repair',()=>{
   let matched=0,total=0;
   for(const a of ACTIVITIES)for(let seed=0;seed<4;seed++){const original=makeQuestion(a,seed,0),transfer=nearTransfer(a,original,9000+seed,0,new Set());expect(same(transfer),a.id).not.toBe(same(original));total++;if(strategyOf(transfer)===strategyOf(original))matched++;}
   expect(matched/total).toBeGreaterThan(.95);
+ });
+ it('preserves a long grid drawing through draft, scored result and repair session',()=>{
+  const a=activityById('p1s-add-n6')!,practice=createSession(a,{seed:9,now:100});
+  const lines:GridSegment[]=Array.from({length:10},(_,i)=>[[i,0],[i+1,0]]);
+  const drawing=gridDrawingValue(lines),spec={columns:10,rows:1};
+  expect(drawing.length).toBeGreaterThan(60);expect(parseGridDrawing(spec,drawing)).toEqual(lines);
+  const draft={position:0,value:drawing,picks:[],shaded:[],tries:1,wrong:[drawing],hint:false,status:'wrong' as const,stage:'try' as const,at:101};
+  const saved=validateSession({...practice.session,draft,updatedAt:101},200);expect(saved?.draft?.wrong[0]).toBe(drawing);
+  const result={...scored(drawing,102,false),wrong:[drawing]};
+  const completed=validateSession({...practice.session,results:[result],cursor:1,updatedAt:102},200);expect(completed?.results[0].wrong[0]).toBe(drawing);
+  const repair=[{key:practice.questions[0].key,fingerprint:practice.session.fingerprints[0],wrong:[drawing],revealed:false}];
+  const revisiting=createSession(a,{mode:'repair',repair,repairOf:practice.session.id,seed:44,now:103}).session;
+  const restored=validateSession(JSON.parse(JSON.stringify(revisiting)),200);expect(restored?.repair[0].wrong[0]).toBe(drawing);expect(parseGridDrawing(spec,restored!.repair[0].wrong[0])).toEqual(lines);
+  expect(validateSession({...practice.session,draft:{...draft,wrong:['x'.repeat(201)]},updatedAt:101},200)).toBeNull();
  });
  it('rebuilds a repair session deterministically from the original question identities',()=>{
   const a=ACTIVITIES.find(x=>x.kind==='decimalRound'&&x.level===4)!,practice=createSession(a,{seed:31,now:1});

@@ -1,3 +1,6 @@
+import {GridDrawingFigure} from './GridDrawing';
+import {Batch9EarlyDiagram} from './paperImports/Batch9EarlyDiagram';
+import {Batch9MiddleDiagram} from './paperImports/Batch9MiddleDiagram';
 import {Batch8AnglesDiagram} from './paperImports/Batch8AnglesDiagram';
 import {P6CatholicDiagram} from './paperImports/P6CatholicDiagram';
 import {P5MahaBodhiDiagram} from './paperImports/P5MahaBodhiDiagram';
@@ -17,6 +20,9 @@ import type {Tool} from '../teach/model';
 import type { Picture as Model } from './generate';
 const colours=['#538cd2','#e9ab48','#72a572','#b188c1'];
 export function Picture({model:m}:{model:Model}){
+ if(m.type==='grid-drawing')return <GridDrawingFigure model={m}/>;
+ if(m.type==='batch9-early')return <Batch9EarlyDiagram model={m}/>;
+ if(m.type==='batch9-middle')return <Batch9MiddleDiagram model={m}/>;
  if(m.type==='batch8-angles')return <Batch8AnglesDiagram model={m}/>;
  if(m.type==='nanyang-p4')return <P4NanyangDiagram model={m}/>;
  if(m.type==='catholic-p6')return <P6CatholicDiagram model={m}/>;

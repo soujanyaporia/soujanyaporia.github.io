@@ -49,10 +49,10 @@ const isInt=(n:unknown,min:number,max:number):n is number=>Number.isInteger(n)&&
 const isStr=(s:unknown,max:number):s is string=>typeof s==='string'&&s.length<=max;
 const strList=(xs:unknown,items:number,len:number):xs is string[]=>Array.isArray(xs)&&xs.length<=items&&xs.every(x=>isStr(x,len));
 const fp=(f:unknown)=>typeof f==='string'&&/^([a-f0-9]{8})?$/.test(f);
-function result(r:any,late:number):ScoredResult|null{return r&&typeof r==='object'&&isStr(r.answer,200)&&typeof r.correct==='boolean'&&typeof r.firstTry==='boolean'&&isInt(r.hints,0,1000)&&isInt(r.tries,1,10000)&&strList(r.wrong,3,60)&&isInt(r.at,0,late)&&(!r.firstTry||(r.correct&&r.tries===1&&r.hints===0))?{answer:r.answer,correct:r.correct,firstTry:r.firstTry,hints:r.hints,tries:r.tries,wrong:[...r.wrong],at:r.at}:null;}
+function result(r:any,late:number):ScoredResult|null{return r&&typeof r==='object'&&isStr(r.answer,200)&&typeof r.correct==='boolean'&&typeof r.firstTry==='boolean'&&isInt(r.hints,0,1000)&&isInt(r.tries,1,10000)&&strList(r.wrong,3,200)&&isInt(r.at,0,late)&&(!r.firstTry||(r.correct&&r.tries===1&&r.hints===0))?{answer:r.answer,correct:r.correct,firstTry:r.firstTry,hints:r.hints,tries:r.tries,wrong:[...r.wrong],at:r.at}:null;}
 function draft(d:any,position:number,late:number):SessionDraft|null|undefined{
  if(d===null)return null;
- if(!d||typeof d!=='object'||d.position!==position||!isStr(d.value,200)||!strList(d.picks,12,40)||!Array.isArray(d.shaded)||d.shaded.length>24||!d.shaded.every((n:unknown)=>isInt(n,0,23))||!isInt(d.tries,0,1000)||!strList(d.wrong,3,60)||typeof d.hint!=='boolean'||!['answering','wrong'].includes(d.status)||!['explain','try'].includes(d.stage)||!isInt(d.at,0,late))return undefined;
+ if(!d||typeof d!=='object'||d.position!==position||!isStr(d.value,200)||!strList(d.picks,12,40)||!Array.isArray(d.shaded)||d.shaded.length>24||!d.shaded.every((n:unknown)=>isInt(n,0,23))||!isInt(d.tries,0,1000)||!strList(d.wrong,3,200)||typeof d.hint!=='boolean'||!['answering','wrong'].includes(d.status)||!['explain','try'].includes(d.stage)||!isInt(d.at,0,late))return undefined;
  return {position,value:d.value,picks:[...d.picks],shaded:[...d.shaded],tries:d.tries,wrong:[...d.wrong],hint:d.hint,status:d.status,stage:d.stage,at:d.at};
 }
 /** Strict validation shared by the browser store and the API. Returns a normalised copy or null. */
@@ -63,7 +63,7 @@ export function validateSession(raw:unknown,now=Date.now()):PrimarySession|null{
  if(!Array.isArray(s.fingerprints)||s.fingerprints.length!==s.count||!s.fingerprints.every(fp))return null;
  if(!['practice','repair'].includes(s.mode)||(s.repairOf!==null&&!/^[a-f0-9]{16}$/.test(String(s.repairOf))))return null;
  if(!Array.isArray(s.repair)||(s.mode==='repair'?s.repair.length!==s.count:s.repair.length!==0))return null;
- const repair:RepairItem[]=[];for(const item of s.repair){if(!item||!isStr(item.key,120)||!fp(item.fingerprint)||!strList(item.wrong,3,60)||typeof item.revealed!=='boolean')return null;repair.push({key:item.key,fingerprint:item.fingerprint,wrong:[...item.wrong],revealed:item.revealed});}
+ const repair:RepairItem[]=[];for(const item of s.repair){if(!item||!isStr(item.key,120)||!fp(item.fingerprint)||!strList(item.wrong,3,200)||typeof item.revealed!=='boolean')return null;repair.push({key:item.key,fingerprint:item.fingerprint,wrong:[...item.wrong],revealed:item.revealed});}
  if(!Array.isArray(s.results)||s.results.length>s.count)return null;
  const results:ScoredResult[]=[];for(const r of s.results){const ok=result(r,late);if(!ok)return null;results.push(ok);}
  const d=draft(s.draft,results.length,late);if(d===undefined||(d&&results.length>=s.count))return null;

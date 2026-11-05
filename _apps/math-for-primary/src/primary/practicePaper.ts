@@ -6,7 +6,7 @@ import {makeQuestion,type Question} from './generate';
 import {paperReasoningFamily,paperResponseForm,paperCompositionGroup,paperBlueprint} from './paperBlueprints';
 
 /** Bump when the source schedule, seeded draws or question semantics change. */
-export const PRACTICE_PAPER_VERSION=9;
+export const PRACTICE_PAPER_VERSION=10;
 export const PRACTICE_PAPER_COUNTS=[6,12,18] as const;
 export type PracticePaperCount=typeof PRACTICE_PAPER_COUNTS[number];
 export interface PaperRequest {level:number;track:Track;count:PracticePaperCount;topic:string;seed:number}
@@ -98,6 +98,7 @@ export function visibleQuestionKey(q:Question):string{
  if(q.grouping)visible.push(q.grouping);
  if(q.structuredResponse){const spec=q.structuredResponse;visible.push(spec.kind==='fraction-pair'||spec.kind==='named-pair'?{...spec,options:[...spec.options].sort()}:spec);}
  if(q.angleConstruction)visible.push(q.angleConstruction);
+ if(q.gridDrawing)visible.push(q.gridDrawing);
  if(q.requireMixed)visible.push('mixed-number');
  return JSON.stringify(visible);
 }

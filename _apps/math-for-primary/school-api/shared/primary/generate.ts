@@ -1,3 +1,6 @@
+import {validGridDrawing,type GridDrawingSpec,type GridDrawingPicture} from './gridDrawingModel';
+import type {Batch9MiddlePicture} from './paperImports/batch9MiddlePicture';
+import type {Batch9EarlyPicture} from './paperImports/batch9EarlyPicture';
 import type {Batch8AnglesPicture,AngleConstructionSpec} from './paperImports/batch8AnglesPicture';
 import {structuredResponseCorrect,type Batch6MiddleResponseSpec} from './paperImports/batch6MiddleResponse';
 import type {P6CatholicPicture} from './paperImports/p6CatholicPicture';
@@ -17,8 +20,8 @@ import type {PaperPicture} from './paperPicture';
 import type {AngleDiagramModel} from './AngleDiagram';
 import type {CorpusPicture} from './corpusPaperQuestions';
 import {normaliseNumberWords,piCoefficient,validNumberSentence,type NumberSentenceSpec} from './answerFormat';
-export type Picture = Batch8AnglesPicture | Batch4EarlyPicture | Batch2EarlyPicture | Batch2UpperPicture | P5MahaBodhiPicture | P6CatholicPicture | P4NanyangPicture | MissingDigitColumnModel | P3RafflesPicture | CorpusPicture | AngleDiagramModel | PaperPicture | {type:'parts';parts:number[];joined?:number[];reveal?:boolean}|{type:'counters';count:number;group?:number;parts?:number[];removed?:number}|{type:'fraction';parts:number;filled:number}|{type:'clock';minutes:number}|{type:'shape';shape:string;labels?:string[]}|{type:'bars';labels:string[];values:number[];scale:number;line?:boolean;pictures?:boolean}|{type:'pie';labels:string[];values:number[]}|{type:'angle';degrees:number;label?:string}|{type:'ruler';length:number}|{type:'net';cells:[number,number][]}|{type:'pattern';items:string[]}|{type:'solid';shape:string;a?:number;b?:number;c?:number}|{type:'area';a:number;b:number;cut?:number};
-export interface Question {key:string;prompt:string;context?:string[];display?:string;answer:string;answerFormat?:'number-words'|'pi';angleConstruction?:AngleConstructionSpec;structuredResponse?:Batch6MiddleResponseSpec;numberSentence?:NumberSentenceSpec;grouping?:GroupingSpec;choices?:string[];unit?:string;hint:string;explanation:string;picture?:Picture;order?:string[];fractionBuilder?:number;proof?:Proof;requireSimplified?:boolean;requireImproper?:boolean;requireMixed?:boolean;sourceActivityId?:string;workedSteps?:{text:string;equation?:string;picture?:Picture}[]}
+export type Picture = Batch9EarlyPicture | Batch9MiddlePicture | GridDrawingPicture | Batch8AnglesPicture | Batch4EarlyPicture | Batch2EarlyPicture | Batch2UpperPicture | P5MahaBodhiPicture | P6CatholicPicture | P4NanyangPicture | MissingDigitColumnModel | P3RafflesPicture | CorpusPicture | AngleDiagramModel | PaperPicture | {type:'parts';parts:number[];joined?:number[];reveal?:boolean}|{type:'counters';count:number;group?:number;parts?:number[];removed?:number}|{type:'fraction';parts:number;filled:number}|{type:'clock';minutes:number}|{type:'shape';shape:string;labels?:string[]}|{type:'bars';labels:string[];values:number[];scale:number;line?:boolean;pictures?:boolean}|{type:'pie';labels:string[];values:number[]}|{type:'angle';degrees:number;label?:string}|{type:'ruler';length:number}|{type:'net';cells:[number,number][]}|{type:'pattern';items:string[]}|{type:'solid';shape:string;a?:number;b?:number;c?:number}|{type:'area';a:number;b:number;cut?:number};
+export interface Question {key:string;prompt:string;context?:string[];display?:string;answer:string;answerFormat?:'number-words'|'pi';gridDrawing?:GridDrawingSpec;angleConstruction?:AngleConstructionSpec;structuredResponse?:Batch6MiddleResponseSpec;numberSentence?:NumberSentenceSpec;grouping?:GroupingSpec;choices?:string[];unit?:string;hint:string;explanation:string;picture?:Picture;order?:string[];fractionBuilder?:number;proof?:Proof;requireSimplified?:boolean;requireImproper?:boolean;requireMixed?:boolean;sourceActivityId?:string;workedSteps?:{text:string;equation?:string;picture?:Picture}[]}
 export type Proof=number|{op:'+'|'-'|'*'|'/'|'round'|'floor';a:Proof;b:Proof};
 const calc=(op:'+'|'-'|'*'|'/',a:Proof,b:Proof):Proof=>({op,a,b});
 const fmt=(n:number)=>Number(n.toFixed(6)).toString();
@@ -27,6 +30,7 @@ const gcd=(a:number,b:number):number=>b?gcd(b,a%b):a;
 export function fraction(n:number,d:number){const g=gcd(n,d);return d/g===1?String(n/g):`${n/g}/${d/g}`;}
 export function numberValue(s:string):number|null{const t=s.trim().replaceAll(',','').replace(/\s+/g,' ');if(/^-?\d+(\.\d+)?$/.test(t))return Number(t);if(/^-?\d+\/\d+$/.test(t)){const [n,d]=t.split('/').map(Number);return d?n/d:null;}if(/^\d+ \d+\/\d+$/.test(t)){const [whole,part]=t.split(' ');return Number(whole)+(numberValue(part)??NaN);}return null;}
 export function correctAnswer(q:Question,input:string){
+ if(q.gridDrawing)return validGridDrawing(q.gridDrawing,input,q.answer);
  if(q.structuredResponse)return structuredResponseCorrect(q.structuredResponse,q.answer,input);
  if(q.grouping)return validGrouping(q.grouping,input);
  if(q.numberSentence)return validNumberSentence(q.numberSentence,input);

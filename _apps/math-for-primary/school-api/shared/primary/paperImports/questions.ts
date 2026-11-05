@@ -26,9 +26,15 @@ import {makeBatch7Middle} from './batch7Middle';
 import {makeBatch7Upper} from './batch7Upper';
 import {makeArithmeticTemplate} from './arithmeticTemplates';
 import {makeBatch8Angles} from './batch8Angles';
+import {makeBatch9Early} from './batch9Early';
+import {makeBatch9Middle} from './batch9Middle';
+import {makeBatch9Upper} from './batch9Upper';
 
 export function makeAdaptedPaperQuestion(activity:Activity,seed:number,index:number):Question{
  const pattern=adaptedPattern(activity.parameter);if(!pattern)throw Error(`Unknown adapted pattern: ${activity.parameter}`);
+ if(pattern.parameter.startsWith('b9e-'))return {...makeBatch9Early(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b9m-'))return {...makeBatch9Middle(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b9u-'))return {...makeBatch9Upper(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b8a-'))return {...makeBatch8Angles(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b7e-'))return {...makeBatch7Early(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b7m-'))return {...makeBatch7Middle(pattern.parameter.slice(4),seed,index),key:`${activity.id}:${seed}:${index}`};

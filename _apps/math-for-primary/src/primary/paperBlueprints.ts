@@ -62,6 +62,7 @@ export function paperReasoningFamily(a:Activity,q:Question):string{
 /** Response controls can be balanced separately from mathematical reasoning. */
 export function paperResponseForm(q:Question):string{
  const withConstruction=q as Question&{angleConstruction?:unknown};
+ if(q.gridDrawing)return `construction:${q.gridDrawing.kind}`;
  if(withConstruction.angleConstruction)return 'construction';
  if(q.structuredResponse)return `constructed:${q.structuredResponse.kind}`;
  if(q.numberSentence)return 'constructed:equation';
@@ -77,7 +78,7 @@ function mathematicalFigure(q:Question):boolean{
  const pic=q.picture as {type:string;layout?:string;cards?:{count?:number}[]}|undefined;
  if(!pic)return false;
  if(pic.type==='paper')return pic.layout==='bars'||pic.layout==='timeline'||!!pic.cards?.some(c=>c.count!==undefined);
- return ['parts','counters','fraction','clock','shape','bars','pie','angle','ruler','net','solid','area','angleProblem','batch8-angles','nanyang-p4','raffles-p3','catholic-p6','maha-bodhi-p5','batch2-early','batch2-upper','batch4-early','missing-column','corpus'].includes(pic.type);
+ return ['batch9-middle','batch9-early','grid-drawing','parts','counters','fraction','clock','shape','bars','pie','angle','ruler','net','solid','area','angleProblem','batch8-angles','nanyang-p4','raffles-p3','catholic-p6','maha-bodhi-p5','batch2-early','batch2-upper','batch4-early','missing-column','corpus'].includes(pic.type);
 }
 /** Broad source-style form; actual reasoning-family diversity remains primary. */
 export function paperCompositionGroup(a:Activity,q:Question):PaperCompositionGroup{

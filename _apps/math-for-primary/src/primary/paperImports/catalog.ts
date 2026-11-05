@@ -12,6 +12,7 @@ import {BATCH5_PATTERNS} from './batch5Catalog';
 import {BATCH6_PATTERNS} from './batch6Catalog';
 import {BATCH7_PATTERNS} from './batch7Catalog';
 import {BATCH8_ANGLES_PARTS} from './batch8AnglesMeta';
+import {BATCH9_PATTERNS} from './batch9Catalog';
 
 /** Tasks are response variants, not a count of distinct mathematical structures. */
 export interface AdaptedPaperPattern extends PaperPattern {canonicalPatternId:string;sourcePaper:string;sourceParts:string[];sourcePage:number;sourceMappingStatus?:'unaudited'}
@@ -28,6 +29,7 @@ export const ADAPTED_PAPER_PATTERNS:AdaptedPaperPattern[]=[
  ...BATCH5_PATTERNS,
  ...BATCH6_PATTERNS,
  ...BATCH7_PATTERNS,
+ ...BATCH9_PATTERNS,
  ...BATCH8_ANGLES_PARTS.map(p=>({parameter:`b8a-${p.id}`,level:p.level,title:p.title,objective:p.objective,strand:strandFor(p.skillIds),skillIds:p.skillIds,icon:'✦',canonicalPatternId:p.canonicalPatternId,sourcePaper:p.sourceUnits[0].paperId,sourceParts:[p.sourceUnits[0].sourceQuestion],sourcePage:p.sourceUnits[0].sourcePage,sourceMappingStatus:'unaudited' as const})),
 ];
 export const adaptedPattern=(parameter:string|undefined)=>ADAPTED_PAPER_PATTERNS.find(p=>p.parameter===parameter);

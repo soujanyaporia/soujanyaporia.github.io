@@ -117,7 +117,8 @@ describe('On-demand original practice papers',()=>{
  it('hides topics below six variants and advertises only constructible sizes',()=>{
   // The adapted paper adds genuine parallel-segment arrangements to the P3 lines pool.
   expect(practicePaperTopics(3,'standard').some(t=>t.id==='LINES')).toBe(true);
-  expect(practicePaperTopics(4,'standard').some(t=>t.id==='SYM')).toBe(false);
+  // Grid symmetry tasks now supply enough distinct figures for a focused paper.
+  expect(practicePaperTopics(4,'standard').find(t=>t.id==='SYM')?.maxCount).toBe(6);
   expect(practicePaperTopics(5,'foundation').some(t=>t.id==='LINES')).toBe(false);
   expect(practicePaperTopics(1,'standard').find(t=>t.id==='LENGTH')!.maxCount).toBe(6);
   expect(practicePaperTopics(2,'standard').find(t=>t.id==='SHAPE')!.maxCount).toBe(6);
