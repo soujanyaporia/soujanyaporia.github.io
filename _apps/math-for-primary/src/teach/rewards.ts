@@ -12,7 +12,8 @@ export function learningRewards(p:ProgressState){
  const practice=acts.reduce((s,a)=>s+a.firstTry*(XP_RULES.correct+XP_RULES.cleanBonus)+Math.max(0,a.correct-a.firstTry)*(XP_RULES.correct+XP_RULES.persisted)+Math.max(0,a.attempts-a.correct)*XP_RULES.revealed,0);
  const nodes=Object.entries(p.nodes||{}),learn=nodes.filter(([id])=>id.startsWith('learn.')&&!id.endsWith('.review')),reviews=nodes.filter(([id])=>id.startsWith('learn.')&&id.endsWith('.review')),missions=nodes.filter(([id])=>id.startsWith('mission.')),classic=nodes.filter(([id])=>!id.startsWith('learn.')&&!id.startsWith('mission.'));
  const mastered=learn.filter(([,n])=>n.bestStars>=3).length;
- const xp=practice+learn.length*REWARDS.lesson+mastered*REWARDS.mastery+reviews.reduce((s,[,n])=>s+n.completions*REWARDS.review,0)+classic.length*XP_RULES.lesson+missions.length*REWARDS.mission;
- const gems=missions.length*REWARDS.missionGems+learn.length*REWARDS.lessonGems+mastered*REWARDS.masteryGems+acts.filter(a=>a.stars>=3).length*REWARDS.activityStarGems+(p.badges?.length||0)*REWARDS.badgeGems;
+ const calculatedXP=practice+learn.length*REWARDS.lesson+mastered*REWARDS.mastery+reviews.reduce((s,[,n])=>s+n.completions*REWARDS.review,0)+classic.length*XP_RULES.lesson+missions.length*REWARDS.mission;
+ const calculatedGems=missions.length*REWARDS.missionGems+learn.length*REWARDS.lessonGems+mastered*REWARDS.masteryGems+acts.filter(a=>a.stars>=3).length*REWARDS.activityStarGems+(p.badges?.length||0)*REWARDS.badgeGems;
+ const xp=Math.max(calculatedXP,p.xp||0),gems=Math.max(calculatedGems,p.gems||0);
  return {xp,gems,missions:missions.length,level:playerLevel(xp),learned:learn.length,mastered,streak:p.streak?.current??0};
 }

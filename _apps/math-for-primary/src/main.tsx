@@ -11,3 +11,8 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 );
+
+// Cache the static learning app after its first online visit. Never cache cloud API traffic.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  void navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => { /* Storage restrictions leave normal online use intact. */ });
+}

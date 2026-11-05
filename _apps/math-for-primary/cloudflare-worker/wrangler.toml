@@ -1,0 +1,16 @@
+name = "sg-primary-maths-sync"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+workers_dev = true
+
+[observability]
+enabled = false
+
+[vars]
+ALLOWED_ORIGINS = "https://soujanyaporia.github.io,http://localhost:5173,http://localhost:5174,http://localhost:4173,http://localhost:3000,http://127.0.0.1:5173,http://127.0.0.1:5174,http://127.0.0.1:4173"
+MAX_CIPHERTEXT_CHARS = "131072"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sg-primary-maths-db"
+database_id = "c16010aa-4b37-42d6-b7fb-6ed6a4e203a4"

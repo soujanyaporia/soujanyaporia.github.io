@@ -1,3 +1,4 @@
+import { APPLIED_EVENT, notifyProgressChange } from '../services/cloudSync/storage';
 import { createContext,useCallback,useContext,useEffect,useMemo,useRef,useState,type ReactNode } from 'react';
 import { newBadges,type BadgeDef } from '../content/badges';
 import type { AttemptOutcome } from '../engine/stats';
@@ -32,8 +33,9 @@ export function ProgressProvider({children,repository}:{children:ReactNode;repos
   const unload=(e:BeforeUnloadEvent)=>{if(engine.queue.length){e.preventDefault();e.returnValue='';}};
   window.addEventListener('online',wake);window.addEventListener('focus',wake);document.addEventListener('visibilitychange',visible);window.addEventListener('beforeunload',unload);
   return()=>{live=false;clearTimeout(timer);window.removeEventListener('online',wake);window.removeEventListener('focus',wake);document.removeEventListener('visibilitychange',visible);window.removeEventListener('beforeunload',unload);};},[engine]);
- useEffect(()=>{if(engine||!repo.key)return;const key=repo.key;const onStorage=(e:StorageEvent)=>{if(e.key===key){const next=repo.load();if(next){current.current=next;setProgress(next);}}};window.addEventListener('storage',onStorage);return()=>window.removeEventListener('storage',onStorage);},[engine,repo]);
- const emit=useCallback((event:ProgressEvent)=>{if(engine){engine.emit(event);return;}const next=reduceEvent(repo.load()??current.current,event);current.current=next;repo.save(next);setProgress(next);},[engine,repo]);
+ useEffect(()=>{if(engine||!repo.key)return;const key=repo.key;const onStorage=(e:StorageEvent)=>{if(e.key===key){const next=repo.load()??initialProgress();current.current=next;setProgress(next);}};window.addEventListener('storage',onStorage);return()=>window.removeEventListener('storage',onStorage);},[engine,repo]);
+ useEffect(()=>{if(scope!=='guest'||engine)return;const reload=()=>{const next=repo.load()??initialProgress();current.current=next;setProgress(next);};window.addEventListener(APPLIED_EVENT,reload);return()=>window.removeEventListener(APPLIED_EVENT,reload);},[scope,engine,repo]);
+ const emit=useCallback((event:ProgressEvent)=>{if(engine){engine.emit(event);return;}const next=reduceEvent(repo.load()??current.current,event);current.current=next;repo.save(next);setProgress(next);if(scope==='guest'&&(event.kind==='session'||event.kind==='primary_complete'))notifyProgressChange(true);},[engine,repo,scope]);
  const recordAttempt=useCallback((outcome:AttemptOutcome)=>emit({id:crypto.randomUUID(),at:Date.now(),kind:'attempt',outcome}),[emit]);
  const completeSession=useCallback((stars:number,lessonId?:string)=>{const e:ProgressEvent={id:crypto.randomUUID(),at:Date.now(),kind:'session',stars,lessonId};const before=engine?engine.progress:current.current;const earned=newBadges({...reduceEvent(before,e),badges:before.badges});emit(e);return earned;},[emit,engine]);
  const updateSettings=useCallback((patch:Partial<Settings>)=>emit({id:crypto.randomUUID(),at:Date.now(),kind:'settings',patch}),[emit]);

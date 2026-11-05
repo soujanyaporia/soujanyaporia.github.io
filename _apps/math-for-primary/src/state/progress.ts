@@ -1,3 +1,4 @@
+import { browserKV } from '../services/cloudSync/storage';
 import {initialPrimary,type PrimaryProgress} from '../primary/progress';
 import { touchStreak } from '../game/streak';
 import { updateStats, type AttemptOutcome, type StatsMap } from '../engine/stats';
@@ -18,6 +19,7 @@ export interface NodeRecord {
   lastStars: number;
   bestAccuracy: number;
   lastAt: number;
+  firstCompletedAt?: number;
 }
 
 export interface Settings {
@@ -53,6 +55,9 @@ export interface SessionRecord {
 }
 
 export interface ProgressState {
+  profileUpdatedAt?: number;
+  practiceDates?: string[];
+  streakAnchors?: Record<string, number>;
   primary: PrimaryProgress;
   version: 2;
   badges: string[];
@@ -182,7 +187,7 @@ export function localRepository(key: string, legacyKey?: string): ProgressReposi
     key,
     load() {
       try {
-        const raw = window.localStorage.getItem(key) ?? (legacyKey ? window.localStorage.getItem(legacyKey) : null);
+        const raw = browserKV.getItem(key) ?? (legacyKey ? browserKV.getItem(legacyKey) : null);
         return raw ? sanitize(JSON.parse(raw)) : null;
       } catch {
         return null;
@@ -190,15 +195,15 @@ export function localRepository(key: string, legacyKey?: string): ProgressReposi
     },
     save(state) {
       try {
-        window.localStorage.setItem(key, JSON.stringify(state));
+        browserKV.setItem(key, JSON.stringify(state));
       } catch {
         /* storage full or unavailable (private mode): keep playing */
       }
     },
     clear() {
       try {
-        window.localStorage.removeItem(key);
-        if (legacyKey) window.localStorage.removeItem(legacyKey);
+        browserKV.removeItem(key);
+        if (legacyKey) browserKV.removeItem(legacyKey);
       } catch {
         /* ignore */
       }
@@ -229,7 +234,7 @@ export function applySessionComplete(state: ProgressState, stars: number, lesson
     totals: { ...state.totals, sessions: state.totals.sessions + 1, stars: state.totals.stars + stars },
     nodes: lessonId ? { ...state.nodes, [lessonId]: {
       completions: (previous?.completions ?? 0) + 1, bestStars: Math.max(previous?.bestStars ?? 0, stars),
-      lastStars: stars, bestAccuracy: previous?.bestAccuracy ?? 0, lastAt: at,
+      firstCompletedAt: previous?.firstCompletedAt ?? at, lastStars: stars, bestAccuracy: previous?.bestAccuracy ?? 0, lastAt: at,
     } } : state.nodes,
   };
 }

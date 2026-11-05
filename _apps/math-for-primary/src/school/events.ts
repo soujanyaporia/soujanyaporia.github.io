@@ -6,7 +6,7 @@ import { newBadges } from '../content/badges';
 export type ProgressEvent = PrimaryEvent | ({ id: string; at: number } & (
   { kind: 'attempt'; outcome: AttemptOutcome } | { kind: 'session'; stars: number; lessonId?: string } | { kind: 'settings'; patch: Partial<Settings> }
 ));
-export function reduceEvent(state: ProgressState, e: ProgressEvent): ProgressState {
+function reduceEventBase(state: ProgressState, e: ProgressEvent): ProgressState {
   if (e.kind === 'primary_selection' || e.kind === 'primary_answer' || e.kind === 'primary_complete') {
     // A repeated answer or completion (retry, refresh, second tab or device) changes nothing.
     if (alreadyCounted(state.primary, e)) return state;
@@ -24,4 +24,11 @@ export function reduceEvent(state: ProgressState, e: ProgressEvent): ProgressSta
   const completed = applySessionComplete(state, e.stars, e.lessonId, e.at);
   const next = remember(e.lessonId?.startsWith('mission.')?{...completed,streak:touchStreak(completed.streak,e.at).streak}:completed);
   return { ...next, badges: [...next.badges, ...newBadges(next).map(b=>b.id)] };
+}
+
+export function reduceEvent(state:ProgressState,e:ProgressEvent):ProgressState {
+ const next=reduceEventBase(state,e);if(next===state)return state;
+ if(e.kind==='settings'||e.kind==='primary_selection')return {...next,profileUpdatedAt:e.at};
+ const day=new Date(e.at+8*3600000).toISOString().slice(0,10);
+ return {...next,practiceDates:Array.from(new Set([...(next.practiceDates??[]),day])).sort()};
 }

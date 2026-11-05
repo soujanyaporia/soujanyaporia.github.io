@@ -1,3 +1,4 @@
+import { APPLIED_EVENT } from '../services/cloudSync/storage';
 import { createContext,useCallback,useContext,useEffect,useMemo,useRef,useState,type ReactNode } from 'react';
 import { ApiError,useAccount } from '../school/AccountContext';
 import { useProgress } from '../state/ProgressContext';
@@ -28,6 +29,7 @@ export function SessionProvider({children}:{children:ReactNode}){
  const commit=useCallback((next:SessionEntries)=>setEntries(cache.write(next)),[cache]);
  const latest=useCallback(()=>cache.read(),[cache]);
  useEffect(()=>{const key=storageKey(scope);const onStorage=(e:StorageEvent)=>{if(e.key===key)setEntries(cache.reload());};window.addEventListener('storage',onStorage);return()=>window.removeEventListener('storage',onStorage);},[cache,scope]);
+ useEffect(()=>{if(scope!=='guest')return;const reload=()=>setEntries(cache.reload());window.addEventListener(APPLIED_EVENT,reload);return()=>window.removeEventListener(APPLIED_EVENT,reload);},[cache,scope]);
  const upload=useCallback(async(activityId:string)=>{
   if(!student||remoteRef.current==='unsupported'||uploading.current.has(activityId))return;uploading.current.add(activityId);
   try{for(let attempt=0;attempt<3;attempt++){const e=latest()[activityId];if(!e?.dirty)return;

@@ -6,7 +6,7 @@
   "description": "Singapore Primary 1\u20136 maths activities with school accounts and Standard/Foundation paths.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit -p tsconfig.json && vite build && node scripts/build-seo.mjs && python3 scripts/check-seo.py && node scripts/build-redirects.mjs && node scripts/check-redirects.mjs",
+    "build": "tsc --noEmit -p tsconfig.json && vite build && node scripts/build-seo.mjs && python3 scripts/check-seo.py && node scripts/build-redirects.mjs && node scripts/check-redirects.mjs && node scripts/build-offline.mjs",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -18,10 +18,12 @@
   },
   "dependencies": {
     "@fontsource-variable/nunito": "^5.3.0",
+    "qrcode": "^1.5.4",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",

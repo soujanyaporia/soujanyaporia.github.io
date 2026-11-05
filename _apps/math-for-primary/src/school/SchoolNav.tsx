@@ -1,3 +1,4 @@
+import { CloudStatusPill } from '../components/cloudSync/CloudSyncContext';
 import { useEffect, useRef } from 'react';
 import { useAccount } from './AccountContext';
 import { useProgress } from '../state/ProgressContext';
@@ -54,6 +55,7 @@ export function SchoolNav() {
       </details>
     </nav>
     <div className="sidebar-bottom">
+      <CloudStatusPill/>
       <a className="sidebar-account" aria-label={user?`Account for ${user.name}`:progress.profile.name?`Guest profile for ${progress.profile.name}`:'Create a guest profile'} href={user ? '#/account' : '#/guest'}><span className="profile-circle"><Icon name="user" size={20}/></span><span><strong>{user?.name || progress.profile.name || 'Hello, explorer!'}</strong><small>{user ? 'My account' : progress.profile.name ? 'Guest profile' : 'Create a guest profile'}</small></span><Icon name="arrowRight" size={17}/></a>
       {user?.role === 'student' && !user.mustChange && <span className={`sync-label sync-${status.state}`} role="status">{status.state === 'expired' || status.state === 'error' ? <a href="#/account">{syncStatus}</a> : syncStatus}</span>}
       {staff && connection === 'offline' && <span className="sync-label" role="status">Offline — school pages need a connection</span>}

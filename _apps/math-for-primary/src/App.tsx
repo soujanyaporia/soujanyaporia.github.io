@@ -1,5 +1,6 @@
+import { CloudSyncProvider, CloudStatusPill } from './components/cloudSync/CloudSyncContext';
 import {stopSpeaking} from './lib/speech';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import { Suspense } from 'react';
 import { Experience } from './ui/Adventure';
 import { PrimaryHome } from './primary/PrimaryHome';
@@ -92,6 +93,8 @@ const SCHOOL_ROUTES = ['account', 'school', 'demo', 'curriculum', 'school-start'
 const loadingLabel = (route: Route) => (route.name === 'activity' ? 'Opening your activity…' : route.name === 'papers' ? 'Preparing your practice paper…' : route.name === 'daily' ? 'Opening daily practice…' : route.name === 'missions' ? 'Opening your mission…' : route.name === 'progress' ? 'Opening your progress…' : route.name === 'teach' ? 'Opening your lesson…' : SCHOOL_ROUTES.includes(route.name) ? 'Opening…' : 'Opening the guided lessons…');
 
 function AccountApp() {
+  const [guestEpoch,setGuestEpoch]=useState(0);
+  useEffect(()=>{const reset=()=>{setGuestEpoch(n=>n+1);window.location.hash='#/guest';};window.addEventListener('sg-maths-cloud-logout',reset);return()=>window.removeEventListener('sg-maths-cloud-logout',reset);},[]);
   const route = useRoute();
   useEffect(()=>()=>stopSpeaking(),[JSON.stringify(route)]);
   const {user,loading,connection,error,retry,continueAsGuest}=useAccount();
@@ -100,8 +103,8 @@ function AccountApp() {
   const screen=user?.mustChange?{name:'account' as const}:route;
   const focus=['lesson','practice-topic','mixed','activity'].includes(screen.name)||((screen.name==='teach'||screen.name==='missions'||screen.name==='watch')&&!!screen.id);
   const routeKey=JSON.stringify(screen);
-  return <ProgressProvider key={user?.id+(user?.mustChange?'change':'ready')}><SessionProvider><Experience><div className={`app adventure-app ${focus?'focus-mode':'has-sidebar'}`}>
-    {!focus&&<SchoolNav/>}<RouteBoundary resetKey={routeKey}><Suspense fallback={<RouteLoading label={loadingLabel(screen)}/>}><Screen route={screen}/></Suspense></RouteBoundary>
-  </div></Experience></SessionProvider></ProgressProvider>;
+  return <ProgressProvider key={user?.id+(user?.mustChange?'change':'ready')+guestEpoch}><SessionProvider><CloudSyncProvider><Experience><div className={`app adventure-app ${focus?'focus-mode':'has-sidebar'}`}>
+    {!focus&&<SchoolNav/>}{focus&&<div className="cloud-focus-header"><CloudStatusPill/></div>}<RouteBoundary resetKey={routeKey}><Suspense fallback={<RouteLoading label={loadingLabel(screen)}/>}><Screen route={screen}/></Suspense></RouteBoundary>
+  </div></Experience></CloudSyncProvider></SessionProvider></ProgressProvider>;
 }
 export function App(){return <AccountProvider><AccountApp/></AccountProvider>;}
