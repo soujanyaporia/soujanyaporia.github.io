@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "decision": {"type": "string", "enum": ["new-generator", "reuse", "needs-review"]},
+    "canonicalPatternId": {"type": "string"},
+    "sourceRefs": {"type": "array", "items": {"type": "object", "additionalProperties": false, "properties": {"bankLine": {"type": "integer"}, "paperId": {"type": "string"}, "questionNumber": {"type": "string"}, "pageNumbers": {"type": "array", "items": {"type": "integer"}}}, "required": ["bankLine", "paperId", "questionNumber", "pageNumbers"]}},
+    "reasoning": {"type": "string"},
+    "files": {"type": "array", "items": {"type": "object", "additionalProperties": false, "properties": {"path": {"type": "string"}, "content": {"type": "string"}}, "required": ["path", "content"]}},
+    "tests": {"type": "array", "items": {"type": "string"}},
+    "blockingGaps": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": ["decision", "canonicalPatternId", "sourceRefs", "reasoning", "files", "tests", "blockingGaps"]
+}

@@ -21,7 +21,8 @@ import { freshSeed } from '../engine/random';
 import { newSessionId } from '../primary/session';
 import { browserStorage } from '../primary/sessionStore';
 import { activityById } from '../primary/catalog';
-import {lessonPractice} from './lessonPractice';
+import {lessonPractice,lessonTopicPractice} from './lessonPractice';
+import {LessonApplication} from './LessonApplicationCard';
 import { lessonById,nextLessonAfter } from './catalog';
 import { ToolView } from './tools/Tools';
 import {questionModel} from './tools/questionModel';
@@ -319,5 +320,7 @@ function Completion({lesson,mode,attempt,stages,gained,syncStatus,onAgain}:{less
   {challenge.length>0&&<section className="challenge-summary"><h2>Your challenge</h2><p>{stretch.independent} of {stretch.total} solved first time without help.{stretch.supported>0&&` ${stretch.supported} solved after help or another try.`}{stretch.shown>0&&` ${stretch.shown} ${stretch.shown===1?'answer was':'answers were'} shown.`}</p><p>{stretch.needsPractice?'Let’s practise the steps that needed help. Your stars above are for the learning check.':'You solved every challenge independently today. Try a fresh set another day.'}</p></section>}
   {mode==='learn'&&stars>=2&&<section className="challenge-invite"><p className="teach-eyebrow">Ready for more?</p><h2>Try {CHALLENGE_COUNT} challenge problems</h2><p className="stage-text">They combine this idea with what you already know, and each needs more than one step.</p><a className="teach-btn" href={`#/teach/${lesson.id}/challenge`}>Take the challenge →</a></section>}
   <div className="done-actions">{(stars<3||stretch.needsPractice)&&mode!=='learn'&&<a className="teach-btn" href={`#/teach/${lesson.id}`}>Learn this idea step by step</a>}{readyForNext&&next&&<a className="teach-btn" href={`#/teach/${next.id}`}>Next lesson: {next.title} →</a>}{activity&&<a className="teach-btn soft" href={`#/activity/${activity.id}`}>{lessonPractice(lesson)?.label}</a>}<button className={`teach-btn${stars===3||mode!=='learn'?' soft':''}`} onClick={onAgain}>{mode==='review'?'Try a fresh review':mode==='challenge'?'Try new challenge problems':stars===3?'Learn it again':'Revisit this idea'}</button><a className="teach-btn soft" href="#/teach">Back to Learn</a></div>
+  {lessonTopicPractice(lesson)&&<a className="teach-btn soft" href={lessonTopicPractice(lesson)!.href}>{lessonTopicPractice(lesson)!.label}</a>}
+  <LessonApplication lesson={lesson} seed={attempt.seed}/>
   <p className="teach-foot" role="status">{syncStatus}</p></main>;
 }

@@ -1,3 +1,6 @@
+import {makeBatch12Decimal} from './batch12Decimal';
+import {makeRagPaperQuestion} from './ragQuestions';
+import {makeBatch12Middle} from './batch12Middle';
 import {makeBatch10Early} from './batch10Early';
 import {makeBatch11Upper} from './batch11Upper';
 import {makeBatch10Middle} from './batch10Middle';
@@ -36,6 +39,9 @@ import {makeBatch9Upper} from './batch9Upper';
 
 export function makeAdaptedPaperQuestion(activity:Activity,seed:number,index:number):Question{
  const pattern=adaptedPattern(activity.parameter);if(!pattern)throw Error(`Unknown adapted pattern: ${activity.parameter}`);
+ if(pattern.parameter.startsWith('rag-'))return {...makeRagPaperQuestion(pattern.parameter,seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b12d-'))return {...makeBatch12Decimal(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
+ if(pattern.parameter.startsWith('b12m-'))return {...makeBatch12Middle(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b10e-'))return {...makeBatch10Early(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b11u-'))return {...makeBatch11Upper(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};
  if(pattern.parameter.startsWith('b10m-'))return {...makeBatch10Middle(pattern.parameter.slice(5),seed,index),key:`${activity.id}:${seed}:${index}`};

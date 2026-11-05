@@ -1,24 +1,23 @@
+import {AccountStateContext as Context,type SchoolUser,type SchoolClass,type Connection} from './accountStateContext';
+export type {SchoolUser,SchoolClass,Connection} from './accountStateContext';
 import {clearMissionRuns} from '../playground/session';
 import {clearAttempts} from '../teach/progress';
-import { createContext,useCallback,useContext,useEffect,useMemo,useState,type ReactNode } from 'react';
+import { useCallback,useContext,useEffect,useMemo,useState,type ReactNode } from 'react';
 import { ApiError,apiRequest } from './api';
 import { browserStorage,clearSessions } from '../primary/sessionStore';
 import { clearPaperAttempt } from '../primary/paperAttemptStore';
 import { clearCloudCache } from '../state/cloudSync';
 export { API_URL,ApiError,NetworkError,apiRequest } from './api';
-export interface SchoolUser {id:string;schoolId:string;username:string;name:string;role:'student'|'teacher'|'admin';mustChange:boolean;schoolName:string;schoolCode:string;demo:boolean}
 const KEY='math.school.session',PROFILE='math.school.profile';
 function readToken(){try{return sessionStorage.getItem(KEY)}catch{return null}}
 function saveToken(value:string|null){try{if(value)sessionStorage.setItem(KEY,value);else sessionStorage.removeItem(KEY)}catch{/* memory-only session */}}
-export interface SchoolClass {id:string;name:string;level:number;year:number;track:string}
 interface Profile {user:SchoolUser;classes:SchoolClass[]}
 /** The signed-in profile is cached for this tab only, so a pupil can keep learning through a brief outage. */
 function readProfile():Profile|null{try{const p=JSON.parse(sessionStorage.getItem(PROFILE)||'null');return p?.user?.id?p:null}catch{return null}}
 function saveProfile(p:Profile|null){try{if(p)sessionStorage.setItem(PROFILE,JSON.stringify(p));else sessionStorage.removeItem(PROFILE)}catch{/* memory-only session */}}
 /** `offline`: signed in from the cached profile but the service is unreachable. `unreachable`: signed in, but no profile is available yet. */
-export type Connection='online'|'offline'|'unreachable';
-interface AccountApi {register:(schoolName:string,name:string,email:string,password:string)=>Promise<void>;classes:SchoolClass[];user:SchoolUser|null;token:string|null;loading:boolean;error:string;connection:Connection;api:(path:string,method?:string,body?:unknown)=>Promise<any>;login:(schoolCode:string,username:string,password:string)=>Promise<void>;logout:()=>Promise<void>;refresh:()=>Promise<void>;retry:()=>void;continueAsGuest:()=>void}
-const Context=createContext<AccountApi|null>(null);
+// Keep context identity stable when content updates hot-reload this provider.
+
 export function AccountProvider({children}:{children:ReactNode}){
  const [token,setToken]=useState(readToken),[cached]=useState(()=>token?readProfile():null);
  const [classes,setClasses]=useState<SchoolClass[]>(cached?.classes??[]),[user,setUser]=useState<SchoolUser|null>(cached?.user??null);

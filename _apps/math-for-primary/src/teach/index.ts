@@ -1,3 +1,4 @@
+import {P4_ARCHIVE_META} from './lessons/p4ArchiveLessonMeta';
 import {COLUMN_LESSON_META,withColumnLessons} from './lessons/columnLessonMeta';
 import {FOUR_ADDENDS_META,withFourAddends} from './lessons/fourAddendsMeta';
 import type { Track } from '../school/curriculum';
@@ -11,7 +12,7 @@ import {activityById} from '../primary/catalog';
  */
 export type { LessonMeta };
 const fromPlan:LessonMeta[]=PLAN.map(p=>({id:p.id,level:p.level,track:p.track,title:p.title,world:p.world,minutes:p.minutes,activityId:p.activityId,skillIds:p.skillIds,objective:p.objective}));
-export const LESSON_INDEX:LessonMeta[]=withColumnLessons(withFourAddends([...HAND_INDEX,...fromPlan].sort((a,b)=>a.level-b.level),FOUR_ADDENDS_META),COLUMN_LESSON_META);
+export const LESSON_INDEX:LessonMeta[]=[...withColumnLessons(withFourAddends([...HAND_INDEX,...fromPlan].sort((a,b)=>a.level-b.level),FOUR_ADDENDS_META),COLUMN_LESSON_META),...P4_ARCHIVE_META].sort((a,b)=>a.level-b.level);
 export const lessonMeta=(id:string)=>LESSON_INDEX.find(l=>l.id===id);
 export const lessonsForLevel=(level:number,track:Track)=>LESSON_INDEX.filter(l=>l.level===level&&(l.track==='both'||l.track===track));
 export function lessonsForActivity(activityId:string){

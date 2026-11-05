@@ -7,6 +7,7 @@ import {checkSession,createSession,nearTransfer,questionFromKey} from './session
 import {parseRoute,href} from '../app/router';
 import {validateSession} from './session';
 import type {Track} from '../school/curriculum';
+import {paperCompositionGroup,paperReasoningFamily} from './paperBlueprints';
 const paths:Array<[number,Track]>=[[1,'standard'],[2,'standard'],[3,'standard'],[4,'standard'],[5,'standard'],[6,'standard'],[5,'foundation'],[6,'foundation']];
 const done:ActivityProgress={attempts:6,correct:6,firstTry:5,hints:0,tries:7,sessions:1,stars:2,lastAt:1,days:[],recent:[]};
 
@@ -60,16 +61,37 @@ describe('Paced daily practice',()=>{
   progress=applyPrimary(progress,{kind:'primary_complete',id:'two',at:2,activityId:'p3s-daily-002',stars:3});
   expect(Object.keys(progress.activities)).toEqual(['p3s-daily-001','p3s-daily-002']);expect(progress.activities['p3s-daily-001'].sessions).toBe(1);
  });
+ it('uses distinct ready sources and applied reasoning across every grade',()=>{
+  for(const [level,track] of paths){
+   let varied=0,appliedDays=0;
+   for(let day=1;day<=200;day++){
+    const a=activityById(dailyId(level,track,day))!,sources=dailySources(a,ACTIVITIES);
+    const questions=sources.map(source=>makeQuestion(source,127,0));
+    const families=new Set(questions.map((q,i)=>paperReasoningFamily(sources[i],q)));
+    if(families.size>=4)varied++;
+    if(questions.filter((q,i)=>['story','visual-data'].includes(paperCompositionGroup(sources[i],q))||q.gridDrawing||q.angleConstruction||q.structuredResponse||q.numberSentence||q.grouping).length>=2)appliedDays++;
+   }
+   // This is a global policy, including Foundation, rather than a P5-only exception.
+   expect(varied,`${level} ${track} varied days`).toBeGreaterThan(track==='standard'?100:0);
+   expect(appliedDays,`${level} ${track} applied days`).toBeGreaterThan(track==='standard'?100:0);
+  }
+  for(const day of [41,42,43,44,46,47,48,49]){
+   const a=activityById(dailyId(5,'standard',day))!,sources=dailySources(a,ACTIVITIES);
+   expect(new Set(sources.map(a=>a.id)).size).toBe(6);
+   expect(new Set(sources.map(a=>paperReasoningFamily(a,makeQuestion(a,127,0)))).size).toBeGreaterThanOrEqual(5);
+  }
+ });
  it('keeps six-question sessions, question identity, and source-specific repairs reproducible',()=>{
   for(const [level,track] of paths)for(const day of [1,55,105,170,200]){
    const a=activityById(dailyId(level,track,day))!,{session,questions}=createSession(a,{seed:127,now:1});
    expect(session.count).toBe(6);expect(validateSession(session,1)).not.toBeNull();expect(checkSession(a,session).ok).toBe(true);
    questions.forEach((original,slot)=>{
-    expect(original.key).toBe(`${a.id}:127:${slot}`);expect(original.sourceActivityId).toBeTruthy();
+    // A small finite generator may need a later index to avoid a duplicate.
+    expect(original.key.startsWith(`${a.id}:127:`)).toBe(true);expect(original.sourceActivityId).toBeTruthy();
     const transfer=nearTransfer(a,original,774,slot,new Set());
     expect(transfer.sourceActivityId,`${a.id} position ${slot}`).toBe(original.sourceActivityId);
     expect(questionFromKey(a,transfer.key)).toEqual(transfer);
-    expect(makeQuestion(a,127,slot)).toEqual(original);
+    expect(questionFromKey(a,original.key)).toEqual(original);
    });
   }
  });

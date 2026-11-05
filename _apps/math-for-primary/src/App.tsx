@@ -51,7 +51,7 @@ function Screen({ route }: { route: Route }) {
     case 'foundations': return <HomeScreen />;
     case 'activity': return <PrimaryGame key={route.id} id={route.id} />;
     case 'daily': return <DailyPractice />;
-    case 'papers': return <PracticePapers />;
+    case 'papers': return <PracticePapers key={`${route.level}:${route.track}:${route.topic}`} preset={route} />;
     case 'guest': return <GuestScreen />;
     case 'account': return <AccountScreen />;
     case 'school': return <SchoolScreen />;

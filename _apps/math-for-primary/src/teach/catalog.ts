@@ -1,3 +1,4 @@
+import {P4_ARCHIVE_LESSONS} from './lessons/p4ArchiveLessons';
 import {COLUMN_LESSONS} from './lessons/columnLessons';
 import {withColumnLessons} from './lessons/columnLessonMeta';
 import {FOUR_ADDENDS_LESSON} from './lessons/fourAddends';
@@ -43,7 +44,7 @@ function withChallenge(lesson:Lesson):Lesson{
  const p=planFor(skill);
  return {...lesson,stages:[...lesson.stages,challengeStage(lesson.id,p.code,{level:p.level,foundation:p.track==='foundation',objective:p.objective})]};
 }
-export const LESSONS:Lesson[]=withColumnLessons(withFourAddends([...VISUAL_HAND.map(deepenAuthored),...BUILT_LESSONS].map(improveTeachingQuality).map(withLessonFlow).map(withChallenge).map(withDistinctQuestions).map(l=>({...l,revision:`${l.revision}${QUESTION_SET}${/read and write|number names/i.test(l.title)?'+names-2026-11-04':''}${['p5s-wn-03','p5f-md-03','p5s-frac-06','p5f-frac-08','p4s-md-03','p2s-md-03','p2s-md-04','p5f-md-04','p5s-pct-01','p5s-pct-02','p6f-pct-01','p6f-pct-02','p6s-avg-01','p6s-avg-02','p6f-avg-01'].includes(l.id)?'+scope-2026-11-04':''}`})).sort((a,b)=>a.level-b.level),FOUR_ADDENDS_LESSON),COLUMN_LESSONS);
+export const LESSONS:Lesson[]=[...withColumnLessons(withFourAddends([...VISUAL_HAND.map(deepenAuthored),...BUILT_LESSONS].map(improveTeachingQuality).map(withLessonFlow).map(withChallenge).map(withDistinctQuestions).map(l=>({...l,revision:`${l.revision}${QUESTION_SET}${/read and write|number names/i.test(l.title)?'+names-2026-11-04':''}${['p5s-wn-03','p5f-md-03','p5s-frac-06','p5f-frac-08','p4s-md-03','p2s-md-03','p2s-md-04','p5f-md-04','p5s-pct-01','p5s-pct-02','p6f-pct-01','p6f-pct-02','p6s-avg-01','p6s-avg-02','p6f-avg-01'].includes(l.id)?'+scope-2026-11-04':''}`})).sort((a,b)=>a.level-b.level),FOUR_ADDENDS_LESSON),COLUMN_LESSONS),...P4_ARCHIVE_LESSONS].sort((a,b)=>a.level-b.level);
 export const lessonById=(id:string)=>LESSONS.find(l=>l.id===id);
 export const lessonsFor=(level:number,track:Track)=>LESSONS.filter(l=>l.level===level&&(l.track==='both'||l.track===track));
 export function nextLessonAfter(lesson:Lesson){const same=LESSONS.filter(l=>l.level===lesson.level&&(l.track==='both'||lesson.track==='both'||l.track===lesson.track));return same[same.indexOf(lesson)+1]??null;}

@@ -1,0 +1,216 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "type": "integer"
+    },
+    "batchId": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "bankLine": {
+            "type": "integer"
+          },
+          "paperId": {
+            "type": "string"
+          },
+          "rawTextSha256": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "real-question",
+              "answer-key",
+              "fragment",
+              "unknown"
+            ]
+          },
+          "topic": {
+            "type": "string"
+          },
+          "unknowns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "relations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "linkedSubparts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "unknown": {
+                  "type": "string"
+                },
+                "dependsOn": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "label",
+                "unknown",
+                "dependsOn"
+              ]
+            }
+          },
+          "units": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "numericalDomain": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "numberTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "constraints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "numberTypes",
+              "constraints"
+            ]
+          },
+          "response": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "fieldCount": {
+                "type": "integer"
+              },
+              "ordered": {
+                "type": "boolean"
+              },
+              "requirements": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "fieldCount",
+              "ordered",
+              "requirements"
+            ]
+          },
+          "representation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "text",
+                  "table",
+                  "graph",
+                  "geometry",
+                  "construction",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              "figureNeed": {
+                "type": "string",
+                "enum": [
+                  "required",
+                  "not-required",
+                  "uncertain"
+                ]
+              },
+              "constraints": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "kind",
+              "figureNeed",
+              "constraints"
+            ]
+          },
+          "boundaries": {
+            "type": "string",
+            "enum": [
+              "complete",
+              "uncertain",
+              "fragment"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "gaps": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "bankLine",
+          "paperId",
+          "rawTextSha256",
+          "classification",
+          "topic",
+          "unknowns",
+          "relations",
+          "linkedSubparts",
+          "units",
+          "numericalDomain",
+          "response",
+          "representation",
+          "boundaries",
+          "confidence",
+          "gaps"
+        ]
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "batchId",
+    "tags"
+  ]
+}

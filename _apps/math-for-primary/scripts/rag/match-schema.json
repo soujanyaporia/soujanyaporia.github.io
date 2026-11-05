@@ -1,0 +1,13 @@
+{
+  "type":"object","additionalProperties":false,
+  "properties":{
+    "decision":{"type":"string","enum":["match","review","generate"]},
+    "targetGeneratorId":{"type":"string"},
+    "targetCanonicalPatternId":{"type":"string"},
+    "sourceRefs":{"type":"array","items":{"type":"object","additionalProperties":false,"properties":{"bankLine":{"type":"integer"},"paperId":{"type":"string"},"questionNumber":{"type":"string"},"pageNumbers":{"type":"array","items":{"type":"integer"}}},"required":["bankLine","paperId","questionNumber","pageNumbers"]}},
+    "reasoning":{"type":"string"},
+    "compatibleConstraints":{"type":"array","items":{"type":"string"}},
+    "blockingGaps":{"type":"array","items":{"type":"string"}}
+  },
+  "required":["decision","targetGeneratorId","targetCanonicalPatternId","sourceRefs","reasoning","compatibleConstraints","blockingGaps"]
+}

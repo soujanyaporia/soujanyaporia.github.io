@@ -25,16 +25,18 @@ import {createPaperAttempt,readPaperAttemptState,writePaperAttempt,paperMarks,up
 import './practicePapers.css';
 
 
-export function PracticePapers(){const {scope}=useProgress();return <PaperWorkspace key={scope} scope={scope}/>;}
-function PaperWorkspace({scope}:{scope:string}){
+type PaperPreset={level?:number;track?:Track;topic?:string};
+export function PracticePapers({preset={}}:{preset?:PaperPreset}){const {scope}=useProgress();return <PaperWorkspace key={scope} scope={scope} preset={preset}/>;}
+function PaperWorkspace({scope,preset}:{scope:string;preset:PaperPreset}){
  const {progress}=useProgress(),selection=progress.primary?.selection;
  const initialRead=useMemo(()=>readPaperAttemptState(browserStorage(),scope),[scope]),initial=initialRead.restored;
  const [restoreNotice,setRestoreNotice]=useState(initialRead.status==='incompatible');
  const [paper,setPaper]=useState<PracticePaper|null>(initial?.paper??null),[saved,setSaved]=useState<PaperAttempt|null>(initial?.saved??null);
- const [setup,setSetup]=useState(true),[level,setLevel]=useState(selection?.level??1),[track,setTrack]=useState<Track>(selection?.track??'standard');
- const [topic,setTopic]=useState('mixed'),[count,setCount]=useState<6|12|18>(6),[code,setCode]=useState(''),[error,setError]=useState(''),[storageError,setStorageError]=useState(false),[confirmMark,setConfirmMark]=useState(false),[printAnswers,setPrintAnswers]=useState(false);
+ const [setup,setSetup]=useState(true),[level,setLevel]=useState(preset.level??selection?.level??1),[track,setTrack]=useState<Track>(preset.track??selection?.track??'standard');
+ const [topic,setTopic]=useState(preset.topic??'mixed'),[count,setCount]=useState<6|12|18>(6),[code,setCode]=useState(''),[error,setError]=useState(''),[storageError,setStorageError]=useState(false),[confirmMark,setConfirmMark]=useState(false),[printAnswers,setPrintAnswers]=useState(false);
  const topics=useMemo(()=>practicePaperTopics(level,level<5?'standard':track),[level,track]);
  const selectedTopic=topics.find(t=>t.id===topic),maxCount=selectedTopic?.maxCount??6;
+ useEffect(()=>{if(!topics.some(t=>t.id===topic)){setTopic('mixed');setError('This topic does not yet have enough questions for a full set. You can choose mixed practice.');}},[topics,topic]);
  useEffect(()=>{if(count>maxCount)setCount(maxCount);},[count,maxCount]);
  const questionHeading=useRef<HTMLHeadingElement>(null),questionJump=useRef<HTMLDetailsElement>(null);
  useEffect(()=>{if(saved)setStorageError(!writePaperAttempt(browserStorage(),scope,saved));},[saved,scope]);
@@ -101,6 +103,7 @@ export function PaperActions({position,count,marked,answered,confirming,onMove,o
 
 /** Printed tasks retain visible choices and blank response slots. */
 export function PrintedStructuredResponse({spec}:{spec:NonNullable<Question['structuredResponse']>}){
+ if(spec.kind==='number-fields')return <div>{spec.fields.map((field,i)=><p key={i}>{field.label}: __________</p>)}</div>;
  if(spec.kind==='fraction-pair'||spec.kind==='named-pair')return <p>Choices: {spec.options.join('   ')}<br/>First: __________ &nbsp; Second: __________</p>;
  if(spec.kind==='number-pair')return <p>{spec.firstLabel}: __________ &nbsp; {spec.secondLabel}: __________</p>;
  if(spec.kind==='factor-pairs')return <div>{Array.from({length:spec.rows},(_,i)=><p key={i}>{i+1}. __________ groups of __________ students</p>)}</div>;

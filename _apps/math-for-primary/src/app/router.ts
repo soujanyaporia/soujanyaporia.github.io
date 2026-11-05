@@ -9,7 +9,8 @@ export type RewardsTab = 'quests' | 'chests' | 'shop' | 'stickers';
 
 export type Route =
   | { name: 'home' }
-  | { name: 'guest' | 'account' | 'school' | 'demo' | 'curriculum' | 'foundations' | 'school-start' | 'register' | 'coverage' | 'daily' | 'papers' }
+  | { name: 'guest' | 'account' | 'school' | 'demo' | 'curriculum' | 'foundations' | 'school-start' | 'register' | 'coverage' | 'daily' }
+  | { name: 'papers';level?:number;track?:'standard'|'foundation';topic?:string }
   | { name: 'about'; section?: string }
   | { name: 'teach'; id?: string; mode?: 'learn' | 'challenge' | 'review' }
   | { name: 'guide'; id: string }
@@ -42,8 +43,13 @@ export function parseRoute(hash: string): Route {
   try { parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(decodeURIComponent); }
   catch { return { name: 'home' }; }
   switch (parts[0]) {
-    case 'guest': case 'account': case 'school': case 'demo': case 'curriculum': case 'foundations': case 'school-start': case 'register': case 'daily': case 'papers':
+    case 'guest': case 'account': case 'school': case 'demo': case 'curriculum': case 'foundations': case 'school-start': case 'register': case 'daily':
       return {name:parts[0]};
+    case 'papers':{
+      const path=/^p([1-6])([sf])$/.exec(parts[1]??'');
+      if(!path||path[2]==='f'&&Number(path[1])<5)return {name:'papers'};
+      return {name:'papers',level:Number(path[1]),track:path[2]==='f'?'foundation':'standard',topic:/^[A-Z]+$/.test(parts[2]??'')?parts[2]:'mixed'};
+    }
     case 'activity': return parts[1]?{name:'activity',id:parts[1]}:{name:'home'};
     case 'about': case 'privacy': return parts[1]?{name:'about',section:parts[1]}:{name:'about'};
     case 'coverage': return {name:'coverage'};
@@ -84,6 +90,7 @@ export function href(route: Route): string {
     case 'home':
       return '#/';
     case 'activity': return `#/activity/${encodeURIComponent(route.id)}`;
+    case 'papers': return route.level?`#/papers/p${route.level}${route.track==='foundation'?'f':'s'}/${encodeURIComponent(route.topic??'mixed')}`:'#/papers';
     case 'about': return route.section ? `#/about/${encodeURIComponent(route.section)}` : '#/about';
     case 'teach': return route.id ? `#/teach/${encodeURIComponent(route.id)}${route.mode && route.mode !== 'learn' ? '/' + route.mode : ''}` : '#/teach';
     case 'guide': return `#/guide/${encodeURIComponent(route.id)}`;

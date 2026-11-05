@@ -81,3 +81,16 @@
  .home-focused .home-level-choice{align-items:flex-start}
  .home-focused .home-track-choice{flex-wrap:wrap}
 }
+
+.home-focused .topic-practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.home-focused .topic-practice-card{display:flex;flex-direction:column;padding:20px;border:1px solid #cfdfd1;border-radius:16px;background:white;text-decoration:none;color:#284d3e;min-width:0}
+.home-focused .topic-practice-card h3{font-size:19px;margin:0 0 8px}
+.home-focused .topic-practice-card p{font-size:13px;line-height:1.5;margin:0 0 16px;color:#5c7063}
+.home-focused .topic-practice-card>span{display:flex;align-items:center;gap:8px;margin-top:auto;font-size:13px;font-weight:800}
+.home-focused .topic-practice-card:hover{border-color:#52906c;background:#f7fbf4}
+.home-focused .home-skill-practice{margin-top:24px;border-top:1px solid #dce4d8;padding-top:10px}
+.home-focused .home-skill-practice>summary{cursor:pointer;min-height:48px;display:flex;align-items:center;font-weight:800;color:#41644c}
+.home-focused .home-skill-practice>summary::before{content:'+';margin-right:10px}
+.home-focused .home-skill-practice[open]>summary::before{content:'−'}
+.home-focused .home-skill-practice>p{font-size:13px;margin:0 0 20px;color:#5c7063}
+@media(max-width:360px){.home-focused .topic-practice-grid{grid-template-columns:minmax(0,1fr)}}

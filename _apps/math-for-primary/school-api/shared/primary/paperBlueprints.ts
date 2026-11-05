@@ -44,6 +44,9 @@ export function paperReasoningFamily(a:Activity,q:Question):string{
  const pic=q.picture as {type:string;layout?:string;target?:string}|undefined;
  if(pic?.type==='angleProblem')return `angle:${pic.layout}${pic.layout==='parallelogram'?':'+(pic.target??'adjacent'):''}`;
  const canonical=a.canonicalPatternId??'';
+ // Correcting a misplaced decimal and directly writing the same compound mass
+ // use the same conversion; the surrounding story must not give it a second slot.
+ if(a.parameter==='p5-convert'||canonical==='kg-grams-decimal-place-error-correction')return 'measurement:compound-mass-to-decimal-kg';
  // These are the same pupil task across baseline and paper-labelled sources.
  if(a.kind==='order'||canonical==='number-order')return 'number:order';
  if(a.kind==='groups'||a.parameter==='p1-groups'||canonical==='equal-groups-total')return 'equal-groups:find-total';

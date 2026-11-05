@@ -1,10 +1,13 @@
 import type {Activity} from './catalog';
 import type {Track} from '../school/curriculum';
 import type {ActivityProgress} from './progress';
+import {makeQuestion} from './generate';
+import {paperReasoningFamily,paperCompositionGroup} from './paperBlueprints';
+import {hashString} from '../engine/random';
 
 export const DAILY_DAYS=200;
 export const DAILY_QUESTIONS=6;
-export const DAILY_PLAN_VERSION=11;
+export const DAILY_PLAN_VERSION=12;
 const TOPIC_NAMES:Record<string,string>={WN:'Whole numbers',AS:'Adding and subtracting',MD:'Multiplying and dividing',FACT:'Factors and multiples',FRAC:'Fractions',MONEY:'Money',DEC:'Decimals',PCT:'Percentages',RATE:'Rate',RATIO:'Ratio',ALG:'Algebra',LENGTH:'Length',MEASURE:'Measurement',TIME:'Time',AREA:'Area and perimeter',VOL:'Volume',ANGLE:'Angles',LINES:'Lines',SYM:'Symmetry',SHAPE:'Shapes',SOLID:'Solid shapes',CIRCLE:'Circles',GRAPH:'Graphs',AVG:'Averages'};
 export type DailyAddress={level:number;track:Track;day:number};
 export interface DailyTopic {code:string;title:string;activities:Activity[];paper:Activity[]}
@@ -43,6 +46,16 @@ export function dailyPlanDay(level:number,track:Track,day:number,activities:Acti
 }
 /** Cache by catalogue identity; each path is deterministic and independent of opening order. */
 const sourcePlans=new WeakMap<Activity[],Map<string,Activity[][]>>();
+type SourceProfile={families:string[];applied:boolean};
+const sourceProfiles=new WeakMap<Activity,SourceProfile>();
+/** Sample lazily: generate.ts imports the daily dispatcher, so never generate at module initialisation. */
+function sourceProfile(activity:Activity):SourceProfile{
+ const known=sourceProfiles.get(activity);if(known)return known;
+ const questions=Array.from({length:4},(_,i)=>makeQuestion(activity,hashString(`daily-profile:${activity.id}:${i}`),i));
+ const families=[...new Set(questions.map(q=>paperReasoningFamily(activity,q)))];
+ const applied=questions.every(q=>{const group=paperCompositionGroup(activity,q);return group==='story'||group==='visual-data'||!!(q.gridDrawing||q.angleConstruction||q.structuredResponse||q.numberSentence||q.grouping);});
+ const profile={families,applied};sourceProfiles.set(activity,profile);return profile;
+}
 function buildSourcePlan(level:number,track:Track,activities:Activity[]):Activity[][]{
  const used=new Map<string,number>(),days:Activity[][]=[];
  for(let day=1;day<=DAILY_DAYS;day++){
@@ -57,26 +70,21 @@ function buildSourcePlan(level:number,track:Track,activities:Activity[]):Activit
   // Least-used ready tasks avoid starving larger paper pools or skills whose prerequisites
   // become available in a later topic. No task can appear before its prerequisites.
   const eligible=plan.review?topics.slice(0,topicIndex+1).flatMap(readyPaper):readyPaper(topic);
-  const picked=new Set<string>(),pickedPatterns=new Set<string>();
-  const nextPaper=()=>{
-   const remaining=eligible.filter(a=>!picked.has(a.id)),distinct=remaining.filter(a=>!pickedPatterns.has(a.canonicalPatternId??a.id));
-   const pool=distinct.length?distinct:remaining;if(!pool.length)return undefined;
-   const a=pool.reduce((best,a)=>(used.get(a.id)??0)<(used.get(best.id)??0)?a:best);
-   used.set(a.id,(used.get(a.id)??0)+1);picked.add(a.id);pickedPatterns.add(a.canonicalPatternId??a.id);return a;
-  };
-  // Multiple activities may become available at once in a larger catalogue. Select
-  // the least-practised introduced activity so none are skipped by index jumps.
-  const pickedBaseline=new Set<string>();
-  const nextBaseline=(pool:Activity[])=>{
-   const distinct=pool.filter(a=>!pickedBaseline.has(a.id)),candidates=distinct.length?distinct:pool;
-   const a=candidates.reduce((best,item)=>(used.get(item.id)??0)<(used.get(best.id)??0)?item:best);
-   used.set(a.id,(used.get(a.id)??0)+1);pickedBaseline.add(a.id);return a;
-  };
-  const sources=Array.from({length:DAILY_QUESTIONS},(_,i)=>{
-   if(i>=4){const paper=nextPaper();if(paper)return paper;}
-   if(plan.review){const prior=topics.slice(0,topicIndex).flatMap(t=>t.activities);return nextBaseline([...prior,...available]);}
-   return nextBaseline(available);
-  });
+  const baseline=plan.review?[...topics.slice(0,topicIndex).flatMap(t=>t.activities),...available]:available;
+  const pool=[...new Map([...baseline,...eligible].map(a=>[a.id,a])).values()];
+  const picked=new Map<string,number>(),families=new Map<string,number>(),sources:Activity[]=[];
+  const record=(a:Activity)=>{sources.push(a);used.set(a.id,(used.get(a.id)??0)+1);picked.set(a.id,(picked.get(a.id)??0)+1);for(const f of sourceProfile(a).families)families.set(f,(families.get(f)??0)+1);};
+  // Keep one introduced task as the teaching anchor. The other five positions
+  // can use ready school-paper tasks rather than four copies of the first drill.
+  record(baseline.reduce((best,a)=>(used.get(a.id)??0)<(used.get(best.id)??0)?a:best));
+  const appliedFamilies=new Set(pool.filter(a=>sourceProfile(a).applied).flatMap(a=>sourceProfile(a).families));
+  const appliedTarget=Math.min(2,appliedFamilies.size);
+  const compare=(a:number[],b:number[])=>{for(let i=0;i<a.length;i++)if(a[i]!==b[i])return a[i]-b[i];return 0;};
+  while(sources.length<DAILY_QUESTIONS){
+   const appliedCount=sources.filter(a=>sourceProfile(a).applied).length;
+   const score=(a:Activity)=>{const profile=sourceProfile(a);return [Math.max(...profile.families.map(f=>families.get(f)??0)),picked.get(a.id)??0,Number(appliedCount<appliedTarget&&!profile.applied),used.get(a.id)??0,a.kind==='paper'?0:1];};
+   const next=pool.reduce((best,a)=>compare(score(a),score(best))<0?a:best);record(next);
+  }
   days.push(sources);
  }
  return days;

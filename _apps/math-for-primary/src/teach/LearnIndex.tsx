@@ -1,4 +1,4 @@
-import {lessonPractice} from './lessonPractice';
+import {lessonPractice,lessonTopicPractice} from './lessonPractice';
 import { TopicPreview } from '../primary/TopicPreview';
 import { useState } from 'react';
 import {lessonPreview,matchesLesson,TOPIC_NAMES} from './learningUi';
@@ -33,6 +33,7 @@ export function LearnIndex(){
    <div className="lesson-card-top"><span className="lesson-state">{STATE_LABEL[state]}</span><span className="lesson-minutes">{l.minutes} min</span></div>
    <div className="library-card-main"><div className="lesson-card-picture" aria-hidden="true">{activity&&<TopicPreview kind={activity.kind}/>}</div><h3>{l.title}</h3></div>
    <div className="lesson-actions"><a className="teach-btn" href={`#/teach/${l.id}`}>{state==='started'?'Continue':state==='new'?'Let’s learn':'Learn again'}<span className="sr-only">: {l.title}</span></a>
+    {lessonTopicPractice(l)&&<a className="lesson-secondary" href={lessonTopicPractice(l)!.href}>{lessonTopicPractice(l)!.label}</a>}
     <details className="lesson-extra"><summary>More options<span className="sr-only"> for {l.title}</span></summary><div>
      <p>{lessonPreview(l)}</p>
      {activity&&<a className="lesson-secondary" href={`#/activity/${activity.id}`}>{lessonPractice(l)?.label}</a>}

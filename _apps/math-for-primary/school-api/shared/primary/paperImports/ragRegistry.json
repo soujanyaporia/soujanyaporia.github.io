@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "id": "p2-rag-repeated-task-start-time",
+      "level": 2,
+      "title": "Find when the first task began",
+      "objective": "Add equal task durations and count backwards from a finish time after noon.",
+      "skillIds": [
+        "P2.S.AS.01",
+        "P2.S.TIME.02"
+      ],
+      "canonicalPatternId": "repeated-task-duration-to-start-before-noon",
+      "parameter": "rag-p2-rag-repeated-task-start-time",
+      "entryFile": "src/primary/paperImports/ragRepeatedTaskStartTime.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragRepeatedTaskStartTime.test.ts",
+          "sha256": "fb632cc7b793df317a3ba643262d68603cf727f627bf527249c747fe99ee6333"
+        },
+        {
+          "path": "src/primary/paperImports/ragRepeatedTaskStartTime.ts",
+          "sha256": "9ebe775103d0915facafaf45052fcb0fe598f52959c8e48d225f4ef006aeb0af"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "4e014a1c7233b265",
+          "sourceQuestion": "29",
+          "sourcePages": [
+            11
+          ]
+        }
+      ],
+      "jobId": "rag-8ea448c269ff3d078a74",
+      "packetSha256": "23ed9d390c9e2d1884faca894b5568cf7ffec59020715da8e6c9121bddb40904",
+      "candidateSha256": "a6874d4459d6ba1a9f13e8f4bacde4cc4f38046b896857139fb061beb924ce28",
+      "checkReportSha256": "331fb593141eaa905637bb7871eed6034df480588f3fc699d3a3d477c1f08b14",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p3-rag-common-item-prices",
+      "level": 3,
+      "title": "Find prices from two purchases",
+      "objective": "Compare purchases with common items, find one item price and use a price difference.",
+      "skillIds": [
+        "P3.S.MONEY.01",
+        "P3.S.MD.04"
+      ],
+      "canonicalPatternId": "common-item-total-difference-then-unit-price-gap-pair",
+      "parameter": "rag-p3-rag-common-item-prices",
+      "entryFile": "src/primary/paperImports/ragCommonItemPrices.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCommonItemPrices.test.ts",
+          "sha256": "7abc279a572fb3642b42153987f1537194428813eca1c7eeb66bf8989964be50"
+        },
+        {
+          "path": "src/primary/paperImports/ragCommonItemPrices.ts",
+          "sha256": "2d0750110cc9f2ae3ae637683320f9e90005a80aa27eca4354aadc3bbc29e151"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "6e6193797fa7c2b8",
+          "sourceQuestion": "37",
+          "sourcePages": [
+            20,
+            21
+          ]
+        }
+      ],
+      "jobId": "rag-8248b94f14a670bce73a",
+      "packetSha256": "f2a31a6192771cd23c3a2a4999321a622403484e264a51916029da0d6344e73d",
+      "candidateSha256": "7c621bab5464a29ff65e80e9e1cbdf4ba4cb93b7a536a95b96b033ba8db1e649",
+      "checkReportSha256": "59d8a76d663e21c046ac1e1bd2d5dccf4188ab6f911e62d4083ff9069f378f2d",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p3-rag-linked-mass-comparisons",
+      "level": 3,
+      "title": "Compare three parcel masses",
+      "objective": "Convert a mass to grams, follow two linked comparisons, and express the final mass in kilograms and grams.",
+      "skillIds": [
+        "P3.S.AS.01",
+        "P3.S.MEASURE.02",
+        "P3.S.MEASURE.03"
+      ],
+      "canonicalPatternId": "compound-mass-add-then-subtract-linked-parts",
+      "parameter": "rag-p3-rag-linked-mass-comparisons",
+      "entryFile": "src/primary/paperImports/ragLinkedMassComparisons.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragLinkedMassComparisons.test.ts",
+          "sha256": "a977a6b544699ebb1e22c68610871df754f8a1d35067e0376951f8111d8b3212"
+        },
+        {
+          "path": "src/primary/paperImports/ragLinkedMassComparisons.ts",
+          "sha256": "42c94d8a21b439a3b6e37d0d8ea3579208fc7409178a4bdca522aa3196d8fdc4"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "ebc54ea524a698db",
+          "sourceQuestion": "23",
+          "sourcePages": [
+            15
+          ]
+        }
+      ],
+      "jobId": "rag-052da96b537ffe3c35f8",
+      "packetSha256": "de177c5b136676e8f3a053c4fae3077e1b92ff35f671be08e752f2ff5a773a3c",
+      "candidateSha256": "ebb23464ba283b89a2640f364feeea89e4c2ef438e7df4126b185ca3ab9f3c7d",
+      "checkReportSha256": "27e00046a3bd1c80be90b88f8b40c35e047e69b25844c6e6aae039daa5fe62d5",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p4-double-start-transfer-final-difference",
+      "level": 4,
+      "title": "Beads in the top tray",
+      "objective": "Work back from the difference after a transfer to find how many beads were in the larger tray at first.",
+      "skillIds": [
+        "P4.S.MD.01"
+      ],
+      "canonicalPatternId": "double-start-transfer-final-difference",
+      "parameter": "rag-p4-double-start-transfer-final-difference",
+      "entryFile": "src/primary/paperImports/ragDoubleStartTransferFinalDifference.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragDoubleStartTransferFinalDifference.test.ts",
+          "sha256": "e6d303977a762b54d744ea01d255ebb81e1c11c36244ed094d8de3103a678aae"
+        },
+        {
+          "path": "src/primary/paperImports/ragDoubleStartTransferFinalDifference.ts",
+          "sha256": "d752108e36bad22871650048f68ee0cbb1d0a6978abb0ac0cf5995ae6dfda76c"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "bcd19a229a8e5929",
+          "sourceQuestion": "12",
+          "sourcePages": [
+            7
+          ]
+        }
+      ],
+      "jobId": "rag-76d3fa82b28c25305621",
+      "packetSha256": "970bad29c086dc845d9b6eab9790c4ce651ca3e1b7df6900983b17865fb1d3a2",
+      "candidateSha256": "74edb20f0ef92735557050b0b157da2e86d4e95ff9b8e20de29a193d04e3e3d6",
+      "checkReportSha256": "1c5dda18956b7c984692498e67f64ecf967cab650a96ddae95c0f4c9d4b6ed87",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p4-three-counts-difference-multiple",
+      "level": 4,
+      "title": "Find the number of blue buttons",
+      "objective": "Use a total, a difference and a times-as-many clue to find one of three counts.",
+      "skillIds": [
+        "P4.S.MD.03",
+        "P4.S.MD.01"
+      ],
+      "canonicalPatternId": "three-counts-total-difference-multiple",
+      "parameter": "rag-p4-three-counts-difference-multiple",
+      "entryFile": "src/primary/paperImports/ragThreeCountsDifferenceMultiple.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragThreeCountsDifferenceMultiple.test.ts",
+          "sha256": "ee6131f004f845dbdf0a2d60869466c77267c10dc2d56fe3c6f00123e13a43d4"
+        },
+        {
+          "path": "src/primary/paperImports/ragThreeCountsDifferenceMultiple.ts",
+          "sha256": "a5af9421816914849401229dfb43dbdcabeafd1bfae0d54c7a7b6435e8e26ca8"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "f461b5badafd9bfe",
+          "sourceQuestion": "36",
+          "sourcePages": [
+            21
+          ]
+        }
+      ],
+      "jobId": "rag-e34e49aa4c6aae16e772",
+      "packetSha256": "9de1b796e08a35eee95928c34a484cc0f8224174fa6758d1cdc8a5d680e5d98a",
+      "candidateSha256": "a79db6549a700872438fd281531ba888acd170eb40ab5de2696a064a6d275f15",
+      "checkReportSha256": "74614bd036b4cbd73b0a3358c18f994e60b756c0ca87bf3bcec3f190e16a745e",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p4-three-pairwise-region-scores",
+      "level": 4,
+      "title": "Find the points for a target region",
+      "objective": "Use the scores for three different pairs to find the value of one region.",
+      "skillIds": [
+        "P3.S.AS.01",
+        "P4.S.MD.03"
+      ],
+      "canonicalPatternId": "three-pairwise-sums-find-common-value",
+      "parameter": "rag-p4-three-pairwise-region-scores",
+      "entryFile": "src/primary/paperImports/ragP4PairScores.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragP4PairScores.test.ts",
+          "sha256": "8b41cf70e6959336951784bca9e3ed11223de2ddcf725fe0a5e9fdaf0dfb74f4"
+        },
+        {
+          "path": "src/primary/paperImports/ragP4PairScores.ts",
+          "sha256": "1243c00e236b86ba74962c849c6d02ef3505fff0b98de7a0965731f1d2be1efd"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "766db200058716cf",
+          "sourceQuestion": "16",
+          "sourcePages": [
+            8
+          ]
+        }
+      ],
+      "jobId": "rag-ed09e5f839ade8668646",
+      "packetSha256": "7c4cb059cb1ec652d74e25bcf055cb819fff33d8f2cff5db3b7a4a2710c28c68",
+      "candidateSha256": "1ac0c0f7fc7def243817a14701cb4a99e1864a31be4f07e50f0b6728e41949cd",
+      "checkReportSha256": "b3b24432f61be73244811a39a35a1d7e5c10498df4a7e1ac2749d86a0d8df654",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-coin-count-value-difference",
+      "level": 5,
+      "title": "Work out a coin collection",
+      "objective": "Use a coin-count multiple and a difference in value to find a difference in counts and a total amount.",
+      "skillIds": [
+        "P5.S.WN.02",
+        "P3.S.MONEY.01"
+      ],
+      "canonicalPatternId": "coin-count-multiple-and-value-difference",
+      "parameter": "rag-p5-coin-count-value-difference",
+      "entryFile": "src/primary/paperImports/ragCoinCountValueDifference.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCoinCountValueDifference.test.ts",
+          "sha256": "01db4f5425736d6a4f4454fc857ef74bf8ee6204d0a3d945f0198b9173de619f"
+        },
+        {
+          "path": "src/primary/paperImports/ragCoinCountValueDifference.ts",
+          "sha256": "433b53745173ce4383004101e9607d97209305c0057e87bf8a903fb76a23347b"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "27de0535dfb5bcca",
+          "sourceQuestion": "13",
+          "sourcePages": [
+            55
+          ]
+        }
+      ],
+      "jobId": "rag-ee284be2595eed10b81b",
+      "packetSha256": "4e07ef57eda2f4f647288f489345db908d24e713a8a6c2051b53172405f5ce51",
+      "candidateSha256": "2295a3170ace22e0b7a10620c858e41eeea03ef0e841950feb654948e4108eaa",
+      "checkReportSha256": "96b276d6f3030d77fd431de7ef8e77a500ad048c4e5b6015e4e5f9d8bc4dbb5e",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "rag-cube-tank-fraction-depth",
+      "level": 6,
+      "title": "Water moved between cube-shaped tanks",
+      "objective": "Find a transferred volume, then use a water-depth ratio and square base area to find a tank edge.",
+      "skillIds": [
+        "P5.S.FRAC.05",
+        "P5.S.VOL.03",
+        "P6.S.RATIO.04",
+        "P6.S.VOL.02",
+        "P6.S.VOL.03"
+      ],
+      "canonicalPatternId": "cubical-tanks-fraction-transfer-depth-ratio-missing-edge",
+      "parameter": "rag-rag-cube-tank-fraction-depth",
+      "entryFile": "src/primary/paperImports/ragCubeTankFractionDepth.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCubeTankFractionDepth.test.ts",
+          "sha256": "856b0fc7c1bec5e6e790564c796cae2ca9db55035575c1fa7e2123f427370e56"
+        },
+        {
+          "path": "src/primary/paperImports/ragCubeTankFractionDepth.ts",
+          "sha256": "e1bfa0036dce673b04848c2011261879385c54cd5b79d011caf7a382d05bd61a"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "df1f5aace7edb1bf",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            34
+          ]
+        }
+      ],
+      "jobId": "rag-f002a8b2b34a5ae4b4ad",
+      "packetSha256": "2cda3441747fc4bad7142bdc3da9a584820ec69885ad20ef0b36a8592e90e37d",
+      "candidateSha256": "418b84b30d7d8df2d51601eae3ce717d694e44a84cde3fda000c1b4cbc8e2273",
+      "checkReportSha256": "48dca54b2018987ccec65a89a1deaa753ba4dc3f07e159e71cd4ec6c1c58d88c",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "rectangular-garden-border",
+      "level": 4,
+      "title": "Find the area of a path and the perimeter of a lawn",
+      "objective": "Use the width of a path on all four sides to find the area it covers and the distance around the lawn inside it.",
+      "skillIds": [
+        "P4.S.AREA.02"
+      ],
+      "canonicalPatternId": "rectangular-border-area-inner-perimeter",
+      "parameter": "rag-rectangular-garden-border",
+      "entryFile": "src/primary/paperImports/ragRectangularBorder.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragRectangularBorder.test.ts",
+          "sha256": "4aad5193ca331ed2dd822f45ced857c8baafc2b6803765525d1ff34c4aa44bfb"
+        },
+        {
+          "path": "src/primary/paperImports/ragRectangularBorder.ts",
+          "sha256": "f6e62b5692c32cddb7230a2ad8f46b661c3788e88ed886d673ef5c8c11c29f0b"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "c8829df2ae7b86ef",
+          "sourceQuestion": "39",
+          "sourcePages": [
+            25
+          ]
+        }
+      ],
+      "jobId": "rag-596c86108c196d615dbd",
+      "packetSha256": "fb8cf6c3b73e96247c4084e898508372afddf969fb20868b6f2f22f0fafad040",
+      "candidateSha256": "58c102baa0602835e8e8fae570219c603ba88382d128fb624752e0fee9c89b44",
+      "checkReportSha256": "00d5d0c651b54f67ebff0be060ab527a26256ee8933b01be4298d11cc8603c72",
+      "status": "checks-passed-source-unaudited"
+    }
+  ]
+}

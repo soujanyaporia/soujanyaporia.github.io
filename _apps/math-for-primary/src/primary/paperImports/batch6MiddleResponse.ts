@@ -4,17 +4,21 @@ export type Batch6MiddleResponseSpec=
  |{kind:'named-pair';options:string[]}
  |{kind:'factor-pairs';total:number;rows:number}
  |{kind:'interval';labels:string[]}
- |{kind:'number-pair';firstLabel:string;secondLabel:string};
+ |{kind:'number-pair';firstLabel:string;secondLabel:string;decimal?:boolean}
+ |{kind:'number-fields';fields:{label:string;decimal?:boolean}[]};
 const array=(value:string):unknown[]|null=>{try{const a:unknown=JSON.parse(value);return Array.isArray(a)?a:null;}catch{return null;}};
+const pairNumber=(value:unknown,decimal=false):boolean=>typeof value==='string'&&(decimal?/^-?(?:\d+(?:\.\d*)?|\.\d+)$/:/^-?\d+$/).test(value.trim())&&(decimal?Number.isFinite(Number(value))&&Math.abs(Number(value))<=Number.MAX_SAFE_INTEGER:Number.isSafeInteger(Number(value)));
 export function structuredResponseReady(spec:Batch6MiddleResponseSpec,value:string):boolean{
  const a=array(value);if(!a)return false;
- if(spec.kind==='number-pair')return a.length===2&&a.every(v=>typeof v==='string'&&/^-?\d+$/.test(v)&&Number.isSafeInteger(Number(v)));
+ if(spec.kind==='number-pair')return a.length===2&&a.every(v=>pairNumber(v,spec.decimal));
+ if(spec.kind==='number-fields')return spec.fields.length>=2&&spec.fields.length<=6&&a.length===spec.fields.length&&a.every((v,i)=>pairNumber(v,spec.fields[i].decimal));
  if(spec.kind==='factor-pairs')return a.length===spec.rows&&a.every(row=>Array.isArray(row)&&row.length===2&&row.every(v=>typeof v==='string'&&/^\d+$/.test(v)&&Number.isSafeInteger(Number(v))));
  return a.length===2&&a.every(v=>typeof v==='string'&&(spec.kind==='interval'?spec.labels:spec.options).includes(v))&&(spec.kind==='interval'||a[0]!==a[1]);
 }
 export function structuredResponseCorrect(spec:Batch6MiddleResponseSpec,expected:string,value:string):boolean{
  if(!structuredResponseReady(spec,value))return false;const a=array(value)!;
- if(spec.kind==='number-pair'){const b=array(expected);return !!b&&b.length===2&&b.every(v=>Number.isSafeInteger(Number(v)))&&Number(a[0])===Number(b[0])&&Number(a[1])===Number(b[1]);}
+ if(spec.kind==='number-pair'){const b=array(expected);return !!b&&b.length===2&&b.every(v=>pairNumber(String(v),spec.decimal))&&Number(a[0])===Number(b[0])&&Number(a[1])===Number(b[1]);}
+ if(spec.kind==='number-fields'){const b=array(expected);return !!b&&structuredResponseReady(spec,expected)&&a.every((v,i)=>Number(v)===Number(b[i]));}
  if(spec.kind==='factor-pairs'){
   const rows=a as string[][],pairs=rows.map(row=>row.map(Number));return pairs.every(([groups,size])=>groups>1&&size>1&&groups*size===spec.total)&&new Set(pairs.map(row=>row.join(':'))).size===spec.rows;
  }
@@ -27,6 +31,7 @@ export function structuredResponseCorrect(spec:Batch6MiddleResponseSpec,expected
 export function formatStructuredResponse(spec:Batch6MiddleResponseSpec,value:string):string{
  const a=array(value);if(!a)return value.trim()?'Incomplete answer':'Not answered';
  if(spec.kind==='number-pair')return `${spec.firstLabel}: ${a[0]||'?'}; ${spec.secondLabel}: ${a[1]||'?'}`;
+ if(spec.kind==='number-fields')return spec.fields.map((field,i)=>`${field.label}: ${typeof a[i]==='string'&&a[i].trim()?a[i]:'?'}`).join('; ');
  if(spec.kind==='factor-pairs')return a.map(row=>Array.isArray(row)?`${row[0]||'?'} groups of ${row[1]||'?'}`:'? groups of ?').join('; ');
  return (a as string[]).map(v=>v||'?').join(spec.kind==='interval'?' to ':' and ');
 }

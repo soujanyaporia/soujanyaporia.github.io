@@ -9,7 +9,11 @@ export function Batch6MiddleAnswer({spec,value,onChange,disabled=false}:{spec:Ba
  }
  if(spec.kind==='number-pair'){
   const selected=[0,1].map(i=>typeof current[i]==='string'?current[i] as string:'');
-  return <fieldset className="batch6-answer"><legend>Enter both numbers.</legend><div style={{display:'flex',gap:12,flexWrap:'wrap'}}>{selected.map((v,i)=><label key={i}>{i===0?spec.firstLabel:spec.secondLabel}<input type="text" inputMode="numeric" maxLength={12} style={{display:'block',width:96,minHeight:44}} disabled={disabled} value={v} onChange={e=>onChange(JSON.stringify(selected.map((old,j)=>i===j?e.target.value:old)))}/></label>)}</div></fieldset>;
+  return <fieldset className="batch6-answer"><legend>Answer both parts.</legend><div style={{display:'grid',gap:16}}>{selected.map((v,i)=><label key={i} style={{display:'grid',gap:6}}>{i===0?spec.firstLabel:spec.secondLabel}<input type="text" inputMode={spec.decimal?'decimal':'numeric'} maxLength={12} style={{display:'block',width:140,maxWidth:'100%',minHeight:44}} disabled={disabled} value={v} onChange={e=>onChange(JSON.stringify(selected.map((old,j)=>i===j?e.target.value:old)))}/></label>)}</div></fieldset>;
+ }
+ if(spec.kind==='number-fields'){
+  const selected=spec.fields.map((_,i)=>typeof current[i]==='string'?current[i] as string:'');
+  return <fieldset className="batch6-answer"><legend>Answer each part.</legend><div style={{display:'grid',gap:16}}>{spec.fields.map((field,i)=><label key={i} style={{display:'grid',gap:6}}>{field.label}<input type="text" inputMode={field.decimal?'decimal':'numeric'} maxLength={12} style={{display:'block',width:140,maxWidth:'100%',minHeight:44}} disabled={disabled} value={selected[i]} onChange={e=>onChange(JSON.stringify(selected.map((old,j)=>i===j?e.target.value:old)))}/></label>)}</div></fieldset>;
  }
  if(spec.kind==='factor-pairs'){
   const rows=Array.from({length:spec.rows},(_,i)=>Array.from({length:2},(_,j)=>Array.isArray(current[i])&&typeof current[i][j]==='string'?current[i][j]:''));
