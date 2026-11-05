@@ -12,9 +12,9 @@ import {goalReachable} from '../../tools/moves';
 
 const plan=(id:string)=>PLAN.find(p=>p.id===id)!;
 describe('Catalogue teaching quality safeguards',()=>{
- // Exhaustive recovery audit across 270 lessons and three seeds; allow slower CI CPUs.
+ // Exhaustive recovery audit across 272 lessons and three seeds; allow slower CI CPUs.
  it('gives every catalogue lesson a depth revision and recovery for every assessment question',()=>{
-  expect(LESSONS).toHaveLength(270);
+  expect(LESSONS).toHaveLength(272);
   for(const lesson of LESSONS){
    expect(lesson.revision,lesson.id).toMatch(/^(catalogue-depth|depth)-/);
    const check=lesson.stages.find(s=>s.kind==='mastery');expect(check,lesson.id).toBeDefined();

@@ -31,8 +31,18 @@ export function transferDifferenceItem(seed:number,index:number,facet:Facet='dir
  if(facet==='reverse')return {key:`transfer-reverse-${index}`,kind:'transfer-check',facet,rep:'table',prompt:`At first, the bottom tray has ${bottom} beads and the top has twice as many. ${moved} beads move from top to bottom. How many more beads are in the top tray now?`,answer:String(gap),tool:table([['Bottom at first',`${bottom} beads`],['Top at first','Twice the bottom'],['Moved to bottom',`${moved} beads`]]),hints:['Find each tray after the move, then compare.'],steps:[`Top at first: ${bottom} × 2 = ${top}.`,`After the move: top ${top} − ${moved} = ${afterTop}; bottom ${bottom} + ${moved} = ${afterBottom}.`,`Difference: ${afterTop} − ${afterBottom} = ${gap}.`],check:'The same number moved out of one tray and into the other.'};
  return {key:`transfer-${facet}-${index}`,kind:'transfer-changing-difference',facet,rep:'table',prompt:`${base} ${target}`,answer:String(answer),unit:'beads',tool:source,hints:['The top lost beads and the bottom gained beads.','Add both changes back to the final difference.'],steps,check:`After the move, ${afterTop} − ${afterBottom} = ${gap}.`};
 }
-const three=(facet:Facet):Gen=>(seed,index)=>threeGroupsItem(seed,index,facet);
-const transfer=(facet:Facet):Gen=>(seed,index)=>transferDifferenceItem(seed,index,facet);
+const three=(facet:Facet):Gen=>(seed,index)=>{
+ const item=threeGroupsItem(seed,index,facet);
+ return {...item,requiresModel:facet==='visual',another:[{title:'Check the groups',steps:item.steps}],simpler:{key:`${item.key}-simpler`,prompt:'There are 35 buttons. Red has 5 more than blue. Blue has twice as many as green. How many buttons remain after setting aside the extra red buttons?',answer:'30',tool:table([['All buttons','35'],['Extra red','5']]),hints:['Set aside the extra red buttons.'],steps:['35 − 5 = 30.']}};
+};
+const transfer=(facet:Facet):Gen=>(seed,index)=>{
+ const item=transferDifferenceItem(seed,index,facet);
+ return {...item,requiresModel:facet==='visual',another:[{title:'Check both trays',steps:item.steps}],simpler:{key:`${item.key}-simpler`,prompt:'A top tray loses 4 beads and a bottom tray gains 4 beads. How much does their difference shrink?',answer:'8',tool:table([['Top','Loses 4'],['Bottom','Gains 4']]),hints:['Count both changes.'],steps:['4 + 4 = 8.']}};
+};
+const challenge=(generator:(facet:Facet)=>Gen):Gen=>(seed,index)=>{
+ const facet:Facet=(['direct','visual','word'] as Facet[])[(index%1000)%3],item=generator(facet)(seed,index);
+ return {...item,kind:`challenge:${item.kind}-${facet}`,hints:['Strategy: use the comparison clues to work out the starting groups.',...item.hints,'Check the result against the original clues.']};
+};
 const threeExample=table([['All buttons','92'],['Red compared with blue','8 more'],['Blue compared with green','3 times as many']]);
 const threeWorked=table([['All buttons','79'],['Red compared with blue','9 more'],['Blue compared with green','2 times as many']]);
 const transferExample=table([['At first','Top has twice the bottom'],['Moved from top to bottom','8 beads'],['Final difference','14 more in top']]);
@@ -45,17 +55,20 @@ const threeRaw:Lesson={...P4_ARCHIVE_META[0],world:'operation-station',track:'st
   {text:'Green is 1 part. Blue is 3 parts, and the red buttons left are also 3 parts.',math:'1 + 3 + 3 = 7 parts',tool:threeExample},
   {text:'Share the 84 equally among the 7 parts, then use 3 parts for blue.',math:'84 ÷ 7 = 12; 3 × 12 = 36',tool:threeExample}]},
  {kind:'notice',title:'What changes first?',text:'Red has 8 more than blue. What makes their counts equal?',tool:threeExample,options:[{text:'Set aside 8 red buttons.',correct:true,reply:'Yes. The remaining red and blue counts match.'},{text:'Add 8 more red buttons.',correct:false,reply:'That makes red even larger.'},{text:'Remove 8 green buttons.',correct:false,reply:'The difference is between red and blue.'}]},
+ {kind:'explore',title:'Build the equal parts',text:'After setting aside the extra red buttons, build 2 red parts, 2 blue parts and 1 green part.',tool:{kind:'ratio',names:['Red','Blue','Green'],units:[1,1,1],unitValue:null},goal:t=>t.kind==='ratio'&&t.units[0]===2&&t.units[1]===2&&t.units[2]===1,goalHint:'Red and blue each need 2 parts; green needs 1.',success:'The matching red and blue groups have 2 parts each, and green has 1: 5 parts in all.'},
  {kind:'worked',title:'Try one step at a time',problem:'There are 79 buttons. Red has 9 more than blue. Blue has twice as many as green. Find blue.',tool:threeWorked,steps:[
   {text:'First set aside the extra red buttons.',tool:threeWorked,ask:{prompt:'How many buttons remain?',answer:'70',hint:'Subtract the extra from the total.'}},
   {text:'Now count red, blue and green parts.',tool:threeWorked,ask:{prompt:'How many equal parts are there?',answer:'5',hint:'Two red parts, two blue parts and one green part.'}},
   {text:'Share the remaining buttons equally among those parts.',tool:threeWorked,ask:{prompt:'How many buttons are in one part?',answer:'14',hint:'Divide the remaining total by the number of parts.'}},
   {text:'Blue has two of those equal parts.',tool:threeWorked,ask:{prompt:'How many blue buttons are there?',answer:'28',hint:'Multiply one part by two.'}},
   {text:'Put the extra back to check all three groups.',math:'14 + 28 + 37 = 79',tool:threeWorked}]},
+ {kind:'reflect',title:'Explain the parts',text:'Think back to the button problem.',prompts:['Why did we set some red buttons aside?','How many equal parts were left?','How did we find the blue group?'],explanation:['Setting aside the extra made red and blue equal.','Red and blue each had two parts and green had one: five parts.','We shared the remaining total into five equal parts, then used two for blue.'],transfer:'If blue had three times as many as green, how many equal parts would remain after setting the extra red buttons aside?'},
  {kind:'practice',mode:'guided',title:'Practise with the clues',count:2,gen:three('direct')},
  {kind:'apply',title:'Try a new collection',count:1,gen:three('word')},
  {kind:'reason',title:'Explain your first move',items:[threeGroupsItem(31,0,'reasoning')]},
  {kind:'mastery',title:'Check the idea',gens:facets.map(facet=>({facet,gen:three(facet)}))},
  {kind:'discovery',title:'One equal part',text:'Set the extra aside, count all equal parts, and use one part to find the requested group.',tool:threeExample,math:'(92 − 8) ÷ 7 = 12'},
+ {kind:'practice',mode:'independent',challenge:true,title:'Use the group clues',count:3,gen:challenge(three)},
 ]};
 const transferRaw:Lesson={...P4_ARCHIVE_META[1],world:'operation-station',track:'standard',revision:'catalogue-depth-2026-11-05-p4-transfer-v1',objectives:[P4_ARCHIVE_META[1].objective],canDo:['Track the loss and gain in a transfer.','Work back to the starting difference.'],prerequisites:['P4.S.MD.01'],representations:['table','bar-model','symbols','story'],misconceptions:[{name:'Count only one side of the transfer',fix:'The top loses and the bottom gains, so both changes affect the difference.'},{name:'Double the final difference',fix:'Find the starting difference before using the original twice-as-many clue.'}],stages:[
  {kind:'readiness',title:'Follow both trays',items:[{key:'transfer-ready',prompt:'The top tray loses 3 beads and the bottom gains 3 beads. By how many beads does the difference shrink?',answer:'6',tool:table([['Top','Loses 3'],['Bottom','Gains 3']]),hints:['Both changes bring the two amounts closer.'],steps:['3 + 3 = 6 beads.']}],booster:[{text:'A move changes both trays, not just one.',math:'3 + 3 = 6'}]},
@@ -65,15 +78,18 @@ const transferRaw:Lesson={...P4_ARCHIVE_META[1],world:'operation-station',track:
   {text:'Add that change back to the final gap to recover the starting gap.',math:'14 + 16 = 30',tool:transferExample},
   {text:'At first the top was two parts and the bottom one part. Their gap was one part, so the top was two parts.',math:'30 × 2 = 60',tool:transferExample}]},
  {kind:'notice',title:'What happens to the difference?',text:'When 8 beads move from the top tray to the bottom, what happens to the difference?',tool:transferExample,options:[{text:'It shrinks by 16.',correct:true,reply:'Yes. One tray loses 8 and the other gains 8.'},{text:'It shrinks by 8.',correct:false,reply:'That counts the change in only one tray.'},{text:'It grows by 16.',correct:false,reply:'The move brings the two amounts closer.'}]},
+ {kind:'explore',title:'Build the starting comparison',text:'Set the top tray to 2 equal parts and the bottom tray to 1. Notice that their difference is 1 part.',tool:{kind:'ratio',names:['Top','Bottom'],units:[1,1],unitValue:null},goal:t=>t.kind==='ratio'&&t.units[0]===2&&t.units[1]===1,goalHint:'The top needs 2 parts and the bottom needs 1.',success:'The top has 2 parts and the bottom has 1. The starting difference is 1 part.'},
  {kind:'worked',title:'Work backwards together',problem:'The top starts with twice the bottom. Move 9 beads down; the top then has 14 more. Find the starting top.',tool:transferWorked,steps:[
   {text:'The top loses 9 and the bottom gains 9.',tool:transferWorked,ask:{prompt:'By how many beads did the difference shrink?',answer:'18',hint:'Add both changes.'}},
   {text:'Add that change back to the final difference of 14.',tool:transferWorked,ask:{prompt:'What was the starting difference?',answer:'32',hint:'Use the change in difference from the last step.'}},
   {text:'The starting top was two equal parts and the bottom was one. Their difference is one part.',tool:transferWorked,ask:{prompt:'How many beads were in the top tray at first?',answer:'64',hint:'The top is two copies of the starting difference.'}},
   {text:'Check both trays after the move.',math:'64 − 9 = 55; 32 + 9 = 41; 55 − 41 = 14',tool:transferWorked}]},
+ {kind:'reflect',title:'Explain the transfer',text:'Think back to the trays.',prompts:['What happened to the top tray?','What happened to the bottom tray?','How did we find the starting difference?'],explanation:['The top lost nine beads.','The bottom gained nine beads.','The difference shrank by eighteen, so we add eighteen back to the final difference.'],transfer:'If six beads moved down instead, by how much would the difference shrink, and why?'},
  {kind:'practice',mode:'guided',title:'Practise working back',count:2,gen:transfer('direct')},
  {kind:'apply',title:'Try another tray story',count:1,gen:transfer('word')},
  {kind:'reason',title:'Explain the change',items:[transferDifferenceItem(31,0,'reasoning')]},
  {kind:'mastery',title:'Check the idea',gens:facets.map(facet=>({facet,gen:transfer(facet)}))},
  {kind:'discovery',title:'Follow both sides',text:'Add back both changes to recover the old difference. Then use the starting comparison.',tool:transferExample,math:'14 + 8 + 8 = 30'},
+ {kind:'practice',mode:'independent',challenge:true,title:'Follow the transfer',count:3,gen:challenge(transfer)},
 ]};
 export const P4_ARCHIVE_LESSONS=[threeRaw,transferRaw].map(lesson=>withDistinctQuestions(withLessonFlow(lesson)));
