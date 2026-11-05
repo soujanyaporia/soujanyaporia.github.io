@@ -1,3 +1,17 @@
+# Current checkpoint — fresh papers and source-pattern batch9, 5 November 2026
+
+This supersedes the older checkpoints below. New papers favour reasoning families absent from the last four papers for the same level/path. Only family IDs are retained in bounded local history. Changed numbers and shuffled choices are not treated as new reasoning. Codes regenerate the exact selected paper independently of history. Focused topics can repeat when their bank is small; the UI says so. Paper, daily-plan and paper-session generators are version10.
+
+Content:661 activities,455 paper configurations,270 guided lessons. Batch9 adds48 configurations (eight per P1–P6), with new givens and complete answers/worked steps. Forms include actual grid copying and length construction, mass dials, capacity chains, symmetry, cube-net opposite faces, completing a square, linked ratios and weighted averages. Only necessary mathematical figures are included. Private per-pattern evidence is in .generated/batch9-{early,middle,upper}-provenance.json. No full-paper conversion credit is awarded to this provisional batch.
+
+Validation:1,016/1,016 app tests in106files and9/9 school API tests pass on the combined release. Batch9 solvers cover960generated cases plus targeted regression fixtures. Build,289SEO checks and289redirect checks pass. In54sampled mixed papers (P1–P6,6/12/18questions,three successive papers), no repeated family sets; these heuristic scheduling keys are not a reviewed count of globally unique patterns. Warm12-candidate selector samples took234ms for P1 and324ms for P6. Browser testing restored and graded a grid drawing after reload, created successive mixed papers, and marked a6/6P4paper using one final check action with worked steps.
+
+School API version14 is live: source47c1cd27a3c40d72de79e1f0a31e0636d166bd4e, deployment appgdep_6aebd968381c81918b8097d91cfc7a3f. Frontend publication status is in .generated/release-status.json. Release checkout: /Users/poriasoujanya/Documents/GitHub/singapore-primary-maths-release. The concurrently published Cloud Pass commit35885d3 was incorporated before final validation; preserve it.
+
+Coverage remains incomplete. All2,406PDFs are downloaded/searchable. The last full source snapshot at87cf0ef recorded12complete inventories,10strictly covered papers and2,394paper sets awaiting full conversion. Batch9 does not refresh the full ledger or50,000-sample audit. Do not infer corpus-wide coverage from configuration counts. Continue adapting source patterns with original wording/numbers, complete answers/steps and necessary figures.
+
+---
+
 # Current checkpoint — paper variety across P1–P6, 5 November 2026
 
 This supersedes older checkpoints. The latest user correction is global: papers must contain different reasoning types, not many numeric variants of the same template. The user has explicitly deferred exhaustive source verification in favour of implementation. Preserve short, complete wording, necessary mathematical figures, touch controls, one final check action, and Voice A.

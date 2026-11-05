@@ -10,7 +10,7 @@ try{
  const {paperReasoningFamily,paperResponseForm}=await server.ssrLoadModule('/src/primary/paperBlueprints.ts');
  const {practicePaperTopics}=await server.ssrLoadModule('/src/primary/practicePaper.ts');
  const rows=ACTIVITIES.filter(a=>a.kind!=='daily'&&a.parameter!=='mixed').map(a=>{
-  const examples=[17,37,83].map((seed,i)=>{const q=makeQuestion(a,seed,i);return {reasoningFamily:paperReasoningFamily(a,q),response:paperResponseForm(q),prompt:q.prompt,context:q.context,display:q.display,figure:q.picture,answer:q.answer,workedSteps:q.workedSteps};});
+  const examples=[17,37,83].map((seed,i)=>{const q=makeQuestion(a,seed,i);return {reasoningFamily:paperReasoningFamily(a,q),response:paperResponseForm(q),prompt:q.prompt,context:q.context,display:q.display,figure:q.picture,gridDrawing:q.gridDrawing,answer:q.answer,workedSteps:q.workedSteps};});
   return {id:a.id,level:a.level,track:a.track,title:a.title,objective:a.objective,skillIds:a.skillIds,parameter:a.parameter,canonicalPatternId:a.canonicalPatternId,observedFamilies:[...new Set(examples.map(e=>e.reasoningFamily))],examples};
  });
  const topics=[1,2,3,4,5,6].flatMap(level=>practicePaperTopics(level,'standard').filter(t=>t.id!=='mixed').map(t=>({level,...t})));
