@@ -3,6 +3,2812 @@ import type {AdaptedPaperPattern} from './catalog';
 /** Checked generated candidates; source associations remain unaudited. */
 export const RAG_PATTERNS:AdaptedPaperPattern[]=[
   {
+    "parameter": "rag-compass-direction-constraints",
+    "level": 5,
+    "title": "Find points by compass direction",
+    "objective": "Compare labelled grid positions using compass directions.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "compass-direction-constraints",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-complete-number-bonds",
+    "level": 1,
+    "title": "Find the missing bond numbers",
+    "objective": "Find missing parts of number bonds and use them to make a new whole.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "complete-a-number-bond",
+    "sourcePaper": "88cd18f73b806771",
+    "sourceParts": [
+      "36"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-computed-whole-missing-addend",
+    "level": 1,
+    "title": "Find the other number in the sum",
+    "objective": "Work out the total on one side, then find the addend that makes both sides equal.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.03",
+      "P1.S.AS.04",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-computed-whole-missing-addend",
+    "sourcePaper": "cb42c4ca733c6baa",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-counted-set-difference",
+    "level": 1,
+    "title": "How many more or fewer?",
+    "objective": "Count two pictured sets, decide which is larger, and subtract to find how many more or fewer.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.04",
+      "P1.S.AS.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-counted-set-difference",
+    "sourcePaper": "6418d2775f9e4227",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-digit-card-extremes",
+    "level": 1,
+    "title": "Build numbers with digit cards",
+    "objective": "Choose the tens card first to make the smallest allowed number or to find both the smallest and greatest numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-extreme-number-from-digit-cards",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-equal-group-size-transfer",
+    "level": 1,
+    "title": "Find and combine equal groups",
+    "objective": "Use the size of one group to find an equal group, then find the combined total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01",
+      "P1.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-equal-group-size-transfer",
+    "sourcePaper": "c4c4a3b91f56d7f8",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-extremes-sum-and-range",
+    "level": 1,
+    "title": "Calculate with the greatest and smallest numbers",
+    "objective": "Find the greatest and smallest numbers in a set, then add them or find how much greater the largest is than the smallest.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.04",
+      "P1.S.AS.05",
+      "P1.S.AS.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-calculate-with-the-extremes",
+    "sourcePaper": "7df72ebce4cb7605",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-immediate-neighbour-in-row",
+    "level": 1,
+    "title": "Who is next to them in the row?",
+    "objective": "Use an ordinal position or a named reference to find the neighbour just after or just before it in a row.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-immediate-neighbour-in-row",
+    "sourcePaper": "cb42c4ca733c6baa",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-number-name-to-digits",
+    "level": 1,
+    "title": "From a number name to digits",
+    "objective": "Read a two-digit number name and write the number using digits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-numerals-and-number-names",
+    "sourcePaper": "b53b212eb6d6e57e",
+    "sourceParts": [
+      "3"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-pictured-group-expression-check",
+    "level": 1,
+    "title": "Check sentences against pictured groups",
+    "objective": "Count equal groups and the items in each group, then choose or reject a sentence that represents the total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-pictured-group-expression-check",
+    "sourcePaper": "c1b982c9cf847a42",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-add-category-counts",
+    "level": 1,
+    "title": "Add counts from a picture graph",
+    "objective": "Find two or three named groups in a picture graph and add their counts.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P1.S.GRAPH.01",
+      "P1.S.AS.01",
+      "P1.S.AS.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "add-category-counts",
+    "sourcePaper": "426881454032a9e8",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-affordable-purchases",
+    "level": 1,
+    "title": "Choose affordable purchases",
+    "objective": "Use price tags to find two items within a budget or to work out the change from one affordable purchase.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-choose-affordable-purchases",
+    "sourcePaper": "60ea576699bf95c3",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-arithmetic-with-tens",
+    "level": 1,
+    "title": "Count on and back with tens",
+    "objective": "Use the value of a ten to add whole tens or take ones away from a whole ten.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02",
+      "P1.S.AS.05",
+      "P1.S.AS.08"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-arithmetic-with-tens",
+    "sourcePaper": "c4568b5d7d3c4d76",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-assign-times-from-clues",
+    "level": 1,
+    "title": "Who came at each time?",
+    "objective": "Read four clock faces and use before, after and last to match each child to a time.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.TIME.01",
+      "P1.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-assign-times-from-clues",
+    "sourcePaper": "cc67a18847ee764b",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-clock-event-order",
+    "level": 1,
+    "title": "Which happened first?",
+    "objective": "Read labelled clocks and use the part of the day to find the first event or put all the events in order.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "order-events-or-find-the-earliest",
+    "sourcePaper": "d8d33dd7eda24c36",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-combined-total-from-difference",
+    "level": 1,
+    "title": "How many do they have together?",
+    "objective": "Use a more or fewer clue to find one child’s quantity, then add both children’s quantities.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.01",
+      "P1.S.AS.04",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-combined-total-from-difference",
+    "sourcePaper": "df75965b9fcdb962",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-compare-and-rank-categories",
+    "level": 1,
+    "title": "Compare rows in a picture graph",
+    "objective": "Compare two named rows, decide whether a named row has the most or fewest objects, and order three labels by their counts.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P1.S.GRAPH.01",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-compare-and-rank-categories",
+    "sourcePaper": "d8d33dd7eda24c36",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-compare-money-amounts",
+    "level": 1,
+    "title": "Compare amounts of money",
+    "objective": "Find how much more or less one amount is, or use the extra amount to find the larger total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-compare-money-amounts-by-difference",
+    "sourcePaper": "cc67a18847ee764b",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-count-and-compare-shape-occurrences",
+    "level": 1,
+    "title": "Shape hunt",
+    "objective": "Count one kind of shape in a picture or find the kind that is missing.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01",
+      "P1.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "count-and-compare-shape-occurrences",
+    "sourcePaper": "3746b2a3baf4392c",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-count-pictured-units",
+    "level": 1,
+    "title": "Count two collections",
+    "objective": "Record each pictured collection separately and use both counts when sharing is requested.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01",
+      "P1.S.WN.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-count-pictured-units",
+    "sourcePaper": "0fa004d1786d5dd9",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-counters-for-cups",
+    "level": 1,
+    "title": "Counters for cups",
+    "objective": "Count a collection and find how many counters are left after filling a given number of equal groups.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01",
+      "P1.S.MD.01",
+      "P1.S.AS.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-adjust-supply-to-required-grouping",
+    "sourcePaper": "c1b982c9cf847a42",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-decode-repeated-sum",
+    "level": 1,
+    "title": "Read the groups in a sum",
+    "objective": "Count the equal addends and use their value to describe or match the groups.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "decode-a-repeated-sum",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-digit-clues",
+    "level": 1,
+    "title": "Find the number from two clues",
+    "objective": "Use clues to find the tens and ones digits and write the two-digit numeral.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02",
+      "P1.S.AS.07"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-recover-number-from-digit-clues",
+    "sourcePaper": "c4568b5d7d3c4d76",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-exact-grouping",
+    "level": 1,
+    "title": "Can we use them all?",
+    "objective": "Check whether all the objects can be shared equally or packed in full bags. Count any left over.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.02",
+      "P1.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "test-exact-grouping-or-find-leftovers",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-follow-successive-additive-changes",
+    "level": 1,
+    "title": "Follow two counting clues",
+    "objective": "Use one comparison to find a count, then use that count in the next comparison. Add the three counts only when asked for their total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.05",
+      "P1.S.AS.04",
+      "P1.S.AS.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-follow-successive-additive-changes",
+    "sourcePaper": "17b54c4ef534afce",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-greatest-and-smallest-values",
+    "level": 1,
+    "title": "Find the greatest or smallest number",
+    "objective": "Read four values and identify the one that is greatest or smallest.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.04",
+      "P1.S.WN.02",
+      "P1.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "greatest-and-smallest-values",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-length-and-height-extremes",
+    "level": 1,
+    "title": "Compare strings and poles",
+    "objective": "Find the shortest, longest or tallest item by comparing all the pictured lengths.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.LENGTH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "length-and-height-extremes",
+    "sourcePaper": "b53b212eb6d6e57e",
+    "sourceParts": [
+      "6"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-match-sets-by-count",
+    "level": 1,
+    "title": "Find the matching box",
+    "objective": "Count the objects in each box and choose the box with exactly the number asked for.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-match-sets-by-count",
+    "sourcePaper": "cb42c4ca733c6baa",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-measurement-totals-and-differences",
+    "level": 1,
+    "title": "Compare two lengths or estimate their total",
+    "objective": "Measure two lengths in centimetres, then find their difference or estimate their total.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.LENGTH.01",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "totals-and-differences-of-two-measurements",
+    "sourcePaper": "b53b212eb6d6e57e",
+    "sourceParts": [
+      "8"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-measuring-one-span-in-repeated-units",
+    "level": 1,
+    "title": "Measure a string with tiles",
+    "objective": "Estimate the length of a string to the nearest whole centimetre using both ends of the string.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.LENGTH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "measuring-one-span-in-repeated-units",
+    "sourcePaper": "915c373cda2dd651",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-missing-place-value-part",
+    "level": 1,
+    "title": "Find the missing tens or ones",
+    "objective": "Use a total and one known part to find how many tens or ones make up the other part.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-missing-place-value-part",
+    "sourcePaper": "7df72ebce4cb7605",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-order-a-list",
+    "level": 1,
+    "title": "Put numbers in order",
+    "objective": "Put four numbers in decreasing order or choose the row that increases at every step.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "order-cards-descending-or-select-increasing-row",
+    "sourcePaper": "17b54c4ef534afce",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-ordinal-lookup-in-a-row",
+    "level": 1,
+    "title": "Count from one end",
+    "objective": "Count from the starting end to find a card or its place.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "ordinal-lookup-in-a-row",
+    "sourcePaper": "630b4101612e5e55",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-pictograph-missing-part",
+    "level": 1,
+    "title": "Find the other boat maker",
+    "objective": "Use a picture graph and a more-than clue to find a pair’s total, then identify the child who supplies the missing part.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P1.S.GRAPH.01",
+      "P1.S.AS.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-pictograph-missing-part-of-total",
+    "sourcePaper": "88cd18f73b806771",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-picture-equations",
+    "level": 1,
+    "title": "Read a picture and make an equation",
+    "objective": "Count pictured objects and use their groups or marks to build or choose a matching equation.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01",
+      "P1.S.AS.02",
+      "P1.S.AS.04",
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-translate-a-picture-into-an-equation",
+    "sourcePaper": "83f52da6fb608310",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-picture-graph-difference",
+    "level": 1,
+    "title": "Compare stamp collections",
+    "objective": "Use a picture graph to find the difference between two named rows or to identify a row from a difference clue.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P1.S.GRAPH.01",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "find-or-apply-a-difference",
+    "sourcePaper": "8647132945c29e61",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-picture-graph-removals",
+    "level": 1,
+    "title": "What is left on the sticker sheet?",
+    "objective": "Read the rows named in the question and find how many stickers remain after some are peeled off.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P1.S.GRAPH.01",
+      "P1.S.AS.02",
+      "P1.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-picture-graph-remainder-after-removals",
+    "sourcePaper": "40cec2b76b4437f7",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-pictured-number-bonds",
+    "level": 1,
+    "title": "Find both parts of a number bond",
+    "objective": "Count two pictured groups or choose two numbers that make a given whole.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01",
+      "P1.S.AS.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-pictured-number-bonds",
+    "sourcePaper": "cb42c4ca733c6baa",
+    "sourceParts": [
+      "6"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-pictured-purchase-shortfall",
+    "level": 1,
+    "title": "How much more money is needed?",
+    "objective": "Count the pictured coins and find how many more cents are needed to pay the price.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-find-a-purchase-shortfall",
+    "sourcePaper": "72abfc1fddbbf59a",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 31,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-pictured-transfer",
+    "level": 1,
+    "title": "Share the pencils",
+    "objective": "Count two pictured sets and find how many pencils to pass so both children have an equal share.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01",
+      "P1.S.AS.05",
+      "P1.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-transfer-to-equalise-holdings",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-plane-shape-outline",
+    "level": 1,
+    "title": "Trace the outline",
+    "objective": "Match an object to a plane shape or name the shape of a shaded face.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-recognize-plane-shape-by-outline",
+    "sourcePaper": "3746b2a3baf4392c",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-poles-and-ribbons",
+    "level": 1,
+    "title": "Compare poles and ribbons",
+    "objective": "Compare the spaces between the ends of each object to order objects or find one between two others.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.LENGTH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-length-and-height-ordering",
+    "sourcePaper": "7df72ebce4cb7605",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-positions-and-sizes-of-groups",
+    "level": 1,
+    "title": "Positions and sizes of groups",
+    "objective": "Count from a marked end to connect each card’s position with its number of dots.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.06",
+      "P1.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-positions-and-sizes-of-groups",
+    "sourcePaper": "fea39e089ffaac41",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-rank-expression-values",
+    "level": 1,
+    "title": "Compare calculation cards",
+    "objective": "Work out each card, then choose the smallest or greatest result or write the results in order.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.05",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "rank-expression-values",
+    "sourcePaper": "587ddd642cf07f4c",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-read-and-total-pictured-money",
+    "level": 1,
+    "title": "Count the money in the picture",
+    "objective": "Read the value on each coin or note to match a coin, find a payment or add savings from two days.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-read-and-total-pictured-money",
+    "sourcePaper": "72abfc1fddbbf59a",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-reconstruct-order",
+    "level": 1,
+    "title": "Who goes where?",
+    "objective": "Use position clues to arrange a row and find a named member’s place.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-reconstruct-order-from-clues",
+    "sourcePaper": "17b54c4ef534afce",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-removal-from-a-starting-amount",
+    "level": 1,
+    "title": "Taking objects away",
+    "objective": "Find the starting count after two groups were taken away, or choose the calculation shown by crossed-out objects.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.02",
+      "P1.S.AS.03",
+      "P1.S.AS.04",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-removal-from-a-starting-amount",
+    "sourcePaper": "72abfc1fddbbf59a",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 22,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-repeated-sum",
+    "level": 1,
+    "title": "One addend for each group",
+    "objective": "Read equal groups, write one addend for each group and find the total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01",
+      "P1.S.AS.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "write-or-evaluate-a-repeated-sum",
+    "sourcePaper": "d8d33dd7eda24c36",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-shape-sorting-rule",
+    "level": 1,
+    "title": "How were the shapes sorted?",
+    "objective": "Compare sets of shapes and identify the features used to sort them.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-identify-sorting-rule",
+    "sourcePaper": "413fd660de0b79de",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-stated-difference",
+    "level": 1,
+    "title": "Find the larger amount",
+    "objective": "Use a known count and how many more to find the larger count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.03",
+      "P1.S.AS.04",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "find-a-quantity-from-a-stated-difference",
+    "sourcePaper": "125e7986d7e09a4d",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-subtract-by-place-value",
+    "level": 1,
+    "title": "Subtract by place value",
+    "objective": "Subtract ones and tens, trading a ten when needed. Find the difference or its tens digit.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.05",
+      "P1.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-subtract-by-place-value",
+    "sourcePaper": "8f3273418f655780",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-subtraction-balance",
+    "level": 1,
+    "title": "Find what to take away",
+    "objective": "Find the number to take away so that both sides give the same answer.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.03",
+      "P1.S.AS.04",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-complete-a-subtraction-equation",
+    "sourcePaper": "13195286a508f902",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-two-item-purchase",
+    "level": 1,
+    "title": "What do the two items cost?",
+    "objective": "Find the prices of two named items and write a number sentence for their total in cents or dollars.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02",
+      "P1.S.AS.04",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "total-purchase-or-denomination-groups",
+    "sourcePaper": "67046643540c8f40",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-rag-two-number-statements",
+    "level": 1,
+    "title": "Fill both number gaps",
+    "objective": "Place two given numbers in the gaps to make a comparison sentence true.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-compare-two-given-quantities",
+    "sourcePaper": "6418d2775f9e4227",
+    "sourceParts": [
+      "3"
+    ],
+    "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-read-group-count-and-size",
+    "level": 1,
+    "title": "How are the pencils grouped?",
+    "objective": "Tell how many groups there are and how many objects are in each group.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "read-group-count-and-group-size",
+    "sourcePaper": "df75965b9fcdb962",
+    "sourceParts": [
+      "5"
+    ],
+    "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-read-tens-and-ones",
+    "level": 1,
+    "title": "Read tens and ones",
+    "objective": "Read a two-digit number or a collection and identify its tens and ones.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "read-tens-and-ones",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-reference-sticks-and-strips",
+    "level": 1,
+    "title": "Compare sticks and strips",
+    "objective": "Use a shared starting line to find which object is shorter or taller than a named object.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.LENGTH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-lengths-relative-to-a-reference",
+    "sourcePaper": "b53b212eb6d6e57e",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-regroup-tens-and-ones",
+    "level": 1,
+    "title": "Make another ten",
+    "objective": "Exchange ten ones for one ten and write the number the tens and ones make.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "build-a-numeral-from-tens-and-ones",
+    "sourcePaper": "b53b212eb6d6e57e",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-select-addends-for-a-target",
+    "level": 1,
+    "title": "Choose numbers for a total",
+    "objective": "Choose three cards for a given total or match each number with its partner for that total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.03",
+      "P1.S.AS.06",
+      "P1.S.AS.07"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-select-addends-for-a-target",
+    "sourcePaper": "125e7986d7e09a4d",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1-share-a-total-equally",
+    "level": 1,
+    "title": "Make a share for everyone",
+    "objective": "Count the gifts or the people, then use every item to make equal shares within 20.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.02",
+      "P1.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "share-a-total-equally",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-consecutive-numbers",
+    "level": 1,
+    "title": "Count in ones",
+    "objective": "Find the number just before a given number or the only whole number between two bounds.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.01",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "consecutive-numbers",
+    "sourcePaper": "b53b212eb6d6e57e",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-construct-specified-grouping",
+    "level": 1,
+    "title": "Make the groups",
+    "objective": "Use every pictured object once to make a given number of groups of a given size.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "construct-a-specified-grouping",
+    "sourcePaper": "233e71bb32823347",
+    "sourceParts": [
+      "7"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-equal-group-equation",
+    "level": 1,
+    "title": "Write an equal-group equation",
+    "objective": "Use the number of groups and the number in each group to write a multiplication equation within 40.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "write-an-equal-group-equation",
+    "sourcePaper": "8647132945c29e61",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-fixed-size-groups",
+    "level": 1,
+    "title": "Make groups of the same size",
+    "objective": "Use every object once to make groups of a given size and count the groups.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "form-or-count-groups-of-a-fixed-size",
+    "sourcePaper": "c1b982c9cf847a42",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-match-expressions-by-value",
+    "level": 1,
+    "title": "Find the matching cards",
+    "objective": "Compare the values on number cards to find matches or the one that differs.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.07",
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "select-equal-sums-differences-and-small-group-totals",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-shape-groups",
+    "level": 1,
+    "title": "Which shapes belong together?",
+    "objective": "Compare the sides and corners of shapes, even when the shapes are turned or have different sizes.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-shapes-with-a-shared-property",
+    "sourcePaper": "c4568b5d7d3c4d76",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-sum-tens-ones",
+    "level": 1,
+    "title": "Write a sum as tens and ones",
+    "objective": "Add within 100 with regrouping, then report the tens and ones of the sum.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-sum-in-tens-and-ones",
+    "sourcePaper": "8f3273418f655780",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p1s-rag-target-difference-pair",
+    "level": 1,
+    "title": "Find two numbers a given distance apart",
+    "objective": "Select two numbers whose difference matches a given number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.05",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-select-pair-with-target-difference",
+    "sourcePaper": "e410bdae9a358b4a",
+    "sourceParts": [
+      "3"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-adjust-total-before-division",
+    "level": 2,
+    "title": "Share two amounts equally",
+    "objective": "Add two amounts, then share their total equally.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-adjust-total-before-division",
+    "sourcePaper": "38b613f301c7e97c",
+    "sourceParts": [
+      "43"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-bucket-triples",
+    "level": 2,
+    "title": "Choose three buckets",
+    "objective": "Choose three different full buckets whose volumes add up to the required number of litres.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.03",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-combination-with-a-target-sum",
+    "sourcePaper": "1268108e5ddb6198",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-bundle-purchases",
+    "level": 2,
+    "title": "Shopping by the pack",
+    "objective": "Use two pack prices to find the total spent or the money left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.02",
+      "P2.S.MD.01",
+      "P2.S.AS.01",
+      "P2.S.MONEY.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-multiple-purchases-at-bundle-prices",
+    "sourcePaper": "f77b748cd890870c",
+    "sourceParts": [
+      "43"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-clock-with-day-period",
+    "level": 2,
+    "title": "Tell the time of day",
+    "objective": "Read both clock hands and use a morning or afternoon clue to write the time with am or pm.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.TIME.01",
+      "P1.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-read-analogue-clock-with-day-period",
+    "sourcePaper": "10cb52207b449dea",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-compare-and-order-fractions",
+    "level": 2,
+    "title": "Put fractions in order",
+    "objective": "Order three unit fractions and find the smallest or greatest of four fractions with the same denominator.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.03",
+      "P2.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "compare-and-order-fractions",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-complete-one-whole",
+    "level": 2,
+    "title": "Find the missing fraction",
+    "objective": "Find the share that completes one whole when one or two portions are known.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P2.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-complete-one-whole",
+    "sourcePaper": "38b613f301c7e97c",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-computed-value-operand",
+    "level": 2,
+    "title": "Find the number that makes both sides equal",
+    "objective": "Work out a sum, a product or a number given in tens and ones, then find the missing number in the equation.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MD.01",
+      "P2.S.MD.02",
+      "P2.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-missing-operand-against-a-computed-value",
+    "sourcePaper": "f77b748cd890870c",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-count-circle-parts",
+    "level": 2,
+    "title": "Count semicircles and quarters",
+    "objective": "Spot semicircles in a joined design and count the quarter-circle pieces that fill several shapes.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01",
+      "P1.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-count-half-disc-or-quarter-disc-regions",
+    "sourcePaper": "49f7c3524352a6e7",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-count-complete-tens",
+    "level": 2,
+    "title": "Count the tens",
+    "objective": "Express a whole total in tens, finding the product first when two factors are shown.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02",
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-complete-tens-in-a-total",
+    "sourcePaper": "32e17a906efdea49",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-currency-set-selection",
+    "level": 2,
+    "title": "Compare sets of coins and notes",
+    "objective": "Count each set in the same unit to match a price or find the most or least money.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.MONEY.02",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-value-of-a-currency-set",
+    "sourcePaper": "aca7192800c05292",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-equivalent-place-value-sums",
+    "level": 2,
+    "title": "Match a number to its parts",
+    "objective": "Use hundreds, tens and ones to match a sum to a number or find a missing part.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02",
+      "P2.S.AS.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-equivalent-place-value-sums",
+    "sourcePaper": "62394329848740a2",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-event-cued-finish-time",
+    "level": 2,
+    "title": "What time does the meal finish?",
+    "objective": "Count on in minutes from a whole hour and use the event to choose am or pm.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.TIME.01",
+      "P1.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-find-a-start-or-finish-time",
+    "sourcePaper": "82566b15dc121f33",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-exact-coin-payment",
+    "level": 2,
+    "title": "Choose coins to pay exactly",
+    "objective": "Choose coins from a tray to make a price, using any coin or count rules given.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.MONEY.03",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "coin-selection-for-exact-payment",
+    "sourcePaper": "38b613f301c7e97c",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-extreme-digit-cards",
+    "level": 2,
+    "title": "Build a number from digit cards",
+    "objective": "Choose three different cards and compare arrangements with an odd or even last digit to find the smallest or largest number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.04",
+      "P2.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-extreme-odd-or-even-numeral-from-cards",
+    "sourcePaper": "93954895e0a6b285",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-fraction-from-part-counts",
+    "level": 2,
+    "title": "Find a fraction from pieces",
+    "objective": "Use counts of equal pieces to write the fraction of one whole used, given away or left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P2.S.FRAC.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "fraction-from-part-counts",
+    "sourcePaper": "221c551bf03e5fab",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-graph-count-qualifying-categories",
+    "level": 2,
+    "title": "Count the labels in a picture graph",
+    "objective": "Count each label once, either across the whole graph or for rows above a given amount.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-count-qualifying-categories",
+    "sourcePaper": "221c551bf03e5fab",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-linked-number-clues",
+    "level": 2,
+    "title": "Solve two number clues",
+    "objective": "Use one clue to find a total or an earlier count, then use it to find the missing number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-linked-additive-comparisons-and-changes",
+    "sourcePaper": "5f1cd3234949aa9c",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-numeral-from-digit-clues",
+    "level": 2,
+    "title": "Find the number from its digits",
+    "objective": "Use place value and arithmetic clues to find a single two- or three-digit number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02",
+      "P2.S.WN.04",
+      "P2.S.MD.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "numeral-from-digit-clues",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-numeral-from-place-counts",
+    "level": 2,
+    "title": "Build a number from its place counts",
+    "objective": "Use hundreds, tens and ones to choose a numeral, exchanging groups of ten when needed.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "numeral-from-place-counts",
+    "sourcePaper": "10cb52207b449dea",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-one-step-amount-change",
+    "level": 2,
+    "title": "Label a removal model",
+    "objective": "Use a part-whole model to find and label an amount removed.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-one-step-amount-change",
+    "sourcePaper": "6ca2c8c2a5074156",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-paired-fact-boxes",
+    "level": 2,
+    "title": "Fill both number sentences",
+    "objective": "Use the number of pictured groups as a factor and as the divisor in a related division fact.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02",
+      "P2.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-product-and-quotient-facts",
+    "sourcePaper": "1a14bf2e2a4e6460",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-pictograph-bead-transfer",
+    "level": 2,
+    "title": "Share beads from one collection",
+    "objective": "Read two named rows of a picture graph and find how many beads to move to make the collections equal.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01",
+      "P2.S.AS.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-scaled-pictograph-transfer-to-equalise-counts",
+    "sourcePaper": "f6c71c3d1bb9efba",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-price-ordering",
+    "level": 2,
+    "title": "Compare three prices",
+    "objective": "Compare dollars first and cents next to choose an item or put three prices in order.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "price-ordering-and-comparison",
+    "sourcePaper": "f3b4650030f086b2",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-additive-comparison",
+    "level": 2,
+    "title": "Compare two amounts",
+    "objective": "Use the smaller amount and the extra part to explain the larger amount.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "additive-comparison",
+    "sourcePaper": "62394329848740a2",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-budget-or-exact-purchases",
+    "level": 2,
+    "title": "What can Mira buy?",
+    "objective": "Count the money or read the budget, then choose one item or two different items that meet the spending rule.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.MONEY.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-purchases-within-budget-or-exact-total",
+    "sourcePaper": "6e8be659a6ce965b",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-category-reference",
+    "level": 2,
+    "title": "Match a category to a reference",
+    "objective": "Read a picture graph key, double, halve or add a stated amount to a reference count, then name the matching category.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01",
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-match-category-to-reference-count",
+    "sourcePaper": "5dc4c075acaf7eee",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-compare-counts-and-totals",
+    "level": 2,
+    "title": "Compare amounts in a table or picture graph",
+    "objective": "Read the rows needed for each amount, then find the difference.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.WN.04",
+      "P2.S.GRAPH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-difference-between-counts-or-totals",
+    "sourcePaper": "dbfc087396095ade",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-compare-match-segments",
+    "level": 2,
+    "title": "Match lengths from end to end",
+    "objective": "Compare two spans, match a line to a reference, and use a shared diagram to identify equal lengths and find a difference.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-compare-and-match-line-segments",
+    "sourcePaper": "f98a53910617dd1d",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-component-contents-mass",
+    "level": 2,
+    "title": "Find the mass of part of a load",
+    "objective": "Read or use a total mass, take away the known masses, and count equal containers when needed.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02",
+      "P2.S.AS.01",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "component-or-contents-mass-by-subtraction",
+    "sourcePaper": "49f7c3524352a6e7",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-component-plane-shape-inventory",
+    "level": 2,
+    "title": "Count the pieces in a paper train",
+    "objective": "Sort the pieces of one picture by shape, record their counts and compare two counts.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01",
+      "P1.S.SHAPE.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "component-plane-shape-inventory",
+    "sourcePaper": "77104df205b7aedf",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-construct-specified-segment",
+    "level": 2,
+    "title": "Draw a longer or shorter line",
+    "objective": "Use a known length and a difference to draw a horizontal segment of the required length.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P1.S.LENGTH.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-construct-specified-segment",
+    "sourcePaper": "2aeb142a17674fc3",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-contributions-at-two-rates",
+    "level": 2,
+    "title": "Count the wheels on the toy shelf",
+    "objective": "Find the wheels on one kind of toy, then use its wheels per toy when asked for a toy count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.AS.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-contributions-at-two-rates",
+    "sourcePaper": "272d925b8db5ea98",
+    "sourceParts": [
+      "45"
+    ],
+    "sourcePage": 22,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-count-unit-fractions-in-wholes",
+    "level": 2,
+    "title": "Count fraction pieces",
+    "objective": "Use the name of a unit fraction to count its pieces in one whole and in several equal-sized wholes.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-count-unit-fractions-in-wholes",
+    "sourcePaper": "0d3a20d4e4384f6b",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-derive-divisor-before-sharing",
+    "level": 2,
+    "title": "Count the shares first",
+    "objective": "Find how many people or days share a total, then divide to find the amount for one.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-derive-divisor-before-sharing",
+    "sourcePaper": "49f7c3524352a6e7",
+    "sourceParts": [
+      "36"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-difference-between-readings",
+    "level": 2,
+    "title": "Compare distances, heights and masses",
+    "objective": "Use a diagram to find the measurements you need, then compare them in the same unit.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.MEASURE.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-difference-between-readings",
+    "sourcePaper": "38b613f301c7e97c",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-digit-place-lookup",
+    "level": 2,
+    "title": "Find the digit or its place",
+    "objective": "Read a digit in a named place, or name the place of a given digit.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "digit-place-and-value",
+    "sourcePaper": "2e7d01e81805d71c",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-divisibility-clues",
+    "level": 2,
+    "title": "Find the number that fits the clues",
+    "objective": "Use times tables to find the only total that fits the grouping clues and the given limits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-divisibility-and-remainder-clues",
+    "sourcePaper": "5dc4c075acaf7eee",
+    "sourceParts": [
+      "40"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-dollars-and-cents-notation",
+    "level": 2,
+    "title": "Read and write money amounts",
+    "objective": "Write a price in figures and identify its whole dollars and remaining cents.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.01",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-dollars-and-cents-notation",
+    "sourcePaper": "63b544a6dfee439a",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-equal-gap-distance",
+    "level": 2,
+    "title": "How far apart are the flags?",
+    "objective": "Count the gaps between two numbered flags and use the length of one gap to find the distance.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.AS.01",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-distance-between-equally-spaced-positions",
+    "sourcePaper": "2b871284f201fa57",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-equal-item-mass-with-another-load",
+    "level": 2,
+    "title": "Weigh the other load",
+    "objective": "Use the mass of equal items and a second weighing or comparison to find one missing mass.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02",
+      "P2.S.MD.02",
+      "P2.S.AS.01",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-equal-item-mass-with-another-load",
+    "sourcePaper": "1268108e5ddb6198",
+    "sourceParts": [
+      "31"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-equal-quantities-and-portions",
+    "level": 2,
+    "title": "Weigh a group of rice sacks",
+    "objective": "Use a level balance to find the mass of one sack, then find the mass of several equal sacks.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02",
+      "P2.S.AS.01",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-equal-quantities-and-portions",
+    "sourcePaper": "cec6897f3f7e3752",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-equal-reference-units",
+    "level": 2,
+    "title": "Measure with equal units",
+    "objective": "Use equal lengths or equal masses to find a total or the number of units that fit.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02",
+      "P2.S.AS.01",
+      "P2.S.MEASURE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "equal-reference-units",
+    "sourcePaper": "2b871284f201fa57",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-extreme-numeral",
+    "level": 2,
+    "title": "Build the smallest or greatest number",
+    "objective": "Choose digit cards for the hundreds, tens and ones places to make the smallest or greatest possible three-digit number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02",
+      "P2.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "extreme-numeral-under-digit-constraints",
+    "sourcePaper": "1268108e5ddb6198",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-extreme-value-choice",
+    "level": 2,
+    "title": "Choose the greatest or smallest value",
+    "objective": "Read each choice as a whole number and select the greatest or smallest value.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.04",
+      "P2.S.WN.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-select-greatest-or-smallest-value",
+    "sourcePaper": "6ca2c8c2a5074156",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-filter-by-line-type",
+    "level": 2,
+    "title": "Trace straight and curved lines",
+    "objective": "Trace outlines and letter strokes to decide which ones fit a line rule.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-filter-by-line-type",
+    "sourcePaper": "aca7192800c05292",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-find-elapsed-time",
+    "level": 2,
+    "title": "How many minutes passed?",
+    "objective": "Find a duration in minutes by reading two clocks or following the minute hand clockwise.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.TIME.01",
+      "P2.S.TIME.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-find-elapsed-time",
+    "sourcePaper": "77104df205b7aedf",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-fractional-share-to-pieces",
+    "level": 2,
+    "title": "Count pieces from a fraction",
+    "objective": "Use a fraction of a whole to count equal pieces, then find how many were used or what fraction is left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P2.S.FRAC.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-fractional-share-to-pieces",
+    "sourcePaper": "2fc0e57203509ccc",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-fractional-subtotal",
+    "level": 2,
+    "title": "Find the parts that make a fraction",
+    "objective": "Choose three like fractions that make a given total, or use a known total to find a missing part and the part left over.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-compose-fractional-subtotal",
+    "sourcePaper": "0d3a20d4e4384f6b",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-full-groups-leftovers",
+    "level": 2,
+    "title": "Count containers for everyone",
+    "objective": "Use full groups and leftovers to find the smallest number of equal-capacity containers or trips that fits everyone.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-full-groups-leftovers",
+    "sourcePaper": "076f0ba283a92bb3",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-grouped-shortfall",
+    "level": 2,
+    "title": "How many more are needed?",
+    "objective": "Multiply equal daily groups over a range of days, then find how many more are needed to reach a target.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-grouped-stock-shortfall-against-target",
+    "sourcePaper": "d7045fb19fe9685e",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-height-from-diagram-offsets",
+    "level": 2,
+    "title": "How tall is the post?",
+    "objective": "Use a level line and equal blocks to find a height in centimetres.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MD.01",
+      "P2.S.MEASURE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-height-from-diagram-offsets",
+    "sourcePaper": "2b871284f201fa57",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-hidden-subtraction-digit",
+    "level": 2,
+    "title": "Find the hidden subtraction digit",
+    "objective": "Use the ones column to recover a hidden digit and check it in the completed subtraction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-hidden-digit-in-three-digit-subtraction",
+    "sourcePaper": "b44bdbae8e099cc0",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-infer-pictograph-key",
+    "level": 2,
+    "title": "Find the value of one circle",
+    "objective": "Find the value of a symbol in a picture graph from a total or a difference.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01",
+      "P2.S.AS.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-infer-the-pictograph-key",
+    "sourcePaper": "49f7c3524352a6e7",
+    "sourceParts": [
+      "40"
+    ],
+    "sourcePage": 21,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-length-from-ruler-endpoints",
+    "level": 2,
+    "title": "Read lengths on a ruler",
+    "objective": "Use both end marks to measure a piece, identify the longest piece or find the total length of equal pieces.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.WN.04",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "length-from-ruler-endpoints",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-linked-comparisons",
+    "level": 2,
+    "title": "Use clues to compare lengths and masses",
+    "objective": "Link comparisons to find the longest ribbon or to identify both the lightest and heaviest parcels.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.MEASURE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-order-from-linked-comparisons",
+    "sourcePaper": "b422a069f1e3bc16",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-mass-equivalences",
+    "level": 2,
+    "title": "Find the mass of one toy",
+    "objective": "Use equal pan loads or a combined scale reading to find a missing mass in grams.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02",
+      "P2.S.AS.01",
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "mass-equivalences-in-diagrams",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-mass-extremes",
+    "level": 2,
+    "title": "Compare bags on weighing scales",
+    "objective": "Read gram dials, choose the lightest and heaviest bags, and find their total mass or the difference between their masses.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-calculate-with-the-two-extremes",
+    "sourcePaper": "2e7d01e81805d71c",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-match-named-solid",
+    "level": 2,
+    "title": "Find the named solid",
+    "objective": "Choose, from several pictured solids, the one that matches a given solid name.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-match-named-solid-to-pictured-object",
+    "sourcePaper": "fa2981ff4c78a391",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-measurements-linked-by-a-difference",
+    "level": 2,
+    "title": "How much longer or heavier?",
+    "objective": "Use a stated difference to find another length or mass. When there are two comparisons, identify the starting measurement for each.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MEASURE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "measurements-linked-by-a-difference",
+    "sourcePaper": "2fc0e57203509ccc",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-missing-denomination-count",
+    "level": 2,
+    "title": "Find the missing number of notes or coins",
+    "objective": "Find how much money is left, then use the value of one note or coin to count how many fit.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.AS.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-missing-denomination-count",
+    "sourcePaper": "d66d82baf08c486f",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-missing-entries-in-related-sums",
+    "level": 2,
+    "title": "Missing numbers in related sums",
+    "objective": "Use equal totals, repeated shapes or place-value columns to find one missing number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MD.01",
+      "P2.S.MD.02",
+      "P2.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-missing-entries-in-related-sums",
+    "sourcePaper": "62394329848740a2",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-money-parts-and-total",
+    "level": 2,
+    "title": "Find a missing amount or a total",
+    "objective": "Work in cents to find a missing part or a two-day total, then write the answer in the unit requested.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MONEY.03",
+      "P2.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "parts-and-total",
+    "sourcePaper": "076f0ba283a92bb3",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-multiplicative-comparison",
+    "level": 2,
+    "title": "Compare two collections",
+    "objective": "Use the smaller collection as one equal part to find a total, a difference or the value of one part.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "multiplicative-comparison",
+    "sourcePaper": "272d925b8db5ea98",
+    "sourceParts": [
+      "35"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-numeral-ordering",
+    "level": 2,
+    "title": "Put numbers in order",
+    "objective": "Compare whole numbers by place value to arrange a list, check a row or complete a strict inequality.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "numeral-ordering-and-inequalities",
+    "sourcePaper": "62394329848740a2",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-odd-even-candidates",
+    "level": 2,
+    "title": "Choose and count odd numbers",
+    "objective": "Use the ones digit to find odd numbers, then check their size, compare them or count them within a range.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.06",
+      "P2.S.WN.04",
+      "P2.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-odd-and-even-candidates",
+    "sourcePaper": "62394329848740a2",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-parts-of-a-whole",
+    "level": 2,
+    "title": "Find the missing third part",
+    "objective": "Use a total and two known parts to find the part that is missing.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-parts-of-a-whole",
+    "sourcePaper": "f3b4650030f086b2",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-payment-cost-balance",
+    "level": 2,
+    "title": "Find the change or the starting amount",
+    "objective": "Use the prices and the money left to find how much was paid, returned or held at first.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MONEY.03",
+      "P2.S.MONEY.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "payment-cost-and-balance",
+    "sourcePaper": "7eda37390bdba407",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-payment-or-change-in-denominations",
+    "level": 2,
+    "title": "Count the money at the till",
+    "objective": "Count notes or coins and use the price to find the change or the amount handed over.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-payment-or-change-in-denominations",
+    "sourcePaper": "b44bdbae8e099cc0",
+    "sourceParts": [
+      "5"
+    ],
+    "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-payment-shortfall",
+    "level": 2,
+    "title": "Find the money still needed",
+    "objective": "Compare the full price with the money saved to find a missing amount or choose a payment that falls short.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.MONEY.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "payment-shortfall",
+    "sourcePaper": "d53e91699966421b",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-pictured-fraction",
+    "level": 2,
+    "title": "Read or match a pictured fraction",
+    "objective": "Use equal parts to name a fraction or find the pictures that show it.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P2.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "read-or-match-a-pictured-fraction",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "7"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-plane-shape-boundary",
+    "level": 2,
+    "title": "Sides and corners of a flat shape",
+    "objective": "Name a flat shape from clues about its sides, or trace its outline to count its corners.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-plane-shape-sides-and-corners",
+    "sourcePaper": "dbfc087396095ade",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 35,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-plausible-measurement-unit",
+    "level": 2,
+    "title": "Fill in the missing unit",
+    "objective": "Use a familiar mass or length to choose the unit that fits a given number.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.04",
+      "P2.S.MEASURE.02",
+      "P2.S.MEASURE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "plausible-real-world-measurement",
+    "sourcePaper": "d53e91699966421b",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-purchase-subtotals-and-balance",
+    "level": 2,
+    "title": "Money before and after shopping",
+    "objective": "Find the cost of the items bought, then use it to find starting money, money left or change.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.MD.01",
+      "P2.S.AS.01",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-purchase-subtotals-and-balance",
+    "sourcePaper": "77104df205b7aedf",
+    "sourceParts": [
+      "31"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-queue-size-from-position",
+    "level": 2,
+    "title": "How many are in the queue?",
+    "objective": "Use a child’s place in a queue to count everyone once, including anyone who joins later.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P1.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-queue-size-from-position",
+    "sourcePaper": "b422a069f1e3bc16",
+    "sourceParts": [
+      "35"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-read-or-draw-one-row",
+    "level": 2,
+    "title": "Read or finish a picture graph",
+    "objective": "Use the key to read one row or build its circles from a count, including a count found from the total.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01",
+      "P2.S.MD.01",
+      "P2.S.MD.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "read-or-draw-one-row",
+    "sourcePaper": "ce6b2d721da5509d",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-recover-a-missing-part",
+    "level": 2,
+    "title": "Find the missing badges",
+    "objective": "Read a picture graph, subtract the known part from the whole and use the key to complete a missing row.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01",
+      "P2.S.AS.01",
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "recover-a-missing-part",
+    "sourcePaper": "2fc0e57203509ccc",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-regroup-fixed-total",
+    "level": 2,
+    "title": "Regroup a fixed total",
+    "objective": "Multiply equal groups to find the total, then divide by a new group size to find how many new groups can be made.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-regroup-fixed-total-group-count",
+    "sourcePaper": "cec6897f3f7e3752",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-repeated-addition-and-multiplication",
+    "level": 2,
+    "title": "One addend for each group",
+    "objective": "Match equal groups, repeated addition and multiplication using the number of groups and the size of each group.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "repeated-addition-and-multiplication",
+    "sourcePaper": "32e17a906efdea49",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p2-rag-repeated-task-start-time",
     "level": 2,
     "title": "Find when the first task began",
@@ -22,6 +2828,1515 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p2-rag-route-and-path-length",
+    "level": 2,
+    "title": "Follow a path",
+    "objective": "Trace the parts of a path to find a distance in metres or compare the lengths of strings.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "route-and-path-length",
+    "sourcePaper": "1629cc0b43c47d75",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-semicircles-per-whole-circle",
+    "level": 2,
+    "title": "Build circles from semicircles",
+    "objective": "Recognise that two semicircles form one circle and count the pieces needed for several circles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.02",
+      "P2.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-semicircles-per-whole-circle",
+    "sourcePaper": "dbfc087396095ade",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 35,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-solid-inventory",
+    "level": 2,
+    "title": "Count the solids in a model",
+    "objective": "Identify the pieces in a model, count each kind and compare two counts.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.SHAPE.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-solid-inventory",
+    "sourcePaper": "6e8be659a6ce965b",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-solid-surface-properties",
+    "level": 2,
+    "title": "Look at the surfaces",
+    "objective": "Select pictured objects by how they roll or by the flat and curved surfaces they have.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-solid-surface-properties",
+    "sourcePaper": "fa2981ff4c78a391",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-successive-times",
+    "level": 2,
+    "title": "Follow two activities on the clock",
+    "objective": "Find when one activity ends and use that time to find when the next activity ends.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.TIME.01",
+      "P2.S.TIME.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-follow-successive-intervals",
+    "sourcePaper": "b422a069f1e3bc16",
+    "sourceParts": [
+      "44"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-sum-or-difference-of-extremes",
+    "level": 2,
+    "title": "Use the smallest and largest numbers",
+    "objective": "Select the smallest and largest of four numbers and find their sum or difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.04",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-sum-or-difference-of-extremes",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-total-at-a-fixed-rate",
+    "level": 2,
+    "title": "Find the total when everyone or every day counts",
+    "objective": "Work out how many people or days to count, then multiply by the amount for each one.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-total-at-a-fixed-rate",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-two-amounts-and-their-difference",
+    "level": 2,
+    "title": "Find the other amount and the total",
+    "objective": "Use the smaller amount and the difference to find the larger amount, then add both amounts and give the total in dollars.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-two-amounts-and-their-difference",
+    "sourcePaper": "3bf01d8339f0b10d",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-two-quantities-sum-difference",
+    "level": 2,
+    "title": "Find the two amounts",
+    "objective": "Use a difference to find a larger count, or use a sum and a difference to find two missing digits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MD.02",
+      "P2.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-two-quantities-sum-and-difference",
+    "sourcePaper": "5f1cd3234949aa9c",
+    "sourceParts": [
+      "31"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-two-successive-amount-changes",
+    "level": 2,
+    "title": "Two changes to a collection",
+    "objective": "Follow two changes to find a final count, or undo them to find the starting count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "two-successive-amount-changes",
+    "sourcePaper": "75d2262274fa00fd",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-two-type-count",
+    "level": 2,
+    "title": "How many cards are blue?",
+    "objective": "Use the card count and the dot total to find how many cards carry fewer dots.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.AS.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-two-types-with-a-known-combined-count",
+    "sourcePaper": "2aeb142a17674fc3",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-unknown-price-after-repeated-purchases",
+    "level": 2,
+    "title": "Find the price of the other item",
+    "objective": "Use the price of one item to find the cost of several, then subtract their cost from the bill. Use the same money unit throughout.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.03",
+      "P2.S.MD.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-unknown-price-after-repeated-purchases",
+    "sourcePaper": "a82793b3fb60eaad",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rag-written-arithmetic-digits",
+    "level": 2,
+    "title": "Find the hidden digits",
+    "objective": "Use place value and regrouping to recover digits in three-digit addition and subtraction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-missing-digits-in-written-arithmetic",
+    "sourcePaper": "2e7d01e81805d71c",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rank-displayed-measurements",
+    "level": 2,
+    "title": "Put measurements in order",
+    "objective": "Compare whole masses, bent lengths and equal pours to find an order or a requested place.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.MEASURE.02",
+      "P2.S.MEASURE.03",
+      "P2.S.WN.04",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "rank-displayed-measurements",
+    "sourcePaper": "a6b7bb5dacda90e7",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-rank-measurements-in-mixed-units",
+    "level": 2,
+    "title": "Compare lengths and masses",
+    "objective": "Compare lengths in metres and centimetres, or read weighing scales in kilograms and grams to order three items.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.01",
+      "P2.S.MEASURE.02",
+      "P2.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-rank-measurements-in-mixed-units",
+    "sourcePaper": "d7045fb19fe9685e",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-stock-changes-involving-equal-groups",
+    "level": 2,
+    "title": "Count what was there and what is left",
+    "objective": "Use equal groups to find how many items were there at first or how many are left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-stock-changes-involving-equal-groups",
+    "sourcePaper": "10cb52207b449dea",
+    "sourceParts": [
+      "44"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-successive-measurement-changes",
+    "level": 2,
+    "title": "Follow two changes in a measurement",
+    "objective": "Use the middle measurement to find a final length or the mass that was added.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.AS.01",
+      "P2.S.MEASURE.01",
+      "P2.S.MEASURE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "successive-measurement-changes",
+    "sourcePaper": "d7045fb19fe9685e",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-three-money-amounts",
+    "level": 2,
+    "title": "Compare three amounts of money",
+    "objective": "Use price or savings clues to find a difference and, when asked, the total of three amounts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.02",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-differences-among-three-amounts",
+    "sourcePaper": "10cb52207b449dea",
+    "sourceParts": [
+      "45"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-ticket-costs-by-category",
+    "level": 2,
+    "title": "Tickets for a puppet show",
+    "objective": "Match tickets to their prices and find the cost for one group or the whole family.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MONEY.04",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-quantity-unit-price-and-total-cost",
+    "sourcePaper": "ce8d5bacee0a7814",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-total-from-smaller-count-and-difference",
+    "level": 2,
+    "title": "Count what is in both boxes",
+    "objective": "Use the smaller count and the difference to find the larger count, then add both counts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "sum-and-difference-of-two-quantities",
+    "sourcePaper": "6e8be659a6ce965b",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 20,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p2-words-to-numeral",
+    "level": 2,
+    "title": "Read a number in words",
+    "objective": "Write or choose the three-digit numeral for a number given in words.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "number-names",
+    "sourcePaper": "2db654670035ec8e",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-additive-comparisons",
+    "level": 3,
+    "title": "Find the larger amount",
+    "objective": "Use a stated difference to find a larger amount, then combine the counts or follow a second comparison when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "additive-comparisons",
+    "sourcePaper": "3fae49632996c045",
+    "sourceParts": [
+      "41"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-bar-graph-multiple-match",
+    "level": 3,
+    "title": "Find the matching bar",
+    "objective": "Read a named bar, multiply or divide its count, and find the design with that many bookmarks.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "bar-graph-multiplicative-category-match",
+    "sourcePaper": "3fae49632996c045",
+    "sourceParts": [
+      "32"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-bar-graph-pair-with-target-sum",
+    "level": 3,
+    "title": "Find two bars with a target total",
+    "objective": "Read a bar graph and choose two different bars whose values add to a named bar or to a stated total.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-bar-graph-pair-with-target-sum",
+    "sourcePaper": "fd24add1687e8c02",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-button-bag-counts",
+    "level": 3,
+    "title": "Count the blue and yellow bags",
+    "objective": "Use the total number of bags and buttons to find how many bags are of each colour.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.03",
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-two-rate-allocation",
+    "sourcePaper": "afad737a5ae1f366",
+    "sourceParts": [
+      "45"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-cash-collections",
+    "level": 3,
+    "title": "How much are the coins and notes worth?",
+    "objective": "Use counts and denominations to compare piles of coins, choose an affordable item or find a new balance.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.04",
+      "P2.S.MONEY.02",
+      "P2.S.MONEY.03",
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-value-and-compare-cash-collections",
+    "sourcePaper": "486e093cc6149289",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-chart-count-gaps",
+    "level": 3,
+    "title": "Compare counts on a bar graph",
+    "objective": "Find a gap between counts by reading a scale, combining groups or checking a claim.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-compare-two-counts-by-subtraction",
+    "sourcePaper": "adfe6edcbcd6dd42",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-chart-missing-part",
+    "level": 3,
+    "title": "Find the part missing from a chart",
+    "objective": "Read the known groups, use the graph key when needed, and subtract their sum from the whole.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P2.S.GRAPH.01",
+      "P3.S.AS.01",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-find-a-missing-part-from-the-total",
+    "sourcePaper": "1aaab8c6260c49f1",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-choose-an-affordable-combination",
+    "level": 3,
+    "title": "Choose items within a budget",
+    "objective": "Add the prices of two or three different items and compare the total with a budget. For least change, find the largest total the shopper can pay.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-choose-an-affordable-combination",
+    "sourcePaper": "486e093cc6149289",
+    "sourceParts": [
+      "39"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-clock-correction",
+    "level": 3,
+    "title": "What time will the clock show?",
+    "objective": "Use the minutes a clock is ahead or behind to find a later reading or the correct time.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02",
+      "P2.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-correct-fast-or-slow-clock",
+    "sourcePaper": "230794a6063484f9",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-clock-phrases",
+    "level": 3,
+    "title": "Minutes past and minutes to",
+    "objective": "Read both clock hands and tell the time in minutes past the hour or minutes to the next hour.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-analogue-clock-minutes-past-and-to",
+    "sourcePaper": "bc266b493db9bbf3",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-coin-exchange",
+    "level": 3,
+    "title": "Swap money for coins",
+    "objective": "Find the amount to be returned in coins and work out how many coins have that value.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.03",
+      "P2.S.MONEY.04",
+      "P3.S.MONEY.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-exchange-into-one-denomination",
+    "sourcePaper": "486e093cc6149289",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-complete-tens-or-hundreds",
+    "level": 3,
+    "title": "Count complete tens or hundreds",
+    "objective": "Count all the full groups of ten or one hundred in a number, including a number found by adding or dividing.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "complete-tens-or-hundreds",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-consecutive-finish-time",
+    "level": 3,
+    "title": "When does puppet practice finish?",
+    "objective": "Count on through each activity and any break to find the finish time.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-find-a-start-or-finish-time",
+    "sourcePaper": "4915c58d8c95c9cf",
+    "sourceParts": [
+      "34"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-count-complete-pieces-or-containers",
+    "level": 3,
+    "title": "Cut pieces and fill containers",
+    "objective": "Count whole pieces or full containers, then find the length left, the number still there or the difference between two counts.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MD.04",
+      "P3.S.MD.02",
+      "P3.S.MEASURE.03",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-count-complete-pieces-or-containers",
+    "sourcePaper": "28dc633d1e56c569",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-counted-cash-transactions",
+    "level": 3,
+    "title": "Count the coins, then find the missing amount",
+    "objective": "Decide whether the coins show money held or money paid, then find a price or a balance.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P2.S.MONEY.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-payment-and-change-from-counted-cash",
+    "sourcePaper": "0918832e454e0457",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-craft-club-equal-shares",
+    "level": 3,
+    "title": "Share beads at craft club",
+    "objective": "Count everyone who shares the beads, then find how many beads each child gets.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.04",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-sharing-with-derived-recipient-count",
+    "sourcePaper": "545967e6c0951f28",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-derived-purchase",
+    "level": 3,
+    "title": "Money left after a purchase",
+    "objective": "Find a missing price or share before working out change, or use the money left to work out another amount.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-purchase-with-a-derived-amount",
+    "sourcePaper": "789c98d31f287f3e",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-digit-length-extremes",
+    "level": 3,
+    "title": "Make the largest and smallest numbers",
+    "objective": "Use place value and the ones digit to build an extreme number, then compare by subtraction when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.WN.03",
+      "P2.S.WN.06",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-extremes-of-a-given-length",
+    "sourcePaper": "afad737a5ae1f366",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-digit-place-value-lookup",
+    "level": 3,
+    "title": "Find what a digit is worth",
+    "objective": "Locate a digit in a four-digit number, compare its value across numbers and find its value after addition.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "digit-place-and-value-lookup",
+    "sourcePaper": "f63d2d8a15616961",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-distance-over-repeated-laps",
+    "level": 3,
+    "title": "Distance around a field",
+    "objective": "Find the distance around a rectangle and use it to work out the total distance for several full laps.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02",
+      "P3.S.MD.03",
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-distance-over-repeated-laps",
+    "sourcePaper": "982acc4c201f82cc",
+    "sourceParts": [
+      "36"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-duration-increases",
+    "level": 3,
+    "title": "Compare the time three children took",
+    "objective": "Use two time differences to find the longest duration and how much longer it is than the shortest.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02",
+      "P2.S.TIME.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-compare-durations-by-successive-increases",
+    "sourcePaper": "230794a6063484f9",
+    "sourceParts": [
+      "43"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-equal-edge-perimeter",
+    "level": 3,
+    "title": "Count the edges around a shape",
+    "objective": "Count equal lengths around a shape and use the length of one to find its perimeter.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "perimeter-by-counting-equal-edges",
+    "sourcePaper": "a814548353b382a0",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-equal-square-tiles",
+    "level": 3,
+    "title": "Area covered by square tiles",
+    "objective": "Use the size and number of equal squares to find the area they cover.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.01",
+      "P3.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-area-covered-by-equal-squares",
+    "sourcePaper": "789c98d31f287f3e",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-equivalent-fraction-forms",
+    "level": 3,
+    "title": "Find the fraction that fits",
+    "objective": "Use equivalent forms to spot a different value or find a fraction equal to two given fractions.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.01",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-equivalent-fraction-forms",
+    "sourcePaper": "2d6d598115a27657",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-even-list-product",
+    "level": 3,
+    "title": "Multiply the even numbers",
+    "objective": "Use the ones digits to find the even numbers in a list, then multiply them together.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.06",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-parity-filtered-calculation",
+    "sourcePaper": "afad737a5ae1f366",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-extreme-numeral-allowed-ending",
+    "level": 3,
+    "title": "Build a four-digit number",
+    "objective": "Compare possible last digits to build the smallest or greatest number that meets a rule.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.WN.03",
+      "P2.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "extreme-numeral-with-an-allowed-ending",
+    "sourcePaper": "afad737a5ae1f366",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-fair-cash-tins",
+    "level": 3,
+    "title": "Compare two cash tins after a payment",
+    "objective": "Find the new difference after one tin pays out money, then use equal shares to find the amount in the other tin.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-reference-amount-and-its-multiple",
+    "sourcePaper": "4c6bf7a9f4042669",
+    "sourceParts": [
+      "43"
+    ],
+    "sourcePage": 21,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-fraction-relationship",
+    "level": 3,
+    "title": "Fill the gaps in equal fractions",
+    "objective": "Use a known fraction or one whole to find missing top and bottom numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.04",
+      "P3.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-missing-entries-in-a-fraction-relationship",
+    "sourcePaper": "3fae49632996c045",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-graph-category-extremes",
+    "level": 3,
+    "title": "Find the most or the least",
+    "objective": "Name the category with the most or least, using the scale, a total or a clue about a missing label.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P2.S.GRAPH.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "identify-the-smallest-or-greatest-category",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-graphed-count-cost-in-dollars",
+    "level": 3,
+    "title": "Find the cost of the beads",
+    "objective": "Read a quantity from a scaled graph and use a price in cents to find the cost in dollars.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P3.S.MD.03",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-value-from-graphed-counts",
+    "sourcePaper": "2d6d598115a27657",
+    "sourceParts": [
+      "40"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-grouping-after-exclusions",
+    "level": 3,
+    "title": "Pack the beads that are left",
+    "objective": "Subtract the beads set aside, then find the number of packs, the beads left over or the number in each pack.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04",
+      "P3.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "grouping-after-exclusions",
+    "sourcePaper": "020f450bb5af9e36",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-interval-values",
+    "level": 3,
+    "title": "Which numbers fit between the limits?",
+    "objective": "Use the two limits to list the odd numbers or times-table answers that fit. Count them, add them or find the numbers that made them.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.03",
+      "P2.S.WN.06",
+      "P3.S.MD.01",
+      "P3.S.MD.04",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-regularly-spaced-values-in-an-interval",
+    "sourcePaper": "a6fa90eb65c0727c",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-joined-shapes-perimeter",
+    "level": 3,
+    "title": "Around two joined squares",
+    "objective": "Find the distance around two joined squares, leaving out the edge they share.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-perimeter-of-joined-shapes",
+    "sourcePaper": "758b25a8f639ba3f",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-match-bar-values-and-labels",
+    "level": 3,
+    "title": "Find the children from their bars",
+    "objective": "Name the two children with equal counts, then find a child from a difference in counts.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-match-bar-values-and-labels",
+    "sourcePaper": "4915c58d8c95c9cf",
+    "sourceParts": [
+      "31"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-minutes-to-hours-and-minutes",
+    "level": 3,
+    "title": "Find the whole hours and minutes left over",
+    "objective": "Group a duration into whole hours and keep track of the minutes left over.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.TIME.02",
+      "P3.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-convert-duration-units",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-missing-boundary-lengths",
+    "level": 3,
+    "title": "Trace a stepped perimeter",
+    "objective": "Use matching lengths to find the distance around the requested outline.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "perimeter-from-missing-boundary-lengths",
+    "sourcePaper": "230794a6063484f9",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-missing-digits-in-written-arithmetic",
+    "level": 3,
+    "title": "Which digits fit the boxes?",
+    "objective": "Use place value, exchanges and carries to find a digit in a written calculation.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "missing-digits-in-written-arithmetic",
+    "sourcePaper": "272123f38d08393d",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-missing-part-or-shortfall",
+    "level": 3,
+    "title": "Find the missing amount",
+    "objective": "Use the same unit for all amounts, find a missing part, and compare the parts when asked.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MEASURE.01",
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-missing-part-or-shortfall",
+    "sourcePaper": "a814548353b382a0",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-money-difference-multiple-two-amounts",
+    "level": 3,
+    "title": "Find money from a difference and a multiple",
+    "objective": "Use the number of extra equal parts to share a money difference, then rebuild a starting amount or a combined total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04",
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-money-difference-multiple-two-amounts",
+    "sourcePaper": "3df4f0af406f9c94",
+    "sourceParts": [
+      "45"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-money-two-amounts-gap",
+    "level": 3,
+    "title": "Find the cost of both items",
+    "objective": "Use a price difference to find the dearer item’s price, then add both prices.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-money-two-amounts-separated-by-a-gap",
+    "sourcePaper": "3588a62872e6aad3",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-multiple-with-an-additive-change",
+    "level": 3,
+    "title": "Compare two jars of beads",
+    "objective": "Use a comparison before or after beads are added to find a jar’s count, then combine the counts when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-multiple-with-an-additive-change",
+    "sourcePaper": "adfe6edcbcd6dd42",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-named-place-value-changes",
+    "level": 3,
+    "title": "Count in tens, hundreds and thousands",
+    "objective": "Use place-value units to find a new number or count the jumps between two numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "changes-in-named-place-value-units",
+    "sourcePaper": "0a61d0a1f55f47b5",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-numerals-and-number-names",
+    "level": 3,
+    "title": "Reading and writing four-digit numbers",
+    "objective": "Write a named number in digits, or compare four numbers and write the greatest in words.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.WN.02",
+      "P3.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "numerals-and-number-names",
+    "sourcePaper": "3c1726989dbd14b7",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-numerals-from-digit-clues",
+    "level": 3,
+    "title": "Find the number from its digit clues",
+    "objective": "Use clues about digits in different places to find a missing digit or a whole number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.AS.01",
+      "P2.S.WN.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "numerals-from-digit-clues",
+    "sourcePaper": "9fbc9ff84fff64c8",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-ordering-and-list-extremes",
+    "level": 3,
+    "title": "Compare four numbers",
+    "objective": "Use place value to order four numbers from largest to smallest or to find the sum or difference of the two extremes.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.03",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "ordering-and-list-extremes",
+    "sourcePaper": "f63d2d8a15616961",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-place-value-composition",
+    "level": 3,
+    "title": "Build and split four-digit numbers",
+    "objective": "Use thousands, hundreds, tens and ones to build a number or find a part of its expansion.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "place-value-composition-and-expansion",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-place-value-difference",
+    "level": 3,
+    "title": "Take away hundreds, tens and ones",
+    "objective": "Work out how much to take away when it is given in place-value units, then subtract it from a number or a product.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.AS.01",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-difference-after-place-value-conversion",
+    "sourcePaper": "3df4f0af406f9c94",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-place-value-differences",
+    "level": 3,
+    "title": "How far apart are the values?",
+    "objective": "Read two amounts from their place values and subtract the smaller amount from the larger.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "difference-of-place-value-quantities",
+    "sourcePaper": "6c8148ab5c6b34b4",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-purchase-shortfall",
+    "level": 3,
+    "title": "How much more money is needed?",
+    "objective": "Find the total cost or the money a shopper has, then work out how much more the shopper needs.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-purchase-shortfall",
+    "sourcePaper": "9cd5402bed467192",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-quantity-and-its-multiple",
+    "level": 3,
+    "title": "A count and its multiple",
+    "objective": "Use equal groups to find a total, a smaller count or an increase, and tell when a count cannot be found.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.MD.03",
+      "P3.S.MD.04",
+      "P3.S.AS.01",
+      "P3.S.GRAPH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "quantity-and-its-multiple",
+    "sourcePaper": "9fbc9ff84fff64c8",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-quantity-priced-balance",
+    "level": 3,
+    "title": "Money before and after shopping",
+    "objective": "Use a unit price and a quantity to find change, starting money or the cost of another purchase.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-payment-balance-with-quantity-priced-purchases",
+    "sourcePaper": "97053dedd515b722",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-quotient-and-remainder",
+    "level": 3,
+    "title": "Find the quotient and the remainder",
+    "objective": "Divide a three-digit number by one digit and report both the whole-number quotient and the amount left over.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.04",
+      "P3.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-whole-number-division",
+    "sourcePaper": "afad737a5ae1f366",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-add-selected-entries",
+    "level": 3,
+    "title": "Count sales over three days",
+    "objective": "Read a scaled bar graph and add every count from the first named day to the last.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-add-selected-entries",
+    "sourcePaper": "020f450bb5af9e36",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-additive-comparison",
+    "level": 3,
+    "title": "Use a difference to find a missing count",
+    "objective": "Find the other count from a stated difference, then find a total or the amount left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-additive-comparison",
+    "sourcePaper": "486e093cc6149289",
+    "sourceParts": [
+      "42"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-combined-line-tests",
+    "level": 3,
+    "title": "Find both line relationships",
+    "objective": "Find parallel and perpendicular pairs in one figure, or identify one line that fits two given relationships.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.LINES.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-combined-parallel-and-perpendicular-conditions",
+    "sourcePaper": "3fae49632996c045",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-combined-measurements",
+    "level": 3,
+    "title": "Combine two lengths using their difference",
+    "objective": "Find a missing length from a difference, then use both lengths to find a total or half of that total.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-combined-measurements-from-a-difference",
+    "sourcePaper": "047f357214aebe3e",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-common-base-quantities",
+    "level": 3,
+    "title": "Find the smallest of three collections",
+    "objective": "Use two successive differences and a total to find the smallest collection.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-three-quantities-with-a-common-base",
+    "sourcePaper": "230794a6063484f9",
+    "sourceParts": [
+      "35"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p3-rag-common-item-prices",
     "level": 3,
     "title": "Find prices from two purchases",
@@ -38,6 +4353,204 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "37"
     ],
     "sourcePage": 20,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-common-multiple-exact-grouping",
+    "level": 3,
+    "title": "Find a number that groups exactly two ways",
+    "objective": "Use two multiplication tables to find a number that divides exactly by both group sizes, within any stated bounds.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.01",
+      "P3.S.MD.02",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-common-multiple-exact-grouping",
+    "sourcePaper": "020f450bb5af9e36",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-common-reference-offsets",
+    "level": 3,
+    "title": "Compare amounts using a common reference",
+    "objective": "Use how much more or less each group has than one group to find the largest amount, a missing count or a total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-offsets-from-a-common-reference",
+    "sourcePaper": "6c8148ab5c6b34b4",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-dollars-and-cents-notation",
+    "level": 3,
+    "title": "Write a money amount",
+    "objective": "Read an amount in words, write a price with two cents digits, and group total cents into dollars and leftover cents.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MONEY.01",
+      "P2.S.MONEY.03",
+      "P3.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-dollars-and-cents-notation",
+    "sourcePaper": "486e093cc6149289",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-extreme-digit-cards",
+    "level": 3,
+    "title": "Build a four-digit number from cards",
+    "objective": "Choose digits by place value to make the smallest number or the greatest number within two limits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.01",
+      "P3.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-extreme-numeral-from-digit-cards",
+    "sourcePaper": "8aac1ca7a5c9c83a",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-find-parallel-pair",
+    "level": 3,
+    "title": "Find the parallel pair",
+    "objective": "Identify and name both lines that stay the same distance apart.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.LINES.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-parallel-line-identification",
+    "sourcePaper": "97053dedd515b722",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-fractions-from-labelled-representations",
+    "level": 3,
+    "title": "Read fractions from a picture",
+    "objective": "Use equal areas or equal steps on a line to find a fraction and write it in simplest form.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.02",
+      "P3.S.FRAC.01",
+      "P2.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "fractions-from-labelled-representations",
+    "sourcePaper": "047f357214aebe3e",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-graduated-scale-readings",
+    "level": 3,
+    "title": "Read the spaces on a scale",
+    "objective": "Use the labelled marks to read a scale, then add readings or change units.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MEASURE.01",
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03",
+      "P3.S.AS.01",
+      "P2.S.MEASURE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-graduated-scale-readings",
+    "sourcePaper": "a814548353b382a0",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-grouped-scale-masses",
+    "level": 3,
+    "title": "Find masses from weighing scales",
+    "objective": "Use equal pan loads or two scale readings to find the mass of one object or a group.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02",
+      "P3.S.MD.04",
+      "P3.S.AS.01",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "mass-from-grouped-objects-on-scales",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-journey-duration-parts",
+    "level": 3,
+    "title": "A coach trip with a stop",
+    "objective": "Convert a ride time to minutes and add both rides and the stop to find the whole trip time.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02",
+      "P2.S.TIME.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-combine-or-separate-duration-parts",
+    "sourcePaper": "c1b63bc22a20a172",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-linked-comparisons",
+    "level": 3,
+    "title": "Count the buttons in three tins",
+    "objective": "Use a difference and a times-as-many clue to find one collection or the total of three collections.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-linked-additive-and-multiplicative-comparisons",
+    "sourcePaper": "3588a62872e6aad3",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -61,6 +4574,767 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p3-rag-measurement-additive-comparisons",
+    "level": 3,
+    "title": "Compare masses, heights and distances",
+    "objective": "Use differences to find a missing measurement and combine lengths in metres and kilometres.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-measurement-additive-comparisons",
+    "sourcePaper": "047f357214aebe3e",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-money-shares",
+    "level": 3,
+    "title": "Find the smallest amount",
+    "objective": "Use the differences to take the extra dollars out of a total, then divide what is left into equal parts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04",
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-shares-from-total-and-additive-gaps",
+    "sourcePaper": "272123f38d08393d",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-order-measurements-across-units",
+    "level": 3,
+    "title": "Compare four measurements",
+    "objective": "Use the same unit for four readings, then put them in order or find the largest or smallest.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03",
+      "P3.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-order-measurements-across-units",
+    "sourcePaper": "9fbc9ff84fff64c8",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-overnight-and-noon",
+    "level": 3,
+    "title": "How long did it last?",
+    "objective": "Count through midnight to compare two finish times, or count through noon to find a duration in minutes.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02",
+      "P3.S.TIME.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-find-elapsed-time",
+    "sourcePaper": "c4629cf1343cde1c",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 20,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-part-to-whole-counts",
+    "level": 3,
+    "title": "Which count makes the whole?",
+    "objective": "Use counts to write a fraction for the requested part of a whole or collection, and simplify it when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.02",
+      "P2.S.FRAC.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-part-to-whole-fractions-from-quantities",
+    "sourcePaper": "2038be6df09096f3",
+    "sourceParts": [
+      "31"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-piece-and-fraction-removals",
+    "level": 3,
+    "title": "How much of the strip?",
+    "objective": "Use equal pieces and a fraction of the original strip to find the fraction saved or used.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.01",
+      "P3.S.FRAC.05",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-removals-in-pieces-and-fractions",
+    "sourcePaper": "2d6d598115a27657",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-ranking-fractions",
+    "level": 3,
+    "title": "Rank fractions",
+    "objective": "Compare unlike fractions to put them largest first or choose the largest share.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "ranking-fractions",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-read-clock-interval",
+    "level": 3,
+    "title": "How many minutes passed?",
+    "objective": "Read a time from clock hands or words, then count forward in minutes to the finish.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02",
+      "P2.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-read-clock-times-to-find-an-interval",
+    "sourcePaper": "2d6d598115a27657",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-repeated-equal-shares",
+    "level": 3,
+    "title": "Equal shares of one whole",
+    "objective": "Combine equal unit fractions, find the fraction left, and count how many unit fractions make one whole.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.05",
+      "P3.S.FRAC.02",
+      "P2.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-repeated-equal-shares",
+    "sourcePaper": "de8e38631e5eaba1",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-sharing-a-combined-total",
+    "level": 3,
+    "title": "Share two collections equally",
+    "objective": "Find how many items there are in both collections, then work out how many go in each equal group.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-sharing-a-combined-total",
+    "sourcePaper": "c1b63bc22a20a172",
+    "sourceParts": [
+      "32"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-shortest-route",
+    "level": 3,
+    "title": "Find the shortest route",
+    "objective": "Compare whole routes in metres and find the shortest journey that visits the named stops in order.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MEASURE.03",
+      "P3.S.MEASURE.02",
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-shortest-route",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-sum-of-segments-or-lengths",
+    "level": 3,
+    "title": "Find the length of a bike ride",
+    "objective": "Add two route lengths in metres, then give the total in kilometres and metres.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MEASURE.03",
+      "P3.S.MEASURE.02",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-sum-of-segments-or-lengths",
+    "sourcePaper": "97053dedd515b722",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-three-fractional-shares",
+    "level": 3,
+    "title": "Add three parts of one whole",
+    "objective": "Add three shares of the same whole using a common denominator and give the total in simplest form.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.05",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-fraction-arithmetic",
+    "sourcePaper": "020f450bb5af9e36",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-three-linked-amounts",
+    "level": 3,
+    "title": "Follow three money clues",
+    "objective": "Use a price difference and a multiple to find three amounts, compare them and find their total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-three-amounts-linked-by-gaps-and-multiples",
+    "sourcePaper": "a814548353b382a0",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-two-measured-amounts",
+    "level": 3,
+    "title": "Two amounts related by a multiple",
+    "objective": "Use equal shares to find a combined measure, compare two masses or split a total length.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.MD.04",
+      "P3.S.MD.03",
+      "P3.S.AS.01",
+      "P3.S.MEASURE.02",
+      "P3.S.MEASURE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-two-amounts-related-by-a-multiple",
+    "sourcePaper": "3c1726989dbd14b7",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rag-two-quantities-sum-difference",
+    "level": 3,
+    "title": "Two numbers and their difference",
+    "objective": "Use a difference to find the total of two quantities, or use their total and difference to find the smaller quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "two-quantities-sum-and-difference",
+    "sourcePaper": "545967e6c0951f28",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 22,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rank-race-durations",
+    "level": 3,
+    "title": "Put the runners in finishing order",
+    "objective": "Express three race times in minutes and order the runners from fastest to slowest.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.TIME.02",
+      "P2.S.TIME.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-compare-or-rank-durations",
+    "sourcePaper": "8c512b7d422cc6c8",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rectangle-area-from-length",
+    "level": 3,
+    "title": "Find the breadth, then the area",
+    "objective": "Use the length and a stated multiple to work out the breadth of a rectangle, then find its area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P3.S.MD.04",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-rectangle-area-from-side-lengths",
+    "sourcePaper": "020f450bb5af9e36",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-rectangle-double-breadth",
+    "level": 3,
+    "title": "Find a rectangle’s length and area",
+    "objective": "Use the distance around a rectangle and the relationship between its sides to find its length, then its area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02",
+      "P3.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "rectangle-perimeter-double-breadth-to-length-and-area",
+    "sourcePaper": "80407dc6235478d9",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-reference-fraction-selection",
+    "level": 3,
+    "title": "Find fractions below a given fraction",
+    "objective": "Use equal-sized parts to find every listed fraction smaller than one third or one half.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-comparison-with-a-reference-fraction",
+    "sourcePaper": "2ca1594a45e56770",
+    "sourceParts": [
+      "39"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-regrouping-a-product",
+    "level": 3,
+    "title": "Make new groups from the same total",
+    "objective": "Find the total in equal groups, then use a new group size to find a count, a missing factor or a remainder.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.03",
+      "P3.S.MD.04",
+      "P3.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "regrouping-a-product",
+    "sourcePaper": "4c6bf7a9f4042669",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-remainder-constraints",
+    "level": 3,
+    "title": "Use the remainder",
+    "objective": "Use a remainder to complete a group, choose an addend or find a number between two limits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.02",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "divisibility-and-remainder-constraints",
+    "sourcePaper": "d5ecb4f8c969eccb",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-repeated-items-purchase",
+    "level": 3,
+    "title": "Several of one item and one extra item",
+    "objective": "Use the cost of a group of identical items and the price of one other item to work out a total or a missing cost.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-repeated-items-and-a-separate-purchase",
+    "sourcePaper": "0918832e454e0457",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-same-unit-price-total",
+    "level": 3,
+    "title": "Add two prices",
+    "objective": "Add two prices in dollars and cents and, when asked, find how much more one item costs.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "price-totals-and-missing-parts",
+    "sourcePaper": "0918832e454e0457",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-shaded-grid-area",
+    "level": 3,
+    "title": "Count the shaded area",
+    "objective": "Pair shaded half-squares, count the whole-square equivalents and use the area of one grid square.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.01",
+      "P3.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-shaded-area-on-a-square-grid",
+    "sourcePaper": "8c512b7d422cc6c8",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-shading-a-partitioned-whole",
+    "level": 3,
+    "title": "Shading a partitioned whole",
+    "objective": "Read a shaded fraction, shade a given share and find a rectangle with the matching unshaded area.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P2.S.FRAC.02",
+      "P3.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "shading-a-partitioned-whole",
+    "sourcePaper": "3fae49632996c045",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-smallest-rectangle-area",
+    "level": 3,
+    "title": "Compare the areas of four cards",
+    "objective": "Use the two side lengths of each rectangle to find which one covers the least space.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-comparing-figure-areas",
+    "sourcePaper": "4915c58d8c95c9cf",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-square-side-area-perimeter",
+    "level": 3,
+    "title": "Find a square’s side from its area",
+    "objective": "Use an equal-factor multiplication fact to find a side, then use all four sides when the perimeter is needed.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P3.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-square-side-area-perimeter",
+    "sourcePaper": "97053dedd515b722",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-starting-money-two-purchases",
+    "level": 3,
+    "title": "Money before shopping",
+    "objective": "Find the cost of two purchases, then add the money left to find the starting amount.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-spending-and-remaining-balance",
+    "sourcePaper": "4c6bf7a9f4042669",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-successive-changes",
+    "level": 3,
+    "title": "Follow two changes to a collection",
+    "objective": "Find the final count by following two changes, or find the starting count by undoing them in reverse order.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "successive-increases-and-decreases",
+    "sourcePaper": "9fbc9ff84fff64c8",
+    "sourceParts": [
+      "39"
+    ],
+    "sourcePage": 20,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-sum-difference-two-parts",
+    "level": 3,
+    "title": "Find the smaller part",
+    "objective": "Use a total and a difference to find the smaller part, then use it if the question asks for another amount.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "sum-and-difference-of-two-parts",
+    "sourcePaper": "3588a62872e6aad3",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-transfer-gap",
+    "level": 3,
+    "title": "Passing buttons between two children",
+    "objective": "Find how many buttons to pass to reach a chosen difference, or find the new difference after a transfer.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-transfer-and-the-resulting-gap",
+    "sourcePaper": "45c5d08639177a26",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-two-share-transfers",
+    "level": 3,
+    "title": "Moving items between two collections",
+    "objective": "Use what is known before or after a move to find how many items moved or how many were in one collection.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-transfers-between-two-shares",
+    "sourcePaper": "9496c6c4a13a259b",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-two-type-totals",
+    "level": 3,
+    "title": "How many of each kind?",
+    "objective": "Use a total count, a total value and the difference in unit values to find a missing count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.03",
+      "P3.S.MD.04",
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "two-types-from-count-and-value-totals",
+    "sourcePaper": "9496c6c4a13a259b",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-unresolved-visual-relationships",
+    "level": 3,
+    "title": "Find hidden numbers from a layout",
+    "objective": "Use place value in a subtraction layout, or a repeated rule in a target figure, to find hidden numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.03",
+      "P3.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-unresolved-visual-relationships",
+    "sourcePaper": "3df4f0af406f9c94",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p3-whole-pack-pricing",
+    "level": 3,
+    "title": "Shopping for whole packs",
+    "objective": "Use the size and price of a whole pack to find how many items a budget buys, check purchase claims or compare two stalls.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.02",
+      "P3.S.MD.03",
+      "P3.S.MD.04",
+      "P2.S.MONEY.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "whole-pack-pricing-and-capacity",
+    "sourcePaper": "9496c6c4a13a259b",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-aligned-span-rectangle-area",
+    "level": 4,
+    "title": "Find a rectangle from aligned edges",
+    "objective": "Use aligned edges, a square side and a marked span to find both sides of a rectangle, then find its area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.01",
+      "P4.S.AREA.02",
+      "P3.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-rectangle-area-from-aligned-spans",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-candidate-multiples-divisibility-selection",
+    "level": 4,
+    "title": "Pick the numbers that divide exactly",
+    "objective": "Test candidate numbers for exact divisibility by a given or calculated factor, then choose or list the matches.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.03",
+      "P4.S.FACT.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-candidate-multiples-divisibility-selection",
+    "sourcePaper": "1cf29f19d5ddd403",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-compass-map-intersection",
+    "level": 4,
+    "title": "Find a place from compass clues",
+    "objective": "Use two compass clues and a map grid to identify a place.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-compass-map-two-clue-intersection",
+    "sourcePaper": "ff8be11a6148b4a2",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p4-double-start-transfer-final-difference",
     "level": 4,
     "title": "Beads in the top tray",
@@ -76,6 +5350,120 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "12"
     ],
     "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-equal-area-rectangle-square",
+    "level": 4,
+    "title": "Equal-area rectangles and squares",
+    "objective": "Use an equal-area statement to find a missing side or the perimeter of a rectangle or square.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.01",
+      "P3.S.AREA.03",
+      "P3.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-equal-area-rectangle-square-missing-dimension",
+    "sourcePaper": "b6abf830ef62ff43",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-exposed-edges-of-equal-squares",
+    "level": 4,
+    "title": "Follow the outside edges of square tiles",
+    "objective": "Use the sides on the outside of a tile arrangement to find its perimeter or the side of one tile.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.02",
+      "P4.S.AREA.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-exposed-edges-of-equal-squares",
+    "sourcePaper": "538f9b6cf8a9d528",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-fraction-benchmark-selection-and-ordering",
+    "level": 4,
+    "title": "Compare and order fractions",
+    "objective": "Select fractions above or below a given value and order three numbers using equal-sized parts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.03",
+      "P4.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-fraction-benchmark-selection-and-ordering",
+    "sourcePaper": "0809c38095f3426b",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-nonfactor-factor-claims",
+    "level": 4,
+    "title": "Check which numbers are not factors",
+    "objective": "Test factor claims by division and use the remainder to identify nonfactors.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-nonfactor-factor-claims",
+    "sourcePaper": "ac96aecb5fdcb027",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-paper-rag-p4-sum-difference-two-quantities",
+    "level": 4,
+    "title": "Find the smaller quantity from a total and a difference",
+    "objective": "Use a total and a \"more than\" difference to find the smaller of two quantities, including when other groups or a times-as-many group are in the total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-two-quantities-from-sum-and-difference",
+    "sourcePaper": "2218465e0e1c824e",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p4-rearranged-tile-outline",
+    "level": 4,
+    "title": "Around the tiles",
+    "objective": "Find a tile width from matching sides, then trace the outside edges after the tiles move.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01",
+      "P4.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-infer-tile-width-trace-rearranged-outline",
+    "sourcePaper": "960aaa443f9e9855",
+    "sourceParts": [
+      "40"
+    ],
+    "sourcePage": 26,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -117,6 +5505,45 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p4-two-share-complement",
+    "level": 4,
+    "title": "What is left after two shares of the same whole?",
+    "objective": "Add two fractions that are shares of the same whole, subtract the combined share from one whole, and find the amount that is left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P4.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-complement-of-two-shares-of-whole",
+    "sourcePaper": "ed6bcf89dc91e36c",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-basic-rectangle-measurements",
+    "level": 5,
+    "title": "Measure a rectangle",
+    "objective": "Find rectangle area using side lengths, a side difference, perimeter, or a covered fraction.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P4.S.AREA.01",
+      "P5.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-basic-rectangle-measurements",
+    "sourcePaper": "ab7ed879da32c0e5",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p5-coin-count-value-difference",
     "level": 5,
     "title": "Work out a coin collection",
@@ -133,6 +5560,1145 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "13"
     ],
     "sourcePage": 55,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-coin-counts-subtotal-differences",
+    "level": 5,
+    "title": "Find coin counts from differences",
+    "objective": "Use a difference in coin counts and a difference in coin values to find how many coins there are, then use the total for a purchase.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-coin-counts-from-count-and-value-differences",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 29,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-composite-exterior-boundary",
+    "level": 5,
+    "title": "Trace joined shapes",
+    "objective": "Find missing lengths in joined shapes and add only the edges on their outside boundary.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-trace-composite-exterior-boundary",
+    "sourcePaper": "93e411a3781184a7",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-composition-change-unchanged-category",
+    "level": 5,
+    "title": "Keep track of the unchanged group",
+    "objective": "Use an unchanged group to find how many items were added or how many there were at first.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-composition-change-unchanged-category",
+    "sourcePaper": "0cc2458871b29a60",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-direction-and-rotation",
+    "level": 5,
+    "title": "Directions and turns",
+    "objective": "Use clockwise and anticlockwise turns, including fractions of a full turn, to find angles, directions and clock positions.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-direction-and-rotation",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-equal-proportional-remainders",
+    "level": 5,
+    "title": "Work back from what is left",
+    "objective": "Use fractions left and equal-sized units to recover starting quantities.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.04",
+      "P3.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "equal-or-proportional-remainders",
+    "sourcePaper": "93e411a3781184a7",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 28,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-forward-composition-updates",
+    "level": 5,
+    "title": "Update a group and find its percentage",
+    "objective": "Update category and total counts after an addition or removal, then find a category count or percentage.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-forward-composition-updates",
+    "sourcePaper": "8b4fb3006fde87bd",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-isosceles-adjacent-angles",
+    "level": 5,
+    "title": "Angles beside an isosceles triangle",
+    "objective": "Use equal base angles, triangle angle sums and straight lines to find a missing angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-single-isosceles-triangle-with-adjacent-angles",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-missing-operand-inverse-operations",
+    "level": 5,
+    "title": "Find a missing number using inverse operations",
+    "objective": "Evaluate known terms, then undo operations to find a missing whole number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.03",
+      "P5.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-missing-operand-inverse-operations",
+    "sourcePaper": "8c4079873c3b5adc",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-packing-simultaneous-remainders",
+    "level": 5,
+    "title": "Find a total from two grouping rules",
+    "objective": "Use two grouping rules to find equal-count and least unequal-count totals, or the least missing group size.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P3.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-packing-simultaneous-remainders",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-parallelogram-diagonal-remainder",
+    "level": 5,
+    "title": "Find an angle beside a parallelogram diagonal",
+    "objective": "Use parallelogram angles, vertically opposite angles and a triangle angle sum to find an angle split by a diagonal.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.02",
+      "P5.S.SHAPE.03",
+      "P5.S.ANGLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-parallelogram-diagonal-remainder",
+    "sourcePaper": "c509f2306dbbe933",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-perimeter-repeated-units",
+    "level": 5,
+    "title": "Perimeter from repeated units",
+    "objective": "Find a perimeter by working out the number of repeated units or exposed unit edges, then using the size of one unit.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02",
+      "P4.S.AREA.02",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-perimeter-repeated-units",
+    "sourcePaper": "6a408be9c8ed69b6",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 29,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-price-ratios-mixed-cost",
+    "level": 5,
+    "title": "Find prices from a mixed purchase",
+    "objective": "Use related prices and a purchase total to find one price, a category cost or a price difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-price-ratios-mixed-cost",
+    "sourcePaper": "303361548b7fbf85",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-purchase-combination-optimization",
+    "level": 5,
+    "title": "Choose the least costly purchase",
+    "objective": "Compare whole packs and single purchases to find a minimum cost or the greatest affordable quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-purchase-combination-optimization",
+    "sourcePaper": "f236829037abfe11",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-quantity-plus-fractional-counterpart",
+    "level": 5,
+    "title": "Add a quantity and its fractional counterpart",
+    "objective": "Find a second quantity as a fraction of the first, then combine both quantities.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P5.S.FRAC.04",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-quantity-plus-fractional-counterpart",
+    "sourcePaper": "1cdfaf2e202b3bd8",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-rag-composite-area-fractions",
+    "level": 5,
+    "title": "Fractions of combined areas",
+    "objective": "Compare shaded or unshaded area with the whole figure using a common area unit.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.03",
+      "P5.S.FRAC.01",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-composite-area-fractions",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-rag-overlap-triangle-accounting",
+    "level": 5,
+    "title": "Account for a shared triangle area",
+    "objective": "Find the combined area of two identical right triangles outside their shared interior.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-overlap-triangle-area-accounting",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 28,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-rag-rate-comparison",
+    "level": 5,
+    "title": "Compare steady rates",
+    "objective": "Compare two steady rates using equal time intervals or whole-task completion times, and find the difference between unit rates.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-rate-comparison",
+    "sourcePaper": "883238908ee0af18",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-rag-recover-factor-or-scaled-input",
+    "level": 5,
+    "title": "Find the starting number or missing factor",
+    "objective": "Use multiplication and division to recover an unknown number, then add the factors when their sum is requested.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.02",
+      "P5.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-recover-factor-or-scaled-input",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "6"
+    ],
+    "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-rag-workforce-output-scaling",
+    "level": 5,
+    "title": "Plan time and team size",
+    "objective": "Use steady productivity or daily use to find a duration or the number of workers needed.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.FRAC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-workforce-output-scaling",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-rhombus-diagonal-angle-chain",
+    "level": 5,
+    "title": "Find angles using a rhombus diagonal",
+    "objective": "Use equal sides, the diagonal of a rhombus and opposite or adjacent angle facts, then a straight line or triangle angle sum, to find an unknown angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02",
+      "P5.S.SHAPE.03",
+      "P5.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-rhombus-diagonal-angle-chain",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-sum-and-differences",
+    "level": 5,
+    "title": "Find amounts from totals and differences",
+    "objective": "Use a total and a difference to find an amount, solve a linked coin problem, count equal groups or choose a matching calculation.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.03",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "sum-and-differences",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-triangle-adjacent-line-angle-chase",
+    "level": 5,
+    "title": "Follow angles through triangles",
+    "objective": "Use triangle angle sums with angles around a point, straight lines and vertically opposite angles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.03",
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.02",
+      "P5.S.ANGLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "triangle-and-adjacent-line-angle-chase",
+    "sourcePaper": "dfd5aad0525bdda2",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-triangle-altitude",
+    "level": 5,
+    "title": "Match a base to its height",
+    "objective": "Identify the perpendicular from the opposite vertex to a chosen base or its extension.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "triangle-altitude",
+    "sourcePaper": "dfd5aad0525bdda2",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-triangle-dimensions-from-enclosing-shapes",
+    "level": 5,
+    "title": "Find triangle dimensions from nearby shapes",
+    "objective": "Use rectangle and square properties to find a triangle base and perpendicular height, then calculate its area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "triangle-dimensions-from-enclosing-shapes",
+    "sourcePaper": "f236829037abfe11",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-unchanged-category-after-removal",
+    "level": 5,
+    "title": "Find what stays and what leaves",
+    "objective": "Use an unchanged group to connect fractions before and after removal and find missing counts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P3.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-unchanged-category-after-removal",
+    "sourcePaper": "bbc575db3a4641a3",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-words-to-numerals",
+    "level": 5,
+    "title": "Write number names in digits",
+    "objective": "Read number names and write numerals, keeping zeros in empty places.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "words-and-numerals",
+    "sourcePaper": "f236829037abfe11",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5s-paper-rag-free-unit-promotions",
+    "level": 5,
+    "title": "Count people with free places",
+    "objective": "Find the number of paying people and add the free places earned by complete promotional groups.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-free-unit-promotions",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5s-rag-equilateral-isosceles-chain",
+    "level": 5,
+    "title": "Equilateral and isosceles triangle angle chain",
+    "objective": "Use the 60° angle of an equilateral triangle together with an isosceles triangle to find an unknown angle, working forwards or backwards.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-equilateral-isosceles-triangle-chain",
+    "sourcePaper": "6a408be9c8ed69b6",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-additive-changes-between-two-ratios",
+    "level": 6,
+    "title": "Ratios changed by fixed additions or removals",
+    "objective": "Use unit parts, fixed additions or removals and a final ratio to find an unknown amount or total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.04",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-additive-changes-between-two-ratios",
+    "sourcePaper": "d121d2dd1d73e733",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 30,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-counting-equal-area-regions",
+    "level": 6,
+    "title": "What fraction of the figure is shaded?",
+    "objective": "Count equal-area parts of a figure, then write the shaded or unshaded part as a fraction in simplest form.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-counting-equal-area-regions",
+    "sourcePaper": "0f995f41617a0418",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-cube-net-opposite-faces",
+    "level": 6,
+    "title": "Faces of a folded cube net",
+    "objective": "Fold a cube net in your head to find opposite faces, and use an opposite-face sum to find missing numbers.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SOLID.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-cube-net-opposite-faces",
+    "sourcePaper": "72303bd74157625f",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-direct-mean-nearest-and-age-mean",
+    "level": 6,
+    "title": "Find a mean age and compare with it",
+    "objective": "Find the mean of listed ages, then choose the entry nearest the mean or give a mean age in years and months.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P6.S.AVG.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-direct-mean-and-mean-comparison",
+    "sourcePaper": "9d006b9636b59743",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-exposed-circular-boundaries",
+    "level": 6,
+    "title": "Find the perimeter after a semicircle is cut out",
+    "objective": "Add the exposed straight edges and circular arc after a semicircle is cut from a square.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-exposed-circular-boundaries",
+    "sourcePaper": "bed3d830afcc8e93",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-intersecting-lines-triangle-closure",
+    "level": 6,
+    "title": "Follow angles through intersecting lines",
+    "objective": "Transfer angles across straight lines and intersections, then use triangle angle sums or test for a right angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.03",
+      "P6.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-intersecting-lines-triangle-closure",
+    "sourcePaper": "5fbc921e504c0195",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-linked-isosceles-angle-chain",
+    "level": 6,
+    "title": "Follow angles through isosceles triangles",
+    "objective": "Use equal sides, triangle angles and straight lines to find an angle in linked triangles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-linked-isosceles-angle-chain",
+    "sourcePaper": "9401e0891cd39f5d",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-mixed-sector-composite-perimeter",
+    "level": 6,
+    "title": "Mixed curved perimeters",
+    "objective": "Find related radii, identify exposed edges, and add circular arcs and straight lengths.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.CIRCLE.02",
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-mixed-sector-composite-perimeter",
+    "sourcePaper": "b13300ac1b1bebc0",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-part-whole-complement",
+    "level": 6,
+    "title": "Part, whole and complement percentages",
+    "objective": "Use a known part and its percentage to find the whole, a complementary part, or an earlier quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.PCT.01",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-part-whole-complement-percentage",
+    "sourcePaper": "0f995f41617a0418",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-partitioned-straight-angle",
+    "level": 6,
+    "title": "Angles sharing a straight line",
+    "objective": "Subtract known angles from 180°, sharing the remainder equally when two angles match.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-partitioned-straight-angle",
+    "sourcePaper": "d7ade32d86317046",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-percentage-representations",
+    "level": 6,
+    "title": "Fractions, decimals and percentages",
+    "objective": "Convert between percentages, fractions and decimals; simplify fractions and round percentages when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-percentage-representations",
+    "sourcePaper": "bed3d830afcc8e93",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-adding-removing-observations",
+    "level": 6,
+    "title": "Adding and removing observations",
+    "objective": "Use changes in totals and counts to find an added value, a new average or an original group size.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P6.S.AVG.01",
+      "P6.S.AVG.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-average-adding-removing-observations",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-circular-triangular-area",
+    "level": 6,
+    "title": "Find shaded areas using circles and triangles",
+    "objective": "Use equal lengths, circle parts and triangle areas to find shaded regions, accounting for overlaps.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-circular-triangular-area-decomposition",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 29,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-composition-changes",
+    "level": 6,
+    "title": "Collections with changing percentages",
+    "objective": "Use an unchanged group to recover totals, follow additions and removals, and calculate percentage growth.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.PCT.01",
+      "P6.S.PCT.02",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-composition-changed-by-additions-or-removals",
+    "sourcePaper": "84e11115e25d03cc",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-quadrant-composite-boundaries",
+    "level": 6,
+    "title": "Perimeter of figures made with quarter-circles",
+    "objective": "Find the perimeter of a composite figure by adding quarter-circle arcs and exposed straight sides, deriving radii from the given lengths.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.CIRCLE.02",
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-quadrant-composite-boundaries",
+    "sourcePaper": "5fbc921e504c0195",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-quantity-as-fraction-of-a-reference",
+    "level": 6,
+    "title": "Write a count as a fraction",
+    "objective": "Identify a subgroup and its reference total, then express and simplify their fraction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.02",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-quantity-as-fraction-of-a-reference",
+    "sourcePaper": "9ea95b0048805759",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-quantity-difference",
+    "level": 6,
+    "title": "Find quantities from a difference",
+    "objective": "Use the difference between ratio parts to find one part and then a quantity or total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.03",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-scaling-from-quantity-difference",
+    "sourcePaper": "f0eae0eb7d7360ec",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-right-angled-intersections",
+    "level": 6,
+    "title": "Angles inside a rectangle",
+    "objective": "Use rectangle corners, straight lines and triangle angles to find unknown angles without adding lines.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01",
+      "P5.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-right-angled-figure-intersecting-segments",
+    "sourcePaper": "ae2078c5e2699a3d",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-scale-or-offset-known-quantity",
+    "level": 6,
+    "title": "Write an expression from two relationships",
+    "objective": "Form an expression by multiplying or dividing a variable quantity, then applying a stated difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.01",
+      "P6.S.ALG.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-scale-or-offset-known-quantity",
+    "sourcePaper": "3a3ba5a366bc0378",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-successive-multiplicative-changes",
+    "level": 6,
+    "title": "Discount, then GST",
+    "objective": "Find the amount paid after a discount and GST on the reduced price.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.03",
+      "P5.S.PCT.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-successive-multiplicative-changes",
+    "sourcePaper": "7105c7f5694cf363",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-ratio-scaling-known-share",
+    "level": 6,
+    "title": "Scale a ratio from a known share",
+    "objective": "Use one known share to value a ratio unit, then find a total, a share or a difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-ratio-scaling-known-share",
+    "sourcePaper": "b6847d13e09ca534",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-remaining-polygon-area",
+    "level": 6,
+    "title": "Area left inside a shape",
+    "objective": "Find a remaining area by subtracting the areas of the parts outside it.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.02",
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-remaining-polygon-area",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rhombus-angle-propagation",
+    "level": 6,
+    "title": "Follow angles through rhombuses",
+    "objective": "Use rhombus, straight-line and parallel-line angle facts to find an unknown angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-rhombus-angle-propagation",
+    "sourcePaper": "7105c7f5694cf363",
+    "sourceParts": [
+      "8"
+    ],
+    "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-square-and-sector-area",
+    "level": 6,
+    "title": "Shaded area from a square and a circle or sector",
+    "objective": "Use the area of a square to find a radius, then add or subtract square, circle and sector areas",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.CIRCLE.02",
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-square-and-sector-area",
+    "sourcePaper": "9401e0891cd39f5d",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 50,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-proportional-purchase-cost",
+    "level": 6,
+    "title": "Find the cost or equivalent quantity from priced bundles",
+    "objective": "Scale prices across containers and bundles: find a total cost from groups, or find how many items cost the same as another quantity priced in a different bundle.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-proportional-purchase-cost",
+    "sourcePaper": "5fbc921e504c0195",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-build-exact-money",
+    "level": 1,
+    "title": "Make an exact payment",
+    "objective": "Choose coins or notes that make a target and follow the limits on the payment.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "build-exact-coin-or-note-combinations",
+    "sourcePaper": "cc67a18847ee764b",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-combine-two-parts",
+    "level": 1,
+    "title": "Find the total of two parts",
+    "objective": "Find the two amounts to add and give their total as a number or a number name.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.01",
+      "P1.S.WN.01",
+      "P1.S.AS.08",
+      "P1.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "combine-two-parts",
+    "sourcePaper": "bd0d0f445808e996",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-complete-money-sets",
+    "level": 1,
+    "title": "Choose the tray of money",
+    "objective": "Count all the money in each tray. Find the tray with an exact total or a total strictly between two amounts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02",
+      "P1.S.AS.01",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "match-a-complete-set-to-a-value-condition",
+    "sourcePaper": "d8d33dd7eda24c36",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-count-cubes-assembly",
+    "level": 6,
+    "title": "Count cubes in a stacked solid",
+    "objective": "Count every cube in a stacked solid, including hidden ones, then find its volume or compare two solids.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.01",
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-count-cubes-in-assembly",
+    "sourcePaper": "8075b80e2358cbe3",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-count-unit-cubes-volume",
+    "level": 5,
+    "title": "Count cubes and find volume",
+    "objective": "Count cubes in complete layers and use the volume of one small cube to find a total volume.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.01",
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "count-unit-cubes-and-find-volume",
+    "sourcePaper": "8c9b6285937b51cc",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-cube-edge-and-volume",
+    "level": 6,
+    "title": "Cube edges and face areas",
+    "objective": "Use the volume of a cube to find its edge length or the area of one square face.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.VOL.01",
+      "P6.S.VOL.03",
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-cube-edge-and-volume",
+    "sourcePaper": "7105c7f5694cf363",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 12,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -158,6 +6724,4230 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-rag-divide-a-computed-total",
+    "level": 1,
+    "title": "How many in each share?",
+    "objective": "Find how many objects are available, then share them equally among a known number of children or containers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.02",
+      "P1.S.MD.01",
+      "P1.S.AS.01",
+      "P1.S.AS.02",
+      "P1.S.AS.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "divide-a-computed-total",
+    "sourcePaper": "0a6b947e6528782e",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-forward-reverse-rotations",
+    "level": 6,
+    "title": "Find a place before or after a turn",
+    "objective": "Follow or reverse a turn between equally spaced directions, including an alternative turn from the same starting direction.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.02",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "forward-and-reverse-rotations",
+    "sourcePaper": "649ae716eb3df863",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-fraction-ordering-maximum",
+    "level": 6,
+    "title": "Order fractions and find the greatest",
+    "objective": "Compare equivalent fraction values to order three numbers or identify the greatest of four.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.01",
+      "P3.S.FRAC.03",
+      "P4.S.FRAC.01",
+      "P4.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "fraction-ordering-and-maximum",
+    "sourcePaper": "29ba7702443df0b7",
+    "sourceParts": [
+      "5"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-fractional-equality-ratio",
+    "level": 6,
+    "title": "Find amounts from equal fractional parts",
+    "objective": "Turn equal fractions of two collections into a ratio, then use a known amount or difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.04",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-fractional-equality-establishes-ratio",
+    "sourcePaper": "bd5fab3044457b10",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-group-contributions",
+    "level": 1,
+    "title": "Count what the groups use",
+    "objective": "Find a total for two groups that use the same amount each, or check whether two packing plans use every item.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01",
+      "P1.S.AS.01",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-total-or-verify-group-contributions",
+    "sourcePaper": "c1b982c9cf847a42",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-isosceles-parallel-figure",
+    "level": 6,
+    "title": "Angles in parallel sides and an isosceles triangle",
+    "objective": "Use parallel sides and equal triangle sides to find an unknown angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01",
+      "P5.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "isosceles-triangle-across-parallel-sided-figures",
+    "sourcePaper": "4e88e18ac2b7e71a",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-linked-three-part-ratios",
+    "level": 6,
+    "title": "Link three quantities",
+    "objective": "Use two relationships to form a three-part ratio in simplest form.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-linked-three-part-ratios",
+    "sourcePaper": "2dadd0a3ce0662c5",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-mixed-circular-composite-area",
+    "level": 6,
+    "title": "Areas between circular arcs",
+    "objective": "Derive radii and combine overlapping semicircle and quadrant areas using square guides.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.CIRCLE.02",
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-mixed-circular-composite-area",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-numbers-within-strict-bounds",
+    "level": 1,
+    "title": "Find the numbers that fit",
+    "objective": "Choose the listed whole numbers that meet every stated bound.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "numbers-within-strict-bounds",
+    "sourcePaper": "98a54b28d0a205d2",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p1-boundary-figures",
+    "level": 1,
+    "title": "Follow the outline",
+    "objective": "Choose every figure whose outline fits the clues about straight sides, corners and equal lengths.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-select-figures-by-boundary-properties",
+    "sourcePaper": "3746b2a3baf4392c",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p1-equal-group-total",
+    "level": 1,
+    "title": "Count the boxes and pencils",
+    "objective": "Use the number of boxes and the pencils in each box to find the total. Record each count the question asks for.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-find-an-equal-group-total",
+    "sourcePaper": "df75965b9fcdb962",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p1-exact-spend-purchases",
+    "level": 1,
+    "title": "What did Jia buy?",
+    "objective": "Find the amount spent and use the price tags to identify the purchase.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.02",
+      "P1.S.AS.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-identify-purchases-from-exact-spend",
+    "sourcePaper": "60eb3dae0cd1d412",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 20,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p1-find-change-or-remaining-money",
+    "level": 1,
+    "title": "Money after a purchase",
+    "objective": "Find the amount available in the same unit as the price, then subtract the price.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.01",
+      "P1.S.MONEY.02",
+      "P1.S.AS.05",
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-find-change-or-remaining-money",
+    "sourcePaper": "62672b85d2409c98",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p1-read-or-match-a-clock",
+    "level": 1,
+    "title": "Find the matching clock",
+    "objective": "Use both hands to match a time to a clock or its label, and locate the minute hand at a whole hour.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "read-or-match-a-clock",
+    "sourcePaper": "60eb3dae0cd1d412",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p1-times-relative-to-a-reference",
+    "level": 1,
+    "title": "Compare the clocks",
+    "objective": "Read labelled clocks and find the names or shows that meet a given time condition.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.TIME.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p1-select-times-relative-to-a-reference",
+    "sourcePaper": "79c1bd87b25f5c7d",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p2-balance-pan-heights",
+    "level": 2,
+    "title": "Read a pan balance",
+    "objective": "Use the positions of two pans to compare a load with a known mass in kilograms.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.MEASURE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-compare-balance-pan-heights",
+    "sourcePaper": "6e8be659a6ce965b",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p2-line-tallies",
+    "level": 2,
+    "title": "Count the lines in a badge",
+    "objective": "Trace straight and curved lines, count each kind and use the counts to compare drawings.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.02",
+      "P2.S.WN.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "straight-and-curved-line-tallies",
+    "sourcePaper": "b422a069f1e3bc16",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p2-match-expressions-by-value",
+    "level": 2,
+    "title": "Which totals match?",
+    "objective": "Compare the values of calculations and equal groups to find a match or a different total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.MD.01",
+      "P2.S.MD.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "match-expressions-by-value",
+    "sourcePaper": "32e17a906efdea49",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p2-place-value-unit-arithmetic",
+    "level": 2,
+    "title": "Count on and back in tens and hundreds",
+    "objective": "Use the value of each ten or hundred to find a missing number or a difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.02",
+      "P2.S.AS.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-arithmetic-with-place-value-units",
+    "sourcePaper": "a43e71511e3cedec",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p2-sum-rows-except-one",
+    "level": 2,
+    "title": "Add the other picture-graph rows",
+    "objective": "Use a scaled picture graph to find the total represented by every row except a named category.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P2.S.GRAPH.01",
+      "P2.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p2-sum-rows-except-one",
+    "sourcePaper": "f77b748cd890870c",
+    "sourceParts": [
+      "40"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-composite-area",
+    "level": 3,
+    "title": "Find the area of a whole or a part",
+    "objective": "Use a rectangle, its tiles or its shaded parts to find a missing area by adding or subtracting.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P3.S.AREA.01",
+      "P3.S.AREA.02",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "composite-area-by-addition-or-subtraction",
+    "sourcePaper": "2038be6df09096f3",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-count-right-angles",
+    "level": 3,
+    "title": "Count right angles in figures",
+    "objective": "Find square corners inside an outline and use their count to compare shapes.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "count-right-angles-in-figures",
+    "sourcePaper": "758b25a8f639ba3f",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-equal-groups-expressions",
+    "level": 3,
+    "title": "One addend for each group",
+    "objective": "Match equal groups to sums and products, and count the groups left in a partly expanded product.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.01",
+      "P1.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "equal-groups-in-pictures-and-expressions",
+    "sourcePaper": "3df4f0af406f9c94",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-equal-groups-plus-extra",
+    "level": 3,
+    "title": "Find the whole count",
+    "objective": "Multiply to count equal groups, then add what was left or given free.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.03",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-equal-groups-plus-an-extra-amount",
+    "sourcePaper": "a6fa90eb65c0727c",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-equally-spaced-points",
+    "level": 3,
+    "title": "Count flags along a path",
+    "objective": "Find how many equal gaps fit along a path, then count the flags at both ends and in between.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MD.04",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-direct-calculations-with-equally-spaced-points",
+    "sourcePaper": "3df4f0af406f9c94",
+    "sourceParts": [
+      "39"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-identify-purchases",
+    "level": 3,
+    "title": "Which item was bought?",
+    "objective": "Use the money left or the change from a payment to work out a price and identify an item.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-identify-purchases-from-expenditure-or-change",
+    "sourcePaper": "de8e38631e5eaba1",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-known-number-gap",
+    "level": 3,
+    "title": "Two numbers a known distance apart",
+    "objective": "Use the gap and one more clue to find the larger or smaller whole number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P3.S.MD.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-two-numbers-with-a-known-difference",
+    "sourcePaper": "3fdd61975b9ee597",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-number-line-readings",
+    "level": 3,
+    "title": "Read the marked ticks",
+    "objective": "Find the value of one gap between numbered ticks, then use it to read marked numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.WN.03",
+      "P3.S.MD.04",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-number-line-readings",
+    "sourcePaper": "f63d2d8a15616961",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-parity-list",
+    "level": 3,
+    "title": "Choose odd and even numbers from a list",
+    "objective": "Use the ones digit to select numbers, compare them, and add selected values when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P2.S.WN.06",
+      "P3.S.WN.03",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-parity-selection-from-list",
+    "sourcePaper": "789c98d31f287f3e",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-perpendicular-line-identification",
+    "level": 3,
+    "title": "Find perpendicular lines",
+    "objective": "Use a square corner to find perpendicular lines in a labelled figure.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.LINES.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "perpendicular-line-identification",
+    "sourcePaper": "2038be6df09096f3",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-select-wider-angles",
+    "level": 3,
+    "title": "Find the wider openings",
+    "objective": "Compare pictured angles with a square corner and identify every opening that is wider.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-classify-or-select-angles",
+    "sourcePaper": "982acc4c201f82cc",
+    "sourceParts": [
+      "34"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-tally-angles-by-type",
+    "level": 3,
+    "title": "Count angles in a shape",
+    "objective": "Compare inside corners with a right angle and count the corners in each requested group.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "tally-angles-by-type",
+    "sourcePaper": "6e722ba1ec84e424",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p3-tile-layout-dimensions",
+    "level": 3,
+    "title": "Measure one tile or the whole square",
+    "objective": "Use equal tile edges in a layout to find a missing length, then find an area or a perimeter.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02",
+      "P3.S.AREA.03",
+      "P3.S.MD.04",
+      "P3.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-dimensions-from-a-tiled-or-partitioned-layout",
+    "sourcePaper": "97053dedd515b722",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-adjoining-rectangle-and-squares",
+    "level": 4,
+    "title": "Measure a panel made of squares and a rectangle",
+    "objective": "Use shared edges to find the size of a panel and work out its area or perimeter.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.02",
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-adjoining-rectangle-and-squares-shared-edge-area",
+    "sourcePaper": "538f9b6cf8a9d528",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-aligned-square-rectangle-sides",
+    "level": 4,
+    "title": "Find a missing side in joined shapes",
+    "objective": "Use equal sides of squares and opposite sides of rectangles to follow a length through a joined figure.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-aligned-square-rectangle-sides-with-offset-or-multiple",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-bounded-common-multiples",
+    "level": 4,
+    "title": "Find common multiples within limits",
+    "objective": "Use the spacing between common multiples to find the numbers that fit the given limits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-common-multiples-within-bounds",
+    "sourcePaper": "c004ee9da2c18333",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-category-count-fraction",
+    "level": 4,
+    "title": "What fraction of the set?",
+    "objective": "Find the number in one group and write it as a fraction of the whole set in simplest form.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-category-count-as-fraction-of-whole",
+    "sourcePaper": "d93abda5b1975a1c",
+    "sourceParts": [
+      "32"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-classify-mirror-figures",
+    "level": 4,
+    "title": "Sort figures by their lines of symmetry",
+    "objective": "Find which folds match a whole figure, then choose a figure or count the figures that qualify.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SYM.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-classify-figures-by-reflection-axis-count",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-common-factor-lists",
+    "level": 4,
+    "title": "Factors two numbers share",
+    "objective": "Find every factor shared by two numbers and use the list to answer a question.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-common-factor-lists",
+    "sourcePaper": "0809c38095f3426b",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-compare-sums-of-readings",
+    "level": 4,
+    "title": "Compare sums of readings",
+    "objective": "Add the readings that belong to each label or pair, then compare the totals to find the greatest or smallest, a difference, or whether a statement is true.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P4.S.GRAPH.01",
+      "P3.S.GRAPH.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-compare-sums-of-readings",
+    "sourcePaper": "b6abf830ef62ff43",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-compass-map-relations",
+    "level": 4,
+    "title": "Find your way on a map",
+    "objective": "Use the north arrow to find a stop in a given direction or name the direction from one stop to another.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-read-compass-relationship-on-labelled-map",
+    "sourcePaper": "549867895aa040f2",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-compass-route",
+    "level": 4,
+    "title": "Follow a route on a square grid",
+    "objective": "Follow steps and quarter turns to find a stop, or retrace a walk to find where it began.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-trace-or-reverse-compass-route-on-grid",
+    "sourcePaper": "72e04c12eac52f9a",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-count-angle-openings",
+    "level": 4,
+    "title": "Count openings in a figure",
+    "objective": "Count the marked angles, inside corners or pairs of drawn sides that meet the given right-angle rule.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.ANGLE.01",
+      "P3.S.ANGLE.02",
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-count-angle-openings-by-type",
+    "sourcePaper": "eb21eea787194305",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-count-missing-mirror-squares",
+    "level": 4,
+    "title": "Count the missing mirror squares",
+    "objective": "Find the fewest squares to shade by matching squares across a given fold line.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SYM.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-count-empty-partners-across-a-given-mirror-line",
+    "sourcePaper": "0809c38095f3426b",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-decimal-from-place-value-units",
+    "level": 4,
+    "title": "Make a decimal from its parts",
+    "objective": "Use counts of place-value units to write a decimal, regrouping or rounding to tenths when needed.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.01",
+      "P4.S.DEC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-decimal-from-place-value-units",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-decimal-order-and-minimum",
+    "level": 4,
+    "title": "Put decimals in order",
+    "objective": "Use place value to order numbers or find the smallest one. Write a fraction as a decimal when it helps.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.02",
+      "P4.S.DEC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-decimal-order-and-minimum",
+    "sourcePaper": "0417297dea57ac41",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-decimal-to-equivalent-fraction",
+    "level": 4,
+    "title": "Write a decimal as a fraction",
+    "objective": "Use decimal place value to write an equivalent fraction, simplify a mixed number or find a missing denominator.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.08"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-decimal-to-equivalent-fraction",
+    "sourcePaper": "960aaa443f9e9855",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-descending-whole-numbers",
+    "level": 4,
+    "title": "Order five-digit numbers from largest to smallest",
+    "objective": "Use the first place where two digits differ to decide which number comes first in a decreasing row.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-order-five-digit-whole-numbers-descending",
+    "sourcePaper": "2218465e0e1c824e",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-digit-place-and-value",
+    "level": 4,
+    "title": "Find a digit’s place and value",
+    "objective": "Use a digit’s position to choose a number, name a place or find the digit’s value after a calculation.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.01",
+      "P4.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-digit-place-in-given-or-calculated-number",
+    "sourcePaper": "6718a5ab781a88fe",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-directed-heading-turn",
+    "level": 4,
+    "title": "How far do you turn?",
+    "objective": "Find the angle of a turn between two headings and choose a turn that reaches a stated heading.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-directed-turn-between-headings",
+    "sourcePaper": "d93abda5b1975a1c",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-extend-tessellation",
+    "level": 4,
+    "title": "Extend a row of interlocking tiles",
+    "objective": "Slide a tile along a row and draw matching edges so the new tiles fit together.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.SHAPE.01",
+      "P1.S.SHAPE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-extend-tessellation-by-translating-a-unit-tile",
+    "sourcePaper": "b0c84d61a7af43b1",
+    "sourceParts": [
+      "33"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-extreme-digit-arrangements",
+    "level": 4,
+    "title": "Choose the last digit",
+    "objective": "Choose a possible last digit, then use place value to build the largest or smallest number that fits the rule.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.01",
+      "P2.S.WN.06",
+      "P4.S.FACT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-extreme-digit-arrangements-by-units-digit",
+    "sourcePaper": "b6abf830ef62ff43",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-finish-grid-outlines",
+    "level": 4,
+    "title": "Finish a square or rectangle on dots",
+    "objective": "Use right angles and matching side lengths to draw the missing sides.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.02",
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-complete-squares-and-rectangles-from-given-grid-sides",
+    "sourcePaper": "79f120011ed1b702",
+    "sourceParts": [
+      "38"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-five-digit-number-name-to-numeral",
+    "level": 4,
+    "title": "From number names to digits",
+    "objective": "Write a five-digit numeral from its name, using zero for any empty place.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-five-digit-number-name-to-numeral",
+    "sourcePaper": "0809c38095f3426b",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-fixed-difference-prices",
+    "level": 4,
+    "title": "Find a price from a shopping bill",
+    "objective": "Use the difference between two prices to work out what the bill would be if every item cost the same.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.MD.03",
+      "P4.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-unit-prices-from-counts-total-and-fixed-difference",
+    "sourcePaper": "d93abda5b1975a1c",
+    "sourceParts": [
+      "44"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-fixed-fraction-changes",
+    "level": 4,
+    "title": "How much was there before or after?",
+    "objective": "Use fixed amounts added or taken away to find a starting amount or a remainder.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.04",
+      "P4.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-fixed-fraction-additions-and-removals",
+    "sourcePaper": "d93abda5b1975a1c",
+    "sourceParts": [
+      "36"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-fraction-equivalence-to-target",
+    "level": 4,
+    "title": "Fractions that match a given value",
+    "objective": "Scale both parts of a fraction to decide which choices have the target value.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.01",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-fraction-equivalence-to-target",
+    "sourcePaper": "2218465e0e1c824e",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-fraction-share-gap",
+    "level": 4,
+    "title": "Find a count from the gap between two shares",
+    "objective": "Turn a count gap between two groups into a gap between fractions of the same whole, then find one group or the whole.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P4.S.FRAC.04",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-fraction-share-gap-to-count",
+    "sourcePaper": "0417297dea57ac41",
+    "sourceParts": [
+      "41"
+    ],
+    "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-fractional-loss-then-fixed-change",
+    "level": 4,
+    "title": "Bookmarks in the school shop",
+    "objective": "Find a starting or final count when a fraction of a collection is sold and a known number of items is then sold or added.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-fractional-loss-then-fixed-change",
+    "sourcePaper": "2a24104f971536a3",
+    "sourceParts": [
+      "34"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-free-item-offer",
+    "level": 4,
+    "title": "Sketchbooks on offer",
+    "objective": "Find the least cost of an exact order or the number of sketchbooks received for a given amount of money.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.MD.03",
+      "P4.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-free-item-offer-target-cost-or-quantity-from-spending",
+    "sourcePaper": "09ebd28f255af16d",
+    "sourceParts": [
+      "48"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-graph-factor-match",
+    "level": 4,
+    "title": "Which reading fits?",
+    "objective": "Use a multiplication or division clue to find the matching label or pair of labels on a graph.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P3.S.GRAPH.01",
+      "P4.S.GRAPH.02",
+      "P4.S.MD.01",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-graph-factor-match",
+    "sourcePaper": "538f9b6cf8a9d528",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-greatest-rise-or-drop",
+    "level": 4,
+    "title": "Find the biggest change between neighbouring readings",
+    "objective": "Compare changes over equal time intervals and give the requested interval or amount.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P4.S.GRAPH.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-line-graph-greatest-consecutive-rise-or-drop",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "33"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-hundredths-on-a-number-line",
+    "level": 4,
+    "title": "Find the decimal at a marked tick",
+    "objective": "Count equal gaps between labelled tenths to read a point in hundredths.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-read-hundredths-between-adjacent-tenths",
+    "sourcePaper": "72e04c12eac52f9a",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-indexed-common-multiples",
+    "level": 4,
+    "title": "Find the next common multiples",
+    "objective": "Find the first common multiple and use it to list, locate or add common multiples.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-indexed-common-multiples",
+    "sourcePaper": "2218465e0e1c824e",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-landmark-turns",
+    "level": 4,
+    "title": "Which place is Tess facing?",
+    "objective": "Follow turns on an eight-path map, or undo them to find the starting place.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-landmark-heading-before-or-after-directed-turns",
+    "sourcePaper": "c004ee9da2c18333",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-locate-and-value-decimal-digits",
+    "level": 4,
+    "title": "Find a digit and say what it is worth",
+    "objective": "Read decimal places, find a digit’s value in a product and compare the values of two digits.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.01",
+      "P4.S.DEC.06",
+      "P4.S.DEC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-locate-and-value-decimal-digits",
+    "sourcePaper": "a51e1b42bdb938d7",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-marked-angle-sums",
+    "level": 4,
+    "title": "Add angles at square and rectangle corners",
+    "objective": "Trace the named angles and use right angles to find their sum.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.01",
+      "P4.S.SHAPE.01",
+      "P3.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-combine-marked-angles-at-rectangular-corners",
+    "sourcePaper": "ae0344e902134cfc",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-perpendicular-segment-pairs",
+    "level": 4,
+    "title": "Find perpendicular pairs",
+    "objective": "Use a square corner to find two segments that meet at a right angle and count each such pair once.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-identify-and-count-meeting-perpendicular-segment-pairs",
+    "sourcePaper": "410c5b09dc220efe",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-place-value-decomposition",
+    "level": 4,
+    "title": "Build a number from place-value groups",
+    "objective": "Combine thousands, hundreds and ones into a numeral, or choose equal groups that make a given number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-place-value-decomposition",
+    "sourcePaper": "549867895aa040f2",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-positive-factor-lists",
+    "level": 4,
+    "title": "Find every factor",
+    "objective": "Use multiplication pairs to find all the positive factors of a number and count each factor once.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-positive-factor-lists",
+    "sourcePaper": "e3bae618c92d804a",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-priced-category-totals",
+    "level": 4,
+    "title": "Work out a bill with two prices",
+    "objective": "Find the cost of each group, then use the total to work out the bill, change or saving.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P4.S.DEC.06",
+      "P4.S.DEC.05",
+      "P4.S.GRAPH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-totals-across-priced-categories",
+    "sourcePaper": "960aaa443f9e9855",
+    "sourceParts": [
+      "31"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-purchase-price-units",
+    "level": 4,
+    "title": "Find prices from a shopping bill",
+    "objective": "Use the price of the cheaper item as one unit to work out prices from a mixed purchase.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.MD.03",
+      "P4.S.DEC.06",
+      "P4.S.DEC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-purchase-total-in-cheaper-item-units",
+    "sourcePaper": "89a8de7f04a72988",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-quadrilateral-property-claim",
+    "level": 4,
+    "title": "Check a quadrilateral claim",
+    "objective": "Decide whether stated properties prove, contradict, or leave uncertain a claim about a square or rectangle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-quadrilateral-property-claim-classification",
+    "sourcePaper": "2218465e0e1c824e",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-rectangle-corner-angles",
+    "level": 4,
+    "title": "Find an angle at a rectangle corner",
+    "objective": "Use a right angle and the labelled sides of a rectangle to find a missing angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01",
+      "P4.S.ANGLE.01",
+      "P3.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-rectangle-corner-angles-parallel-sides-and-shared-vertex",
+    "sourcePaper": "538f9b6cf8a9d528",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-regroup-known-product",
+    "level": 4,
+    "title": "Make new groups",
+    "objective": "Find a total by multiplying, then use it to find a new group count, share or quotient.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.MD.02",
+      "P4.S.MD.01",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-regroup-known-product-by-exact-division",
+    "sourcePaper": "89a8de7f04a72988",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-right-angle-benchmark",
+    "level": 4,
+    "title": "Find angles using a square corner",
+    "objective": "Compare labelled openings with a right angle and name every angle that fits the question.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.ANGLE.02",
+      "P3.S.ANGLE.01",
+      "P4.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-identify-angles-against-a-right-angle-benchmark",
+    "sourcePaper": "0417297dea57ac41",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-round-calculated-counts",
+    "level": 4,
+    "title": "Round a result or find a possible count",
+    "objective": "Round an exact sum or product, or choose a count that rounds to a given number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.02",
+      "P4.S.MD.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-round-calculated-counts-and-match-rounded-values",
+    "sourcePaper": "f54b49e4fa14825b",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-shading-to-a-target",
+    "level": 4,
+    "title": "How many more tiles?",
+    "objective": "Read a partly shaded picture and find how many more equal parts will bring it to a target fraction.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P4.S.FRAC.04",
+      "P4.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-additional-shading-to-a-target",
+    "sourcePaper": "0809c38095f3426b",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-simultaneous-remainders",
+    "level": 4,
+    "title": "Two ways to arrange the tiles",
+    "objective": "Find a total that fits two row sizes by checking the leftover tiles in each arrangement.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.03",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-simultaneous-remainder-conditions",
+    "sourcePaper": "549867895aa040f2",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-smaller-decimal-from-tenths",
+    "level": 4,
+    "title": "Find the smaller decimal",
+    "objective": "Use a difference given as a decimal or a count of tenths to find a smaller number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.05",
+      "P4.S.DEC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-smaller-decimal-from-tenths-difference",
+    "sourcePaper": "c20a9ddb743d7fc1",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-square-side-measures",
+    "level": 4,
+    "title": "Find a missing length on a square",
+    "objective": "Find one side from a square’s perimeter or area, then use it to find a perimeter or the remaining part of an edge.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-square-side-from-perimeter-or-area-and-related-lengths",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-starting-money-spending-balance",
+    "level": 4,
+    "title": "Money spent and money left",
+    "objective": "Use the amount spent and the amount left to work out how much money someone started with, spent or kept.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.05",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-starting-money-spending-and-balance",
+    "sourcePaper": "19a5d5f3598a407e",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-test-badge-folds",
+    "level": 4,
+    "title": "Which fold matches the spots?",
+    "objective": "Test a marked line by folding the whole figure, including the marks inside it.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SYM.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-test-proposed-lines-of-symmetry",
+    "sourcePaper": "960aaa443f9e9855",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-threshold-frequencies",
+    "level": 4,
+    "title": "Who reached the target?",
+    "objective": "Read a frequency table or bar graph and use a cutoff to find a number or fraction of pupils.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P4.S.GRAPH.01",
+      "P3.S.GRAPH.01",
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-threshold-frequency-count-or-fraction",
+    "sourcePaper": "207834ffa5a3a566",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-trace-corner-fold",
+    "level": 4,
+    "title": "Follow an edge across a fold",
+    "objective": "Trace an edge to its folded position and use the two equal angles at the crease to reason about a right-angled corner.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.01",
+      "P4.S.SHAPE.01",
+      "P3.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-crease-reflection-in-a-right-angled-corner",
+    "sourcePaper": "9cb3b1f5a5e9d768",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-whole-from-known-part-or-combined-counts",
+    "level": 4,
+    "title": "Find the starting number",
+    "objective": "Work out how many equal parts a count represents and use those parts to find the starting number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-whole-from-known-part-or-combined-counts",
+    "sourcePaper": "b6abf830ef62ff43",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-whole-pack-bounds",
+    "level": 4,
+    "title": "Shopping in whole packs",
+    "objective": "Use pack sizes and prices to find how many items a budget buys or the least cost of buying enough items.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P4.S.MD.03",
+      "P4.S.MD.01",
+      "P4.S.GRAPH.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-whole-packs-under-a-budget-or-target",
+    "sourcePaper": "72e04c12eac52f9a",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p4-wholes-and-fractional-units",
+    "level": 4,
+    "title": "Count the pieces in a whole",
+    "objective": "Count equal fractional pieces in a length, or group fractional pieces into wholes and write what is left.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.01",
+      "P4.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p4-wholes-and-fractional-units",
+    "sourcePaper": "538f9b6cf8a9d528",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-additional-shading",
+    "level": 5,
+    "title": "Shade enough parts",
+    "objective": "Find how many extra equal parts to shade from a shaded or unshaded target fraction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-additional-shading",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-allocation-after-removal",
+    "level": 5,
+    "title": "Pack and share what is left",
+    "objective": "Use equal groups to find a remaining share or work backwards to a starting number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.03",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-allocation-after-removal",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-allocations-of-one-original-whole",
+    "level": 5,
+    "title": "Share one starting amount",
+    "objective": "Combine percentages of one whole to find a remaining quantity, compare shares or express a combined share as a simplified fraction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "allocations-of-one-original-whole",
+    "sourcePaper": "e221323661911f23",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-alternative-purchases-two-prices",
+    "level": 5,
+    "title": "Compare two extra purchases",
+    "objective": "Use a shortfall and a leftover to find a price difference, work out unit prices and recover starting money.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-alternative-purchases-two-prices",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-alternative-quantities-one-price",
+    "level": 5,
+    "title": "Compare shopping plans",
+    "objective": "Use purchase quantities, money left and shortfalls to find prices and starting money.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-alternative-quantities-one-price",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-area-accounting-under-folding",
+    "level": 5,
+    "title": "Areas of folded paper",
+    "objective": "Use equal areas before and after a fold to recover a rectangle area or find the area left after cutting.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-area-accounting-under-folding",
+    "sourcePaper": "8c9b6285937b51cc",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-area-ratios-known-components",
+    "level": 5,
+    "title": "Find related areas",
+    "objective": "Use a known or calculated area and an area relationship to find a total, a component or a shaded remainder.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-area-ratios-known-component-areas",
+    "sourcePaper": "bbc575db3a4641a3",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-balance-differences-after-changes",
+    "level": 5,
+    "title": "Compare money after changes",
+    "objective": "Compare separate changes to two balances, recover starting money and find a transfer that makes the balances equal.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.05",
+      "P4.S.DEC.06",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-balance-differences-after-changes",
+    "sourcePaper": "c1dab0f58ea4113c",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-basket-discounts",
+    "level": 5,
+    "title": "Work out shopping discounts",
+    "objective": "Choose discounts using prices or ages, add the costs, and use combined savings to find an equal item price.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.03",
+      "P5.S.PCT.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-basket-discounts",
+    "sourcePaper": "096ece7dc72601c7",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-budget-limited-purchases",
+    "level": 5,
+    "title": "Shop within a budget",
+    "objective": "Find the greatest number of items affordable when buying whole packs or individual items, including after an earlier purchase.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.DEC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "budget-limited-purchases",
+    "sourcePaper": "ab7ed879da32c0e5",
+    "sourceParts": [
+      "7"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-category-shares-and-differences",
+    "level": 5,
+    "title": "Compare shares of a collection",
+    "objective": "Use percentages and shares of a remainder to find a total, a category percentage or an allocation shortfall.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-category-shares-and-differences",
+    "sourcePaper": "c509f2306dbbe933",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-combined-work-rates",
+    "level": 5,
+    "title": "Working together at steady rates",
+    "objective": "Combine two steady rates to find a working time, recover one individual rate, or check statements about their output.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-combined-work-rates",
+    "sourcePaper": "c509f2306dbbe933",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-common-factor-aggregation",
+    "level": 5,
+    "title": "Explore shared factors",
+    "objective": "Find the common factors of two whole numbers, then list, count or add them.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-common-factor-aggregation",
+    "sourcePaper": "fbf78ff1b615ba94",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-common-multiples",
+    "level": 5,
+    "title": "Find shared multiples",
+    "objective": "Find the second positive common multiple or list all positive common multiples below a limit.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-common-multiples",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-common-quantity-from-cost-differences",
+    "level": 5,
+    "title": "Find a quantity from cost differences",
+    "objective": "Compare costs for equal quantities to find a common count or a combined count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02",
+      "P4.S.DEC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-common-quantity-from-cost-differences",
+    "sourcePaper": "883238908ee0af18",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-complete-cube-arrangement",
+    "level": 5,
+    "title": "Complete a cube arrangement",
+    "objective": "Count the cubes in a solid and find how many more make a stated volume, cube or cuboid.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.01",
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "complete-or-reduce-cube-arrangement",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-composite-area-components",
+    "level": 5,
+    "title": "Find the area of joined shapes",
+    "objective": "Use shared sides to find missing lengths, then add square and triangle areas.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.01",
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-composite-area-from-components",
+    "sourcePaper": "af02422b513a47af",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-composite-area-constrained-segments",
+    "level": 5,
+    "title": "Find shaded areas from related lengths",
+    "objective": "Use midpoints and side fractions to find missing lengths, then combine triangle areas.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "composite-area-with-constrained-segments",
+    "sourcePaper": "0729280f0c5dd4c8",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 31,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-composite-perimeter-area-derived-lengths",
+    "level": 5,
+    "title": "Find perimeter using area",
+    "objective": "Use area and shared sides to recover missing lengths, then find the outside perimeter.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.01",
+      "P4.S.AREA.02",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-composite-perimeter-area-derived-lengths",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-constant-rate-conversion",
+    "level": 5,
+    "title": "Work with time and constant rates",
+    "objective": "Use time per item, pay for part of an hour, and a water-volume graph to solve constant-rate problems.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02",
+      "P5.S.FRAC.07"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-constant-rate-conversion",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-count-ratios-total-value",
+    "level": 5,
+    "title": "Find counts and amounts using equal groups",
+    "objective": "Use the value of a matching group to find item counts, expenditure differences or the value of coins with equal subtotals.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-count-ratios-and-total-value",
+    "sourcePaper": "303361548b7fbf85",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-counting-fractional-units",
+    "level": 5,
+    "title": "Count equal fractional parts",
+    "objective": "Count fractional parts in an amount, a length or the gap between two mixed numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.02",
+      "P5.S.FRAC.04",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-counting-fractional-units",
+    "sourcePaper": "0b57a62d0f9c143e",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-cuboid-filling-and-draining",
+    "level": 5,
+    "title": "Filling and draining rectangular tanks",
+    "objective": "Find the volume of water to move, convert units, and use a steady flow rate to find the time needed.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.VOL.05",
+      "P5.S.FRAC.05",
+      "P5.S.RATE.02",
+      "P5.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-cuboid-filling-and-draining",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-decimal-comparison-and-ordering",
+    "level": 5,
+    "title": "Compare and order decimals",
+    "objective": "Compare decimal place values to check strict bounds, order numbers, and identify the shortest duration.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "decimal-comparison-and-ordering",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-decimal-number-line-reading",
+    "level": 5,
+    "title": "Read a decimal number line",
+    "objective": "Find the size of an equal interval, read a marked decimal and round when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.01",
+      "P5.S.FRAC.03",
+      "P4.S.DEC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-decimal-number-line-reading",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-decimal-place-value-representation",
+    "level": 5,
+    "title": "Read and build decimals",
+    "objective": "Compose decimals, read their digits, name decimal places and find missing place-value components.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "decimal-place-value-representation",
+    "sourcePaper": "6067d91a2fee95ed",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-difference-of-container-volumes",
+    "level": 5,
+    "title": "Water left after pouring",
+    "objective": "Calculate container capacities and fractional contents, subtract the water poured, and express the remainder in the requested units.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.VOL.05",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-difference-of-container-volumes",
+    "sourcePaper": "dfd5aad0525bdda2",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-dimensions-from-area-and-shape-proportions",
+    "level": 5,
+    "title": "Find lengths from areas and arrangements",
+    "objective": "Use equal pieces and area relationships to recover dimensions and calculate lengths or perimeters.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.01",
+      "P3.S.AREA.02",
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-dimensions-from-area-and-shape-proportions",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-direct-cube-volume",
+    "level": 5,
+    "title": "Volume from a cube edge",
+    "objective": "Use one edge length to find the volume of a cube.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-direct-cube-and-cuboid-volume",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-divide-angle-total-in-ratio",
+    "level": 5,
+    "title": "Share an angle using equal parts",
+    "objective": "Use angle facts and a multiplicative relationship to find unknown angles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.04",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02",
+      "P5.S.SHAPE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "divide-an-angle-total-in-a-ratio",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 31,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-endpoint-boundary-spacing",
+    "level": 5,
+    "title": "Count points and spaces",
+    "objective": "Relate points to the spaces between them to find lengths, counts and new equal spacings.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-endpoint-boundary-spacing",
+    "sourcePaper": "b62fef807216ca90",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-equal-part-fraction-diagrams",
+    "level": 5,
+    "title": "Fractions in shaded grids",
+    "objective": "Use equal areas to find and simplify fractions of a whole or a stated reference area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P2.S.FRAC.01",
+      "P3.S.FRAC.02",
+      "P5.S.FRAC.01",
+      "P5.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "equal-part-fraction-diagrams",
+    "sourcePaper": "0729280f0c5dd4c8",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-equal-periodic-allocation",
+    "level": 5,
+    "title": "Find an equal daily share",
+    "objective": "Find a daily amount from a fraction used over several days or weeks.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P5.S.RATE.02",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-equal-periodic-allocation",
+    "sourcePaper": "aff15b011c1803b5",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-equal-sharing",
+    "level": 5,
+    "title": "Share amounts equally",
+    "objective": "Combine or convert measurements, find an equal share, and round when asked.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.DEC.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06",
+      "P4.S.DEC.07"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "measurement-equal-sharing",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-equilateral-fixed-angle-composites",
+    "level": 5,
+    "title": "Find angles in overlapping shapes",
+    "objective": "Combine equilateral triangle angles with square corners and straight-line angles to find missing angles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.03",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.03",
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "equilateral-fixed-angle-composites",
+    "sourcePaper": "dfd5aad0525bdda2",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-expanded-place-value-equations",
+    "level": 5,
+    "title": "Build and complete place-value equations",
+    "objective": "Compose whole numbers from place-value parts and find a missing part or group count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.01",
+      "P5.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "expanded-place-value-equations",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 2,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-extreme-digit-arrangements",
+    "level": 5,
+    "title": "Arrange digits with odd and even rules",
+    "objective": "Use place value and the last digit to find extreme arrangements, and compare distances in a linked closest-number task.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.01",
+      "P2.S.WN.06",
+      "P4.S.WN.01",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "extreme-digit-arrangements",
+    "sourcePaper": "46ca966f1ad77d0f",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-factor-lists-divisibility-tests",
+    "level": 5,
+    "title": "Factor lists and exact division",
+    "objective": "Complete factor lists and use remainders to identify nonfactors and exactly divisible numbers.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.01",
+      "P5.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-factor-lists-and-divisibility-tests",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-fixed-total-redistribution",
+    "level": 5,
+    "title": "Share the same total in new groups",
+    "objective": "Recover a total from equal groups, regroup it, and compare equal shares.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-fixed-total-redistribution",
+    "sourcePaper": "547eceff08702cd8",
+    "sourceParts": [
+      "6"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-fraction-comparison-ordering",
+    "level": 5,
+    "title": "Compare and order fractions",
+    "objective": "Use equivalent fractions to order values, find a minimum and check strict bounds.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.01",
+      "P3.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "fraction-comparison-and-ordering",
+    "sourcePaper": "1ffa80d69fa4a946",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-fraction-representation-conversion",
+    "level": 5,
+    "title": "Change fraction representations",
+    "objective": "Write decimals as simplified mixed numbers and regroup whole units into fractional parts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.01",
+      "P4.S.FRAC.02",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-fraction-representation-conversion",
+    "sourcePaper": "1cdfaf2e202b3bd8",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-fractional-filled-volume",
+    "level": 5,
+    "title": "Water in a partly filled tank",
+    "objective": "Find the volume of water using a cuboid tank’s dimensions or base area, height and filled fraction.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "fractional-filled-or-empty-volume",
+    "sourcePaper": "fa2b8fe7054d8e8e",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-fractional-partition-complements",
+    "level": 5,
+    "title": "Parts of a collection",
+    "objective": "Use fractions of one whole to compare groups, track removals and decide what can be known.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.04",
+      "P3.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-fractional-partition-and-complements",
+    "sourcePaper": "9126ea50894ab173",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-fractional-quantity-fixed-adjustment",
+    "level": 5,
+    "title": "Fractions and fixed amounts",
+    "objective": "Combine a fraction of a quantity with a fixed change in the correct order, or work backwards to the starting quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.04",
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P5.S.FRAC.07"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "fractional-quantity-with-fixed-adjustment",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-geometric-angle-claims",
+    "level": 5,
+    "title": "Check angle statements",
+    "objective": "Use triangle sums and vertically opposite angles to identify a statement that must be true.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.03",
+      "P5.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-evaluate-geometric-angle-claims",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-grid-line-choice",
+    "level": 5,
+    "title": "Choose a parallel line on a grid",
+    "objective": "Compare movements across and down a square grid to identify an undrawn parallel line.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.LINES.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-identify-parallel-and-perpendicular-relationships",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-initial-charge-started-blocks",
+    "level": 5,
+    "title": "Charges for repeated bookings and journeys",
+    "objective": "Calculate one charge using an included allowance and fully charged started blocks, then find the cost of repeated bookings or journeys.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.DEC.02",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-initial-charge-and-started-blocks",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-instalment-repayment",
+    "level": 5,
+    "title": "Find a monthly instalment",
+    "objective": "Subtract a deposit and convert years to months to find an equal monthly payment.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-instalment-repayment",
+    "sourcePaper": "fa2b8fe7054d8e8e",
+    "sourceParts": [
+      "60"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-internal-transfers-changing-shares",
+    "level": 5,
+    "title": "Track counters passed between groups",
+    "objective": "Use an unchanged total to undo transfers, equalise three groups and compare their final amounts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-internal-transfers-changing-shares",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 28,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-intersecting-line-angle-calculation",
+    "level": 5,
+    "title": "Find a missing angle at a crossing",
+    "objective": "Use straight-line and vertically opposite angle facts to find a missing part of an angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.03",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "intersecting-line-angle-calculation",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-inverse-area-triangle-relationships",
+    "level": 5,
+    "title": "Find a triangle height from an equal area",
+    "objective": "Use a rectangle area and an equal-area condition to recover a triangle perpendicular height.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P5.S.AREA.01",
+      "P5.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-inverse-area-triangle-relationships",
+    "sourcePaper": "f62fc43472226378",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-inverse-rounding-intervals",
+    "level": 5,
+    "title": "Find numbers from rounding clues",
+    "objective": "Use rounding limits to select a possible whole number or find an endpoint that satisfies every clue.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.WN.02",
+      "P5.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "inverse-rounding-intervals",
+    "sourcePaper": "aff15b011c1803b5",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-measured-part-of-whole",
+    "level": 5,
+    "title": "Percentages of measurements",
+    "objective": "Compare a measured part with the whole in matching units and express the fraction as a percentage.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.02",
+      "P5.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "measured-part-of-whole",
+    "sourcePaper": "0cc2458871b29a60",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-measurement-additions-deductions",
+    "level": 5,
+    "title": "Find the measurement left",
+    "objective": "Use common units to subtract known amounts, combine equal deductions and round a final measurement when requested.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.DEC.02",
+      "P5.S.FRAC.03",
+      "P4.S.DEC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-measurement-additions-deductions",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "1"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-measurement-ordering",
+    "level": 5,
+    "title": "Order measurements",
+    "objective": "Convert measurements to a common unit, then order them or find the smallest.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.DEC.02",
+      "P5.S.FRAC.03",
+      "P4.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-measurement-ordering",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-mixed-cost-price-differences",
+    "level": 5,
+    "title": "Find prices in a mixed purchase",
+    "objective": "Use a total cost and a difference between unit prices to find an item price or a category total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-mixed-cost-with-price-differences",
+    "sourcePaper": "8c9b6285937b51cc",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-nearest-value",
+    "level": 5,
+    "title": "Find the nearest number",
+    "objective": "Compare fractional distances from a whole-number target and choose the nearest value.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.03",
+      "P4.S.FRAC.01",
+      "P5.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-nearest-value",
+    "sourcePaper": "440b3b8642a0c9bb",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-nested-fractions-successive-remainders",
+    "level": 5,
+    "title": "Fractions of what is left",
+    "objective": "Find quantities after successive fractional changes and use a later addition to recover a starting quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "nested-fractions-and-successive-remainders",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-order-whole-numbers",
+    "level": 5,
+    "title": "Order four whole numbers",
+    "objective": "Compare whole numbers by place value and arrange them in either direction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.01",
+      "P4.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-order-whole-numbers",
+    "sourcePaper": "ab7ed879da32c0e5",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-overflow-capacity-balance",
+    "level": 5,
+    "title": "Water that spills out",
+    "objective": "Use the water present, water added and water lost to find overflow or capacity.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.VOL.05",
+      "P5.S.FRAC.05",
+      "P5.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-overflow-capacity-balance",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "5"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-overlapping-price-constraints",
+    "level": 5,
+    "title": "Find prices from overlapping sets",
+    "objective": "Remove known sets of items to find an individual price and a related cost.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-overlapping-price-constraints",
+    "sourcePaper": "1cdfaf2e202b3bd8",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 32,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-paired-quantities-from-total-cost",
+    "level": 5,
+    "title": "Find equal quantities from a total value",
+    "objective": "Use the value of an equal pair or equal-sized group to find how many of each item there are.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "paired-quantities-from-total-cost",
+    "sourcePaper": "eb1bb0f1da15399d",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-parallel-isosceles-transfer",
+    "level": 5,
+    "title": "Follow angles through parallel sides",
+    "objective": "Use parallel sides, equal base angles and angle sums to find angles in connected shapes.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.02",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02",
+      "P5.S.SHAPE.03",
+      "P4.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "parallel-line-transfer-into-isosceles-triangle",
+    "sourcePaper": "c509f2306dbbe933",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-part-to-whole-percentages",
+    "level": 5,
+    "title": "Percentages of a collection",
+    "objective": "Find a group as a percentage of the whole using counts of objects.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "part-to-whole-percentages",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-percentage-quantities",
+    "level": 5,
+    "title": "Work with percentage quantities",
+    "objective": "Find a percentage or its complement, share a percentage quantity equally, and update counts and percentages after adding one type of item.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.03",
+      "P5.S.PCT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "percentage-quantities",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "7"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-percentage-representation-conversions",
+    "level": 5,
+    "title": "Decimals, fractions and percentages",
+    "objective": "Convert between decimals, percentages and fractions, including a fraction remaining.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "percentage-representation-conversions",
+    "sourcePaper": "aff15b011c1803b5",
+    "sourceParts": [
+      "3"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-portion-counts-and-remainders",
+    "level": 5,
+    "title": "Pack portions and find what remains",
+    "objective": "Convert measurements to common units, account for earlier use, and find an exact portion count or the amount left after filling complete portions.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.DEC.02",
+      "P5.S.VOL.05",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-portion-counts-and-remainders",
+    "sourcePaper": "87ebf6837f5e619e",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-quantity-from-rate-and-count",
+    "level": 5,
+    "title": "Find a total from an amount per item",
+    "objective": "Derive the relevant count or related amount per item, then calculate the total quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.07",
+      "P5.S.RATE.02",
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-quantity-from-rate-and-count",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-quantity-unit-rate",
+    "level": 5,
+    "title": "Prices for packs and measured amounts",
+    "objective": "Find priced quantities from equal packs, measured amounts or related areas, then calculate the cost.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.FRAC.07",
+      "P4.S.DEC.06",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-quantity-and-unit-rate-conversion",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "23"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-ratio-from-fractional-relationships",
+    "level": 5,
+    "title": "Compare quantities using fractions",
+    "objective": "Use equal units to find a group size, a price or a group difference from fractional relationships.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.FRAC.01",
+      "P4.S.FRAC.03",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "ratio-from-fractional-relationships",
+    "sourcePaper": "c5b849c02d285800",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-ratio-partitioned-shaded-area",
+    "level": 5,
+    "title": "Find areas using related lengths",
+    "objective": "Use a known triangle area or related lengths to find missing dimensions and subtract shaded components.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-shaded-area-ratio-partitioned-dimensions",
+    "sourcePaper": "6067d91a2fee95ed",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-read-and-compare-digit-positions",
+    "level": 5,
+    "title": "Read and compare digit positions",
+    "objective": "Name digit positions, select numbers matching place clues, and compare digit values.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.WN.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "read-and-compare-digit-positions",
+    "sourcePaper": "b62fef807216ca90",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 1,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-reconstructing-money-balance",
+    "level": 5,
+    "title": "Reconstruct a money balance",
+    "objective": "Recover a money amount from equal payments, change, or an addition followed by spending.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.05",
+      "P5.S.DEC.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "reconstructing-money-balance",
+    "sourcePaper": "46ca966f1ad77d0f",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-recover-dimensions-from-folds",
+    "level": 5,
+    "title": "Open out a folded strip",
+    "objective": "Use equal lengths and midpoint relationships in folded strips to recover their original dimensions and areas.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-recover-dimensions-from-folds",
+    "sourcePaper": "fbf78ff1b615ba94",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-rectangle-area-after-dimension-changes",
+    "level": 5,
+    "title": "Find the area of a rectangular border",
+    "objective": "Find the outside dimensions of a rectangular border and subtract the inner area, using whole numbers or fractions.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.03",
+      "P4.S.AREA.02",
+      "P5.S.FRAC.04",
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.07"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-rectangle-area-after-dimension-changes",
+    "sourcePaper": "af02422b513a47af",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-rectangle-right-angle-arithmetic",
+    "level": 5,
+    "title": "Find angles using a rectangle",
+    "objective": "Combine rectangle corners, straight lines and triangle angle sums to find a marked angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SHAPE.01",
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.04",
+      "P5.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "rectangle-and-square-right-angle-arithmetic",
+    "sourcePaper": "55af055aed00d99a",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-reflection-figures",
+    "level": 5,
+    "title": "Check lines of symmetry",
+    "objective": "Compare reflected halves to select or count figures with a required number of lines of symmetry.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SYM.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "find-and-count-reflection-axes",
+    "sourcePaper": "87ebf6837f5e619e",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-related-item-masses-in-loaded-containers",
+    "level": 5,
+    "title": "Find masses from two weighings",
+    "objective": "Compare loaded masses and related contents to find an empty container mass or a contents mass.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.DEC.02",
+      "P5.S.WN.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-related-item-masses-in-loaded-containers",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 29,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-repeated-quantities-fixed-additions",
+    "level": 5,
+    "title": "Totals from equal amounts",
+    "objective": "Multiply equal measurements, account for a removed amount, and convert or round the total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.DEC.02",
+      "P4.S.DEC.04",
+      "P4.S.DEC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-repeated-quantities-fixed-additions",
+    "sourcePaper": "9126ea50894ab173",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-reverse-interleaved-spending",
+    "level": 5,
+    "title": "Work back through shopping expenses",
+    "objective": "Recover starting money by undoing fractional purchases and fixed extra payments in reverse order.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-reverse-interleaved-spending",
+    "sourcePaper": "0b57a62d0f9c143e",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-reverse-nested-fractions",
+    "level": 5,
+    "title": "Work back through spending and collections",
+    "objective": "Recover earlier amounts from nested fractions, then find total spending or linked category counts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-reverse-nested-fractions-and-remainders",
+    "sourcePaper": "f236829037abfe11",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-rhombus-vertex-angles",
+    "level": 5,
+    "title": "Find angles in rhombuses",
+    "objective": "Use rhombus properties, straight lines and equal-side triangles to find missing angles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02",
+      "P5.S.SHAPE.03",
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.02",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-rhombus-vertex-angle-propagation",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 32,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-rounded-fraction-decimals",
+    "level": 5,
+    "title": "Fractions as rounded decimals",
+    "objective": "Convert a fraction or mixed number by division, then round to the requested decimal place.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.03",
+      "P4.S.DEC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-division-and-fraction-to-decimal-conversion",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 9,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-shaded-area-subtraction",
+    "level": 5,
+    "title": "Find shaded and unshaded areas",
+    "objective": "Use component areas and triangle areas to find the area of selected regions.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "shaded-area-by-subtracting-known-regions",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-shaded-square-arrangements",
+    "level": 5,
+    "title": "Shaded areas in square arrangements",
+    "objective": "Use square sides and midpoint relationships to find and combine triangle areas.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "shaded-area-in-square-arrangements",
+    "sourcePaper": "c509f2306dbbe933",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-shared-height-area-fractions",
+    "level": 5,
+    "title": "Compare areas using a shared height",
+    "objective": "Use equal base parts and a common perpendicular height to compare triangle areas and shaded shares.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-equal-part-and-shared-height-area-fractions",
+    "sourcePaper": "3b90a4d326e2b2a4",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-single-percentage-change",
+    "level": 5,
+    "title": "Work out a shopping discount",
+    "objective": "Find a combined usual cost, then calculate the discount and amount paid.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.03",
+      "P5.S.PCT.04",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "single-percentage-change",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-spending-and-remainder-equations",
+    "level": 5,
+    "title": "Find spending and money left",
+    "objective": "Use equal units and fractions to connect starting money, spending and money left, then find amounts or purchase counts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.01",
+      "P5.S.FRAC.06",
+      "P5.S.RATE.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-spending-and-remainder-equations",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 30,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-straight-and-full-angle-arithmetic",
+    "level": 5,
+    "title": "Find angles using straight lines and full turns",
+    "objective": "Combine adjacent angles using right angles, straight lines and full turns.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.02",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-straight-and-full-angle-arithmetic",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-successive-percentage-factors",
+    "level": 5,
+    "title": "Follow two percentage changes",
+    "objective": "Use the correct amount for each percentage to find a final balance, a starting amount or a second payment.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.02",
+      "P5.S.PCT.03",
+      "P5.S.PCT.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "successive-percentage-factors",
+    "sourcePaper": "0cc2458871b29a60",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-three-sector-angles",
+    "level": 5,
+    "title": "Find the missing angle in a full turn",
+    "objective": "Use two known angles to find the third angle around a point, including a reflex angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.02",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "angles-around-point-three-sectors-two-known",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-triangle-area-derived-base",
+    "level": 5,
+    "title": "Find a triangle area from related lengths",
+    "objective": "Find the base from its relationship to the perpendicular height, then calculate the triangle area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "triangle-area-from-base-and-height",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-triangle-as-fraction-of-enclosing-area",
+    "level": 5,
+    "title": "Triangle areas inside squares and rectangles",
+    "objective": "Use shared bases, heights and equal subdivisions to find triangle regions from a known enclosing area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-triangle-as-fraction-of-enclosing-area",
+    "sourcePaper": "d7343b44f0f2ea21",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-triangle-dimensions-from-ratios",
+    "level": 5,
+    "title": "Find triangle area from equal length units",
+    "objective": "Use a perimeter and side proportions to find two perpendicular lengths, then calculate triangle area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.01",
+      "P5.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "triangle-dimensions-from-ratios",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "28"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-two-price-purchases",
+    "level": 5,
+    "title": "Work out prices from two purchases",
+    "objective": "Use two purchase totals to find unit prices, a new total cost or an affordable quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-two-price-purchase-equations",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 28,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-unit-conversion",
+    "level": 5,
+    "title": "Convert metric measurements",
+    "objective": "Convert between compound and single metric units, using decimals or whole units and a remainder.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "unit-conversion",
+    "sourcePaper": "067a9e9e89ad166e",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-volume-proportional-dimensions",
+    "level": 5,
+    "title": "Volume from related dimensions",
+    "objective": "Find a dimension from a fraction of another dimension, then calculate the volume of a cuboid or its water.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.VOL.03",
+      "P5.S.VOL.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-volume-proportional-dimensions",
+    "sourcePaper": "e221323661911f23",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-whole-and-parts-from-known-share",
+    "level": 5,
+    "title": "Find a whole or another part",
+    "objective": "Use a known fractional amount to find the whole and, when needed, another part.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "whole-and-parts-from-known-share",
+    "sourcePaper": "e5b44fbd5cb6c982",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-whole-from-final-original-share",
+    "level": 5,
+    "title": "Find a whole from its final share",
+    "objective": "Use fractions of a starting quantity and a fixed change to find the whole and the requested total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P4.S.FRAC.04",
+      "P3.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "whole-from-final-original-share-equation",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p5-whole-from-fractional-difference",
+    "level": 5,
+    "title": "Find a whole from a difference",
+    "objective": "Compare fractions of the same whole and use a known difference to find the starting quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P4.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "whole-from-fractional-difference",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-aggregate-supplied-expressions",
+    "level": 6,
+    "title": "Combine amounts written with letters",
+    "objective": "Combine component expressions, account for repeated quantities, and evaluate a requested total or subtotal.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.02",
+      "P6.S.ALG.03",
+      "P6.S.ALG.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-aggregate-supplied-expressions",
+    "sourcePaper": "ae2078c5e2699a3d",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-equal-shares-of-remainder",
+    "level": 6,
+    "title": "Share what is left equally",
+    "objective": "Form or evaluate an expression by subtracting deductions from a starting amount and dividing the remainder into equal shares.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.01",
+      "P6.S.ALG.02",
+      "P6.S.ALG.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-equal-shares-of-remainder",
+    "sourcePaper": "a23f265b6169953c",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-intersecting-line-relationships",
+    "level": 6,
+    "title": "Angles where lines cross",
+    "objective": "Use straight-line and vertically opposite angle facts to calculate angles and check statements.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.03",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "intersecting-line-angle-relationships",
+    "sourcePaper": "84e11115e25d03cc",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-percentage-change-and-discount-rate",
+    "level": 6,
+    "title": "Find percentage increases and discounts",
+    "objective": "Recover starting quantities and prices, then calculate percentage increases or discounts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.PCT.01",
+      "P6.S.PCT.02",
+      "P5.S.PCT.03",
+      "P5.S.PCT.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-percentage-change-and-discount-rate",
+    "sourcePaper": "f0eae0eb7d7360ec",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-prism-volume-from-dimensions",
+    "level": 6,
+    "title": "Water volume from tank measurements",
+    "objective": "Find the water volume in a rectangular tank and convert cubic centimetres to litres.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.VOL.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-prism-volume-from-dimensions",
+    "sourcePaper": "5fbc921e504c0195",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-rhombus-diagonal-half-angle-arithmetic",
+    "level": 6,
+    "title": "Angles split by a rhombus diagonal",
+    "objective": "Use equal angles beside a rhombus diagonal, then follow straight lines and parallel sides to find missing angles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-rhombus-diagonal-half-angle-arithmetic",
+    "sourcePaper": "bed3d830afcc8e93",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 34,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-triangle-area-ratios",
+    "level": 6,
+    "title": "Compare triangle areas using bases, heights and ratios",
+    "objective": "Compare triangles with base-times-height products or shared heights, then use the ratio to find a simplest-form ratio, a total area or an unshaded area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.02",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-triangle-area-ratios",
+    "sourcePaper": "1b577f5d5e9cb8dd",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-weighted-totals-and-means",
+    "level": 6,
+    "title": "Combine totals and averages",
+    "objective": "Find category totals using their sizes, then combine the totals and find an overall average when needed.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P6.S.AVG.01",
+      "P6.S.AVG.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-weighted-totals-and-means",
+    "sourcePaper": "b13300ac1b1bebc0",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 10,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-p6-whole-remainder-partitions",
+    "level": 6,
+    "title": "Whole shares and the remainder",
+    "objective": "Find category shares from fractions or percentages, split a remainder, and use the shares to form a ratio or recover a total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.03",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-whole-remainder-partitions",
+    "sourcePaper": "bd5fab3044457b10",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-pack-promotion-optimisation",
+    "level": 6,
+    "title": "Choose packs and offers",
+    "objective": "Compare whole packs and individual purchases to find the least cost or greatest quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P3.S.MD.02",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "pack-and-promotion-optimisation",
+    "sourcePaper": "b13300ac1b1bebc0",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-painted-enclosed-cubes",
+    "level": 6,
+    "title": "Painted faces and hidden cubes",
+    "objective": "Use layers and outside faces to count small cubes in rectangular blocks, including totals across separate blocks.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.VOL.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-painted-and-enclosed-unit-cubes",
+    "sourcePaper": "c91db26c550252ff",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-percentage-comparison-from-counts",
+    "level": 6,
+    "title": "Compare quantities using percentages",
+    "objective": "Choose the reference quantity, use matching units or a row total when needed, and calculate a percentage.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.01",
+      "P5.S.PCT.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "percentage-comparison-from-counts",
+    "sourcePaper": "bd5fab3044457b10",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-prism-pyramid-net-recognition-repair",
+    "level": 6,
+    "title": "Which nets make the prism?",
+    "objective": "Check matching edges and opposite ends to recognise nets of a triangular prism.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SOLID.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "prism-pyramid-net-recognition-repair",
+    "sourcePaper": "7929fb89b48e6135",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-protractor-measurement",
+    "level": 6,
+    "title": "Measure a drawn angle",
+    "objective": "Place a protractor at the vertex, align its zero with one arm and measure an obtuse angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.ANGLE.01",
+      "P4.S.ANGLE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "protractor-measurement",
+    "sourcePaper": "f0eae0eb7d7360ec",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-rank-monetary-amounts",
+    "level": 1,
+    "title": "Compare purses and prices",
+    "objective": "Count the dollars in each purse or read each price tag, then find the most or the least.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.MONEY.02",
+      "P1.S.WN.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "rank-monetary-amounts",
+    "sourcePaper": "0a6b947e6528782e",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-ratio-parts-compared-with-sums",
+    "level": 6,
+    "title": "Compare a group with the whole",
+    "objective": "Use ratio parts to express a group compared with the whole collection.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-ratio-parts-compared-with-sums",
+    "sourcePaper": "7929fb89b48e6135",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-related-quantity-aggregates",
+    "level": 6,
+    "title": "Totals of related quantities",
+    "objective": "Express related quantities using a letter, then combine them to find a total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.01",
+      "P6.S.ALG.02",
+      "P6.S.ALG.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-repeated-or-related-quantity-aggregates",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-shaded-cell-symmetry",
+    "level": 6,
+    "title": "Complete a shaded pattern",
+    "objective": "Pair squares across a mirror line and find the fewest squares needed to complete the pattern.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SYM.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "shaded-cell-symmetry-completion-and-repair",
+    "sourcePaper": "bed3d830afcc8e93",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-simplify-linear-expressions",
+    "level": 6,
+    "title": "Collect letter terms and numbers",
+    "objective": "Combine like terms and constants in linear expressions without brackets.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "simplify-linear-expressions",
+    "sourcePaper": "7105c7f5694cf363",
+    "sourceParts": [
+      "20"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-square-equilateral-boundary",
+    "level": 6,
+    "title": "Find the perimeter of a square and triangle",
+    "objective": "Use equal sides and shared edges to find a composite perimeter.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-square-equilateral-boundary",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-square-overlap-angles",
+    "level": 5,
+    "title": "Find a sum of angles in two squares",
+    "objective": "Use square corners and a given angle to find and add two unknown angles.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.03",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-square-diagonal-overlapping-square-angles",
+    "sourcePaper": "78748cea33e71976",
+    "sourceParts": [
+      "3"
+    ],
+    "sourcePage": 17,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-static-quantity-shares",
+    "level": 6,
+    "title": "Work out related quantities",
+    "objective": "Use fractional comparisons and equal ratio parts to find a combined amount, one share or a category fraction.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P6.S.RATIO.03",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-static-quantity-relationships-and-shares",
+    "sourcePaper": "84e11115e25d03cc",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 37,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-successive-relative-price-purchases",
+    "level": 6,
+    "title": "Two purchases with different prices",
+    "objective": "Use fractions of a budget and relative prices to find a total item count or spending on one type of item.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P5.S.FRAC.06",
+      "P6.S.FRAC.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-successive-purchases-relative-prices",
+    "sourcePaper": "c30d5b96813b5c1a",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-triangle-closure-after-parallel-transfer",
+    "level": 6,
+    "title": "Follow angles into a triangle",
+    "objective": "Use parallel sides and straight lines to find angles, then complete a triangle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "triangle-closure-after-parallel-transfer",
+    "sourcePaper": "8075b80e2358cbe3",
+    "sourceParts": [
+      "29"
+    ],
+    "sourcePage": 21,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-triangle-exterior-angle-chain",
+    "level": 6,
+    "title": "Follow exterior angles in a triangle",
+    "objective": "Use an exterior angle and the angles of a triangle to find another exterior angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-triangle-exterior-angle-chain",
+    "sourcePaper": "d121d2dd1d73e733",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-weighted-ratio-bundles",
+    "level": 6,
+    "title": "Find an amount using ratio groups",
+    "objective": "Weight ratio parts by counts or prices, then use a total to find an individual amount or category count.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.03",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-weighted-ratio-bundles",
+    "sourcePaper": "9401e0891cd39f5d",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 25,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rag-wire-length-budget",
+    "level": 5,
+    "title": "Find the wire left after a construction",
+    "objective": "Find a rectilinear construction perimeter from component lengths and subtract it from a wire length.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.AREA.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-wire-length-budget",
+    "sourcePaper": "d0533a28ee86a504",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 21,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rectangle-arrangement-equations",
+    "level": 5,
+    "title": "Rectangle arrangements and matching spans",
+    "objective": "Use matching lengths in two arrangements of identical rectangles to find a width, length, gap or height.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.DEC.05",
+      "P4.S.DEC.06"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-rectangle-arrangement-equations",
+    "sourcePaper": "8c4079873c3b5adc",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rectangle-sides-and-perimeter",
+    "level": 3,
+    "title": "Find a card’s length and area",
+    "objective": "Use the distance around a rectangle and its breadth to find its length, then use both sides to find its area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02",
+      "P3.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p3-rectangle-sides-and-perimeter",
+    "sourcePaper": "8aac1ca7a5c9c83a",
+    "sourceParts": [
+      "40"
+    ],
+    "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-rectangular-garden-border",
     "level": 4,
     "title": "Find the area of a path and the perimeter of a lawn",
@@ -173,6 +10963,100 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "39"
     ],
     "sourcePage": 25,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-related-number-bond-equations",
+    "level": 1,
+    "title": "Equations for the same number bond",
+    "objective": "Use the same whole and two parts to write related equations or check a given equation.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P1.S.AS.03",
+      "P1.S.AS.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "related-number-bond-equations",
+    "sourcePaper": "cb42c4ca733c6baa",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 25,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-reverse-fractional-fixed-removals",
+    "level": 6,
+    "title": "Work backwards through fraction and fixed removals",
+    "objective": "Undo fractional and fixed removals in reverse order to find an original amount or the first share.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-reverse-fractional-and-fixed-removals",
+    "sourcePaper": "8046bf0980557034",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 24,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-rhombus-adjoining-angles",
+    "level": 6,
+    "title": "Angles in a rhombus and an equilateral triangle",
+    "objective": "Use rhombus side and angle properties with an equilateral triangle to find an unknown angle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01",
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-rhombus-adjoining-angle-constraints",
+    "sourcePaper": "29ba7702443df0b7",
+    "sourceParts": [
+      "24"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-transfer-quantities",
+    "level": 3,
+    "title": "Count the stickers before and after a gift",
+    "objective": "Use equal counts or a known difference to find how many stickers the children had before or after a gift.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "reconstructing-quantities-around-a-transfer",
+    "sourcePaper": "f9ceaff46e05faaf",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-volume-from-square-face-information",
+    "level": 5,
+    "title": "Find volume from square information",
+    "objective": "Recover a square side from its area or perimeter, then use it to find volume.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-volume-square-face-information",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 6,
     "sourceMappingStatus": "unaudited"
   }
 ];

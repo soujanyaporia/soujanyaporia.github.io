@@ -40,14 +40,19 @@ try{
  const target=join(job,'validation-app'),marker=join(target,'.rag-validation-owner');
  if(existsSync(target)){if(lstatSync(target).isSymbolicLink()||!existsSync(marker)||readFileSync(marker,'utf8')!=='rag-validation-v1\n')throw Error('Refusing to replace an unowned validation directory.');rmSync(target,{recursive:true});}
  mkdirSync(target,{recursive:true});writeFileSync(marker,'rag-validation-v1\n');
- cpSync(join(app,'src'),join(target,'src'),{recursive:true});for(const f of ['package.json','tsconfig.json','vite.config.ts'])cpSync(join(app,f),join(target,f));
- // App tests import the local Cloud Pass worker; preserve that source dependency
- // without copying deployment settings, credentials or installed dependencies.
+ // Freeze promotion writes during the input copy so aggregates and modules agree.
+ const promotionLock=join(app,'src/primary/paperImports/.rag-promotion-lock');
+ let locked=false;for(let attempt=0;attempt<120;attempt++){try{mkdirSync(promotionLock);locked=true;break;}catch(error){if(error.code!=='EEXIST')throw error;await new Promise(resolve=>setTimeout(resolve,500));}}
+ if(!locked)throw Error('Timed out waiting for a stable source snapshot.');
  report.auxiliarySourceFiles={};
- if(existsSync(join(app,'cloudflare-worker','src'))){
-  cpSync(join(app,'cloudflare-worker','src'),join(target,'cloudflare-worker','src'),{recursive:true});
-  for(const f of walk(join(target,'cloudflare-worker','src')))report.auxiliarySourceFiles[relative(target,f).split(sep).join('/')]=hash(readFileSync(f));
- }
+ try{
+  cpSync(join(app,'src'),join(target,'src'),{recursive:true,filter:path=>path!==promotionLock});for(const f of ['package.json','tsconfig.json','vite.config.ts'])cpSync(join(app,f),join(target,f));
+  // Preserve the Cloud Pass source dependency without deployment settings or credentials.
+  if(existsSync(join(app,'cloudflare-worker','src'))){
+   cpSync(join(app,'cloudflare-worker','src'),join(target,'cloudflare-worker','src'),{recursive:true});
+   for(const f of walk(join(target,'cloudflare-worker','src')))report.auxiliarySourceFiles[relative(target,f).split(sep).join('/')]=hash(readFileSync(f));
+  }
+ }finally{rmSync(promotionLock,{recursive:true,force:true});}
  const sourceFiles=walk(join(target,'src'));const h=createHash('sha256');for(const p of sourceFiles){const rel=relative(target,p).split(sep).join('/');h.update(rel+'\0'+hash(readFileSync(p))+'\n');}
  report.baseSourceTreeSha256=h.digest('hex');report.baseFiles={};for(const file of ['package.json','tsconfig.json','vite.config.ts'])report.baseFiles[file]=hash(readFileSync(join(target,file)));
  symlinkSync(realpathSync(join(app,'node_modules')),join(target,'node_modules'),'dir');mkdirSync(join(target,'.tmp'));

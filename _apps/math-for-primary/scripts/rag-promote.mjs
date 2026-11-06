@@ -49,7 +49,7 @@ function readRegistry(app){
 }
 async function loadSnapshotMetadata(snapshot,entryFile){
  const {createServer}=await import('vite');
- const server=await createServer({root:snapshot,configFile:false,appType:'custom',server:{middlewareMode:true,hmr:false,watch:null},logLevel:'error',optimizeDeps:{noDiscovery:true}});
+ const server=await createServer({root:snapshot,configFile:false,appType:'custom',server:{middlewareMode:true,hmr:false,ws:false,watch:null},logLevel:'error',optimizeDeps:{noDiscovery:true}});
  try{const entry=await server.ssrLoadModule('/'+entryFile),curriculum=await server.ssrLoadModule('/src/school/curriculum.ts');if(typeof entry.makeRagQuestion!=='function')throw Error('Entry does not export makeRagQuestion.');return {pattern:JSON.parse(JSON.stringify(entry.RAG_PATTERN)),skillIds:curriculum.CURRICULUM_SKILLS.map(s=>s.id)};}finally{await server.close();}
 }
 function receipts(job,app){
@@ -90,8 +90,13 @@ function receipts(job,app){
  for(const ref of proposal.sourceRefs){const source=packet.sourceRegions.find(s=>s.bankLine===ref.bankLine&&s.paperId===ref.paperId&&s.questionNumber===ref.questionNumber);if(!source||ref.questionNumber==='unresolved'||!Array.isArray(ref.pageNumbers)||!ref.pageNumbers.length||ref.pageNumbers.some(p=>!Number.isInteger(p)||!source.pageNumbers.includes(p)||!source.pageTexts.some(t=>t.page===p&&!t.missing&&t.text?.trim())))throw Error('Candidate cites unresolved/out-of-packet source pages.');}
  return {packet,checkpoint,report,proposal,files,entryFile:entries[0],snapshot,reportHash:fileHash(reportPath)};
 }
+// Files only RAG promotion writes: isolated rag* generators/tests plus the generated registry, catalog and dispatcher.
+const ragOwned=rel=>FILE.test(rel)||[REGISTRY,CATALOG,QUESTIONS,CONTRACT].includes(rel);
+function nonRagTreeHash(root,excluded=[]){return treeHash(root,[...walk(join(root,'src')).map(p=>relative(root,p).split(sep).join('/')).filter(ragOwned),...excluded]);}
 function checkCurrentBase(app,data){
- if(treeHash(app)!==data.report.baseSourceTreeSha256)throw Error('App source changed since candidate checks; rerun checker before promotion.');
+ // Other promotions since this check only add isolated rag* files and regenerate RAG-owned files. Accept that when
+ // every non-RAG source file still matches this job's validated snapshot; any other source change needs a recheck.
+ if(treeHash(app)!==data.report.baseSourceTreeSha256&&nonRagTreeHash(app)!==nonRagTreeHash(data.snapshot,[...Object.keys(data.files),CONTRACT]))throw Error('App source changed since candidate checks; rerun checker before promotion.');
  for(const [path,h] of Object.entries(data.report.baseFiles))verify(safe(app,path),h,'Current app configuration');
  const auxiliary=data.report.auxiliarySourceFiles;for(const [path,h] of Object.entries(auxiliary))verify(safe(app,path),h,'Current auxiliary source');
  same(walk(join(app,'cloudflare-worker/src')).map(p=>relative(app,p).split(sep).join('/')),Object.keys(auxiliary).sort(),'Current auxiliary file set changed.');
@@ -122,12 +127,21 @@ export async function promoteJob({job,appRoot,dryRun=false,loadMetadata=loadSnap
  const inventory=json(inventoryPath);if(!Array.isArray(inventory.activities))throw Error('Invalid current pattern inventory.');
  if(inventory.activities.some(a=>a.canonicalPatternId===pattern.canonicalPatternId||a.id===pattern.id||a.parameter===`rag-${pattern.id}`))throw Error('Registered generator matches; record reuse instead of promotion.');
  const entry={id:pattern.id,level:pattern.level,title:pattern.title,objective:pattern.objective,skillIds:[...pattern.skillIds],canonicalPatternId:pattern.canonicalPatternId,parameter:`rag-${pattern.id}`,entryFile:data.entryFile,files:[...Object.entries(data.files)].sort(([a],[b])=>a.localeCompare(b)).map(([path,sha256])=>({path,sha256})),sourceRefs:data.proposal.sourceRefs.map(ref=>({paperId:ref.paperId,sourceQuestion:ref.questionNumber,sourcePages:[...new Set(ref.pageNumbers)].sort((a,b)=>a-b)})),jobId:data.packet.jobId,packetSha256:data.checkpoint.packetSha256,candidateSha256:data.checkpoint.candidateSha256,checkReportSha256:data.reportHash,status:'checks-passed-source-unaudited'};
- const next={schema:1,entries:[...registry.entries,entry].sort((a,b)=>a.parameter.localeCompare(b.parameter))},aggregates=renderRegistry(next);
  // Loading a checked module is executable code; revalidate receipts/base after it returns.
  const after=receipts(job,app);same(after.files,data.files,'Candidate changed during metadata loading.');if(after.reportHash!==data.reportHash||after.checkpoint.packetSha256!==data.checkpoint.packetSha256||after.checkpoint.candidateSha256!==data.checkpoint.candidateSha256)throw Error('Job receipt changed during metadata loading.');checkCurrentBase(app,data);readRegistry(app);
  const result={status:dryRun?'dry-run':'integrated',id:entry.id,parameter:entry.parameter,jobId:entry.jobId,files:Object.keys(data.files),aggregateFiles:[REGISTRY,CATALOG,QUESTIONS],sourceMappingStatus:'unaudited',meaning:'Typecheck/test receipts passed; this is not teacher review or whole-paper coverage.'};
  if(dryRun)return result;
- const lock=join(app,'src/primary/paperImports/.rag-promotion-lock');mkdirSync(lock);try{checkCurrentBase(app,data);readRegistry(app);for(const path of Object.keys(data.files))if(existsSync(safe(app,path)))throw Error(`App file appeared during promotion: ${path}`);install(app,Object.keys(data.files).map(path=>[path,safe(job,`candidate/${path}`)]),aggregates);}finally{rmSync(lock,{recursive:true,force:true});}return result;
+ const lock=join(app,'src/primary/paperImports/.rag-promotion-lock');mkdirSync(lock);try{
+  checkCurrentBase(app,data);
+  // RAG-only drift is allowed, so merge against the registry protected by this
+  // lock, not the copy loaded before asynchronous metadata evaluation.
+  const current=readRegistry(app),integrated=current.entries.find(e=>e.jobId===entry.jobId);
+  if(integrated){same(integrated,entry,'Integrated job receipt changed.');return {status:'already-integrated',id:entry.id,parameter:entry.parameter,jobId:entry.jobId};}
+  if(current.entries.some(e=>e.id===entry.id||e.canonicalPatternId===entry.canonicalPatternId))throw Error('Existing RAG pattern matches; record reuse instead.');
+  for(const path of Object.keys(data.files))if(existsSync(safe(app,path)))throw Error(`App file appeared during promotion: ${path}`);
+  const next={schema:1,entries:[...current.entries,entry].sort((a,b)=>a.parameter.localeCompare(b.parameter))};
+  install(app,Object.keys(data.files).map(path=>[path,safe(job,`candidate/${path}`)]),renderRegistry(next));
+ }finally{rmSync(lock,{recursive:true,force:true});}return result;
 }
 async function main(){const args=process.argv.slice(2),value=name=>{const at=args.indexOf(name);return at>=0?args[at+1]:null;};if(!value('--job')||!value('--app-root')||args.some((a,i)=>a.startsWith('--')&&!['--job','--app-root','--dry-run'].includes(a)||['--job','--app-root'].includes(a)&&(!args[i+1]||args[i+1].startsWith('--'))))throw Error('Usage: node scripts/rag-promote.mjs --job PATH --app-root PATH [--dry-run]');console.log(JSON.stringify(await promoteJob({job:resolve(value('--job')),appRoot:resolve(value('--app-root')),dryRun:args.includes('--dry-run')})));}
 if(process.argv[1]&&import.meta.url===pathToFileURL(resolve(process.argv[1])).href)main().catch(error=>{console.error(`Promotion rejected: ${error.message}`);process.exitCode=1;});

@@ -6,7 +6,7 @@ import {dirname,join} from 'node:path';
 import {packetHash,promoteJob,renderRegistry,sha,treeHash} from '../rag-promote.mjs';
 const ROOT='src/primary/paperImports/';
 function put(path,text){mkdirSync(dirname(path),{recursive:true});writeFileSync(path,text);}
-function fixture(t){
+function fixture(t,suffix='',canonicalOverride){
  const root=mkdtempSync(join(tmpdir(),'rag-promote-')),app=join(root,'app'),job=join(root,'job');t.after(()=>rmSync(root,{recursive:true,force:true}));
  put(join(app,'src/base.ts'),'export const base=1;\n');for(const file of ['package.json','tsconfig.json','vite.config.ts'])put(join(app,file),'{}');
  put(join(app,'src/school/curriculum.ts'),"export const CURRICULUM_SKILLS=[{id:'P3.S.MEASURE.03'}];");
@@ -14,13 +14,14 @@ function fixture(t){
  put(join(app,'.generated/question-pattern-inventory.json'),JSON.stringify({activities:[{id:'current',level:3,canonicalPatternId:'already-existing'}]}));
  for(const [path,text] of Object.entries(renderRegistry({schema:1,entries:[]})))put(join(app,path),text);
  const pdf=join(job,'source.pdf');put(pdf,'%PDF-private-fixture');
- const pattern={id:'fixture-water',level:3,title:'Equal bottles',objective:'Find a capacity from equal bottles.',skillIds:['P3.S.MEASURE.03'],canonicalPatternId:'fixture-new-bottle-pattern'};
- const files=[{path:'candidate/'+ROOT+'ragFixtureWater.ts',content:`export const RAG_PATTERN=${JSON.stringify(pattern)}; export function makeRagQuestion(){return {};}`} ,{path:'candidate/'+ROOT+'ragFixtureWater.test.ts',content:'// independent visible-givens fixture test'}];
- const packet={schema:1,jobId:'fixture-job',level:3,topic:'water',sourceRegions:[{bankLine:1,paperId:'abc123',level:3,questionNumber:'8a',pageNumbers:[2],rawText:'Private source wording.',rawTextSha256:sha('Private source wording.'),sourcePdf:pdf,sourceSha256:sha('%PDF-private-fixture'),pageTexts:[{page:2,text:'Private page wording.',textSha256:sha('Private page wording.')}],pageImages:[]}],referenceFiles:[],existingGenerators:[],requirements:[]};
+ const tail=suffix?'-'+suffix.toLowerCase():'';
+ const pattern={id:'fixture-water'+tail,level:3,title:'Equal bottles',objective:'Find a capacity from equal bottles.',skillIds:['P3.S.MEASURE.03'],canonicalPatternId:canonicalOverride??'fixture-new-bottle-pattern'+tail};
+ const files=[{path:'candidate/'+ROOT+'ragFixtureWater'+suffix+'.ts',content:`export const RAG_PATTERN=${JSON.stringify(pattern)}; export function makeRagQuestion(){return {};}`} ,{path:'candidate/'+ROOT+'ragFixtureWater'+suffix+'.test.ts',content:'// independent visible-givens fixture test'}];
+ const packet={schema:1,jobId:'fixture-job'+tail,level:3,topic:'water',sourceRegions:[{bankLine:1,paperId:'abc123',level:3,questionNumber:'8a',pageNumbers:[2],rawText:'Private source wording.',rawTextSha256:sha('Private source wording.'),sourcePdf:pdf,sourceSha256:sha('%PDF-private-fixture'),pageTexts:[{page:2,text:'Private page wording.',textSha256:sha('Private page wording.')}],pageImages:[]}],referenceFiles:[],existingGenerators:[],requirements:[]};
  const proposal={decision:'new-generator',canonicalPatternId:pattern.canonicalPatternId,sourceRefs:[{bankLine:1,paperId:'abc123',questionNumber:'8a',pageNumbers:[2]}],files,blockingGaps:[],tests:['independent solver'],reasoning:'New structure.'};
  put(join(job,'packet.json'),JSON.stringify(packet));put(join(job,'candidate-attempt-1.json'),JSON.stringify(proposal));for(const file of files)put(join(job,file.path),file.content);
  const snapshot=join(job,'validation-app');cpSync(join(app,'src'),join(snapshot,'src'),{recursive:true});for(const file of ['package.json','tsconfig.json','vite.config.ts'])cpSync(join(app,file),join(snapshot,file));cpSync(join(app,'cloudflare-worker'),join(snapshot,'cloudflare-worker'),{recursive:true});put(join(snapshot,'.rag-validation-owner'),'rag-validation-v1\n');
- const report={schema:1,status:'checks-passed',checksExecuted:true,checks:[{name:'typecheck',exitCode:0},{name:'candidate-tests',exitCode:0}],candidateFiles:Object.fromEntries(files.map(f=>[f.path.slice(10),sha(f.content)])),baseSourceTreeSha256:treeHash(app),baseFiles:Object.fromEntries(['package.json','tsconfig.json','vite.config.ts'].map(p=>[p,sha('{}')])),auxiliarySourceFiles:{'cloudflare-worker/src/worker.ts':sha('export const worker=1;')},testSummary:{passed:5,failed:0,files:[ROOT+'ragFixtureWater.test.ts']}};
+ const report={schema:1,status:'checks-passed',checksExecuted:true,checks:[{name:'typecheck',exitCode:0},{name:'candidate-tests',exitCode:0}],candidateFiles:Object.fromEntries(files.map(f=>[f.path.slice(10),sha(f.content)])),baseSourceTreeSha256:treeHash(app),baseFiles:Object.fromEntries(['package.json','tsconfig.json','vite.config.ts'].map(p=>[p,sha('{}')])),auxiliarySourceFiles:{'cloudflare-worker/src/worker.ts':sha('export const worker=1;')},testSummary:{passed:5,failed:0,files:[ROOT+'ragFixtureWater'+suffix+'.test.ts']}};
  for(const file of files)put(join(snapshot,file.path.slice(10)),file.content);put(join(snapshot,ROOT+'ragWorkerContractCheck.test.ts'),'// checked contract fixture');report.contractTestSha256=sha('// checked contract fixture');
  const checkpoint={schema:1,jobId:packet.jobId,status:'checks-passed',decision:'new-generator',checksExecuted:true,checks:[{exitCode:0}],attempt:1,candidateFile:'candidate-attempt-1.json',packetSha256:packetHash(join(job,'packet.json')),candidateSha256:sha(readFileSync(join(job,'candidate-attempt-1.json'))),fileSha256:Object.fromEntries(files.map(f=>[f.path,sha(f.content)]))};
  const seal=()=>{put(join(job,'rag-check-report.json'),JSON.stringify(report));checkpoint.checkReportSha256=sha(readFileSync(join(job,'rag-check-report.json')));put(join(job,'checkpoint.json'),JSON.stringify(checkpoint));};seal();
@@ -65,4 +66,37 @@ test('accepts hash-bound images kept in the original retrieval folder and reject
 });
 test('rejects checker packet/candidate bindings that disagree with the checkpoint',async t=>{
  for(const field of ['packetSha256','candidateSha256']){const f=fixture(t);f.report[field]='0'.repeat(64);f.seal();await assert.rejects(f.invoke(),/Checker .* binding differs/);}
+});
+test('accepts other RAG promotions made after the check; any non-RAG source change still needs a recheck',async t=>{
+ const f=fixture(t),path=ROOT+'ragOther.ts',content='export const other=1;';put(join(f.app,path),content);
+ const registry={schema:1,entries:[{...f.pattern,id:'other-entry',canonicalPatternId:'other-pattern',parameter:'rag-other-entry',entryFile:path,files:[{path,sha256:sha(content)}],sourceRefs:[{paperId:'previous-paper',sourceQuestion:'2',sourcePages:[1]}],jobId:'other-job'}]};
+ for(const [rel,text] of Object.entries(renderRegistry(registry)))put(join(f.app,rel),text);
+ assert.notEqual(treeHash(f.app),f.report.baseSourceTreeSha256);
+ assert.equal((await f.invoke()).status,'integrated');
+ const g=fixture(t);put(join(g.app,ROOT+'ragOther.ts'),'export const other=1;');put(join(g.app,'src/base.ts'),'changed app');
+ await assert.rejects(g.invoke(),/rerun checker/);assert.equal(existsSync(join(g.app,ROOT+'ragFixtureWater.ts')),false);
+});
+test('preserves a promotion completed while another candidate loads metadata',async t=>{
+ const f=fixture(t),g=fixture(t,'Other');
+ const result=await f.invoke({loadMetadata:async()=>{
+  assert.equal((await g.invoke({appRoot:f.app})).status,'integrated');
+  return {pattern:f.pattern,skillIds:['P3.S.MEASURE.03']};
+ }});
+ assert.equal(result.status,'integrated');
+ const registry=JSON.parse(readFileSync(join(f.app,ROOT+'ragRegistry.json'),'utf8'));
+ assert.deepEqual(new Set(registry.entries.map(e=>e.jobId)),new Set([f.packet.jobId,g.packet.jobId]));
+ for(const [path,text] of Object.entries(renderRegistry(registry)))assert.equal(readFileSync(join(f.app,path),'utf8'),text);
+ assert.ok(existsSync(join(f.app,ROOT+'ragFixtureWater.ts')));
+ assert.ok(existsSync(join(f.app,ROOT+'ragFixtureWaterOther.ts')));
+});
+test('rejects a canonical collision added during asynchronous metadata loading',async t=>{
+ const f=fixture(t),g=fixture(t,'Other',f.pattern.canonicalPatternId);
+ await assert.rejects(f.invoke({loadMetadata:async()=>{
+  assert.equal((await g.invoke({appRoot:f.app})).status,'integrated');
+  return {pattern:f.pattern,skillIds:['P3.S.MEASURE.03']};
+ }}),/reuse/);
+ const registry=JSON.parse(readFileSync(join(f.app,ROOT+'ragRegistry.json'),'utf8'));
+ assert.deepEqual(registry.entries.map(e=>e.jobId),[g.packet.jobId]);
+ assert.equal(existsSync(join(f.app,ROOT+'ragFixtureWater.ts')),false);
+ assert.ok(existsSync(join(f.app,ROOT+'ragFixtureWaterOther.ts')));
 });

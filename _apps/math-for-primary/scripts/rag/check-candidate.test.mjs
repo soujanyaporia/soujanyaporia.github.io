@@ -1,13 +1,14 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync,mkdirSync,readFileSync,rmSync,writeFileSync,symlinkSync} from 'node:fs';
+import {existsSync,mkdtempSync,mkdirSync,readFileSync,rmSync,writeFileSync,symlinkSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
-import {spawnSync} from 'node:child_process';
+import {spawn,spawnSync} from 'node:child_process';
 const checker=resolve('scripts/rag-check-candidate.mjs');
 function put(path,text){mkdirSync(resolve(path,'..'),{recursive:true});writeFileSync(path,text);}
 function fixture(){
  const root=mkdtempSync(join(tmpdir(),'rag-check-')),app=join(root,'app'),job=join(root,'job');mkdirSync(job,{recursive:true});
+ mkdirSync(join(app,'src/primary/paperImports'),{recursive:true});
  put(join(app,'src','baseline.ts'),'export const base = 1;\n');put(join(app,'package.json'),'{}');put(join(app,'tsconfig.json'),'{}');put(join(app,'vite.config.ts'),'export default {};');
  put(join(app,'node_modules','typescript','bin','tsc'),"process.exit(process.env.FAKE_TSC_FAIL==='1'?1:0);\n");
  put(join(app,'node_modules','vitest','vitest.mjs'),`import {writeFileSync} from 'node:fs';import {resolve} from 'node:path';const out=process.argv.find(x=>x.startsWith('--outputFile=')).slice(13),tests=process.argv.filter(x=>x.endsWith('.test.ts'));const passed=process.env.FAKE_ZERO==='1'?0:2;writeFileSync(out,JSON.stringify({success:true,numPassedTests:passed,numFailedTests:0,testResults:tests.map(name=>({name:resolve(name),assertionResults:passed?[{status:'passed'}]:[]}))}));`);
@@ -25,3 +26,15 @@ test('rejects a missing promotion contract',()=>{const f=fixture();try{put(join(
 test('rejects candidate symlinks',()=>{const f=fixture();try{
  symlinkSync(join(f.app,'src','baseline.ts'),join(f.job,'candidate','src','primary','paperImports','ragBad.test.ts'));const p=f.invoke();assert.equal(p.status,1);assert.match(p.stdout,/Symlink/);
  }finally{f.cleanup();}});
+test('waits for promotion before copying a consistent source snapshot and omits its lock',()=>{const f=fixture();let child;try{
+ const rel='src/primary/paperImports/.rag-promotion-lock';mkdirSync(join(f.app,rel),{recursive:true});
+ put(join(f.app,'src/.other-source/kept.ts'),'export const kept=3;');
+ put(join(f.job,'candidate','src','primary','paperImports','ragExample.test.ts'),'// test');
+ child=spawn(process.execPath,['-e',`const fs=require('node:fs');setTimeout(()=>{fs.writeFileSync(${JSON.stringify(join(f.app,'src/baseline.ts'))},'export const base=2;');fs.writeFileSync(${JSON.stringify(join(f.app,'src/primary/paperImports/ragOther.ts'))},'export const other=1;');fs.rmSync(${JSON.stringify(join(f.app,rel))},{recursive:true});},200);`],{stdio:'ignore'});
+ const p=f.invoke();assert.equal(p.status,0,p.stderr+' '+p.stdout);
+ assert.equal(existsSync(join(f.job,'validation-app',rel)),false);
+ assert.equal(existsSync(join(f.app,rel)),false);
+ assert.equal(readFileSync(join(f.job,'validation-app/src/baseline.ts'),'utf8'),'export const base=2;');
+ assert.equal(readFileSync(join(f.job,'validation-app/src/primary/paperImports/ragOther.ts'),'utf8'),'export const other=1;');
+ assert.equal(readFileSync(join(f.job,'validation-app/src/.other-source/kept.ts'),'utf8'),'export const kept=3;');
+ }finally{child?.kill();f.cleanup();}});

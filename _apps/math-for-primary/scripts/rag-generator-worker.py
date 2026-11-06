@@ -31,6 +31,47 @@ MAX_CANDIDATE = 2_000_000
 class WorkerError(ValueError):
     pass
 
+# --slim-prompt (census builds): what the model is sent, not what is stored or checked. packet.json, its digest and
+# the checker still use the full packet. Census packets are already matched against existing generators, so the
+# whole-grade generator index (~20k tokens) is dropped; only the ranked top matches are kept. Core reference files
+# go first so every job's prompt starts with the same long prefix (prompt caching). See scripts/rag/PROMPT-BUDGET.md.
+CORE_REFERENCES=('src/school/curriculum.ts','src/primary/generate.ts','src/primary/answerFormat.ts','src/primary/gridDrawingModel.ts','src/primary/paperImports/batch6MiddleResponse.ts','src/primary/paperPicture.ts')
+SLIM_TOP_GENERATORS=5
+SLIM_EXTRA_REFERENCES=2
+SLIM_IMAGE_PX=1280
+SLIM_FEEDBACK_CHARS=4000
+
+def slim_packet(packet: dict) -> dict:
+    refs=packet['referenceFiles']
+    core=[f for f in refs if isinstance(f,dict) and f.get('path') in CORE_REFERENCES]
+    extra=[f for f in refs if not (isinstance(f,dict) and f.get('path') in CORE_REFERENCES)][:SLIM_EXTRA_REFERENCES]
+    out={'referenceFiles':core+extra}
+    out.update({k:v for k,v in packet.items() if k!='referenceFiles'})
+    out['existingGenerators']=packet['existingGenerators'][:SLIM_TOP_GENERATORS]
+    out['existingGeneratorsScope']=('Ranked top matches only. The census already excluded patterns an existing generator covers; '
+                                   'the promotion tool rejects a pattern that duplicates an existing one.')
+    return out
+
+def slim_images(images: list[str], job: Path) -> list[str]:
+    """Downscaled copies (long side SLIM_IMAGE_PX) in the job folder; the original is kept on any failure."""
+    out=[];folder=job/'prompt-images'
+    for src in images:
+        path=Path(src)
+        try:
+            head=path.read_bytes()[:24]
+            if not head.startswith(b'\x89PNG') or max(int.from_bytes(head[16:20],'big'),int.from_bytes(head[20:24],'big'))<=SLIM_IMAGE_PX:
+                out.append(src);continue
+            folder.mkdir(exist_ok=True);dst=folder/path.name
+            if not dst.is_file():
+                subprocess.run(['sips','-Z',str(SLIM_IMAGE_PX),str(path),'--out',str(dst)],capture_output=True,timeout=60,check=True)
+            out.append(str(dst) if dst.is_file() else src)
+        except (OSError,subprocess.SubprocessError):
+            out.append(src)
+    return out
+
+def slim_check(check: dict) -> dict:
+    return {k:(v[-SLIM_FEEDBACK_CHARS:] if k in ('stdout','stderr') and isinstance(v,str) else v) for k,v in check.items()}
+
 def packet_check(packet: object) -> dict:
     if not isinstance(packet, dict) or packet.get('schema') != 1 or not isinstance(packet.get('jobId'), str) or not JOB_ID.fullmatch(packet['jobId']):
         raise WorkerError('Packet schema or jobId is invalid.')
@@ -173,7 +214,7 @@ def file_hashes(job: Path, candidate: dict) -> dict[str,str]:
         hashes[str(rel)]=hashlib.sha256(target.read_bytes()).hexdigest()
     return hashes
 
-def run_job(packet: dict, job: Path, commands: list[list[str]], *, codex: str='codex', timeout: int=180, max_repairs: int=2, resume: bool=False, image_roots: list[Path]|None=None, run: Callable=subprocess.run) -> dict:
+def run_job(packet: dict, job: Path, commands: list[list[str]], *, codex: str='codex', timeout: int=180, max_repairs: int=2, resume: bool=False, image_roots: list[Path]|None=None, run: Callable=subprocess.run, slim: bool=False) -> dict:
     packet=packet_check(packet)
     if timeout<1 or timeout>1800 or max_repairs not in range(3): raise WorkerError('Invalid timeout or repair count.')
     job.mkdir(parents=True,exist_ok=True)
@@ -199,13 +240,15 @@ def run_job(packet: dict, job: Path, commands: list[list[str]], *, codex: str='c
                 if report.is_symlink() or not report.is_file() or hashlib.sha256(report.read_bytes()).hexdigest()!=state['checkReportSha256']: raise WorkerError('Cannot resume an altered check report.')
             return state
     atomic_json(job/'packet.json',packet)
+    sent=slim_packet(packet) if slim else packet
+    if slim: images=slim_images(images,job)
     history=[];feedback='No previous attempt.'
     for attempt in range(max_repairs+1):
         state={'schema':1,'jobId':packet['jobId'],'packetSha256':digest,'status':'running','attempt':attempt+1,'attempts':history,'checksExecuted':False}
         atomic_json(checkpoint,state)
         output=job/f'candidate-attempt-{attempt+1}.json'
         if output.exists() or output.is_symlink(): output.unlink()
-        prompt=PROMPT.read_text(encoding='utf-8')+'\n\nPREVIOUS FEEDBACK:\n'+feedback+'\n\nUNTRUSTED RETRIEVAL PACKET JSON:\n'+json.dumps(packet,ensure_ascii=False)
+        prompt=PROMPT.read_text(encoding='utf-8')+'\n\nPREVIOUS FEEDBACK:\n'+feedback+'\n\nUNTRUSTED RETRIEVAL PACKET JSON:\n'+json.dumps(sent,ensure_ascii=False)
         cmd=[codex,'exec','--sandbox','read-only','--skip-git-repo-check','--ephemeral','--output-schema',str(SCHEMA),'--output-last-message',str(output),'--json',*[arg for path in images for arg in ('-i',path)],'-']
         try:
             proc=run(cmd,input=prompt,text=True,capture_output=True,cwd=str(job),timeout=timeout,check=False)
@@ -225,7 +268,7 @@ def run_job(packet: dict, job: Path, commands: list[list[str]], *, codex: str='c
                         checks.append({'command':command,'exitCode':None,'error':str(e)[:3000]})
                     if checks[-1]['exitCode']!=0: break
             if checks and any(c['exitCode']!=0 for c in checks):
-                feedback='A staged check failed: '+json.dumps(checks[-1],ensure_ascii=False)
+                feedback='A staged check failed: '+json.dumps(slim_check(checks[-1]) if slim else checks[-1],ensure_ascii=False)
                 history.append({'attempt':attempt+1,'status':'check-failed','checks':checks})
                 continue
             status=candidate['decision'] if candidate['decision']!='new-generator' else ('checks-passed' if checks else 'generated-unverified')
@@ -245,7 +288,7 @@ def run_job(packet: dict, job: Path, commands: list[list[str]], *, codex: str='c
 
 def main() -> int:
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('packet',type=Path);p.add_argument('--jobs-dir',type=Path,required=True);p.add_argument('--codex',default='codex');p.add_argument('--timeout',type=int,default=180);p.add_argument('--max-repairs',type=int,default=2);p.add_argument('--resume',action='store_true');p.add_argument('--check-command-json',action='append',default=[],metavar='JSON_ARRAY')
+    p.add_argument('packet',type=Path);p.add_argument('--jobs-dir',type=Path,required=True);p.add_argument('--codex',default='codex');p.add_argument('--timeout',type=int,default=180);p.add_argument('--max-repairs',type=int,default=2);p.add_argument('--resume',action='store_true');p.add_argument('--check-command-json',action='append',default=[],metavar='JSON_ARRAY');p.add_argument('--slim-prompt',action='store_true',help='send a trimmed prompt (census builds); stored packet and checks unchanged')
     args=p.parse_args()
     try:
         if args.packet.stat().st_size>MAX_PACKET: raise WorkerError('Packet exceeds size limit.')
@@ -264,7 +307,7 @@ def main() -> int:
             with open(job/'.job.lock','a+') as joblock:
                 try: fcntl.flock(joblock,fcntl.LOCK_EX|fcntl.LOCK_NB)
                 except BlockingIOError: raise WorkerError('This job is already running.') from None
-                try: state=run_job(packet,job,commands,codex=args.codex,timeout=args.timeout,max_repairs=args.max_repairs,resume=args.resume,image_roots=[args.packet.resolve().parent,job])
+                try: state=run_job(packet,job,commands,codex=args.codex,timeout=args.timeout,max_repairs=args.max_repairs,resume=args.resume,image_roots=[args.packet.resolve().parent,job],slim=args.slim_prompt)
                 finally: fcntl.flock(joblock,fcntl.LOCK_UN)
         finally:
             fcntl.flock(held,fcntl.LOCK_UN);held.close()

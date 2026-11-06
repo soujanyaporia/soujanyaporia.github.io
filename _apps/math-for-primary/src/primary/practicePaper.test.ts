@@ -121,7 +121,9 @@ describe('On-demand original practice papers',()=>{
   expect(practicePaperTopics(4,'standard').find(t=>t.id==='SYM')?.maxCount).toBe(6);
   expect(practicePaperTopics(5,'foundation').some(t=>t.id==='LINES')).toBe(false);
   expect(practicePaperTopics(1,'standard').find(t=>t.id==='LENGTH')!.maxCount).toBe(6);
-  expect(practicePaperTopics(2,'standard').find(t=>t.id==='SHAPE')!.maxCount).toBe(6);
+  // Census-built RAG shape families (Nov 2026) give P2 shapes enough distinct families for a 12-question paper;
+  // the loop below still builds every advertised size and checks the questions are distinct.
+  expect(practicePaperTopics(2,'standard').find(t=>t.id==='SHAPE')!.maxCount).toBe(12);
   expect(generatePracticePaper({...request(3),topic:'LINES'}).items).toHaveLength(6);
   expect(()=>generatePracticePaper({...request(1),topic:'LENGTH',count:18})).toThrow(PracticePaperCapacityError);
   expect(generatePracticePaper({...request(1),topic:'LENGTH',count:6}).items).toHaveLength(6);
@@ -130,7 +132,7 @@ describe('On-demand original practice papers',()=>{
    expect(paper.items).toHaveLength(count);
    expect(new Set(paper.items.map(i=>visibleQuestionKey(i.question))).size,`P${level} ${track} ${topic.id} ${count}`).toBe(count);
   }
- });
+ },60000);
 
  it('ignores invisible answers, alternative distractors and shuffled ordering tiles when deduplicating',()=>{
   const q:Question={key:'a',prompt:' Arrange these numbers. ',display:'Smallest   first',answer:'1,2,3',order:['3','1','2'],hint:'h',explanation:'e',choices:['1,2,3','3,2,1']};

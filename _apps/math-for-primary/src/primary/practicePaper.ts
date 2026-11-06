@@ -6,7 +6,7 @@ import {makeQuestion,type Question} from './generate';
 import {paperReasoningFamily,paperResponseForm,paperCompositionGroup,paperBlueprint} from './paperBlueprints';
 
 /** Bump when the source schedule, seeded draws or question semantics change. */
-export const PRACTICE_PAPER_VERSION=12;
+export const PRACTICE_PAPER_VERSION=13;
 export const PRACTICE_PAPER_COUNTS=[6,12,18] as const;
 export type PracticePaperCount=typeof PRACTICE_PAPER_COUNTS[number];
 export interface PaperRequest {level:number;track:Track;count:PracticePaperCount;topic:string;seed:number}
