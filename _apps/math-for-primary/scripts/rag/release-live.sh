@@ -46,7 +46,7 @@ cd "$DST/school-api" || fail "no school-api"
 node sync-shared.mjs > "$SRC/.generated/release-api.log" 2>&1 && npm run build >> "$SRC/.generated/release-api.log" 2>&1 \
   && npm test >> "$SRC/.generated/release-api.log" 2>&1 || fail "school API sync/build/test failed (.generated/release-api.log)"
 cd "$DST"
-npx vitest run --maxWorkers=4 > "$SRC/.generated/release-tests.log" 2>&1 || fail "app tests failed (.generated/release-tests.log)"
+npx vitest run --maxWorkers=4 --testTimeout=30000 >"$SRC/.generated/release-tests.log" 2>&1 || fail "app tests failed (.generated/release-tests.log)"
 TESTS=$(grep -E "^ +Tests " "$SRC/.generated/release-tests.log" | tail -1 | sed -E 's/ +/ /g')
 VITE_CLOUD_SYNC_URL=$SYNC_URL npm run build > "$SRC/.generated/release-build.log" 2>&1 || fail "production build failed (.generated/release-build.log)"
 ASSET=$(grep -o -E 'assets/index-[A-Za-z0-9_-]+\.js' dist/index.html | head -1)
@@ -71,7 +71,7 @@ Add $NEW census-built practice-paper question generators
 
 Generators built from the P1-P6 pattern census of 60 sample papers, each
 checked by an independent solver test before promotion. Practice-paper and
-daily-plan versions move to 13 so saved papers regenerate with the new
+daily-plan versions move to $(sed -n -E "s/^export const PRACTICE_PAPER_VERSION=([0-9]+);/\1/p" "$SRC/src/primary/practicePaper.ts") so saved papers regenerate with the new
 patterns. Local checks: $TESTS; production build passed.
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>

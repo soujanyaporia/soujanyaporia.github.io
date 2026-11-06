@@ -5,7 +5,7 @@
 # If the breaker trips (usage limit hit by other Claude use), wait 30 min and resume, up to 12 times per pass.
 cd "/Users/poriasoujanya/Documents/Math for Primary" || exit 1
 B=scripts/census-build.py
-G=(--engine claude --model sonnet --effort high --timeout 900 --breaker 4 --job-share 0.03 --start-gap 45 --usage-cap 0.88)
+G=(--engine claude --model sonnet --effort high --timeout 900 --breaker 4 --job-share 0.04 --start-gap 45 --usage-cap 0.75)
 LOG=.generated/census-build-full-scope.log
 log() { echo "$(date +%H:%M:%S) $*" >> $LOG; }
 

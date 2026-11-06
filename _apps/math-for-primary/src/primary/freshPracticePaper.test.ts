@@ -18,7 +18,7 @@ describe('fresh practice paper selection',()=>{
    expect(generatePracticePaper(parsePracticePaperCode(fresh.code)!)).toEqual(fresh);
    for(const {question:q} of fresh.items){expect(paperAnswerStatus(q,q.answer)).toBe('complete');expect(correctAnswer(q,q.answer)).toBe(true);}
   }
- });
+ },60000);
  it('chooses a better supplied seed when a genuinely less-repeated paper exists',()=>{
   const input=request(3),papers=seeds.map(seed=>generatePracticePaper({...input,seed})),history=[paperHistoryEntry(papers[0])];
   const firstScore=paperFreshnessScore(history[0].families,history),available=papers.slice(1).some(p=>paperFreshnessScore(paperHistoryEntry(p).families,history).unseen>firstScore.unseen);

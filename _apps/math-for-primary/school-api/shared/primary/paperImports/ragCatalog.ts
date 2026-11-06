@@ -39,6 +39,45 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-equal-additions-to-target-fill",
+    "level": 5,
+    "title": "Equal bottles to reach a target fill",
+    "objective": "Find the volume gap in a rectangular tank, then divide by the volume of one bottle, or find the volume of one bottle from the gap.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.VOL.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-equal-additions-target-fill",
+    "sourcePaper": "55af055aed00d99a",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 19,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-equal-changes-preserve-difference",
+    "level": 5,
+    "title": "Equal changes keep the difference",
+    "objective": "Use an unchanged difference and a final ratio to find the common change or a final quantity",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.AS.01",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-equal-changes-preserve-difference",
+    "sourcePaper": "df9be00a4f409589",
+    "sourceParts": [
+      "12"
+    ],
+    "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p1-computed-whole-missing-addend",
     "level": 1,
     "title": "Find the other number in the sum",
@@ -5524,6 +5563,25 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p5-axis-aligned-cube-packing",
+    "level": 5,
+    "title": "Pack whole cubes into a cuboid",
+    "objective": "Find the greatest number of whole cubes that fit in a cuboid by dividing each side by the cube edge, rounding down and multiplying",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.01",
+      "P5.S.VOL.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-axis-aligned-cube-packing",
+    "sourcePaper": "1cdfaf2e202b3bd8",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 7,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p5-basic-rectangle-measurements",
     "level": 5,
     "title": "Measure a rectangle",
@@ -5541,6 +5599,45 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "15"
     ],
     "sourcePage": 3,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-category-rates-eligibility",
+    "level": 5,
+    "title": "Charges by category, day and age",
+    "objective": "Choose the right rate for each person or day, then multiply, add and round when asked",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.01",
+      "P5.S.RATE.02",
+      "P4.S.WN.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-category-rates-eligibility",
+    "sourcePaper": "ab7ed879da32c0e5",
+    "sourceParts": [
+      "6"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-classify-triangles-by-equality",
+    "level": 5,
+    "title": "Classify triangles by equal angles and sides",
+    "objective": "Use the angle sum of a triangle and equal angles to decide which triangle is isosceles or equilateral, and which sides are equal",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-classify-triangles-by-equality",
+    "sourcePaper": "55af055aed00d99a",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 4,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -5658,6 +5755,25 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p5-fixed-quantity-changes",
+    "level": 5,
+    "title": "Find an amount before fixed fraction changes",
+    "objective": "Undo a fixed removal and addition, or repeated equal additions, to recover an unknown starting amount given as a fraction or mixed number.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.04",
+      "P4.S.FRAC.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-fixed-quantity-changes",
+    "sourcePaper": "6d3a953ccff1f2b5",
+    "sourceParts": [
+      "9"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p5-forward-composition-updates",
     "level": 5,
     "title": "Update a group and find its percentage",
@@ -5678,6 +5794,26 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p5-incomplete-distribution-equalization",
+    "level": 5,
+    "title": "Work out groups from a ratio and a change",
+    "objective": "Use ratio units, fractions and a stated change or difference to recover a missing starting amount, share or transfer.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.MD.03",
+      "P3.S.AS.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-incomplete-distribution-equalization",
+    "sourcePaper": "91d7b4ddebbb9bc5",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 25,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p5-isosceles-adjacent-angles",
     "level": 5,
     "title": "Angles beside an isosceles triangle",
@@ -5695,6 +5831,25 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "9"
     ],
     "sourcePage": 23,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-linked-triangle-region-ratios",
+    "level": 5,
+    "title": "Linked triangle regions in a square",
+    "objective": "Use the diagonal that halves a square, shared-height area ratios and one known region to find another region or the whole square",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-linked-triangle-region-area-ratios",
+    "sourcePaper": "87ebf6837f5e619e",
+    "sourceParts": [
+      "2"
+    ],
+    "sourcePage": 19,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -5753,6 +5908,28 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "29"
     ],
     "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-perimeter-difference-cancellation",
+    "level": 5,
+    "title": "Perimeter difference by cancellation",
+    "objective": "Cancel shared boundaries to compare perimeters, then use the solved lengths to find a missing side or the area of a shaded triangle.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P3.S.AREA.02",
+      "P4.S.AREA.01",
+      "P4.S.AREA.02",
+      "P5.S.AREA.02",
+      "P5.S.AREA.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-perimeter-difference-cancellation",
+    "sourcePaper": "3df260f2d5f84ff7",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 31,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -5952,6 +6129,66 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p5-rhombus-isosceles-construction",
+    "level": 5,
+    "title": "Rhombus with an isosceles construction",
+    "objective": "Combine rhombus and parallel-side angle facts with equal base angles and triangle sums to find or test angles",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.SHAPE.01",
+      "P5.S.SHAPE.02",
+      "P5.S.SHAPE.03",
+      "P5.S.ANGLE.01",
+      "P5.S.ANGLE.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-rhombus-isosceles-construction",
+    "sourcePaper": "c509f2306dbbe933",
+    "sourceParts": [
+      "26"
+    ],
+    "sourcePage": 14,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-sequential-shares-remainder",
+    "level": 5,
+    "title": "Sequential shares and remainder reconstruction",
+    "objective": "Express successive percentage and fraction allocations as shares of the original whole, then recover the whole or a category from a final quantity or a count difference.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.03",
+      "P5.S.PCT.02",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-sequential-shares-remainder-reconstruction",
+    "sourcePaper": "0f09af9c626163d5",
+    "sourceParts": [
+      "11"
+    ],
+    "sourcePage": 21,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-shifted-divisibility",
+    "level": 5,
+    "title": "Shifted divisibility constraints",
+    "objective": "Find the one number or age that satisfies two multiple conditions within stated bounds.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FACT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-shifted-divisibility-constraints",
+    "sourcePaper": "d0533a28ee86a504",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p5-sum-and-differences",
     "level": 5,
     "title": "Find amounts from totals and differences",
@@ -5968,6 +6205,25 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "10"
     ],
     "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p5-tessellation-capability",
+    "level": 5,
+    "title": "Decide which shapes can be tessellated",
+    "objective": "Decide which straight-sided shapes can cover a flat surface with copies of themselves, leaving no gaps and no overlaps",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P1.S.SHAPE.02",
+      "P5.S.SHAPE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-determine-tessellation-capability",
+    "sourcePaper": "547eceff08702cd8",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 3,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -6127,6 +6383,67 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p6-capacity-fractional-occupancy",
+    "level": 6,
+    "title": "Capacity from fractional occupancy",
+    "objective": "Write a known amount of water as a fraction of a container, then find the capacity, a height or the space left.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.04",
+      "P5.S.VOL.05",
+      "P6.S.VOL.02",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-capacity-from-fractional-occupancy",
+    "sourcePaper": "bed3d830afcc8e93",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 33,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-combining-subgroup-compositions",
+    "level": 6,
+    "title": "Combining subgroup compositions",
+    "objective": "Combine group ratios and subgroup fractions to find a combined ratio or an unknown group total.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-combining-subgroup-compositions",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 16,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-connected-parallel-figures",
+    "level": 6,
+    "title": "Connected parallel-sided figures",
+    "objective": "Pass angles through parallel sides of joined parallelograms and trapeziums, then add, subtract or take angles from a straight line.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.SHAPE.01",
+      "P5.S.SHAPE.02",
+      "P5.S.ANGLE.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-connected-parallel-sided-figures",
+    "sourcePaper": "595c5ba504d9f023",
+    "sourceParts": [
+      "22"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p6-counting-equal-area-regions",
     "level": 6,
     "title": "What fraction of the figure is shaded?",
@@ -6257,6 +6574,45 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p6-overlap-union-ratio-units",
+    "level": 6,
+    "title": "Overlapping shapes: ratio units",
+    "objective": "Write two shapes and their shared part in common ratio units, count the overlap once, and find a fraction, a ratio or an area.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-overlap-union-ratio-units",
+    "sourcePaper": "2dadd0a3ce0662c5",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 30,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-overlapping-pair-totals",
+    "level": 6,
+    "title": "Overlapping pair totals",
+    "objective": "Turn pair averages and pair totals into sums, then use the shared quantity to find an unknown amount.",
+    "strand": "Statistics",
+    "skillIds": [
+      "P6.S.AVG.02",
+      "P6.S.ALG.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-overlapping-pair-totals",
+    "sourcePaper": "f94ecb9547de7210",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p6-part-whole-complement",
     "level": 6,
     "title": "Part, whole and complement percentages",
@@ -6314,6 +6670,25 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p6-prices-in-common-units",
+    "level": 6,
+    "title": "Prices written as multiples of one base price",
+    "objective": "Write related prices in common units, use the total cost to find one unit, then find the price or price difference asked for.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-prices-in-common-units",
+    "sourcePaper": "03d58861bd810b6d",
+    "sourceParts": [
+      "18"
+    ],
+    "sourcePage": 13,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p6-rag-adding-removing-observations",
     "level": 6,
     "title": "Adding and removing observations",
@@ -6330,6 +6705,28 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "11"
     ],
     "sourcePage": 5,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-chained-additive-comparisons",
+    "level": 6,
+    "title": "Chained additive comparisons with an unknown",
+    "objective": "Build three amounts from additive comparisons that use a letter, then total and simplify, substitute, solve, or judge a statement.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.01",
+      "P6.S.ALG.02",
+      "P6.S.ALG.03",
+      "P6.S.ALG.04",
+      "P6.S.ALG.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-chained-additive-comparisons",
+    "sourcePaper": "7105c7f5694cf363",
+    "sourceParts": [
+      "5"
+    ],
+    "sourcePage": 20,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -6368,6 +6765,27 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "11"
     ],
     "sourcePage": 26,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-rag-linear-dimension-perimeters",
+    "level": 6,
+    "title": "Linear dimension equations from perimeters",
+    "objective": "Turn related perimeters into sums and differences of lengths, find a side, then calculate the requested length or area",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P6.S.ALG.02",
+      "P6.S.ALG.05",
+      "P6.S.CIRCLE.02",
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-linear-dimension-equations-from-perimeters",
+    "sourcePaper": "f0eae0eb7d7360ec",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 28,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -6487,6 +6905,45 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p6-ratio-displayed-values",
+    "level": 6,
+    "title": "Ratios from displayed or measured values",
+    "objective": "Read three displayed quantities, change them to one unit where needed, and write their ratio in simplest form.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.02",
+      "P5.S.DEC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-ratio-displayed-values",
+    "sourcePaper": "47d73d742d14496c",
+    "sourceParts": [
+      "25"
+    ],
+    "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-ratio-equality-initial-difference",
+    "level": 6,
+    "title": "Equal amounts reveal the starting difference",
+    "objective": "Use changes that make two ratio amounts equal to find the starting difference, one ratio unit, and the starting amounts.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.01",
+      "P6.S.RATIO.04"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-equality-reveals-initial-difference",
+    "sourcePaper": "4b7c9baf6d8d2727",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p6-ratio-scaling-known-share",
     "level": 6,
     "title": "Scale a ratio from a known share",
@@ -6503,6 +6960,24 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "2"
     ],
     "sourcePage": 4,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-reflect-outline-grid",
+    "level": 6,
+    "title": "Complete a reflected outline on a grid",
+    "objective": "Reflect the corners of a drawn outline across a mirror line and join them to complete a symmetric figure",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P4.S.SYM.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-reflecting-geometric-outlines",
+    "sourcePaper": "8075b80e2358cbe3",
+    "sourceParts": [
+      "19"
+    ],
+    "sourcePage": 15,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -6545,6 +7020,25 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-p6-shaded-area-fractions-segment-ratios",
+    "level": 6,
+    "title": "Shaded area from segment ratios",
+    "objective": "Turn equal lengths and side ratios into area fractions of a rectangle, then find the shaded fraction or area.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.02",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-shaded-area-fractions-from-segment-ratios",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "13"
+    ],
+    "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-p6-square-and-sector-area",
     "level": 6,
     "title": "Shaded area from a square and a circle or sector",
@@ -6561,6 +7055,104 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "17"
     ],
     "sourcePage": 50,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-square-diagonal-area",
+    "level": 6,
+    "title": "Square diagonals and right-angled isosceles triangles",
+    "objective": "Use a square diagonal, or right-angled isosceles triangles, to find the area of a square, a leftover region or a perimeter.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.AREA.02",
+      "P5.S.AREA.03",
+      "P6.S.CIRCLE.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-square-diagonal-triangular-area-relationships",
+    "sourcePaper": "1b577f5d5e9cb8dd",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 18,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-two-party-transfer-comparison",
+    "level": 6,
+    "title": "Fraction transfer between two people",
+    "objective": "Use a fractional transfer with the before and after comparisons to find an original amount",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P6.S.RATIO.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-two-party-fraction-transfer-comparison",
+    "sourcePaper": "7929fb89b48e6135",
+    "sourceParts": [
+      "15"
+    ],
+    "sourcePage": 8,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-p6-whole-from-difference-between-shares",
+    "level": 6,
+    "title": "Find the whole from a difference between shares",
+    "objective": "Write shares as fractions of one whole, then divide a known difference or increase by the matching fraction to recover the whole or a related quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.RATIO.05",
+      "P6.S.RATIO.03",
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-whole-from-difference-between-shares",
+    "sourcePaper": "b13300ac1b1bebc0",
+    "sourceParts": [
+      "4"
+    ],
+    "sourcePage": 22,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-payments-expenses-balances",
+    "level": 6,
+    "title": "Payments, expenses and balances",
+    "objective": "Find a cost or the money left from payments, change, quantities and spending",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P3.S.MONEY.01",
+      "P2.S.MONEY.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-payments-expenses-balances",
+    "sourcePaper": "f0eae0eb7d7360ec",
+    "sourceParts": [
+      "30"
+    ],
+    "sourcePage": 11,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-percentage-adjusted-payments",
+    "level": 5,
+    "title": "Percentage-adjusted payments",
+    "objective": "Apply GST or a discount to a price, then find change, compare two payment plans or count the weeks needed to save",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.PCT.04",
+      "P5.S.PCT.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-percentage-adjusted-payments",
+    "sourcePaper": "0b57a62d0f9c143e",
+    "sourceParts": [
+      "10"
+    ],
+    "sourcePage": 21,
     "sourceMappingStatus": "unaudited"
   },
   {
@@ -9747,6 +10339,26 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-rag-p5-quantity-preparation-before-pricing",
+    "level": 5,
+    "title": "Find the quantity first, then price it",
+    "objective": "Work out how many people, items or packs are chargeable or saleable from attendance changes, wastage or removed stock, then apply the unit or group price.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.RATE.02",
+      "P5.S.PCT.03",
+      "P4.S.MD.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-quantity-preparation-before-pricing",
+    "sourcePaper": "0cc2458871b29a60",
+    "sourceParts": [
+      "16"
+    ],
+    "sourcePage": 27,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-rag-p5-quantity-unit-rate",
     "level": 5,
     "title": "Prices for packs and measured amounts",
@@ -10404,6 +11016,26 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-rag-p6-complement-of-whole-based-allocations",
+    "level": 6,
+    "title": "Find what is left after fractions of a whole are taken away",
+    "objective": "Subtract fractions of one whole from 1, then find the remaining fraction, the remaining quantity, or an equal share of the remainder",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.03",
+      "P4.S.FRAC.04",
+      "P6.S.FRAC.01"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-complement-of-whole-based-allocations",
+    "sourcePaper": "7105c7f5694cf363",
+    "sourceParts": [
+      "21"
+    ],
+    "sourcePage": 12,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-rag-p6-equal-shares-of-remainder",
     "level": 6,
     "title": "Share what is left equally",
@@ -10718,6 +11350,27 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-rag-repeated-equal-volume-units",
+    "level": 6,
+    "title": "Repeated equal-volume units",
+    "objective": "Divide a volume or number of cubes by the amount in one unit, then round down or up as the situation requires.",
+    "strand": "Measurement & Geometry",
+    "skillIds": [
+      "P5.S.VOL.03",
+      "P5.S.VOL.04",
+      "P5.S.VOL.05",
+      "P6.S.FRAC.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-repeated-equal-volume-units",
+    "sourcePaper": "c91db26c550252ff",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 21,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-rag-shaded-cell-symmetry",
     "level": 6,
     "title": "Complete a shaded pattern",
@@ -11024,6 +11677,26 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
     "sourceMappingStatus": "unaudited"
   },
   {
+    "parameter": "rag-simple-purchase-equation",
+    "level": 6,
+    "title": "Solve a simple purchase problem",
+    "objective": "Use cost = quantity × unit price with money paid, change or a shortfall to find a missing amount, price or quantity.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P6.S.ALG.04",
+      "P6.S.ALG.05",
+      "P5.S.RATE.02"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p6-simple-purchase-equation",
+    "sourcePaper": "ff89a9221e46f71a",
+    "sourceParts": [
+      "27"
+    ],
+    "sourcePage": 15,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
     "parameter": "rag-transfer-quantities",
     "level": 3,
     "title": "Count the stickers before and after a gift",
@@ -11057,6 +11730,44 @@ export const RAG_PATTERNS:AdaptedPaperPattern[]=[
       "12"
     ],
     "sourcePage": 6,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-weighted-balances-initial-constraints",
+    "level": 5,
+    "title": "Find the starting amount after fractions change",
+    "objective": "Use fractions of two groups together with an initial total, an initial difference or an equal start to find a starting amount.",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P5.S.FRAC.05",
+      "P4.S.FRAC.03"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-weighted-balances-initial-constraints",
+    "sourcePaper": "0cc2458871b29a60",
+    "sourceParts": [
+      "17"
+    ],
+    "sourcePage": 28,
+    "sourceMappingStatus": "unaudited"
+  },
+  {
+    "parameter": "rag-whole-from-share-increase",
+    "level": 5,
+    "title": "Find the whole from a growing share",
+    "objective": "Divide a fixed extra amount by the increase in the fraction of a constant whole to recover the whole",
+    "strand": "Number & Algebra",
+    "skillIds": [
+      "P4.S.FRAC.04",
+      "P5.S.FRAC.05"
+    ],
+    "icon": "✦",
+    "canonicalPatternId": "p5-whole-from-share-increase",
+    "sourcePaper": "130bd163dbdaf846",
+    "sourceParts": [
+      "14"
+    ],
+    "sourcePage": 31,
     "sourceMappingStatus": "unaudited"
   }
 ];

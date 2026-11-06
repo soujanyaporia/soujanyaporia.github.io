@@ -96,6 +96,107 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "equal-additions-to-target-fill",
+      "level": 5,
+      "title": "Equal bottles to reach a target fill",
+      "objective": "Find the volume gap in a rectangular tank, then divide by the volume of one bottle, or find the volume of one bottle from the gap.",
+      "skillIds": [
+        "P5.S.VOL.03",
+        "P5.S.VOL.04",
+        "P5.S.VOL.05"
+      ],
+      "canonicalPatternId": "p5-equal-additions-target-fill",
+      "parameter": "rag-equal-additions-to-target-fill",
+      "entryFile": "src/primary/paperImports/ragEqualAdditionsFill.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragEqualAdditionsFill.test.ts",
+          "sha256": "9076b6c757435c74000732a3060014c7640ac6741ced94c48012fd8d28de8931"
+        },
+        {
+          "path": "src/primary/paperImports/ragEqualAdditionsFill.ts",
+          "sha256": "476cbd74e5dba5193deeaa9c109d029453c80303cd45556440f72f6f55403494"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "55af055aed00d99a",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            19,
+            20
+          ]
+        },
+        {
+          "paperId": "c1dab0f58ea4113c",
+          "sourceQuestion": "8",
+          "sourcePages": [
+            21
+          ]
+        },
+        {
+          "paperId": "3df260f2d5f84ff7",
+          "sourceQuestion": "60",
+          "sourcePages": [
+            23,
+            24,
+            25
+          ]
+        }
+      ],
+      "jobId": "rag-c0d91842bcd53932d50f",
+      "packetSha256": "5b90e5e2fe67d4812c7b7704f6bbea8946ac487468ce02cdcdc7e6c07f494458",
+      "candidateSha256": "867f2d68b3a4ff838a8035d4bd4ed4ad318b7b47ce0f1a0c7111424f593f004b",
+      "checkReportSha256": "16c37515e0021574bfab002e00549ef330ea6f314476bfabbeffe149be567b87",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "equal-changes-preserve-difference",
+      "level": 5,
+      "title": "Equal changes keep the difference",
+      "objective": "Use an unchanged difference and a final ratio to find the common change or a final quantity",
+      "skillIds": [
+        "P3.S.AS.01",
+        "P4.S.MD.03"
+      ],
+      "canonicalPatternId": "p5-equal-changes-preserve-difference",
+      "parameter": "rag-equal-changes-preserve-difference",
+      "entryFile": "src/primary/paperImports/ragEqualChangeDifference.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragEqualChangeDifference.test.ts",
+          "sha256": "07d9b02ac9f0c8f0f26eb8ea715904510ce35c82a4156a1ce5cd0a0b2b4cd8fe"
+        },
+        {
+          "path": "src/primary/paperImports/ragEqualChangeDifference.ts",
+          "sha256": "2a26603feea0e98a7c76c5434849702cf9ed4f051d65849b629aea5f396310fe"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "df9be00a4f409589",
+          "sourceQuestion": "12",
+          "sourcePages": [
+            5
+          ]
+        },
+        {
+          "paperId": "93e411a3781184a7",
+          "sourceQuestion": "10",
+          "sourcePages": [
+            23,
+            24,
+            25
+          ]
+        }
+      ],
+      "jobId": "rag-ba988aaae67b92003757",
+      "packetSha256": "a4fe8c5f42c2286f36c34651b30127ab725755407f623a865cd02d4b73c9b883",
+      "candidateSha256": "76605d3b91099ba5b20f500036906ca95c6a76b324221bb3dc2377fd04590d33",
+      "checkReportSha256": "1f97107423b9d61606b22445aec964811c3d3b1746966b5bea49b14b6384ff12",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p1-computed-whole-missing-addend",
       "level": 1,
       "title": "Find the other number in the sum",
@@ -153,7 +254,7 @@
         },
         {
           "path": "src/primary/paperImports/ragP1CountedSetDifference.ts",
-          "sha256": "aa9429d15b69eeb231d76ecfae6039e52a0e89345e3cb30b06342b486e2922ac"
+          "sha256": "6fc5801f126013f988420d538866c110772fba2c664aedcd279c132302aa38e4"
         }
       ],
       "sourceRefs": [
@@ -387,7 +488,7 @@
         },
         {
           "path": "src/primary/paperImports/ragPicturedGroupExpression.ts",
-          "sha256": "370e59a1663e5cde778b9187d43e6ac88c0e9d6abbe7d73b4753d7cda612f5ec"
+          "sha256": "802e7263975f6d884da3c8abc640bdb63d16fdb4b35f5039ef42121a65f7e7cd"
         }
       ],
       "sourceRefs": [
@@ -13122,6 +13223,63 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p5-axis-aligned-cube-packing",
+      "level": 5,
+      "title": "Pack whole cubes into a cuboid",
+      "objective": "Find the greatest number of whole cubes that fit in a cuboid by dividing each side by the cube edge, rounding down and multiplying",
+      "skillIds": [
+        "P5.S.VOL.01",
+        "P5.S.VOL.03"
+      ],
+      "canonicalPatternId": "p5-axis-aligned-cube-packing",
+      "parameter": "rag-p5-axis-aligned-cube-packing",
+      "entryFile": "src/primary/paperImports/ragCubePacking.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCubePacking.test.ts",
+          "sha256": "e6a6340657ab011d162a813396f2285f0e27f94efcbbde75a7b6a59c622d9c7f"
+        },
+        {
+          "path": "src/primary/paperImports/ragCubePacking.ts",
+          "sha256": "94b56d848e06c7d15e1b2732eb5130663be04fb80c01e9e70cfdb8deac1a009a"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "1cdfaf2e202b3bd8",
+          "sourceQuestion": "14",
+          "sourcePages": [
+            7
+          ]
+        },
+        {
+          "paperId": "0cc2458871b29a60",
+          "sourceQuestion": "24",
+          "sourcePages": [
+            11
+          ]
+        },
+        {
+          "paperId": "fa2b8fe7054d8e8e",
+          "sourceQuestion": "60",
+          "sourcePages": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        }
+      ],
+      "jobId": "rag-e222ce69f22b043ef0ba",
+      "packetSha256": "bcb71a77ebe81ffb38d74ebba9f5952f72bd815c835c5602a7e66d9be420ebb4",
+      "candidateSha256": "58c6a296d2a38571b2d7e4758bf78afadcc792b19a88455748f11041634e636d",
+      "checkReportSha256": "85116976b5886dd591273eb6a80e707ade655b43eb11b86a2fbb4a353f925ded",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p5-basic-rectangle-measurements",
       "level": 5,
       "title": "Measure a rectangle",
@@ -13172,6 +13330,123 @@
       "packetSha256": "6ea5db5a8f8add9159e4a0529f80714f6547e5860ae218e280a189256a708156",
       "candidateSha256": "bff6ab41a7ba363180482b76929288f63c5794b73356170e8205bd707fa88696",
       "checkReportSha256": "2bd8e93cbaa8b2d94d86e0862e8a0ca8c1cf730f46591687b6c414c56d467937",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-category-rates-eligibility",
+      "level": 5,
+      "title": "Charges by category, day and age",
+      "objective": "Choose the right rate for each person or day, then multiply, add and round when asked",
+      "skillIds": [
+        "P5.S.RATE.01",
+        "P5.S.RATE.02",
+        "P4.S.WN.02"
+      ],
+      "canonicalPatternId": "p5-category-rates-eligibility",
+      "parameter": "rag-p5-category-rates-eligibility",
+      "entryFile": "src/primary/paperImports/ragCategoryRates.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCategoryRates.test.ts",
+          "sha256": "8d30b95af49bcc7a18d21706357bd39ead51059d90785f0ff538d582e1c43b2b"
+        },
+        {
+          "path": "src/primary/paperImports/ragCategoryRates.ts",
+          "sha256": "753826eb361b576383d06d615c0f25a12588dc06d550895e4d75b1df1ab0a228"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "ab7ed879da32c0e5",
+          "sourceQuestion": "6",
+          "sourcePages": [
+            18
+          ]
+        },
+        {
+          "paperId": "e221323661911f23",
+          "sourceQuestion": "4",
+          "sourcePages": [
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "paperId": "d0533a28ee86a504",
+          "sourceQuestion": "2",
+          "sourcePages": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        }
+      ],
+      "jobId": "rag-b8e7611540a2e7159581",
+      "packetSha256": "dba60293cbeba8f69fe2c3131d05bcde7e9b4e7c647f53fadf3439173a6bcad2",
+      "candidateSha256": "ffc115169eb1c8deb2e0e6308d9e78993dde009e394f1ed729f37c43bbd34d08",
+      "checkReportSha256": "a6ce66bd0b47cad067551ee0a93ad0c7e2d6be130a34136f5637d9571586cec9",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-classify-triangles-by-equality",
+      "level": 5,
+      "title": "Classify triangles by equal angles and sides",
+      "objective": "Use the angle sum of a triangle and equal angles to decide which triangle is isosceles or equilateral, and which sides are equal",
+      "skillIds": [
+        "P5.S.SHAPE.01",
+        "P5.S.ANGLE.04"
+      ],
+      "canonicalPatternId": "p5-classify-triangles-by-equality",
+      "parameter": "rag-p5-classify-triangles-by-equality",
+      "entryFile": "src/primary/paperImports/ragClassifyTrianglesEquality.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragClassifyTrianglesEquality.test.ts",
+          "sha256": "7422583d6d94579ee4d2aacb8b8b11e225e3c90a8ba1276d727d3dce8a8909d3"
+        },
+        {
+          "path": "src/primary/paperImports/ragClassifyTrianglesEquality.ts",
+          "sha256": "e45aac1f04f2cb1e19298465568a507d582d2a5c3f10088cfbfa6e7197d8199a"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "55af055aed00d99a",
+          "sourceQuestion": "10",
+          "sourcePages": [
+            4
+          ]
+        },
+        {
+          "paperId": "6a408be9c8ed69b6",
+          "sourceQuestion": "12",
+          "sourcePages": [
+            25
+          ]
+        },
+        {
+          "paperId": "91d7b4ddebbb9bc5",
+          "sourceQuestion": "12",
+          "sourcePages": [
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "jobId": "rag-ed51818961de1bfe9b74",
+      "packetSha256": "0d35caf4cc68f8f2ebb6d8ccfc57abfe1fdb74b6db97aea12c2483caf50b4a50",
+      "candidateSha256": "ea320692fdb9602f4bc58b5edd718a9fe3f4077d09c0bd45ea72981ac5c1c0cc",
+      "checkReportSha256": "c11176d80f5c128ac03be5904bcbd8cf26577892006ad0b3eaef6185ecce68fd",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -13474,6 +13749,59 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p5-fixed-quantity-changes",
+      "level": 5,
+      "title": "Find an amount before fixed fraction changes",
+      "objective": "Undo a fixed removal and addition, or repeated equal additions, to recover an unknown starting amount given as a fraction or mixed number.",
+      "skillIds": [
+        "P5.S.FRAC.04",
+        "P4.S.FRAC.04"
+      ],
+      "canonicalPatternId": "p5-fixed-quantity-changes",
+      "parameter": "rag-p5-fixed-quantity-changes",
+      "entryFile": "src/primary/paperImports/ragFixedQuantityChanges.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragFixedQuantityChanges.test.ts",
+          "sha256": "d61a6df8410b3e11f1d1662129bbea14bb6221f4421effb25f96b91450b42adc"
+        },
+        {
+          "path": "src/primary/paperImports/ragFixedQuantityChanges.ts",
+          "sha256": "3042b4523834139beeda4568c606ab254cd649b614a6c9ee98833d78a7fbba30"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "6d3a953ccff1f2b5",
+          "sourceQuestion": "9",
+          "sourcePages": [
+            4,
+            5
+          ]
+        },
+        {
+          "paperId": "0cc2458871b29a60",
+          "sourceQuestion": "26",
+          "sourcePages": [
+            12,
+            13
+          ]
+        },
+        {
+          "paperId": "ab7ed879da32c0e5",
+          "sourceQuestion": "2",
+          "sourcePages": [
+            15
+          ]
+        }
+      ],
+      "jobId": "rag-1daecde2aec6e4bc375a",
+      "packetSha256": "19a85ceda90676e5c69cab4fb694e9512ba0ff95ab66753b44f26a20eae7f037",
+      "candidateSha256": "680ae41dc334dd6a182db6ef4123b55e21b6485fb24304fb0b2cac44f88d484c",
+      "checkReportSha256": "b0f9e3ec47710a08c51a2f7a034b81a8436dfeea0c1cb335eb7f715adc792093",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p5-forward-composition-updates",
       "level": 5,
       "title": "Update a group and find its percentage",
@@ -13527,6 +13855,53 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p5-incomplete-distribution-equalization",
+      "level": 5,
+      "title": "Work out groups from a ratio and a change",
+      "objective": "Use ratio units, fractions and a stated change or difference to recover a missing starting amount, share or transfer.",
+      "skillIds": [
+        "P5.S.FRAC.05",
+        "P4.S.MD.03",
+        "P3.S.AS.01"
+      ],
+      "canonicalPatternId": "p5-incomplete-distribution-equalization",
+      "parameter": "rag-p5-incomplete-distribution-equalization",
+      "entryFile": "src/primary/paperImports/ragIncompleteDistribution.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragIncompleteDistribution.test.ts",
+          "sha256": "45b8d754f95fe93b3b6f9ca622f7342882c7f38238c42579b86ca597d2ac1f2a"
+        },
+        {
+          "path": "src/primary/paperImports/ragIncompleteDistribution.ts",
+          "sha256": "3eeca2eae42c07768dbc3848813380f6b61f3bd5b52b0e21c4cd2958c9748262"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "91d7b4ddebbb9bc5",
+          "sourceQuestion": "4",
+          "sourcePages": [
+            25
+          ]
+        },
+        {
+          "paperId": "1cdfaf2e202b3bd8",
+          "sourceQuestion": "24",
+          "sourcePages": [
+            22,
+            23,
+            24
+          ]
+        }
+      ],
+      "jobId": "rag-b91d726b766e58d3b487",
+      "packetSha256": "cf4554f4bc5d8685aa29b53f53dafe533e5e8d81f4c73a1f18a8516ad783e846",
+      "candidateSha256": "7402f0e664e753b04709735770d460fb725bb89bdcd0de95a4bc2334269773eb",
+      "checkReportSha256": "5f11825c41d16d42ec8d00f7ee46382c2969c9bdf9622338099cc5d26fad1f7c",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p5-isosceles-adjacent-angles",
       "level": 5,
       "title": "Angles beside an isosceles triangle",
@@ -13577,6 +13952,56 @@
       "packetSha256": "f29988f9d9dff9ac8eeb001e5712b49c1cdfabd476d16d7fd4e62dcabb3f6bcc",
       "candidateSha256": "20d6a2e61d38231c41d6acfb0ba577f63a71187b8bc0adc0ea7f4b19b00f004d",
       "checkReportSha256": "7bf664888e3f804b10517d9ab88bf59dc1755897b287e8ec2ff145d66351c9e7",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-linked-triangle-region-ratios",
+      "level": 5,
+      "title": "Linked triangle regions in a square",
+      "objective": "Use the diagonal that halves a square, shared-height area ratios and one known region to find another region or the whole square",
+      "skillIds": [
+        "P5.S.AREA.02",
+        "P5.S.AREA.03"
+      ],
+      "canonicalPatternId": "p5-linked-triangle-region-area-ratios",
+      "parameter": "rag-p5-linked-triangle-region-ratios",
+      "entryFile": "src/primary/paperImports/ragLinkedTriangleRegionRatios.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragLinkedTriangleRegionRatios.test.ts",
+          "sha256": "c667fc7e6427137c730b1741c3cd64059e7964eecb4337a743abbcf1c0915527"
+        },
+        {
+          "path": "src/primary/paperImports/ragLinkedTriangleRegionRatios.ts",
+          "sha256": "b10fd000ec6cb0aea66d5b4746ca50d0017034eb3e3a684117a8dcbcc94b97c2"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "87ebf6837f5e619e",
+          "sourceQuestion": "2",
+          "sourcePages": [
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "paperId": "1cdfaf2e202b3bd8",
+          "sourceQuestion": "15",
+          "sourcePages": [
+            30,
+            31
+          ]
+        }
+      ],
+      "jobId": "rag-ee90219b501a159a81d5",
+      "packetSha256": "986a9c9e86afc4f942bed553dba1c4c9f7a4d0e23ffb53846f99c70629aee260",
+      "candidateSha256": "a90fe24bc1e5dec90dcc03203218346af088b316e23202004f583542bb68883c",
+      "checkReportSha256": "750af8921331e2189a5a52668f45b5764c6187cd9637d4717fae8f59b68ad727",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -13740,6 +14165,56 @@
       "packetSha256": "9243388a8ade1a26c2e5630722bdb224656dd11836184aa6c4b5b5c673bb978a",
       "candidateSha256": "b68c4f64dcaa41379d3594d9f8fb4f32f3c6029d604caaf426b3f70e0603b38b",
       "checkReportSha256": "d86f275b21f04da09d6e589e00fb8b1f973a238f979c57c4e1fab90849a33064",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-perimeter-difference-cancellation",
+      "level": 5,
+      "title": "Perimeter difference by cancellation",
+      "objective": "Cancel shared boundaries to compare perimeters, then use the solved lengths to find a missing side or the area of a shaded triangle.",
+      "skillIds": [
+        "P3.S.AREA.02",
+        "P4.S.AREA.01",
+        "P4.S.AREA.02",
+        "P5.S.AREA.02",
+        "P5.S.AREA.03"
+      ],
+      "canonicalPatternId": "p5-perimeter-difference-cancellation",
+      "parameter": "rag-p5-perimeter-difference-cancellation",
+      "entryFile": "src/primary/paperImports/ragPerimeterDifferenceCancellation.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragPerimeterDifferenceCancellation.test.ts",
+          "sha256": "769ed6b73ec2f3bb4873b881c4f246fe3e695c2dd0062d0b81e35a4a4d20769f"
+        },
+        {
+          "path": "src/primary/paperImports/ragPerimeterDifferenceCancellation.ts",
+          "sha256": "a4d6a08b7231ef89cd170aeb354237fb53b9c3b6e76747f1e6e90a21d6e3cef4"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "3df260f2d5f84ff7",
+          "sourceQuestion": "16",
+          "sourcePages": [
+            31,
+            32
+          ]
+        },
+        {
+          "paperId": "46ca966f1ad77d0f",
+          "sourceQuestion": "6",
+          "sourcePages": [
+            5,
+            6,
+            7
+          ]
+        }
+      ],
+      "jobId": "rag-422207305afdf430f07b",
+      "packetSha256": "5ba29d8f3c4768c7d589bf250eaea772dfd806ee442f4b9bcc2d75e5fdc3f0dd",
+      "candidateSha256": "701bc94ceb36d9cddd6f2a15cd55367e591260bacf198e8025ebc83ea328367d",
+      "checkReportSha256": "1f6a493de4a8d2997942a8729cb7003010931df34b129bf4a92bbf79de2836aa",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -14275,6 +14750,169 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p5-rhombus-isosceles-construction",
+      "level": 5,
+      "title": "Rhombus with an isosceles construction",
+      "objective": "Combine rhombus and parallel-side angle facts with equal base angles and triangle sums to find or test angles",
+      "skillIds": [
+        "P5.S.SHAPE.01",
+        "P5.S.SHAPE.02",
+        "P5.S.SHAPE.03",
+        "P5.S.ANGLE.01",
+        "P5.S.ANGLE.04"
+      ],
+      "canonicalPatternId": "p5-rhombus-isosceles-construction",
+      "parameter": "rag-p5-rhombus-isosceles-construction",
+      "entryFile": "src/primary/paperImports/ragRhombusIsosceles.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragRhombusIsosceles.test.ts",
+          "sha256": "7c7f53b7c46a67cd737423767c2e1c5b205f808828a856792bd9afdbe664a2ce"
+        },
+        {
+          "path": "src/primary/paperImports/ragRhombusIsosceles.ts",
+          "sha256": "8631e9ecedd6ae9e373d22c47f2ab66a45e4d2a647eb2aea7e9de02972df98a1"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "c509f2306dbbe933",
+          "sourceQuestion": "26",
+          "sourcePages": [
+            14
+          ]
+        },
+        {
+          "paperId": "910c9167a3a9c5ec",
+          "sourceQuestion": "25",
+          "sourcePages": [
+            13
+          ]
+        },
+        {
+          "paperId": "096ece7dc72601c7",
+          "sourceQuestion": "12",
+          "sourcePages": [
+            24
+          ]
+        }
+      ],
+      "jobId": "rag-1c5c69a788e951088180",
+      "packetSha256": "64c0dea391a5817aaf04a28502edc4109a0140000da73dd4f92c5512ac839df2",
+      "candidateSha256": "069d0b60a36d39cafe04a5972792e3341ccea70372fab8aa2d9356c339cdecb1",
+      "checkReportSha256": "04c171052e22b712e920a867f09125213068c8120f002fd29fccefa5cee16d30",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-sequential-shares-remainder",
+      "level": 5,
+      "title": "Sequential shares and remainder reconstruction",
+      "objective": "Express successive percentage and fraction allocations as shares of the original whole, then recover the whole or a category from a final quantity or a count difference.",
+      "skillIds": [
+        "P5.S.PCT.03",
+        "P5.S.PCT.02",
+        "P5.S.FRAC.05"
+      ],
+      "canonicalPatternId": "p5-sequential-shares-remainder-reconstruction",
+      "parameter": "rag-p5-sequential-shares-remainder",
+      "entryFile": "src/primary/paperImports/ragSequentialShares.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragSequentialShares.test.ts",
+          "sha256": "cf7f908f415a8e904e88e869f5f554e3b0953ca5565d40b301b764bb1c31b2ed"
+        },
+        {
+          "path": "src/primary/paperImports/ragSequentialShares.ts",
+          "sha256": "012a2739952154c2b835eea0c269109578e00017bb8ad6a70fd65bd2f452632c"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "0f09af9c626163d5",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            21
+          ]
+        },
+        {
+          "paperId": "90472f0191850f22",
+          "sourceQuestion": "18",
+          "sourcePages": [
+            28,
+            29
+          ]
+        },
+        {
+          "paperId": "538f5c434409ffbc",
+          "sourceQuestion": "18",
+          "sourcePages": [
+            29,
+            30
+          ]
+        }
+      ],
+      "jobId": "rag-9dfd2905ebae5579507f",
+      "packetSha256": "2bfd3c4d9ec65d8f769e713bfdd75aea120f1349fa459ce11bde6b83fca1a3ad",
+      "candidateSha256": "8f0c61b9a451cc7c2d20fcd8660a3e94456ab45400af983b3455a02b0e1065a2",
+      "checkReportSha256": "634af3d2ae2e43a2a7c686e0dc1a6fa59ad17f739dc3ece9701f4b799c9b4f2e",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-shifted-divisibility",
+      "level": 5,
+      "title": "Shifted divisibility constraints",
+      "objective": "Find the one number or age that satisfies two multiple conditions within stated bounds.",
+      "skillIds": [
+        "P4.S.FACT.03"
+      ],
+      "canonicalPatternId": "p5-shifted-divisibility-constraints",
+      "parameter": "rag-p5-shifted-divisibility",
+      "entryFile": "src/primary/paperImports/ragShiftedDivisibility.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragShiftedDivisibility.test.ts",
+          "sha256": "c02047ce90934fff89c0f3f1cc686749d7ad181feab26b6213e87f455f11db10"
+        },
+        {
+          "path": "src/primary/paperImports/ragShiftedDivisibility.ts",
+          "sha256": "0ef8917d44565620ad49b6ebc048e614d81b54ad4b892dcaa0893390ccc4f26a"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "d0533a28ee86a504",
+          "sourceQuestion": "30",
+          "sourcePages": [
+            12,
+            13
+          ]
+        },
+        {
+          "paperId": "3b90a4d326e2b2a4",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            7
+          ]
+        },
+        {
+          "paperId": "6067d91a2fee95ed",
+          "sourceQuestion": "4",
+          "sourcePages": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        }
+      ],
+      "jobId": "rag-8b717f6a7f4ec0ca7d9a",
+      "packetSha256": "e273c1fd5ab8ba091a1fe2e00b7ff9f023ec07da9ad34786b4f81b72babdb379",
+      "candidateSha256": "a74dba31c0e7815438452df4c6bffff1708c01595f07e872175440b4835170e4",
+      "checkReportSha256": "0889945cb0b06f43927968ed93851939ecd85d274ab1a7dd143ef8118bfc5459",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p5-sum-and-differences",
       "level": 5,
       "title": "Find amounts from totals and differences",
@@ -14325,6 +14963,59 @@
       "packetSha256": "c626383522d62fc305e00a8d749223b041b4f38c213f73342a562e1b8202d242",
       "candidateSha256": "d8eb319d00fea7ce1529c3ac873a66d38e3dc594d45874d9ab3fecc557129d02",
       "checkReportSha256": "2bacf5a7a09c68cda69da9488ccb9dce855018a3e9dfc11eef2f49332d622745",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p5-tessellation-capability",
+      "level": 5,
+      "title": "Decide which shapes can be tessellated",
+      "objective": "Decide which straight-sided shapes can cover a flat surface with copies of themselves, leaving no gaps and no overlaps",
+      "skillIds": [
+        "P1.S.SHAPE.02",
+        "P5.S.SHAPE.02"
+      ],
+      "canonicalPatternId": "p5-determine-tessellation-capability",
+      "parameter": "rag-p5-tessellation-capability",
+      "entryFile": "src/primary/paperImports/ragTessellationCapability.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragTessellationCapability.test.ts",
+          "sha256": "9780c27a083d4f1d599cc2b09e68235d968d42f0008e8060e0fc388a0e7d8607"
+        },
+        {
+          "path": "src/primary/paperImports/ragTessellationCapability.ts",
+          "sha256": "569b12beef77577314f005abaf44d91520211706f08668a3e561a576b9addb2f"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "547eceff08702cd8",
+          "sourceQuestion": "4",
+          "sourcePages": [
+            3
+          ]
+        },
+        {
+          "paperId": "87ebf6837f5e619e",
+          "sourceQuestion": "5",
+          "sourcePages": [
+            5
+          ]
+        },
+        {
+          "paperId": "b62fef807216ca90",
+          "sourceQuestion": "2",
+          "sourcePages": [
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "jobId": "rag-d70a04668bffd1d20e63",
+      "packetSha256": "09833b36d8e484bc19edf0a6e77a6d86faea6bdedb37da1c2849d039ad366794",
+      "candidateSha256": "6f64d312707f32489e9fa605df6002d933c22a33706cbaf18692ebb81613c5f6",
+      "checkReportSha256": "0ec5e29c933fd71fc9bb7ad0fb4cefd0a8249c3707bb9f55f449f6e6473f9f54",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -14747,6 +15438,165 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p6-capacity-fractional-occupancy",
+      "level": 6,
+      "title": "Capacity from fractional occupancy",
+      "objective": "Write a known amount of water as a fraction of a container, then find the capacity, a height or the space left.",
+      "skillIds": [
+        "P5.S.VOL.04",
+        "P5.S.VOL.05",
+        "P6.S.VOL.02",
+        "P5.S.FRAC.05"
+      ],
+      "canonicalPatternId": "p6-capacity-from-fractional-occupancy",
+      "parameter": "rag-p6-capacity-fractional-occupancy",
+      "entryFile": "src/primary/paperImports/ragCapacityFractionalOccupancy.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCapacityFractionalOccupancy.test.ts",
+          "sha256": "2720043f2f47671e4e100485ca155c869c8680c6d701bf37f91a8b24bd280f6f"
+        },
+        {
+          "path": "src/primary/paperImports/ragCapacityFractionalOccupancy.ts",
+          "sha256": "41a0d24ac10158c8cf5805ed6a37767495a570312986fcbc5b837066c6a97db5"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "bed3d830afcc8e93",
+          "sourceQuestion": "10",
+          "sourcePages": [
+            33
+          ]
+        },
+        {
+          "paperId": "9401e0891cd39f5d",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            41
+          ]
+        },
+        {
+          "paperId": "ac7d5adb8627caf7",
+          "sourceQuestion": "28",
+          "sourcePages": [
+            16
+          ]
+        }
+      ],
+      "jobId": "rag-a3a1162504a52778bb48",
+      "packetSha256": "ecf74e2e773c6b23ab9408975f9ff3884562402678093e2fff81f2653e6fb91c",
+      "candidateSha256": "f0d53c4a32c0e479efdc03417ce352c9c29886aca8f687a33e76400debb5b068",
+      "checkReportSha256": "cd29bd128e6cbb39ad5bb7da9dbf1e78177568f118c1c456bc3359a126e7aaee",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-combining-subgroup-compositions",
+      "level": 6,
+      "title": "Combining subgroup compositions",
+      "objective": "Combine group ratios and subgroup fractions to find a combined ratio or an unknown group total.",
+      "skillIds": [
+        "P6.S.RATIO.01",
+        "P6.S.RATIO.02",
+        "P6.S.RATIO.05"
+      ],
+      "canonicalPatternId": "p6-combining-subgroup-compositions",
+      "parameter": "rag-p6-combining-subgroup-compositions",
+      "entryFile": "src/primary/paperImports/ragCombiningSubgroups.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragCombiningSubgroups.test.ts",
+          "sha256": "97ff07b6ab5cfec5cacba2c9eabd52155d724e89e5e1796448cb7a1f7c2ebb23"
+        },
+        {
+          "path": "src/primary/paperImports/ragCombiningSubgroups.ts",
+          "sha256": "95d7918e947a76dafd43c64058248556948da7059f353870cb59a702dd9fe58b"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "ff89a9221e46f71a",
+          "sourceQuestion": "30",
+          "sourcePages": [
+            16,
+            17
+          ]
+        },
+        {
+          "paperId": "23efd344b066f1d4",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            26
+          ]
+        },
+        {
+          "paperId": "84e11115e25d03cc",
+          "sourceQuestion": "20",
+          "sourcePages": [
+            23,
+            24
+          ]
+        }
+      ],
+      "jobId": "rag-381fe4b55ad158dfd435",
+      "packetSha256": "01c3a7e70930bac77ee411e10c80f2390129c66fdaaffac71364207b44d69f38",
+      "candidateSha256": "866972d004727f62a1ca4953716fd03614e8e5a6fe982167beb611a2e834a8b3",
+      "checkReportSha256": "48bbed2135a18315406a62b48f4b7bd72fecac170fe32d5dd17662ee556b5e49",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-connected-parallel-figures",
+      "level": 6,
+      "title": "Connected parallel-sided figures",
+      "objective": "Pass angles through parallel sides of joined parallelograms and trapeziums, then add, subtract or take angles from a straight line.",
+      "skillIds": [
+        "P6.S.SHAPE.01",
+        "P5.S.SHAPE.02",
+        "P5.S.ANGLE.01"
+      ],
+      "canonicalPatternId": "p6-connected-parallel-sided-figures",
+      "parameter": "rag-p6-connected-parallel-figures",
+      "entryFile": "src/primary/paperImports/ragConnectedParallelFigures.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragConnectedParallelFigures.test.ts",
+          "sha256": "782c6811bf6f34ae0aee41ddbbb60bdb9fd88d94d673cf4cb2352cb4e98214c2"
+        },
+        {
+          "path": "src/primary/paperImports/ragConnectedParallelFigures.ts",
+          "sha256": "c25af693a7ae5215af727d04600b28bf30910986577ca8af92b277c849893c35"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "595c5ba504d9f023",
+          "sourceQuestion": "22",
+          "sourcePages": [
+            12
+          ]
+        },
+        {
+          "paperId": "c3d24dd9b5e42f7b",
+          "sourceQuestion": "24",
+          "sourcePages": [
+            14
+          ]
+        },
+        {
+          "paperId": "fd46be00dbdb8b0a",
+          "sourceQuestion": "13",
+          "sourcePages": [
+            8
+          ]
+        }
+      ],
+      "jobId": "rag-4322bf1b3b1a675e8f0c",
+      "packetSha256": "8a8c4e445521d732d494acf100c95e12f5ebeb2139b7145478b27b871b96a400",
+      "candidateSha256": "adaa8963e752cf6c5972f0ce397c8edf7052390299981fda118accf2baa91e0b",
+      "checkReportSha256": "2a1467cef223eccf8ad03b90a0af78d4f45b5730bbe2ab76639fc41ca8f3de92",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p6-counting-equal-area-regions",
       "level": 6,
       "title": "What fraction of the figure is shaded?",
@@ -15108,6 +15958,109 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p6-overlap-union-ratio-units",
+      "level": 6,
+      "title": "Overlapping shapes: ratio units",
+      "objective": "Write two shapes and their shared part in common ratio units, count the overlap once, and find a fraction, a ratio or an area.",
+      "skillIds": [
+        "P6.S.RATIO.01",
+        "P6.S.RATIO.02",
+        "P6.S.RATIO.05"
+      ],
+      "canonicalPatternId": "p6-overlap-union-ratio-units",
+      "parameter": "rag-p6-overlap-union-ratio-units",
+      "entryFile": "src/primary/paperImports/ragOverlapUnionRatioUnits.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragOverlapUnionRatioUnits.test.ts",
+          "sha256": "23af3332d7630f42ca4a48dc4b04f58fd4c7a62d0ee13ba3445ebb338cbb1eb1"
+        },
+        {
+          "path": "src/primary/paperImports/ragOverlapUnionRatioUnits.ts",
+          "sha256": "fe3c8baef7693c474acae46357a2d9012457c306f04d7304b68b572072b36a09"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "2dadd0a3ce0662c5",
+          "sourceQuestion": "13",
+          "sourcePages": [
+            30
+          ]
+        },
+        {
+          "paperId": "3a3ba5a366bc0378",
+          "sourceQuestion": "29",
+          "sourcePages": [
+            16
+          ]
+        },
+        {
+          "paperId": "045395459415ed97",
+          "sourceQuestion": "2",
+          "sourcePages": [
+            16
+          ]
+        }
+      ],
+      "jobId": "rag-bbebb9d303b6059560e2",
+      "packetSha256": "7dd6b166064b0fd9eb066cfb7a390c0ea4952fd0ef6538a8b11632681fefd533",
+      "candidateSha256": "32022aced883673882cdbe7c14100e31445213aa09b13589b62f6ddba8483d2c",
+      "checkReportSha256": "23ed1e7b6ea8ef5bc71b745c0cf2127c1179003bb39d865c649da0ed8a11c3a5",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-overlapping-pair-totals",
+      "level": 6,
+      "title": "Overlapping pair totals",
+      "objective": "Turn pair averages and pair totals into sums, then use the shared quantity to find an unknown amount.",
+      "skillIds": [
+        "P6.S.AVG.02",
+        "P6.S.ALG.01"
+      ],
+      "canonicalPatternId": "p6-overlapping-pair-totals",
+      "parameter": "rag-p6-overlapping-pair-totals",
+      "entryFile": "src/primary/paperImports/ragOverlappingPairTotals.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragOverlappingPairTotals.test.ts",
+          "sha256": "5926caba15bd56088b7d61abcff7177143d4c9d53d57e3c98b44c9ef02594303"
+        },
+        {
+          "path": "src/primary/paperImports/ragOverlappingPairTotals.ts",
+          "sha256": "510a9abadaf9ca535252ffbdc0665c0fdaa5901841673ddd05c1821e51e6603c"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "f94ecb9547de7210",
+          "sourceQuestion": "14",
+          "sourcePages": [
+            26
+          ]
+        },
+        {
+          "paperId": "5991eb1871dc0ee6",
+          "sourceQuestion": "13",
+          "sourcePages": [
+            5
+          ]
+        },
+        {
+          "paperId": "a23f265b6169953c",
+          "sourceQuestion": "6",
+          "sourcePages": [
+            21
+          ]
+        }
+      ],
+      "jobId": "rag-f8788bf2494c2212a46f",
+      "packetSha256": "a4c95676dfd1d8402f6532f17331839fa9aaaae8af7b7599fe953530677067e8",
+      "candidateSha256": "d7bb8caccbbe4fd94b40f437f2ef168d7386d57a19fe831255c5a07e97a2315e",
+      "checkReportSha256": "d9c104e5f5193c07848c71bbd3c938acfb0642947fb95053f1c3d05481356ab1",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p6-part-whole-complement",
       "level": 6,
       "title": "Part, whole and complement percentages",
@@ -15258,6 +16211,59 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p6-prices-in-common-units",
+      "level": 6,
+      "title": "Prices written as multiples of one base price",
+      "objective": "Write related prices in common units, use the total cost to find one unit, then find the price or price difference asked for.",
+      "skillIds": [
+        "P6.S.RATIO.01",
+        "P5.S.RATE.02"
+      ],
+      "canonicalPatternId": "p6-prices-in-common-units",
+      "parameter": "rag-p6-prices-in-common-units",
+      "entryFile": "src/primary/paperImports/ragPricesCommonUnits.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragPricesCommonUnits.test.ts",
+          "sha256": "3e179a5c57be1ffa60c65d8648505782ad72b06d8142dceb0b152293581aa249"
+        },
+        {
+          "path": "src/primary/paperImports/ragPricesCommonUnits.ts",
+          "sha256": "b1ae2d95b3b1c04cd6a30712d66a15a5a0fa6ada69995a6c24f41702b5a718ab"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "03d58861bd810b6d",
+          "sourceQuestion": "18",
+          "sourcePages": [
+            13
+          ]
+        },
+        {
+          "paperId": "1212aeecb5df8c0c",
+          "sourceQuestion": "2",
+          "sourcePages": [
+            14,
+            15
+          ]
+        },
+        {
+          "paperId": "e143afd98053f571",
+          "sourceQuestion": "1",
+          "sourcePages": [
+            23,
+            24
+          ]
+        }
+      ],
+      "jobId": "rag-e9cbe4780e80ae47f7f8",
+      "packetSha256": "cfcfaac581fbd8799ec35df2cd2839f7f8806b90de88f332635f2616b9c4752d",
+      "candidateSha256": "8ea0700cb9462cdc362173246a96875c3c2909ab606d210e576b88a62789839d",
+      "checkReportSha256": "0c33c5c83144dea14ae86c18ccd48a1e0b53b6535c6d400ca0f2bfafb386ecac",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p6-rag-adding-removing-observations",
       "level": 6,
       "title": "Adding and removing observations",
@@ -15306,6 +16312,60 @@
       "packetSha256": "392891631abe65becb392eaa6f9e51f7b3102143fa4f477009eb9a793303e993",
       "candidateSha256": "336b1f9a16eacfbedabd7eb91a18f65776329fd156dae57679d6e8321ee20ad1",
       "checkReportSha256": "d6a9e4b4c3637ba10cecd3017197904052cff12e03f282138252758e1343b388",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-rag-chained-additive-comparisons",
+      "level": 6,
+      "title": "Chained additive comparisons with an unknown",
+      "objective": "Build three amounts from additive comparisons that use a letter, then total and simplify, substitute, solve, or judge a statement.",
+      "skillIds": [
+        "P6.S.ALG.01",
+        "P6.S.ALG.02",
+        "P6.S.ALG.03",
+        "P6.S.ALG.04",
+        "P6.S.ALG.05"
+      ],
+      "canonicalPatternId": "p6-chained-additive-comparisons",
+      "parameter": "rag-p6-rag-chained-additive-comparisons",
+      "entryFile": "src/primary/paperImports/ragChainedAdditiveComparisons.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragChainedAdditiveComparisons.test.ts",
+          "sha256": "bfed34b7303081e06b7241b71208e1ba637ed81d6ddd02e4d87bc4957ce49eed"
+        },
+        {
+          "path": "src/primary/paperImports/ragChainedAdditiveComparisons.ts",
+          "sha256": "b3e4d4cd4c6d3ad1e55077590c8bead92b570beb02d27eb6c810cc7a44aa5b59"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "7105c7f5694cf363",
+          "sourceQuestion": "5",
+          "sourcePages": [
+            20
+          ]
+        },
+        {
+          "paperId": "23efd344b066f1d4",
+          "sourceQuestion": "24",
+          "sourcePages": [
+            13
+          ]
+        },
+        {
+          "paperId": "84e11115e25d03cc",
+          "sourceQuestion": "7",
+          "sourcePages": [
+            22
+          ]
+        }
+      ],
+      "jobId": "rag-0bab9908662e83fedd54",
+      "packetSha256": "1d4f242f031b811e013515fdcbbf4e23d1feebc9d135d650d40177cf19693006",
+      "candidateSha256": "c1803bc6e0d49a706b4d9986b3d5975792b6828b76e7595539ca59e9fbb98d7a",
+      "checkReportSha256": "cc650447b5cb75092e7ff5a2e2252aec7440925cf153da238be8913131ac352a",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -15411,6 +16471,59 @@
       "packetSha256": "f8c6a44315b423cefce80e170826263d3e8a5b500884c95d188cddf1dc9f4eca",
       "candidateSha256": "c19e205a2f655457feda4b17aa6ca25de269ed1e1ca0184ad4d060b41345ba7c",
       "checkReportSha256": "96eeac882230b8d17af4e23aae0d0a0f9d706b4d1a0cba6a68b3dcb0026b22ce",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-rag-linear-dimension-perimeters",
+      "level": 6,
+      "title": "Linear dimension equations from perimeters",
+      "objective": "Turn related perimeters into sums and differences of lengths, find a side, then calculate the requested length or area",
+      "skillIds": [
+        "P6.S.ALG.02",
+        "P6.S.ALG.05",
+        "P6.S.CIRCLE.02",
+        "P6.S.CIRCLE.03"
+      ],
+      "canonicalPatternId": "p6-linear-dimension-equations-from-perimeters",
+      "parameter": "rag-p6-rag-linear-dimension-perimeters",
+      "entryFile": "src/primary/paperImports/ragPerimeterLinearDimensions.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragPerimeterLinearDimensions.test.ts",
+          "sha256": "ff5770009200d2552d0eb61ed77fd1855a6458b39a95a5ec276e1e5784ee770c"
+        },
+        {
+          "path": "src/primary/paperImports/ragPerimeterLinearDimensions.ts",
+          "sha256": "2c3014f39f3ea12047cb4be61e1811c66669939418d79a844300979a50d2db48"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "f0eae0eb7d7360ec",
+          "sourceQuestion": "10",
+          "sourcePages": [
+            28
+          ]
+        },
+        {
+          "paperId": "0f995f41617a0418",
+          "sourceQuestion": "29",
+          "sourcePages": [
+            14
+          ]
+        },
+        {
+          "paperId": "b13300ac1b1bebc0",
+          "sourceQuestion": "23",
+          "sourcePages": [
+            12
+          ]
+        }
+      ],
+      "jobId": "rag-358c32fe0ad864341402",
+      "packetSha256": "df537e9213cbd9849f3986c4072250888feca160ed2ae80467209c04ebf9e546",
+      "candidateSha256": "5346d21cdce8fa3a5121091b8a6aceff3ed13197ff7856c92cfb263e3294377c",
+      "checkReportSha256": "2e1f04cd03f9fce138364e9381fe5c536608e5a4959beaa3dca47b57b3864bcb",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -15727,6 +16840,118 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p6-ratio-displayed-values",
+      "level": 6,
+      "title": "Ratios from displayed or measured values",
+      "objective": "Read three displayed quantities, change them to one unit where needed, and write their ratio in simplest form.",
+      "skillIds": [
+        "P6.S.RATIO.01",
+        "P6.S.RATIO.02",
+        "P5.S.DEC.02"
+      ],
+      "canonicalPatternId": "p6-ratio-displayed-values",
+      "parameter": "rag-p6-ratio-displayed-values",
+      "entryFile": "src/primary/paperImports/ragDisplayedValueRatio.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragDisplayedValueRatio.test.ts",
+          "sha256": "ffc3287d13abec43da67259788faf10bc7560926202b641a98aec6d51ed176c6"
+        },
+        {
+          "path": "src/primary/paperImports/ragDisplayedValueRatio.ts",
+          "sha256": "31188a9dd37d0cc34a85c7c581251d2b9a8397fb45f5d26c3bcd17f531e6f377"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "47d73d742d14496c",
+          "sourceQuestion": "25",
+          "sourcePages": [
+            4
+          ]
+        },
+        {
+          "paperId": "9ea95b0048805759",
+          "sourceQuestion": "21",
+          "sourcePages": [
+            13,
+            14
+          ]
+        },
+        {
+          "paperId": "c91db26c550252ff",
+          "sourceQuestion": "1",
+          "sourcePages": [
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31
+          ]
+        }
+      ],
+      "jobId": "rag-27db07ed8c197aa52911",
+      "packetSha256": "243c3c7f037af5b84020a956a228068e9125048600ab8b0f5d44e43491398132",
+      "candidateSha256": "aa9f9000edc1e044434380cff0ad7fb05f9668998821205c3e7bfab7ee93523e",
+      "checkReportSha256": "eb5db2e6f4a5b8c1331f3aa97319f4bcc6220ac91c3ad6120c7f819112ee7f3d",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-ratio-equality-initial-difference",
+      "level": 6,
+      "title": "Equal amounts reveal the starting difference",
+      "objective": "Use changes that make two ratio amounts equal to find the starting difference, one ratio unit, and the starting amounts.",
+      "skillIds": [
+        "P6.S.RATIO.01",
+        "P6.S.RATIO.04"
+      ],
+      "canonicalPatternId": "p6-equality-reveals-initial-difference",
+      "parameter": "rag-p6-ratio-equality-initial-difference",
+      "entryFile": "src/primary/paperImports/ragRatioEqualityInitialDifference.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragRatioEqualityInitialDifference.test.ts",
+          "sha256": "4e2909e9123ed021bb59316010f4a9cf020908f188a560700c0c0ab9024b8ab8"
+        },
+        {
+          "path": "src/primary/paperImports/ragRatioEqualityInitialDifference.ts",
+          "sha256": "fca00cc6d3d92e2e7f115b8b3f6151729bb4431df17568cfbbfa781d8e418e70"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "4b7c9baf6d8d2727",
+          "sourceQuestion": "10",
+          "sourcePages": [
+            8,
+            9
+          ]
+        },
+        {
+          "paperId": "d962860fbd6da5e4",
+          "sourceQuestion": "13",
+          "sourcePages": [
+            7
+          ]
+        },
+        {
+          "paperId": "fa44c71ea9c9da53",
+          "sourceQuestion": "15",
+          "sourcePages": [
+            31,
+            32
+          ]
+        }
+      ],
+      "jobId": "rag-aeff81c805c5445577a5",
+      "packetSha256": "78485654cbc6fb2ea6979839a6b19fa88adff24271bb88b9af97bcad2539bbd8",
+      "candidateSha256": "01b44f7d1d268bfa82e5dff0eedacaeb4c77d8e34cc8cb4ad564282ec2a44c19",
+      "checkReportSha256": "7d3e23c9bcd73adb691938e5ac5578f4c596386b56f11436337741ac0748b4a0",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p6-ratio-scaling-known-share",
       "level": 6,
       "title": "Scale a ratio from a known share",
@@ -15778,6 +17003,56 @@
       "packetSha256": "0c3b67b4a5221d2b327c3448cc8abf33d26a93f93ad0e9756064676e51285502",
       "candidateSha256": "dda25593dbafb903bd0091023a0eb3493f6adc2617b3583bab44f6fc0905fd0f",
       "checkReportSha256": "dd5d247f5d716805f85758ac3e28e5d20efa3700ec1195d2824e13d1255ac4fe",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-reflect-outline-grid",
+      "level": 6,
+      "title": "Complete a reflected outline on a grid",
+      "objective": "Reflect the corners of a drawn outline across a mirror line and join them to complete a symmetric figure",
+      "skillIds": [
+        "P4.S.SYM.02"
+      ],
+      "canonicalPatternId": "p6-reflecting-geometric-outlines",
+      "parameter": "rag-p6-reflect-outline-grid",
+      "entryFile": "src/primary/paperImports/ragReflectOutline.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragReflectOutline.test.ts",
+          "sha256": "b11a504d5438040d23471261cb6edfa0998847b5f2622ce86ea0d53ca78eed91"
+        },
+        {
+          "path": "src/primary/paperImports/ragReflectOutline.ts",
+          "sha256": "ed2d0a4699e299190ea0241e4b6d68cb87c8bf8c40c03ff56356d07a3b162bc0"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "8075b80e2358cbe3",
+          "sourceQuestion": "19",
+          "sourcePages": [
+            15
+          ]
+        },
+        {
+          "paperId": "d962860fbd6da5e4",
+          "sourceQuestion": "24",
+          "sourcePages": [
+            13
+          ]
+        },
+        {
+          "paperId": "5d8ec5611ffe3b0e",
+          "sourceQuestion": "19",
+          "sourcePages": [
+            9
+          ]
+        }
+      ],
+      "jobId": "rag-15c36fb78c068f635a6d",
+      "packetSha256": "965e9bb534cb9c77a38f5aca1edd0449eaa87b2b70d7605f0654798d744ce9f6",
+      "candidateSha256": "8c90f2d1f5788e6d356e5547a85f2ef59d822b0a8fa31737f006a44013b9e2f3",
+      "checkReportSha256": "f4b6ef573cef1c0854ac685e23d7324511a6df04be6b8ce4f4a008e2b89d93f6",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -15885,6 +17160,57 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "p6-shaded-area-fractions-segment-ratios",
+      "level": 6,
+      "title": "Shaded area from segment ratios",
+      "objective": "Turn equal lengths and side ratios into area fractions of a rectangle, then find the shaded fraction or area.",
+      "skillIds": [
+        "P5.S.AREA.02",
+        "P6.S.RATIO.05"
+      ],
+      "canonicalPatternId": "p6-shaded-area-fractions-from-segment-ratios",
+      "parameter": "rag-p6-shaded-area-fractions-segment-ratios",
+      "entryFile": "src/primary/paperImports/ragShadedFractionsSegmentRatios.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragShadedFractionsSegmentRatios.test.ts",
+          "sha256": "cd557ba4b990d6cab043cd57a297a92e2cb2e20e57fada8c29e1b044fc82d520"
+        },
+        {
+          "path": "src/primary/paperImports/ragShadedFractionsSegmentRatios.ts",
+          "sha256": "85b7b87cd8e51146cc4ac99982429a90b25cfbc0eb9ffaabd4249a14482b7bfe"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "ff89a9221e46f71a",
+          "sourceQuestion": "13",
+          "sourcePages": [
+            6
+          ]
+        },
+        {
+          "paperId": "c3d24dd9b5e42f7b",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            7
+          ]
+        },
+        {
+          "paperId": "1b577f5d5e9cb8dd",
+          "sourceQuestion": "1",
+          "sourcePages": [
+            7
+          ]
+        }
+      ],
+      "jobId": "rag-6f7cf22ccb5c6c31bcfc",
+      "packetSha256": "1440624f471fc06403312a1f1433247e5b84bb8188339a19a4614da5fe0364cc",
+      "candidateSha256": "589e290e56c3190b1f6046a78963fb12b9b8875be206099ddcf7ba9a3e73ea14",
+      "checkReportSha256": "5a964e4d6b77c198cfbb6b00fb0d337f71e4fb6f8d6f51a9bc16df89fcc91e35",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "p6-square-and-sector-area",
       "level": 6,
       "title": "Shaded area from a square and a circle or sector",
@@ -15935,6 +17261,274 @@
       "packetSha256": "7b3aa41594931dd560f56ab7a422c5286fbea5fad54cbcc7bff3b56c238564fe",
       "candidateSha256": "f08252af5e58595112dc28cff1c389a60c39a7aedea7269dae129137170cbcda",
       "checkReportSha256": "c4b8962a02cadaab6e981d45304f17d47a12d05a19effb5f7c6614ba5c9d68bb",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-square-diagonal-area",
+      "level": 6,
+      "title": "Square diagonals and right-angled isosceles triangles",
+      "objective": "Use a square diagonal, or right-angled isosceles triangles, to find the area of a square, a leftover region or a perimeter.",
+      "skillIds": [
+        "P5.S.AREA.02",
+        "P5.S.AREA.03",
+        "P6.S.CIRCLE.03"
+      ],
+      "canonicalPatternId": "p6-square-diagonal-triangular-area-relationships",
+      "parameter": "rag-p6-square-diagonal-area",
+      "entryFile": "src/primary/paperImports/ragSquareDiagonalArea.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragSquareDiagonalArea.test.ts",
+          "sha256": "a0a6c5a62f82d9f7bdc61b559d4d5f39068268c5952bbc73d0e6519b641b5ddc"
+        },
+        {
+          "path": "src/primary/paperImports/ragSquareDiagonalArea.ts",
+          "sha256": "939ae50a2a3706c7d27134f6b1dfa2de7d4428abf0c0845cba6b50084aae1f02"
+        },
+        {
+          "path": "src/primary/paperImports/ragSquareDiagonalFigures.ts",
+          "sha256": "1f2e296ae753b6264d8ae7d810c3d42764a3b7b80f14c77d650397ff65766934"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "1b577f5d5e9cb8dd",
+          "sourceQuestion": "30",
+          "sourcePages": [
+            18,
+            19
+          ]
+        },
+        {
+          "paperId": "f72a9681771de698",
+          "sourceQuestion": "17",
+          "sourcePages": [
+            33,
+            35
+          ]
+        },
+        {
+          "paperId": "a23f265b6169953c",
+          "sourceQuestion": "8",
+          "sourcePages": [
+            22,
+            23
+          ]
+        }
+      ],
+      "jobId": "rag-40d933652691582d4d3a",
+      "packetSha256": "52429837e661161a9f8af93b4a1f91e800ed85e5e509b56f9ee5cdd13a1cff1b",
+      "candidateSha256": "c45e7f237fb0c15daa53a4922d6ceb4c48f1088465fd8cbaa75dc464cc693191",
+      "checkReportSha256": "c9423ac588af90073bbd44d97e695d929c5c9227ed4e1f971035a3c6f659e0d6",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-two-party-transfer-comparison",
+      "level": 6,
+      "title": "Fraction transfer between two people",
+      "objective": "Use a fractional transfer with the before and after comparisons to find an original amount",
+      "skillIds": [
+        "P4.S.FRAC.03",
+        "P6.S.RATIO.05"
+      ],
+      "canonicalPatternId": "p6-two-party-fraction-transfer-comparison",
+      "parameter": "rag-p6-two-party-transfer-comparison",
+      "entryFile": "src/primary/paperImports/ragTwoPartyTransfer.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragTwoPartyTransfer.test.ts",
+          "sha256": "ff2887016ba61c5181b532eb4a0fa95c6aec48482c05847ff598b15881023ded"
+        },
+        {
+          "path": "src/primary/paperImports/ragTwoPartyTransfer.ts",
+          "sha256": "4a5fc1ad3f791c89e789cb4c40a35ba24e041a59f34acbeb550219e8bb2f27e7"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "7929fb89b48e6135",
+          "sourceQuestion": "15",
+          "sourcePages": [
+            8,
+            9
+          ]
+        },
+        {
+          "paperId": "f72a9681771de698",
+          "sourceQuestion": "21",
+          "sourcePages": [
+            15
+          ]
+        },
+        {
+          "paperId": "1b577f5d5e9cb8dd",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            27
+          ]
+        }
+      ],
+      "jobId": "rag-32c65e3939d277354ba6",
+      "packetSha256": "d5065c16f0cd851669622abf4752adc1cb9af7ca2d1a72eaf02c47abc8416ea3",
+      "candidateSha256": "f4efa366db287c007be33739f53e975c7581ec541562ecbd53be6713f9b795a6",
+      "checkReportSha256": "7f644b361408a6f5692243e608a169053da127b82c1762396c759287b7d280fa",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "p6-whole-from-difference-between-shares",
+      "level": 6,
+      "title": "Find the whole from a difference between shares",
+      "objective": "Write shares as fractions of one whole, then divide a known difference or increase by the matching fraction to recover the whole or a related quantity.",
+      "skillIds": [
+        "P6.S.RATIO.05",
+        "P6.S.RATIO.03",
+        "P5.S.FRAC.05",
+        "P4.S.FRAC.03"
+      ],
+      "canonicalPatternId": "p6-whole-from-difference-between-shares",
+      "parameter": "rag-p6-whole-from-difference-between-shares",
+      "entryFile": "src/primary/paperImports/ragWholeFromShareDifference.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragWholeFromShareDifference.test.ts",
+          "sha256": "dd19f03e6e548bc4782b0d627fe79ec42572b6a39a667e7b8b5943a11bea9749"
+        },
+        {
+          "path": "src/primary/paperImports/ragWholeFromShareDifference.ts",
+          "sha256": "d14f2ba19b22f43dfb320327f8e07553c2e648b4dcd4c8baae6a94f9f6f9b97a"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "b13300ac1b1bebc0",
+          "sourceQuestion": "4",
+          "sourcePages": [
+            22
+          ]
+        },
+        {
+          "paperId": "ae2078c5e2699a3d",
+          "sourceQuestion": "11",
+          "sourcePages": [
+            39,
+            40
+          ]
+        },
+        {
+          "paperId": "55d4843b161b88ae",
+          "sourceQuestion": "9",
+          "sourcePages": [
+            20
+          ]
+        }
+      ],
+      "jobId": "rag-6b0052badd59838e84f5",
+      "packetSha256": "8337d98854fda543556e2aa049baca04e641fa12d2f362759f989b35dedda23d",
+      "candidateSha256": "69107c8188f1c48971414107b800b1d2882c7abe342816fb11d53f77043b0baf",
+      "checkReportSha256": "bfede57c81fe48ff12c2bec5cbeec37f293a8236161d3291174d1f876b9cbb6b",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "payments-expenses-balances",
+      "level": 6,
+      "title": "Payments, expenses and balances",
+      "objective": "Find a cost or the money left from payments, change, quantities and spending",
+      "skillIds": [
+        "P3.S.MONEY.01",
+        "P2.S.MONEY.03"
+      ],
+      "canonicalPatternId": "p6-payments-expenses-balances",
+      "parameter": "rag-payments-expenses-balances",
+      "entryFile": "src/primary/paperImports/ragPaymentsExpensesBalances.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragPaymentsExpensesBalances.test.ts",
+          "sha256": "045af01c954ad3f7eb07c1b9ce00dcdfc524553fe8b4629cc925418e99968425"
+        },
+        {
+          "path": "src/primary/paperImports/ragPaymentsExpensesBalances.ts",
+          "sha256": "a9e348fdb23fe5e935a4662a45ec911581b6817388a4153412f422f99c43b857"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "f0eae0eb7d7360ec",
+          "sourceQuestion": "30",
+          "sourcePages": [
+            11
+          ]
+        },
+        {
+          "paperId": "0f995f41617a0418",
+          "sourceQuestion": "19",
+          "sourcePages": [
+            10
+          ]
+        },
+        {
+          "paperId": "2dadd0a3ce0662c5",
+          "sourceQuestion": "21",
+          "sourcePages": [
+            12
+          ]
+        }
+      ],
+      "jobId": "rag-30c01e0f7dc7e3145d39",
+      "packetSha256": "57e0f8e7c5639c212a91a8c0dbca03f1c3a3e9d8f349f36c4dbc408a2fa60057",
+      "candidateSha256": "1f8803b8cb09fe89052b0701c527e170796d8af9ef283ce596de25d99ccad27c",
+      "checkReportSha256": "827a63e97e1d2dae234ef3e7347e17053939f804af9ad03bf1290bf6451b83ae",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "percentage-adjusted-payments",
+      "level": 5,
+      "title": "Percentage-adjusted payments",
+      "objective": "Apply GST or a discount to a price, then find change, compare two payment plans or count the weeks needed to save",
+      "skillIds": [
+        "P5.S.PCT.04",
+        "P5.S.PCT.03"
+      ],
+      "canonicalPatternId": "p5-percentage-adjusted-payments",
+      "parameter": "rag-percentage-adjusted-payments",
+      "entryFile": "src/primary/paperImports/ragPercentageAdjustedPayments.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragPercentageAdjustedPayments.test.ts",
+          "sha256": "5d3a22ae4237dcdc53d10f38d20aeba3ec8d857b6a082dca20c410eabc291a35"
+        },
+        {
+          "path": "src/primary/paperImports/ragPercentageAdjustedPayments.ts",
+          "sha256": "4871cd7314b9d081c5ac803f6a4da3928debf681bf4e30e71a7a8d9065479549"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "0b57a62d0f9c143e",
+          "sourceQuestion": "10",
+          "sourcePages": [
+            21
+          ]
+        },
+        {
+          "paperId": "096ece7dc72601c7",
+          "sourceQuestion": "17",
+          "sourcePages": [
+            29
+          ]
+        },
+        {
+          "paperId": "55af055aed00d99a",
+          "sourceQuestion": "14",
+          "sourcePages": [
+            22,
+            23
+          ]
+        }
+      ],
+      "jobId": "rag-47a451a58e80442722ee",
+      "packetSha256": "f848fb5ab5ec9e5a4368c6f5393957c2c0b44fdf604ab2159cb087f9a343b4d2",
+      "candidateSha256": "324b819c55d580998f90bb6de10d27b2c2cecb7943e3f298000edac6773ac4c9",
+      "checkReportSha256": "ce7812231b824d5bc54eb10b7b896737a96b2b0dd9b92bac244d05b63ef0f85a",
       "status": "checks-passed-source-unaudited"
     },
     {
@@ -17303,7 +18897,7 @@
         },
         {
           "path": "src/primary/paperImports/ragP2SumRowsExceptOne.ts",
-          "sha256": "44913deeea038c61acaaaa5a25b1635d9f1f7198197c13af40f794b07cd0718a"
+          "sha256": "9214fdf75adc101c2362b6afa005be4d1c92e45b48be9e0b1554d4c907f2ae88"
         }
       ],
       "sourceRefs": [
@@ -24226,6 +25820,58 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "rag-p5-quantity-preparation-before-pricing",
+      "level": 5,
+      "title": "Find the quantity first, then price it",
+      "objective": "Work out how many people, items or packs are chargeable or saleable from attendance changes, wastage or removed stock, then apply the unit or group price.",
+      "skillIds": [
+        "P5.S.RATE.02",
+        "P5.S.PCT.03",
+        "P4.S.MD.03"
+      ],
+      "canonicalPatternId": "p5-quantity-preparation-before-pricing",
+      "parameter": "rag-rag-p5-quantity-preparation-before-pricing",
+      "entryFile": "src/primary/paperImports/ragQuantityPreparationBeforePricing.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragQuantityPreparationBeforePricing.test.ts",
+          "sha256": "59734df1f7aa513e82c6d6ff2248e9dd26bbcce42f31a2f762363d67789aa598"
+        },
+        {
+          "path": "src/primary/paperImports/ragQuantityPreparationBeforePricing.ts",
+          "sha256": "43db8448f64150fa1a8e16648b70aa0b8787315793235c5c29d9c9035975afab"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "0cc2458871b29a60",
+          "sourceQuestion": "16",
+          "sourcePages": [
+            27
+          ]
+        },
+        {
+          "paperId": "f0230949f4d8139c",
+          "sourceQuestion": "17",
+          "sourcePages": [
+            33
+          ]
+        },
+        {
+          "paperId": "1cdfaf2e202b3bd8",
+          "sourceQuestion": "40",
+          "sourcePages": [
+            2
+          ]
+        }
+      ],
+      "jobId": "rag-6c8bcb9671ee9cc5b9e2",
+      "packetSha256": "8f0937089d5336db42c1736f1f1f492b7c188907b8e58871ab2066931af55427",
+      "candidateSha256": "03ed667e20c65f7b34c18fd45d3c08a1c0b553447b84c451a79be3a6cc8e30e0",
+      "checkReportSha256": "3b15648ec0e9b015f7361975c571ad507d8e1819ffb64706bdcedcd45cc3c7d1",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "rag-p5-quantity-unit-rate",
       "level": 5,
       "title": "Prices for packs and measured amounts",
@@ -25992,6 +27638,58 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "rag-p6-complement-of-whole-based-allocations",
+      "level": 6,
+      "title": "Find what is left after fractions of a whole are taken away",
+      "objective": "Subtract fractions of one whole from 1, then find the remaining fraction, the remaining quantity, or an equal share of the remainder",
+      "skillIds": [
+        "P4.S.FRAC.03",
+        "P4.S.FRAC.04",
+        "P6.S.FRAC.01"
+      ],
+      "canonicalPatternId": "p6-complement-of-whole-based-allocations",
+      "parameter": "rag-rag-p6-complement-of-whole-based-allocations",
+      "entryFile": "src/primary/paperImports/ragP6ComplementAllocations.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragP6ComplementAllocations.test.ts",
+          "sha256": "05760994f081f5602043e9930c4d62da8058fe2ce75e3ca74706cbb3ec9ebfc8"
+        },
+        {
+          "path": "src/primary/paperImports/ragP6ComplementAllocations.ts",
+          "sha256": "2e4d6eecfc9d2b790ff28caa1870f6e45aaf0bcc0ce57561a8e2f7189763b8c0"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "7105c7f5694cf363",
+          "sourceQuestion": "21",
+          "sourcePages": [
+            12
+          ]
+        },
+        {
+          "paperId": "fd46be00dbdb8b0a",
+          "sourceQuestion": "16",
+          "sourcePages": [
+            9
+          ]
+        },
+        {
+          "paperId": "03d58861bd810b6d",
+          "sourceQuestion": "19",
+          "sourcePages": [
+            14
+          ]
+        }
+      ],
+      "jobId": "rag-c954124cd8fda44cd20b",
+      "packetSha256": "eb1bce3001d48eb45451b234dd50b18a566e7ee05d1cf5666822a9588131b46c",
+      "candidateSha256": "533c589d8d4273b6b667f49eaf2a637a56a222c4466f694f0467d5bf2e62c6ab",
+      "checkReportSha256": "4e18eb6b494bd3f6537437a9ab16a6bc9e002f295d9c3bb46727d9273a7bb27d",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "rag-p6-equal-shares-of-remainder",
       "level": 6,
       "title": "Share what is left equally",
@@ -26834,6 +28532,60 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "rag-repeated-equal-volume-units",
+      "level": 6,
+      "title": "Repeated equal-volume units",
+      "objective": "Divide a volume or number of cubes by the amount in one unit, then round down or up as the situation requires.",
+      "skillIds": [
+        "P5.S.VOL.03",
+        "P5.S.VOL.04",
+        "P5.S.VOL.05",
+        "P6.S.FRAC.02"
+      ],
+      "canonicalPatternId": "p6-repeated-equal-volume-units",
+      "parameter": "rag-rag-repeated-equal-volume-units",
+      "entryFile": "src/primary/paperImports/ragRepeatedEqualVolumeUnits.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragRepeatedEqualVolumeUnits.test.ts",
+          "sha256": "7cd1445fdb98bbe9434ffebfa05809968b109544cc284c28d814717184ce5125"
+        },
+        {
+          "path": "src/primary/paperImports/ragRepeatedEqualVolumeUnits.ts",
+          "sha256": "3a693d82fd3fbf72b383ad9742d5b757919cac59f0916e4e8482f732d816972b"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "c91db26c550252ff",
+          "sourceQuestion": "27",
+          "sourcePages": [
+            21,
+            22
+          ]
+        },
+        {
+          "paperId": "5eb6e1f650c28726",
+          "sourceQuestion": "3",
+          "sourcePages": [
+            3
+          ]
+        },
+        {
+          "paperId": "649ae716eb3df863",
+          "sourceQuestion": "20",
+          "sourcePages": [
+            7
+          ]
+        }
+      ],
+      "jobId": "rag-b9e550792fcb4b9f7186",
+      "packetSha256": "2c6e09ff4f543202dcc6b24c8e6ff8ba8dc74e83f3b740b7c755004d98844fd6",
+      "candidateSha256": "36cd4e58ff052a5ddfa92c56e2af8f8085b75fe157f5713049a8ccf11f9ed033",
+      "checkReportSha256": "d42afb48dff0c6a7d535c2f7680f0599e4ae9b7e8a2b300bef14463fab355393",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "rag-shaded-cell-symmetry",
       "level": 6,
       "title": "Complete a shaded pattern",
@@ -27634,6 +29386,60 @@
       "status": "checks-passed-source-unaudited"
     },
     {
+      "id": "simple-purchase-equation",
+      "level": 6,
+      "title": "Solve a simple purchase problem",
+      "objective": "Use cost = quantity × unit price with money paid, change or a shortfall to find a missing amount, price or quantity.",
+      "skillIds": [
+        "P6.S.ALG.04",
+        "P6.S.ALG.05",
+        "P5.S.RATE.02"
+      ],
+      "canonicalPatternId": "p6-simple-purchase-equation",
+      "parameter": "rag-simple-purchase-equation",
+      "entryFile": "src/primary/paperImports/ragPurchaseEquation.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragPurchaseEquation.test.ts",
+          "sha256": "9ae89f90d2981bb74a4adf72ed06ac0d68bb95163f24628a5d5a0674e5c5fe2e"
+        },
+        {
+          "path": "src/primary/paperImports/ragPurchaseEquation.ts",
+          "sha256": "5b3e6a83e834a78bee52ba2bf9ad5e743fbaae23972591073525818031f171d5"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "ff89a9221e46f71a",
+          "sourceQuestion": "27",
+          "sourcePages": [
+            15
+          ]
+        },
+        {
+          "paperId": "84e11115e25d03cc",
+          "sourceQuestion": "25",
+          "sourcePages": [
+            14
+          ]
+        },
+        {
+          "paperId": "f0eae0eb7d7360ec",
+          "sourceQuestion": "20",
+          "sourcePages": [
+            1,
+            3,
+            4
+          ]
+        }
+      ],
+      "jobId": "rag-bc1cdec9c264390a37e7",
+      "packetSha256": "693cb62bc9fe37d67ef25add8d7d7d9a85eec4e5a095c5c252fdd3f262877766",
+      "candidateSha256": "7d69a401e40ee62b2ef0d12ce3c91240e9917873c703e33c55bd2311051618c5",
+      "checkReportSha256": "f9dfe2a0887389e9e867f07cbd7563d2d80e3a48f43ce30408324425b739649e",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
       "id": "transfer-quantities",
       "level": 3,
       "title": "Count the stickers before and after a gift",
@@ -27734,6 +29540,114 @@
       "packetSha256": "ae323e1ba9439030fae04b8a0da0c344dba7911b9d01303b457bf6cffd861a86",
       "candidateSha256": "c22345d2357af3eccb10687b231a7c4adb7823304cfad2352a0fd98bce8064c2",
       "checkReportSha256": "40c579c640ac10fd9a9cdfa194b31ae66ae3ce96a869cbef6129d66cfe55a2e5",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "weighted-balances-initial-constraints",
+      "level": 5,
+      "title": "Find the starting amount after fractions change",
+      "objective": "Use fractions of two groups together with an initial total, an initial difference or an equal start to find a starting amount.",
+      "skillIds": [
+        "P5.S.FRAC.05",
+        "P4.S.FRAC.03"
+      ],
+      "canonicalPatternId": "p5-weighted-balances-initial-constraints",
+      "parameter": "rag-weighted-balances-initial-constraints",
+      "entryFile": "src/primary/paperImports/ragWeightedBalances.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragWeightedBalances.test.ts",
+          "sha256": "b05b4999303ff9639c97d56fb59443d5746113c28a1e3a535227813ad7f91e2a"
+        },
+        {
+          "path": "src/primary/paperImports/ragWeightedBalances.ts",
+          "sha256": "e990a28de971e16e4b7359205acecc8c01d1f19e27d8b4bff467299196fffd56"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "0cc2458871b29a60",
+          "sourceQuestion": "17",
+          "sourcePages": [
+            28,
+            29
+          ]
+        },
+        {
+          "paperId": "91d7b4ddebbb9bc5",
+          "sourceQuestion": "17",
+          "sourcePages": [
+            27
+          ]
+        },
+        {
+          "paperId": "01e1b357aebeec6e",
+          "sourceQuestion": "1",
+          "sourcePages": [
+            15,
+            16,
+            17,
+            18
+          ]
+        }
+      ],
+      "jobId": "rag-fd9f7138574a2c5514b5",
+      "packetSha256": "cc3b6522159a43b38bec7bfdba9d103c607aef5dc25cd01c466e45ec450c78cc",
+      "candidateSha256": "1780884337a553ca746c95986d06085a910f09190ba1da3a0b3b03419ca459a4",
+      "checkReportSha256": "322d5a3d5812db30e2ebd6f53eaacacd71c7adefbcfae5ae9f12086c810ae0bc",
+      "status": "checks-passed-source-unaudited"
+    },
+    {
+      "id": "whole-from-share-increase",
+      "level": 5,
+      "title": "Find the whole from a growing share",
+      "objective": "Divide a fixed extra amount by the increase in the fraction of a constant whole to recover the whole",
+      "skillIds": [
+        "P4.S.FRAC.04",
+        "P5.S.FRAC.05"
+      ],
+      "canonicalPatternId": "p5-whole-from-share-increase",
+      "parameter": "rag-whole-from-share-increase",
+      "entryFile": "src/primary/paperImports/ragWholeFromShareIncrease.ts",
+      "files": [
+        {
+          "path": "src/primary/paperImports/ragWholeFromShareIncrease.test.ts",
+          "sha256": "903744c8313f063b0dfccd65614c40bacf356b69b28441262f16dbb9eac777a7"
+        },
+        {
+          "path": "src/primary/paperImports/ragWholeFromShareIncrease.ts",
+          "sha256": "824388895a6dde9ac6cfbffccbdcb5f950fe2437d4c63bb807df26233dfb9993"
+        }
+      ],
+      "sourceRefs": [
+        {
+          "paperId": "130bd163dbdaf846",
+          "sourceQuestion": "14",
+          "sourcePages": [
+            31,
+            32
+          ]
+        },
+        {
+          "paperId": "8c9b6285937b51cc",
+          "sourceQuestion": "12",
+          "sourcePages": [
+            6,
+            7
+          ]
+        },
+        {
+          "paperId": "87ebf6837f5e619e",
+          "sourceQuestion": "14",
+          "sourcePages": [
+            10
+          ]
+        }
+      ],
+      "jobId": "rag-c816524987aa0628743d",
+      "packetSha256": "1be438102adc9c8e1bc441e526a38212fb6f6d7db2718ed4d5611f8b2acc44b7",
+      "candidateSha256": "7a737295b991a6f1c07656205f2b7c9fce6e9af2f1e33a3a0fd68d7e5698857c",
+      "checkReportSha256": "d5ee096b96296b7c0bed91ebda2ed8ef601bfc26ba8649363b13aa07e2dbe410",
       "status": "checks-passed-source-unaudited"
     }
   ]

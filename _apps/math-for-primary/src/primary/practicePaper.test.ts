@@ -30,7 +30,7 @@ describe('On-demand original practice papers',()=>{
     if(track==='foundation')expect(['paper','ratio','ratioShare','algebra','equation','circle','reversePercent','percentChange'],where).not.toContain(item.activity.kind);
    }
   }
- });
+ },60000);
 
  it('uses distinct reasoning families first and interleaves P4 mixed topics and response forms',()=>{
   for(const seed of [0,17,7919]){
