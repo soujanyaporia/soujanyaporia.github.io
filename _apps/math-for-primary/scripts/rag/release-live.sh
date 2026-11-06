@@ -66,6 +66,11 @@ if [ $DRY -eq 1 ]; then
   git reset -q; restore; exit 0
 fi
 [ -n "$(git diff --cached --name-only)" ] || { log "RELEASE DONE: nothing new to publish"; exit 0; }
+if [ -n "${RELEASE_MSG:-}" ]; then  # a release that is not (only) a generator batch: caller supplies title + body
+  EXTRA=""; [ "$NEW" -gt 0 ] && EXTRA="Also adds $NEW census-built practice-paper question generators. "
+  printf '%s\n\n%sLocal checks: %s; production build passed.\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\n' \
+    "$RELEASE_MSG" "$EXTRA" "$TESTS" | git commit -q -F - || fail "commit failed"
+else
 git commit -q -F - <<EOF || fail "commit failed"
 Add $NEW census-built practice-paper question generators
 
@@ -76,6 +81,7 @@ patterns. Local checks: $TESTS; production build passed.
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 EOF
+fi
 COMMIT=$(git rev-parse HEAD)
 git push -q origin HEAD:master || { git reset -q --hard "$BASE"; fail "push rejected (commit undone locally)"; }
 log "pushed $COMMIT to master"

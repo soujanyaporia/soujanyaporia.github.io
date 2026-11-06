@@ -25,6 +25,11 @@ button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px soli
 .adventure-app .grade-6 { --accent: #477ca3; --accent-deep: #325c7b; --pale: #e6f0fa; --deep: #315a7b; }
 /* Permanent navigation, with a compact horizontal version on tablets and phones. */
 .adventure-sidebar { width: 238px; position: fixed; z-index: 20; inset: 0 auto 0 0; display: flex; flex-direction: column; padding: 30px 19px 20px; border-right: 1px solid #dfe8dd; background: #fffefb; overflow-y: auto; scrollbar-width: thin; }
+/* The static lesson directory is injected after #root, outside the padded app, so it must clear the fixed sidebar
+   itself; otherwise narrow or zoomed windows slide its left edge under the sidebar. Centred in the space beside it. */
+body:has(.adventure-app.has-sidebar) > .resource-home { --sidebar: 238px; margin-left: calc(var(--sidebar) + max(0px, (100% - var(--sidebar) - 1080px) / 2)); margin-right: auto; }
+@media(max-width:1180px) { body:has(.adventure-app.has-sidebar) > .resource-home { --sidebar: 210px; } }
+@media(max-width:1000px) { body:has(.adventure-app.has-sidebar) > .resource-home { margin-inline: auto; } }
 .adventure-brand { display: flex; align-items: center; gap: 3px; margin: 0 -6px 39px; }
 .brand-buddy { width: 64px; flex: 0 0 64px; transform: rotate(-7deg); }
 .adventure-brand strong { font-size: 26px; line-height: .95; font-weight: 950; letter-spacing: -1px; color: #1e6653; display: block; }
