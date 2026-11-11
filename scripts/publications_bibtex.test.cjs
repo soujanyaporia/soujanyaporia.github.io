@@ -5,8 +5,6 @@ const vm = require('node:vm');
 const path = require('node:path');
 
 const source = readFileSync(path.join(__dirname, '../assets/js/publications.js'), 'utf8');
-const sharedSource = readFileSync(path.join(__dirname, '../assets/declare-core/js/site.js'), 'utf8');
-const clipboardSource = sharedSource.slice(sharedSource.indexOf('  var copyIcon ='), sharedSource.indexOf('  /* Code block snippet copy button */'));
 
 function setup(clipboard) {
   const listeners = {};
@@ -17,7 +15,6 @@ function setup(clipboard) {
     getElementById(id) { return panels[id]; }
   };
   const context = { document, navigator: { clipboard }, window: {}, setTimeout, clearTimeout };
-  vm.runInNewContext(clipboardSource, context);
   vm.runInNewContext(source, context);
   function paper(id, title) {
     const attrs = {
@@ -110,38 +107,3 @@ for (const [name, clipboard] of [
     assert.equal(paper.copy.disabled, false);
   });
 }
-
-test('Lab-note code blocks and citations use the same copy icon and clipboard helper', async () => {
-  const code = { textContent: '  print("hello")\n' };
-  let button, status, copied;
-  const pre = {
-    classList: { add(name) { assert.equal(name, 'has-copy-control'); } },
-    querySelector(selector) { return selector === 'code' ? code : null; },
-    appendChild(value) { button = value; },
-    insertAdjacentElement(position, value) { status = value; }
-  };
-  const document = {
-    querySelectorAll() { return [pre]; },
-    createElement() {
-      const attrs = {};
-      return {
-        setAttribute(key, value) { attrs[key] = value; },
-        getAttribute(key) { return attrs[key]; },
-        addEventListener(name, handler) { this[name] = handler; }
-      };
-    }
-  };
-  const context = { document, window: {}, navigator: { clipboard: { writeText(text) { copied = text; return Promise.resolve(); } } }, setTimeout, clearTimeout };
-  const codeBlockSource = sharedSource.slice(sharedSource.indexOf('  function initializeCodeBlockCopy()'), sharedSource.indexOf('  initializeTheme();'));
-  vm.runInNewContext(clipboardSource + codeBlockSource + '\ninitializeCodeBlockCopy();', context);
-  const citationButton = {};
-  context.window.DeclareCopy.initialize(citationButton);
-  assert.equal(button.innerHTML, citationButton.innerHTML);
-  assert.equal(button.className, 'copy-icon-button code-copy-btn');
-  assert.equal(button.getAttribute('aria-label'), 'Copy code snippet');
-  button.click();
-  await new Promise(resolve => setImmediate(resolve));
-  assert.equal(copied, code.textContent);
-  assert.equal(status.textContent, 'Copied.');
-  assert.match(button.innerHTML, /m5 12/);
-});

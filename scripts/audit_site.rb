@@ -56,8 +56,13 @@ html_files.each do |html_file|
   page_name = html_file.relative_path_from(site_root).to_s
 
   if document.at_css(".site-header")
-    core_scripts = document.css('script[src*="/assets/declare-core/js/site.js"]')
-    errors << "#{page_name}: shared design script must be loaded exactly once" unless core_scripts.length == 1
+    site_scripts = document.css('script[src*="/assets/js/site.js"]')
+    errors << "#{page_name}: site script must be loaded exactly once" unless site_scripts.length == 1
+    errors << "#{page_name}: expected exactly one h1" unless document.css("main h1").length == 1
+    stylesheets = document.css('link[rel="stylesheet"][href*="/assets/css/site.css"]')
+    errors << "#{page_name}: site stylesheet must be linked exactly once" unless stylesheets.length == 1
+    current = document.css('.site-nav a[aria-current="page"]')
+    errors << "#{page_name}: more than one current navigation item" if current.length > 1
   end
 
   ids = document.css("[id]").map { |node| node["id"] }.reject(&:empty?)
@@ -94,24 +99,15 @@ html_files.each do |html_file|
       errors << "#{page_name}: missing anchor #{href}"
     end
   end
+end
 
-  document.css("[data-section-menu] a[href^='#']").each do |link|
-    fragment = URI::DEFAULT_PARSER.unescape(link["href"].delete_prefix("#"))
-    unless document.css("[id]").any? { |node| node["id"] == fragment }
-      errors << "#{page_name}: section menu points to missing ##{fragment}"
-    end
-  end
-
-  document.css("[data-section-menu]").each do |menu|
-    classes = menu["class"].to_s.split
-    variants = classes & %w[section-menu--rail section-menu--inline]
-    errors << "#{page_name}: section menu must inherit the shared component" unless classes.include?("section-menu")
-    errors << "#{page_name}: section menu must declare one structural variant" unless variants.length == 1
-    next unless variants.include?("section-menu--rail")
-
-    errors << "#{page_name}: rail menu is missing its shared label" unless menu.at_css(".section-menu__label")
-    errors << "#{page_name}: rail menu is missing its shared item container" unless menu.at_css(".section-menu__items[data-section-menu-scroll]")
-  end
+# The default GitHub Pages theme also writes stylesheets into assets/css. The
+# site's own stylesheet must reach the build intact, not a theme file.
+stylesheet = site_root.join("assets/css/site.css")
+if !stylesheet.file?
+  errors << "assets/css/site.css is missing from the build"
+elsif !stylesheet.read.include?("--paper:")
+  errors << "assets/css/site.css is not the site's own stylesheet"
 end
 
 puts "Audited #{html_files.length} HTML pages, #{checked_images} images, and #{checked_links} local links."

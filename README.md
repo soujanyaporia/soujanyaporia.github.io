@@ -4,13 +4,20 @@ The website is available at <https://soujanyaporia.github.io>.
 
 ## Design
 
-The site is set like the front matter of a monograph: one serif for reading and
-titling, a quiet sans for dates and labels, ink on warm paper, and an oxblood
-accent. Palette, type scale and widths are passed to `declare-design-core`
-through `declare-customize` in `assets/css/style.scss`; the local stylesheet
-only composes layout.
+A standalone Jekyll site with no theme or shared stylesheet. It is set like the
+front matter of a monograph: one serif (Newsreader) for reading and titling, a
+quiet sans (Instrument Sans) for dates and labels, ink on warm paper, and an
+oxblood accent.
 
-Three local components carry every page:
+- `assets/css/site.css` — the whole stylesheet, plain CSS. Colours, type sizes
+  and widths are custom properties at the top of the file. It is deliberately
+  not named `style.css`: the GitHub Pages default theme emits a file at that
+  path and can overwrite it.
+- `assets/js/site.js` — the phone menu.
+- `assets/js/publications.js` — publication search, subsets, topics, year jump,
+  abstracts, and BibTeX with copy.
+
+Three components carry every page:
 
 - `title-page` — the home introduction, with the portrait set as a plate.
 - `folio` — a section whose `h2` sits in the left margin beside its body.
@@ -33,22 +40,30 @@ Three local components carry every page:
 </section>
 ```
 
-## Page Introductions
+## Content
 
-Inner pages can define a full-width introduction and optional actions in front
-matter. The layout places this composition above the content/section-menu
-split, so the introduction can use the available article width without
-weakening the sticky navigation.
+- Home: `index.md`. Research and activities: `_pages/`.
+- Publications: `_data/publications.yml`. Citation counts come from
+  `_data/scholar.yml`, refreshed with:
 
-```yml
-intro: "A concise orientation to the page."
-intro_actions:
-  - label: "Research"
-    url: "/research/"
-    style: "primary"
-    icon: "fa-solid fa-compass"
+```sh
+bundle exec ruby scripts/sync_scholar.rb \
+  --profile oS6gRc4AAAAJ \
+  --publications _data/publications.yml \
+  --output _data/scholar.yml \
+  --min-year 2019
 ```
 
-Supported action styles are `primary` and `secondary`. Spacing, responsive
-stacking, typography, and controls are owned by `declare-design-core`; page
-files provide content only.
+- Menu: `_data/navigation.yml`. Profile links: `author.links` in `_config.yml`.
+
+## Checks
+
+The deploy workflow runs these before publishing:
+
+```sh
+bundle exec ruby scripts/sync_scholar_test.rb
+node --test scripts/publications_bibtex.test.cjs
+bundle exec jekyll build
+bundle exec ruby scripts/audit_site.rb _site
+bundle exec ruby scripts/audit_content.rb _site
+```

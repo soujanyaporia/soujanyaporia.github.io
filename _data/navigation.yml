@@ -1,17 +1,14 @@
-# main links
+# Primary navigation. A full URL opens in a new tab. The site name links home.
 main:
-  - title: "Home"
-    url: /
-    icon: "fa-solid fa-house"
+  - title: "About"
+    url: /about/
   - title: "Research"
     url: /research/
-    icon: "fa-solid fa-compass"
   - title: "Publications"
     url: /publications/
-    icon: "fa-solid fa-book-open"
+  - title: "Teaching"
+    url: /teaching/
   - title: "Activities"
     url: /activities/
-    icon: "fa-solid fa-landmark"
   - title: "DeCLaRe Lab"
     url: https://declare-lab.github.io/
-    icon: "fa-solid fa-flask"

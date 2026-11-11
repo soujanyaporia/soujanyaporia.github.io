@@ -7,33 +7,33 @@ title: ""
 <section class="title-page" aria-labelledby="home-title">
   <div class="title-page__name">
     <h1 id="home-title">Soujanya Poria</h1>
-    <p class="hero-native-name" lang="bn">সৌজন্য পড়িয়া</p>
+    <p class="title-page__native" lang="bn">সৌজন্য পড়িয়া</p>
   </div>
 
   <div class="title-page__post">
-    <p class="hero-greeting-intro">{{ site.author.position }}, <a href="{{ site.author.institution_url }}">{{ site.author.institution }}</a></p>
+    <p class="title-page__position">{{ site.author.position }}, <a href="{{ site.author.institution_url }}">{{ site.author.institution }}</a></p>
     {% for appointment in site.author.appointments %}
-    <p class="author-bio">{{ appointment.name }}{% if appointment.joint %} <em>(joint appointment)</em>{% endif %}</p>
+    <p>{{ appointment.name }}{% if appointment.courtesy %} <em>(courtesy appointment)</em>{% endif %}</p>
     {% endfor %}
   </div>
 
   <div class="title-page__plate">
     <figure class="portrait-plate">
-      <img src="{{ site.author.avatar | relative_url }}" alt="Pencil portrait of {{ site.author.name }} writing at a desk" width="900" height="900">
+      <img src="{{ '/assets/images/portrait-640.jpg' | relative_url }}" srcset="{{ '/assets/images/portrait-320.jpg' | relative_url }} 320w, {{ '/assets/images/portrait-640.jpg' | relative_url }} 640w" sizes="(max-width: 560px) 100px, (max-width: 860px) 190px, 304px" alt="Pencil portrait of {{ site.author.name }} writing at a desk" width="640" height="640" fetchpriority="high" decoding="async">
     </figure>
     <div class="plate-marks">
-      <img class="affiliation-logo affiliation-ntu" src="{{ '/assets/images/logos/NTU-transparent-new.png' | relative_url }}" alt="Nanyang Technological University" width="650" height="833">
+      <img class="affiliation-logo affiliation-ntu" src="{{ '/assets/images/logos/ntu-crest.png' | relative_url }}" alt="Nanyang Technological University" width="119" height="152">
       <a class="plate-marks__lab" href="https://declare-lab.github.io/" aria-label="DeCLaRe Lab">{% include brand/logo-icon.html class="affiliation-logo affiliation-dec" uid="profilemark" %}</a>
-      <p class="author-location">{{ site.author.location }}</p>
+      <p class="plate-marks__place">{{ site.author.location }}</p>
     </div>
   </div>
 
   <div class="title-page__statement">
-    <p>I lead the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> (Deep Cognition and Language Research). My current research focuses on memory for AI agents, efficient and reliable multi-agent systems, and reasoning.</p>
-    <p>Our lab also works on AI safety and trustworthiness, multimodality, AI for science, efficiency, and embodied AI.</p>
+    <p>I lead the <a href="https://declare-lab.github.io/">DeCLaRe Lab</a> (Deep Cognition and Language Research). My current research focuses on memory for AI agents, continual learning, reliable multi-agent systems, and efficiency.</p>
+    <p>These questions run through the lab’s work on AI safety and trustworthiness, multimodality, AI for science, and embodied AI.</p>
   </div>
 
-  <p class="profile-links author-bio">
+  <p class="profile-links">
     {% for link in site.author.links %}
     <a href="{% if link.url contains ':' %}{{ link.url }}{% else %}{{ link.url | relative_url }}{% endif %}" {% unless link.url contains 'mailto:' %}target="_blank" rel="noopener"{% endunless %}>{% assign icon_path = link.icon | prepend: 'icons/' | append: '.svg' %}{% include {{ icon_path }} %}<span>{{ link.label }}</span></a>
     {% endfor %}
@@ -51,26 +51,21 @@ title: ""
       </article>
       <article class="activity-record">
         <span>02</span>
-        <h3><a href="/research/#multi-agent-systems-and-reliability">Multi-agent systems and reliability</a></h3>
-        <p>How agents learn whom to trust and when to ask for advice.</p>
+        <h3><a href="/research/#continual-learning">Continual learning</a></h3>
+        <p>How a deployed model keeps learning without losing what it already had.</p>
       </article>
       <article class="activity-record">
         <span>03</span>
-        <h3><a href="/research/#efficient-learning-and-attention">Efficient learning and attention</a></h3>
-        <p>How much computation a model needs to learn and to retain what is useful.</p>
+        <h3><a href="/research/#reliable-multi-agent-systems">Reliable multi-agent systems</a></h3>
+        <p>How agents learn whom to trust and when to ask for advice.</p>
       </article>
       <article class="activity-record">
         <span>04</span>
-        <h3><a href="/research/#embodied-agents-and-grounded-reasoning">Embodied agents and grounded reasoning</a></h3>
-        <p>Connecting visual reasoning to looking, moving, and testing in the world.</p>
-      </article>
-      <article class="activity-record">
-        <span>05</span>
-        <h3><a href="/research/#safety-and-evaluation">Safety and evaluation</a></h3>
-        <p>Whether agents stay within their intended role, and how to measure it.</p>
+        <h3><a href="/research/#efficiency">Efficiency</a></h3>
+        <p>How much computation a model needs to learn and to retain what is useful.</p>
       </article>
     </div>
-    <p class="section-link section-link--row"><a href="/research/">Research overview</a><a href="/publications/">All publications</a></p>
+    <p class="link-row"><a href="/research/">Research overview</a><a href="/publications/">All publications</a></p>
   </div>
 </section>
 
@@ -81,6 +76,17 @@ title: ""
       <article class="activity-record">
         <span>EMNLP</span>
         <h3>I’m excited to be one of the PC Chairs for EMNLP 2027.</h3>
+        <p>I will also co-chair the Demonstration Track at ACL 2027.</p>
+      </article>
+      <article class="activity-record">
+        <span>Talk</span>
+        <h3>Beyond Better Actions: What Generalist Physical Agents Still Need</h3>
+        <p>Invited talk at the IMDA Technical Sharing Session and AI Wednesdays, Singapore. October 2026.</p>
+      </article>
+      <article class="activity-record">
+        <span>Grant</span>
+        <h3>Embodied AI for Human-Robot Collaborative Task Execution</h3>
+        <p>A new project with CNRS@CREATE and the National Research Foundation, 2026–29.</p>
       </article>
       <article class="activity-record">
         <span>NeurIPS</span>
@@ -109,14 +115,6 @@ title: ""
         </p>
       </article>
       <article class="activity-record">
-        <span>AAAI</span>
-        <h3>2 papers accepted to AAAI 2026</h3>
-        <p class="news-paper-links">
-          <a href="https://ui.adsabs.harvard.edu/abs/2025arXiv250517795A/abstract">DialogXpert</a>
-          <a href="https://ojs.aaai.org/index.php/AAAI/article/view/41333">10 Open Challenges</a>
-        </p>
-      </article>
-      <article class="activity-record">
         <span>Award</span>
         <h3>Highly Cited Researcher</h3>
         <p>Recognized by Web of Science, 2026.</p>
@@ -127,6 +125,6 @@ title: ""
         <p>An interview on working memory for long-running AI agents. May 2026.</p>
       </article>
     </div>
-    <p class="section-link"><a href="/activities/">Academic activities</a></p>
+    <p class="link-row"><a href="/activities/">Talks and service</a><a href="/about/">About me</a></p>
   </div>
 </section>

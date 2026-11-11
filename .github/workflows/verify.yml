@@ -21,51 +21,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          submodules: false
-          persist-credentials: false
-      - name: Resolve shared core revision
-        id: core
-        run: |
-          core_sha="$(git rev-parse HEAD:assets/declare-core)"
-          test -n "$core_sha"
-          echo "sha=$core_sha" >> "$GITHUB_OUTPUT"
-      - name: Checkout shared design core
-        uses: actions/checkout@v4
-        with:
-          repository: declare-lab/declare-design-core
-          ref: ${{ steps.core.outputs.sha }}
-          path: assets/declare-core
-          ssh-key: ${{ secrets.DECLARE_CORE_DEPLOY_KEY }}
           persist-credentials: false
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.4"
           bundler-cache: true
-      - name: Setup typography verifier
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-          cache: pip
-          cache-dependency-path: assets/declare-core/requirements.txt
-      - name: Install typography verifier
-        run: python -m pip install -r assets/declare-core/requirements.txt
-      - name: Setup visual-contract runtime
+      - name: Verify Scholar metadata
+        run: |
+          bundle exec ruby scripts/sync_scholar_test.rb
+          bundle exec ruby scripts/sync_scholar.rb --output _data/scholar.yml --check --max-age 45 --minimum-coverage 0.95
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 11.16.0
-      - name: Install visual-contract dependencies
-        run: pnpm --dir assets/declare-core install --frozen-lockfile
-      - name: Verify shared design core
-        run: ./assets/declare-core/scripts/verify-consumer.sh .
-      - name: Verify Scholar metadata
-        run: |
-          bundle exec ruby assets/declare-core/scripts/sync_scholar_test.rb
-          bundle exec ruby assets/declare-core/scripts/sync_scholar.rb --output _data/scholar.yml --check --max-age 45 --minimum-coverage 0.95
       - name: Test publication BibTeX controls
         run: node --test scripts/publications_bibtex.test.cjs
       - name: Setup Pages
@@ -76,44 +45,10 @@ jobs:
         env:
           JEKYLL_ENV: production
           JEKYLL_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Apply semantic typography contract
-        run: |
-          python assets/declare-core/scripts/typography_dom.py fix --site _site
-          python assets/declare-core/scripts/typography_dom.py verify --site _site
-      - name: Audit style ownership
-        run: python assets/declare-core/scripts/style_ownership.py audit --site-root . --built-site _site
       - name: Audit generated site
         run: bundle exec ruby scripts/audit_site.rb _site
       - name: Audit content clarity
         run: bundle exec ruby scripts/audit_content.rb _site
-      - name: Audit rendered layouts
-        run: |
-          python3 -m http.server 4000 --directory _site >/tmp/soujanya-preview.log 2>&1 &
-          sleep 1
-          node assets/declare-core/scripts/visual_contract.mjs \
-            --base-url http://127.0.0.1:4000 \
-            --config config/visual-contract.json \
-            --design-audit assets/declare-core/scripts/design-audit.js \
-            --output artifacts/visual-contract
-        env:
-          CHROME_PATH: /usr/bin/google-chrome
-      - name: Upload visual-contract report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: soujanyaporia-visual-contract
-          path: artifacts/visual-contract
-      - name: Verify public shared-core surface
-        shell: bash
-        run: |
-          test -f _site/assets/declare-core/config/typography-contract.json
-          test -f _site/assets/declare-core/js/site.js
-          core_file_count="$(find _site/assets/declare-core -type f -print | wc -l | tr -d '[:space:]')"
-          if [[ "$core_file_count" -ne 2 ]]; then
-            printf 'Unexpected files in the public shared-core surface:\n' >&2
-            find _site/assets/declare-core -type f -print >&2
-            exit 1
-          fi
       - name: Test maths school API
         working-directory: _apps/math-for-primary/school-api
         run: |

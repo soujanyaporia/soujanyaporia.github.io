@@ -4,7 +4,7 @@ title: "Soujanya Poria"
 title_separator: "-"
 subtitle: "Associate Professor, NTU Singapore"
 name: "Soujanya Poria"
-description: "Associate Professor at Nanyang Technological University, with a joint appointment in the College of Computing and Data Science (CCDS). Research across Safety, Trustworthiness, Multimodality, AI for Science, Efficiency, and Embodied AI."
+description: "Associate Professor at Nanyang Technological University, with a courtesy appointment in the College of Computing and Data Science (CCDS). Research on memory for AI agents, continual learning, reliable multi-agent systems, and efficiency, across the DeCLaRe Lab's work on safety, multimodality, AI for science, and embodied AI."
 url: "https://soujanyaporia.github.io"
 baseurl: ""
 repository: "soujanyaporia/soujanyaporia.github.io"
@@ -13,14 +13,14 @@ repository: "soujanyaporia/soujanyaporia.github.io"
 author:
   name: "Soujanya Poria"
   avatar: "/assets/images/new-SJ-dp.png"
-  bio: "Associate Professor, School of Electrical and Electronic Engineering, with a joint appointment in the College of Computing and Data Science (CCDS), Nanyang Technological University (NTU)"
+  bio: "Associate Professor, School of Electrical and Electronic Engineering, with a courtesy appointment in the College of Computing and Data Science (CCDS), Nanyang Technological University (NTU)"
   position: "Associate Professor"
   institution: "Nanyang Technological University (NTU)"
   institution_url: "https://www.ntu.edu.sg"
   appointments:
     - name: "School of Electrical and Electronic Engineering"
     - name: "College of Computing and Data Science (CCDS)"
-      joint: true
+      courtesy: true
   location: "Singapore"
   links:
     - label: "Email"
@@ -69,25 +69,14 @@ include:
   - _pages
 exclude:
   - _apps
+  - scripts
+  - _tools
   # Keep plaintext CV PDFs out of the published site, including local copies.
   - "assets/files/*CV*.pdf"
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
-  # The shared core is private. Publish only its browser runtime under
-  # config/ and js/; Sass is compiled into the site's own stylesheet.
-  - assets/declare-core/.github
-  - assets/declare-core/CHANGELOG.md
-  - assets/declare-core/README.md
-  - assets/declare-core/VERSION
-  - assets/declare-core/brand
-  - assets/declare-core/node_modules
-  - assets/declare-core/package.json
-  - assets/declare-core/pnpm-lock.yaml
-  - assets/declare-core/requirements.txt
-  - assets/declare-core/scripts
-  - assets/declare-core/scss
   - artifacts
   - vendor
 
@@ -95,13 +84,6 @@ keep_files:
   - .git
 
 encoding: "utf-8"
-
-# Sass
-sass:
-  sass_dir: _sass
-  load_paths:
-    - assets/declare-core/scss
-  style: compressed
 
 # Plugins
 plugins:

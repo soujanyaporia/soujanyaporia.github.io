@@ -1,18 +1,22 @@
 <footer class="site-footer">
-  <div class="footer-inner">
-    <p class="footer-links">
+  <div class="site-footer__inner">
+    <div class="site-footer__who">
+      <p class="site-footer__name">{{ site.name | default: site.title }}</p>
+      <p>{{ site.author.position }}, {{ site.author.institution }}</p>
+      <p><a href="mailto:soujanya.poria@ntu.edu.sg">soujanya.poria@ntu.edu.sg</a></p>
+    </div>
+    <nav class="site-footer__links" aria-label="Footer">
+      <a href="/about/">About</a>
       <a href="/research/">Research</a>
       <a href="/publications/">Publications</a>
+      <a href="/teaching/">Teaching</a>
       <a href="/activities/">Activities</a>
       <a href="https://declare-lab.github.io/" target="_blank" rel="noopener">DeCLaRe Lab</a>
       <a href="https://walled.ai/" target="_blank" rel="noopener">Walled AI</a>
-      <a href="mailto:soujanya.poria@ntu.edu.sg">Contact</a>
-    </p>
-    <p class="footer-side-project">
-      <span>Fun project</span>
-      <a href="https://soujanyaporia.github.io/singapore-primary-maths/">Singapore Primary Maths</a>
-      <span>Exercises for Primary 1–6.</span>
-    </p>
-    <p class="footer-colophon">&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}</p>
+    </nav>
+    <div class="site-footer__base">
+      <p>A fun project: <a href="https://soujanyaporia.github.io/singapore-primary-maths/">Singapore Primary Maths</a>, exercises for Primary 1–6.</p>
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}</p>
+    </div>
   </div>
 </footer>

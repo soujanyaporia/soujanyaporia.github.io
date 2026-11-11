@@ -1,6 +1,54 @@
 (function () {
   "use strict";
 
+  /* ----- Clipboard ----- */
+  var copyIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V4H4v12h4"/></svg>';
+  var copiedIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 4 4L19 6"/></svg>';
+
+  function copyText(button, text, status, successMessage) {
+    if (button.disabled) return;
+    var label = button.copyOriginalLabel || button.getAttribute("aria-label");
+    var title = button.copyOriginalTitle || button.getAttribute("title");
+    var failure = "Could not copy. Select the text and copy it manually.";
+    button.copyOriginalLabel = label;
+    button.copyOriginalTitle = title;
+
+    function reset() {
+      button.innerHTML = copyIcon;
+      button.setAttribute("aria-label", label);
+      button.setAttribute("title", title || label);
+    }
+
+    status.textContent = "";
+    clearTimeout(button.copyResetTimer);
+    reset();
+    if (!navigator.clipboard || !navigator.clipboard.writeText) {
+      status.textContent = failure;
+      return;
+    }
+    button.disabled = true;
+    // The clipboard call stays inside the click gesture, which Safari requires.
+    try {
+      return navigator.clipboard.writeText(text).then(function () {
+        status.textContent = successMessage || "Copied.";
+        button.innerHTML = copiedIcon;
+        button.setAttribute("aria-label", "Copied");
+        button.setAttribute("title", "Copied");
+        button.copyResetTimer = setTimeout(reset, 2000);
+      }).catch(function () {
+        reset();
+        status.textContent = failure;
+      }).finally(function () {
+        button.disabled = false;
+      });
+    } catch (error) {
+      reset();
+      status.textContent = failure;
+      button.disabled = false;
+    }
+  }
+
+  /* ----- BibTeX ----- */
   function escapeText(value) {
     return String(value || "").replace(/([%&#_])/g, "\\$1");
   }
@@ -30,157 +78,6 @@
     return fields.join("\n");
   }
 
-  function initializePagination() {
-    var archive = document.querySelector("[data-publication-archive]");
-    if (!archive) return;
-
-    var cards = Array.prototype.slice.call(archive.querySelectorAll(".pub-card"));
-    var headings = Array.prototype.slice.call(
-      archive.querySelectorAll("[data-pub-year-heading]")
-    );
-    var pagination = archive.querySelector("[data-pub-pagination]");
-    var moreButton = archive.querySelector("[data-pub-more]");
-    var status = archive.querySelector("[data-pub-page-status]");
-    var yearSelect = archive.querySelector("[data-year-jump]");
-    var pageSize = 24;
-    var limit = pageSize;
-
-    if (!cards.length || !pagination || !moreButton) return;
-
-    archive.classList.add("has-publication-pagination");
-    pagination.hidden = false;
-
-    function updateHeadings() {
-      headings.forEach(function (heading) {
-        var next = heading.nextElementSibling;
-        var hasVisiblePaper = false;
-        while (next && !next.hasAttribute("data-pub-year-heading")) {
-          if (
-            next.classList.contains("pub-card") &&
-            !next.hidden &&
-            !next.classList.contains("is-page-hidden")
-          ) {
-            hasVisiblePaper = true;
-            break;
-          }
-          next = next.nextElementSibling;
-        }
-        if (hasVisiblePaper) heading.removeAttribute("data-page-hidden");
-        else heading.setAttribute("data-page-hidden", "true");
-      });
-    }
-
-    function updateYearOptions(matches) {
-      if (!yearSelect) return;
-      var available = new Set(matches.map(function (card) {
-        return "pub-year-" + card.getAttribute("data-year");
-      }));
-      Array.prototype.forEach.call(yearSelect.options, function (option) {
-        if (!option.value) option.disabled = false;
-        else option.disabled = !available.has(option.value);
-      });
-    }
-
-    function applyPagination() {
-      var matches = cards.filter(function (card) { return !card.hidden; });
-      matches.forEach(function (card, index) {
-        card.classList.toggle("is-page-hidden", index >= limit);
-      });
-      cards.filter(function (card) { return card.hidden; }).forEach(function (card) {
-        card.classList.remove("is-page-hidden");
-      });
-
-      var shown = Math.min(limit, matches.length);
-      var remaining = Math.max(0, matches.length - shown);
-      moreButton.hidden = remaining === 0;
-      moreButton.textContent = remaining > pageSize
-        ? "Show " + pageSize + " more papers"
-        : "Show " + remaining + " more " + (remaining === 1 ? "paper" : "papers");
-      if (status) {
-        status.textContent = matches.length
-          ? "Showing " + shown + " of " + matches.length + " matching papers"
-          : "No matching papers";
-      }
-      updateHeadings();
-      updateYearOptions(matches);
-    }
-
-    moreButton.addEventListener("click", function () {
-      limit += pageSize;
-      applyPagination();
-    });
-
-    if (yearSelect) {
-      yearSelect.addEventListener("change", function () {
-        if (!yearSelect.value) return;
-        var requestedYear = yearSelect.value.replace("pub-year-", "");
-        var matches = cards.filter(function (card) { return !card.hidden; });
-        var targetIndex = matches.findIndex(function (card) {
-          return card.getAttribute("data-year") === requestedYear;
-        });
-        if (targetIndex >= limit) {
-          limit = Math.ceil((targetIndex + 1) / pageSize) * pageSize;
-          applyPagination();
-        }
-      }, true);
-    }
-
-    document.addEventListener("declare:publications-filtered", function () {
-      limit = pageSize;
-      window.requestAnimationFrame(applyPagination);
-    });
-
-    applyPagination();
-  }
-
-  function initializeLazyAbstracts() {
-    var archive = document.querySelector("[data-publication-archive]");
-    if (!archive) return;
-
-    var source = archive.getAttribute("data-abstract-index");
-    var abstractIndex = null;
-    var request = null;
-    if (!source) return;
-
-    function loadIndex() {
-      if (abstractIndex) return Promise.resolve(abstractIndex);
-      if (request) return request;
-      request = fetch(source, { credentials: "same-origin" })
-        .then(function (response) {
-          if (!response.ok) throw new Error(String(response.status));
-          return response.json();
-        })
-        .then(function (data) {
-          abstractIndex = data;
-          return data;
-        })
-        .catch(function (error) {
-          request = null;
-          throw error;
-        });
-      return request;
-    }
-
-    document.addEventListener("click", function (event) {
-      var button = event.target.closest(".pub-abstract-toggle");
-      if (!button || !archive.contains(button)) return;
-      var panelId = button.getAttribute("aria-controls");
-      var panel = panelId && document.getElementById(panelId);
-      if (!panel || panel.hasAttribute("data-abstract-loaded")) return;
-
-      panel.setAttribute("aria-busy", "true");
-      panel.textContent = "Loading abstract…";
-      loadIndex().then(function (data) {
-        panel.textContent = data[panelId] || "Abstract unavailable.";
-        panel.setAttribute("data-abstract-loaded", "true");
-        panel.removeAttribute("aria-busy");
-      }).catch(function () {
-        panel.textContent = "The abstract could not be loaded. Use the paper link instead.";
-        panel.removeAttribute("aria-busy");
-      });
-    }, true);
-  }
-
   document.addEventListener("click", function (event) {
     var button = event.target.closest(".pub-bibtex-local");
     if (button) {
@@ -199,16 +96,179 @@
     var copyPanel = copyButton.closest(".pub-bibtex-panel");
     var status = copyPanel.querySelector("[data-bibtex-status]");
     var citation = copyPanel.querySelector("[data-bibtex-code]").textContent;
-    window.DeclareCopy.copy(copyButton, citation, status, "BibTeX copied.");
+    copyText(copyButton, citation, status, "BibTeX copied.");
   });
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", function () {
-      initializePagination();
-      initializeLazyAbstracts();
+  /* ----- Abstracts ----- */
+  document.addEventListener("click", function (event) {
+    var button = event.target.closest(".pub-abstract-toggle");
+    if (!button) return;
+    var panel = document.getElementById(button.getAttribute("aria-controls"));
+    if (!panel) return;
+    var opening = button.getAttribute("aria-expanded") !== "true";
+    panel.hidden = !opening;
+    button.setAttribute("aria-expanded", String(opening));
+  });
+
+  /* ----- Search, subsets, topics and years ----- */
+  function initializeArchive(archive) {
+    var search = archive.querySelector("[data-pub-search]");
+    var count = archive.querySelector("[data-pub-count]");
+    var empty = archive.querySelector("[data-pub-empty]");
+    var topicList = archive.querySelector("[data-pub-categories]");
+    var topicToggle = archive.querySelector("[data-pub-topics-toggle]");
+    var yearSelect = archive.querySelector("[data-year-jump]");
+    var subsetButtons = Array.prototype.slice.call(archive.querySelectorAll("[data-pub-filter]"));
+    var years = Array.prototype.slice.call(archive.querySelectorAll("[data-pub-year]"));
+    var cards = Array.prototype.slice.call(archive.querySelectorAll(".pub-card"));
+    var visibleTopics = window.matchMedia("(max-width: 640px)").matches ? 6 : 10;
+    var subset = "all";
+    var topics = new Set();
+
+    if (!cards.length) return;
+
+    cards.forEach(function (card) {
+      card.pubTopics = (card.getAttribute("data-categories") || "")
+        .split(",").map(function (topic) { return topic.trim(); }).filter(Boolean);
+      card.pubText = (card.getAttribute("data-searchable") || "").toLowerCase();
     });
-  } else {
-    initializePagination();
-    initializeLazyAbstracts();
+
+    function setPressed(button, pressed) {
+      button.setAttribute("aria-pressed", String(pressed));
+    }
+
+    function apply() {
+      var query = (search ? search.value : "").toLowerCase().trim();
+      var terms = query ? query.split(/\s+/) : [];
+      var visible = 0;
+
+      cards.forEach(function (card) {
+        var show = terms.every(function (term) { return card.pubText.indexOf(term) !== -1; });
+        if (show && subset === "pdf") show = card.getAttribute("data-has-pdf") === "true";
+        if (show && subset === "hot") show = card.getAttribute("data-hot") === "true";
+        if (show) {
+          topics.forEach(function (topic) {
+            if (card.pubTopics.indexOf(topic) === -1) show = false;
+          });
+        }
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+
+      years.forEach(function (year) {
+        var any = year.querySelector(".pub-card:not([hidden])") !== null;
+        year.hidden = !any;
+        if (yearSelect) {
+          var option = yearSelect.querySelector('option[value="' + year.id + '"]');
+          if (option) option.disabled = !any;
+        }
+      });
+
+      subsetButtons.forEach(function (button) {
+        var name = button.getAttribute("data-pub-filter");
+        setPressed(button, name === "all" ? subset === "all" && !topics.size && !terms.length : name === subset);
+      });
+      archive.querySelectorAll("[data-pub-category]").forEach(function (button) {
+        setPressed(button, topics.has(button.getAttribute("data-pub-category")));
+      });
+
+      if (count) count.textContent = visible + (visible === 1 ? " paper" : " papers");
+      if (empty) empty.hidden = visible !== 0;
+    }
+
+    function buildTopics() {
+      if (!topicList) return;
+      var counts = {};
+      cards.forEach(function (card) {
+        card.pubTopics.forEach(function (topic) { counts[topic] = (counts[topic] || 0) + 1; });
+      });
+      var names = Object.keys(counts).sort(function (a, b) {
+        return counts[b] - counts[a] || a.localeCompare(b);
+      });
+      names.forEach(function (topic, index) {
+        var button = document.createElement("button");
+        var number = document.createElement("span");
+        button.className = "chip chip--topic";
+        button.type = "button";
+        button.setAttribute("data-pub-category", topic);
+        button.setAttribute("aria-pressed", "false");
+        if (index >= visibleTopics) button.setAttribute("data-topic-extra", "");
+        number.textContent = counts[topic];
+        button.appendChild(document.createTextNode(topic + " "));
+        button.appendChild(number);
+        topicList.appendChild(button);
+      });
+      if (topicToggle && names.length > visibleTopics) {
+        topicToggle.hidden = false;
+        topicToggle.textContent = "All " + names.length + " topics";
+        topicToggle.addEventListener("click", function () {
+          var open = topicToggle.getAttribute("aria-expanded") !== "true";
+          topicToggle.setAttribute("aria-expanded", String(open));
+          topicList.classList.toggle("is-expanded", open);
+          topicToggle.textContent = open ? "Fewer topics" : "All " + names.length + " topics";
+        });
+      }
+    }
+
+    function revealTopic(topic) {
+      if (!topicList || !topicToggle) return;
+      var chip = Array.prototype.filter.call(
+        topicList.querySelectorAll("[data-topic-extra]"),
+        function (button) { return button.getAttribute("data-pub-category") === topic; }
+      )[0];
+      if (chip && topicToggle.getAttribute("aria-expanded") !== "true") topicToggle.click();
+    }
+
+    buildTopics();
+
+    if (search) search.addEventListener("input", apply);
+
+    archive.addEventListener("click", function (event) {
+      var subsetButton = event.target.closest("[data-pub-filter]");
+      var topicButton = event.target.closest("[data-pub-category]");
+      if (subsetButton) {
+        subset = subsetButton.getAttribute("data-pub-filter") || "all";
+        if (subset === "all") {
+          topics.clear();
+          if (search) search.value = "";
+        }
+        apply();
+      } else if (topicButton) {
+        var topic = topicButton.getAttribute("data-pub-category");
+        if (topics.has(topic)) topics.delete(topic);
+        else topics.add(topic);
+        revealTopic(topic);
+        apply();
+      }
+    });
+
+    if (yearSelect) {
+      yearSelect.addEventListener("change", function () {
+        var target = yearSelect.value && document.getElementById(yearSelect.value);
+        if (target) {
+          var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          target.scrollIntoView({ behavior: calm ? "auto" : "smooth", block: "start" });
+        }
+        yearSelect.value = "";
+      });
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    if (search && params.get("q")) search.value = params.get("q");
+    if (params.get("topic")) {
+      topics.add(params.get("topic"));
+      revealTopic(params.get("topic"));
+    }
+    apply();
   }
+
+  function initialize() {
+    document.querySelectorAll("[data-bibtex-copy]").forEach(function (button) {
+      button.innerHTML = copyIcon;
+    });
+    document.querySelectorAll("[data-publication-archive]").forEach(initializeArchive);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initialize);
+  else initialize();
 }());
