@@ -67,17 +67,21 @@ site_root.glob("**/*.html").sort.each do |html_file|
     paragraphs[key] << page_name if key.split.length >= 12
   end
 
-  children = content.element_children.to_a
-  heading_positions = children.each_index.select { |index| children[index].name == "h2" }
-
-  heading_positions.each_with_index do |position, heading_index|
+  # A section is a heading and whatever follows it up to the next heading at
+  # the same level. Headings may sit directly in the content or inside a
+  # sectioning wrapper that pairs a margin title with its body.
+  content.css("h2").each do |heading_node|
     sections_checked += 1
-    finish = heading_positions.fetch(heading_index + 1, children.length)
-    section_nodes = children[(position + 1)...finish]
+    section_nodes = []
+    sibling = heading_node.next_element
+    while sibling && sibling.name != "h2"
+      section_nodes << sibling
+      sibling = sibling.next_element
+    end
     section_text = section_nodes.map { |node| normalized_text(node) }.join(" ")
     words = normalized_key(section_text).split.length
     objects = section_nodes.sum { |node| object_count(node) }
-    heading = normalized_text(children[position])
+    heading = normalized_text(heading_node)
 
     if words < 12 && objects.zero?
       issues << "#{page_name}: '#{heading}' is a shallow section (#{words} words, no substantive object)"
