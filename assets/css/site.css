@@ -1019,3 +1019,17 @@ button { cursor: pointer; }
   .research-theme { break-inside: avoid; }
   a { color: inherit; text-decoration: none; }
 }
+
+/* The DeCLaRe robot is shown white, so beside the crest it sits on its own
+ * tile in the site's maroon accent, as tall as the crest at every width. */
+.plate-marks__lab { display: inline-grid; place-items: center; width: 38px; height: 38px; background: var(--accent); color: #ffffff; }
+.plate-marks__lab:hover { background: var(--accent-hover); color: #ffffff; }
+.plate-marks .plate-marks__lab .affiliation-logo { height: 27px; }
+@media (max-width: 860px) {
+  .plate-marks__lab { width: 28px; height: 28px; }
+  .plate-marks .plate-marks__lab .affiliation-logo { height: 20px; }
+}
+@media (min-width: 561px) and (max-width: 860px) {
+  .plate-marks__lab { width: 32px; height: 32px; }
+  .plate-marks .plate-marks__lab .affiliation-logo { height: 23px; }
+}
