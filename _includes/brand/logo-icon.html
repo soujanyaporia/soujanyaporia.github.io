@@ -23,26 +23,21 @@
     <rect x="59.3" y="136.75" width="70.9" height="16.15" fill="#000"/>
     <rect x="84" y="9.9" width="13.7" height="20.7" transform="matrix(0.9301 -0.3673 0.3673 0.9301 -1.0708 34.7719)" fill="#fff"/>
     <path clip-path="url(#{{ include.uid | default: 'brandicon' }}-robot-antenna-clip)" fill="none" stroke="#000" stroke-width="6" d="M73.9,12.4c3.4,1.8,6.5,4.4,9.3,7.5c2.9,3.3,5.3,7.2,5.8,11.7"/>
-    <!-- Head frame as a top bar and two walls, deliberately not one filled
-         rect with the window punched through it. Those two rects had bottom
-         edges 0.4 apart; they cancel exactly at size, but inside a single
-         favicon pixel the black composites over the white instead of
-         subtracting, leaving ~20% ink straight across the head that reads as
-         a line under the eyes joining the mouth tabs. -->
-    <rect x="34.1" y="24.6" width="121.3" height="7.2" fill="#fff"/>
-    <!-- Wall and cheek as one L, not a wall butted against a tab: the two
-         used to meet with a 0.34 seam. -->
-    <path fill="#fff" d="M34.1 24.6H41.3V68.4H55.9V75.6H34.1Z"/>
-    <path fill="#fff" d="M148.2 24.6H155.4V75.6H133.6V68.4H148.2Z"/>
-    <rect x="41.3" y="31.8" width="106.9" height="36.6" fill="#000"/>
+    <!-- The head is one solid visor: the roof of 宣 drawn as a block, with the
+         two cheeks dropping 7.2 below it to meet the smile. The eyes sit on
+         the ink, so nothing is punched through it. One path rather than a bar,
+         two walls and a window, which is what used to leave seams. -->
+    <path fill="#fff" d="M34.1 24.6H155.4V75.6H133.6V68.4H55.9V75.6H34.1Z"/>
   </mask>
   <g id="{{ include.uid | default: 'brandicon' }}-robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#{{ include.uid | default: 'brandicon' }}-robot-knockout)"/>
-    <circle class="declare-mark__eye declare-mark__eye--green" cx="72.5" cy="52.5" r="12.9" fill="var(--logo-green)"/>
-    <!-- Angular eye as two filled rectangles (matching the head's wall logic):
-         a horizontal bar and a diagonal bar sharing a vertical left edge, so
-         their intersection reads as a clean square corner, not a beveled cut. -->
-    <g class="declare-mark__eye declare-mark__eye--red" fill="var(--logo-red)"><rect x="103.72" y="57.2" width="26.18" height="5.4"/><rect x="0" y="-5.4" width="27" height="5.4" transform="translate(103.72 62.6) rotate(-35.3)"/></g>
+    <!-- The eyes sit on the visor, so they are tuned against the ink rather
+         than the page: lifted on dark ink, the original pair on light ink. -->
+    <circle class="declare-mark__eye declare-mark__eye--green" cx="72.5" cy="50.4" r="15.2" fill="var(--logo-eye-green, var(--logo-green))"/>
+    <!-- Angular eye as two filled rectangles: a horizontal bar and a diagonal
+         bar sharing a vertical left edge, so their intersection reads as a
+         clean square corner, not a beveled cut. -->
+    <g class="declare-mark__eye declare-mark__eye--red" fill="var(--logo-eye-red, var(--logo-red))"><rect x="100.84" y="55.8" width="31.94" height="6.59"/><rect x="0" y="-6.59" width="32.94" height="6.59" transform="translate(100.84 62.39) rotate(-35.3)"/></g>
   </g>
   
 </defs>

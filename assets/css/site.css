@@ -30,6 +30,9 @@
   /* The two eyes of the DeCLaRe mark, in the lab's own colours. */
   --logo-red: #e22d39;
   --logo-green: #1c9444;
+  /* As drawn in the mark, where the eyes sit on the dark ink of the visor. */
+  --logo-eye-green: #2bc466;
+  --logo-eye-red: #ff4b57;
 
   --serif: "Newsreader", "Noto Serif Bengali", "Iowan Old Style", Georgia, serif;
   --sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
