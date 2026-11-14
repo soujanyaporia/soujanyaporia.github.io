@@ -28,16 +28,18 @@
          the ink, so nothing is punched through it. One path rather than a bar,
          two walls and a window, which is what used to leave seams. -->
     <path fill="#fff" d="M34.1 24.6H155.4V75.6H133.6V68.4H55.9V75.6H34.1Z"/>
+    <!-- The eyes are holes in the visor, so the robot is one ink and the
+         eyes show whatever is behind it. The round eye keeps one full 7.2
+         stroke of visor above and below it, which stops it breaking into
+         the smile at small sizes. -->
+    <circle class="declare-mark__eye declare-mark__eye--round" cx="72.5" cy="46.5" r="14.7" fill="#000"/>
+    <!-- Angular eye as two rectangles: a horizontal bar and a diagonal bar
+         sharing a vertical left edge, so their intersection reads as a
+         clean square corner, not a beveled cut. -->
+    <g class="declare-mark__eye declare-mark__eye--angular" fill="#000"><rect x="101.30" y="51.72" width="30.89" height="6.37"/><rect x="0" y="-6.37" width="31.86" height="6.37" transform="translate(101.30 58.09) rotate(-35.3)"/></g>
   </mask>
   <g id="{{ include.uid | default: 'brandicon' }}-robot-master">
     <rect x="0" y="0" width="200" height="200" fill="currentColor" mask="url(#{{ include.uid | default: 'brandicon' }}-robot-knockout)"/>
-    <!-- The eyes sit on the visor, so they are tuned against the ink rather
-         than the page: lifted on dark ink, the original pair on light ink. -->
-    <circle class="declare-mark__eye declare-mark__eye--green" cx="72.5" cy="50.4" r="15.2" fill="var(--logo-eye-green, var(--logo-green))"/>
-    <!-- Angular eye as two filled rectangles: a horizontal bar and a diagonal
-         bar sharing a vertical left edge, so their intersection reads as a
-         clean square corner, not a beveled cut. -->
-    <g class="declare-mark__eye declare-mark__eye--red" fill="var(--logo-eye-red, var(--logo-red))"><rect x="100.84" y="55.8" width="31.94" height="6.59"/><rect x="0" y="-6.59" width="32.94" height="6.59" transform="translate(100.84 62.39) rotate(-35.3)"/></g>
   </g>
   
 </defs>
